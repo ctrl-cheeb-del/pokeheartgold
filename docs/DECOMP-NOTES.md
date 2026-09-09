@@ -664,3 +664,22 @@ converted functions and 17,660 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used. The requested 23% C-only coverage target has
 been reached with both retail ROMs verified.
+
+## Thirty-sixth batch: Frontier cards (Sol parallel experiment, task 1)
+
+Ten routines from `0x020314A4` through `0x0203164B` move into
+`src/frontier_card.c`. They allocate and populate Frontier cards and read
+validated profile, favorite Pokémon, and location fields. The recovered
+card retains its 128-byte layout and CRC span.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 23.002906% to 23.013097% (+0.010191 percentage points), from
+939,654 to 940,068 C bytes out of 4,084,926 mapped bytes. This adds 414 C
+bytes; ten alignment bytes leave the mapped total. There are now 291
+converted functions and 18,074 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed and formatting passed.
+GitHub CI remained disabled.
+
+The Sol worker took 5 minutes 23 seconds (22:12:28–22:17:51 UTC) to produce
+this candidate. Integration and serial verification of both ROMs are timed
+separately in the overall five-task experiment.

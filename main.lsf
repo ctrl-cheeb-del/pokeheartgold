@@ -155,6 +155,7 @@ Static main
     Object asm/unk_0202FBCC.o
     Object src/frontier_state.o
     Object src/frontier_save.o
+    Object src/frontier_card.o
     Object asm/unk_02030A98.o
     Object src/unk_0203170C.o
     Object asm/unk_020318C8.o
