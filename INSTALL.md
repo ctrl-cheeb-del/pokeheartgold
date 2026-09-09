@@ -1,4 +1,30 @@
-This doc details the steps necessary to build a copy of Pokemon HeartGold (EN-US) from the sources contained in this repository.
+# Installation
+
+Build the US versions of Pokémon HeartGold and SoulSilver from source.
+
+## macOS quick start
+
+Clone this repository, enter its directory, then follow these steps.
+
+With Homebrew and (on Apple Silicon) Rosetta 2 installed:
+
+```sh
+./scripts/setup-macos.sh
+./scripts/build.sh progress
+./scripts/build.sh GAME_VERSION=SOULSILVER progress
+```
+
+The setup helper installs native dependencies through Homebrew, obtains the
+compiler and SDK tools from the same assets used by upstream CI, and verifies
+download SHA256 hashes. It installs Wine 11.16 inside `.local-tools/`; its Wine
+prefix also stays in this ignored directory. It does not modify system Wine
+settings. Downloaded tools, compiler licenses, ROMs, and build intermediates
+are ignored by Git.
+
+The commands above perform matching builds and generate progress reports.
+For Linux and Windows, follow the manual setup below.
+
+## Manual setup
 
 ### 0. Clone the repository
 
@@ -151,3 +177,64 @@ git clean -fdx && make compare
 ```
 
 If, after the third step, you're still getting errors, please ask for help in the Discord.
+
+## Progress reports
+
+On Linux with the toolchain installed, run `make progress`. On macOS, use
+`./scripts/build.sh progress`.
+
+`progress` refreshes the selected ROM with `COMPARE=1`, checks the original
+SHA1, and generates `build/progress/treemap.svg` and `progress.json`. The
+standalone SVG opens in a browser and shows file details on hover. The JSON
+contains every object, module, CPU, byte count, source path, and category.
+The HeartGold and SoulSilver reports use the same output path by default;
+choose separate output directories when retaining both:
+
+```sh
+python3 tools/progress/progress.py --game heartgold.us --output build/progress/heartgold
+python3 tools/progress/progress.py --game soulsilver.us --output build/progress/soulsilver
+```
+
+To refresh the checked-in README snapshot after a matching HeartGold build:
+
+```sh
+python3 tools/progress/progress.py --output docs/progress
+```
+
+The GitHub build workflow is currently disabled on this fork to avoid automatic
+CI runs. If re-enabled, it builds both versions and uploads a
+`decompilation-progress` artifact with both reports. It does not upload ROMs
+or proprietary toolchain files in that artifact. The README snapshot is a deliberate checked-in update, not an
+automatically committed change on every CI run.
+
+## What the chart measures
+
+This is **source-language coverage by mapped code-section bytes**, not an
+official upstream progress metric or a per-function matching score.
+
+- Green: an object attributed to a C file without detected assembly syntax.
+- Amber: a C object whose source contains assembly, including conditional
+  nonmatching fallbacks. The entire object is excluded from the green total.
+- Slate: an object attributed to assembly source.
+- Purple: the source mapping is unresolved or ambiguous.
+
+Rectangles are grouped by CPU and linker module, then sized by object bytes.
+ARM7, ARM9, libraries, and all mapped overlays are included. Modules that load
+at the same address remain separate. Aliases and enclosing section symbols
+are merged by interval so their bytes are not counted twice. Sections `.text`,
+`.init`, `.itcm`, `.sinit`, and `.wram` count as code; literal pools inside
+these sections count too. Assets, other data sections, BSS, and padding with
+no mapped symbol coverage are excluded.
+
+The source mapping uses the linker specification to disambiguate C/assembly
+files with the same basename. Generated protection objects and archive
+members can remain unresolved. Source classification is conservative and
+lexical; it is not a C preprocessor or proof of portable behavior. Assembly
+needed for hardware or runtime operations is not necessarily work that
+should be converted to C.
+
+The generator verifies the ROM hash but cannot by itself establish that an
+old build corresponds to newly edited source. Use `build.sh progress` to
+refresh the build first. The report records the Git commit, tracked working
+tree state, and map hashes for provenance. A passing ROM checksum establishes
+retail binary equivalence, not complete decompilation or portability.

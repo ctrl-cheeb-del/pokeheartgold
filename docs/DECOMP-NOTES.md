@@ -64,7 +64,7 @@ ROM hashes as well as the chart; a source-language percentage is not a
 substitute for binary verification.
 
 Validation completed: both full ROMs passed the retail SHA-1 comparisons
-listed in FORK.md after this batch. The new C file and changed header also
+listed in README.md after this batch. The new C file and changed header also
 pass the repository's clang-format rules. HeartGold C-only coverage rose
 from 921,994 to 922,208 mapped bytes (+214); the remaining 10 bytes of the
 224-byte replaced range are alignment no longer included in C symbol sizes.
