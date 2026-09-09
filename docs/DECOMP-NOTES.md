@@ -204,3 +204,21 @@ percentage points), with 925,022 C-only bytes out of 4,085,104 mapped bytes.
 This adds 1,148 C bytes and brings the total to 46 converted functions and
 3,028 additional mapped C bytes. Formatting checks passed. No GitHub CI was
 started.
+
+## Ninth batch: cry timer tasks
+
+Four routines in `0x02006820` through `0x0200691F` (256 bytes) move into
+`src/sound_cry.c`: initial volume setup, creation of the cry-stop task, its
+per-frame callback, and task destruction. The reconstructed eight-byte
+task state contains a countdown and task pointer. Allocation failure,
+initialization, ten-frame fade timing, early playback completion, and
+cleanup order are preserved.
+
+Before this batch, HeartGold C-only coverage was 22.643781% (925,022 of
+4,085,104 mapped code bytes).
+
+Validation completed: both full ROM hashes match retail locally. Coverage
+increased from 22.643781% to 22.650048% (+0.006267 percentage points), with
+925,278 C-only bytes out of 4,085,104 mapped bytes. This adds 256 C bytes,
+bringing the total to 50 converted functions and 3,284 additional mapped C
+bytes. Formatting passed; GitHub CI was not used.

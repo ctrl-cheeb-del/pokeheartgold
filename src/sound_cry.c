@@ -1,7 +1,14 @@
 #include "constants/species.h"
 
+#include "heap.h"
 #include "sound.h"
 #include "sound_02004A44.h"
+#include "sys_task_api.h"
+
+typedef struct CryStopTaskData {
+    int frames;
+    SysTask *task;
+} CryStopTaskData;
 
 // Cry-bank numbering extends beyond the ordinary species IDs.
 #define CRY_BANK_SHAYMIN_SKY 494
@@ -32,6 +39,9 @@ void sub_02005600(int handleNo);
 void sub_020057AC(u16 species, int volume, int pan, int handleNo, int heapId);
 void sub_02005760(int handleNo, int speed);
 void sub_02006AF4(u16 species, int pitch, int volume, int pan, int heapId);
+
+void sub_02006884(SysTask *task, void *data);
+void sub_020068F8(void);
 
 BOOL PlayCry(u16 species, u8 form) {
     u8 *useChorus = GF_SdatGetAttrPtr(18);
@@ -260,4 +270,59 @@ BOOL PlayCryEx(u32 pattern, u16 species, int pan, int volume, int heapId, u8 for
         break;
     }
     return TRUE;
+}
+
+void sub_02006820(int species, int handleNo, int volume) {
+    GF_SndHandleSetInitialVolume(handleNo, volume);
+    sub_02005464(species, (enum SoundHandleNo)handleNo);
+}
+
+void sub_02006838(int frames, int heapId) {
+    SysTask **task = GF_SdatGetAttrPtr(35);
+    sub_020068F8();
+    CryStopTaskData *data = Heap_Alloc((enum HeapID)heapId, sizeof(CryStopTaskData));
+    if (data == NULL) {
+        GF_ASSERT(FALSE);
+        return;
+    }
+    memset(data, 0, sizeof(CryStopTaskData));
+    data->frames = frames;
+    data->task = SysTask_CreateOnMainQueue(sub_02006884, data, 0);
+    *task = data->task;
+}
+
+void sub_02006884(SysTask *task, void *arg) {
+    CryStopTaskData *data = arg;
+    u8 *firstActive = GF_SdatGetAttrPtr(16);
+    u8 *secondActive = GF_SdatGetAttrPtr(17);
+    if (data->frames == 10) {
+        GF_SndHandleMoveVolume(SND_HANDLE_PV, 0, data->frames);
+        GF_SndHandleMoveVolume(SND_HANDLE_CHORUS, 0, data->frames);
+    }
+    data->frames--;
+    if (IsCryFinished() == 0) {
+        data->frames = 0;
+    }
+    if (data->frames <= 0) {
+        sub_02006300(0);
+        if (*firstActive == 1) {
+            sub_020058B8(14);
+            sub_02005680(14);
+        }
+        if (*secondActive == 1) {
+            sub_020058B8(15);
+            sub_02005680(15);
+        }
+        sub_020068F8();
+    }
+}
+
+void sub_020068F8(void) {
+    SysTask **task = GF_SdatGetAttrPtr(35);
+    if (*task != NULL) {
+        void *data = SysTask_GetData(*task);
+        SysTask_Destroy(*task);
+        Heap_Free(data);
+    }
+    *task = NULL;
 }
