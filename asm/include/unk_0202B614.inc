@@ -71,3 +71,9 @@
 .public sub_0202B784
 .public sub_0202B7C8
 .public sub_0202B808
+.public sub_0202B848
+.public sub_0202B870
+.public sub_0202B8B4
+.public sub_0202B8D8
+.public sub_0202B8FC
+.public sub_0202B908

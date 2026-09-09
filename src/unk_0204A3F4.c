@@ -158,8 +158,8 @@ void sub_0204A698(u32 a0) {
     sub_0202D234(a0);
 }
 
-u32 sub_0204A6A0(u32 unused_0) {
-    return sub_0202D3DC();
+u32 sub_0204A6A0(u32 record) {
+    return sub_0202D3DC(record);
 }
 
 void sub_0204A6A8(FieldSystem *fieldSystem) {

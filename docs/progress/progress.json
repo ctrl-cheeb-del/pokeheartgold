@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "bf0166f5d5ad0595c228c64889fb2f7f1a6b63a6",
+  "commit": "db748d4533e5ab281d21fdc317f33318ab2b8a2d",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "8f2798652b608bd1cecb34faac0af7ba6eaa7e0a4e5c9215d85166310ac0214c",
-    "ARM7": "9e2b4f1a0e288a9319eb4158553d443c6ad7a8e883886403797bfd276b9bc4f7"
+    "ARM9": "4d6ab84f6939e868383aa171f0410035c9c51dc8e7dd791969032f37e0adf048",
+    "ARM7": "a5a74bf55ab9daaf916f5a09a5bf008099430aaa3e72e3372eb83e388a2c1a96"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 3116120,
+    "asm": 3109136,
     "mixed": 18270,
-    "c": 941728,
+    "c": 948604,
     "unknown": 8792
   },
   "objects": [
@@ -2779,6 +2779,14 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "billboard_resources.o",
+      "bytes": 1542,
+      "status": "c",
+      "source": "src/billboard_resources.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "blackout.o",
       "bytes": 976,
       "status": "c",
@@ -2939,6 +2947,14 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "fashion_case.o",
+      "bytes": 540,
+      "status": "c",
+      "source": "src/fashion_case.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "fashion_save.o",
       "bytes": 556,
       "status": "c",
@@ -3059,6 +3075,14 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "friend_group.o",
+      "bytes": 520,
+      "status": "c",
+      "source": "src/friend_group.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "frontier.o",
       "bytes": 780,
       "status": "asm",
@@ -3068,9 +3092,17 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "frontier_card.o",
-      "bytes": 414,
+      "bytes": 602,
       "status": "c",
       "source": "src/frontier_card.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "frontier_data.o",
+      "bytes": 1784,
+      "status": "c",
+      "source": "src/frontier_data.c"
     },
     {
       "cpu": "ARM9",
@@ -3431,6 +3463,14 @@
       "bytes": 1326,
       "status": "c",
       "source": "src/list_menu_2d.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "list_menu_cursor.o",
+      "bytes": 146,
+      "status": "c",
+      "source": "src/list_menu_cursor.c"
     },
     {
       "cpu": "ARM9",
@@ -4003,6 +4043,22 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "particle_fields.o",
+      "bytes": 316,
+      "status": "c",
+      "source": "src/particle_fields.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "particle_runtime.o",
+      "bytes": 1680,
+      "status": "c",
+      "source": "src/particle_runtime.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "party.o",
       "bytes": 1106,
       "status": "c",
@@ -4247,6 +4303,22 @@
       "bytes": 226,
       "status": "c",
       "source": "src/save_arrays.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "save_block_22.o",
+      "bytes": 102,
+      "status": "c",
+      "source": "src/save_block_22.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "save_block_32.o",
+      "bytes": 58,
+      "status": "c",
+      "source": "src/save_block_32.c"
     },
     {
       "cpu": "ARM9",
@@ -4963,14 +5035,6 @@
     {
       "cpu": "ARM9",
       "module": "main",
-      "object": "unk_02014DA0.o",
-      "bytes": 2168,
-      "status": "asm",
-      "source": "asm/unk_02014DA0.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
       "object": "unk_02015DD8.o",
       "bytes": 1540,
       "status": "asm",
@@ -5084,7 +5148,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_02023694.o",
-      "bytes": 3184,
+      "bytes": 1624,
       "status": "asm",
       "source": "asm/unk_02023694.s"
     },
@@ -5140,7 +5204,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_0202B614.o",
-      "bytes": 2028,
+      "bytes": 1476,
       "status": "asm",
       "source": "asm/unk_0202B614.s"
     },
@@ -5151,30 +5215,6 @@
       "bytes": 1788,
       "status": "asm",
       "source": "asm/unk_0202C034.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
-      "object": "unk_0202C730.o",
-      "bytes": 536,
-      "status": "asm",
-      "source": "asm/unk_0202C730.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
-      "object": "unk_0202D230.o",
-      "bytes": 1800,
-      "status": "asm",
-      "source": "asm/unk_0202D230.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
-      "object": "unk_0202DB34.o",
-      "bytes": 116,
-      "status": "asm",
-      "source": "asm/unk_0202DB34.s"
     },
     {
       "cpu": "ARM9",
@@ -5195,26 +5235,10 @@
     {
       "cpu": "ARM9",
       "module": "main",
-      "object": "unk_02030A98.o",
-      "bytes": 192,
-      "status": "asm",
-      "source": "asm/unk_02030A98.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
       "object": "unk_0203170C.o",
       "bytes": 432,
       "status": "c",
       "source": "src/unk_0203170C.c"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
-      "object": "unk_020318C8.o",
-      "bytes": 60,
-      "status": "asm",
-      "source": "asm/unk_020318C8.s"
     },
     {
       "cpu": "ARM9",

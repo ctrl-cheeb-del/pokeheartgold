@@ -2,34 +2,8 @@
 
 #include "camera.h"
 #include "heap.h"
+#include "particle_internal.h"
 #include "unk_02014DA0.h"
-
-// The existing public API uses SPLEmitter pointers for this owning context.
-typedef struct ParticleContext {
-    void *manager;
-    void *unk_04;
-    void *unk_08;
-    void *heapStart;
-    void *heapCurrent;
-    void *heapEnd;
-    texAllocFun texAlloc;
-    plttAllocFun plttAlloc;
-    Camera *camera;
-    u32 unk_24;
-    u32 unk_28;
-    u32 unk_2C;
-    u16 perspective;
-    u8 pad_32[2];
-    VecFx32 pos;
-    VecFx32 up;
-    VecFx32 target;
-    u32 texKeys[16];
-    u32 plttKeys[16];
-    u8 flags;
-    u8 unk_D9;
-    u8 slot;
-    u8 unk_DB;
-} ParticleContext;
 
 extern ParticleContext *_021D10A8[16];
 extern const VecFx32 _020F6078;
@@ -86,7 +60,7 @@ SPLEmitter *sub_02014DB4(texAllocFun texAlloc, plttAllocFun plttAlloc, void *par
         ctx->unk_2C = 0;
         ctx->perspective = 2 * FX32_ONE;
         Camera_Init_FromTargetAndPos(&_020F6084, &_020F6090, ctx->perspective, 0, FALSE, ctx->camera);
-        ctx->unk_DB = FALSE;
+        ctx->perspectiveType = FALSE;
         Camera_SetStaticPtr(ctx->camera);
     }
     ctx->manager = SPL_Init(_020F609C[slot], 20, 200, 5, 6, 63);
@@ -121,10 +95,10 @@ void sub_02014EBC(SPLEmitter *emitter) {
         }
     }
     ctx->flags = 0;
-    ctx->unk_08 = NULL;
-    if (ctx->unk_04 != NULL) {
-        Heap_Free(ctx->unk_04);
-        ctx->unk_04 = NULL;
+    ctx->emitter = NULL;
+    if (ctx->resource != NULL) {
+        Heap_Free(ctx->resource);
+        ctx->resource = NULL;
     }
     for (j = 0; j < 16; j++) {
         if (_021D10A8[j] == ctx) {

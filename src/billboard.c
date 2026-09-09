@@ -1,58 +1,8 @@
 #include "global.h"
 
+#include "billboard_internal.h"
 #include "heap.h"
 #include "unk_02023694.h"
-
-typedef struct BillboardObject {
-    u32 unk_00;
-    u32 unk_04;
-    u32 unk_08;
-    fx32 scaleX;
-    fx32 scaleY;
-    fx32 scaleZ;
-    u32 unk_18;
-    u8 padding_1C[4];
-    u32 unk_20;
-    u8 unk_24;
-    u8 padding_25[3];
-    u32 unk_28;
-    u32 unk_2C;
-    u8 padding_30[0x54];
-    u32 unk_84;
-    u32 unk_88;
-    u32 unk_8C;
-    u32 unk_90;
-    u32 unk_94;
-    u32 unk_98;
-    u32 unk_9C;
-    u8 unk_A0[0x10];
-    u32 unk_B0;
-    u8 unk_B4;
-    u8 padding_B5;
-    u16 unk_B6;
-    u8 padding_B8[4];
-    struct BillboardObject *next;
-    u32 unk_C0;
-} BillboardObject;
-
-typedef struct Billboard {
-    u8 initialized;
-    u8 draw;
-    u8 padding_02;
-    u8 state;
-    void *objects;
-    int objectCount;
-    BillboardObject root;
-    u32 *unk_D0;
-    u32 unk_D4;
-    void *allocator;
-    void *unk_DC;
-} Billboard;
-
-typedef struct BillboardListManager {
-    Billboard *list;
-    int count;
-} BillboardListManager;
 
 extern BillboardListManager _021D2208;
 
@@ -74,30 +24,30 @@ void sub_02023694(Billboard *billboard) {
 }
 
 void sub_020236BC(BillboardObject *object) {
-    object->unk_28 = 0;
+    object->owner = 0;
     object->unk_2C = 0;
-    object->unk_84 = 0;
-    object->unk_88 = 0;
-    object->unk_8C = 0;
-    object->unk_90 = 0;
-    memset(object->unk_A0, 0, sizeof(object->unk_A0));
-    object->unk_94 = 0;
-    object->unk_98 = 0;
-    object->unk_9C = 0;
+    object->modelSet = 0;
+    object->model = 0;
+    object->texture = 0;
+    object->resourceHeader = 0;
+    memset(&object->resourceData, 0, sizeof(object->resourceData));
+    object->texKey = 0;
+    object->tex4x4Key = 0;
+    object->paletteKey = 0;
     object->unk_B0 = 0;
-    object->unk_00 = 0;
-    object->unk_04 = 0;
-    object->unk_08 = 0;
-    object->scaleX = FX32_ONE;
-    object->scaleY = FX32_ONE;
-    object->scaleZ = FX32_ONE;
-    object->unk_18 = 0;
+    object->position.x = 0;
+    object->position.y = 0;
+    object->position.z = 0;
+    object->scale.x = FX32_ONE;
+    object->scale.y = FX32_ONE;
+    object->scale.z = FX32_ONE;
+    object->rotation = 0;
     object->unk_B6 = 0;
-    object->unk_B4 = 0;
+    object->type = 0;
     object->next = NULL;
-    object->unk_C0 = 0;
-    object->unk_24 = 0;
-    object->unk_20 = 0;
+    object->prev = 0;
+    object->visible = 0;
+    object->callback = 0;
 }
 
 void BillboardLists_Create(int count, enum HeapID heapID) {

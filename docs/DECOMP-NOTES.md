@@ -788,3 +788,23 @@ comparison: the functions and batch sizes differ. Parallel candidate work
 overlapped, but repeated serial ROM builds and integration dominated this
 run, so it did not improve overall throughput. A useful next experiment
 would assign larger independent blocks while retaining the ROM checks.
+
+## Forty-first batch: particle, billboard and save systems
+
+This larger parallel batch converts 177 functions. Particle runtime and
+field helpers, list-menu cursors, friend groups, Frontier records and
+Frontier card validation, and save blocks 22 and 32 now compile from C.
+Billboard resource handling and fashion-case accessors also move to C.
+Shared private layouts describe the particle and billboard objects; the
+fashion-case layout now has the correct 0x40-byte size. Original tables
+and global storage remain in assembly where required.
+
+Both complete ROM hashes match retail locally. HeartGold C-only mapped
+coverage increased from 23.053825% to 23.222766% (+0.168941 percentage
+points), from 941,728 to 948,604 C bytes out of 4,084,802 mapped bytes.
+This adds 6,876 C bytes; 108 alignment bytes leave the mapped total.
+There are now 502 converted functions and 26,610 additional mapped C
+bytes relative to the initial baseline. The treemap was refreshed.
+Three Sol workers prepared independent blocks while integration and
+additional matching work continued locally. GitHub CI remained disabled;
+full local ROM verification was grouped into one batch.

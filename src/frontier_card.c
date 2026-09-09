@@ -1,7 +1,9 @@
 #include "global.h"
 
+#include "easy_chat.h"
 #include "heap.h"
 #include "location_gmm_dat.h"
+#include "mail_message.h"
 #include "player_data.h"
 #include "pm_string.h"
 #include "sav_system_info.h"
@@ -139,4 +141,51 @@ u32 sub_0203162C(FrontierCard *card) {
         region = 0;
     }
     return region;
+}
+
+String *sub_0203164C(FrontierCard *, MailMessage *, enum HeapID);
+u32 sub_020316F0(FrontierCard *);
+u32 sub_02031700(FrontierCard *);
+
+String *sub_0203164C(FrontierCard *card, MailMessage *message, enum HeapID heapId) {
+    int invalid = 0;
+    u32 category, msgNo;
+    if (card->unk_1E[0] == 0) {
+        message->msg_bank = card->greeting[0];
+        message->msg_no = card->greeting[1];
+        message->fields[0] = card->greeting[2];
+        message->fields[1] = card->greeting[3];
+        if (message->msg_bank >= 5) {
+            invalid++;
+        } else if (message->msg_no > 19) {
+            invalid++;
+        } else if ((message->fields[0] != 0xFFFF && !GetCategoryAndMsgNoByECWordIdx(message->fields[0], &category, &msgNo)) || (message->fields[1] != 0xFFFF && !GetCategoryAndMsgNoByECWordIdx(message->fields[1], &category, &msgNo))) {
+            invalid++;
+        }
+        if (invalid > 0) {
+            MailMsg_Init_WithBank(message, 4);
+            message->msg_no = 0;
+            message->fields[0] = GetECWordIndexByPair(0x11F, 99);
+            message->fields[1] = 0xFFFF;
+        }
+        return NULL;
+    } else {
+        String *result = String_New(40, heapId);
+        CopyU16ArrayToStringN(result, card->greeting, 40);
+        return result;
+    }
+}
+u32 sub_020316F0(FrontierCard *card) {
+    u32 month = card->birthdayMonth;
+    if (month < 1 || month > 12) {
+        month = 1;
+    }
+    return month;
+}
+u32 sub_02031700(FrontierCard *card) {
+    u32 avatar = card->avatar;
+    if (avatar > 15) {
+        avatar = 0;
+    }
+    return avatar;
 }

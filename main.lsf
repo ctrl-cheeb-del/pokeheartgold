@@ -63,6 +63,9 @@ Static main
     Object src/list_menu_items.o
     Object asm/unk_02014A08.o
     Object src/particle_context.o
+    Object src/particle_runtime.o
+    Object src/particle_fields.o
+    Object src/list_menu_cursor.o
     Object asm/unk_02014DA0.o
     Object src/mail_message.o
     Object src/easy_chat.o
@@ -99,6 +102,7 @@ Static main
     Object src/gf_gfx_planes.o
     Object src/camera.o
     Object src/billboard.o
+    Object src/billboard_resources.o
     Object asm/unk_02023694.o
     Object src/sprite.o
     Object src/touchscreen.o
@@ -129,8 +133,10 @@ Static main
     Object src/save_palpad.o
     Object src/mail.o
     Object src/fashion_save.o
+    Object src/fashion_case.o
     Object asm/unk_0202B614.o
     Object asm/unk_0202C034.o
+    Object src/friend_group.o
     Object asm/unk_0202C730.o
     Object src/coins.o
     Object src/save_trainer_card.o
@@ -139,10 +145,11 @@ Static main
     Object src/igt.o
     Object src/sav_chatot.o
     Object src/game_stats.o
+    Object src/frontier_data.o
     Object asm/unk_0202D230.o
     Object src/save_special_ribbons.o
     Object src/roamer.o
-    Object asm/unk_0202DB34.o
+    Object src/save_block_22.o
     Object src/mystery_gift.o
     Object src/hall_of_fame.o
     Object asm/unk_0202E41C.o
@@ -161,7 +168,7 @@ Static main
     Object src/frontier_card.o
     Object asm/unk_02030A98.o
     Object src/unk_0203170C.o
-    Object asm/unk_020318C8.o
+    Object src/save_block_32.o
     Object src/pokeathlon/pokeathlon_save.o
     Object src/apricorn_save.o
     Object asm/unk_02031B0C.o
