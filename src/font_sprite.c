@@ -1,6 +1,15 @@
 #include "gf_gfx_loader.h"
 #include "unk_02013534.h"
 
+typedef struct FontSpriteEntry {
+    Sprite *sprite;
+    int x, y;
+} FontSpriteEntry;
+void sub_02013728(TextOBJ *object);
+void sub_020137F0(TextOBJ *object, u8 priority);
+void sub_02013880(TextOBJ *object, int palette);
+void sub_020138B0(TextOBJ *object, u8 palette);
+
 struct UnkStruct_02013534 {
     void *cellFiles[12];
     NNSG2dCellDataBank *cellBanks[12];
@@ -83,4 +92,93 @@ int sub_02013688(Window *window, NNS_G2D_VRAM_TYPE vram, int heapId) {
     size = sub_02013E24(&list, vram);
     sub_02013FA8(&list);
     return size;
+}
+
+void sub_020136B4(TextOBJ *object, int x, int y) {
+    VecFx32 position;
+    GF_ASSERT(object != NULL);
+    object->unk_0C = x;
+    object->unk_10 = y;
+    x = x << FX32_SHIFT;
+    y = y << FX32_SHIFT;
+    if (object->unk_08 != NULL) {
+        const VecFx32 *parent = Sprite_GetMatrixPtr((Sprite *)object->unk_08);
+        x += parent->x;
+        y += parent->y;
+    }
+    position.z = 0;
+    for (int i = 0; i < object->unk_04; i++) {
+        position.x = x + (((FontSpriteEntry *)object->unk_00)[i].x << FX32_SHIFT);
+        position.y = y + (((FontSpriteEntry *)object->unk_00)[i].y << FX32_SHIFT);
+        Sprite_SetMatrix(((FontSpriteEntry *)object->unk_00)[i].sprite, &position);
+    }
+}
+void sub_02013728(TextOBJ *object) {
+    fx32 baseX;
+    fx32 baseY;
+    VecFx32 position;
+    GF_ASSERT(object != NULL);
+    if (object->unk_08 != NULL) {
+        baseX = object->unk_0C << FX32_SHIFT;
+        baseY = object->unk_10 << FX32_SHIFT;
+        const VecFx32 *parent = Sprite_GetMatrixPtr((Sprite *)object->unk_08);
+        baseX += parent->x;
+        baseY += parent->y;
+        position.z = 0;
+        for (int i = 0; i < object->unk_04; i++) {
+            position.x = baseX + (((FontSpriteEntry *)object->unk_00)[i].x << FX32_SHIFT);
+            position.y = baseY + (((FontSpriteEntry *)object->unk_00)[i].y << FX32_SHIFT);
+            Sprite_SetMatrix(((FontSpriteEntry *)object->unk_00)[i].sprite, &position);
+        }
+    }
+}
+void sub_02013794(void *data, int *x, int *y) {
+    TextOBJ *object = data;
+    GF_ASSERT(object != NULL);
+    GF_ASSERT(x != NULL);
+    GF_ASSERT(y != NULL);
+    *x = object->unk_0C;
+    *y = object->unk_10;
+}
+
+void TextOBJ_SetSpritesDrawFlag(TextOBJ *object, BOOL value) {
+    GF_ASSERT(object != NULL);
+    for (int i = 0; i < object->unk_04; i++) {
+        Sprite_SetDrawFlag(((FontSpriteEntry *)object->unk_00)[i].sprite, value);
+    }
+}
+
+void sub_020137F0(TextOBJ *object, u8 value) {
+    GF_ASSERT(object != NULL);
+    for (int i = 0; i < object->unk_04; i++) {
+        Sprite_SetPriority(((FontSpriteEntry *)object->unk_00)[i].sprite, value);
+    }
+}
+
+void sub_02013820(TextOBJ *object, int value) {
+    GF_ASSERT(object != NULL);
+    for (int i = 0; i < object->unk_04; i++) {
+        Sprite_SetDrawPriority(((FontSpriteEntry *)object->unk_00)[i].sprite, value);
+    }
+}
+
+void TextOBJ_SetPaletteNum(TextOBJ *object, int value) {
+    GF_ASSERT(object != NULL);
+    for (int i = 0; i < object->unk_04; i++) {
+        Sprite_SetPaletteOverride(((FontSpriteEntry *)object->unk_00)[i].sprite, value);
+    }
+}
+
+void sub_02013880(TextOBJ *object, int value) {
+    GF_ASSERT(object != NULL);
+    for (int i = 0; i < object->unk_04; i++) {
+        Sprite_SetPalIndexRespectVramOffset(((FontSpriteEntry *)object->unk_00)[i].sprite, value);
+    }
+}
+
+void sub_020138B0(TextOBJ *object, u8 value) {
+    GF_ASSERT(object != NULL);
+    for (int i = 0; i < object->unk_04; i++) {
+        Sprite_SetPalOffset(((FontSpriteEntry *)object->unk_00)[i].sprite, value);
+    }
 }

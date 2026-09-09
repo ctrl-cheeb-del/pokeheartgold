@@ -465,3 +465,19 @@ bytes; six alignment bytes leave the mapped total. There are now 149
 converted functions and 9,040 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used.
+
+## Twenty-fourth batch: font-sprite positioning and display settings
+
+Nine routines from `0x020136B4` through `0x020138DF` (556 bytes including
+alignment) move into `src/font_sprite.c`. They preserve absolute and
+parent-relative positioning, coordinate queries, sprite visibility,
+priority, draw priority, and palette controls. Each text object retains
+its per-sprite offsets and the original iteration and assertion behavior.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.791418% to 22.804689% (+0.013271 percentage points), from
+931,034 to 931,572 C bytes out of 4,085,002 mapped bytes. This adds 538 C
+bytes; eighteen alignment bytes leave the mapped total. There are now 158
+converted functions and 9,578 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used.

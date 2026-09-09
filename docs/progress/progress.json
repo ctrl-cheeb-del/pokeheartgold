@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "95205a20c5af9f2bb84106e18a9ea761870c364f",
+  "commit": "02ddda628ba1f9887afa8c9aac4da5409ef756e1",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "eb7bf28fa13e594fe6e34fe143669083f2a874a2f5fbaa59577966049c5ef0c7",
-    "ARM7": "1f35fbe8a9319d59889c5a6b0dabe5040920be9428047a21054ee209b5feed68"
+    "ARM9": "fb8b1342f04fee48387227114ae9c027e500e40e12f8c9df79e281d5bf15f254",
+    "ARM7": "5999d012d22c17610e7f15b51ba82b6ea2598383aa8588fc6c1194159eea51e4"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 3126924,
+    "asm": 3126368,
     "mixed": 18270,
-    "c": 931034,
+    "c": 931572,
     "unknown": 8792
   },
   "objects": [
@@ -3020,7 +3020,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "font_sprite.o",
-      "bytes": 378,
+      "bytes": 916,
       "status": "c",
       "source": "src/font_sprite.c"
     },
@@ -4884,7 +4884,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_02013534.o",
-      "bytes": 2344,
+      "bytes": 1788,
       "status": "asm",
       "source": "asm/unk_02013534.s"
     },
