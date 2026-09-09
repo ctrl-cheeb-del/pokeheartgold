@@ -1,6 +1,10 @@
 #include "sound.h"
 #include "sound_02004A44.h"
 
+void sub_02005B20(void);
+void Sound_ClearBGMPauseFlags(void);
+void sub_02005318(void);
+
 extern int _021D05E8[4];
 int GF_NNS_SndPlayerGetSeqNo(NNSSndHandle *handle);
 u16 GBSounds_GetDSSeqNoByGBSeqNo(u16 seqNo);
@@ -369,4 +373,54 @@ void sub_020051A4(u16 seqNo, int bankNo) {
         }
         GF_Snd_SaveState(GF_SdatGetAttrPtr(27));
     }
+}
+
+void sub_02005228(u16 seqNo, int mode) {
+    GF_SdatGetAttrPtr(24);
+    sub_02005B20();
+    GF_Snd_LoadState(sub_02005328(2));
+    sub_02004B24(5);
+    GF_Snd_SaveState(GF_SdatGetAttrPtr(26));
+    sub_020059E0(1);
+    PlayBGM(seqNo);
+}
+void sub_02005260(u16 seqNo, int mode) {
+    GF_SdatGetAttrPtr(24);
+    Sound_Stop();
+    Sound_ClearBGMPauseFlags();
+    sub_02005060(4);
+    PlayBGM(seqNo);
+}
+void sub_02005280(u16 seqNo, int mode) {
+    GF_SdatGetAttrPtr(24);
+    Sound_Stop();
+    sub_02005060(6);
+    sub_020059E0(1);
+    PlayBGM(seqNo);
+}
+void sub_020052A4(u16 seqNo, int mode) {
+    GF_SdatGetAttrPtr(24);
+    Sound_Stop();
+    sub_02005060(7);
+    sub_020059E0(1);
+    PlayBGM(seqNo);
+}
+void sub_020052C8(int scene) {
+    sub_02005318();
+    sub_02004B24(scene);
+    GF_Snd_SaveState(GF_SdatGetAttrPtr(28));
+}
+void sub_020052E4(int scene, u16 seqNo, int mode) {
+    GF_SdatGetAttrPtr(24);
+    Sound_Stop();
+    sub_02005060(scene);
+    PlayBGM(seqNo);
+}
+void BGM_SaveStateAndPlayNew(u16 seqNo) {
+    GetSoundDataPointer();
+    sub_02005B20();
+    PlayBGM(seqNo);
+}
+void sub_02005318(void) {
+    GF_Snd_LoadState(sub_02005328(4));
 }

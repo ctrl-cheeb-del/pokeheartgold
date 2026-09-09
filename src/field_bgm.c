@@ -181,7 +181,7 @@ static void FieldBGM_GetFadeOutAndWaitFrames(FieldSystem *fieldSystem, int mode,
     }
 }
 
-int FieldBGM_GetEyesMeetForTrainer(u16 trainerID, int regionNo) {
+u16 FieldBGM_GetEyesMeetForTrainer(u16 trainerID, int regionNo) {
     GF_ASSERT(regionNo < 2);
 
     u8 class = TrainerData_GetAttr(trainerID, TRATTR_CLASS);

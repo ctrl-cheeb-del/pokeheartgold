@@ -38,7 +38,7 @@ BOOL GF_MIC_StartAutoSampling(MICAutoParam *param);
 void GF_MIC_StopAutoSampling(void);
 BOOL PlayCryEx(u32 pattern, u16 species, int pan, int volume, int heapId, u8 form);
 BOOL sub_02004B24(int scene);
-void BGM_SaveStateAndPlayNew(int a0);
+void BGM_SaveStateAndPlayNew(u16 seqNo);
 u16 GF_GetCurrentPlayingBGM(); // Cannot put `void` in it since it's sometimes called with an argument (required for matching), sometimes not.
 void sub_020053A8(u8 a0, u8 a1);
 void GF_SND_BGM_DisableSet(u8 a0);

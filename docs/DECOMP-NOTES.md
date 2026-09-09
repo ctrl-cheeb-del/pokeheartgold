@@ -317,3 +317,21 @@ bytes; two alignment bytes leave the mapped total. There are now 68 converted
 functions and 5,942 additional mapped C bytes relative to the initial
 baseline. The HeartGold treemap was refreshed, formatting passed, and no
 GitHub CI was used.
+
+## Fifteenth batch: scene-specific BGM helpers
+
+Eight routines from `0x02005228` through `0x02005327` (256 bytes including
+alignment) move into `src/sound_scene.c`: six scene dispatch helpers,
+`BGM_SaveStateAndPlayNew`, and sound-state restoration helper `sub_02005318`.
+Their original load, stop, pause-clear, save, and playback order is preserved.
+The sequence argument of `BGM_SaveStateAndPlayNew` and the return type of
+`FieldBGM_GetEyesMeetForTrainer` are declared `u16`, matching the sequence
+value and preserving the caller's original instructions without narrowing.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.715191% to 22.721231% (+0.006040 percentage points), from
+927,936 to 928,180 C bytes out of 4,085,078 mapped bytes. This adds 244 C
+bytes; twelve alignment bytes leave the mapped total. There are now 76
+converted functions and 6,186 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used.
