@@ -517,3 +517,17 @@ bytes; four alignment bytes leave the mapped total. There are now 169
 converted functions and 10,148 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used.
+
+## Twenty-seventh batch: glyph rectangle splitting and layout
+
+Two routines from `0x02013B24` through `0x02013C5B` (312 bytes) move into
+`src/font_sprite.c`. They select glyph sizes, insert layout nodes, split
+remaining rectangles, and build successive rows. The reconstructed rectangle
+and pending-remainder state preserve the original order and assertions.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.818698% to 22.826336% (+0.007638 percentage points), from
+932,142 to 932,454 C bytes out of 4,084,992 mapped bytes. This adds 312 C
+bytes. There are now 171 converted functions and 10,460 additional mapped C
+bytes relative to the initial baseline. The HeartGold treemap was refreshed,
+formatting passed, and GitHub CI was not used.

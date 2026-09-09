@@ -41,6 +41,17 @@ void sub_02013D88(Window *window, void *buffer, FontGlyphNode *list, NNS_G2D_VRA
 extern const u8 _020F5F2C[12][2];
 int sub_02013AF8(int width, int height);
 
+typedef struct FontRect {
+    int y, x, width, height;
+} FontRect;
+typedef struct FontSplit {
+    FontRect current, remainder;
+    u8 hasRemainder;
+} FontSplit;
+FontGlyphNode *sub_02013F78(enum HeapID heapId);
+void sub_02013FC0(FontGlyphNode *node, FontGlyphNode *previous);
+BOOL sub_02013B24(FontSplit *split, FontGlyphNode *list, enum HeapID heapId);
+
 UnkStruct_02013534 *FontSystem_NewInit(int count, enum HeapID heapId) {
     UnkStruct_02013534 *system = Heap_Alloc(heapId, sizeof(UnkStruct_02013534));
     GF_ASSERT(system != NULL);
@@ -286,4 +297,64 @@ int sub_02013AF8(int width, int height) {
         }
     }
     return 12;
+}
+
+BOOL sub_02013B24(FontSplit *split, FontGlyphNode *list, enum HeapID heapId) {
+    int remainingWidth;
+    FontGlyphNode *node = sub_02013F78(heapId);
+    int remainingHeight;
+    sub_02013FC0(node, list->next);
+    node->index = sub_02013AF8(split->current.width, split->current.height);
+    node->x = split->current.x;
+    node->y = split->current.y;
+    remainingWidth = split->current.width;
+    remainingWidth -= _020F5F2C[node->index][0];
+    remainingHeight = split->current.height;
+    remainingHeight -= _020F5F2C[node->index][1];
+    if (remainingWidth > 0) {
+        split->remainder.height = split->current.height;
+        split->remainder.width = remainingWidth;
+        split->remainder.y = split->current.y;
+        split->remainder.x = split->current.x + _020F5F2C[node->index][0];
+        GF_ASSERT(split->hasRemainder != 1);
+        split->hasRemainder = 1;
+    }
+    if (remainingHeight > 0) {
+        split->current.y += _020F5F2C[node->index][1];
+        split->current.height = remainingHeight;
+    } else if (split->hasRemainder == 1) {
+        split->current = split->remainder;
+        split->hasRemainder = 0;
+    } else {
+        return TRUE;
+    }
+    return FALSE;
+}
+int sub_02013BD4(int width, int height, enum HeapID heapId, FontGlyphNode *list) {
+    FontRect next;
+    FontSplit split;
+    int count;
+    GF_ASSERT(width != 0);
+    GF_ASSERT(height != 0);
+    count = 0;
+    split.current.height = height;
+    split.current.y = 0;
+    split.current.x = 0;
+    split.current.width = width;
+    split.hasRemainder = 0;
+    next.x = 0;
+    next.width = width;
+    while (height != 0) {
+        int index = sub_02013AF8(split.current.width, height);
+        int rowHeight = _020F5F2C[index][1];
+        next.y = split.current.y + rowHeight;
+        next.height = split.current.height - rowHeight;
+        split.current.height = rowHeight;
+        do {
+            count++;
+        } while (!sub_02013B24(&split, list, heapId));
+        split.current = next;
+        height = split.current.height;
+    }
+    return count;
 }

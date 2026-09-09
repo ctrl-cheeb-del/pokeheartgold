@@ -55,3 +55,7 @@
 .public sub_02013AD0
 
 .public sub_02013AF8
+
+.public sub_02013B24
+
+.public sub_02013BD4
