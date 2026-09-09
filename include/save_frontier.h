@@ -5,8 +5,8 @@
 
 typedef struct FrontierSave {
     u16 unk_000[112];
-    u16 unk_0E0[5][32]; // just guessing here
-    u8 filler_220[0x1408];
+    u16 unk_0E0[32][32];
+    u8 filler_8E0[0xD48];
 } FrontierSave; // size: 0x1628
 
 #endif

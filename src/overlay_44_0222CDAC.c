@@ -1514,8 +1514,7 @@ s32 ov44_0222B528(UnkStruct_ov44_022319EC *arg0, s32 arg1) {
         sub_0202C03C(arg0->unk0);
         void *saveArray = SaveArray_Get(arg0->saveData, 31);
         sub_02031710(saveArray);
-        Save_Frontier_GetStatic(arg0->saveData);
-        sub_02031188();
+        sub_02031188(Save_Frontier_GetStatic(arg0->saveData));
         arg0->unk348 = 14;
         arg0->unk4 = sub_020396FC(arg0->saveData, 1188);
         ov44_0222F510(arg0, 23, 1);

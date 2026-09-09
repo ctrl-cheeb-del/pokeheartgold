@@ -5,7 +5,9 @@
 #include "save_frontier.h"
 
 struct UnkStruct_02030A98 {
-    u8 filler_000[0xBA0];
+    u32 unk_000;
+    u16 stats[3][495];
+    u16 padding;
 }; // size = 0xBA0
 
 void sub_02030AA4(u32, u32, u8, u8 *);
@@ -31,6 +33,6 @@ void sub_0203126C(FrontierSave *a0, u32 a1, u32 a2, u16 a3);
 u32 *sub_020312C4(SaveData *saveData, u32 a1, u32 *out);
 u32 sub_020312E0(SaveData *saveData, u32 *a1, u32 a2, u32 a3);
 u32 sub_02030E98(u32 a0);
-void sub_02031188(void);
+void sub_02031188(FrontierSave *frontier);
 
 #endif // POKEHEARTGOLD_UNK_02030A98_H

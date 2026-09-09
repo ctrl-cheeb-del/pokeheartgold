@@ -639,9 +639,28 @@ now expose their actual pointer returns. Targeted volatile parameter loads
 preserve the original unconditional stack argument reads.
 
 Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
-increased from 22.940585% to 22.974009% (+0.033424 percentage points), from
+increased from 22.940585% to 22.974012% (+0.033427 percentage points), from
 937,116 to 938,476 C bytes out of 4,084,946 mapped bytes. This adds 1,360 C
 bytes; twenty-four alignment bytes leave the mapped total. There are now
 260 converted functions and 16,482 additional mapped C bytes relative to
 the initial baseline. The HeartGold treemap was refreshed, formatting
 passed, and GitHub CI was not used.
+
+## Thirty-fifth batch: Frontier saves and statistics; 23% reached
+
+Twenty-one routines from `0x02031000` through `0x020314A3` (1,188 bytes
+including alignment) move into `src/frontier_save.c`. They initialize and
+commit Frontier saves, manage stat rows and packed flags, update bounded
+statistics, and synchronize extra save records. Recovered layouts expose
+32 rows of statistics and the three extra-record stat arrays without
+changing either save size. An existing caller now explicitly passes the
+Frontier pointer to the stat reset function.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.974012% to 23.002906% (+0.028894 percentage points), from
+938,476 to 939,654 C bytes out of 4,084,936 mapped bytes. This adds 1,178 C
+bytes; ten alignment bytes leave the mapped total. There are now 281
+converted functions and 17,660 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used. The requested 23% C-only coverage target has
+been reached with both retail ROMs verified.

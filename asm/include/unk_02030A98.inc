@@ -104,3 +104,6 @@
 .public sub_02030C50
 .public sub_02030DFC
 .public sub_02030F94
+.public sub_020312CC
+.public sub_0203132C
+.public sub_02031378
