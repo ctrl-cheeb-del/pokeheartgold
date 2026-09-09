@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "0f1f03e6f6627fc10aacb295f076d45e0608e8d7",
+  "commit": "37fbfd0f4ef7f904c3f08da132bdaa06e1d50d86",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "a9c0806515c05a3549ecc3f5d60ed2c0f20b69a64cdcee7d312906d2c485fe2c",
-    "ARM7": "1997fae3caa4187f2036bc28ce2f0447bea032c81e6cb4dd5dcff45a04e32111"
+    "ARM9": "3113fdab841b48978622d2d7039525e5283dc3dfce3520f858f041eb0e80a718",
+    "ARM7": "e42f66c6611a8c6aadc051b576ab02b7fea508e5a5b4428dc48b019a3f347142"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 3135340,
+    "asm": 3135056,
     "mixed": 18270,
-    "c": 922710,
+    "c": 922992,
     "unknown": 8792
   },
   "objects": [
@@ -4516,7 +4516,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "sound_bgm.o",
-      "bytes": 502,
+      "bytes": 784,
       "status": "c",
       "source": "src/sound_bgm.c"
     },
@@ -4724,7 +4724,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_02005D10.o",
-      "bytes": 3452,
+      "bytes": 3168,
       "status": "asm",
       "source": "asm/unk_02005D10.s"
     },

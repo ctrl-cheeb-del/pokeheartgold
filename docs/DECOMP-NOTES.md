@@ -106,3 +106,23 @@ when they differ, releases the selected handle, and resets the BGM state.
 Validation completed: HeartGold and SoulSilver both passed the full retail
 ROM hash checks. This batch adds 276 HeartGold mapped C bytes, bringing
 C-only coverage to 922,710 bytes. The 8-byte difference is alignment.
+
+## Fourth batch: fades, queries, and sound cleanup
+
+Six routines in `0x02005F10` through `0x0200602B` (284 bytes including
+alignment) move into `src/sound_bgm.c`: `GF_SndStartFadeInBGM`,
+`GF_SndStartFadeOutBGM`, `GF_SndGetFadeTimer`, `sub_02005F94`, `Sound_Stop`,
+and `sub_02005FD8`.
+
+Fade-out preserves an already active fade timer. The fade timer query
+returns the low 16 bits of the timer; its public return type is now `u32`
+rather than `BOOL`, since it returns the remaining count rather than a
+normalized boolean. The sequence count query also preserves its full
+32-bit return value. Existing uses of both queries retain their behavior.
+The cleanup routines preserve the original four SE-handle loop and the
+conditional wave-output stops for handles 14 and 15.
+
+Validation completed: both full ROMs passed their retail SHA-1 comparisons.
+HeartGold C-only coverage increased by 282 mapped bytes to 922,992. This
+brings the four batches to 25 functions and 998 additional mapped C bytes
+(1,020 original bytes including alignment). Formatting checks passed.
