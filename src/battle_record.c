@@ -1,5 +1,38 @@
+#include "link_ruleset_data.h"
+#include "math_util.h"
+#include "pokemon_types_def.h"
 #include "save_arrays.h"
 #include "system.h"
+
+typedef struct {
+    u8 order[2][4];
+} BattleOrder;
+typedef struct {
+    u8 order[4];
+} MultiOrder;
+extern const BattleOrder _020F68C8;
+extern const MultiOrder _020F68C4;
+typedef struct {
+    u16 species[12];
+    u8 forms[12];
+    u16 arg;
+    u8 type, padding;
+    LinkBattleRuleset rules;
+    u8 rest[0x64 - 0x28 - sizeof(LinkBattleRuleset)];
+} RecordSummary;
+typedef struct {
+    struct UnkPokemonStruct_02072A98 mons[6];
+    u32 padding;
+} RecordParty;
+typedef struct {
+    u32 flags;
+    u8 filler4[0x134 - 4];
+    u32 positions[4];
+    u16 player;
+    u8 filler146[0x1154 - 0x146];
+    RecordParty parties[4];
+} RecordData;
+
 #include "unk_0202FBCC.h"
 extern struct UnkStruct_0202FBCC *_021D2AF8;
 u32 sub_0202FBCC(void);
@@ -171,4 +204,150 @@ void sub_0202FEB8(int type, int *count, int *last) {
         *last = 6;
         break;
     }
+}
+
+void sub_0202FF08(SaveData *save, void *header, void *recordData, int type, int arg) {
+    RecordSummary *summary = header;
+    RecordData *data = recordData;
+    int count, partySize;
+    BattleOrder order = _020F68C8;
+    MultiOrder multi = _020F68C4;
+    int player;
+    int k;
+    MI_CpuFill8(summary, 0, sizeof(*summary));
+    sub_0202FEB8(type, &count, &partySize);
+    k = 0;
+    if (data->flags & 4) {
+        if (data->flags & 128) {
+            player = data->player * 2;
+        } else {
+            player = data->player;
+        }
+    } else {
+        player = 0;
+    }
+    for (int i = 0; i < count; i++) {
+        int battler;
+        if ((data->flags & 8) && !(data->flags & 128)) {
+            for (battler = 0; battler < count; battler++) {
+                if (data->positions[battler] == order.order[data->positions[player] & 1][i]) {
+                    break;
+                }
+            }
+        } else if ((data->flags & 8) && (data->flags & 128)) {
+            battler = multi.order[i];
+        } else {
+            battler = i;
+            if (player & 1) {
+                battler = i ^ 1;
+            }
+        }
+        for (int j = 0; j < partySize; j++) {
+            struct UnkPokemonStruct_02072A98 *mon = &data->parties[battler].mons[j];
+            if (!mon->isEgg && !mon->checksumFailed) {
+                summary->species[k] = mon->species;
+                summary->forms[k] = mon->form;
+            }
+            k++;
+        }
+    }
+    switch (type) {
+    case 1:
+    case 8:
+        summary->rules = *sub_020291E8(save, 0);
+        break;
+    case 2:
+    case 9:
+        summary->rules = *sub_020291E8(save, 1);
+        break;
+    case 3:
+    case 10:
+        summary->rules = *sub_020291E8(save, 2);
+        break;
+    case 4:
+    case 11:
+        summary->rules = *sub_020291E8(save, 3);
+        break;
+    case 5:
+    case 12:
+        summary->rules = *sub_020291E8(save, 4);
+        break;
+    case 6:
+    case 13:
+        summary->rules = *sub_020291E8(save, 5);
+        break;
+    default:
+        summary->rules = *sub_0202925C();
+        break;
+    }
+    summary->arg = arg;
+    summary->type = type;
+}
+
+BOOL sub_02030154(SaveData *save, struct UnkStruct_0202FBCC *record);
+BOOL sub_0203018C(SaveData *save, struct UnkStruct_0202FBCC *record);
+void sub_02030250(void *data, u32 size, u32 seed);
+void sub_02030258(void *data, u32 size, u32 seed);
+extern struct UnkStruct_0202FBCC *_021D2AF8;
+BOOL sub_02030154(SaveData *save, struct UnkStruct_0202FBCC *record) {
+    u8 *data = (u8 *)record + 0xe8;
+    u8 *header = (u8 *)record + 0x84;
+    if (!Save_CheckExtraChunksExist(save)) {
+        return TRUE;
+    }
+    if (*(u16 *)(data + 0x1c62) != 0xe281 || *(u16 *)(header + 0x48) != 0xe281) {
+        return TRUE;
+    }
+    return FALSE;
+}
+BOOL sub_0203018C(SaveData *save, struct UnkStruct_0202FBCC *record) {
+    u8 *data = (u8 *)record + 0xe8;
+    u8 *header = (u8 *)record + 0x84;
+    if (*(u16 *)(data + 0x1c62) != 0xe281 || *(u16 *)(header + 0x48) != 0xe281) {
+        return FALSE;
+    }
+    u32 crc = SaveArray_CalcCRC16(save, header, 0x58);
+    if (crc != *(u16 *)(header + 0x60)) {
+        return FALSE;
+    }
+    crc = SaveArray_CalcCRC16(save, data, 0x1c64);
+    if (crc != *(u16 *)(data + 0x1c64)) {
+        return FALSE;
+    }
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 6; j++) {
+            struct UnkPokemonStruct_02072A98 *mon = &((RecordData *)data)->parties[i].mons[j];
+            if (mon->species > 495) {
+                return FALSE;
+            }
+            if (mon->heldItem > 536) {
+                return FALSE;
+            }
+            for (int k = 0; k < 4; k++) {
+                if (mon->moves[k] > 467) {
+                    return FALSE;
+                }
+            }
+        }
+    }
+    return TRUE;
+}
+void sub_02030250(void *data, u32 size, u32 seed) {
+    _MonEncryptSegment(data, size, seed);
+}
+void sub_02030258(void *data, u32 size, u32 seed) {
+    _MonDecryptSegment(data, size, seed);
+}
+void sub_02030260(int battlerId, u32 offset, u8 value) {
+    if (_021D2AF8 != NULL) {
+        u8 *buffer = (u8 *)_021D2AF8 + battlerId * 1024;
+        buffer += offset;
+        buffer[0x238] = value;
+    }
+}
+u8 sub_0203027C(int battlerId, u32 offset) {
+    GF_ASSERT(_021D2AF8 != NULL);
+    u8 *buffer = (u8 *)_021D2AF8 + battlerId * 1024;
+    buffer += offset;
+    return buffer[0x238];
 }

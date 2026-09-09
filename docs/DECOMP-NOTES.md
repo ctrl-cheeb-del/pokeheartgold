@@ -579,3 +579,19 @@ bytes; two alignment bytes leave the mapped total. There are now 196
 converted functions and 12,172 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used.
+
+## Thirty-first batch: battle-record summaries and validation
+
+Seven routines from `0x0202FF08` through `0x020302A3` (924 bytes) move into
+`src/battle_record.c`. They build Pokémon summaries and copy rulesets,
+validate save markers, checksums and Pokémon values, wrap record encryption
+and decryption, and access recorded command bytes. Reconstructed fields use
+the existing Pokémon bitfields and link ruleset structure. The original
+participant-order tables retain their addresses in assembly.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.868313% to 22.890932% (+0.022619 percentage points), from
+934,166 to 935,090 C bytes out of 4,084,980 mapped bytes. This adds 924 C
+bytes. There are now 203 converted functions and 13,096 additional mapped C
+bytes relative to the initial baseline. The HeartGold treemap was refreshed,
+formatting passed, and GitHub CI was not used.
