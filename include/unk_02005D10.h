@@ -23,7 +23,7 @@ BOOL IsFanfarePlaying(void);
 BOOL GF_IsAnySEPlaying(void);
 void Sound_Stop(void);
 void Sound_SetMasterVolume(int volume);
-void sub_020062E0(u16 species, u8 a1, u8 form);
+BOOL sub_020062E0(u16 species, u8 delay, u8 form);
 BOOL sub_0200602C(u16 seqNo, s32 pan);
 
 #endif // POKEHEARTGOLD_UNK_02005D10_H

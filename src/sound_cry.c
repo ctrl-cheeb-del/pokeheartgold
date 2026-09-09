@@ -12,6 +12,15 @@ void sub_02006300(int fadeFrames);
 void sub_02005464(int seqNo, enum SoundHandleNo handleNo);
 BOOL sub_02006C14(enum SoundHandleNo handleNo, int playerNo, int bankNo, int playerPrio, u16 seqNo, u8 useGBSounds);
 
+BOOL sub_020062E0(u16 species, u8 delay, u8 form);
+BOOL IsCryFinished(void);
+void NNS_SndPlayerStopSeq(NNSSndHandle *handle, int fadeFrames);
+void sub_020058B8(int handleNo);
+void sub_02005680(int handleNo);
+BOOL sub_02005738(int handleNo);
+void sub_02006DB8(void);
+void sub_02006A30(void);
+
 BOOL PlayCry(u16 species, u8 form) {
     u8 *useChorus = GF_SdatGetAttrPtr(18);
     SOUND_CHATOT **chatot = GF_SdatGetAttrPtr(36);
@@ -39,4 +48,41 @@ BOOL PlayCry(u16 species, u8 form) {
     }
     sub_02006E3C(0);
     return success;
+}
+
+BOOL sub_020062E0(u16 species, u8 delay, u8 form) {
+    sub_02006920(0, species, 0, 127, 11, delay, form);
+    return TRUE;
+}
+
+void sub_02006300(int fadeFrames) {
+    u8 *firstActive = GF_SdatGetAttrPtr(16);
+    u8 *secondActive = GF_SdatGetAttrPtr(17);
+    GF_SdatGetAttrPtr(15);
+    NNS_SndPlayerStopSeq(GF_GetSoundHandle(SND_HANDLE_PV), fadeFrames);
+    NNS_SndPlayerStopSeq(GF_GetSoundHandle(SND_HANDLE_CHORUS), fadeFrames);
+    if (*firstActive == 1) {
+        sub_020058B8(14);
+        sub_02005680(14);
+    }
+    if (*secondActive == 1) {
+        sub_020058B8(15);
+        sub_02005680(15);
+    }
+    sub_02006DB8();
+    sub_02006A30();
+}
+
+BOOL IsCryFinished(void) {
+    u8 *firstActive = GF_SdatGetAttrPtr(16);
+    u8 *secondActive = GF_SdatGetAttrPtr(17);
+    GF_SdatGetAttrPtr(15);
+    GF_SdatGetAttrPtr(46);
+    if (*firstActive == 1) {
+        return sub_02005738(14);
+    }
+    if (*secondActive == 1) {
+        return sub_02005738(15);
+    }
+    return GF_SndPlayerCountPlayingSeqByPlayerNo(0);
 }

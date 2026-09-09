@@ -164,3 +164,20 @@ Validation completed: both full ROMs passed their retail SHA-1 comparisons
 locally. HeartGold C-only coverage increased by 300 mapped bytes to 923,680.
 Across six batches, 42 functions add 1,686 mapped C bytes. Formatting checks
 passed. GitHub build CI remains disabled; this batch was validated locally.
+
+## Seventh batch: cry control helpers
+
+`sub_020062E0`, `sub_02006300`, and `IsCryFinished` move into
+`src/sound_cry.c`, replacing `0x020062E0` through `0x020063A3` (196 bytes
+including alignment). The wrapper queues a cry and returns TRUE. The stop
+routine stops both cry handles, performs conditional wave-output cleanup,
+and resets the Chatot and queued-cry state.
+
+`IsCryFinished` retains its original activity/count return value despite its
+misleading name. Apparently unused sound-attribute lookups remain in place.
+
+Validation completed: HeartGold and SoulSilver both passed their full retail
+SHA-1 comparisons locally. This batch adds 194 mapped C bytes (the other two
+bytes are alignment), bringing HeartGold C-only coverage to 923,874 bytes.
+The seven batches total 45 functions and 1,880 additional mapped C bytes.
+Formatting checks passed; no GitHub CI run was started.

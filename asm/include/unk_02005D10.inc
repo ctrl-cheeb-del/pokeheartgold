@@ -98,3 +98,5 @@
 .public NNS_SndHandleReleaseSeq
 .public NNS_SndPlayerSetTrackPan
 .public NNS_SndArcPlayerStartSeqEx
+
+.public sub_02006A30
