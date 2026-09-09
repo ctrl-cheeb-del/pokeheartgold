@@ -52,6 +52,7 @@
 .public sub_02006C14
 .public sub_02005E44
 .public StopBGM
+.public sub_02005EEC
 .public GF_SndStartFadeInBGM
 .public GF_SndStartFadeOutBGM
 .public GF_SndGetFadeTimer

@@ -89,3 +89,20 @@ behavior. No inline assembly or register pinning was needed.
 Validation completed: both full ROMs passed their retail SHA-1 comparisons.
 HeartGold C-only coverage increased by 226 mapped bytes to 922,434. The
 two-byte difference from the replaced range is function alignment.
+
+## Third batch: field playback and stopping BGM
+
+Four more routines move into `src/sound_bgm.c`: `sub_02005DF4`,
+`sub_02005E44`, `StopBGM`, and `sub_02005EEC`. Their original contiguous
+range is `0x02005DF4` through `0x02005F0F` (284 bytes including alignment).
+
+The field playback path reuses the active sequence's bank and stops the
+radio. `GF_NNS_SndPlayerGetSeqNo` can return -1; the bank lookup takes an
+`int` so this sentinel reaches it unchanged, just as in the original code.
+`sub_02005E44` returns the actual playback success result, reflected in its
+public prototype. `StopBGM` stops both the normal and GB Sounds sequences
+when they differ, releases the selected handle, and resets the BGM state.
+
+Validation completed: HeartGold and SoulSilver both passed the full retail
+ROM hash checks. This batch adds 276 HeartGold mapped C bytes, bringing
+C-only coverage to 922,710 bytes. The 8-byte difference is alignment.

@@ -16,7 +16,7 @@ BOOL IsSEPlaying(u16 sndseq);
 void sub_0200616C(int a0);
 u16 sub_02005F94(u16 a0);
 void StopBGM(u16 a0, int a1);
-void sub_02005E44(u16 a0);
+BOOL sub_02005E44(u16 a0);
 void StopSE(u16 sndseq, int a1);
 void PlayFanfare(u16 a0);
 BOOL IsFanfarePlaying(void);
