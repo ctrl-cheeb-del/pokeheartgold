@@ -56,6 +56,7 @@ Static main
     Object asm/unk_0200FA24.o
     Object asm/unk_0201010C.o
     Object asm/unk_02012DD8.o
+    Object src/font_sprite.o
     Object asm/unk_02013534.o
     Object src/unk_02013FDC.o
     Object src/gf_rtc.o

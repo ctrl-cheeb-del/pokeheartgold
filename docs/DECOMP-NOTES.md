@@ -449,3 +449,19 @@ bytes; ten alignment bytes leave the mapped total. There are now 144
 converted functions and 8,662 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used.
+
+## Twenty-third batch: font-sprite allocation and text objects
+
+Five routines from `0x02013534` through `0x020136B3` (384 bytes including
+alignment) move into `src/font_sprite.c`. These cover font-system allocation
+and destruction, text-object creation and deletion, and VRAM sizing. The
+reconstructed system has twelve cell files and cell banks plus an object
+pool; temporary glyph lists preserve the original sentinel links and calls.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.782132% to 22.791418% (+0.009286 percentage points), from
+930,656 to 931,034 C bytes out of 4,085,020 mapped bytes. This adds 378 C
+bytes; six alignment bytes leave the mapped total. There are now 149
+converted functions and 9,040 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used.
