@@ -368,3 +368,20 @@ bytes; ten alignment bytes leave the mapped total. There are now 91
 converted functions and 6,676 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used.
+
+## Eighteenth batch: microphone and wave-output controls
+
+Thirteen routines from `0x02005520` through `0x020057AB` (652 bytes including
+alignment) move into `src/sound_mic.c` and `src/sound_wave.c`. Microphone
+start/stop and lid handling preserve the saved sampling parameters and
+counter reset. Wave-output helpers preserve allocation flags, failure and
+assertion paths, channel release, playback, pan clamping, speed, and volume.
+The allocation helper's declarations expose its existing Boolean result.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.733304% to 22.749037% (+0.015733 percentage points), from
+928,670 to 929,310 C bytes out of 4,085,052 mapped bytes. This adds 640 C
+bytes; twelve alignment bytes leave the mapped total. There are now 104
+converted functions and 7,316 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used.

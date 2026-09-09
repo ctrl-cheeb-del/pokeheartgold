@@ -28,7 +28,7 @@ BOOL SoundSys_GetGBSoundsState(void);
 void SoundSys_ToggleGBSounds(void);
 BOOL sub_02005738(int a0);
 s8 *sub_020059D8(void);
-void sub_02005600(int);
+BOOL sub_02005600(int channel);
 void sub_020058B8(int);
 void sub_02005680(int);
 NNSSndWaveOutHandle *sub_020055AC(int);
