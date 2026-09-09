@@ -37,7 +37,7 @@ void sub_02005774(int, int);
 BOOL GF_MIC_StartAutoSampling(MICAutoParam *param);
 void GF_MIC_StopAutoSampling(void);
 BOOL PlayCryEx(u32 pattern, u16 species, int pan, int volume, int heapId, u8 form);
-void sub_02004B24(int);
+BOOL sub_02004B24(int scene);
 void BGM_SaveStateAndPlayNew(int a0);
 u16 GF_GetCurrentPlayingBGM(); // Cannot put `void` in it since it's sometimes called with an argument (required for matching), sometimes not.
 void sub_020053A8(u8 a0, u8 a1);

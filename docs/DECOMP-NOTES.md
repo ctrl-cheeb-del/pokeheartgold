@@ -266,3 +266,20 @@ ten alignment bytes leave the mapped total. All 50 functions from the
 original assembly unit now have exactly one C definition. Together with the
 sound-state batch, 61 functions add 4,148 mapped C bytes relative to the
 initial baseline. Formatting passed; no GitHub CI was started.
+
+## Twelfth batch: scene sound resource loader
+
+`sub_02004B24` moves from `asm/unk_02004A44.s` into the new
+`src/sound_scene.c`. The function covers `0x02004B24` through `0x02004EB3`
+(912 bytes), dispatching sound group, bank, wave archive, and sequence loads
+by scene ID. The C switch preserves load order, the selected return value
+when a scene loads multiple resources, and the assertion for unsupported
+IDs. Its declaration now exposes the existing Boolean return value.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.671264% to 22.693589% (+0.022325 percentage points), from
+926,142 to 927,054 C bytes out of 4,085,092 mapped bytes. This adds 912 C
+bytes, bringing the total to 62 converted functions and 5,060 additional
+mapped C bytes relative to the initial baseline. The HeartGold treemap was
+refreshed and formatting checks passed. GitHub build CI remains disabled;
+validation used local builds only.
