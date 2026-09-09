@@ -35,12 +35,12 @@ void GF_SndSetMonoFlag(int flag);
 void DoSoundUpdateFrame(void);
 void *GF_SdatGetAttrPtr(u32 attr);
 void GF_SndSetState(u32 state);
-BOOL GF_SndGetFadeTimer(void);
+u32 GF_SndGetFadeTimer(void);
 BOOL GF_SndGetAfterFadeDelayTimer(void);
 void GF_SndStopPlayerBgm(void);
 void GF_SndStopPlayerField(void);
-void PlayBGM(u16 seqno);
-void GF_SndStartFadeInBGM(u32, u32, u32);
+BOOL PlayBGM(u16 seqno);
+void GF_SndStartFadeInBGM(u32 volume, u32 frames, u32 keepVolume);
 u32 GF_SndPlayerCountPlayingSeqByPlayerNo(u32 playerno);
 void InitSoundData(SOUND_CHATOT *chatot, Options *options);
 void GF_SndCallback(void);
@@ -62,7 +62,7 @@ BOOL GF_SndWorkMicCounterFull(void);
 void GF_SndWorkMicCounterReset(void);
 void GF_SndWorkSetGbSoundsVolume(u8 a0);
 u8 GF_SndWorkGetGbSoundsVolume(void);
-void GF_SndStartFadeOutBGM(u16 seqno, u16 length);
+void GF_SndStartFadeOutBGM(u16 volume, u16 frames);
 NNSSndHandle *GF_GetSoundHandle(int playerNo);
 
 #endif // POKEHEARTGOLD_SOUND_H

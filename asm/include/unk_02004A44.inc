@@ -20,6 +20,9 @@
 .public sub_02004A60
 .public GF_GetCurrentPlayingBGM
 .public GF_SetCurrentPlayingBGM
+.public sub_02004AAC
+.public sub_02004AFC
+.public sub_02005318
 .public sub_02004AB8
 .public Sound_SetFieldBGM
 .public Sound_SetScene

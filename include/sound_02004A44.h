@@ -42,6 +42,13 @@ void BGM_SaveStateAndPlayNew(int a0);
 u16 GF_GetCurrentPlayingBGM(); // Cannot put `void` in it since it's sometimes called with an argument (required for matching), sometimes not.
 void sub_020053A8(u8 a0, u8 a1);
 void GF_SND_BGM_DisableSet(u8 a0);
+BOOL GF_SND_BGM_DisableCheck(void);
+void sub_02004A60(u16 seqNo);
+void GF_SetCurrentPlayingBGM(u16 seqNo);
+u16 sub_02004AAC(void);
+void sub_02004AB8(u16 seqNo);
+void Sound_SetFieldBGM(u16 seqNo);
+void sub_02004AFC(u8 scene);
 BOOL sub_02005518(void);
 void Sound_SetSceneAndPlayBGM(u8 scene, u16 seqNo, int unused);
 void GF_SetVolumeBySeqNo(u16 a0, u16 a1);

@@ -105,5 +105,6 @@ compile_commands.json
 # python
 /pyscripts/
 __pycache__
+.local-tools/
 .venv/
 *.pyc

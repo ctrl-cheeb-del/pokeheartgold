@@ -19,7 +19,10 @@ Static main
     Object src/palette.o
     Object src/sound.o
     Object src/sound_radio_sys.o
+    Object src/sound_state.o
     Object asm/unk_02004A44.o
+    Object src/sound_bgm.o
+    Object src/sound_se.o
     Object asm/unk_02005D10.o
     Object src/sound_chatot.o
     Object src/poke_overlay.o

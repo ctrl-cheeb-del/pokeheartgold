@@ -111,3 +111,9 @@ clean_soulsilver:   ; @$(MAKE) GAME_VERSION=SOULSILVER clean
 compare:             compare_heartgold
 
 .PHONY: heartgold soulsilver compare compare_heartgold compare_soulsilver clean_heartgold clean_soulsilver
+
+# Fork progress: first refresh and verify the selected ROM, then report.
+.PHONY: progress
+progress:
+	$(MAKE) COMPARE=1 all
+	python3 tools/progress/progress.py --game $(buildname)

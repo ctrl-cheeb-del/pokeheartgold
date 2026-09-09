@@ -24,7 +24,7 @@ jobs:
           style: 'file' # Use repository .clang-format file
           tidy-checks: '-*' # Disable clang-tidy checks
           version: '19'
-          files-changed-only: false # Github returns error code 406 if more than 300 files are changed in a PR
+          files-changed-only: true # Check this PR's files; upstream has unrelated formatting debt.
           ignore: '.github|lib|subprojects|tools'
           file-annotations: false
 
