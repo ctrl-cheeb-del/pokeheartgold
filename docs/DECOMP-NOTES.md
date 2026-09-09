@@ -739,3 +739,52 @@ converted functions and 19,218 additional mapped C bytes relative to the
 initial baseline. The treemap was refreshed, formatting passed, and GitHub
 CI remained disabled. The reused Sol worker took 3 minutes 59 seconds
 (22:18:58–22:22:57 UTC), excluding integration and ROM verification.
+
+## Fortieth batch: particle contexts (Sol task 5)
+
+Four routines from `0x02014DA0` through `0x02014FA3` move into
+`src/particle_context.c`. They initialize context slots, allocate particle
+heaps and optional cameras, and release VRAM keys, cameras and contexts.
+The private 0xDC-byte context layout preserves the existing public API.
+Original vectors, callback tables and global slots remain in assembly.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 23.041193% to 23.053825% (+0.012632 percentage points), from
+941,212 to 941,728 C bytes out of 4,084,910 mapped bytes. This adds 516 C
+bytes without changing the mapped total. There are now 325 converted
+functions and 19,734 additional mapped C bytes relative to the initial
+baseline. The treemap was refreshed, formatting passed, and GitHub CI
+remained disabled. The reused Sol worker took 3 minutes 30 seconds
+(22:21:35–22:25:05 UTC), excluding integration and ROM verification.
+
+### Five-task Sol experiment results
+
+The experiment began at 22:09:48 UTC on 2026-09-09. All candidates were
+ready by 22:27:36 UTC (17 minutes 48 seconds including setup); final local
+ROM verification completed by 22:49:02 UTC (39 minutes 14 seconds).
+The session allowed only three Sol worker threads, including completed
+threads in that limit, so two workers were reused for the fourth and fifth
+independent tasks. Five simultaneous subagents were not available.
+
+| Task | Functions | New mapped C bytes | Worker time |
+| --- | ---: | ---: | ---: |
+| Frontier cards | 10 | 414 | 5m 23s |
+| Fashion saves | 10 | 556 | 6m 49s |
+| Apricorn saves | 15 | 248 | 14m 45s |
+| Billboard lists | 5 | 340 | 3m 59s |
+| Particle contexts | 4 | 516 | 3m 30s |
+| Total | 44 | 2,074 | 34m 26s summed worker time |
+
+Coverage increased from 23.002906% to 23.053825%, or 0.050919 percentage
+points. Every contribution was integrated separately and both complete
+retail ROM hashes checked before its commit. The Apricorn caller mismatch
+was corrected before committing. All verification was local; build CI
+remained disabled and commit messages included `[skip ci]`.
+
+This small-batch experiment achieved about 53 new mapped C bytes per minute
+through final verification. The previous solo stretch added 11,190 bytes
+in 2h 1m 25s, about 92 bytes per minute. This is not a controlled model
+comparison: the functions and batch sizes differ. Parallel candidate work
+overlapped, but repeated serial ROM builds and integration dominated this
+run, so it did not improve overall throughput. A useful next experiment
+would assign larger independent blocks while retaining the ROM checks.

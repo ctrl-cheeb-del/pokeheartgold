@@ -62,6 +62,7 @@ Static main
     Object src/gf_rtc.o
     Object src/list_menu_items.o
     Object asm/unk_02014A08.o
+    Object src/particle_context.o
     Object asm/unk_02014DA0.o
     Object src/mail_message.o
     Object src/easy_chat.o
