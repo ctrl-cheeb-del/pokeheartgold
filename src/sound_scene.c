@@ -1,6 +1,17 @@
 #include "sound.h"
 #include "sound_02004A44.h"
 
+extern int _021D05E8[4];
+int GF_NNS_SndPlayerGetSeqNo(NNSSndHandle *handle);
+u16 GBSounds_GetDSSeqNoByGBSeqNo(u16 seqNo);
+int GF_GetBankBySeqNo(int seqNo);
+void sub_020059E0(u16 seqNo);
+void sub_02005FD8(void);
+void Sound_Stop(void);
+int sub_02005328(int state);
+void sub_02005150(u16 seqNo, u16 previousSeqNo);
+void sub_020051A4(u16 seqNo, int bankNo);
+
 BOOL sub_02004EB4(u16 seqNo);
 void sub_02005060(int scene);
 void sub_02005AF8(int mode);
@@ -290,4 +301,72 @@ void sub_02005060(int scene) {
     GF_Snd_SaveState(GF_SdatGetAttrPtr(25));
     sub_02004B24(scene);
     GF_Snd_SaveState(GF_SdatGetAttrPtr(26));
+}
+
+void sub_0200508C(u16 seqNo, int mode) {
+    int playingSeqNo;
+    u8 *reload = GF_SdatGetAttrPtr(12);
+    GF_SdatGetAttrPtr(24);
+    GF_SdatGetAttrPtr(32);
+    playingSeqNo = GF_NNS_SndPlayerGetSeqNo(GF_GetSoundHandle(0));
+    u16 currentSeqNo = playingSeqNo;
+    if (playingSeqNo > SEQ_GS_P_START) {
+        currentSeqNo = GBSounds_GetDSSeqNoByGBSeqNo(currentSeqNo);
+    }
+    if (*reload != 0 || currentSeqNo != seqNo || sub_02004AAC() == SEQ_GS_BICYCLE) {
+        sub_020059E0(1);
+        if (_021D05E8[3] == 0 || _021D05E8[1] == 0) {
+            sub_02005FD8();
+            _021D05E8[1] = 1;
+        }
+        if (currentSeqNo != seqNo) {
+            sub_020053A8(1, 0);
+            Sound_Stop();
+        }
+        if (*reload == 1) {
+            GF_Snd_LoadState(sub_02005328(2));
+            sub_02004B24(4);
+            GF_Snd_SaveState(GF_SdatGetAttrPtr(26));
+            if (currentSeqNo != seqNo) {
+                sub_020053A8(1, 0);
+            }
+            sub_02005150(seqNo, (u16)playingSeqNo);
+        } else {
+            PlayBGM(seqNo);
+        }
+    }
+}
+
+void sub_02005150(u16 seqNo, u16 previousSeqNo) {
+    u16 *fieldSeqNo = GF_SdatGetAttrPtr(32);
+    if (GF_GetBankBySeqNo(*fieldSeqNo) == BANK_BASIC) {
+        GF_Snd_LoadSeqEx(seqNo, 4);
+        GF_ASSERT(FALSE);
+    } else {
+        GF_Snd_LoadSeqEx(*fieldSeqNo, 6);
+    }
+    GF_Snd_SaveState(GF_SdatGetAttrPtr(27));
+    sub_020053A8(1, 0);
+    GF_SndStartFadeInBGM(127, 40, 0);
+    sub_020059E0(0);
+}
+
+void sub_020051A4(u16 seqNo, int bankNo) {
+    u8 *reload = GF_SdatGetAttrPtr(19);
+    u16 *fieldSeqNo = GF_SdatGetAttrPtr(32);
+    if (*reload == 1 || bankNo == 0) {
+        GF_Snd_LoadState(sub_02005328(1));
+        sub_02004AFC(0);
+        GF_Snd_LoadSeqEx(*fieldSeqNo, 2);
+        GF_Snd_SaveState(GF_SdatGetAttrPtr(25));
+        sub_02004B24(4);
+        GF_Snd_SaveState(GF_SdatGetAttrPtr(26));
+        if (GF_GetBankBySeqNo(*fieldSeqNo) == BANK_BASIC) {
+            GF_Snd_LoadSeqEx(seqNo, 4);
+            GF_ASSERT(FALSE);
+        } else {
+            GF_Snd_LoadSeqEx(*fieldSeqNo, 4);
+        }
+        GF_Snd_SaveState(GF_SdatGetAttrPtr(27));
+    }
 }

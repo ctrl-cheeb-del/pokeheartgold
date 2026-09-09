@@ -31,6 +31,8 @@
 .public sub_02004EB4
 .public Sound_SetSceneAndPlayBGM
 .public sub_02005060
+.public sub_0200508C
+.public sub_02005150
 .public sub_020051A4
 .public BGM_SaveStateAndPlayNew
 .public sub_02005328

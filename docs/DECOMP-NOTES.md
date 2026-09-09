@@ -300,3 +300,20 @@ increased from 22.693589% to 22.705143% (+0.011554 percentage points), from
 bytes, bringing the total to 65 converted functions and 5,532 additional
 mapped C bytes relative to the initial baseline. The HeartGold treemap was
 refreshed and formatting checks passed. GitHub CI was not used.
+
+## Fourteenth batch: field BGM reload and fade setup
+
+`sub_0200508C`, `sub_02005150`, and `sub_020051A4` move into
+`src/sound_scene.c`, replacing `0x0200508C` through `0x02005227` (412 bytes
+including alignment). The reconstruction preserves GB Sounds sequence
+conversion, bicycle handling, sound state reloads, bank-dependent sequence
+loads, assertion paths, and fade-in setup. Existing sound-state storage
+remains in assembly and is exported for the C references.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.705143% to 22.715191% (+0.010048 percentage points), from
+927,526 to 927,936 C bytes out of 4,085,090 mapped bytes. This adds 410 C
+bytes; two alignment bytes leave the mapped total. There are now 68 converted
+functions and 5,942 additional mapped C bytes relative to the initial
+baseline. The HeartGold treemap was refreshed, formatting passed, and no
+GitHub CI was used.
