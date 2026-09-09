@@ -126,3 +126,24 @@ Validation completed: both full ROMs passed their retail SHA-1 comparisons.
 HeartGold C-only coverage increased by 282 mapped bytes to 922,992. This
 brings the four batches to 25 functions and 998 additional mapped C bytes
 (1,020 original bytes including alignment). Formatting checks passed.
+
+## Fifth batch: sound-effect playback, stopping, and queries
+
+`src/sound_se.c` replaces 13 routines in the contiguous range
+`0x0200602C` through `0x020061B3` (392 bytes including alignment). These
+cover SE playback with optional player/bank selection, pan/volume/pitch
+wrappers, stopping individual sequences or all four SE handles, and
+playback-count queries.
+
+The select/confirm suppression check in `sub_020060BC` uses unsigned
+subtraction to preserve the original range check for all 32-bit sequence
+inputs. Narrowing to 16 bits is retained only where the original does it.
+The playback wrappers expose the success results returned by the assembly;
+existing callers discard them. `GF_IsAnySEPlaying` intentionally checks
+for exactly one active sequence on a player, preserving the original
+comparison rather than replacing it with a broader nonzero check.
+
+Validation completed: both HeartGold and SoulSilver passed the full retail
+ROM hash checks. HeartGold C-only coverage rose by 388 mapped bytes to
+923,380. Across five batches, 38 functions now replace 1,412 original bytes
+including alignment, adding 1,386 mapped C bytes. Formatting checks passed.
