@@ -68,3 +68,24 @@ listed in FORK.md after this batch. The new C file and changed header also
 pass the repository's clang-format rules. HeartGold C-only coverage rose
 from 921,994 to 922,208 mapped bytes (+214); the remaining 10 bytes of the
 224-byte replaced range are alignment no longer included in C symbol sizes.
+
+## Second batch: starting background music
+
+`src/sound_bgm.c` replaces four functions in the contiguous range
+`0x02005D10` through `0x02005DF3` (228 bytes including alignment):
+`sub_02005D10`, `PlayBGM`, `sub_02005DA0`, and `sub_02005DC4`.
+
+This reconstructs the player/handle selection, two supported BGM player
+paths, failure bookkeeping, sound-state updates, and sequence-load setup.
+The `PlayBGM` declaration now returns `BOOL`, matching the success result
+already returned by the original assembly. Existing callers ignore that
+result. The assembly file retains the remaining routines, with the two
+helpers called from C explicitly exported.
+
+The compiler assigned different registers to the handle and success result
+in `sub_02005D10` until their declaration order matched its allocation
+behavior. No inline assembly or register pinning was needed.
+
+Validation completed: both full ROMs passed their retail SHA-1 comparisons.
+HeartGold C-only coverage increased by 226 mapped bytes to 922,434. The
+two-byte difference from the replaced range is function alignment.

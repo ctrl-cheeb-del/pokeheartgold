@@ -48,6 +48,8 @@
 .public GBSounds_SetAllocatableChannels
 .public sub_02005D10
 .public PlayBGM
+.public sub_02005DF4
+.public sub_02006C14
 .public sub_02005E44
 .public StopBGM
 .public GF_SndStartFadeInBGM

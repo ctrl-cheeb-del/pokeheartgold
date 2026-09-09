@@ -39,7 +39,7 @@ BOOL GF_SndGetFadeTimer(void);
 BOOL GF_SndGetAfterFadeDelayTimer(void);
 void GF_SndStopPlayerBgm(void);
 void GF_SndStopPlayerField(void);
-void PlayBGM(u16 seqno);
+BOOL PlayBGM(u16 seqno);
 void GF_SndStartFadeInBGM(u32, u32, u32);
 u32 GF_SndPlayerCountPlayingSeqByPlayerNo(u32 playerno);
 void InitSoundData(SOUND_CHATOT *chatot, Options *options);
