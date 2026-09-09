@@ -432,3 +432,20 @@ bytes; six alignment bytes leave the mapped total. There are now 130
 converted functions and 8,232 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used.
+
+## Twenty-second batch: GB Sounds controls and sequence tables
+
+Fourteen routines from `0x02005B58` through `0x02005D0F` (440 bytes including
+alignment) move into `src/sound_gb.c`. They preserve sequence variable reads,
+volume/pitch presets, GB Sounds toggling, bidirectional sequence lookup,
+channel masks, and sound-state flags. Existing constant tables remain in
+assembly and are exported for C access. The eight-byte player-volume wrapper
+is the only remaining code in `asm/unk_02004A44.s`.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.771550% to 22.782132% (+0.010582 percentage points), from
+930,226 to 930,656 C bytes out of 4,085,026 mapped bytes. This adds 430 C
+bytes; ten alignment bytes leave the mapped total. There are now 144
+converted functions and 8,662 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used.

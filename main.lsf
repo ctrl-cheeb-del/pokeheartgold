@@ -28,6 +28,7 @@ Static main
     Object src/sound_track.o
     Object src/sound_transition.o
     Object asm/unk_02004A44.o
+    Object src/sound_gb.o
     Object src/sound_bgm.o
     Object src/sound_se.o
     Object src/sound_cry.o
