@@ -417,3 +417,18 @@ bytes; eight alignment bytes leave the mapped total. There are now 122
 converted functions and 7,886 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used.
+
+## Twenty-first batch: music transitions and channel allocation
+
+Eight routines from `0x020059F0` through `0x02005B4F` (352 bytes including
+alignment) move into `src/sound_transition.c`. They preserve immediate and
+faded music transitions, queued sequence/bank state, fade timings, channel
+allocation masks, reverb handling, and the pause-or-stop decision.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.763046% to 22.771550% (+0.008504 percentage points), from
+929,880 to 930,226 C bytes out of 4,085,036 mapped bytes. This adds 346 C
+bytes; six alignment bytes leave the mapped total. There are now 130
+converted functions and 8,232 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used.

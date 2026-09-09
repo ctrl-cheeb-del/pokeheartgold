@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "e98dc065c551932f73534df2f057cc8d5b91d432",
+  "commit": "e3ff3a314b815b1a340c03c4b6d09fbb8c5bff2a",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "28b845c412f82ec36710d6361e631c51f81d0ebc431a7004778b0b216fb94d79",
-    "ARM7": "1deb956dbdea97d5a32aa2e7dc698b8d6d06c42b459b37cf8c3bbd3d62bcd2c8"
+    "ARM9": "da37d8c90a6df074208ec2d2eb38299fac46d5e97d9561b1081c96a32c2d8170",
+    "ARM7": "b599c6ac86db7482df7e247779f826091fa408f046872e0adb1e2a380a87f985"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 3128100,
+    "asm": 3127748,
     "mixed": 18270,
-    "c": 929880,
+    "c": 930226,
     "unknown": 8792
   },
   "objects": [
@@ -4619,6 +4619,14 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "sound_transition.o",
+      "bytes": 346,
+      "status": "c",
+      "source": "src/sound_transition.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "sound_wave.o",
       "bytes": 826,
       "status": "c",
@@ -4796,7 +4804,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_02004A44.o",
-      "bytes": 800,
+      "bytes": 448,
       "status": "asm",
       "source": "asm/unk_02004A44.s"
     },
