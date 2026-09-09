@@ -50,7 +50,7 @@ void sub_02004AB8(u16 seqNo);
 void Sound_SetFieldBGM(u16 seqNo);
 void sub_02004AFC(u8 scene);
 BOOL sub_02005518(void);
-void Sound_SetSceneAndPlayBGM(u8 scene, u16 seqNo, int unused);
+BOOL Sound_SetSceneAndPlayBGM(u8 scene, u16 seqNo, int mode);
 void GF_SetVolumeBySeqNo(u16 a0, u16 a1);
 void GF_SndHandleSetPlayerVolume(u32 a0, u32 a1);
 void GF_SndHandleSetInitialVolume(s32 a0, s32 a1);

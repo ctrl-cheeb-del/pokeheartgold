@@ -1,6 +1,17 @@
 #include "sound.h"
 #include "sound_02004A44.h"
 
+BOOL sub_02004EB4(u16 seqNo);
+void sub_02005060(int scene);
+void sub_02005AF8(int mode);
+void sub_0200508C(u16 seqNo, int mode);
+void sub_02005228(u16 seqNo, int mode);
+void sub_02005260(u16 seqNo, int mode);
+void sub_02005280(u16 seqNo, int mode);
+void sub_020052A4(u16 seqNo, int mode);
+void sub_020052C8(int scene);
+void sub_020052E4(int scene, u16 seqNo, int mode);
+
 BOOL sub_02004B24(int scene) {
     BOOL success;
     switch (scene) {
@@ -168,4 +179,115 @@ BOOL sub_02004B24(int scene) {
         break;
     }
     return success;
+}
+
+BOOL sub_02004EB4(u16 seqNo) {
+    return Sound_SetSceneAndPlayBGM(4, seqNo, 1);
+}
+
+BOOL Sound_SetSceneAndPlayBGM(u8 scene, u16 seqNo, int mode) {
+    u8 *primary = GF_SdatGetAttrPtr(21);
+    u8 *secondary = GF_SdatGetAttrPtr(22);
+    u16 *fanfareWait = GF_SdatGetAttrPtr(14);
+    if (scene < 51) {
+        if (*primary == scene) {
+            return FALSE;
+        }
+    } else {
+        if (*secondary == scene) {
+            return FALSE;
+        }
+    }
+    Sound_SetScene(scene);
+    switch (scene) {
+    case 4:
+        sub_02005AF8(0);
+        sub_0200508C(seqNo, mode);
+        *fanfareWait = 0;
+        break;
+    case 5:
+        sub_02005228(seqNo, mode);
+        break;
+    case 11:
+        sub_02005260(seqNo, mode);
+        break;
+    case 6:
+        sub_02005280(seqNo, mode);
+        break;
+    case 7:
+        sub_020052A4(seqNo, mode);
+        break;
+    case 51:
+    case 52:
+    case 53:
+    case 54:
+    case 55:
+    case 56:
+    case 57:
+    case 58:
+    case 59:
+    case 60:
+    case 61:
+    case 62:
+    case 63:
+    case 64:
+    case 65:
+    case 66:
+    case 67:
+    case 69:
+    case 70:
+    case 71:
+    case 72:
+    case 74:
+        sub_020052C8(scene);
+        break;
+    case 68:
+        sub_020052C8(scene);
+        PlayBGM(seqNo);
+        break;
+    case 1:
+        sub_02005AF8(1);
+        sub_020052E4(scene, seqNo, mode);
+        break;
+    case 14:
+        sub_02005AF8(2);
+        sub_020052E4(scene, seqNo, mode);
+        break;
+    case 2:
+        sub_02005AF8(0);
+        sub_020052E4(scene, seqNo, mode);
+        break;
+    case 3:
+    case 8:
+    case 9:
+    case 10:
+    case 12:
+    case 13:
+    case 15:
+    case 16:
+    case 17:
+    case 18:
+    case 19:
+    case 20:
+    case 21:
+    case 23:
+    case 24:
+    case 25:
+    case 73:
+        sub_020052E4(scene, seqNo, mode);
+        break;
+    case 22:
+        sub_020052E4(scene, seqNo, mode);
+        break;
+    default:
+        return FALSE;
+    }
+    return TRUE;
+}
+
+void sub_02005060(int scene) {
+    GF_Snd_LoadState(*(int *)GF_SdatGetAttrPtr(24));
+    GF_Snd_SaveState(GF_SdatGetAttrPtr(25));
+    sub_02004B24(scene);
+    GF_Snd_SaveState(GF_SdatGetAttrPtr(26));
 }

@@ -283,3 +283,20 @@ bytes, bringing the total to 62 converted functions and 5,060 additional
 mapped C bytes relative to the initial baseline. The HeartGold treemap was
 refreshed and formatting checks passed. GitHub build CI remains disabled;
 validation used local builds only.
+
+## Thirteenth batch: sound scene switching
+
+`sub_02004EB4`, `Sound_SetSceneAndPlayBGM`, and `sub_02005060` move into
+`src/sound_scene.c`, replacing `0x02004EB4` through `0x0200508B` (472 bytes).
+The C preserves the separate primary and secondary scene checks, scene-specific
+BGM dispatch, fanfare timer reset, and sound heap state restoration/save order.
+The public scene-switch declaration now exposes its existing Boolean return
+value, and names the forwarded third argument `mode` instead of `unused`.
+The remaining assembly declares the moved state-loading helper as external.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.693589% to 22.705143% (+0.011554 percentage points), from
+927,054 to 927,526 C bytes out of 4,085,092 mapped bytes. This adds 472 C
+bytes, bringing the total to 65 converted functions and 5,532 additional
+mapped C bytes relative to the initial baseline. The HeartGold treemap was
+refreshed and formatting checks passed. GitHub CI was not used.
