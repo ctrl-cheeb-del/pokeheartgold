@@ -181,3 +181,26 @@ SHA-1 comparisons locally. This batch adds 194 mapped C bytes (the other two
 bytes are alignment), bringing HeartGold C-only coverage to 923,874 bytes.
 The seven batches total 45 functions and 1,880 additional mapped C bytes.
 Formatting checks passed; no GitHub CI run was started.
+
+## Eighth batch: extended cry playback
+
+`PlayCryEx` moves into `src/sound_cry.c`, replacing the 1,148-byte range
+`0x020063A4` through `0x0200681F`. The C reconstruction retains all 15
+playback modes, the Chatot-specific path, wave-output setup, pitch changes,
+chorus settings, and timer setup. Its prototype exposes the TRUE return
+value already present in the original assembly.
+
+The scratch object has the same size and identical bytes outside call
+relocations. Matching required declaring the pan/volume temporaries before
+the attribute pointers and retaining an explicit Chatot species argument
+inside the Chatot branch. No inline assembly or register pinning is used.
+
+Before this batch, HeartGold C-only mapped-byte coverage was 22.615679%
+(923,874 of 4,085,104 mapped code bytes).
+
+Validation completed: both full ROMs passed their retail SHA-1 comparisons
+locally. Coverage increased from 22.615679% to 22.643781% (+0.028102
+percentage points), with 925,022 C-only bytes out of 4,085,104 mapped bytes.
+This adds 1,148 C bytes and brings the total to 46 converted functions and
+3,028 additional mapped C bytes. Formatting checks passed. No GitHub CI was
+started.
