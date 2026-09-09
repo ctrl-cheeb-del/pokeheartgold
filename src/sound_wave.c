@@ -1,5 +1,16 @@
+#include "heap.h"
 #include "sound.h"
 #include "sound_02004A44.h"
+
+typedef struct WaveArcInfo {
+    u32 fileId : 24;
+    u32 flags : 8;
+} WaveArcInfo;
+const WaveArcInfo *NNS_SndArcGetWaveArcInfo(int waveArcNo);
+u32 NNS_SndArcGetFileSize(u32 fileId);
+s32 NNS_SndArcReadFile(u32 fileId, void *buffer, u32 size, s32 offset);
+BOOL sub_020057AC(int waveArcNo, int volume, int pan, int channel, int heapId);
+void sub_02005898(void *buffer, u32 size);
 
 BOOL sub_02005600(int channel);
 NNSSndWaveOutHandle NNS_SndWaveOutAllocChannel(int channel);
@@ -112,5 +123,72 @@ void sub_02005774(int channel, int volume) {
         NNS_SndWaveOutSetVolume(*sub_020055AC(channel), volume / 5);
     } else {
         NNS_SndWaveOutSetVolume(*sub_020055AC(channel), volume);
+    }
+}
+
+BOOL sub_020057AC(int waveArcNo, int volume, int pan, int channel, int heapId) {
+    GetSoundDataPointer();
+    void **buffer = GF_SdatGetAttrPtr(34);
+    const WaveArcInfo *info;
+    u32 size;
+    UnkStruct_02004A44_0 param;
+    BOOL success;
+    GF_ASSERT(channel == 14 || channel == 15);
+    info = NNS_SndArcGetWaveArcInfo(waveArcNo);
+    if (info == NULL) {
+        GF_ASSERT(FALSE);
+        return FALSE;
+    }
+    size = NNS_SndArcGetFileSize(info->fileId);
+    if (size == 0) {
+        GF_ASSERT(FALSE);
+        return FALSE;
+    }
+    if (channel == 14) {
+        *buffer = Heap_Alloc((enum HeapID)heapId, size);
+        if (*buffer == NULL) {
+            GF_ASSERT(FALSE);
+            return FALSE;
+        }
+        memset(*buffer, 0, size);
+        if (NNS_SndArcReadFile(info->fileId, *buffer, size, 0) == -1) {
+            GF_ASSERT(FALSE);
+            return FALSE;
+        }
+        sub_02005898(*buffer, size);
+    }
+    param.unk00 = sub_020055AC(channel);
+    param.unk04 = NNS_SND_WAVE_FORMAT_PCM8;
+    param.unk08 = *buffer;
+    param.unk0c = 0;
+    param.unk10 = 0;
+    param.unk14 = size;
+    param.unk18 = 13379;
+    param.unk1c = volume;
+    param.unk20 = 24576;
+    param.unk24 = pan;
+    success = sub_020056E8(&param, channel);
+    sub_02005774(channel, volume);
+    *(u8 *)GF_SdatGetAttrPtr(15) = 1;
+    return success;
+}
+void sub_02005898(void *buffer, u32 size) {
+    u8 *data = buffer;
+    u32 i;
+    for (i = 0; i < size / 2; i++) {
+        u8 temp = data[i];
+        data[i] = data[size - 1 - i];
+        data[size - 1 - i] = temp;
+    }
+}
+void sub_020058B8(int channel) {
+    GetSoundDataPointer();
+    u8 *allocated = GF_SdatGetAttrPtr(15);
+    void **buffer = GF_SdatGetAttrPtr(34);
+    GF_ASSERT(channel == 14 || channel == 15);
+    sub_02005728(channel);
+    if (*allocated == 1) {
+        *allocated = 0;
+        Heap_Free(*buffer);
     }
 }

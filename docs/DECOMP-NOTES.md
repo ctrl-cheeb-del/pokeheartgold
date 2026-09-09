@@ -385,3 +385,19 @@ bytes; twelve alignment bytes leave the mapped total. There are now 104
 converted functions and 7,316 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used.
+
+## Nineteenth batch: wave-file loading and cleanup
+
+Three routines from `0x020057AC` through `0x020058F3` (328 bytes including
+alignment) move into `src/sound_wave.c`. They preserve wave archive lookup,
+24-bit file IDs, heap allocation, file reads, byte reversal, playback setup,
+and buffer cleanup, including the original failure and assertion paths.
+The cry caller's declaration now exposes the existing Boolean return value.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.749037% to 22.757029% (+0.007992 percentage points), from
+929,310 to 929,636 C bytes out of 4,085,050 mapped bytes. This adds 326 C
+bytes; two alignment bytes leave the mapped total. There are now 107
+converted functions and 7,642 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used.

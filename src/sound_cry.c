@@ -36,7 +36,7 @@ void sub_02005774(int handleNo, int volume);
 void sub_02006838(int frames, int heapId);
 BOOL sub_02006AC0(u16 species, int pitch, u8 form);
 BOOL sub_02005600(int handleNo);
-void sub_020057AC(u16 species, int volume, int pan, int handleNo, int heapId);
+BOOL sub_020057AC(int waveArcNo, int volume, int pan, int channel, int heapId);
 void sub_02005760(int handleNo, int speed);
 void sub_02006AF4(u16 species, int pitch, int volume, int pan, int heapId);
 
