@@ -562,3 +562,20 @@ bytes; ten alignment bytes leave the mapped total. There are now 184
 converted functions and 11,346 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used.
+
+## Thirtieth batch: battle-record lifecycle and save state
+
+Twelve routines from `0x0202FBCC` through `0x0202FF07` (828 bytes including
+alignment) move into `src/battle_record.c`. They initialize and manage the
+record buffer, load and validate saved records, drive asynchronous writes,
+prepare checksums and encryption, and select participant/party counts.
+The save structure exposes its initialized first word while retaining the
+original total size and remaining layout.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.848081% to 22.868313% (+0.020232 percentage points), from
+933,340 to 934,166 C bytes out of 4,084,980 mapped bytes. This adds 826 C
+bytes; two alignment bytes leave the mapped total. There are now 196
+converted functions and 12,172 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used.

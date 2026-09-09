@@ -5,7 +5,8 @@
 #include "save.h"
 
 struct UnkStruct_0202FBCC {
-    u8 filler_0000[0x1D50];
+    u32 unk_0000;
+    u8 filler_0004[0x1D4C];
 }; // related to Battle Hall, size=0x1D50
 
 void sub_0202FBF0(SaveData *save, enum HeapID heapID, u32 *out);
