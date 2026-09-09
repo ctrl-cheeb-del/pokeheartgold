@@ -54,6 +54,10 @@ BOOL sub_02013B24(FontSplit *split, FontGlyphNode *list, enum HeapID heapId);
 u32 sub_02013CD0(Window *window, FontGlyphNode *node, FontSpriteData *proxy, int blockSize, GXOBJVRamModeChar mode, volatile u32 offset, int vram, enum HeapID heapId);
 u32 sub_02013DE0(Window *window, FontGlyphNode *node, void *buffer, u32 offset, int blockSize, GXOBJVRamModeChar mode, enum HeapID heapId);
 
+Sprite *sub_02013EF0(const TextOBJTemplate *template, FontGlyphNode *node, FontSpriteData *proxy);
+void sub_02013F94(FontGlyphNode *node);
+void sub_02013FD0(TextOBJ *object, const Sprite *sprite);
+
 UnkStruct_02013534 *FontSystem_NewInit(int count, enum HeapID heapId) {
     UnkStruct_02013534 *system = Heap_Alloc(heapId, sizeof(UnkStruct_02013534));
     GF_ASSERT(system != NULL);
@@ -435,4 +439,77 @@ int sub_02013E24(FontGlyphNode *list, NNS_G2D_VRAM_TYPE vram) {
         size += tiles * 32;
     }
     return size;
+}
+
+void sub_02013E78(const TextOBJTemplate *template, FontGlyphNode *list, FontSpriteData *sprites, TextOBJ *object) {
+    int i = 0;
+    for (FontGlyphNode *node = list->prev; node != list; node = node->prev) {
+        ((FontSpriteEntry *)object->unk_00)[i].sprite = sub_02013EF0(template, node, sprites);
+        GF_ASSERT(((FontSpriteEntry *)object->unk_00)[i].sprite != NULL);
+        ((FontSpriteEntry *)object->unk_00)[i].x = node->x * 8;
+        ((FontSpriteEntry *)object->unk_00)[i].y = node->y * 8;
+        sprites++;
+        i++;
+    }
+}
+void sub_02013ECC(TextOBJ *object) {
+    for (int i = 0; i < object->unk_04; i++) {
+        Sprite_Delete(((FontSpriteEntry *)object->unk_00)[i].sprite);
+    }
+}
+Sprite *sub_02013EF0(const TextOBJTemplate *template, FontGlyphNode *node, FontSpriteData *proxy) {
+    SimpleSpriteTemplate sprite;
+    SpriteResourcesHeader header;
+    header.imageProxy = proxy;
+    header.charData = NULL;
+    header.plttProxy = template->plttResourceProxy;
+    header.cellData = template->fontSystem->cellBanks[node->index];
+    header.cellAnim = NULL;
+    header.multiCellData = NULL;
+    header.multiCellAnim = NULL;
+    header.flag = 0;
+    header.priority = template->unk_20;
+    sprite.spriteList = template->spriteList;
+    sprite.header = &header;
+    sprite.priority = template->unk_24;
+    sprite.whichScreen = (NNS_G2D_VRAM_TYPE)template->vram;
+    sprite.heapID = template->heapID;
+    sprite.position.x = 0;
+    sprite.position.y = 0;
+    sprite.position.z = 0;
+    if (template->sprite != NULL) {
+        sprite.position = *Sprite_GetMatrixPtr(template->sprite);
+    }
+    sprite.position.x += (template->x + node->x * 8) << FX32_SHIFT;
+    sprite.position.y += (template->y + node->y * 8) << FX32_SHIFT;
+    return Sprite_Create(&sprite);
+}
+FontGlyphNode *sub_02013F78(enum HeapID heapId) {
+    FontGlyphNode *node = Heap_AllocAtEnd(heapId, sizeof(FontGlyphNode));
+    GF_ASSERT(node != NULL);
+    node->prev = NULL;
+    node->next = NULL;
+    return node;
+}
+void sub_02013F94(FontGlyphNode *node) {
+    GF_ASSERT(node != NULL);
+    Heap_Free(node);
+}
+void sub_02013FA8(FontGlyphNode *list) {
+    FontGlyphNode *node = list->prev;
+    while (node != list) {
+        FontGlyphNode *next = node->prev;
+        sub_02013F94(node);
+        node = next;
+    }
+}
+void sub_02013FC0(FontGlyphNode *node, FontGlyphNode *previous) {
+    node->prev = previous->prev;
+    node->next = previous;
+    previous->prev->next = node;
+    previous->prev = node;
+}
+void sub_02013FD0(TextOBJ *object, const Sprite *sprite) {
+    object->unk_08 = sprite;
+    sub_02013728(object);
 }

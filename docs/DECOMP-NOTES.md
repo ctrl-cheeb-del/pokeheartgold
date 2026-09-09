@@ -546,3 +546,19 @@ increased from 22.826336% to 22.839555% (+0.013219 percentage points), from
 bytes. There are now 176 converted functions and 11,000 additional mapped C
 bytes relative to the initial baseline. The HeartGold treemap was refreshed,
 formatting passed, and GitHub CI was not used.
+
+## Twenty-ninth batch: finish font sprite code
+
+Eight routines from `0x02013E78` through `0x02013FDB` (356 bytes including
+alignment) move into `src/font_sprite.c`. They construct sprite resources
+and positions, delete sprites, allocate and release glyph nodes, link nodes,
+and update the parent sprite. The original font assembly unit now contains
+only its glyph dimension table; all its executable code is in C.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.839555% to 22.848081% (+0.008526 percentage points), from
+932,994 to 933,340 C bytes out of 4,084,982 mapped bytes. This adds 346 C
+bytes; ten alignment bytes leave the mapped total. There are now 184
+converted functions and 11,346 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used.
