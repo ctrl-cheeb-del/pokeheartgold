@@ -401,3 +401,19 @@ bytes; two alignment bytes leave the mapped total. There are now 107
 converted functions and 7,642 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used.
+
+## Twentieth batch: capture, track controls, and fade-delay state
+
+Fifteen routines from `0x020058F4` through `0x020059EF` (252 bytes including
+alignment) move into `src/sound_track.c`. They preserve capture queries and
+reverb stop, pitch/pan/tempo dispatch, mono state, fade timer writes and
+countdown, master volume, scratch-buffer access, and the sequence reload
+flag. The remaining assembly imports its three moved helper dependencies.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.757029% to 22.763046% (+0.006017 percentage points), from
+929,636 to 929,880 C bytes out of 4,085,042 mapped bytes. This adds 244 C
+bytes; eight alignment bytes leave the mapped total. There are now 122
+converted functions and 7,886 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used.

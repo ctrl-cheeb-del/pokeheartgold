@@ -136,3 +136,7 @@
 .public MIC_StopAutoSampling
 .public memset
 .public _s32_div_f
+
+.public sub_020059A0
+.public sub_02005910
+.public sub_020058F4
