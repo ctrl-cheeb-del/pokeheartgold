@@ -699,3 +699,26 @@ converted functions and 18,630 additional mapped C bytes relative to the
 initial baseline. The treemap was refreshed, formatting passed, and GitHub
 CI remained disabled. The Sol worker took 6 minutes 49 seconds
 (22:12:38–22:19:27 UTC), excluding integration and ROM verification.
+
+## Thirty-eighth batch: Apricorn save helpers (Sol task 3)
+
+Fifteen routines from `0x02031B0C` through `0x02031C07` move into
+`src/apricorn_save.c`. They initialize the 128-byte save, manage Apricorn
+quantities and Kurt's selection, and access packed state. The original ball
+table remains in assembly. The Give function now declares its actual return;
+its byte-sized quantity parameter is retained and widened internally so
+existing callers also remain byte-identical.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 23.026754% to 23.032847% (+0.006094 percentage points), from
+940,624 to 940,872 C bytes out of 4,084,914 mapped bytes. This adds 248 C
+bytes; four alignment bytes leave the mapped total. There are now 316
+converted functions and 18,878 additional mapped C bytes relative to the
+initial baseline. The treemap was refreshed, formatting passed, and GitHub
+CI remained disabled.
+
+The Sol worker took 14 minutes 45 seconds (22:12:51–22:27:36 UTC).
+Integration caught a script-caller mismatch caused by initially widening
+the public quantity parameter. Preserving that parameter and using a local
+int fixed the caller while retaining the matching helper implementation;
+both complete ROM checks passed after the correction.

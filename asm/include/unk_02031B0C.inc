@@ -46,3 +46,7 @@
 .public sub_02032308
 .public MI_CpuFill8
 .public _u32_div_f
+.public InitApricornBox
+.public sub_02031B3C
+.public sub_02031B5C
+.public ApricornBox_TakeApricorn
