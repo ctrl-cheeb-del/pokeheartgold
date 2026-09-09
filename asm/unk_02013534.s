@@ -4,6 +4,7 @@
 
 	.rodata
 
+	.public _020F5F2C
 _020F5F2C:
 	.byte 0x08
 _020F5F2D:
@@ -12,134 +13,6 @@ _020F5F2D:
 	.byte 0x01, 0x02, 0x01, 0x01
 
 	.text
-
-	thumb_func_start sub_02013A50
-sub_02013A50: ; 0x02013A50
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	add r6, r0, #0
-	ldr r0, [sp, #0x20]
-	add r7, r1, #0
-	str r0, [sp, #0x20]
-	ldr r0, [sp, #0x24]
-	ldrb r1, [r6, #7]
-	str r0, [sp, #0x24]
-	add r0, r3, #0
-	add r0, r7, r0
-	str r2, [sp]
-	str r3, [sp, #4]
-	cmp r1, r0
-	bge _02013A72
-	bl GF_AssertFail
-_02013A72:
-	ldrb r2, [r6, #8]
-	ldr r1, [sp]
-	ldr r0, [sp, #0x20]
-	add r0, r1, r0
-	cmp r2, r0
-	bge _02013A82
-	bl GF_AssertFail
-_02013A82:
-	ldr r0, [sp]
-	mov r4, #0
-	cmp r0, #0
-	ble _02013ABA
-	lsl r0, r7, #5
-	add r5, r4, #0
-	str r0, [sp, #8]
-_02013A90:
-	ldrb r1, [r6, #7]
-	ldr r0, [sp, #0x20]
-	add r2, r1, #0
-	add r0, r4, r0
-	mul r2, r0
-	ldr r0, [sp, #4]
-	lsl r1, r5, #5
-	add r2, r2, r0
-	ldr r0, [sp, #0x24]
-	lsl r2, r2, #5
-	add r0, r0, r1
-	ldr r1, [r6, #0xc]
-	add r1, r1, r2
-	ldr r2, [sp, #8]
-	bl memcpy
-	ldr r0, [sp]
-	add r4, r4, #1
-	add r5, r5, r7
-	cmp r4, r0
-	blt _02013A90
-_02013ABA:
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end sub_02013A50
-
-	thumb_func_start sub_02013AC0
-sub_02013AC0: ; 0x02013AC0
-	mov r2, #0x14
-	mov r1, #0
-_02013AC4:
-	strb r1, [r0]
-	add r0, r0, #1
-	sub r2, r2, #1
-	bne _02013AC4
-	bx lr
-	.balign 4, 0
-	thumb_func_end sub_02013AC0
-
-	thumb_func_start sub_02013AD0
-sub_02013AD0: ; 0x02013AD0
-	ldr r1, [r0, #0x64]
-	mov r2, #0
-	cmp r1, #0
-	ble _02013AF4
-	ldr r3, [r0, #0x60]
-_02013ADA:
-	ldr r1, [r3]
-	cmp r1, #0
-	bne _02013AEA
-	ldr r1, [r0, #0x60]
-	mov r0, #0x14
-	mul r0, r2
-	add r0, r1, r0
-	bx lr
-_02013AEA:
-	ldr r1, [r0, #0x64]
-	add r2, r2, #1
-	add r3, #0x14
-	cmp r2, r1
-	blt _02013ADA
-_02013AF4:
-	mov r0, #0
-	bx lr
-	thumb_func_end sub_02013AD0
-
-	thumb_func_start sub_02013AF8
-sub_02013AF8: ; 0x02013AF8
-	push {r3, r4}
-	ldr r4, _02013B20 ; =_020F5F2C
-	mov r3, #0
-_02013AFE:
-	ldrb r2, [r4]
-	cmp r2, r0
-	bgt _02013B10
-	ldrb r2, [r4, #1]
-	cmp r2, r1
-	bgt _02013B10
-	add r0, r3, #0
-	pop {r3, r4}
-	bx lr
-_02013B10:
-	add r3, r3, #1
-	add r4, r4, #2
-	cmp r3, #0xc
-	blt _02013AFE
-	mov r0, #0xc
-	pop {r3, r4}
-	bx lr
-	nop
-_02013B20: .word _020F5F2C
-	thumb_func_end sub_02013AF8
 
 	thumb_func_start sub_02013B24
 sub_02013B24: ; 0x02013B24

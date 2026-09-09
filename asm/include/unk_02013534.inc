@@ -49,3 +49,9 @@
 .public DC_FlushRange
 .public memcpy
 .public memset
+
+.public sub_02013AC0
+
+.public sub_02013AD0
+
+.public sub_02013AF8

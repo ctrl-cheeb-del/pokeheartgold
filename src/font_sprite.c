@@ -38,6 +38,9 @@ struct UnkStruct_02013910 {
 };
 void sub_02013D88(Window *window, void *buffer, FontGlyphNode *list, NNS_G2D_VRAM_TYPE vram, enum HeapID heapId);
 
+extern const u8 _020F5F2C[12][2];
+int sub_02013AF8(int width, int height);
+
 UnkStruct_02013534 *FontSystem_NewInit(int count, enum HeapID heapId) {
     UnkStruct_02013534 *system = Heap_Alloc(heapId, sizeof(UnkStruct_02013534));
     GF_ASSERT(system != NULL);
@@ -244,4 +247,43 @@ void TextOBJ_CopyFromBGWindow(TextOBJ *object, UnkStruct_02013910 *layout, Windo
         GXS_LoadOBJ(buffer, NNS_G2dGetImageLocation(proxy, NNS_G2D_VRAM_TYPE_2DSUB), size);
     }
     Heap_Free(buffer);
+}
+
+void sub_02013A50(Window *window, int width, int height, int x, int y, void *charBuf) {
+    // Retain the original per-row width read and address calculation order.
+    int sourceOffset;
+    GF_ASSERT(window->width >= width + x);
+    GF_ASSERT(window->height >= height + y);
+    for (int i = 0; i < height; i++) {
+        sourceOffset = ((volatile Window *)window)->width * (i + y);
+        sourceOffset += x;
+        memcpy((u8 *)charBuf + i * width * 32, (u8 *)window->pixelBuffer + sourceOffset * 32, width * 32);
+    }
+}
+void sub_02013AC0(TextOBJ *object) {
+    memset(object, 0, sizeof(TextOBJ));
+}
+TextOBJ *sub_02013AD0(UnkStruct_02013534 *input) {
+    // Keep the original pool metadata reads at each iteration and on return.
+    volatile UnkStruct_02013534 *system = input;
+    int i = 0;
+    if (i < system->capacity) {
+        TextOBJ *object = system->objects;
+        do {
+            if (object->unk_00 == NULL) {
+                return system->objects + i;
+            }
+            i++;
+            object++;
+        } while (i < system->capacity);
+    }
+    return NULL;
+}
+int sub_02013AF8(int width, int height) {
+    for (int i = 0; i < 12; i++) {
+        if (_020F5F2C[i][0] <= width && _020F5F2C[i][1] <= height) {
+            return i;
+        }
+    }
+    return 12;
 }

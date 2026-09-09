@@ -500,3 +500,20 @@ bytes; six alignment bytes leave the mapped total. There are now 165
 converted functions and 9,940 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used.
+
+## Twenty-sixth batch: tile copies and font object pool
+
+Four routines from `0x02013A50` through `0x02013B23` (212 bytes including
+alignment) move into `src/font_sprite.c`. They preserve checked row copies
+from a window, object reset, the first-free-object scan, and glyph-size
+selection. Targeted volatile reads retain the original row-width and pool
+metadata accesses, with the source offset calculation kept in its original
+order for matching.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.813584% to 22.818698% (+0.005114 percentage points), from
+931,934 to 932,142 C bytes out of 4,084,992 mapped bytes. This adds 208 C
+bytes; four alignment bytes leave the mapped total. There are now 169
+converted functions and 10,148 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used.
