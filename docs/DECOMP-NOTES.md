@@ -481,3 +481,22 @@ bytes; eighteen alignment bytes leave the mapped total. There are now 158
 converted functions and 9,578 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used.
+
+## Twenty-fifth batch: reusable font layouts and window copies
+
+Seven routines from `0x020138E0` through `0x02013A4F` (368 bytes including
+alignment) move into `src/font_sprite.c`. They cover palette offsets,
+reusable glyph-layout allocation and cleanup, layout sizing, text-object
+creation/destruction, and copying a window to main or sub OBJ VRAM. Layout
+sentinels, allocation sizes, cache flushing, and original call order are
+preserved. Palette setter arguments retain full-width values until their
+byte-sized storage field; correcting those declarations preserves the
+original battle caller without adding narrowing instructions.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.804689% to 22.813584% (+0.008895 percentage points), from
+931,572 to 931,934 C bytes out of 4,084,996 mapped bytes. This adds 362 C
+bytes; six alignment bytes leave the mapped total. There are now 165
+converted functions and 9,940 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used.

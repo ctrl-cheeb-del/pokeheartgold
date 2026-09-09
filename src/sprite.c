@@ -381,14 +381,14 @@ int Sprite_GetPalIndex(Sprite *sprite) {
     return sprite->palIndex;
 }
 
-void Sprite_SetPalOffset(Sprite *sprite, u8 offset) {
+void Sprite_SetPalOffset(Sprite *sprite, int offset) {
     GF_ASSERT(sprite != NULL);
     sprite->palOffset = offset;
     sprite->overwrite |= NNS_G2D_RND_OVERWRITE_PLTTNO_OFFS;
     sprite->overwrite &= ~NNS_G2D_RND_OVERWRITE_PLTTNO;
 }
 
-void Sprite_SetPalOffsetRespectVramOffset(Sprite *sprite, u8 offset) {
+void Sprite_SetPalOffsetRespectVramOffset(Sprite *sprite, int offset) {
     Sprite_SetPalOffset(sprite, offset);
     sprite->palOffset += Sprite_GetPaletteVramOffset(&sprite->paletteProxy, sprite->type);
 }

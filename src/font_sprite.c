@@ -26,11 +26,17 @@ typedef struct FontSpriteData {
 TextOBJ *sub_02013AD0(UnkStruct_02013534 *system);
 int sub_02013BD4(int width, int height, enum HeapID heapId, FontGlyphNode *list);
 void sub_02013C5C(Window *window, FontGlyphNode *list, FontSpriteData *sprites, u32 offset, int vram, enum HeapID heapId);
-void sub_02013E78(TextOBJTemplate *template, FontGlyphNode *list, FontSpriteData *sprites, TextOBJ *object);
+void sub_02013E78(const TextOBJTemplate *template, FontGlyphNode *list, FontSpriteData *sprites, TextOBJ *object);
 void sub_02013FA8(FontGlyphNode *list);
 void sub_02013ECC(TextOBJ *object);
 void sub_02013AC0(TextOBJ *object);
 int sub_02013E24(FontGlyphNode *list, NNS_G2D_VRAM_TYPE vram);
+
+struct UnkStruct_02013910 {
+    FontGlyphNode list;
+    int count;
+};
+void sub_02013D88(Window *window, void *buffer, FontGlyphNode *list, NNS_G2D_VRAM_TYPE vram, enum HeapID heapId);
 
 UnkStruct_02013534 *FontSystem_NewInit(int count, enum HeapID heapId) {
     UnkStruct_02013534 *system = Heap_Alloc(heapId, sizeof(UnkStruct_02013534));
@@ -181,4 +187,61 @@ void sub_020138B0(TextOBJ *object, u8 value) {
     for (int i = 0; i < object->unk_04; i++) {
         Sprite_SetPalOffset(((FontSpriteEntry *)object->unk_00)[i].sprite, value);
     }
+}
+
+void sub_020138E0(TextOBJ *object, int value) {
+    GF_ASSERT(object != NULL);
+    for (int i = 0; i < object->unk_04; i++) {
+        Sprite_SetPalOffsetRespectVramOffset(((FontSpriteEntry *)object->unk_00)[i].sprite, value);
+    }
+}
+UnkStruct_02013910 *sub_02013910(Window *window, enum HeapID heapId) {
+    UnkStruct_02013910 *layout = Heap_Alloc(heapId, sizeof(UnkStruct_02013910));
+    layout->list.prev = &layout->list;
+    layout->list.next = &layout->list;
+    layout->count = sub_02013BD4(window->width, window->height, heapId, &layout->list);
+    return layout;
+}
+void sub_02013938(UnkStruct_02013910 *layout) {
+    sub_02013FA8(&layout->list);
+    Heap_Free(layout);
+}
+u32 sub_02013948(UnkStruct_02013910 *layout, NNS_G2D_VRAM_TYPE vram) {
+    return sub_02013E24(&layout->list, vram);
+}
+TextOBJ *TextOBJ_Create(const TextOBJTemplate *template, UnkStruct_02013910 *layout) {
+    TextOBJ *object;
+    FontSpriteData *sprites;
+    GF_ASSERT(template != NULL);
+    object = sub_02013AD0(template->fontSystem);
+    GF_ASSERT(object != NULL);
+    object->unk_08 = template->sprite;
+    object->unk_0C = template->x;
+    object->unk_10 = template->y;
+    sprites = Heap_AllocAtEnd(template->heapID, sizeof(FontSpriteData) * layout->count);
+    object->unk_00 = Heap_Alloc(template->heapID, sizeof(FontSpriteEntry) * layout->count);
+    object->unk_04 = layout->count;
+    sub_02013C5C(template->window, &layout->list, sprites, template->offset, template->vram, template->heapID);
+    sub_02013E78(template, &layout->list, sprites, object);
+    Heap_Free(sprites);
+    return object;
+}
+void TextOBJ_Destroy(TextOBJ *object) {
+    FontOAM_Delete(object);
+}
+void TextOBJ_CopyFromBGWindow(TextOBJ *object, UnkStruct_02013910 *layout, Window *window, enum HeapID heapId) {
+    Sprite *sprite = ((FontSpriteEntry *)object->unk_00)[0].sprite;
+    NNS_G2D_VRAM_TYPE vram = Sprite_GetVramType(sprite);
+    u32 size = sub_02013948(layout, vram);
+    void *buffer = Heap_AllocAtEnd(heapId, size);
+    memset(buffer, 0, size);
+    sub_02013D88(window, buffer, &layout->list, vram, heapId);
+    DC_FlushRange(buffer, size);
+    NNSG2dImageProxy *proxy = Sprite_GetImageProxy(sprite);
+    if (vram == NNS_G2D_VRAM_TYPE_2DMAIN) {
+        GX_LoadOBJ(buffer, NNS_G2dGetImageLocation(proxy, NNS_G2D_VRAM_TYPE_2DMAIN), size);
+    } else {
+        GXS_LoadOBJ(buffer, NNS_G2dGetImageLocation(proxy, NNS_G2D_VRAM_TYPE_2DSUB), size);
+    }
+    Heap_Free(buffer);
 }
