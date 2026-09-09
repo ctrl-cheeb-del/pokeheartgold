@@ -102,3 +102,5 @@
 .public sub_02006A30
 
 .public sub_020068F8
+
+.public sub_02006A0C

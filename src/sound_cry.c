@@ -326,3 +326,84 @@ void sub_020068F8(void) {
     }
     *task = NULL;
 }
+
+void sub_02006920(int pattern, u16 species, int pan, int volume, int heapId, u8 delay, u8 form) {
+    int *queuedPattern;
+    u16 *queuedSpecies;
+    int *queuedPan;
+    int *queuedVolume;
+    int *queuedHeapId;
+    u8 *queuedDelay;
+    u8 *queueNo = GF_SdatGetAttrPtr(6);
+    u8 *alternateQueue = GF_SdatGetAttrPtr(53);
+    if (*queueNo == 0) {
+        queuedPattern = GF_SdatGetAttrPtr(41);
+        queuedSpecies = GF_SdatGetAttrPtr(45);
+        queuedPan = GF_SdatGetAttrPtr(42);
+        queuedVolume = GF_SdatGetAttrPtr(43);
+        queuedHeapId = GF_SdatGetAttrPtr(44);
+        queuedDelay = GF_SdatGetAttrPtr(46);
+    } else {
+        queuedPattern = GF_SdatGetAttrPtr(47);
+        queuedSpecies = GF_SdatGetAttrPtr(51);
+        queuedPan = GF_SdatGetAttrPtr(48);
+        queuedVolume = GF_SdatGetAttrPtr(49);
+        queuedHeapId = GF_SdatGetAttrPtr(50);
+        queuedDelay = GF_SdatGetAttrPtr(52);
+    }
+    if (*alternateQueue == 1) {
+        *queueNo ^= 1;
+    }
+    if (sub_02006A0C(species, form) == 1) {
+        species = CRY_BANK_SHAYMIN_SKY;
+    }
+    if (species != 0) {
+        if (delay == 0) {
+            PlayCryEx(pattern, species, pan, volume, heapId, form);
+            return;
+        }
+        *queuedPattern = pattern;
+        *queuedSpecies = species;
+        *queuedPan = pan;
+        *queuedVolume = volume;
+        *queuedHeapId = heapId;
+        *queuedDelay = delay;
+    }
+}
+
+BOOL sub_02006A0C(u16 species, u8 form) {
+    if (species == SPECIES_SHAYMIN && form == 1) {
+        return TRUE;
+    }
+    if (species == CRY_BANK_SHAYMIN_SKY) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+void sub_02006A30(void) {
+    int *pattern0 = GF_SdatGetAttrPtr(41);
+    u16 *species0 = GF_SdatGetAttrPtr(45);
+    int *pan0 = GF_SdatGetAttrPtr(42);
+    int *volume0 = GF_SdatGetAttrPtr(43);
+    int *heap0 = GF_SdatGetAttrPtr(44);
+    u8 *delay0 = GF_SdatGetAttrPtr(46);
+    int *pattern1 = GF_SdatGetAttrPtr(47);
+    u16 *species1 = GF_SdatGetAttrPtr(51);
+    int *pan1 = GF_SdatGetAttrPtr(48);
+    int *volume1 = GF_SdatGetAttrPtr(49);
+    int *heap1 = GF_SdatGetAttrPtr(50);
+    u8 *delay1 = GF_SdatGetAttrPtr(52);
+    *pattern0 = 0;
+    *species0 = 0;
+    *pan0 = 0;
+    *volume0 = 0;
+    *heap0 = 0;
+    *delay0 = 0;
+    *pattern1 = 0;
+    *species1 = 0;
+    *pan1 = 0;
+    *volume1 = 0;
+    *heap1 = 0;
+    *delay1 = 0;
+}

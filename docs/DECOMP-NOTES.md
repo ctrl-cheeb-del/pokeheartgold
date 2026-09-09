@@ -222,3 +222,21 @@ increased from 22.643781% to 22.650048% (+0.006267 percentage points), with
 925,278 C-only bytes out of 4,085,104 mapped bytes. This adds 256 C bytes,
 bringing the total to 50 converted functions and 3,284 additional mapped C
 bytes. Formatting passed; GitHub CI was not used.
+
+## Tenth batch: queued cries and alternate cry selection
+
+`sub_02006920`, `sub_02006A0C`, and `sub_02006A30` move into
+`src/sound_cry.c`, replacing `0x02006920` through `0x02006ABF` (416 bytes
+including alignment). They select one of two cry queues, dispatch immediately
+when delay is zero, recognize Shaymin's alternate cry bank, and clear both
+queues in the original access order.
+
+Before this batch, HeartGold C-only coverage was 22.650048% (925,278 of
+4,085,104 mapped bytes).
+
+Validation completed: both ROMs pass their full retail SHA-1 comparisons
+locally. Coverage increased from 22.650048% to 22.660193% (+0.010145
+percentage points), with 925,692 C-only bytes out of 4,085,102 mapped bytes.
+This adds 414 C bytes; two alignment bytes leave the mapped total. The total
+is now 53 converted functions and 3,698 additional mapped C bytes. Formatting
+passed; no GitHub CI was started.
