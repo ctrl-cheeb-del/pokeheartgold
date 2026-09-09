@@ -1,4 +1,5 @@
 #include "gf_gfx_loader.h"
+#include "obj_char_transfer.h"
 #include "unk_02013534.h"
 
 typedef struct FontSpriteEntry {
@@ -20,9 +21,7 @@ typedef struct FontGlyphNode {
     int x, y, index;
     struct FontGlyphNode *prev, *next;
 } FontGlyphNode;
-typedef struct FontSpriteData {
-    u8 data[36];
-} FontSpriteData;
+typedef NNSG2dImageProxy FontSpriteData;
 TextOBJ *sub_02013AD0(UnkStruct_02013534 *system);
 int sub_02013BD4(int width, int height, enum HeapID heapId, FontGlyphNode *list);
 void sub_02013C5C(Window *window, FontGlyphNode *list, FontSpriteData *sprites, u32 offset, int vram, enum HeapID heapId);
@@ -51,6 +50,9 @@ typedef struct FontSplit {
 FontGlyphNode *sub_02013F78(enum HeapID heapId);
 void sub_02013FC0(FontGlyphNode *node, FontGlyphNode *previous);
 BOOL sub_02013B24(FontSplit *split, FontGlyphNode *list, enum HeapID heapId);
+
+u32 sub_02013CD0(Window *window, FontGlyphNode *node, FontSpriteData *proxy, int blockSize, GXOBJVRamModeChar mode, volatile u32 offset, int vram, enum HeapID heapId);
+u32 sub_02013DE0(Window *window, FontGlyphNode *node, void *buffer, u32 offset, int blockSize, GXOBJVRamModeChar mode, enum HeapID heapId);
 
 UnkStruct_02013534 *FontSystem_NewInit(int count, enum HeapID heapId) {
     UnkStruct_02013534 *system = Heap_Alloc(heapId, sizeof(UnkStruct_02013534));
@@ -357,4 +359,80 @@ int sub_02013BD4(int width, int height, enum HeapID heapId, FontGlyphNode *list)
         height = split.current.height;
     }
     return count;
+}
+
+void sub_02013C5C(Window *window, FontGlyphNode *list, FontSpriteData *sprites, u32 offset, int vram, enum HeapID heapId) {
+    GXOBJVRamModeChar mode = vram == NNS_G2D_VRAM_TYPE_2DMAIN ? GX_GetOBJVRamModeChar() : GXS_GetOBJVRamModeChar();
+    int blockSize = ObjCharTransfer_GetBlockSizeFromMode(mode);
+    for (FontGlyphNode *node = list->prev; node != list; node = node->prev) {
+        NNS_G2dInitImageProxy(sprites);
+        offset = sub_02013CD0(window, node, sprites, blockSize, mode, offset, vram, heapId);
+        sprites++;
+    }
+}
+// Volatile preserves the original stack reloads of the VRAM offset.
+u32 sub_02013CD0(Window *window, FontGlyphNode *node, FontSpriteData *proxy, int blockSize, GXOBJVRamModeChar mode, volatile u32 offset, int vram, enum HeapID heapId) {
+    int width = _020F5F2C[node->index][0];
+    int height = _020F5F2C[node->index][1];
+    u32 size = width;
+    void *buffer;
+    size *= height;
+    if ((int)size < blockSize) {
+        size = blockSize;
+    }
+    size *= 32;
+    buffer = Heap_AllocAtEnd(heapId, size);
+    sub_02013A50(window, width, height, node->x, node->y, buffer);
+    DC_FlushRange(buffer, size);
+    if (vram == NNS_G2D_VRAM_TYPE_2DMAIN) {
+        u32 location = offset;
+        GX_LoadOBJ(buffer, location, size);
+        proxy->vramLocation.baseAddrOfVram[1] = location;
+        proxy->attr.mappingType = GX_GetOBJVRamModeChar();
+    } else {
+        u32 location = offset;
+        GXS_LoadOBJ(buffer, location, size);
+        proxy->vramLocation.baseAddrOfVram[2] = location;
+        proxy->attr.mappingType = GXS_GetOBJVRamModeChar();
+    }
+    proxy->attr.sizeS = (GXTexSizeS)65535;
+    proxy->attr.sizeT = (GXTexSizeT)65535;
+    proxy->attr.fmt = (GXTexFmt)3;
+    proxy->attr.bExtendedPlt = FALSE;
+    proxy->attr.plttUse = (GXTexPlttColor0)1;
+    proxy->attr.mappingType = mode;
+    Heap_Free(buffer);
+    return offset + size;
+}
+void sub_02013D88(Window *window, void *buffer, FontGlyphNode *list, NNS_G2D_VRAM_TYPE vram, enum HeapID heapId) {
+    GXOBJVRamModeChar mode = vram == NNS_G2D_VRAM_TYPE_2DMAIN ? GX_GetOBJVRamModeChar() : GXS_GetOBJVRamModeChar();
+    int blockSize = ObjCharTransfer_GetBlockSizeFromMode(mode);
+    u32 offset = 0;
+    for (FontGlyphNode *node = list->prev; node != list; node = node->prev) {
+        offset = sub_02013DE0(window, node, buffer, offset, blockSize, mode, heapId);
+    }
+}
+u32 sub_02013DE0(Window *window, FontGlyphNode *node, void *buffer, u32 offset, int blockSize, GXOBJVRamModeChar mode, enum HeapID heapId) {
+    int width = _020F5F2C[node->index][0];
+    int height = _020F5F2C[node->index][1];
+    u32 size = width * height;
+    if ((int)size < blockSize) {
+        size = blockSize;
+    }
+    sub_02013A50(window, width, height, node->x, node->y, (u8 *)buffer + offset);
+    return offset + size * 32;
+}
+int sub_02013E24(FontGlyphNode *list, NNS_G2D_VRAM_TYPE vram) {
+    GXOBJVRamModeChar mode = vram == NNS_G2D_VRAM_TYPE_2DMAIN ? GX_GetOBJVRamModeChar() : GXS_GetOBJVRamModeChar();
+    int blockSize = ObjCharTransfer_GetBlockSizeFromMode(mode);
+    FontGlyphNode *node = list->prev;
+    u32 size = 0;
+    for (; node != list; node = node->prev) {
+        int tiles = _020F5F2C[node->index][0] * _020F5F2C[node->index][1];
+        if (tiles < blockSize) {
+            tiles = blockSize;
+        }
+        size += tiles * 32;
+    }
+    return size;
 }

@@ -531,3 +531,18 @@ increased from 22.818698% to 22.826336% (+0.007638 percentage points), from
 bytes. There are now 171 converted functions and 10,460 additional mapped C
 bytes relative to the initial baseline. The HeartGold treemap was refreshed,
 formatting passed, and GitHub CI was not used.
+
+## Twenty-eighth batch: glyph VRAM uploads and sizing
+
+Five routines from `0x02013C5C` through `0x02013E77` (540 bytes) move into
+`src/font_sprite.c`. They allocate and copy glyph tiles, upload them to
+main or sub OBJ VRAM, initialize image proxies, and calculate aligned
+storage requirements. Image proxies now use the SDK structure; a targeted
+volatile offset preserves the original stack reloads.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.826336% to 22.839555% (+0.013219 percentage points), from
+932,454 to 932,994 C bytes out of 4,084,992 mapped bytes. This adds 540 C
+bytes. There are now 176 converted functions and 11,000 additional mapped C
+bytes relative to the initial baseline. The HeartGold treemap was refreshed,
+formatting passed, and GitHub CI was not used.
