@@ -153,3 +153,5 @@
 .public NNS_GfdDefaultFuncFreeTexVram
 .public NNS_GfdDefaultFuncAllocPlttVram
 .public NNS_GfdDefaultFuncFreePlttVram
+.public sub_02023694
+.public sub_020236BC

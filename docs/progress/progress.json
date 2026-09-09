@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "45d51336bc0c1222a9150525b10ae6b6a1fc1fd6",
+  "commit": "eb57c8e2857d447937628c06b80d40dcae60cf50",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "66a09eabad73588d28e8b1e586d71993c3b601cce16422ec3753c4b7dbbf5029",
-    "ARM7": "4fe59a23d5f545f4d48db5ab9872affb44476a032977c7c9e461dfab59312ef9"
+    "ARM9": "6005f6fbfebabdedfd31c6c970a11ef0cc7393683d4f3e5c36715a1c77ae4e9c",
+    "ARM7": "951a480bb6e42bb466a3f82bd2f3664b2fe6f6b9db011f8cdb73a3073300cedf"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 3116980,
+    "asm": 3116636,
     "mixed": 18270,
-    "c": 940872,
+    "c": 941212,
     "unknown": 8792
   },
   "objects": [
@@ -2771,6 +2771,14 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "billboard.o",
+      "bytes": 340,
+      "status": "c",
+      "source": "src/billboard.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "blackout.o",
       "bytes": 976,
       "status": "c",
@@ -5068,7 +5076,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_02023694.o",
-      "bytes": 3528,
+      "bytes": 3184,
       "status": "asm",
       "source": "asm/unk_02023694.s"
     },

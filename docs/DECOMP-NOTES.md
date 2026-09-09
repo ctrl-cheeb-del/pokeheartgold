@@ -722,3 +722,20 @@ Integration caught a script-caller mismatch caused by initially widening
 the public quantity parameter. Preserving that parameter and using a local
 int fixed the caller while retaining the matching helper implementation;
 both complete ROM checks passed after the correction.
+
+## Thirty-ninth batch: billboard list lifecycle (Sol task 4)
+
+Five routines from `0x02023694` through `0x020237EB` move into
+`src/billboard.c`. They initialize billboard records and embedded objects,
+allocate and free lists, and dispatch drawing and state transitions.
+The recovered layouts preserve the original 0xE0-byte billboard and
+0xC4-byte object sizes. The global list manager remains in assembly BSS.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 23.032847% to 23.041193% (+0.008346 percentage points), from
+940,872 to 941,212 C bytes out of 4,084,910 mapped bytes. This adds 340 C
+bytes; four alignment bytes leave the mapped total. There are now 321
+converted functions and 19,218 additional mapped C bytes relative to the
+initial baseline. The treemap was refreshed, formatting passed, and GitHub
+CI remained disabled. The reused Sol worker took 3 minutes 59 seconds
+(22:18:58–22:22:57 UTC), excluding integration and ROM verification.
