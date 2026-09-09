@@ -683,3 +683,19 @@ GitHub CI remained disabled.
 The Sol worker took 5 minutes 23 seconds (22:12:28–22:17:51 UTC) to produce
 this candidate. Integration and serial verification of both ROMs are timed
 separately in the overall five-task experiment.
+
+## Thirty-seventh batch: fashion save records (Sol task 2)
+
+Ten routines from `0x0202B614` through `0x0202B847` move into
+`src/fashion_save.c`. They validate record markers, copy Pokémon identity
+and text fields, restore Pokémon, and manage packed accessory values.
+The record exposes separate nickname and secondary text arrays.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 23.013097% to 23.026754% (+0.013656 percentage points), from
+940,068 to 940,624 C bytes out of 4,084,918 mapped bytes. This adds 556 C
+bytes; eight alignment bytes leave the mapped total. There are now 301
+converted functions and 18,630 additional mapped C bytes relative to the
+initial baseline. The treemap was refreshed, formatting passed, and GitHub
+CI remained disabled. The Sol worker took 6 minutes 49 seconds
+(22:12:38–22:19:27 UTC), excluding integration and ROM verification.

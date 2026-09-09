@@ -126,6 +126,7 @@ Static main
     Object src/save_gymmick.o
     Object src/save_palpad.o
     Object src/mail.o
+    Object src/fashion_save.o
     Object asm/unk_0202B614.o
     Object asm/unk_0202C034.o
     Object asm/unk_0202C730.o

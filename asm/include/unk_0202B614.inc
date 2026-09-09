@@ -61,3 +61,13 @@
 .public gGameLanguage
 .public ov41_02249710
 .public ov41_02249780
+.public sub_0202B614
+.public sub_0202B630
+.public sub_0202B684
+.public sub_0202B6E8
+.public sub_0202B718
+.public sub_0202B730
+.public sub_0202B770
+.public sub_0202B784
+.public sub_0202B7C8
+.public sub_0202B808

@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "17169981b57d45897900934ce55c217d33e1f386",
+  "commit": "56021dae7a873a3cc0fa3ee4a340fe0b3c8328c6",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "2c6d611c0133f6758db37ad36225bafcfe57c631feea10304f153ac372fd8eb3",
-    "ARM7": "70ddd17031cdede7928d4dd70daf6cd8ac608477a4b3c2f19eaf8790bd2ea115"
+    "ARM9": "4588967ab483d47cf41256005462618215fdb33c5adcb1d9fc8e6b6d0102e8fb",
+    "ARM7": "ad63c99f6bf75b5344e7bef155da329bd16cbdad99996e44da5bff10000cf288"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 3117796,
+    "asm": 3117232,
     "mixed": 18270,
-    "c": 940068,
+    "c": 940624,
     "unknown": 8792
   },
   "objects": [
@@ -2923,6 +2923,14 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "fashion_save.o",
+      "bytes": 556,
+      "status": "c",
+      "source": "src/fashion_save.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "field_bgm.o",
       "bytes": 662,
       "status": "c",
@@ -5108,7 +5116,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_0202B614.o",
-      "bytes": 2592,
+      "bytes": 2028,
       "status": "asm",
       "source": "asm/unk_0202B614.s"
     },
