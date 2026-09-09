@@ -628,3 +628,20 @@ bytes; six alignment bytes leave the mapped total. There are now 223
 converted functions and 15,122 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used.
+
+## Thirty-fourth batch: Frontier state and field accessors
+
+Thirty-seven routines from `0x02030A98` through `0x02030FFF` (1,384 bytes
+including alignment) move into `src/frontier_state.c`. They initialize
+facility state, read and write flags, packed nibbles and indexed fields,
+and return the original save substructures. Two formerly void declarations
+now expose their actual pointer returns. Targeted volatile parameter loads
+preserve the original unconditional stack argument reads.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.940585% to 22.974009% (+0.033424 percentage points), from
+937,116 to 938,476 C bytes out of 4,084,946 mapped bytes. This adds 1,360 C
+bytes; twenty-four alignment bytes leave the mapped total. There are now
+260 converted functions and 16,482 additional mapped C bytes relative to
+the initial baseline. The HeartGold treemap was refreshed, formatting
+passed, and GitHub CI was not used.

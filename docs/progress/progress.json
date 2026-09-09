@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "c711bbbc64ea8b5c30c24cafe9fb00a9eeead5a6",
+  "commit": "931e5f976e9995ccf4c9b14af5c8d85254787138",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "bcf8e0cf6e06740d3a40fad8e7357387846bfa51bcd1decf07f0e57f75c444c8",
-    "ARM7": "3aefa3a1aa6a763362e64d982570f924903cf2bc70c1822b46ed39c2b58eac7f"
+    "ARM9": "f0343f8c5c94902afe43f6141308fe224fdc0962c26716dc1f31f8509b8f7edd",
+    "ARM7": "e65145cb34955cbffce53da3e5c69c0344a31a37bec89a41e5d73652da31436b"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 3120792,
+    "asm": 3119408,
     "mixed": 18270,
-    "c": 937116,
+    "c": 938476,
     "unknown": 8792
   },
   "objects": [
@@ -3043,6 +3043,14 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "frontier_state.o",
+      "bytes": 1360,
+      "status": "c",
+      "source": "src/frontier_state.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "fx.o",
       "bytes": 64,
       "status": "asm",
@@ -5140,7 +5148,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_02030A98.o",
-      "bytes": 3188,
+      "bytes": 1804,
       "status": "asm",
       "source": "asm/unk_02030A98.s"
     },

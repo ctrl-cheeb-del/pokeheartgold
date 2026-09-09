@@ -100,3 +100,7 @@
 .public OS_GetOwnerInfo
 .public MI_CpuFill8
 .public MI_CpuCopy8
+.public sub_02030A98
+.public sub_02030C50
+.public sub_02030DFC
+.public sub_02030F94
