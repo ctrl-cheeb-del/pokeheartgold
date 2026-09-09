@@ -612,3 +612,19 @@ bytes; four alignment bytes leave the mapped total. There are now 209
 converted functions and 14,332 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used.
+
+## Thirty-third batch: finish battle-record accessors
+
+Fourteen routines from `0x0203077C` through `0x02030A97` (796 bytes including
+alignment) move into `src/battle_record.c`. They copy and import record
+sections, expose bounded summary values, allocate and clear summaries, and
+read and write Frontier record fields. The original battle-record assembly
+unit now retains only its tables and global buffer pointer.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.921212% to 22.940585% (+0.019373 percentage points), from
+936,326 to 937,116 C bytes out of 4,084,970 mapped bytes. This adds 790 C
+bytes; six alignment bytes leave the mapped total. There are now 223
+converted functions and 15,122 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used.

@@ -496,3 +496,169 @@ void sub_02030724(RecordParty *record, Party *party) {
     }
     Heap_Free(mon);
 }
+
+void *sub_0203077C(enum HeapID heapId);
+void *sub_020307AC(enum HeapID heapId);
+void *sub_020307DC(void);
+void *sub_020307F8(void);
+void sub_02030814(void *profile, void *summary, void *data, void *battle, SaveData *save);
+u64 sub_0203088C(void *summary, int field, int index);
+void *sub_02030920(enum HeapID heapId);
+void sub_02030938(void *summary);
+void sub_02030940(void *record);
+void *sub_0203094C(SaveData *save);
+typedef struct {
+    u8 flag0 : 1, flag1 : 3, flag4 : 1, rest : 3;
+    u8 value;
+    u16 padding;
+    u16 values4[14];
+    u16 values20[4];
+    u8 values28[4];
+    u32 values2c[4];
+    u16 values3c[4];
+    u8 values44[4];
+    u32 values48[4];
+} FrontierRecord;
+u32 sub_0203095C(FrontierRecord *record);
+void sub_02030964(FrontierRecord *record, int flag);
+void sub_02030978(FrontierRecord *record, int field, int index, void *value);
+u32 sub_02030A24(FrontierRecord *record, int field, int index);
+void *sub_0203077C(enum HeapID heapId) {
+    GF_ASSERT(_021D2AF8 != NULL);
+    void *result = Heap_Alloc(heapId, 0x64);
+    MI_CpuCopy32((u8 *)_021D2AF8 + 0x84, result, 0x64);
+    return result;
+}
+void *sub_020307AC(enum HeapID heapId) {
+    GF_ASSERT(_021D2AF8 != NULL);
+    void *result = Heap_Alloc(heapId, 0x80);
+    MI_CpuCopy32((u8 *)_021D2AF8 + 4, result, 0x80);
+    return result;
+}
+void *sub_020307DC(void) {
+    GF_ASSERT(_021D2AF8 != NULL);
+    return (u8 *)_021D2AF8 + 4;
+}
+void *sub_020307F8(void) {
+    GF_ASSERT(_021D2AF8 != NULL);
+    return (u8 *)_021D2AF8 + 0x84;
+}
+void sub_02030814(void *profile, void *summary, void *data, void *battle, SaveData *save) {
+    GF_ASSERT(_021D2AF8 != NULL);
+    MI_CpuCopy8(summary, (u8 *)_021D2AF8 + 0x84, 0x64);
+    MI_CpuCopy8(data, (u8 *)_021D2AF8 + 0xe8, 0x1c68);
+    MI_CpuCopy8(profile, (u8 *)_021D2AF8 + 4, 0x80);
+    u32 crc = *(u16 *)((u8 *)_021D2AF8 + 0x1d4c);
+    sub_02030258((u8 *)_021D2AF8 + 0xe8, 0x1c64, crc + ((crc ^ 0xffff) << 16));
+    if (battle != NULL) {
+        sub_020304F0(battle, save);
+    }
+}
+u64 sub_0203088C(void *summary, int field, int index) {
+    switch (field) {
+    case 0:
+        GF_ASSERT(index < 12);
+        if (((u16 *)summary)[index] > 493) {
+            return 0;
+        }
+        return ((u16 *)summary)[index];
+    case 1:
+        GF_ASSERT(index < 12);
+        return ((u8 *)summary + index)[0x18];
+    case 2:
+        if (*(u16 *)((u8 *)summary + 0x24) > 9999) {
+            return 9999;
+        }
+        return *(u16 *)((u8 *)summary + 0x24);
+    case 3:
+        if (((u8 *)summary)[0x26] >= 33) {
+            return 0;
+        }
+        return ((u8 *)summary)[0x26];
+    case 4:
+        return *(u64 *)((u8 *)summary + 0x58);
+    case 5:
+        return ((u8 *)summary)[0x27];
+    }
+    GF_ASSERT(FALSE);
+    return 0;
+}
+void *sub_02030920(enum HeapID heapId) {
+    void *result = Heap_Alloc(heapId, 0x64);
+    MI_CpuFill8(result, 0, 0x64);
+    return result;
+}
+void sub_02030938(void *summary) {
+    Heap_Free(summary);
+}
+void sub_02030940(void *record) {
+    MI_CpuFill8(record, 0, 0x58);
+}
+void *sub_0203094C(SaveData *save) {
+    return (u8 *)Save_Frontier_GetStatic(save) + 0x8e0;
+}
+u32 sub_0203095C(FrontierRecord *record) {
+    return record->flag4;
+}
+void sub_02030964(FrontierRecord *record, int flag) {
+    record->flag4 = (u8)flag;
+}
+void sub_02030978(FrontierRecord *record, int field, int index, void *value) {
+    switch (field) {
+    case 0:
+        record->flag0 = *(u8 *)value;
+        break;
+    case 1:
+        record->flag1 = *(u8 *)value;
+        break;
+    case 2:
+        record->value = *(u8 *)value;
+        break;
+    case 3:
+        record->values4[index] = *(u16 *)value;
+        break;
+    case 4:
+        record->values20[index] = *(u16 *)value;
+        break;
+    case 5:
+        record->values28[index] = *(u8 *)value;
+        break;
+    case 6:
+        record->values2c[index] = *(u32 *)value;
+        break;
+    case 7:
+        record->values3c[index] = *(u16 *)value;
+        break;
+    case 8:
+        record->values44[index] = *(u8 *)value;
+        break;
+    case 9:
+        record->values48[index] = *(u32 *)value;
+        break;
+    }
+}
+u32 sub_02030A24(FrontierRecord *record, int field, int index) {
+    switch (field) {
+    case 1:
+        return record->flag1;
+    case 0:
+        return record->flag0;
+    case 2:
+        return record->value;
+    case 3:
+        return record->values4[index];
+    case 4:
+        return record->values20[index];
+    case 5:
+        return record->values28[index];
+    case 6:
+        return record->values2c[index];
+    case 7:
+        return record->values3c[index];
+    case 8:
+        return record->values44[index];
+    case 9:
+        return record->values48[index];
+    }
+    return 0;
+}

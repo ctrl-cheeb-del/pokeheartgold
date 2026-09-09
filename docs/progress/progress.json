@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "9fa1c620175fccb536f684df5e19c39597a10453",
+  "commit": "c711bbbc64ea8b5c30c24cafe9fb00a9eeead5a6",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "0860065115181b183e6639b7de43199146db10b20fc91d339dd2112b84cab8ab",
-    "ARM7": "88e39ee1a21b5a14d4f14f5f3949a9bf53fbc61d9c6519b23d42ac67bccd2844"
+    "ARM9": "bcf8e0cf6e06740d3a40fad8e7357387846bfa51bcd1decf07f0e57f75c444c8",
+    "ARM7": "3aefa3a1aa6a763362e64d982570f924903cf2bc70c1822b46ed39c2b58eac7f"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 3121588,
+    "asm": 3120792,
     "mixed": 18270,
-    "c": 936326,
+    "c": 937116,
     "unknown": 8792
   },
   "objects": [
@@ -2732,7 +2732,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "battle_record.o",
-      "bytes": 2986,
+      "bytes": 3776,
       "status": "c",
       "source": "src/battle_record.c"
     },
@@ -5135,14 +5135,6 @@
       "bytes": 504,
       "status": "c",
       "source": "src/unk_0202F370.c"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
-      "object": "unk_0202FBCC.o",
-      "bytes": 796,
-      "status": "asm",
-      "source": "asm/unk_0202FBCC.s"
     },
     {
       "cpu": "ARM9",
