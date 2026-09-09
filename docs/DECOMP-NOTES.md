@@ -335,3 +335,19 @@ bytes; twelve alignment bytes leave the mapped total. There are now 76
 converted functions and 6,186 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used.
+
+## Sixteenth batch: sound state, pause, and volume controls
+
+Five routines from `0x02005328` through `0x02005447` (288 bytes including
+alignment) move into the new `src/sound_control.c`: sound heap state lookup,
+BGM pause control, pause-flag reset, volume movement, and initial volume
+clamping. The C retains the original state lookup assertion and valid-state
+switch, pause bookkeeping, GB Sounds volume update, and 0–127 volume limits.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.721231% to 22.728205% (+0.006974 percentage points), from
+928,180 to 928,464 C bytes out of 4,085,074 mapped bytes. This adds 284 C
+bytes; four alignment bytes leave the mapped total. There are now 81
+converted functions and 6,470 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used.

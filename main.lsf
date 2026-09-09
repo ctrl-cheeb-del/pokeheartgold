@@ -21,6 +21,7 @@ Static main
     Object src/sound_radio_sys.o
     Object src/sound_state.o
     Object src/sound_scene.o
+    Object src/sound_control.o
     Object asm/unk_02004A44.o
     Object src/sound_bgm.o
     Object src/sound_se.o
