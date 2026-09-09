@@ -183,7 +183,7 @@ def main():
     args = parser.parse_args()
     try:
         report = generate(args.root.resolve(), args.game)
-    except (OSError, ValueError) as error:
+    except (OSError, ValueError, subprocess.SubprocessError) as error:
         parser.exit(1, f'progress: {error}\nRun the matching build before generating progress.\n')
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / 'progress.json').write_text(json.dumps(report, indent=2) + '\n')
