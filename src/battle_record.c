@@ -1,8 +1,12 @@
+#include "battle/battle_setup.h"
+
 #include "link_ruleset_data.h"
 #include "math_util.h"
+#include "pokemon.h"
 #include "pokemon_types_def.h"
 #include "save_arrays.h"
 #include "system.h"
+#include "unk_0202FBCC.h"
 
 typedef struct {
     u8 order[2][4];
@@ -21,19 +25,38 @@ typedef struct {
     u8 rest[0x64 - 0x28 - sizeof(LinkBattleRuleset)];
 } RecordSummary;
 typedef struct {
+    u16 capacity, count;
     struct UnkPokemonStruct_02072A98 mons[6];
-    u32 padding;
 } RecordParty;
 typedef struct {
     u32 flags;
-    u8 filler4[0x134 - 4];
-    u32 positions[4];
-    u16 player;
-    u8 filler146[0x1154 - 0x146];
+    int winFlag;
+    int trainerId[4];
+    Trainer trainer[4];
+    BattleBg battleBg;
+    Terrain terrain;
+    u32 mapSection, mapNumber;
+    TIMEOFDAY timeOfDay;
+    u32 evolutionLocation, unk_100;
+    BOOL metBill;
+    u32 unk_108, weatherType;
+    int levelUpFlag;
+    u32 aiFlags[4];
+    u32 battleSpecial;
+    int safariBalls;
+    BOOL fixedDamageMovesBanned;
+    int unk_130;
+    int positions[4];
+    u16 player, unk_146;
+    int unk_148;
+    u8 chatot[4];
+    u8 commands[4][1024];
     RecordParty parties[4];
+    PlayerProfile profiles[4];
+    Options options;
+    u16 magic, crc;
 } RecordData;
 
-#include "unk_0202FBCC.h"
 extern struct UnkStruct_0202FBCC *_021D2AF8;
 u32 sub_0202FBCC(void);
 void sub_0202FBD4(struct UnkStruct_0202FBCC *record);
@@ -78,7 +101,7 @@ BOOL sub_0202FD28(SaveData *save, enum HeapID heapId, int *out, int index);
 void sub_02030258(void *data, u32 size, u32 seed);
 BOOL sub_02030154(SaveData *save, struct UnkStruct_0202FBCC *record);
 BOOL sub_0203018C(SaveData *save, struct UnkStruct_0202FBCC *record);
-void sub_020304F0(void *battle, SaveData *save);
+void sub_020304F0(BattleSetup *setup, SaveData *save);
 BOOL sub_0202FC90(SaveData *save, enum HeapID heapId, int *out, void *battle, int index) {
     if (_021D2AF8 != NULL) {
         Heap_Free(_021D2AF8);
@@ -350,4 +373,126 @@ u8 sub_0203027C(int battlerId, u32 offset) {
     u8 *buffer = (u8 *)_021D2AF8 + battlerId * 1024;
     buffer += offset;
     return buffer[0x238];
+}
+
+void sub_020302A4(BattleSetup *setup);
+void sub_020306DC(Party *party, RecordParty *record);
+void sub_020302A4(BattleSetup *setup) {
+    if (_021D2AF8 == NULL) {
+        return;
+    }
+    RecordData *data = (RecordData *)((u8 *)_021D2AF8 + 0xe8);
+    data->flags = setup->battleType;
+    data->winFlag = setup->winFlag;
+    data->battleBg = setup->battleBg;
+    data->terrain = setup->terrain;
+    data->mapSection = setup->mapSection;
+    data->mapNumber = setup->mapNumber;
+    data->timeOfDay = setup->timeOfDay;
+    data->evolutionLocation = setup->evolutionLocation;
+    data->unk_100 = setup->unk_164;
+    data->metBill = setup->metBill;
+    data->unk_108 = setup->unk_170;
+    data->weatherType = setup->weatherType;
+    data->levelUpFlag = setup->levelUpFlag;
+    data->battleSpecial = setup->battleSpecial;
+    data->safariBalls = setup->safariBalls;
+    data->fixedDamageMovesBanned = setup->fixedDamaageMovesBanned;
+    data->unk_130 = setup->unk_19C;
+    data->player = setup->unk1B0;
+    data->unk_146 = setup->unk1B3;
+    data->unk_148 = setup->unk1B4;
+    for (int i = 0; i < 4; i++) {
+        data->trainerId[i] = setup->trainerId[i];
+        data->trainer[i] = setup->trainer[i];
+        if (setup->aiFlags[i] == 0) {
+            data->aiFlags[i] = 320;
+        } else {
+            data->aiFlags[i] = setup->aiFlags[i];
+        }
+        data->positions[i] = setup->unk_1A0[i];
+        data->chatot[i] = setup->unk1BC[i];
+    }
+    for (int i = 0; i < 4; i++) {
+        sub_020306DC(setup->party[i], &data->parties[i]);
+        PlayerProfile_Copy(setup->profile[i], &data->profiles[i]);
+        data->chatot[i] = sub_02006EFC(setup->chatot[i]);
+    }
+    Options_Copy(setup->options, &data->options);
+}
+void sub_0203049C(int battlerId, u32 flags);
+BOOL sub_020304B4(void);
+void sub_0203049C(int battlerId, u32 flags) {
+    if (_021D2AF8 != NULL) {
+        ((RecordData *)((u8 *)_021D2AF8 + 0xe8))->aiFlags[battlerId] = flags;
+    }
+}
+BOOL sub_020304B4(void) {
+    if (_021D2AF8 == NULL) {
+        return TRUE;
+    }
+    RecordData *data = (RecordData *)((u8 *)_021D2AF8 + 0xe8);
+    for (int i = 0; i < 4; i++) {
+        if (data->aiFlags[i] > 320) {
+            return FALSE;
+        }
+    }
+    return TRUE;
+}
+void sub_020304F0(BattleSetup *setup, SaveData *save);
+void sub_02030724(RecordParty *record, Party *party);
+void sub_020304F0(BattleSetup *setup, SaveData *save) {
+    RecordData *data = (RecordData *)((u8 *)_021D2AF8 + 0xe8);
+    setup->battleType = data->flags;
+    setup->battleBg = data->battleBg;
+    setup->terrain = data->terrain;
+    setup->mapSection = data->mapSection;
+    setup->mapNumber = data->mapNumber;
+    setup->timeOfDay = data->timeOfDay;
+    setup->evolutionLocation = data->evolutionLocation;
+    setup->unk_164 = data->unk_100;
+    setup->metBill = data->metBill;
+    setup->unk_170 = data->unk_108;
+    setup->weatherType = data->weatherType;
+    setup->battleSpecial = data->battleSpecial | 16;
+    setup->safariBalls = data->safariBalls;
+    setup->fixedDamaageMovesBanned = data->fixedDamageMovesBanned;
+    setup->unk_19C = data->unk_130;
+    setup->unk1B0 = data->player;
+    setup->winFlag = 0;
+    setup->levelUpFlag = 0;
+    Pokedex_Copy(Save_Pokedex_Get(save), setup->pokedex);
+    for (int i = 0; i < 4; i++) {
+        setup->trainerId[i] = data->trainerId[i];
+        setup->trainer[i] = data->trainer[i];
+        setup->aiFlags[i] = data->aiFlags[i];
+        setup->unk_1A0[i] = data->positions[i];
+        sub_02030724(&data->parties[i], setup->party[i]);
+        PlayerProfile_Copy(&data->profiles[i], setup->profile[i]);
+        setup->unk1BC[i] = data->chatot[i];
+    }
+    Options_Copy(Save_PlayerData_GetOptionsAddr(save), setup->options);
+    setup->options->frame = data->options.frame;
+    if (setup->options->frame >= 20) {
+        setup->options->frame = 0;
+    }
+}
+void sub_020306DC(Party *party, RecordParty *record) {
+    MI_CpuFill8(record, 0, sizeof(*record));
+    record->capacity = Party_GetMaxCount(party);
+    record->count = Party_GetCount(party);
+    for (int i = 0; i < record->count; i++) {
+        sub_02072A98(Party_GetMonByIndex(party, i), &record->mons[i]);
+    }
+}
+void sub_02030724(RecordParty *record, Party *party) {
+    u8 value = 0;
+    Pokemon *mon = AllocMonZeroed((enum HeapID)11);
+    Party_InitWithMaxSize(party, record->capacity);
+    for (int i = 0; i < record->count; i++) {
+        sub_02072D64(&record->mons[i], mon);
+        SetMonData(mon, 162, &value);
+        Party_AddMon(party, mon);
+    }
+    Heap_Free(mon);
 }

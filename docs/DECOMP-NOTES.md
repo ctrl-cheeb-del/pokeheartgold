@@ -595,3 +595,20 @@ increased from 22.868313% to 22.890932% (+0.022619 percentage points), from
 bytes. There are now 203 converted functions and 13,096 additional mapped C
 bytes relative to the initial baseline. The HeartGold treemap was refreshed,
 formatting passed, and GitHub CI was not used.
+
+## Thirty-second batch: battle capture, restoration and parties
+
+Six routines from `0x020302A4` through `0x0203077B` (1,240 bytes including
+alignment) move into `src/battle_record.c`. They capture and restore battle
+configuration, trainer and player data, handle AI flags, and convert parties
+to and from recorded Pokémon. The record data layout now includes proper
+party headers and profiles. BattleSetup exposes its four AI words and four
+recorded bytes at their original offsets.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.890932% to 22.921212% (+0.030280 percentage points), from
+935,090 to 936,326 C bytes out of 4,084,976 mapped bytes. This adds 1,236 C
+bytes; four alignment bytes leave the mapped total. There are now 209
+converted functions and 14,332 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used.
