@@ -56,7 +56,7 @@ void GF_SndHandleSetPlayerVolume(u32 a0, u32 a1);
 void GF_SndHandleSetInitialVolume(s32 a0, s32 a1);
 u16 GF_GetVolumeBySeqNo();
 
-void sub_02005448(void);
+void sub_02005448(); // One original caller passes the sequence through the existing r0 value.
 void Sound_SetScene(int a0);
 void sub_02005BEC(BOOL);
 

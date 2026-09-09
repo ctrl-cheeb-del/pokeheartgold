@@ -351,3 +351,20 @@ bytes; four alignment bytes leave the mapped total. There are now 81
 converted functions and 6,470 additional mapped C bytes relative to the
 initial baseline. The HeartGold treemap was refreshed, formatting passed,
 and GitHub CI was not used.
+
+## Seventeenth batch: sound sequence metadata
+
+Ten routines from `0x02005448` through `0x0200551F` (216 bytes including
+alignment) move into `src/sound_seq_info.c`. These cover volume selection,
+player counts and sequence lookup, bank lookup, and the microphone-counter
+query wrapper. The original missing-parameter sentinel values and reduced
+volume behavior are preserved. The declaration of `sub_02005448` remains
+unprototyped to retain the original caller that leaves its sequence in r0.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 22.728205% to 22.733304% (+0.005099 percentage points), from
+928,464 to 928,670 C bytes out of 4,085,064 mapped bytes. This adds 206 C
+bytes; ten alignment bytes leave the mapped total. There are now 91
+converted functions and 6,676 additional mapped C bytes relative to the
+initial baseline. The HeartGold treemap was refreshed, formatting passed,
+and GitHub CI was not used.
