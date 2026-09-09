@@ -74,7 +74,7 @@ Static main
     Object src/yes_no_prompt.o
     Object asm/unk_02016EDC.o
     Object asm/unk_02017FAC.o
-    Object asm/unk_02018000.o
+    Object src/model_animation.o
     Object src/unk_02018380.o
     Object src/menu_input_state.o
     Object src/touchscreen_list_menu.o
@@ -103,6 +103,7 @@ Static main
     Object src/camera.o
     Object src/billboard.o
     Object src/billboard_resources.o
+    Object src/billboard_properties.o
     Object asm/unk_02023694.o
     Object src/sprite.o
     Object src/touchscreen.o
@@ -134,7 +135,9 @@ Static main
     Object src/mail.o
     Object src/fashion_save.o
     Object src/fashion_case.o
+    Object src/fashion_inventory.o
     Object asm/unk_0202B614.o
+    Object src/friend_roster.o
     Object asm/unk_0202C034.o
     Object src/friend_group.o
     Object asm/unk_0202C730.o
@@ -152,7 +155,7 @@ Static main
     Object src/save_block_22.o
     Object src/mystery_gift.o
     Object src/hall_of_fame.o
-    Object asm/unk_0202E41C.o
+    Object src/save_block_23.o
     Object src/save_rankings.o
     Object src/palPark_migration.o
     Object src/update_dex_received.o
@@ -272,7 +275,7 @@ Static main
     Object asm/unk_02067A60.o
     Object src/field_move.o
     Object src/field_move_environment.o
-    Object asm/unk_020689C8.o
+    Object src/field_effects.o
     Object src/gymmick_init.o
     Object src/unk_02068F84.o
     Object asm/unk_02068FC8.o

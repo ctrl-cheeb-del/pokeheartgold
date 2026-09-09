@@ -808,3 +808,20 @@ bytes relative to the initial baseline. The treemap was refreshed.
 Three Sol workers prepared independent blocks while integration and
 additional matching work continued locally. GitHub CI remained disabled;
 full local ROM verification was grouped into one batch.
+
+## Forty-second batch: billboard properties, field effects and friend roster
+
+This batch converts 152 functions: the remaining billboard property and
+resource helpers, the complete field-effect task manager and model-animation
+module, save block 23, another fashion-inventory block, and 1,212 bytes of
+friend-roster routines. Recovered private structures retain original layouts.
+The friend-roster count declaration now reflects its full-width return value;
+its callers also pass the complete ROM checks.
+
+Both full ROM hashes match retail locally. HeartGold C-only mapped coverage
+increased from 23.222766% to 23.354397% (+0.131632 percentage points),
+from 948,604 to 953,958 C bytes out of 4,084,704 mapped bytes. This adds
+5,354 C bytes; 98 alignment bytes leave the mapped total. There are now
+654 converted functions and 31,964 additional mapped C bytes relative
+to the initial baseline. The treemap was refreshed, formatting and whitespace
+checks passed, and GitHub CI remained disabled.
