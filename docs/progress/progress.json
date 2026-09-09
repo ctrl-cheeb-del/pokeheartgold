@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "c51d71b901f0333a50ec5abd9eb3d2ea7a2bb215",
+  "commit": "4b3886b9d49da47aeda3712c721cba5e76561e89",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "c3e34ca4e77e49c66bea482673c528dbad86c9f5a68124d54d17d57fd66ef765",
-    "ARM7": "1b386d66ba6321f648959639084836f6f0eef5a6ce57bccf27f98a87055c569e"
+    "ARM9": "1121d9c068efa6113ea22b9868101449e33136b05f88817def4ba5c0eb04c2d3",
+    "ARM7": "8fce3228bfb1e3dc784b0d76dc4266bcb34b5da48c48a731cef2163a2c5c4a02"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 3132348,
+    "asm": 3131888,
     "mixed": 18270,
-    "c": 925692,
+    "c": 926142,
     "unknown": 8792
   },
   "objects": [
@@ -4532,9 +4532,17 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "sound_cry.o",
-      "bytes": 2212,
+      "bytes": 2310,
       "status": "c",
       "source": "src/sound_cry.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "sound_fanfare.o",
+      "bytes": 232,
+      "status": "c",
+      "source": "src/sound_fanfare.c"
     },
     {
       "cpu": "ARM9",
@@ -4551,6 +4559,14 @@
       "bytes": 488,
       "status": "c",
       "source": "src/sound_se.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "sound_seq.o",
+      "bytes": 120,
+      "status": "c",
+      "source": "src/sound_seq.c"
     },
     {
       "cpu": "ARM9",
@@ -4735,14 +4751,6 @@
       "bytes": 4588,
       "status": "asm",
       "source": "asm/unk_02004A44.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
-      "object": "unk_02005D10.o",
-      "bytes": 460,
-      "status": "asm",
-      "source": "asm/unk_02005D10.s"
     },
     {
       "cpu": "ARM9",

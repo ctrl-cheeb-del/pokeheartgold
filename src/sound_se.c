@@ -8,7 +8,7 @@ BOOL sub_02006088(u16 seqNo);
 BOOL sub_020060BC(enum SoundHandleNo handleNo, int playerNo, int bankNo, int playerPrio, int seqNo);
 BOOL sub_02006118(u16 seqNo, u16 volume);
 BOOL PlaySE_SetPitch(u16 seqNo, int pitch);
-int GF_GetPlayerNoBySeq(u16 seqNo);
+u8 GF_GetPlayerNoBySeq(u16 seqNo);
 int GF_GetBankBySeqNo(int seqNo);
 int sub_02005BFC(void);
 void sub_02005464(int seqNo, enum SoundHandleNo handleNo);

@@ -34,7 +34,7 @@ void sub_02006820(int species, int handleNo, int volume);
 void sub_02005748(int handleNo, u8 pan);
 void sub_02005774(int handleNo, int volume);
 void sub_02006838(int frames, int heapId);
-void sub_02006AC0(u16 species, int pitch, u8 form);
+BOOL sub_02006AC0(u16 species, int pitch, u8 form);
 void sub_02005600(int handleNo);
 void sub_020057AC(u16 species, int volume, int pan, int handleNo, int heapId);
 void sub_02005760(int handleNo, int speed);
@@ -406,4 +406,20 @@ void sub_02006A30(void) {
     *volume1 = 0;
     *heap1 = 0;
     *delay1 = 0;
+}
+
+BOOL sub_02006AC0(u16 species, int pitch, u8 form) {
+    u8 *useChorus = GF_SdatGetAttrPtr(18);
+    *useChorus = 1;
+    sub_02006E3C(1);
+    BOOL success = PlayCry(species, form);
+    GF_SndHandleSetTrackPitch(SND_HANDLE_CHORUS, 0xFFFF, pitch);
+    return success;
+}
+
+void sub_02006AF4(u16 species, int unused, int volume, int pan, int heapId) {
+    u8 *useChorus = GF_SdatGetAttrPtr(18);
+    *useChorus = 1;
+    sub_02005600(15);
+    sub_020057AC(species, volume, pan, 15, heapId);
 }

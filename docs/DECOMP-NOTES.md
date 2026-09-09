@@ -240,3 +240,29 @@ percentage points), with 925,692 C-only bytes out of 4,085,102 mapped bytes.
 This adds 414 C bytes; two alignment bytes leave the mapped total. The total
 is now 53 converted functions and 3,698 additional mapped C bytes. Formatting
 passed; no GitHub CI was started.
+
+## Eleventh batch: chorus, fanfares, and shared sequence startup
+
+The remaining eight functions in `asm/unk_02005D10.s` move to C. Chorus
+helpers finish `src/sound_cry.c`; fanfare routines live in
+`src/sound_fanfare.c`; shared sequence startup lives in `src/sound_seq.c`.
+The range is `0x02006AC0` through `0x02006C8B` (460 bytes including alignment).
+The now-empty assembly unit and its private include are removed from the
+build and repository.
+
+The reconstruction preserves BGM/radio pause and resume behavior, the
+15-frame fanfare wait, sound-state restoration, GB Sounds bank substitution,
+and channel allocation updates. The player-number helper is declared as
+returning `u8`, consistent with its byte load and 255 sentinel. Fanfare
+callers retain that width. Playback return values are preserved.
+
+Before this batch, HeartGold C-only coverage was 22.660193% (925,692 of
+4,085,102 mapped bytes).
+
+Validation completed: both full ROM hashes match retail locally. Coverage
+increased from 22.660193% to 22.671264% (+0.011071 percentage points), with
+926,142 C-only bytes out of 4,085,092 mapped bytes. This adds 450 C bytes;
+ten alignment bytes leave the mapped total. All 50 functions from the
+original assembly unit now have exactly one C definition. Together with the
+sound-state batch, 61 functions add 4,148 mapped C bytes relative to the
+initial baseline. Formatting passed; no GitHub CI was started.

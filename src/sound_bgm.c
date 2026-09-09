@@ -10,7 +10,7 @@ BOOL sub_02005E44(u16 seqNo);
 void StopBGM(u16 seqNo, int fadeFrames);
 void sub_02005EEC(void);
 void NNS_SndPlayerStopSeqBySeqNo(int seqNo, int fadeFrames);
-int GF_GetPlayerNoBySeq(u16 seqNo);
+u8 GF_GetPlayerNoBySeq(u16 seqNo);
 int sub_02005328(int state);
 void sub_02005464(int seqNo, enum SoundHandleNo handleNo);
 void sub_020059E0(u16 seqNo);

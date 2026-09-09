@@ -18,7 +18,7 @@ u32 sub_02005F94(u16 a0);
 void StopBGM(u16 a0, int a1);
 BOOL sub_02005E44(u16 a0);
 void StopSE(u16 sndseq, int a1);
-void PlayFanfare(u16 a0);
+BOOL PlayFanfare(u16 a0);
 BOOL IsFanfarePlaying(void);
 BOOL GF_IsAnySEPlaying(void);
 void Sound_Stop(void);
