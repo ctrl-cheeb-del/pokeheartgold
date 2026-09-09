@@ -17,11 +17,8 @@
 // functions still in asm:
 void Sound_Stop();
 void Sound_ClearBGMPauseFlags();
-void Sound_SetScene(int);
-BOOL GF_SND_BGM_DisableCheck();
 void GF_FadeStartMusicId(int, int, int, int, int, void *);
 void GF_NowStartMusicId(int, int, int, int, void *);
-void Sound_SetFieldBGM(u16);
 void sub_02005CF4(BOOL);
 BOOL sub_02004EB4(u16);
 

@@ -68,6 +68,20 @@ jobs:
           GAME_REVISION: 0
         run: make -j4 2> >(sed -r 's/^/::error::/')
 
+      - name: Test progress accounting
+        run: python3 -m unittest discover -s tools/progress -v
+
+      - name: Generate verified treemaps
+        run: |
+          python3 tools/progress/progress.py --game heartgold.us --output build/progress/heartgold
+          python3 tools/progress/progress.py --game soulsilver.us --output build/progress/soulsilver
+
+      - name: Upload progress reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: decompilation-progress
+          path: build/progress/
+
       - name: Calcrom
         id: calcrom
         if: ${{ github.event_name == 'push' }}
