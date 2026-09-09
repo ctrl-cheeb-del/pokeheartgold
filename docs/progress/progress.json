@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "96c6f5b0ffa4e2970f1d6f8575d7e4cd9f4b8d7c",
+  "commit": "7a6eaf5ed3d1a355d72eae8c6cfa44a48ec6260d",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "505565616aa277f9ee6c20eca02d511b555fa553bc0a91f9da96e531dce82f77",
-    "ARM7": "2e033413c00f899879d4f0f7d6010cadac791ddd0d890f4db4ae828dc438e5f1"
+    "ARM9": "4692499a26f3deef11bd028d954f0c882a519b5e0489d91776acd65d97517e87",
+    "ARM7": "d6ca7565541858de30191d38e126303a76bbc8887e851c09d2253e3b7088eb8a"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 3134664,
+    "asm": 3134364,
     "mixed": 18270,
-    "c": 923380,
+    "c": 923680,
     "unknown": 8792
   },
   "objects": [
@@ -4531,6 +4531,14 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "sound_cry.o",
+      "bytes": 200,
+      "status": "c",
+      "source": "src/sound_cry.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "sound_radio_sys.o",
       "bytes": 196,
       "status": "c",
@@ -4540,7 +4548,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "sound_se.o",
-      "bytes": 388,
+      "bytes": 488,
       "status": "c",
       "source": "src/sound_se.c"
     },
@@ -4732,7 +4740,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_02005D10.o",
-      "bytes": 2776,
+      "bytes": 2476,
       "status": "asm",
       "source": "asm/unk_02005D10.s"
     },

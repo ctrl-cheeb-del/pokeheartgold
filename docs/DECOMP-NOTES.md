@@ -147,3 +147,20 @@ Validation completed: both HeartGold and SoulSilver passed the full retail
 ROM hash checks. HeartGold C-only coverage rose by 388 mapped bytes to
 923,380. Across five batches, 38 functions now replace 1,412 original bytes
 including alignment, adding 1,386 mapped C bytes. Formatting checks passed.
+
+## Sixth batch: pan controls and cry playback
+
+Three pan-control routines (`sub_020061B4`, `sub_020061D0`, and
+`sub_020061EC`) move into `src/sound_se.c`, and `PlayCry` moves into the new
+`src/sound_cry.c`. The contiguous original range is `0x020061B4` through
+`0x020062DF` (300 bytes).
+
+Cry playback preserves the alternate Shaymin cry-bank selection, invalid
+bank fallback, Chatot recording playback, and primary/chorus handle paths.
+The return prototype now exposes the playback success result already
+returned by the original assembly. All existing callers discard that result.
+
+Validation completed: both full ROMs passed their retail SHA-1 comparisons
+locally. HeartGold C-only coverage increased by 300 mapped bytes to 923,680.
+Across six batches, 42 functions add 1,686 mapped C bytes. Formatting checks
+passed. GitHub build CI remains disabled; this batch was validated locally.

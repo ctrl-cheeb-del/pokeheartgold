@@ -25,6 +25,10 @@ BOOL GF_IsAnySEPlaying(void);
 void NNS_SndPlayerStopSeqBySeqNo(int seqNo, int fadeFrames);
 void NNS_SndPlayerStopSeq(NNSSndHandle *handle, int fadeFrames);
 
+void sub_020061D0(int playerNo, int pan);
+void sub_020061EC(int pan);
+void NNS_SndPlayerSetTrackPan(NNSSndHandle *handle, u32 trackMask, int pan);
+
 BOOL sub_0200602C(u16 seqNo, int pan) {
     BOOL success = PlaySE(seqNo);
     sub_020061B4(seqNo, 0xFFFF, pan);
@@ -104,4 +108,20 @@ BOOL GF_IsAnySEPlaying(void) {
         }
     }
     return FALSE;
+}
+
+void sub_020061B4(u16 seqNo, u32 trackMask, int pan) {
+    NNSSndHandle *handle = GF_GetSoundHandle(GF_GetSndHandleByPlayerNo(GF_GetPlayerNoBySeq(seqNo)));
+    NNS_SndPlayerSetTrackPan(handle, trackMask, pan);
+}
+
+void sub_020061D0(int playerNo, int pan) {
+    NNS_SndPlayerSetTrackPan(GF_GetSoundHandle(GF_GetSndHandleByPlayerNo(playerNo)), 0xFFFF, pan);
+}
+
+void sub_020061EC(int pan) {
+    enum SoundHandleNo firstHandle = GF_GetSndHandleByPlayerNo(3);
+    for (int i = 0; i < 4; i++) {
+        NNS_SndPlayerSetTrackPan(GF_GetSoundHandle(firstHandle + i), 0xFFFF, pan);
+    }
 }

@@ -4,8 +4,8 @@
 <rect width="1200" height="780" rx="16" fill="#101722"/>
 <g font-family="system-ui, sans-serif" fill="#edf2fa">
 <text x="28" y="42" font-size="25" font-weight="700">HeartGold · decompilation</text>
-<text x="1172" y="42" text-anchor="end" font-size="22">22.60% C-only source</text>
-<text x="28" y="71" font-size="14" fill="#b9c7da">Matching US ROM verified · 96c6f5b0f · ARM9 + ARM7 · 4,085,106 mapped code bytes</text>
+<text x="1172" y="42" text-anchor="end" font-size="22">22.61% C-only source</text>
+<text x="28" y="71" font-size="14" fill="#b9c7da">Matching US ROM verified · 7a6eaf5ed · ARM9 + ARM7 · 4,085,106 mapped code bytes</text>
 <rect x="28" y="91" width="12" height="12" rx="2" fill="#35b85a"/>
 <text x="47" y="102" font-size="14">C-only source 22.6%</text>
 <rect x="316" y="91" width="12" height="12" rx="2" fill="#e4ad42"/>
@@ -89,1240 +89,1243 @@ src/map_object.c</title></rect>
 <rect x="284.408" y="375.265" width="36.074" height="32.059" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save.o
 6,976 bytes · C-only source
 src/save.c</title></rect>
-<rect x="320.483" y="125.000" width="36.375" height="30.755" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0208C3E4.o
+<rect x="320.483" y="125.000" width="36.361" height="30.767" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0208C3E4.o
 6,748 bytes · Assembly
 asm/unk_0208C3E4.s</title></rect>
-<rect x="356.857" y="125.000" width="35.016" height="30.755" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02058AEC.o
+<rect x="356.844" y="125.000" width="35.003" height="30.767" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02058AEC.o
 6,496 bytes · Assembly
 asm/unk_02058AEC.s</title></rect>
-<rect x="320.483" y="155.755" width="25.164" height="42.599" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / launch_application.o
+<rect x="320.483" y="155.767" width="25.155" height="42.614" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / launch_application.o
 6,466 bytes · C-only source
 src/launch_application.c</title></rect>
-<rect x="345.647" y="155.755" width="23.436" height="42.599" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / party_menu_list_items.o
+<rect x="345.638" y="155.767" width="23.428" height="42.614" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / party_menu_list_items.o
 6,022 bytes · C-only source
 src/party_menu_list_items.c</title></rect>
-<rect x="369.083" y="155.755" width="22.790" height="42.599" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / dwcbm.o
+<rect x="369.065" y="155.767" width="22.782" height="42.614" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / dwcbm.o
 5,856 bytes · Assembly
 lib/NitroDWC/asm/dwcbm.s</title></rect>
-<rect x="320.483" y="198.354" width="29.304" height="32.971" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / get_egg.o
+<rect x="320.483" y="198.381" width="29.293" height="32.983" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / get_egg.o
 5,828 bytes · C-only source
 src/get_egg.c</title></rect>
-<rect x="320.483" y="231.325" width="29.304" height="32.654" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / render_window.o
+<rect x="320.483" y="231.364" width="29.293" height="32.666" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / render_window.o
 5,772 bytes · Assembly
 asm/render_window.s</title></rect>
-<rect x="349.787" y="198.354" width="42.087" height="22.421" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020632B0.o
+<rect x="349.776" y="198.381" width="42.071" height="22.430" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020632B0.o
 5,692 bytes · Assembly
 asm/unk_020632B0.s</title></rect>
-<rect x="349.787" y="220.775" width="42.087" height="21.634" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0205CB48.o
+<rect x="349.776" y="220.810" width="42.071" height="21.642" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0205CB48.o
 5,492 bytes · Assembly
 asm/unk_0205CB48.s</title></rect>
-<rect x="349.787" y="242.409" width="42.087" height="21.571" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0205FD20.o
+<rect x="349.776" y="242.452" width="42.071" height="21.578" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0205FD20.o
 5,476 bytes · Assembly
 asm/unk_0205FD20.s</title></rect>
-<rect x="391.874" y="125.000" width="38.791" height="23.019" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_party.o
+<rect x="391.847" y="125.000" width="38.777" height="23.027" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_party.o
 5,386 bytes · C-only source
 src/scrcmd_party.c</title></rect>
-<rect x="391.874" y="148.019" width="38.791" height="22.497" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / pokedex.o
+<rect x="391.847" y="148.027" width="38.777" height="22.506" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / pokedex.o
 5,264 bytes · C-only source
 src/pokedex.c</title></rect>
-<rect x="391.874" y="170.516" width="38.791" height="22.002" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_fp_ansi.o
+<rect x="391.847" y="170.533" width="38.777" height="22.010" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_fp_ansi.o
 5,148 bytes · Assembly
 lib/MSL_C/asm/MSL_fp_ansi.s</title></rect>
-<rect x="430.665" y="125.000" width="36.694" height="22.952" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sprite_system.o
+<rect x="430.624" y="125.000" width="36.681" height="22.960" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sprite_system.o
 5,080 bytes · C-only source
 src/sprite_system.c</title></rect>
-<rect x="430.665" y="147.952" width="36.694" height="22.319" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_scanf.o
+<rect x="430.624" y="147.960" width="36.681" height="22.327" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_scanf.o
 4,940 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_scanf.s</title></rect>
-<rect x="430.665" y="170.271" width="36.694" height="22.247" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_strtold.o
+<rect x="430.624" y="170.287" width="36.681" height="22.255" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_strtold.o
 4,924 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_strtold.s</title></rect>
-<rect x="391.874" y="192.517" width="33.124" height="23.984" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02056D7C.o
+<rect x="391.847" y="192.542" width="33.111" height="23.993" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02056D7C.o
 4,792 bytes · Assembly
 asm/unk_02056D7C.s</title></rect>
-<rect x="391.874" y="216.502" width="33.124" height="23.844" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02032844.o
+<rect x="391.847" y="216.535" width="33.111" height="23.853" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02032844.o
 4,764 bytes · Assembly
 asm/unk_02032844.s</title></rect>
-<rect x="391.874" y="240.346" width="33.124" height="23.634" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_warp_tasks.o
+<rect x="391.847" y="240.388" width="33.111" height="23.642" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_warp_tasks.o
 4,722 bytes · C-only source
 src/field_warp_tasks.c</title></rect>
-<rect x="424.997" y="192.517" width="21.355" height="36.208" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0208B1AC.o
+<rect x="424.959" y="192.542" width="21.347" height="36.222" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0208B1AC.o
 4,664 bytes · Assembly
 asm/unk_0208B1AC.s</title></rect>
-<rect x="446.352" y="192.517" width="21.007" height="36.208" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02004A44.o
+<rect x="446.306" y="192.542" width="20.999" height="36.222" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02004A44.o
 4,588 bytes · Assembly
 asm/unk_02004A44.s</title></rect>
-<rect x="424.997" y="228.726" width="21.256" height="35.253" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02062108.o
+<rect x="424.959" y="228.764" width="21.248" height="35.266" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02062108.o
 4,520 bytes · Assembly
 asm/unk_02062108.s</title></rect>
-<rect x="446.253" y="228.726" width="21.105" height="35.253" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_DPMath_e_pow.o
+<rect x="446.207" y="228.764" width="21.098" height="35.266" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_DPMath_e_pow.o
 4,488 bytes · Assembly
 lib/MSL_C/asm/MSL_DPMath_e_pow.s</title></rect>
-<rect x="320.483" y="263.979" width="32.465" height="22.724" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_take_photo.o
+<rect x="320.483" y="264.030" width="32.476" height="22.716" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_take_photo.o
 4,450 bytes · C-only source
 src/field_take_photo.c</title></rect>
-<rect x="320.483" y="286.704" width="32.465" height="22.439" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0204A3F4.o
+<rect x="320.483" y="286.747" width="32.476" height="22.431" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0204A3F4.o
 4,394 bytes · C-only source
 src/unk_0204A3F4.c</title></rect>
-<rect x="320.483" y="309.142" width="32.465" height="22.142" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gx_vramcnt.o
+<rect x="320.483" y="309.177" width="32.476" height="22.134" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gx_vramcnt.o
 4,336 bytes · Assembly
 lib/NitroSDK/asm/gx_vramcnt.s</title></rect>
-<rect x="352.947" y="263.979" width="20.932" height="34.089" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02016EDC.o
+<rect x="352.959" y="264.030" width="20.939" height="34.077" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02016EDC.o
 4,304 bytes · Assembly
 asm/unk_02016EDC.s</title></rect>
-<rect x="373.879" y="263.979" width="20.854" height="34.089" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / encounter.o
+<rect x="373.898" y="264.030" width="20.861" height="34.077" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / encounter.o
 4,288 bytes · C-only source
 src/encounter.c</title></rect>
-<rect x="352.947" y="298.068" width="20.963" height="33.216" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / palette.o
+<rect x="352.959" y="298.107" width="20.970" height="33.204" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / palette.o
 4,200 bytes · C-only source
 src/palette.c</title></rect>
-<rect x="373.910" y="298.068" width="20.823" height="33.216" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / trainer_memo.o
+<rect x="373.929" y="298.107" width="20.830" height="33.204" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / trainer_memo.o
 4,172 bytes · C-only source
 src/trainer_memo.c</title></rect>
-<rect x="320.483" y="331.285" width="19.154" height="35.019" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / obj_char_transfer.o
+<rect x="320.483" y="331.312" width="19.161" height="35.007" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / obj_char_transfer.o
 4,046 bytes · C-only source
 src/obj_char_transfer.c</title></rect>
-<rect x="339.637" y="331.285" width="18.520" height="35.019" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_use_item.o
+<rect x="339.644" y="331.312" width="18.526" height="35.007" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_use_item.o
 3,912 bytes · C-only source
 src/field_use_item.c</title></rect>
-<rect x="358.157" y="331.285" width="18.491" height="35.019" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / message_format.o
+<rect x="358.170" y="331.312" width="18.498" height="35.007" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / message_format.o
 3,906 bytes · C-only source
 src/message_format.c</title></rect>
-<rect x="376.648" y="331.285" width="18.084" height="35.019" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / use_item_on_mon.o
+<rect x="376.668" y="331.312" width="18.091" height="35.007" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / use_item_on_mon.o
 3,820 bytes · C-only source
 src/use_item_on_mon.c</title></rect>
-<rect x="320.483" y="366.304" width="30.376" height="20.674" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202FBCC.o
+<rect x="320.483" y="366.318" width="30.387" height="20.667" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202FBCC.o
 3,788 bytes · Assembly
 asm/unk_0202FBCC.s</title></rect>
-<rect x="320.483" y="386.978" width="30.376" height="20.347" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020863F4.o
+<rect x="320.483" y="386.985" width="30.387" height="20.339" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020863F4.o
 3,728 bytes · Assembly
 asm/unk_020863F4.s</title></rect>
-<rect x="350.858" y="366.304" width="15.018" height="41.021" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02061284.o
+<rect x="350.869" y="366.318" width="15.023" height="41.006" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02061284.o
 3,716 bytes · Assembly
 asm/unk_02061284.s</title></rect>
-<rect x="365.876" y="366.304" width="28.856" height="20.522" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02034B0C.o
+<rect x="365.893" y="366.318" width="28.866" height="20.515" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02034B0C.o
 3,572 bytes · Assembly
 asm/unk_02034B0C.s</title></rect>
-<rect x="365.876" y="386.826" width="28.856" height="20.499" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02085604.o
+<rect x="365.893" y="386.833" width="28.866" height="20.492" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02085604.o
 3,568 bytes · Assembly
 asm/unk_02085604.s</title></rect>
-<rect x="394.732" y="263.979" width="29.973" height="19.514" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02023694.o
+<rect x="394.759" y="264.030" width="29.940" height="19.536" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02023694.o
 3,528 bytes · Assembly
 asm/unk_02023694.s</title></rect>
-<rect x="394.732" y="283.493" width="29.973" height="18.585" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / dwcaccount.o
+<rect x="394.759" y="283.566" width="29.940" height="18.605" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / dwcaccount.o
 3,360 bytes · Assembly
 lib/NitroDWC/asm/dwcaccount.s</title></rect>
-<rect x="424.705" y="263.979" width="14.290" height="38.098" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / battle_setup.o
+<rect x="424.699" y="264.030" width="14.274" height="38.141" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / battle_setup.o
 3,284 bytes · C-only source
 src/battle/battle_setup.c</title></rect>
-<rect x="438.996" y="263.979" width="28.363" height="19.125" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020658D4.o
+<rect x="438.973" y="264.030" width="28.331" height="19.146" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020658D4.o
 3,272 bytes · Assembly
 asm/unk_020658D4.s</title></rect>
-<rect x="438.996" y="283.105" width="28.363" height="18.973" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sprite.o
+<rect x="438.973" y="283.177" width="28.331" height="18.994" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sprite.o
 3,246 bytes · C-only source
 src/sprite.c</title></rect>
-<rect x="394.732" y="302.078" width="29.881" height="17.754" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gx_load2d.o
+<rect x="394.759" y="302.171" width="29.848" height="17.774" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gx_load2d.o
 3,200 bytes · Assembly
 lib/NitroSDK/asm/gx_load2d.s</title></rect>
-<rect x="394.732" y="319.832" width="29.881" height="17.687" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02030A98.o
+<rect x="394.759" y="319.945" width="29.848" height="17.707" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02030A98.o
 3,188 bytes · Assembly
 asm/unk_02030A98.s</title></rect>
-<rect x="424.614" y="302.078" width="14.548" height="35.441" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0200A090.o
+<rect x="424.607" y="302.171" width="14.532" height="35.481" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0200A090.o
 3,110 bytes · C-only source
 src/unk_0200A090.c</title></rect>
-<rect x="439.161" y="302.078" width="28.197" height="17.874" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / touchscreen_list_menu.o
+<rect x="439.139" y="302.171" width="28.166" height="17.893" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / touchscreen_list_menu.o
 3,040 bytes · C-only source
 src/touchscreen_list_menu.c</title></rect>
-<rect x="439.161" y="319.951" width="28.197" height="17.568" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_thread.o
+<rect x="439.139" y="320.065" width="28.166" height="17.587" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_thread.o
 2,988 bytes · C with assembly
 lib/NitroSDK/src/os/os_thread.c</title></rect>
-<rect x="394.732" y="337.519" width="17.118" height="28.784" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_move.o
+<rect x="394.759" y="337.652" width="17.112" height="28.794" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_move.o
 2,972 bytes · C-only source
 src/field_move.c</title></rect>
-<rect x="411.850" y="337.519" width="16.749" height="28.784" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx_mtx44.o
+<rect x="411.871" y="337.652" width="16.743" height="28.794" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx_mtx44.o
 2,908 bytes · Assembly
 lib/NitroSDK/asm/fx_mtx44.s</title></rect>
-<rect x="394.732" y="366.303" width="33.867" height="13.804" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / render_text.o
+<rect x="394.759" y="366.446" width="33.855" height="13.809" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / render_text.o
 2,820 bytes · C-only source
 src/render_text.c</title></rect>
-<rect x="394.732" y="380.107" width="16.958" height="27.217" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02031B0C.o
+<rect x="394.759" y="380.255" width="17.050" height="27.070" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02031B0C.o
 2,784 bytes · Assembly
 asm/unk_02031B0C.s</title></rect>
-<rect x="411.690" y="380.107" width="16.909" height="27.217" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02005D10.o
-2,776 bytes · Assembly
-asm/unk_02005D10.s</title></rect>
-<rect x="428.599" y="337.519" width="12.964" height="35.091" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02058034.o
+<rect x="411.809" y="380.255" width="16.805" height="27.070" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02058034.o
 2,744 bytes · Assembly
 asm/unk_02058034.s</title></rect>
-<rect x="441.563" y="337.519" width="25.795" height="17.558" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_20.o
+<rect x="428.614" y="337.652" width="12.916" height="35.068" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_20.o
 2,732 bytes · C-only source
 src/scrcmd_20.c</title></rect>
-<rect x="441.563" y="355.078" width="25.795" height="17.533" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02013534.o
+<rect x="441.530" y="337.652" width="25.775" height="17.547" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02013534.o
 2,728 bytes · Assembly
 asm/unk_02013534.s</title></rect>
-<rect x="428.599" y="372.610" width="13.009" height="34.714" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_strbuf.o
+<rect x="441.530" y="355.199" width="25.775" height="17.521" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_strbuf.o
 2,724 bytes · C-only source
 src/scrcmd_strbuf.c</title></rect>
-<rect x="441.608" y="372.610" width="25.750" height="17.383" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02055BF0.o
+<rect x="428.614" y="372.720" width="12.935" height="34.605" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02055BF0.o
 2,700 bytes · C-only source
 src/unk_02055BF0.c</title></rect>
-<rect x="441.608" y="389.993" width="25.750" height="17.331" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_mystery_gift.o
+<rect x="441.549" y="372.720" width="25.755" height="17.328" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_mystery_gift.o
 2,692 bytes · C-only source
 src/scrcmd_mystery_gift.c</title></rect>
-<rect x="467.359" y="125.000" width="35.705" height="12.462" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02014DA0.o
+<rect x="441.549" y="390.048" width="25.755" height="17.277" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02014DA0.o
 2,684 bytes · Assembly
 asm/unk_02014DA0.s</title></rect>
-<rect x="467.359" y="137.462" width="17.949" height="23.940" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202B614.o
+<rect x="467.305" y="125.000" width="13.326" height="32.246" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202B614.o
 2,592 bytes · Assembly
 asm/unk_0202B614.s</title></rect>
-<rect x="485.308" y="137.462" width="17.756" height="23.940" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / script_manager.o
+<rect x="480.631" y="125.000" width="26.056" height="16.314" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / script_manager.o
 2,564 bytes · C-only source
 src/script_manager.c</title></rect>
-<rect x="467.359" y="161.402" width="12.177" height="34.090" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_strtoul.o
+<rect x="480.631" y="141.314" width="26.056" height="15.932" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_strtoul.o
 2,504 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_strtoul.s</title></rect>
-<rect x="479.536" y="161.402" width="23.528" height="17.306" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx_mtx43.o
+<rect x="467.305" y="157.246" width="19.771" height="20.762" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02005D10.o
+2,476 bytes · Assembly
+asm/unk_02005D10.s</title></rect>
+<rect x="487.076" y="157.246" width="19.611" height="20.762" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx_mtx43.o
 2,456 bytes · Assembly
 lib/NitroSDK/asm/fx_mtx43.s</title></rect>
-<rect x="479.536" y="178.708" width="23.528" height="16.784" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / follow_mon.o
+<rect x="467.305" y="178.007" width="19.925" height="19.819" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / follow_mon.o
 2,382 bytes · C-only source
 src/follow_mon.c</title></rect>
-<rect x="503.064" y="125.000" width="12.490" height="30.874" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / camera.o
+<rect x="487.230" y="178.007" width="19.457" height="19.819" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / camera.o
 2,326 bytes · C-only source
 src/camera.c</title></rect>
-<rect x="515.553" y="125.000" width="24.786" height="15.464" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / list_menu.o
+<rect x="506.687" y="125.000" width="11.927" height="32.135" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / list_menu.o
 2,312 bytes · C-only source
 src/list_menu.c</title></rect>
-<rect x="515.553" y="140.464" width="24.786" height="15.410" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / party_menu_sprites.o
+<rect x="518.615" y="125.000" width="23.690" height="16.124" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / party_menu_sprites.o
 2,304 bytes · C-only source
 src/party_menu_sprites.c</title></rect>
-<rect x="503.064" y="155.874" width="18.869" height="20.103" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / pm_string.o
+<rect x="518.615" y="141.124" width="23.690" height="16.012" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / pm_string.o
 2,288 bytes · C-only source
 src/pm_string.c</title></rect>
-<rect x="521.933" y="155.874" width="18.407" height="20.103" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / yes_no_prompt.o
+<rect x="506.687" y="157.135" width="17.841" height="20.741" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / yes_no_prompt.o
 2,232 bytes · C-only source
 src/yes_no_prompt.c</title></rect>
-<rect x="503.064" y="175.977" width="18.893" height="19.516" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / player_avatar.o
+<rect x="524.528" y="157.135" width="17.777" height="20.741" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / player_avatar.o
 2,224 bytes · C-only source
 src/player_avatar.c</title></rect>
-<rect x="521.957" y="175.977" width="18.383" height="19.516" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02033AE0.o
+<rect x="506.687" y="177.876" width="17.983" height="19.950" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02033AE0.o
 2,164 bytes · Assembly
 asm/unk_02033AE0.s</title></rect>
-<rect x="467.359" y="195.493" width="19.387" height="18.146" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0206D494.o
+<rect x="524.670" y="177.876" width="17.634" height="19.950" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0206D494.o
 2,122 bytes · C-only source
 src/unk_0206D494.c</title></rect>
-<rect x="467.359" y="213.638" width="19.387" height="18.026" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0205A44C.o
+<rect x="467.305" y="197.826" width="19.717" height="17.724" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0205A44C.o
 2,108 bytes · Assembly
 asm/unk_0205A44C.s</title></rect>
-<rect x="486.746" y="195.493" width="18.810" height="18.121" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02054648.o
+<rect x="467.305" y="215.550" width="19.717" height="17.287" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02054648.o
 2,056 bytes · Assembly
 asm/unk_02054648.s</title></rect>
-<rect x="486.746" y="213.614" width="18.810" height="18.051" fill="#b875ae" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / libsyscall.a _secure_ipke.o
+<rect x="487.022" y="197.826" width="19.367" height="17.531" fill="#b875ae" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / libsyscall.a _secure_ipke.o
 2,048 bytes · Unresolved source
 Source mapping unresolved</title></rect>
-<rect x="467.359" y="231.665" width="19.505" height="17.356" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sound.o
+<rect x="487.022" y="215.357" width="19.367" height="17.480" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sound.o
 2,042 bytes · C-only source
 src/sound.c</title></rect>
-<rect x="467.359" y="249.021" width="19.505" height="17.305" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02087284.o
+<rect x="467.305" y="232.837" width="20.032" height="16.850" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02087284.o
 2,036 bytes · Assembly
 asm/unk_02087284.s</title></rect>
-<rect x="486.864" y="231.665" width="18.692" height="17.526" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02034354.o
+<rect x="467.305" y="249.688" width="20.032" height="16.354" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02034354.o
 1,976 bytes · Assembly
 asm/unk_02034354.s</title></rect>
-<rect x="486.864" y="249.190" width="18.692" height="17.136" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02074E5C.o
+<rect x="487.336" y="232.837" width="19.053" height="16.811" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02074E5C.o
 1,932 bytes · Assembly
 asm/unk_02074E5C.s</title></rect>
-<rect x="505.555" y="195.493" width="17.420" height="17.930" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02012DD8.o
+<rect x="487.336" y="249.648" width="19.053" height="16.393" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02012DD8.o
 1,884 bytes · Assembly
 asm/unk_02012DD8.s</title></rect>
-<rect x="522.975" y="195.493" width="17.364" height="17.930" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0204B538.o
+<rect x="506.389" y="197.826" width="18.015" height="17.282" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0204B538.o
 1,878 bytes · C-only source
 src/unk_0204B538.c</title></rect>
-<rect x="505.555" y="213.423" width="17.392" height="17.882" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / trainer_data.o
+<rect x="506.389" y="215.108" width="18.015" height="17.264" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / trainer_data.o
 1,876 bytes · C-only source
 src/trainer_data.c</title></rect>
-<rect x="522.948" y="213.423" width="17.392" height="17.882" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0205AC88.o
+<rect x="524.404" y="197.826" width="17.900" height="17.375" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0205AC88.o
 1,876 bytes · Assembly
 asm/unk_0205AC88.s</title></rect>
-<rect x="505.555" y="231.305" width="17.468" height="17.596" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_9.o
+<rect x="524.404" y="215.201" width="17.900" height="17.171" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_9.o
 1,854 bytes · C-only source
 src/scrcmd_9.c</title></rect>
-<rect x="523.023" y="231.305" width="17.317" height="17.596" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / system.o
+<rect x="506.389" y="232.372" width="18.091" height="16.844" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / system.o
 1,838 bytes · C-only source
 src/system.c</title></rect>
-<rect x="505.555" y="248.901" width="17.468" height="17.425" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02066EDC.o
+<rect x="506.389" y="249.216" width="18.091" height="16.825" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02066EDC.o
 1,836 bytes · Assembly
 asm/unk_02066EDC.s</title></rect>
-<rect x="523.024" y="248.901" width="17.316" height="17.425" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0208DE40.o
+<rect x="524.480" y="232.372" width="17.825" height="16.928" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0208DE40.o
 1,820 bytes · Assembly
 asm/unk_0208DE40.s</title></rect>
-<rect x="540.340" y="125.000" width="18.700" height="15.958" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202D230.o
+<rect x="524.480" y="249.300" width="17.825" height="16.742" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202D230.o
 1,800 bytes · Assembly
 asm/unk_0202D230.s</title></rect>
-<rect x="540.340" y="140.958" width="18.700" height="15.923" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_direct_io.o
+<rect x="542.304" y="125.000" width="18.256" height="16.309" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_direct_io.o
 1,796 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_direct_io.s</title></rect>
-<rect x="559.039" y="125.000" width="18.596" height="15.940" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202C034.o
+<rect x="542.304" y="141.309" width="18.256" height="16.237" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202C034.o
 1,788 bytes · Assembly
 asm/unk_0202C034.s</title></rect>
-<rect x="559.039" y="140.940" width="18.596" height="15.940" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02056680.o
+<rect x="560.561" y="125.000" width="18.144" height="16.337" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02056680.o
 1,788 bytes · Assembly
 asm/unk_02056680.s</title></rect>
-<rect x="540.340" y="156.881" width="18.679" height="15.745" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / msgdata.o
+<rect x="560.561" y="141.337" width="18.144" height="16.209" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / msgdata.o
 1,774 bytes · C-only source
 src/msgdata.c</title></rect>
-<rect x="559.019" y="156.881" width="18.616" height="15.745" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0200FA24.o
+<rect x="542.304" y="157.546" width="18.242" height="16.068" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0200FA24.o
 1,768 bytes · Assembly
 asm/unk_0200FA24.s</title></rect>
-<rect x="540.340" y="172.625" width="12.594" height="23.168" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02025534.o
+<rect x="560.546" y="157.546" width="18.159" height="16.068" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02025534.o
 1,760 bytes · C-only source
 src/unk_02025534.c</title></rect>
-<rect x="552.934" y="172.625" width="12.365" height="23.168" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx_mtx33.o
+<rect x="542.304" y="173.614" width="12.218" height="23.446" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx_mtx33.o
 1,728 bytes · Assembly
 lib/NitroSDK/asm/fx_mtx33.s</title></rect>
-<rect x="565.299" y="172.625" width="12.336" height="23.168" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gf_gfx_loader.o
+<rect x="554.523" y="173.614" width="12.190" height="23.446" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gf_gfx_loader.o
 1,724 bytes · C-only source
 src/gf_gfx_loader.c</title></rect>
-<rect x="577.635" y="125.000" width="15.371" height="18.292" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / bag.o
+<rect x="566.713" y="173.614" width="11.992" height="23.446" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / bag.o
 1,696 bytes · C-only source
 src/bag.c</title></rect>
-<rect x="577.635" y="143.292" width="15.371" height="17.731" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_rankings.o
+<rect x="578.705" y="125.000" width="18.442" height="14.779" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_rankings.o
 1,644 bytes · C-only source
 src/save_rankings.c</title></rect>
-<rect x="593.006" y="125.000" width="22.201" height="12.023" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02013FDC.o
+<rect x="597.147" y="125.000" width="18.060" height="14.779" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02013FDC.o
 1,610 bytes · C-only source
 src/unk_02013FDC.c</title></rect>
-<rect x="593.006" y="137.023" width="22.201" height="12.008" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / obj_pltt_transfer.o
+<rect x="578.705" y="139.779" width="12.182" height="21.882" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / obj_pltt_transfer.o
 1,608 bytes · C-only source
 src/obj_pltt_transfer.c</title></rect>
-<rect x="593.006" y="149.031" width="22.201" height="11.993" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / pokemon_storage_system.o
+<rect x="590.888" y="139.779" width="12.167" height="21.882" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / pokemon_storage_system.o
 1,606 bytes · C-only source
 src/pokemon_storage_system.c</title></rect>
-<rect x="577.635" y="161.023" width="15.239" height="17.450" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020957B0.o
+<rect x="603.055" y="139.779" width="12.152" height="21.882" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020957B0.o
 1,604 bytes · Assembly
 asm/unk_020957B0.s</title></rect>
-<rect x="577.635" y="178.474" width="15.239" height="17.320" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0201956C.o
+<rect x="578.705" y="161.661" width="14.856" height="17.766" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0201956C.o
 1,592 bytes · Assembly
 asm/unk_0201956C.s</title></rect>
-<rect x="592.874" y="161.023" width="22.333" height="11.729" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0203A3B0.o
+<rect x="578.705" y="179.428" width="14.856" height="17.632" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0203A3B0.o
 1,580 bytes · Assembly
 asm/unk_0203A3B0.s</title></rect>
-<rect x="592.874" y="172.752" width="22.333" height="11.610" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / item.o
+<rect x="593.561" y="161.661" width="21.646" height="11.978" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / item.o
 1,564 bytes · C-only source
 src/item.c</title></rect>
-<rect x="592.874" y="184.362" width="22.333" height="11.432" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02015DD8.o
+<rect x="593.561" y="173.640" width="21.646" height="11.794" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02015DD8.o
 1,540 bytes · Assembly
 asm/unk_02015DD8.s</title></rect>
-<rect x="540.340" y="195.794" width="15.280" height="16.470" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_pokegear.o
+<rect x="593.561" y="185.434" width="21.646" height="11.626" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_pokegear.o
 1,518 bytes · C-only source
 src/save_pokegear.c</title></rect>
-<rect x="540.340" y="212.264" width="15.280" height="16.209" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02092BE8.o
+<rect x="542.304" y="197.060" width="17.500" height="14.154" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02092BE8.o
 1,494 bytes · C-only source
 src/unk_02092BE8.c</title></rect>
-<rect x="555.620" y="195.794" width="22.403" height="10.982" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_battle.o
+<rect x="559.804" y="197.060" width="17.382" height="14.154" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_battle.o
 1,484 bytes · C-only source
 src/scrcmd_battle.c</title></rect>
-<rect x="555.620" y="206.776" width="11.217" height="21.697" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_string.o
+<rect x="542.304" y="211.214" width="11.702" height="20.798" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_string.o
 1,468 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_string.s</title></rect>
-<rect x="566.836" y="206.776" width="11.186" height="21.697" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / filesystem.o
+<rect x="554.006" y="211.214" width="11.670" height="20.798" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / filesystem.o
 1,464 bytes · C-only source
 src/filesystem.c</title></rect>
-<rect x="540.340" y="228.473" width="12.561" height="19.059" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / g3x.o
+<rect x="565.676" y="211.214" width="11.510" height="20.798" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / g3x.o
 1,444 bytes · Assembly
 lib/NitroSDK/asm/g3x.s</title></rect>
-<rect x="552.901" y="228.473" width="12.561" height="19.059" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mail.o
+<rect x="542.304" y="232.012" width="14.070" height="17.015" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mail.o
 1,444 bytes · C-only source
 src/mail.c</title></rect>
-<rect x="565.462" y="228.473" width="12.561" height="19.059" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02078834.o
+<rect x="542.304" y="249.026" width="14.070" height="17.015" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02078834.o
 1,444 bytes · Assembly
 asm/unk_02078834.s</title></rect>
-<rect x="540.340" y="247.531" width="12.667" height="18.795" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / game_clear.o
+<rect x="556.374" y="232.012" width="20.812" height="11.439" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / game_clear.o
 1,436 bytes · C-only source
 src/game_clear.c</title></rect>
-<rect x="553.007" y="247.531" width="12.561" height="18.795" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_battle_castle.o
+<rect x="556.374" y="243.450" width="20.812" height="11.343" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_battle_castle.o
 1,424 bytes · C-only source
 src/scrcmd_battle_castle.c</title></rect>
-<rect x="565.567" y="247.531" width="12.455" height="18.795" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx_vec.o
+<rect x="556.374" y="254.794" width="20.812" height="11.248" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx_vec.o
 1,412 bytes · Assembly
 lib/NitroSDK/asm/fx_vec.s</title></rect>
-<rect x="578.023" y="195.794" width="18.877" height="12.278" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / text.o
+<rect x="577.186" y="197.060" width="19.302" height="12.008" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / text.o
 1,398 bytes · C-only source
 src/text.c</title></rect>
-<rect x="578.023" y="208.071" width="18.877" height="12.084" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02068FC8.o
+<rect x="577.186" y="209.068" width="19.302" height="11.819" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02068FC8.o
 1,376 bytes · Assembly
 asm/unk_02068FC8.s</title></rect>
-<rect x="578.023" y="220.156" width="18.877" height="11.716" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / main.o
+<rect x="577.186" y="220.886" width="19.302" height="11.458" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / main.o
 1,334 bytes · C-only source
 src/main.c</title></rect>
-<rect x="596.900" y="195.794" width="18.307" height="12.062" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_battle_arcade.o
+<rect x="596.488" y="197.060" width="18.719" height="11.797" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_battle_arcade.o
 1,332 bytes · C-only source
 src/scrcmd_battle_arcade.c</title></rect>
-<rect x="596.900" y="207.856" width="18.307" height="12.008" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / list_menu_2d.o
+<rect x="596.488" y="208.857" width="18.719" height="11.744" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / list_menu_2d.o
 1,326 bytes · C-only source
 src/list_menu_2d.c</title></rect>
-<rect x="596.900" y="219.864" width="18.307" height="12.008" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mystery_gift.o
+<rect x="596.488" y="220.601" width="18.719" height="11.744" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mystery_gift.o
 1,326 bytes · C-only source
 src/mystery_gift.c</title></rect>
-<rect x="578.023" y="231.871" width="18.756" height="11.508" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_daycare.o
+<rect x="577.186" y="232.344" width="19.178" height="11.255" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_daycare.o
 1,302 bytes · C-only source
 src/scrcmd_daycare.c</title></rect>
-<rect x="578.023" y="243.380" width="18.756" height="11.491" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02020B8C.o
+<rect x="577.186" y="243.600" width="19.178" height="11.238" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02020B8C.o
 1,300 bytes · Assembly
 asm/unk_02020B8C.s</title></rect>
-<rect x="578.023" y="254.871" width="18.756" height="11.455" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020850F4.o
+<rect x="577.186" y="254.838" width="19.178" height="11.204" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020850F4.o
 1,296 bytes · Assembly
 asm/unk_020850F4.s</title></rect>
-<rect x="596.778" y="231.871" width="18.429" height="11.641" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / battle_regulation.o
+<rect x="596.364" y="232.344" width="18.843" height="11.385" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / battle_regulation.o
 1,294 bytes · C-only source
 src/battle_regulation.c</title></rect>
-<rect x="596.778" y="243.512" width="18.429" height="11.515" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020210A0.o
+<rect x="596.364" y="243.729" width="18.843" height="11.262" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020210A0.o
 1,280 bytes · Assembly
 asm/unk_020210A0.s</title></rect>
-<rect x="596.778" y="255.027" width="18.429" height="11.299" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_system.o
+<rect x="596.364" y="254.991" width="18.843" height="11.050" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_system.o
 1,256 bytes · C-only source
 src/field_system.c</title></rect>
-<rect x="467.359" y="266.326" width="18.386" height="11.235" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / safari_zone.o
+<rect x="467.305" y="266.041" width="18.349" height="11.258" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / safari_zone.o
 1,246 bytes · C-only source
 src/safari_zone.c</title></rect>
-<rect x="467.359" y="277.561" width="18.386" height="11.235" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sys_flags.o
+<rect x="467.305" y="277.299" width="18.349" height="11.258" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sys_flags.o
 1,246 bytes · C-only source
 src/sys_flags.c</title></rect>
-<rect x="467.359" y="288.796" width="18.386" height="11.217" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02019BA4.o
+<rect x="467.305" y="288.557" width="18.349" height="11.240" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02019BA4.o
 1,244 bytes · C-only source
 src/unk_02019BA4.c</title></rect>
-<rect x="485.745" y="266.326" width="18.179" height="11.272" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0205BB1C.o
+<rect x="485.654" y="266.041" width="18.143" height="11.294" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0205BB1C.o
 1,236 bytes · Assembly
 asm/unk_0205BB1C.s</title></rect>
-<rect x="485.745" y="277.598" width="18.179" height="11.235" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_file_pos.o
+<rect x="485.654" y="277.336" width="18.143" height="11.258" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_file_pos.o
 1,232 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_file_pos.s</title></rect>
-<rect x="485.745" y="288.833" width="18.179" height="11.180" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / heap.o
+<rect x="485.654" y="288.593" width="18.143" height="11.203" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / heap.o
 1,226 bytes · C-only source
 src/heap.c</title></rect>
-<rect x="467.359" y="300.013" width="12.269" height="16.485" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / delete_savedata.o
+<rect x="467.305" y="299.796" width="12.244" height="16.519" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / delete_savedata.o
 1,220 bytes · C-only source
 src/application/delete_savedata.c</title></rect>
-<rect x="479.628" y="300.013" width="12.209" height="16.485" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / font_data.o
+<rect x="479.549" y="299.796" width="12.184" height="16.519" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / font_data.o
 1,214 bytes · C-only source
 src/font_data.c</title></rect>
-<rect x="491.836" y="300.013" width="12.088" height="16.485" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02097268.o
+<rect x="491.733" y="299.796" width="12.064" height="16.519" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02097268.o
 1,202 bytes · C-only source
 src/unk_02097268.c</title></rect>
-<rect x="467.359" y="316.498" width="18.434" height="10.558" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / check_savedata.o
+<rect x="467.305" y="316.315" width="18.397" height="10.580" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / check_savedata.o
 1,174 bytes · C-only source
 src/application/check_savedata.c</title></rect>
-<rect x="467.359" y="327.057" width="18.434" height="10.252" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gx_load3d.o
+<rect x="467.305" y="326.894" width="18.397" height="10.273" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gx_load3d.o
 1,140 bytes · Assembly
 lib/NitroSDK/asm/gx_load3d.s</title></rect>
-<rect x="485.793" y="316.498" width="18.131" height="10.424" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_dma.o
+<rect x="485.702" y="316.315" width="18.095" height="10.445" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_dma.o
 1,140 bytes · Assembly
 lib/NitroSDK/asm/mi_dma.s</title></rect>
-<rect x="485.793" y="326.922" width="18.131" height="10.387" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gx_bgcnt.o
+<rect x="485.702" y="326.760" width="18.095" height="10.408" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gx_bgcnt.o
 1,136 bytes · Assembly
 lib/NitroSDK/asm/gx_bgcnt.s</title></rect>
-<rect x="503.924" y="266.326" width="16.236" height="11.396" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sys_vars.o
+<rect x="503.796" y="266.041" width="16.203" height="11.419" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sys_vars.o
 1,116 bytes · C-only source
 src/sys_vars.c</title></rect>
-<rect x="503.924" y="277.722" width="16.236" height="11.396" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02091880.o
+<rect x="503.796" y="277.460" width="16.203" height="11.419" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02091880.o
 1,116 bytes · Assembly
 asm/unk_02091880.s</title></rect>
-<rect x="503.924" y="289.117" width="16.236" height="11.355" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sprite_transfer.o
+<rect x="503.796" y="288.879" width="16.203" height="11.378" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sprite_transfer.o
 1,112 bytes · C-only source
 src/sprite_transfer.c</title></rect>
-<rect x="520.160" y="266.326" width="10.623" height="17.261" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / party.o
+<rect x="519.999" y="266.041" width="10.602" height="17.295" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / party.o
 1,106 bytes · C-only source
 src/party.c</title></rect>
-<rect x="530.783" y="266.326" width="10.604" height="17.261" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_memory.o
+<rect x="530.601" y="266.041" width="10.582" height="17.295" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_memory.o
 1,104 bytes · Assembly
 lib/NitroSDK/asm/mi_memory.s</title></rect>
-<rect x="520.160" y="283.587" width="10.662" height="16.886" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / font.o
+<rect x="519.999" y="283.337" width="10.641" height="16.920" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / font.o
 1,086 bytes · C-only source
 src/font.c</title></rect>
-<rect x="530.822" y="283.587" width="10.564" height="16.886" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / map_preview_graphic.o
+<rect x="530.640" y="283.337" width="10.543" height="16.920" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / map_preview_graphic.o
 1,076 bytes · C-only source
 src/map_preview_graphic.c</title></rect>
-<rect x="503.924" y="300.472" width="9.568" height="18.610" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / metatile_behavior.o
+<rect x="503.796" y="300.256" width="9.548" height="18.648" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / metatile_behavior.o
 1,074 bytes · C-only source
 src/metatile_behavior.c</title></rect>
-<rect x="513.492" y="300.472" width="9.461" height="18.610" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / math_util.o
+<rect x="513.345" y="300.256" width="9.442" height="18.648" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / math_util.o
 1,062 bytes · C-only source
 src/math_util.c</title></rect>
-<rect x="503.924" y="319.082" width="9.532" height="18.227" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020689C8.o
+<rect x="503.796" y="318.904" width="9.513" height="18.264" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020689C8.o
 1,048 bytes · Assembly
 asm/unk_020689C8.s</title></rect>
-<rect x="513.456" y="319.082" width="9.496" height="18.227" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_arena.o
+<rect x="513.309" y="318.904" width="9.477" height="18.264" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_arena.o
 1,044 bytes · C-only source
 lib/NitroSDK/src/os/os_arena.c</title></rect>
-<rect x="522.952" y="300.472" width="18.434" height="9.317" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_alarm.o
+<rect x="522.786" y="300.256" width="18.397" height="9.336" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_alarm.o
 1,036 bytes · C with assembly
 lib/NitroSDK/src/os/os_alarm.c</title></rect>
-<rect x="522.952" y="309.789" width="18.434" height="9.245" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / catching_show.o
+<rect x="522.786" y="309.592" width="18.397" height="9.264" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / catching_show.o
 1,028 bytes · C-only source
 src/catching_show.c</title></rect>
-<rect x="522.952" y="319.035" width="9.217" height="18.275" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0206B910.o
+<rect x="522.786" y="318.856" width="9.198" height="18.311" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0206B910.o
 1,016 bytes · C-only source
 src/unk_0206B910.c</title></rect>
-<rect x="532.169" y="319.035" width="9.217" height="18.275" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02087A78.o
+<rect x="531.985" y="318.856" width="9.198" height="18.311" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02087A78.o
 1,016 bytes · Assembly
 asm/unk_02087A78.s</title></rect>
-<rect x="467.359" y="337.309" width="9.736" height="17.300" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / wvr.o
+<rect x="467.305" y="337.168" width="9.717" height="17.335" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / wvr.o
 1,016 bytes · Assembly
 lib/NitroSDK/asm/wvr.s</title></rect>
-<rect x="477.095" y="337.309" width="9.717" height="17.300" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_misc.o
+<rect x="477.021" y="337.168" width="9.698" height="17.335" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_misc.o
 1,014 bytes · C-only source
 src/save_misc.c</title></rect>
-<rect x="467.359" y="354.609" width="9.806" height="16.772" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_alloc.o
+<rect x="467.305" y="354.503" width="9.786" height="16.805" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_alloc.o
 992 bytes · C-only source
 lib/NitroSDK/src/os/os_alloc.c</title></rect>
-<rect x="477.164" y="354.609" width="9.648" height="16.772" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / blackout.o
+<rect x="477.091" y="354.503" width="9.628" height="16.805" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / blackout.o
 976 bytes · C-only source
 src/blackout.c</title></rect>
-<rect x="486.812" y="337.309" width="9.221" height="17.117" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_spinLock.o
+<rect x="486.719" y="337.168" width="9.202" height="17.151" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_spinLock.o
 952 bytes · C with assembly
 lib/NitroSDK/src/os/os_spinLock.c</title></rect>
-<rect x="496.033" y="337.309" width="9.221" height="17.117" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02055418.o
+<rect x="495.921" y="337.168" width="9.202" height="17.151" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02055418.o
 952 bytes · C-only source
 src/unk_02055418.c</title></rect>
-<rect x="486.812" y="354.426" width="9.230" height="16.955" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_17.o
+<rect x="486.719" y="354.319" width="9.212" height="16.989" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_17.o
 944 bytes · C-only source
 src/scrcmd_17.c</title></rect>
-<rect x="496.042" y="354.426" width="9.211" height="16.955" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / map_matrix.o
+<rect x="495.931" y="354.319" width="9.192" height="16.989" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / map_matrix.o
 942 bytes · C-only source
 src/map_matrix.c</title></rect>
-<rect x="467.359" y="371.381" width="17.102" height="9.034" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mail_misc.o
+<rect x="467.305" y="371.308" width="17.068" height="9.053" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mail_misc.o
 932 bytes · C-only source
 src/mail_misc.c</title></rect>
-<rect x="467.359" y="380.415" width="17.102" height="8.996" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / crt0.o
+<rect x="467.305" y="380.361" width="17.068" height="9.014" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / crt0.o
 928 bytes · Assembly
 lib/asm/crt0.s</title></rect>
-<rect x="467.359" y="389.411" width="17.102" height="8.957" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / map_header.o
+<rect x="467.305" y="389.375" width="17.068" height="8.975" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / map_header.o
 924 bytes · C-only source
 src/map_header.c</title></rect>
-<rect x="467.359" y="398.368" width="17.102" height="8.957" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02096C88.o
+<rect x="467.305" y="398.350" width="17.068" height="8.975" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02096C88.o
 924 bytes · Assembly
 asm/unk_02096C88.s</title></rect>
-<rect x="484.461" y="371.381" width="10.419" height="14.639" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02014A08.o
+<rect x="484.373" y="371.308" width="10.398" height="14.669" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02014A08.o
 920 bytes · Assembly
 asm/unk_02014A08.s</title></rect>
-<rect x="494.880" y="371.381" width="10.373" height="14.639" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02067A60.o
+<rect x="494.770" y="371.308" width="10.353" height="14.669" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02067A60.o
 916 bytes · Assembly
 asm/unk_02067A60.s</title></rect>
-<rect x="484.461" y="386.020" width="20.792" height="7.144" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202068C.o
+<rect x="484.373" y="385.977" width="20.750" height="7.159" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202068C.o
 896 bytes · Assembly
 asm/unk_0202068C.s</title></rect>
-<rect x="484.461" y="393.164" width="10.396" height="14.161" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_mart.o
+<rect x="484.373" y="393.135" width="10.375" height="14.189" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_mart.o
 888 bytes · C-only source
 src/scrcmd_mart.c</title></rect>
-<rect x="494.857" y="393.164" width="10.396" height="14.161" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02096910.o
+<rect x="494.748" y="393.135" width="10.375" height="14.189" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02096910.o
 888 bytes · Assembly
 asm/unk_02096910.s</title></rect>
-<rect x="505.253" y="337.309" width="16.341" height="8.664" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / script_pokemon_util.o
+<rect x="505.123" y="337.168" width="16.308" height="8.682" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / script_pokemon_util.o
 854 bytes · C-only source
 src/script_pokemon_util.c</title></rect>
-<rect x="505.253" y="345.973" width="16.341" height="8.603" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02018000.o
+<rect x="505.123" y="345.849" width="16.308" height="8.621" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02018000.o
 848 bytes · Assembly
 asm/unk_02018000.s</title></rect>
-<rect x="505.253" y="354.577" width="16.341" height="8.603" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0208F814.o
+<rect x="505.123" y="354.470" width="16.308" height="8.621" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0208F814.o
 848 bytes · Assembly
 asm/unk_0208F814.s</title></rect>
-<rect x="505.253" y="363.180" width="16.341" height="8.522" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02009D48.o
+<rect x="505.123" y="363.091" width="16.308" height="8.539" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02009D48.o
 840 bytes · C-only source
 src/unk_02009D48.c</title></rect>
-<rect x="521.594" y="337.309" width="9.932" height="13.888" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / hall_of_fame.o
+<rect x="521.431" y="337.168" width="9.912" height="13.916" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / hall_of_fame.o
 832 bytes · C-only source
 src/hall_of_fame.c</title></rect>
-<rect x="531.526" y="337.309" width="9.860" height="13.888" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / pokemon_icon_idx.o
+<rect x="531.343" y="337.168" width="9.840" height="13.916" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / pokemon_icon_idx.o
 826 bytes · C-only source
 src/pokemon_icon_idx.c</title></rect>
-<rect x="521.594" y="351.197" width="19.792" height="6.869" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / easy_chat.o
+<rect x="521.431" y="351.084" width="19.752" height="6.882" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / easy_chat.o
 820 bytes · C-only source
 src/easy_chat.c</title></rect>
-<rect x="521.594" y="358.065" width="9.920" height="13.637" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_sound.o
+<rect x="521.431" y="357.966" width="9.900" height="13.664" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_sound.o
 816 bytes · C-only source
 src/scrcmd_sound.c</title></rect>
-<rect x="531.515" y="358.065" width="9.872" height="13.637" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_roamer.o
+<rect x="531.331" y="357.966" width="9.852" height="13.664" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_roamer.o
 812 bytes · C-only source
 src/field_roamer.c</title></rect>
-<rect x="505.253" y="371.702" width="9.224" height="14.522" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gx.o
+<rect x="505.123" y="371.630" width="9.205" height="14.552" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gx.o
 808 bytes · Assembly
 lib/NitroSDK/asm/gx.s</title></rect>
-<rect x="514.477" y="371.702" width="9.224" height="14.522" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_data_read_error.o
+<rect x="514.328" y="371.630" width="9.205" height="14.552" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_data_read_error.o
 808 bytes · C-only source
 src/save_data_read_error.c</title></rect>
-<rect x="505.253" y="386.224" width="18.448" height="7.045" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / g3b.o
+<rect x="505.123" y="386.182" width="18.411" height="7.060" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / g3b.o
 784 bytes · Assembly
 lib/NitroSDK/asm/g3b.s</title></rect>
-<rect x="505.253" y="393.270" width="9.248" height="14.055" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sound_bgm.o
+<rect x="505.123" y="393.241" width="9.229" height="14.083" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sound_bgm.o
 784 bytes · C-only source
 src/sound_bgm.c</title></rect>
-<rect x="514.501" y="393.270" width="9.200" height="14.055" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / frontier.o
+<rect x="514.352" y="393.241" width="9.182" height="14.083" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / frontier.o
 780 bytes · Assembly
 asm/frontier.s</title></rect>
-<rect x="523.701" y="371.702" width="8.842" height="14.549" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / game_stats.o
+<rect x="523.534" y="371.630" width="8.825" height="14.578" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / game_stats.o
 776 bytes · C-only source
 src/game_stats.c</title></rect>
-<rect x="532.544" y="371.702" width="8.842" height="14.549" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0203DB6C.o
+<rect x="532.358" y="371.630" width="8.825" height="14.578" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0203DB6C.o
 776 bytes · Assembly
 asm/unk_0203DB6C.s</title></rect>
-<rect x="523.701" y="386.251" width="17.685" height="7.087" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020379A0.o
+<rect x="523.534" y="386.208" width="17.649" height="7.101" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020379A0.o
 756 bytes · Assembly
 asm/unk_020379A0.s</title></rect>
-<rect x="523.701" y="393.338" width="8.866" height="13.987" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / map_events.o
+<rect x="523.534" y="393.310" width="8.848" height="14.015" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / map_events.o
 748 bytes · C-only source
 src/map_events.c</title></rect>
-<rect x="532.568" y="393.338" width="8.819" height="13.987" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_dma_gxcommand.o
+<rect x="532.382" y="393.310" width="8.801" height="14.015" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_dma_gxcommand.o
 744 bytes · Assembly
 lib/NitroSDK/asm/mi_dma_gxcommand.s</title></rect>
-<rect x="541.386" y="266.326" width="8.480" height="14.389" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx_trig.o
+<rect x="541.183" y="266.041" width="8.491" height="14.369" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx_trig.o
 736 bytes · Assembly
 lib/NitroSDK/asm/fx_trig.s</title></rect>
-<rect x="549.866" y="266.326" width="8.457" height="14.389" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gf_rtc.o
+<rect x="549.675" y="266.041" width="8.468" height="14.369" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gf_rtc.o
 734 bytes · C-only source
 src/gf_rtc.c</title></rect>
-<rect x="541.386" y="280.715" width="16.937" height="7.087" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / bag_view.o
+<rect x="541.183" y="280.411" width="16.960" height="7.077" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / bag_view.o
 724 bytes · C-only source
 src/bag_view.c</title></rect>
-<rect x="541.386" y="287.802" width="8.480" height="14.115" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gf_3d_render.o
+<rect x="541.183" y="287.488" width="8.492" height="14.096" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gf_3d_render.o
 722 bytes · C-only source
 src/gf_3d_render.c</title></rect>
-<rect x="549.867" y="287.802" width="8.457" height="14.115" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_compress.o
+<rect x="549.675" y="287.488" width="8.468" height="14.096" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_compress.o
 720 bytes · Assembly
 lib/NitroSDK/asm/mi_compress.s</title></rect>
-<rect x="558.323" y="266.326" width="6.585" height="18.026" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020773AC.o
+<rect x="558.143" y="266.041" width="6.594" height="18.002" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020773AC.o
 716 bytes · Assembly
 asm/unk_020773AC.s</title></rect>
-<rect x="564.908" y="266.326" width="12.784" height="9.104" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sound_chatot.o
+<rect x="564.737" y="266.041" width="12.801" height="9.092" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sound_chatot.o
 702 bytes · C-only source
 src/sound_chatot.c</title></rect>
-<rect x="564.908" y="275.430" width="12.784" height="8.922" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_CPP_NITRO_Ai_LE.o
+<rect x="564.737" y="275.133" width="12.801" height="8.910" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_CPP_NITRO_Ai_LE.o
 688 bytes · Assembly
 lib/MSL_C/asm/MSL_CPP_NITRO_Ai_LE.s</title></rect>
-<rect x="558.323" y="284.352" width="6.475" height="17.564" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / camera_translation.o
+<rect x="558.143" y="284.043" width="6.484" height="17.540" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / camera_translation.o
 686 bytes · C-only source
 src/camera_translation.c</title></rect>
-<rect x="564.798" y="284.352" width="12.893" height="8.795" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / communication_error.o
+<rect x="564.627" y="284.043" width="12.911" height="8.783" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / communication_error.o
 684 bytes · C-only source
 src/communication_error.c</title></rect>
-<rect x="564.798" y="293.147" width="12.893" height="8.769" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / touchscreen.o
+<rect x="564.627" y="292.826" width="12.911" height="8.757" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / touchscreen.o
 682 bytes · C-only source
 src/touchscreen.c</title></rect>
-<rect x="541.386" y="301.916" width="6.311" height="17.863" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_interrupt.o
+<rect x="541.183" y="301.583" width="6.320" height="17.838" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_interrupt.o
 680 bytes · C-only source
 lib/NitroSDK/src/os/os_interrupt.c</title></rect>
-<rect x="547.697" y="301.916" width="12.455" height="8.971" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / poke_overlay.o
+<rect x="547.503" y="301.583" width="12.472" height="8.959" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / poke_overlay.o
 674 bytes · C-only source
 src/poke_overlay.c</title></rect>
-<rect x="547.697" y="310.888" width="12.455" height="8.891" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020192D0.o
+<rect x="547.503" y="310.543" width="12.472" height="8.879" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020192D0.o
 668 bytes · Assembly
 asm/unk_020192D0.s</title></rect>
-<rect x="541.386" y="319.779" width="6.358" height="17.262" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_bgm.o
+<rect x="541.183" y="319.422" width="6.367" height="17.239" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_bgm.o
 662 bytes · C-only source
 src/field_bgm.c</title></rect>
-<rect x="547.744" y="319.779" width="12.408" height="8.765" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / brightness.o
+<rect x="547.550" y="319.422" width="12.425" height="8.753" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / brightness.o
 656 bytes · C-only source
 src/brightness.c</title></rect>
-<rect x="547.744" y="328.544" width="12.408" height="8.497" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / error_message_reset.o
+<rect x="547.550" y="328.175" width="12.425" height="8.486" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / error_message_reset.o
 636 bytes · C-only source
 src/error_message_reset.c</title></rect>
-<rect x="560.153" y="301.916" width="17.539" height="5.993" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mail_message.o
+<rect x="559.975" y="301.583" width="17.563" height="5.985" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mail_message.o
 634 bytes · C-only source
 src/mail_message.c</title></rect>
-<rect x="560.153" y="307.909" width="8.770" height="11.948" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_message.o
+<rect x="559.975" y="307.568" width="8.781" height="11.931" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_message.o
 632 bytes · C-only source
 lib/NitroSDK/src/os/os_message.c</title></rect>
-<rect x="568.922" y="307.909" width="8.770" height="11.948" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0205BFF0.o
+<rect x="568.756" y="307.568" width="8.781" height="11.931" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0205BFF0.o
 632 bytes · Assembly
 asm/unk_0205BFF0.s</title></rect>
-<rect x="560.153" y="319.857" width="5.904" height="17.184" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_8.o
+<rect x="559.975" y="319.500" width="5.912" height="17.161" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_8.o
 612 bytes · C-only source
 src/scrcmd_8.c</title></rect>
-<rect x="566.057" y="319.857" width="11.635" height="8.606" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0206979C.o
+<rect x="565.887" y="319.500" width="11.651" height="8.595" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0206979C.o
 604 bytes · Assembly
 asm/unk_0206979C.s</title></rect>
-<rect x="566.057" y="328.463" width="11.635" height="8.578" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / dex_mon_measures.o
+<rect x="565.887" y="328.094" width="11.651" height="8.566" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / dex_mon_measures.o
 602 bytes · C-only source
 src/dex_mon_measures.c</title></rect>
-<rect x="577.692" y="266.326" width="6.517" height="15.060" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_lottery.o
+<rect x="577.538" y="266.041" width="6.544" height="14.998" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_lottery.o
 592 bytes · C-only source
 src/scrcmd_lottery.c</title></rect>
-<rect x="584.209" y="266.326" width="12.858" height="7.581" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_DPMath_s_ldexp.o
+<rect x="584.082" y="266.041" width="12.911" height="7.550" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_DPMath_s_ldexp.o
 588 bytes · Assembly
 lib/MSL_C/asm/MSL_DPMath_s_ldexp.s</title></rect>
-<rect x="584.209" y="273.907" width="12.858" height="7.478" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02025C44.o
+<rect x="584.082" y="273.592" width="12.911" height="7.448" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02025C44.o
 580 bytes · Assembly
 asm/unk_02025C44.s</title></rect>
-<rect x="577.692" y="281.386" width="9.739" height="9.669" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0208FB64.o
+<rect x="577.538" y="281.039" width="9.779" height="9.629" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0208FB64.o
 568 bytes · Assembly
 asm/unk_0208FB64.s</title></rect>
-<rect x="577.692" y="291.054" width="9.739" height="9.635" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / player_data.o
+<rect x="577.538" y="290.668" width="9.779" height="9.595" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / player_data.o
 566 bytes · C-only source
 src/player_data.c</title></rect>
-<rect x="587.431" y="281.386" width="9.636" height="9.669" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_move_relearner.o
+<rect x="587.317" y="281.039" width="9.676" height="9.629" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_move_relearner.o
 562 bytes · C-only source
 src/scrcmd_move_relearner.c</title></rect>
-<rect x="587.431" y="291.055" width="9.636" height="9.635" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0200B150.o
+<rect x="587.317" y="290.669" width="9.676" height="9.595" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0200B150.o
 560 bytes · Assembly
 asm/unk_0200B150.s</title></rect>
-<rect x="597.067" y="266.326" width="6.142" height="15.006" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020163E0.o
+<rect x="596.993" y="266.041" width="6.168" height="14.945" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020163E0.o
 556 bytes · Assembly
 asm/unk_020163E0.s</title></rect>
-<rect x="603.209" y="266.326" width="11.998" height="7.600" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0208805C.o
+<rect x="603.160" y="266.041" width="12.047" height="7.569" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0208805C.o
 550 bytes · C-only source
 src/unk_0208805C.c</title></rect>
-<rect x="603.209" y="273.926" width="11.998" height="7.407" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202C730.o
+<rect x="603.160" y="273.610" width="12.047" height="7.376" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202C730.o
 536 bytes · Assembly
 asm/unk_0202C730.s</title></rect>
-<rect x="597.067" y="281.332" width="9.138" height="9.724" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / wfc_user_info_warning.o
+<rect x="596.993" y="280.986" width="9.176" height="9.684" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / wfc_user_info_warning.o
 536 bytes · C-only source
 src/wfc_user_info_warning.c</title></rect>
-<rect x="606.205" y="281.332" width="9.002" height="9.724" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_tick.o
+<rect x="606.168" y="280.986" width="9.039" height="9.684" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_tick.o
 528 bytes · C-only source
 lib/NitroSDK/src/os/os_tick.c</title></rect>
-<rect x="597.067" y="291.057" width="9.087" height="9.633" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_12.o
+<rect x="596.993" y="290.671" width="9.125" height="9.593" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_12.o
 528 bytes · C-only source
 src/scrcmd_12.c</title></rect>
-<rect x="606.154" y="291.057" width="9.053" height="9.633" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_items.o
+<rect x="606.117" y="290.671" width="9.090" height="9.593" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_items.o
 526 bytes · C-only source
 src/scrcmd_items.c</title></rect>
-<rect x="577.692" y="300.689" width="9.266" height="9.303" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / message_printer.o
+<rect x="577.538" y="300.264" width="9.259" height="9.310" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / message_printer.o
 520 bytes · C-only source
 src/message_printer.c</title></rect>
-<rect x="586.958" y="300.689" width="9.195" height="9.303" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_exception.o
+<rect x="586.797" y="300.264" width="9.188" height="9.310" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_exception.o
 516 bytes · C with assembly
 lib/NitroSDK/src/os/os_exception.c</title></rect>
-<rect x="577.692" y="309.993" width="9.231" height="9.196" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / pokeathlon_save.o
+<rect x="577.538" y="309.574" width="9.224" height="9.203" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / pokeathlon_save.o
 512 bytes · C-only source
 src/pokeathlon/pokeathlon_save.c</title></rect>
-<rect x="586.922" y="309.993" width="9.231" height="9.196" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02077678.o
+<rect x="586.762" y="309.574" width="9.224" height="9.203" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02077678.o
 512 bytes · Assembly
 asm/unk_02077678.s</title></rect>
-<rect x="577.692" y="319.188" width="9.342" height="8.944" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202F370.o
+<rect x="577.538" y="318.777" width="9.326" height="8.960" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202F370.o
 504 bytes · C-only source
 src/unk_0202F370.c</title></rect>
-<rect x="577.692" y="328.132" width="9.342" height="8.909" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / dialog_box.o
+<rect x="577.538" y="327.736" width="9.326" height="8.924" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / dialog_box.o
 502 bytes · C-only source
 src/dialog_box.c</title></rect>
-<rect x="587.034" y="319.188" width="9.119" height="9.017" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_mutex.o
+<rect x="586.863" y="318.777" width="9.122" height="9.015" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_mutex.o
 496 bytes · C-only source
 lib/NitroSDK/src/os/os_mutex.c</title></rect>
-<rect x="587.034" y="328.206" width="9.119" height="8.835" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sys_task.o
+<rect x="586.863" y="327.791" width="9.122" height="8.869" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sound_se.o
+488 bytes · C-only source
+src/sound_se.c</title></rect>
+<rect x="595.985" y="300.264" width="9.711" height="8.297" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sys_task.o
 486 bytes · C-only source
 src/sys_task.c</title></rect>
-<rect x="596.153" y="300.689" width="9.617" height="8.309" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / seal_case.o
+<rect x="595.985" y="308.561" width="9.711" height="8.228" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / seal_case.o
 482 bytes · C-only source
 src/seal_case.c</title></rect>
-<rect x="596.153" y="308.998" width="9.617" height="8.205" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020977CC.o
+<rect x="605.697" y="300.264" width="9.511" height="8.297" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020977CC.o
 476 bytes · Assembly
 asm/unk_020977CC.s</title></rect>
-<rect x="605.770" y="300.689" width="9.437" height="8.292" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx_cp.o
+<rect x="605.697" y="308.561" width="9.511" height="8.228" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx_cp.o
 472 bytes · Assembly
 lib/NitroSDK/asm/fx_cp.s</title></rect>
-<rect x="605.770" y="308.981" width="9.437" height="8.222" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02055244.o
+<rect x="595.985" y="316.789" width="9.611" height="8.073" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02055244.o
 468 bytes · Assembly
 asm/unk_02055244.s</title></rect>
-<rect x="596.153" y="317.203" width="9.568" height="8.109" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02097024.o
+<rect x="605.596" y="316.789" width="9.611" height="8.073" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02097024.o
 468 bytes · Assembly
 asm/unk_02097024.s</title></rect>
-<rect x="605.721" y="317.203" width="9.486" height="8.109" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020979A8.o
+<rect x="595.985" y="324.862" width="6.520" height="11.799" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020979A8.o
 464 bytes · Assembly
 asm/unk_020979A8.s</title></rect>
-<rect x="596.153" y="325.312" width="6.502" height="11.729" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / choose_starter.o
+<rect x="602.505" y="324.862" width="6.463" height="11.799" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / choose_starter.o
 460 bytes · C-only source
 src/choose_starter.c</title></rect>
-<rect x="602.655" y="325.312" width="6.276" height="11.729" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / roamer.o
+<rect x="608.968" y="324.862" width="6.239" height="11.799" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / roamer.o
 444 bytes · C-only source
 src/roamer.c</title></rect>
-<rect x="608.931" y="325.312" width="6.276" height="11.729" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0208F658.o
+<rect x="541.183" y="336.661" width="9.194" height="8.006" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0208F658.o
 444 bytes · Assembly
 asm/unk_0208F658.s</title></rect>
-<rect x="541.386" y="337.041" width="9.129" height="7.845" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0203170C.o
+<rect x="541.183" y="344.667" width="9.194" height="7.790" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0203170C.o
 432 bytes · C-only source
 src/unk_0203170C.c</title></rect>
-<rect x="541.386" y="344.886" width="9.129" height="7.700" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx_atanidx.o
+<rect x="550.377" y="336.661" width="8.816" height="7.973" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx_atanidx.o
 424 bytes · Assembly
 lib/NitroSDK/asm/fx_atanidx.s</title></rect>
-<rect x="550.515" y="337.041" width="8.873" height="7.773" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / hatch_egg_task.o
+<rect x="550.377" y="344.634" width="8.816" height="7.823" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / hatch_egg_task.o
 416 bytes · C-only source
 src/hatch_egg_task.c</title></rect>
-<rect x="550.515" y="344.814" width="8.873" height="7.773" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_data_write_error.o
+<rect x="541.183" y="352.456" width="9.005" height="7.659" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_data_write_error.o
 416 bytes · C-only source
 src/save_data_write_error.c</title></rect>
-<rect x="541.386" y="352.586" width="9.044" height="7.625" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020517A4.o
+<rect x="550.188" y="352.456" width="9.005" height="7.659" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020517A4.o
 416 bytes · Assembly
 asm/unk_020517A4.s</title></rect>
-<rect x="550.431" y="352.586" width="8.957" height="7.625" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_palpad.o
+<rect x="541.183" y="360.115" width="6.023" height="11.341" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_palpad.o
 412 bytes · C-only source
 src/save_palpad.c</title></rect>
-<rect x="541.386" y="360.212" width="6.010" height="11.309" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gymmick_init.o
+<rect x="547.206" y="360.115" width="5.994" height="11.341" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gymmick_init.o
 410 bytes · C-only source
 src/gymmick_init.c</title></rect>
-<rect x="547.397" y="360.212" width="6.010" height="11.309" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / touch_hitbox_controller.o
+<rect x="553.200" y="360.115" width="5.994" height="11.341" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / touch_hitbox_controller.o
 410 bytes · C-only source
 src/touch_hitbox_controller.c</title></rect>
-<rect x="553.407" y="360.212" width="5.981" height="11.309" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_ARM_abort_exit.o
+<rect x="559.193" y="336.661" width="7.598" height="8.902" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_ARM_abort_exit.o
 408 bytes · Assembly
 lib/MSL_C/asm/MSL_ARM_abort_exit.s</title></rect>
-<rect x="559.388" y="337.041" width="7.644" height="8.848" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_wifi_history.o
+<rect x="559.193" y="345.563" width="7.598" height="8.902" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_wifi_history.o
 408 bytes · C-only source
 src/save_wifi_history.c</title></rect>
-<rect x="559.388" y="345.889" width="7.644" height="8.762" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / task.o
+<rect x="566.791" y="336.661" width="11.136" height="6.014" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / task.o
 404 bytes · C-only source
 src/task.c</title></rect>
-<rect x="567.032" y="337.041" width="11.165" height="5.880" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / palPark_migration.o
+<rect x="566.791" y="342.675" width="11.136" height="5.895" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / palPark_migration.o
 396 bytes · C-only source
 src/palPark_migration.c</title></rect>
-<rect x="567.032" y="342.921" width="11.165" height="5.880" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0201F990.o
+<rect x="566.791" y="348.570" width="11.136" height="5.895" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0201F990.o
 396 bytes · Assembly
 asm/unk_0201F990.s</title></rect>
-<rect x="567.032" y="348.801" width="11.165" height="5.850" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gf_gfx_planes.o
+<rect x="559.193" y="354.465" width="7.630" height="8.560" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gf_gfx_planes.o
 394 bytes · C-only source
 src/gf_gfx_planes.c</title></rect>
-<rect x="559.388" y="354.651" width="7.626" height="8.435" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_mbstring.o
+<rect x="559.193" y="363.026" width="7.630" height="8.430" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_mbstring.o
 388 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_mbstring.s</title></rect>
-<rect x="559.388" y="363.086" width="7.626" height="8.435" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_vramExclusive.o
+<rect x="566.824" y="354.465" width="11.104" height="5.793" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_vramExclusive.o
 388 bytes · C with assembly
 lib/NitroSDK/src/os/os_vramExclusive.c</title></rect>
-<rect x="567.014" y="354.651" width="11.184" height="5.752" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sound_se.o
-388 bytes · C-only source
-src/sound_se.c</title></rect>
-<rect x="567.014" y="360.403" width="5.607" height="11.118" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / string_util.o
+<rect x="566.824" y="360.258" width="11.104" height="5.614" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / string_util.o
 376 bytes · C-only source
 src/string_util.c</title></rect>
-<rect x="572.621" y="360.403" width="5.577" height="11.118" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / pokewalker.o
+<rect x="566.824" y="365.872" width="11.104" height="5.584" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / pokewalker.o
 374 bytes · C-only source
 src/pokewalker.c</title></rect>
-<rect x="541.386" y="371.521" width="7.286" height="8.373" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_reset.o
+<rect x="541.183" y="371.456" width="7.273" height="8.389" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_reset.o
 368 bytes · C with assembly
 lib/NitroSDK/src/os/os_reset.c</title></rect>
-<rect x="541.386" y="379.894" width="7.286" height="8.191" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / photo_album.o
+<rect x="541.183" y="379.844" width="7.273" height="8.206" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / photo_album.o
 360 bytes · C-only source
 src/photo_album.c</title></rect>
-<rect x="548.672" y="371.521" width="10.689" height="5.522" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_qsort.o
+<rect x="548.456" y="371.456" width="10.670" height="5.532" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_qsort.o
 356 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_qsort.s</title></rect>
-<rect x="548.672" y="377.042" width="10.689" height="5.522" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / g3_util.o
+<rect x="548.456" y="376.987" width="10.670" height="5.532" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / g3_util.o
 356 bytes · Assembly
 lib/NitroSDK/asm/g3_util.s</title></rect>
-<rect x="548.672" y="382.564" width="10.689" height="5.522" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02087E70.o
+<rect x="548.456" y="382.519" width="10.670" height="5.532" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02087E70.o
 356 bytes · Assembly
 asm/unk_02087E70.s</title></rect>
-<rect x="541.386" y="388.085" width="6.037" height="9.666" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / options.o
+<rect x="541.183" y="388.050" width="6.026" height="9.683" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / options.o
 352 bytes · C-only source
 src/options.c</title></rect>
-<rect x="547.424" y="388.085" width="5.969" height="9.666" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_file_io.o
+<rect x="547.210" y="388.050" width="5.958" height="9.683" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_file_io.o
 348 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_file_io.s</title></rect>
-<rect x="553.393" y="388.085" width="5.969" height="9.666" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gf_3d_vramman.o
+<rect x="553.168" y="388.050" width="5.958" height="9.683" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gf_3d_vramman.o
 348 bytes · C-only source
 src/gf_3d_vramman.c</title></rect>
-<rect x="541.386" y="397.751" width="6.026" height="9.574" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02097BE0.o
+<rect x="541.183" y="397.734" width="6.015" height="9.591" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02097BE0.o
 348 bytes · Assembly
 asm/unk_02097BE0.s</title></rect>
-<rect x="547.413" y="397.751" width="5.992" height="9.574" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / script.o
+<rect x="547.198" y="397.734" width="5.981" height="9.591" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / script.o
 346 bytes · C-only source
 src/script.c</title></rect>
-<rect x="553.404" y="397.751" width="5.957" height="9.574" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0203BA5C.o
+<rect x="553.179" y="397.734" width="5.946" height="9.591" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0203BA5C.o
 344 bytes · Assembly
 asm/unk_0203BA5C.s</title></rect>
-<rect x="559.361" y="371.521" width="9.574" height="5.749" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_buffer_io.o
+<rect x="559.126" y="371.456" width="9.557" height="5.759" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_buffer_io.o
 332 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_buffer_io.s</title></rect>
-<rect x="559.361" y="377.269" width="9.574" height="5.610" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_math.o
+<rect x="559.126" y="377.215" width="9.557" height="5.620" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_math.o
 324 bytes · Assembly
 lib/MSL_C/asm/MSL_math.s</title></rect>
-<rect x="559.361" y="382.880" width="9.574" height="5.610" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sav_system_info.o
+<rect x="559.126" y="382.835" width="9.557" height="5.620" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sav_system_info.o
 324 bytes · C-only source
 src/sav_system_info.c</title></rect>
-<rect x="568.936" y="371.521" width="9.262" height="5.728" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020961D8.o
+<rect x="568.683" y="371.456" width="9.245" height="5.738" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020961D8.o
 320 bytes · Assembly
 asm/unk_020961D8.s</title></rect>
-<rect x="568.936" y="377.249" width="9.262" height="5.656" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02069660.o
+<rect x="568.683" y="377.194" width="9.245" height="5.667" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02069660.o
 316 bytes · Assembly
 asm/unk_02069660.s</title></rect>
-<rect x="568.936" y="382.905" width="9.262" height="5.585" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / g2.o
+<rect x="568.683" y="382.861" width="9.245" height="5.595" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / g2.o
 312 bytes · Assembly
 lib/NitroSDK/asm/g2.s</title></rect>
-<rect x="559.361" y="388.490" width="8.151" height="6.346" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02069528.o
+<rect x="559.126" y="388.456" width="6.335" height="8.165" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02069528.o
 312 bytes · C-only source
 src/unk_02069528.c</title></rect>
-<rect x="559.361" y="394.836" width="8.151" height="6.265" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / move_relearner.o
+<rect x="565.461" y="388.456" width="6.254" height="8.165" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / move_relearner.o
 308 bytes · C-only source
 src/move_relearner.c</title></rect>
-<rect x="559.361" y="401.101" width="8.151" height="6.224" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / terrain_attributes.o
+<rect x="571.714" y="388.456" width="6.213" height="8.165" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / terrain_attributes.o
 306 bytes · C-only source
 src/terrain_attributes.c</title></rect>
-<rect x="567.512" y="388.490" width="5.343" height="9.433" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_signal.o
+<rect x="559.126" y="396.620" width="9.417" height="5.352" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_signal.o
 304 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_signal.s</title></rect>
-<rect x="572.855" y="388.490" width="5.343" height="9.433" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_link_ruleset.o
+<rect x="559.126" y="401.972" width="9.417" height="5.352" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_link_ruleset.o
 304 bytes · C-only source
 src/save_link_ruleset.c</title></rect>
-<rect x="567.512" y="397.923" width="5.360" height="9.402" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / vram_transfer_manager.o
+<rect x="568.542" y="396.620" width="9.386" height="5.370" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / vram_transfer_manager.o
 304 bytes · C-only source
 src/vram_transfer_manager.c</title></rect>
-<rect x="572.872" y="397.923" width="5.325" height="9.402" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_local_field_data.o
+<rect x="568.542" y="401.990" width="9.386" height="5.334" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_local_field_data.o
 302 bytes · C-only source
 src/save_local_field_data.c</title></rect>
-<rect x="578.198" y="337.041" width="8.362" height="5.789" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / daycare.o
+<rect x="577.928" y="336.661" width="8.412" height="5.755" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / daycare.o
 292 bytes · C-only source
 src/daycare.c</title></rect>
-<rect x="578.198" y="342.830" width="8.362" height="5.789" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0206793C.o
+<rect x="577.928" y="342.415" width="8.412" height="5.755" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0206793C.o
 292 bytes · Assembly
 asm/unk_0206793C.s</title></rect>
-<rect x="578.198" y="348.619" width="8.362" height="5.670" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / pokemon_mood.o
+<rect x="577.928" y="348.170" width="8.412" height="5.636" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / pokemon_mood.o
 286 bytes · C-only source
 src/pokemon_mood.c</title></rect>
-<rect x="586.559" y="337.041" width="5.305" height="8.749" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_mem.o
+<rect x="586.340" y="336.661" width="5.337" height="8.697" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_mem.o
 280 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_mem.s</title></rect>
-<rect x="591.865" y="337.041" width="5.305" height="8.749" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / timer3.o
+<rect x="591.677" y="336.661" width="5.337" height="8.697" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / timer3.o
 280 bytes · C-only source
 src/timer3.c</title></rect>
-<rect x="586.559" y="345.790" width="5.305" height="8.499" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / phonebook_dat.o
+<rect x="586.340" y="345.358" width="5.337" height="8.449" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / phonebook_dat.o
 272 bytes · C-only source
 src/phonebook_dat.c</title></rect>
-<rect x="591.865" y="345.790" width="5.305" height="8.499" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02097D3C.o
+<rect x="591.677" y="345.358" width="5.337" height="8.449" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02097D3C.o
 272 bytes · C-only source
 src/unk_02097D3C.c</title></rect>
-<rect x="578.198" y="354.290" width="4.862" height="9.207" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0205B3DC.o
+<rect x="577.928" y="353.806" width="4.891" height="9.152" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0205B3DC.o
 270 bytes · C-only source
 src/unk_0205B3DC.c</title></rect>
-<rect x="583.059" y="354.290" width="4.826" height="9.207" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_irqTable.o
+<rect x="582.818" y="353.806" width="4.855" height="9.152" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_irqTable.o
 268 bytes · C-only source
 lib/NitroSDK/src/os/os_irqTable.c</title></rect>
-<rect x="578.198" y="363.497" width="4.880" height="8.968" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_money.o
+<rect x="577.928" y="362.958" width="4.910" height="8.914" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_money.o
 264 bytes · C-only source
 src/scrcmd_money.c</title></rect>
-<rect x="583.078" y="363.497" width="4.807" height="8.968" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02095DF4.o
+<rect x="582.838" y="362.958" width="4.835" height="8.914" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02095DF4.o
 260 bytes · Assembly
 asm/unk_02095DF4.s</title></rect>
-<rect x="587.885" y="354.290" width="4.661" height="9.177" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_vars_flags.o
+<rect x="587.673" y="353.806" width="4.689" height="9.122" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_vars_flags.o
 258 bytes · C-only source
 src/save_vars_flags.c</title></rect>
-<rect x="592.546" y="354.290" width="4.625" height="9.177" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_uncompress.o
+<rect x="592.362" y="353.806" width="4.653" height="9.122" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_uncompress.o
 256 bytes · Assembly
 lib/NitroSDK/asm/mi_uncompress.s</title></rect>
-<rect x="587.885" y="363.467" width="4.643" height="8.998" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_cache.o
+<rect x="587.673" y="362.928" width="4.671" height="8.944" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_cache.o
 252 bytes · C with assembly
 lib/NitroSDK/src/os/os_cache.c</title></rect>
-<rect x="592.528" y="363.467" width="4.643" height="8.998" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_context.o
+<rect x="592.344" y="362.928" width="4.671" height="8.944" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_context.o
 252 bytes · C with assembly
 lib/NitroSDK/src/os/os_context.c</title></rect>
-<rect x="597.170" y="337.041" width="4.699" height="8.609" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_ansi_files.o
+<rect x="597.015" y="336.661" width="4.739" height="8.535" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_ansi_files.o
 244 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_ansi_files.s</title></rect>
-<rect x="601.869" y="337.041" width="4.545" height="8.609" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / list_menu_items.o
+<rect x="601.754" y="336.661" width="4.584" height="8.535" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / list_menu_items.o
 236 bytes · C-only source
 src/list_menu_items.c</title></rect>
-<rect x="597.170" y="345.650" width="4.622" height="8.322" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / ascii_util.o
+<rect x="597.015" y="345.196" width="4.662" height="8.251" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / ascii_util.o
 232 bytes · C-only source
 src/ascii_util.c</title></rect>
-<rect x="601.792" y="345.650" width="4.622" height="8.322" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / location_gmm_dat.o
+<rect x="601.676" y="345.196" width="4.662" height="8.251" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / location_gmm_dat.o
 232 bytes · C-only source
 src/location_gmm_dat.c</title></rect>
-<rect x="606.414" y="337.041" width="4.416" height="8.560" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sav_chatot.o
+<rect x="606.338" y="336.661" width="4.454" height="8.486" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sav_chatot.o
 228 bytes · C-only source
 src/sav_chatot.c</title></rect>
-<rect x="610.830" y="337.041" width="4.377" height="8.560" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_arrays.o
+<rect x="610.792" y="336.661" width="4.415" height="8.486" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_arrays.o
 226 bytes · C-only source
 src/save_arrays.c</title></rect>
-<rect x="606.414" y="345.601" width="4.436" height="8.371" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mom_gift.o
+<rect x="606.338" y="345.147" width="4.474" height="8.299" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mom_gift.o
 224 bytes · C-only source
 src/mom_gift.c</title></rect>
-<rect x="610.850" y="345.601" width="4.357" height="8.371" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / overlay_manager.o
+<rect x="610.813" y="345.147" width="4.395" height="8.299" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / overlay_manager.o
 220 bytes · C-only source
 src/overlay_manager.c</title></rect>
-<rect x="597.170" y="353.972" width="7.455" height="4.892" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_apricorn.o
+<rect x="597.015" y="353.446" width="7.520" height="4.850" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_apricorn.o
 220 bytes · C-only source
 src/scrcmd_apricorn.c</title></rect>
-<rect x="597.170" y="358.864" width="7.455" height="4.759" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sound_state.o
+<rect x="597.015" y="358.297" width="7.520" height="4.718" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sound_state.o
 214 bytes · C-only source
 src/sound_state.c</title></rect>
-<rect x="604.626" y="353.972" width="3.573" height="9.651" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_entropy.o
+<rect x="604.534" y="353.446" width="3.604" height="9.568" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_entropy.o
 208 bytes · C-only source
 lib/NitroSDK/src/os/os_entropy.c</title></rect>
-<rect x="608.199" y="353.972" width="7.009" height="4.826" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / g3.o
+<rect x="608.138" y="353.446" width="7.069" height="4.784" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / g3.o
 204 bytes · Assembly
 lib/NitroSDK/asm/g3.s</title></rect>
-<rect x="608.199" y="358.797" width="7.009" height="4.826" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_trainer_house.o
+<rect x="608.138" y="358.231" width="7.069" height="4.784" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_trainer_house.o
 204 bytes · C-only source
 src/save_trainer_house.c</title></rect>
-<rect x="597.170" y="363.623" width="7.275" height="4.467" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sound_radio_sys.o
+<rect x="597.015" y="363.015" width="7.412" height="4.474" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sound_cry.o
+200 bytes · C-only source
+src/sound_cry.c</title></rect>
+<rect x="597.015" y="367.488" width="7.412" height="4.384" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sound_radio_sys.o
 196 bytes · C-only source
 src/sound_radio_sys.c</title></rect>
-<rect x="597.170" y="368.089" width="7.275" height="4.376" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / link_ruleset_data.o
+<rect x="604.426" y="363.015" width="3.594" height="8.858" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / link_ruleset_data.o
 192 bytes · C-only source
 src/link_ruleset_data.c</title></rect>
-<rect x="604.445" y="363.623" width="3.600" height="8.842" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_dma_hblank.o
+<rect x="608.020" y="363.015" width="7.187" height="4.429" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_dma_hblank.o
 192 bytes · Assembly
 lib/NitroSDK/asm/mi_dma_hblank.s</title></rect>
-<rect x="608.045" y="363.623" width="7.162" height="4.444" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02054E00.o
+<rect x="608.020" y="367.444" width="7.187" height="4.429" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02054E00.o
 192 bytes · C-only source
 src/unk_02054E00.c</title></rect>
-<rect x="608.045" y="368.067" width="7.162" height="4.398" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / move.o
+<rect x="577.928" y="371.873" width="4.465" height="7.055" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / move.o
 190 bytes · C-only source
 src/move.c</title></rect>
-<rect x="578.198" y="372.465" width="4.560" height="6.835" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_DPMath_s_frexp.o
+<rect x="582.392" y="371.873" width="4.418" height="7.055" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_DPMath_s_frexp.o
 188 bytes · Assembly
 lib/MSL_C/asm/MSL_DPMath_s_frexp.s</title></rect>
-<rect x="582.758" y="372.465" width="4.366" height="6.835" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_ownerInfo.o
+<rect x="577.928" y="378.928" width="8.882" height="3.360" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_ownerInfo.o
 180 bytes · C-only source
 lib/NitroSDK/src/os/os_ownerInfo.c</title></rect>
-<rect x="578.198" y="379.300" width="8.926" height="3.343" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02027010.o
+<rect x="577.928" y="382.287" width="4.441" height="6.719" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02027010.o
 180 bytes · Assembly
 asm/unk_02027010.s</title></rect>
-<rect x="578.198" y="382.643" width="4.463" height="6.686" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020915B0.o
+<rect x="582.369" y="382.287" width="4.441" height="6.719" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020915B0.o
 180 bytes · Assembly
 asm/unk_020915B0.s</title></rect>
-<rect x="582.661" y="382.643" width="4.463" height="6.686" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02092B04.o
+<rect x="586.810" y="371.873" width="3.371" height="8.852" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02092B04.o
 180 bytes · Assembly
 asm/unk_02092B04.s</title></rect>
-<rect x="587.124" y="372.465" width="3.334" height="8.753" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_mem_funcs.o
+<rect x="590.181" y="371.873" width="6.517" height="4.477" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_mem_funcs.o
 176 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_mem_funcs.s</title></rect>
-<rect x="590.458" y="372.465" width="6.478" height="4.402" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_system.o
+<rect x="590.181" y="376.349" width="6.517" height="4.375" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_system.o
 172 bytes · C with assembly
 lib/NitroSDK/src/os/os_system.c</title></rect>
-<rect x="590.458" y="376.867" width="6.478" height="4.351" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02097720.o
+<rect x="586.810" y="380.725" width="3.403" height="8.282" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02097720.o
 170 bytes · C-only source
 src/unk_02097720.c</title></rect>
-<rect x="587.124" y="381.218" width="3.352" height="8.111" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / ribbon.o
+<rect x="590.213" y="380.725" width="6.486" height="4.192" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / ribbon.o
 164 bytes · C-only source
 src/ribbon.c</title></rect>
-<rect x="590.476" y="381.218" width="6.459" height="4.107" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / alph_checks.o
+<rect x="590.213" y="384.917" width="6.486" height="4.090" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / alph_checks.o
 160 bytes · C-only source
 src/alph_checks.c</title></rect>
-<rect x="590.476" y="385.325" width="6.459" height="4.004" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / string_control_code.o
+<rect x="577.928" y="389.007" width="3.169" height="8.161" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / string_control_code.o
 156 bytes · C-only source
 src/string_control_code.c</title></rect>
-<rect x="578.198" y="389.329" width="3.219" height="8.033" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0200CE7C.o
+<rect x="581.097" y="389.007" width="6.298" height="4.107" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0200CE7C.o
 156 bytes · C-only source
 src/unk_0200CE7C.c</title></rect>
-<rect x="581.417" y="389.329" width="6.232" height="4.096" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / apricorn_tree_sys.o
+<rect x="581.097" y="393.113" width="6.298" height="4.054" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / apricorn_tree_sys.o
 154 bytes · C-only source
 src/apricorn_tree_sys.c</title></rect>
-<rect x="581.417" y="393.425" width="6.232" height="3.937" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202E41C.o
+<rect x="577.928" y="397.168" width="4.733" height="5.184" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202E41C.o
 148 bytes · Assembly
 asm/unk_0202E41C.s</title></rect>
-<rect x="578.198" y="397.362" width="4.791" height="5.122" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020648EC.o
+<rect x="582.661" y="397.168" width="4.733" height="5.184" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020648EC.o
 148 bytes · C-only source
 src/unk_020648EC.c</title></rect>
-<rect x="582.988" y="397.362" width="4.661" height="5.122" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02020A0C.o
+<rect x="577.928" y="402.351" width="4.800" height="4.973" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02020A0C.o
 144 bytes · C-only source
 src/unk_02020A0C.c</title></rect>
-<rect x="578.198" y="402.484" width="4.794" height="4.841" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020551B8.o
+<rect x="582.728" y="402.351" width="4.667" height="4.973" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020551B8.o
 140 bytes · Assembly
 asm/unk_020551B8.s</title></rect>
-<rect x="582.992" y="402.484" width="4.657" height="4.841" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02087FD4.o
+<rect x="587.394" y="389.007" width="4.652" height="4.847" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02087FD4.o
 136 bytes · Assembly
 asm/unk_02087FD4.s</title></rect>
-<rect x="587.649" y="389.329" width="4.712" height="4.785" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02097F6C.o
+<rect x="592.046" y="389.007" width="4.652" height="4.847" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02097F6C.o
 136 bytes · C-only source
 src/unk_02097F6C.c</title></rect>
-<rect x="592.362" y="389.329" width="4.574" height="4.785" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02017FAC.o
+<rect x="587.394" y="393.854" width="4.652" height="4.704" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02017FAC.o
 132 bytes · Assembly
 asm/unk_02017FAC.s</title></rect>
-<rect x="587.649" y="394.113" width="4.751" height="4.606" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02091054.o
+<rect x="592.046" y="393.854" width="4.652" height="4.704" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02091054.o
 132 bytes · C-only source
 src/unk_02091054.c</title></rect>
-<rect x="592.400" y="394.113" width="4.535" height="4.606" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / igt.o
+<rect x="587.394" y="398.558" width="4.728" height="4.419" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / igt.o
 126 bytes · C-only source
 src/igt.c</title></rect>
-<rect x="587.649" y="398.719" width="4.739" height="4.338" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx_mtx22.o
+<rect x="587.394" y="402.976" width="4.728" height="4.348" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx_mtx22.o
 124 bytes · Assembly
 lib/NitroSDK/asm/fx_mtx22.s</title></rect>
-<rect x="587.649" y="403.057" width="4.739" height="4.268" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_trainer_card.o
+<rect x="592.122" y="398.558" width="4.576" height="4.420" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_trainer_card.o
 122 bytes · C-only source
 src/save_trainer_card.c</title></rect>
-<rect x="592.389" y="398.719" width="4.547" height="4.376" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sys_task_api.o
+<rect x="592.122" y="402.977" width="4.576" height="4.347" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sys_task_api.o
 120 bytes · C-only source
 src/sys_task_api.c</title></rect>
-<rect x="592.389" y="403.095" width="4.547" height="4.230" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_wchar_io.o
+<rect x="596.698" y="371.873" width="4.799" height="4.007" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_wchar_io.o
 116 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_wchar_io.s</title></rect>
-<rect x="596.935" y="372.465" width="4.778" height="4.025" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_string_extras.o
+<rect x="596.698" y="375.880" width="4.799" height="4.007" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_string_extras.o
 116 bytes · Assembly
 lib/MSL_C/asm/MSL_string_extras.s</title></rect>
-<rect x="596.935" y="376.490" width="4.778" height="4.025" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_dma_card.o
+<rect x="601.498" y="371.873" width="4.799" height="4.007" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_dma_card.o
 116 bytes · C-only source
 lib/NitroSDK/src/mi/mi_dma_card.c</title></rect>
-<rect x="601.713" y="372.465" width="4.778" height="4.025" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_irqHandler.o
+<rect x="601.498" y="375.880" width="4.799" height="4.007" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_irqHandler.o
 116 bytes · C with assembly
 lib/NitroSDK/src/os/os_irqHandler.c</title></rect>
-<rect x="601.713" y="376.490" width="4.778" height="4.025" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_printf.o
+<rect x="596.698" y="379.887" width="4.799" height="4.007" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_printf.o
 116 bytes · C-only source
 lib/NitroSDK/src/os/os_printf.c</title></rect>
-<rect x="596.935" y="380.515" width="4.862" height="3.956" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202DB34.o
+<rect x="601.498" y="379.887" width="4.799" height="4.007" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0202DB34.o
 116 bytes · Assembly
 asm/unk_0202DB34.s</title></rect>
-<rect x="601.797" y="380.515" width="4.694" height="3.956" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_wstring.o
+<rect x="596.698" y="383.894" width="3.200" height="5.803" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_wstring.o
 112 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_wstring.s</title></rect>
-<rect x="596.935" y="384.471" width="3.224" height="5.760" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / g3imm.o
+<rect x="599.898" y="383.894" width="3.200" height="5.803" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / g3imm.o
 112 bytes · Assembly
 lib/NitroSDK/asm/g3imm.s</title></rect>
-<rect x="600.159" y="384.471" width="3.224" height="5.760" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02018380.o
+<rect x="603.097" y="383.894" width="3.200" height="5.803" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02018380.o
 112 bytes · C-only source
 src/unk_02018380.c</title></rect>
-<rect x="603.383" y="384.471" width="3.109" height="5.760" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020971F8.o
+<rect x="606.297" y="371.873" width="4.539" height="3.944" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020971F8.o
 108 bytes · C-only source
 src/unk_020971F8.c</title></rect>
-<rect x="606.491" y="372.465" width="4.358" height="3.956" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_init.o
+<rect x="610.836" y="371.873" width="4.371" height="3.944" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_init.o
 104 bytes · C with assembly
 lib/NitroSDK/src/os/os_init.c</title></rect>
-<rect x="610.849" y="372.465" width="4.358" height="3.956" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02097B78.o
+<rect x="606.297" y="375.817" width="3.131" height="5.507" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02097B78.o
 104 bytes · Assembly
 asm/unk_02097B78.s</title></rect>
-<rect x="606.491" y="376.421" width="2.946" height="5.402" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gxstate.o
+<rect x="609.427" y="375.817" width="2.890" height="5.507" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gxstate.o
 96 bytes · Assembly
 lib/NitroSDK/asm/gxstate.s</title></rect>
-<rect x="609.437" y="376.421" width="2.946" height="5.402" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020968B0.o
+<rect x="612.317" y="375.817" width="2.890" height="5.507" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020968B0.o
 96 bytes · C-only source
 src/unk_020968B0.c</title></rect>
-<rect x="612.384" y="376.421" width="2.823" height="5.402" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_system_rtc_weather.o
+<rect x="606.297" y="381.324" width="3.643" height="4.186" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_system_rtc_weather.o
 92 bytes · C-only source
 src/field_system_rtc_weather.c</title></rect>
-<rect x="606.491" y="381.823" width="3.589" height="4.250" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020912AC.o
+<rect x="606.297" y="385.511" width="3.643" height="4.186" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020912AC.o
 92 bytes · C-only source
 src/unk_020912AC.c</title></rect>
-<rect x="606.491" y="386.073" width="3.589" height="4.157" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_follow_mon.o
+<rect x="609.940" y="381.324" width="5.267" height="2.833" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_follow_mon.o
 90 bytes · C-only source
 src/save_follow_mon.c</title></rect>
-<rect x="610.080" y="381.823" width="5.127" height="2.846" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02078DD8.o
+<rect x="609.940" y="384.157" width="5.267" height="2.770" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02078DD8.o
 88 bytes · Assembly
 asm/unk_02078DD8.s</title></rect>
-<rect x="610.080" y="384.669" width="5.127" height="2.846" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / update_dex_received.o
+<rect x="609.940" y="386.927" width="5.267" height="2.770" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / update_dex_received.o
 88 bytes · C-only source
 src/update_dex_received.c</title></rect>
-<rect x="610.080" y="387.514" width="5.127" height="2.716" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / coins.o
+<rect x="596.698" y="389.697" width="4.919" height="2.831" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / coins.o
 84 bytes · C-only source
 src/coins.c</title></rect>
-<rect x="596.935" y="390.231" width="5.039" height="2.763" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_dppl_prizes.o
+<rect x="596.698" y="392.528" width="4.919" height="2.831" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / scrcmd_dppl_prizes.o
 84 bytes · C-only source
 src/scrcmd_dppl_prizes.c</title></rect>
-<rect x="596.935" y="392.994" width="5.039" height="2.763" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02026E30.o
+<rect x="596.698" y="395.360" width="4.919" height="2.831" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02026E30.o
 84 bytes · C-only source
 src/unk_02026E30.c</title></rect>
-<rect x="596.935" y="395.757" width="5.039" height="2.632" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02026DE0.o
+<rect x="601.617" y="389.697" width="4.411" height="3.007" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02026DE0.o
 80 bytes · Assembly
 asm/unk_02026DE0.s</title></rect>
-<rect x="601.975" y="390.231" width="4.349" height="2.821" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / systask_environment.o
+<rect x="601.617" y="392.704" width="4.411" height="2.781" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / systask_environment.o
 74 bytes · C-only source
 src/systask_environment.c</title></rect>
-<rect x="601.975" y="393.052" width="4.349" height="2.745" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_valarm.o
+<rect x="601.617" y="395.485" width="4.411" height="2.706" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_valarm.o
 72 bytes · C-only source
 lib/NitroSDK/src/os/os_valarm.c</title></rect>
-<rect x="601.975" y="395.797" width="4.349" height="2.592" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / rand.o
+<rect x="596.698" y="398.191" width="2.414" height="4.670" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / rand.o
 68 bytes · C-only source
 lib/MSL_C/src/rand.c</title></rect>
-<rect x="596.935" y="398.389" width="2.467" height="4.570" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02091564.o
+<rect x="599.112" y="398.191" width="2.414" height="4.670" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02091564.o
 68 bytes · C-only source
 src/unk_02091564.c</title></rect>
-<rect x="599.402" y="398.389" width="2.394" height="4.570" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02068F84.o
+<rect x="596.698" y="402.861" width="2.451" height="4.464" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02068F84.o
 66 bytes · C-only source
 src/unk_02068F84.c</title></rect>
-<rect x="596.935" y="402.959" width="2.430" height="4.365" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx.o
+<rect x="599.150" y="402.861" width="2.377" height="4.464" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / fx.o
 64 bytes · Assembly
 lib/NitroSDK/asm/fx.s</title></rect>
-<rect x="599.366" y="402.959" width="2.430" height="4.365" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gxasm.o
+<rect x="601.526" y="398.191" width="4.501" height="2.357" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / gxasm.o
 64 bytes · Assembly
 lib/NitroSDK/asm/gxasm.s</title></rect>
-<rect x="601.796" y="398.389" width="4.527" height="2.344" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / location_backup.o
+<rect x="601.526" y="400.548" width="4.501" height="2.357" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / location_backup.o
 64 bytes · C-only source
 src/location_backup.c</title></rect>
-<rect x="601.796" y="400.733" width="4.527" height="2.197" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_assert.o
+<rect x="601.526" y="402.905" width="2.251" height="4.419" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_assert.o
 60 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_assert.s</title></rect>
-<rect x="601.796" y="402.930" width="2.264" height="4.395" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020318C8.o
+<rect x="603.777" y="402.905" width="2.251" height="4.419" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020318C8.o
 60 bytes · Assembly
 asm/unk_020318C8.s</title></rect>
-<rect x="604.060" y="402.930" width="2.264" height="4.395" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020932A4.o
+<rect x="606.028" y="389.697" width="2.535" height="3.924" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_020932A4.o
 60 bytes · C-only source
 src/unk_020932A4.c</title></rect>
-<rect x="606.323" y="390.231" width="4.181" height="2.221" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_wmem.o
+<rect x="608.563" y="389.697" width="2.366" height="3.924" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_wmem.o
 56 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_wmem.s</title></rect>
-<rect x="606.323" y="392.451" width="4.181" height="2.062" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02091278.o
+<rect x="606.028" y="393.621" width="4.900" height="1.759" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02091278.o
 52 bytes · C-only source
 src/unk_02091278.c</title></rect>
-<rect x="606.323" y="394.513" width="2.090" height="3.966" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / menu_input_state.o
+<rect x="606.028" y="395.381" width="2.450" height="3.383" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / menu_input_state.o
 50 bytes · C-only source
 src/menu_input_state.c</title></rect>
-<rect x="608.414" y="394.513" width="2.090" height="3.966" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / pokedex_util.o
+<rect x="608.478" y="395.381" width="2.450" height="3.383" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / pokedex_util.o
 50 bytes · C-only source
 src/pokedex_util.c</title></rect>
-<rect x="610.504" y="390.231" width="2.400" height="3.454" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_gymmick.o
+<rect x="610.928" y="389.697" width="2.183" height="3.797" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_gymmick.o
 50 bytes · C-only source
 src/save_gymmick.c</title></rect>
-<rect x="612.904" y="390.231" width="2.304" height="3.454" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_ARM_pool_alloc_NITRO.o
+<rect x="613.111" y="389.697" width="2.096" height="3.797" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_ARM_pool_alloc_NITRO.o
 48 bytes · Assembly
 lib/MSL_C/asm/MSL_ARM_pool_alloc_NITRO.s</title></rect>
-<rect x="610.504" y="393.685" width="4.703" height="1.692" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_special_ribbons.o
+<rect x="610.928" y="393.494" width="4.279" height="1.860" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / save_special_ribbons.o
 48 bytes · C-only source
 src/save_special_ribbons.c</title></rect>
-<rect x="610.504" y="395.377" width="2.352" height="3.102" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_alloc.o
+<rect x="610.928" y="395.354" width="2.139" height="3.410" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_Common_alloc.o
 44 bytes · Assembly
 lib/MSL_C/asm/MSL_Common_alloc.s</title></rect>
-<rect x="612.856" y="395.377" width="2.352" height="3.102" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02092BB8.o
+<rect x="613.068" y="395.354" width="2.139" height="3.410" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02092BB8.o
 44 bytes · C-only source
 src/unk_02092BB8.c</title></rect>
-<rect x="606.323" y="398.479" width="1.668" height="4.175" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02026E84.o
+<rect x="606.028" y="398.764" width="1.723" height="4.041" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_02026E84.o
 42 bytes · C-only source
 src/unk_02026E84.c</title></rect>
-<rect x="607.991" y="398.479" width="3.018" height="2.197" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_DPMath_s_copysign.o
+<rect x="607.751" y="398.764" width="3.118" height="2.127" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_DPMath_s_copysign.o
 40 bytes · Assembly
 lib/MSL_C/asm/MSL_DPMath_s_copysign.s</title></rect>
-<rect x="607.991" y="400.676" width="3.018" height="1.978" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_move_environment.o
+<rect x="607.751" y="400.890" width="3.118" height="1.914" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / field_move_environment.o
 36 bytes · C-only source
 src/field_move_environment.c</title></rect>
-<rect x="606.323" y="402.654" width="2.414" height="2.473" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_protectionRegion.o
+<rect x="606.028" y="402.804" width="2.494" height="2.393" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_protectionRegion.o
 36 bytes · C with assembly
 lib/NitroSDK/src/os/os_protectionRegion.c</title></rect>
-<rect x="606.323" y="405.127" width="2.414" height="2.198" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_DPMath_s_fabs.o
+<rect x="606.028" y="405.197" width="2.494" height="2.127" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_DPMath_s_fabs.o
 32 bytes · Assembly
 lib/MSL_C/asm/MSL_DPMath_s_fabs.s</title></rect>
-<rect x="608.737" y="402.654" width="2.272" height="2.335" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_emulator.o
+<rect x="608.522" y="402.804" width="2.347" height="2.260" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_emulator.o
 32 bytes · C-only source
 lib/NitroSDK/src/os/os_emulator.c</title></rect>
-<rect x="608.737" y="404.989" width="2.272" height="2.335" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_protectionUnit.o
+<rect x="608.522" y="405.065" width="2.347" height="2.260" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_protectionUnit.o
 32 bytes · C with assembly
 lib/NitroSDK/src/os/os_protectionUnit.c</title></rect>
-<rect x="611.009" y="398.479" width="2.261" height="2.053" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_terminate_proc.o
+<rect x="610.869" y="398.764" width="2.336" height="1.987" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_terminate_proc.o
 28 bytes · C with assembly
 lib/NitroSDK/src/os/os_terminate_proc.c</title></rect>
-<rect x="611.009" y="400.532" width="2.261" height="2.053" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_timer.o
+<rect x="610.869" y="400.751" width="2.336" height="1.987" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_timer.o
 28 bytes · C-only source
 lib/NitroSDK/src/os/os_timer.c</title></rect>
-<rect x="613.269" y="398.479" width="1.938" height="2.053" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_ARM_math.o
+<rect x="613.205" y="398.764" width="2.002" height="1.987" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_ARM_math.o
 24 bytes · Assembly
 lib/MSL_C/asm/MSL_ARM_math.s</title></rect>
-<rect x="613.269" y="400.532" width="1.938" height="2.053" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / error_handling.o
+<rect x="613.205" y="400.751" width="2.002" height="1.987" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / error_handling.o
 24 bytes · C-only source
 src/error_handling.c</title></rect>
-<rect x="611.009" y="402.586" width="1.679" height="2.369" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_init.o
+<rect x="610.869" y="402.738" width="1.735" height="2.293" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_init.o
 24 bytes · Assembly
 lib/NitroSDK/asm/mi_init.s</title></rect>
-<rect x="612.688" y="402.586" width="1.399" height="2.369" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_tcm.o
+<rect x="612.604" y="402.738" width="1.446" height="2.293" fill="#e4ad42" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / os_tcm.o
 20 bytes · C with assembly
 lib/NitroSDK/src/os/os_tcm.c</title></rect>
-<rect x="614.088" y="402.586" width="1.120" height="2.369" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_wram.o
+<rect x="614.050" y="402.738" width="1.157" height="2.293" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_wram.o
 16 bytes · Assembly
 lib/NitroSDK/asm/mi_wram.s</title></rect>
-<rect x="611.009" y="404.955" width="1.959" height="1.354" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sin_vcount.o
+<rect x="610.869" y="405.032" width="2.024" height="1.310" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / sin_vcount.o
 16 bytes · C-only source
 src/sin_vcount.c</title></rect>
-<rect x="611.009" y="406.309" width="1.959" height="1.015" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_DPMath_w_pow.o
+<rect x="610.869" y="406.342" width="2.024" height="0.983" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / MSL_DPMath_w_pow.o
 12 bytes · Assembly
 lib/MSL_C/asm/MSL_DPMath_w_pow.s</title></rect>
-<rect x="612.968" y="404.955" width="2.239" height="0.889" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / arith.o
+<rect x="612.894" y="405.032" width="0.868" height="2.293" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / arith.o
 12 bytes · C-only source
 lib/MSL_C/src/arith.c</title></rect>
-<rect x="612.968" y="405.844" width="1.343" height="1.481" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0203AC88.o
+<rect x="613.761" y="405.032" width="1.446" height="1.376" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / unk_0203AC88.o
 12 bytes · C-only source
 src/unk_0203AC88.c</title></rect>
-<rect x="614.311" y="405.844" width="0.896" height="1.481" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_swap.o
+<rect x="613.761" y="406.407" width="1.446" height="0.917" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / mi_swap.o
 8 bytes · Assembly
 lib/NitroSDK/asm/mi_swap.s</title></rect>
 <rect x="28.000" y="125.000" width="587.207" height="282.325" fill="none" stroke="#101722" stroke-width="2"/>
