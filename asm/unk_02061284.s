@@ -9,6 +9,33 @@
 #include "fielddata/script/scr_seq/event_D24R0204.h"
 #include "constants/field_move_response.h"
 	.include "asm/macros.inc"
+	.public _02061416
+	.public _02061420
+	.public _0206144A
+	.public _02061468
+	.public _0206147E
+	.public _020614AA
+	.public _020614BC
+	.public _020614DA
+	.public _020614EE
+	.public _020614F0
+	.public _02061530
+	.public _0206154C
+	.public _0206155E
+	.public _02061570
+	.public _02061582
+	.public _02061594
+	.public _020615AA
+	.public _020615C0
+	.public _020615D4
+	.public _020615E8
+	.public _0206162A
+	.public _02061630
+	.public _0206163C
+	.public _02061642
+	.public sub_020613F8
+	.public sub_020614F4
+	.public sub_020615F0
 	.include "unk_02061284.inc"
 	.include "global.inc"
 

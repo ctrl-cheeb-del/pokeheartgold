@@ -170,7 +170,10 @@ Static main
     Object src/texture_animation.o
     Object src/unk_02020A0C.o
     Object src/ascii_util.o
+    Object src/geometry_math_1.o
     Object asm/unk_02020B8C.o
+    Object src/geometry_math_2.o
+    Object asm/unk_02020B8C_residual_2.o
     Object src/touch_sampling.o
     Object asm/unk_020210A0.o
     Object src/touch_sampling_output.o
@@ -286,7 +289,8 @@ Static main
     Object src/wireless_mode.o
     Object src/wireless_state.o
     Object src/communication_dispatch.o
-    Object asm/unk_02033AE0.o
+    Object asm/unk_02033AE0_data.o
+    Object src/communication_blob_access_1.o
     Object src/communication_dispatch_2.o
     Object src/communication_packet_queue.o
     Object asm/unk_02033CB0.o
@@ -410,7 +414,8 @@ Static main
     Object src/map_header.o
     Object src/map_events.o
     Object src/save_local_field_data.o
-    Object asm/unk_0203BA5C.o
+    Object asm/unk_0203BA5C_data.o
+    Object src/spawn_warp_lookup_1.o
     Object src/field_system_rtc_weather.o
     Object src/start_menu.o
     Object src/field_interaction.o
@@ -511,6 +516,7 @@ Static main
     Object asm/unk_02058AEC.o
     Object src/field_application_tasks.o
     Object asm/unk_02058D4C.o
+    Object src/field_application_controller_helpers_1.o
     Object src/field_application_tasks_2.o
     Object asm/unk_020596F0.o
     Object src/field_application_tasks_3.o
@@ -552,6 +558,7 @@ Static main
     Object src/dialog_box.o
     Object src/metatile_behavior.o
     Object asm/unk_0205BB1C.o
+    Object src/field_misc_util.o
     Object src/player_avatar_anim_indices.o
     Object asm/unk_0205BFF0.o
     Object src/player_avatar.o
@@ -609,7 +616,8 @@ Static main
     Object asm/unk_02061070.o
     Object src/map_object_movement_utilities_9.o
     Object src/map_object_movement.o
-    Object asm/unk_02061284.o
+    Object src/map_object_movement_script_1.o
+    Object asm/unk_02061284_residual_1.o
     Object src/map_object_movement_2.o
     Object asm/unk_020616FC.o
     Object src/map_object_movement_3.o
@@ -639,7 +647,7 @@ Static main
     Object src/map_object_movement_commands_6.o
     Object asm/unk_02062DE0.o
     Object src/map_object_movement_commands_7.o
-    Object asm/unk_02062F48.o
+    Object src/movement_command_helpers_1.o
     Object src/map_object_movement_commands_8.o
     Object asm/unk_0206308C.o
     Object src/map_object_movement_commands_9.o
@@ -752,7 +760,8 @@ Static main
     Object src/bag_view.o
     Object src/item.o
     Object src/bag.o
-    Object asm/unk_02078834.o
+    Object src/field_app_controller_1.o
+    Object asm/unk_02078834_residual_1.o
     Object asm/unk_02078DD8.o
     Object src/party_menu.o
     Object src/party_context_menu.o
@@ -760,7 +769,8 @@ Static main
     Object src/party_menu_list_items.o
     Object src/party_menu_items.o
     Object src/naming_screen.o
-    Object asm/unk_020850F4.o
+    Object src/field_ui_overlay_controller_1.o
+    Object asm/unk_020850F4_residual_1.o
     Object src/field_ui_85604_1.o
     Object asm/unk_02085604.o
     Object src/field_ui_85604_2.o
@@ -789,32 +799,37 @@ Static main
     Object asm/unk_02087A78.o
     Object src/battle_transition_application_2.o
     Object asm/unk_02087E70.o
-    Object asm/unk_02087FD4.o
+    Object src/summary_graphics_lookup_1.o
+    Object asm/unk_02087FD4_residual_1.o
     Object src/unk_0208805C.o
     Object src/summary_screen_helpers.o
-    Object asm/unk_02088288.o
+    Object src/pokemon_summary_lifecycle_1.o
+    Object asm/unk_02088288_residual_1.o
     Object src/summary_screen_helpers_2.o
-    Object asm/unk_02088630.o
+    Object src/summary_graphics_init_1.o
     Object src/summary_screen_helpers_3.o
-    Object asm/unk_020887C4.o
+    Object src/summary_field_renderer_1.o
     Object src/summary_screen_helpers_4.o
-    Object asm/unk_02088894.o
+    Object src/summary_text_work_1.o
     Object src/summary_screen_helpers_5.o
     Object asm/unk_02088B08.o
     Object src/summary_screen_helpers_6.o
+    Object src/overlay_comm_state_helpers_1.o
     Object asm/unk_02088D48.o
     Object src/summary_screen_helpers_7.o
     Object asm/unk_0208931C.o
     Object src/summary_screen_helpers_8.o
     Object asm/unk_02089478.o
     Object src/summary_screen_helpers_9.o
+    Object src/summary_serializer_helpers_1.o
     Object asm/unk_02089698.o
+    Object src/summary_serializer_helpers_2.o
     Object src/summary_screen_helpers_10.o
     Object asm/unk_02089D68.o
     Object src/summary_screen_helpers_11.o
     Object src/summary_ui_stats.o
     Object src/summary_screen_helpers_12.o
-    Object asm/unk_0208A2E0.o
+    Object src/summary_transition_task_1.o
     Object src/summary_screen_helpers_13.o
     Object src/field_ui_8a3f4_1.o
     Object asm/unk_0208A3F4.o
@@ -886,7 +901,8 @@ Static main
     Object src/unk_020912AC.o
     Object src/dex_mon_measures.o
     Object src/unk_02091564.o
-    Object asm/unk_020915B0.o
+    Object src/network_overlay_loader_1.o
+    Object asm/unk_020915B0_residual_1.o
     Object src/location_gmm_dat.o
     Object src/move_relearner.o
     Object asm/unk_02091880.o
@@ -1079,17 +1095,82 @@ Overlay field
     Object src/field/field_sprite_manager.o
     Object src/field/map_prop_animation.o
     Object asm/overlay_01_021E90C0.o
-    Object asm/overlay_01_021EA6C4.o
+    Object src/field_binary_records.o
     Object src/overlay_01_021EA824.o
     Object asm/model_attributes.o
+    Object src/field_camera_manager_1.o
     Object asm/overlay_01_021EABA8.o
-    Object asm/overlay_01_021EAF00.o
+    Object src/field_camera_manager_2.o
+    Object asm/overlay_01_021EABA8_residual_2.o
+    Object src/bottom_screen_dispatch_1.o
+    Object src/field_texture_manager_1.o
     Object asm/overlay_01_021EAFD4.o
+    Object src/field_texture_manager_2.o
+    Object asm/overlay_01_021EAFD4_residual_2.o
+    Object src/field_texture_manager_3.o
+    Object asm/overlay_01_021EAFD4_residual_3.o
     Object asm/overlay_01_021EB1E8.o
+    Object src/field_move_tutor_menu_1.o
     Object asm/overlay_01_021EDAFC.o
+    Object src/field_move_tutor_menu_2.o
+    Object asm/overlay_01_021EDAFC_residual_2.o
+    Object src/field_move_tutor_menu_3.o
+    Object asm/overlay_01_021EDAFC_residual_3.o
+    Object src/field_move_tutor_menu_4.o
+    Object asm/overlay_01_021EDAFC_residual_4.o
+    Object src/field_move_tutor_menu_5.o
+    Object asm/overlay_01_021EDAFC_residual_5.o
+    Object src/field_move_tutor_menu_6.o
+    Object asm/overlay_01_021EDAFC_residual_6.o
+    Object src/field_move_tutor_menu_7.o
+    Object asm/overlay_01_021EDAFC_residual_7.o
+    Object src/field_move_tutor_menu_8.o
+    Object asm/overlay_01_021EDAFC_residual_8.o
+    Object src/field_move_tutor_menu_9.o
+    Object asm/overlay_01_021EDAFC_residual_9.o
+    Object src/field_move_tutor_menu_10.o
+    Object asm/overlay_01_021EDAFC_residual_10.o
+    Object src/field_move_tutor_menu_11.o
+    Object asm/overlay_01_021EDAFC_residual_11.o
     Object src/field/scrcmd_message.o
     Object src/field/draw_map_name.o
     Object asm/overlay_01_021EFB38.o
+    Object src/field_overlay_effects_1.o
+    Object asm/overlay_01_021EFB38_residual_2.o
+    Object src/field_overlay_effects_2.o
+    Object asm/overlay_01_021EFB38_residual_3.o
+    Object src/field_overlay_effects_3.o
+    Object asm/overlay_01_021EFB38_residual_4.o
+    Object src/field_overlay_effects_4.o
+    Object asm/overlay_01_021EFB38_residual_5.o
+    Object src/field_overlay_effects_5.o
+    Object asm/overlay_01_021EFB38_residual_6.o
+    Object src/field_overlay_effects_6.o
+    Object asm/overlay_01_021EFB38_residual_7.o
+    Object src/field_overlay_effects_7.o
+    Object asm/overlay_01_021EFB38_residual_8.o
+    Object src/field_overlay_effects_8.o
+    Object asm/overlay_01_021EFB38_residual_9.o
+    Object src/field_overlay_effects_9.o
+    Object asm/overlay_01_021EFB38_residual_10.o
+    Object src/field_overlay_effects_10.o
+    Object asm/overlay_01_021EFB38_residual_11.o
+    Object src/field_overlay_effects_11.o
+    Object asm/overlay_01_021EFB38_residual_12.o
+    Object src/field_overlay_effects_12.o
+    Object asm/overlay_01_021EFB38_residual_13.o
+    Object src/field_overlay_effects_13.o
+    Object asm/overlay_01_021EFB38_residual_14.o
+    Object src/field_overlay_effects_14.o
+    Object asm/overlay_01_021EFB38_residual_15.o
+    Object src/field_overlay_effects_15.o
+    Object asm/overlay_01_021EFB38_residual_16.o
+    Object src/field_overlay_effects_16.o
+    Object asm/overlay_01_021EFB38_residual_17.o
+    Object src/field_overlay_effects_17.o
+    Object asm/overlay_01_021EFB38_residual_18.o
+    Object src/field_overlay_effects_18.o
+    Object asm/overlay_01_021EFB38_residual_19.o
     Object src/field_effect_manager_1.o
     Object asm/overlay_01_021F1348.o
     Object src/field_effect_manager_2.o
@@ -1099,29 +1180,91 @@ Overlay field
     Object src/field_effect_manager_4.o
     Object asm/overlay_01_021F1348_residual_4.o
     Object asm/overlay_01_021F1AFC.o
-    Object asm/overlay_01_021F3114.o
-    Object asm/overlay_01_021F3378.o
+    Object src/field_player_direction_task_1.o
+    Object src/field_camera_transition_1.o
     Object src/field/map_prop_manager.o
     Object src/field/signpost.o
     Object asm/overlay_01_021F3F50_data_local.o
     Object src/field_save_stats_printer_1.o
     Object asm/overlay_01_021F3F50.o
     Object src/field_save_stats_printer_2.o
-    Object asm/overlay_01_021F4464.o
-    Object asm/overlay_01_021F467C.o
+    Object src/field_render_capture_1.o
+    Object src/field_object_attachment_1.o
+    Object asm/overlay_01_021F467C_residual_1.o
     Object asm/overlay_01_021F4704.o
     Object src/field_overlay_app_dispatch.o
     Object src/field_friendship_exchange.o
     Object asm/overlay_01_sprite_data.o
     Object asm/overlay_01_021F72DC.o
+    Object src/field_map_object_motion_1.o
+    Object asm/overlay_01_021F72DC_residual_2.o
+    Object src/field_map_object_motion_2.o
+    Object asm/overlay_01_021F72DC_residual_3.o
+    Object src/field_map_object_motion_3.o
+    Object asm/overlay_01_021F72DC_residual_4.o
+    Object src/field_map_object_motion_4.o
+    Object asm/overlay_01_021F72DC_residual_5.o
+    Object src/field_map_object_motion_5.o
+    Object asm/overlay_01_021F72DC_residual_6.o
+    Object src/field_map_object_motion_6.o
+    Object asm/overlay_01_021F72DC_residual_7.o
+    Object src/field_map_object_motion_7.o
+    Object asm/overlay_01_021F72DC_residual_8.o
+    Object src/field_map_object_motion_8.o
+    Object asm/overlay_01_021F72DC_residual_9.o
+    Object src/field_map_object_motion_9.o
+    Object asm/overlay_01_021F72DC_residual_10.o
+    Object src/field_map_object_motion_10.o
+    Object asm/overlay_01_021F72DC_residual_11.o
+    Object src/field_map_object_motion_11.o
+    Object asm/overlay_01_021F72DC_residual_12.o
+    Object src/field_map_object_motion_12.o
+    Object asm/overlay_01_021F72DC_residual_13.o
+    Object src/field_map_object_motion_13.o
+    Object asm/overlay_01_021F72DC_residual_14.o
+    Object src/field_map_object_motion_14.o
+    Object asm/overlay_01_021F72DC_residual_15.o
+    Object src/field_map_object_motion_15.o
+    Object asm/overlay_01_021F72DC_residual_16.o
     Object src/field_object_models.o
+    Object src/field_map_object_render_1.o
     Object asm/overlay_01_021F944C.o
+    Object src/field_map_object_render_2.o
+    Object asm/overlay_01_021F944C_residual_2.o
+    Object src/field_map_object_render_3.o
+    Object asm/overlay_01_021F944C_residual_3.o
+    Object src/field_map_object_render_4.o
+    Object asm/overlay_01_021F944C_residual_4.o
+    Object src/field_map_object_render_5.o
+    Object asm/overlay_01_021F944C_residual_5.o
+    Object src/field_map_object_render_6.o
+    Object asm/overlay_01_021F944C_residual_6.o
+    Object src/field_map_object_render_7.o
+    Object asm/overlay_01_021F944C_residual_7.o
+    Object src/field_map_object_render_8.o
+    Object asm/overlay_01_021F944C_residual_8.o
+    Object src/field_map_object_render_9.o
+    Object asm/overlay_01_021F944C_residual_9.o
+    Object src/field_map_object_render_10.o
+    Object asm/overlay_01_021F944C_residual_10.o
+    Object src/field_map_object_render_11.o
+    Object asm/overlay_01_021F944C_residual_11.o
+    Object src/field_map_object_render_12.o
+    Object asm/overlay_01_021F944C_residual_12.o
+    Object src/field_map_object_render_13.o
+    Object asm/overlay_01_021F944C_residual_13.o
+    Object src/field_map_object_render_14.o
+    Object asm/overlay_01_021F944C_residual_14.o
     Object asm/overlay_01_021FAC44.o
-    Object asm/overlay_01_021FAD1C.o
+    Object src/field_large_buffer_manager_1.o
+    Object asm/overlay_01_021FAC44_residual_2.o
+    Object src/field_terrain_height_math.o
     Object src/field_resource_stream.o
-    Object asm/overlay_01_021FB368.o
-    Object asm/overlay_01_021FB4C0.o
+    Object src/dynamic_terrain_height_manager_1.o
+    Object src/hblank_system_1.o
+    Object src/field_poison_effect_1.o
     Object asm/overlay_01_021FB5D4.o
+    Object src/field_poison_effect_2.o
     Object src/area_data_manager_1.o
     Object asm/overlay_01_021FB878.o
     Object src/area_data_manager_2.o
@@ -1129,11 +1272,12 @@ Overlay field
     Object src/area_data_manager_3.o
     Object asm/overlay_01_021FB878_residual_3.o
     Object src/field_honey_sweet_scent.o
-    Object asm/overlay_01_021FC4C4.o
+    Object src/field_effect_registry_1.o
     Object asm/overlay_01_data_02208BFC.o
     Object src/field_fishing.o
-    Object asm/overlay_01_021FCD2C.o
-    Object asm/overlay_01_021FCE98.o
+    Object src/field_camera_dispatch_1.o
+    Object asm/overlay_01_021FCD2C_residual_1.o
+    Object src/field_sweet_scent_task.o
     Object src/field_effect_renderer_list.o
     Object src/field_follow_shadow_1.o
     Object asm/overlay_01_021FD41C.o
@@ -1143,42 +1287,77 @@ Overlay field
     Object asm/overlay_01_021FD41C_residual_3.o
     Object src/field_follow_shadow_4.o
     Object asm/overlay_01_021FD41C_residual_4.o
-    Object asm/overlay_01_021FDA14.o
+    Object asm/overlay_01_021FDA14_residual_1.o
+    Object src/field_map_object_spawn_effect_1.o
     Object src/field_effect_model_bank.o
-    Object asm/overlay_01_021FE590.o
-    Object asm/overlay_01_021FE780.o
-    Object asm/overlay_01_021FEA0C.o
-    Object asm/overlay_01_021FEC38.o
-    Object asm/overlay_01_021FED9C.o
+    Object asm/overlay_01_021FE590_residual_1.o
+    Object src/field_effect_speed_sequence_1.o
+    Object asm/overlay_01_021FE590_residual_2.o
+    Object src/field_effect_object_variant.o
+    Object src/field_effect_follow_motion_1.o
+    Object asm/overlay_01_021FEA0C_residual_1.o
+    Object src/field_effect_rotation_task_1.o
+    Object asm/overlay_01_021FEC38_residual_1.o
+    Object src/field_effect_scale_task_1.o
+    Object asm/overlay_01_021FED9C_residual_1.o
     Object asm/overlay_01_021FEEEC_data_local.o
     Object src/field_effect_follow_object_1.o
     Object asm/overlay_01_021FEEEC.o
     Object src/field_effect_follow_object_2.o
     Object asm/overlay_01_021FEEEC_residual_2.o
     Object src/field_effect_follow_object_3.o
-    Object asm/overlay_01_021FF464.o
-    Object asm/overlay_01_021FF6B0.o
+    Object src/field_map_object_effect_1.o
+    Object asm/overlay_01_021FF464_residual_1.o
+    Object src/field_effect_path_motion_1.o
+    Object asm/overlay_01_021FF6B0_residual_1.o
     Object asm/overlay_01_021FF854_data_local.o
     Object src/field_effect_map_marker.o
-    Object asm/overlay_01_021FFC0C.o
+    Object src/field_object_motion_effect_1.o
+    Object asm/overlay_01_021FFC0C_residual_1.o
     Object src/field/overlay_01_021FFECC.o
-    Object asm/overlay_01_02200040.o
+    Object src/field_effect_pair_task_1.o
     Object src/field_effect_animation.o
     Object asm/overlay_01_022001E4.o
-    Object asm/overlay_01_022006A8.o
+    Object src/field_effect_variant_task_1.o
+    Object asm/overlay_01_022006A8_residual_1.o
+    Object src/field_warp_entrance_effect_1.o
     Object asm/overlay_01_02200858.o
+    Object src/field_warp_entrance_effect_2.o
+    Object asm/overlay_01_02200858_residual_2.o
     Object src/field/scrcmd_pokemon_misc.o
     Object src/field/scrcmd_move_tutor.o
     Object src/field/scrcmd_moneybox.o
+    Object src/field_follow_effect_1.o
     Object asm/overlay_01_022031C0.o
+    Object src/field_follow_effect_2.o
+    Object asm/overlay_01_022031C0_residual_2.o
+    Object src/field_follow_effect_3.o
+    Object asm/overlay_01_022031C0_residual_3.o
     Object src/field_effect_ground_marker.o
-    Object asm/overlay_01_02203E40.o
+    Object asm/overlay_01_02203E40_residual_1.o
+    Object src/field_camera_matrix_effect_1.o
     Object src/field/overlay_01_02204004.o
     Object src/field/apricorn_tree_anim.o
     Object src/field/rock_smash_item.o
     Object src/field/headbutt.o
-    Object asm/overlay_01_022051EC.o
+    Object src/field_effect_audio_task_1.o
+    Object asm/overlay_01_022051EC_residual_1.o
+    Object src/field_effect_dispatch_1.o
     Object asm/overlay_01_022053EC.o
+    Object src/field_effect_dispatch_2.o
+    Object asm/overlay_01_022053EC_residual_2.o
+    Object src/field_effect_dispatch_3.o
+    Object asm/overlay_01_022053EC_residual_3.o
+    Object src/field_effect_dispatch_4.o
+    Object asm/overlay_01_022053EC_residual_4.o
+    Object src/field_effect_dispatch_5.o
+    Object asm/overlay_01_022053EC_residual_5.o
+    Object src/field_effect_dispatch_6.o
+    Object asm/overlay_01_022053EC_residual_6.o
+    Object src/field_effect_dispatch_7.o
+    Object asm/overlay_01_022053EC_residual_7.o
+    Object src/field_effect_dispatch_8.o
+    Object asm/overlay_01_022053EC_residual_8.o
 }
 Overlay OVY_2
 {

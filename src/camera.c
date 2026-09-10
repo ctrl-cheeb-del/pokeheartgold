@@ -5,6 +5,8 @@
 
 #include "global.h"
 
+#include "unk_02020B8C.h"
+
 static void Camera_CalcLookAtPosFromTargetAndAngle(Camera *camera);
 static void Camera_CalcLookAtTargetFromPosAndAngle(Camera *camera);
 static void Camera_InitInternal(u16 perspectiveAngle, Camera *camera);
@@ -15,8 +17,6 @@ GXBufferMode gG3dDepthBufferingMode = GX_BUFFERMODE_W;
 static Camera *sCameraPtr;
 
 extern void Camera_OffsetLookAtPosAndTarget(const VecFx32 *delta, Camera *camera);
-extern fx16 CalcAngleBetweenVecs(VecFx32 *a, VecFx32 *b);
-
 static void Camera_CalcLookAtPosFromTargetAndAngle(Camera *camera) {
     u16 negx = -camera->angle.x;
     camera->lookAt.camPos.x = FX_Mul(FX_Mul(FX_SinIdx(camera->angle.y), camera->distance), FX_CosIdx(camera->angle.x));

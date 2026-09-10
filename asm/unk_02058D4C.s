@@ -1,4 +1,94 @@
 	.include "asm/macros.inc"
+	.public _02058D66
+	.public _02058D72
+	.public _02058DCC
+	.public _02058DEE
+	.public _02058E08
+	.public _02058E22
+	.public _02058E42
+	.public _02058E5E
+	.public _02058E7C
+	.public _02058E94
+	.public _02058E96
+	.public _02058E9C
+	.public _02058EAE
+	.public _02058EC4
+	.public _02058EDC
+	.public _02058EEA
+	.public _02058EF6
+	.public _02058F0E
+	.public _02058F22
+	.public _02058F40
+	.public _02058F54
+	.public _02058F60
+	.public _02058F82
+	.public _02058F98
+	.public _02058FB2
+	.public _02058FB4
+	.public _02058FBA
+	.public _02058FC0
+	.public _02058FC6
+	.public _02058FEC
+	.public _02058FFE
+	.public _0205901C
+	.public _02059022
+	.public _02059042
+	.public _02059058
+	.public _0205905E
+	.public _0205906E
+	.public _0205908C
+	.public _020590AA
+	.public _020590BE
+	.public _020590C8
+	.public _020590CA
+	.public _020590D8
+	.public _020590E2
+	.public _020590E4
+	.public _0205912A
+	.public _02059148
+	.public _0205914C
+	.public _02059162
+	.public _02059178
+	.public _020591BC
+	.public _020591C2
+	.public _020591FA
+	.public _02059220
+	.public _0205922E
+	.public _02059230
+	.public _02059246
+	.public _02059274
+	.public _020592B2
+	.public _020592CE
+	.public _020592FC
+	.public _02059334
+	.public _02059340
+	.public _02059348
+	.public _0205934A
+	.public _02059370
+	.public _02059388
+	.public _02059398
+	.public _020593BC
+	.public _020593DC
+	.public _020593EC
+	.public _020593FE
+	.public _02059420
+	.public _02059452
+	.public _02059472
+	.public _020594AA
+	.public _020594B0
+	.public _020594EE
+	.public _020594FE
+	.public _0205951A
+	.public _02059536
+	.public _02059546
+	.public _020595F0
+	.public _02059626
+	.public _0205962C
+	.public _0205963C
+	.public _02059640
+	.public _0205964A
+	.public _0205964C
+	.public sub_02058D4C
 	.include "unk_02058AEC.inc"
 	.include "global.inc"
 	.text
@@ -888,224 +978,3 @@ _02059472:
 	add sp, #8
 	pop {r3, r4, r5, pc}
 	thumb_func_end sub_02058D4C
-	thumb_func_start sub_02059478
-sub_02059478: ; 0x02059478
-	push {r4, r5, r6, lr}
-	add r5, r0, #0
-	add r4, r5, #0
-	add r4, #0x14
-	add r0, r4, #0
-	add r6, r1, #0
-	bl WindowIsInUse
-	cmp r0, #0
-	bne _020594AA
-	ldr r0, [r5, #0x24]
-	add r1, r4, #0
-	ldr r0, [r0, #8]
-	mov r2, #3
-	bl DialogBox_AddWindowToLayer3
-	ldr r0, [r5, #0x24]
-	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetOptionsAddr
-	add r1, r0, #0
-	add r0, r4, #0
-	bl DialogBox_LoadFrame
-	b _020594B0
-_020594AA:
-	add r0, r4, #0
-	bl DialogBox_Clear
-_020594B0:
-	ldr r0, [r5, #0x24]
-	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetOptionsAddr
-	add r2, r0, #0
-	add r0, r4, #0
-	add r1, r6, #0
-	mov r3, #1
-	bl DialogBox_PrintMessage
-	pop {r4, r5, r6, pc}
-	.balign 4, 0
-	thumb_func_end sub_02059478
-	thumb_func_start sub_020594C8
-sub_020594C8: ; 0x020594C8
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	add r0, #0x14
-	add r4, r1, #0
-	bl WindowIsInUse
-	cmp r0, #0
-	beq _020594FE
-	cmp r4, #0
-	beq _020594EE
-	add r0, r5, #0
-	add r0, #0x14
-	mov r1, #0
-	bl ClearFrameAndWindow2
-	add r0, r5, #0
-	add r0, #0x14
-	bl ClearWindowTilemapAndCopyToVram
-_020594EE:
-	add r0, r5, #0
-	add r0, #0x14
-	bl RemoveWindow
-	add r0, r5, #0
-	add r0, #0x14
-	bl InitWindow
-_020594FE:
-	add r0, r5, #0
-	add r0, #0x54
-	bl WindowIsInUse
-	cmp r0, #0
-	beq _0205951A
-	add r0, r5, #0
-	add r0, #0x54
-	bl RemoveWindow
-	add r0, r5, #0
-	add r0, #0x54
-	bl InitWindow
-_0205951A:
-	add r0, r5, #0
-	add r0, #0x64
-	bl WindowIsInUse
-	cmp r0, #0
-	beq _02059536
-	add r0, r5, #0
-	add r0, #0x64
-	bl RemoveWindow
-	add r5, #0x64
-	add r0, r5, #0
-	bl InitWindow
-_02059536:
-	pop {r3, r4, r5, pc}
-	thumb_func_end sub_020594C8
-	thumb_func_start sub_02059538
-sub_02059538: ; 0x02059538
-	push {r4, r5, r6, lr}
-	add r5, r0, #0
-	ldr r0, [r5, #0x10]
-	add r6, r1, #0
-	cmp r0, #0
-	beq _02059546
-	b _0205964A
-_02059546:
-	mov r0, #0xb
-	mov r1, #0x8c
-	bl Heap_AllocAtEnd
-	add r4, r0, #0
-	mov r1, #0
-	mov r2, #0x8c
-	bl MI_CpuFill8
-	add r0, r4, #0
-	mov r1, #5
-	add r0, #0x43
-	strb r1, [r0]
-	str r5, [r4, #0x24]
-	str r6, [r4, #8]
-	mov r0, #0xb
-	bl MessageFormat_New
-	str r0, [r4, #0x28]
-	mov r0, #0
-	mov r1, #0x1b
-	mov r2, #0xe
-	mov r3, #0xb
-	bl NewMsgDataFromNarc
-	str r0, [r4, #0x2c]
-	mov r0, #0xc8
-	mov r1, #0xb
-	bl String_New
-	str r0, [r4, #0xc]
-	mov r0, #0xc8
-	mov r1, #0xb
-	bl String_New
-	str r0, [r4, #0x10]
-	add r0, r4, #0
-	add r0, #0x14
-	bl InitWindow
-	add r0, r4, #0
-	add r0, #0x54
-	bl InitWindow
-	add r0, r4, #0
-	add r0, #0x64
-	bl InitWindow
-	mov r0, #0xb
-	bl ListMenuCursorNew
-	str r0, [r4, #0x78]
-	bl sub_0203993C
-	add r1, r4, #0
-	add r1, #0x88
-	strb r0, [r1]
-	mov r1, #0
-	str r1, [r4, #0x4c]
-	str r1, [r4, #0x48]
-	add r0, r4, #0
-	str r1, [r4, #0x50]
-	add r0, #0x89
-	strb r1, [r0]
-	bl sub_0203769C
-	add r1, r4, #0
-	add r1, #0x86
-	strh r0, [r1]
-	add r0, r4, #0
-	add r0, #0x86
-	ldrh r1, [r0]
-	mov r0, #1
-	eor r0, r1
-	bl sub_02034818
-	str r0, [r4, #0x74]
-	add r0, r4, #0
-	add r0, #0x88
-	ldrb r0, [r0]
-	cmp r0, #3
-	beq _020595F0
-	cmp r0, #4
-	beq _02059626
-	b _0205962C
-_020595F0:
-	bl sub_02059B08
-	add r6, r0, #0
-	mov r0, #0xb
-	add r1, r6, #0
-	bl Heap_AllocAtEnd
-	str r0, [r4, #0x4c]
-	mov r0, #0xb
-	add r1, r6, #0
-	bl Heap_AllocAtEnd
-	str r0, [r4, #0x48]
-	mov r0, #0xb
-	bl SaveArray_Party_Alloc
-	mov r1, #3
-	str r0, [r4, #0x50]
-	bl Party_InitWithMaxSize
-	add r0, r4, #0
-	mov r1, #5
-	add r0, #0x44
-	strb r1, [r0]
-	mov r0, #0x17
-	str r0, [r4, #0x34]
-	b _02059640
-_02059626:
-	mov r0, #9
-	str r0, [r4, #0x34]
-	b _02059640
-_0205962C:
-	ldr r0, [r4, #0x24]
-	add r0, #0xa4
-	ldr r0, [r0]
-	cmp r0, #0
-	beq _0205963C
-	mov r0, #9
-	str r0, [r4, #0x34]
-	b _02059640
-_0205963C:
-	mov r0, #0
-	str r0, [r4, #0x34]
-_02059640:
-	ldr r1, _0205964C ; =sub_02058D4C
-	add r0, r5, #0
-	add r2, r4, #0
-	bl FieldSystem_CreateTask
-_0205964A:
-	pop {r4, r5, r6, pc}
-	.balign 4, 0
-_0205964C: .word sub_02058D4C
-	thumb_func_end sub_02059538

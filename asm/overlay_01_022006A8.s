@@ -9,6 +9,17 @@
 #include "msgdata/msg/msg_0096_D31R0201.h"
 #include "msgdata/msg/msg_0066_D23R0102.h"
 	.include "asm/macros.inc"
+	.public ov01_022006A8
+	.public ov01_022006C4
+	.public ov01_022006D4
+	.public ov01_02200710
+	.public ov01_02200730
+	.public ov01_02200780
+	.public ov01_022007D0
+	.public ov01_022007DC
+	.public ov01_022007F8
+	.public ov01_02209308
+	.public ov01_0220931C
 	.include "overlay_01_022006A8.inc"
 	.include "global.inc"
 

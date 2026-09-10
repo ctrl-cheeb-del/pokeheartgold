@@ -7,6 +7,7 @@
 u16 Save_GetPartyLead(SaveData *saveData);
 u16 Save_GetPartyLeadAlive(SaveData *saveData);
 u32 CountDigits(u32 num);
+BOOL ItemIsTMOrHM(u16 item);
 u16 GetOakJohtoDexRating(u16 numCaught, u16 gender, u16 *var_p);
 u16 GetOakNationalDexRating(u16 numCaught, u16 gender, u16 *var_p);
 BOOL Save_PlayerHasAllRegisInParty(SaveData *saveData);

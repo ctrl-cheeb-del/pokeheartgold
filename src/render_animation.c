@@ -5,6 +5,7 @@
 #include "gf_3d_render.h"
 #include "gf_gfx_loader.h"
 #include "heap.h"
+#include "unk_02020B8C.h"
 #include "unk_0206979C.h"
 typedef struct RenderAnimation {
     u32 flags;
@@ -23,7 +24,6 @@ typedef struct RenderModel {
 } RenderModel;
 extern const VecFx32 _020FE8A4;
 extern const MtxFx33 _020FE8B0;
-void sub_02020DA4(MtxFx33 *, u16, u16, u16);
 void sub_0206979C(RenderAnimation *animation);
 void sub_020697A8(RenderAnimation *animation, void *file, int unused);
 void sub_020697BC(RenderAnimation *animation, void *file, int unused);
