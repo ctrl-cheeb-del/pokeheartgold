@@ -1854,7 +1854,106 @@ Overlay OVY_40
 Overlay OVY_41
 {
     After OVY_40
+    Object src/overlay41_helpers_1.o
     Object asm/overlay_41.o
+    Object src/overlay41_helpers_2.o
+    Object asm/overlay_41_residual_2.o
+    Object src/overlay41_helpers_3.o
+    Object asm/overlay_41_residual_3.o
+    Object src/overlay41_helpers_4.o
+    Object asm/overlay_41_residual_4.o
+    Object src/overlay41_helpers_5.o
+    Object asm/overlay_41_residual_5.o
+    Object src/overlay41_helpers_6.o
+    Object asm/overlay_41_residual_6.o
+    Object src/overlay41_helpers_7.o
+    Object asm/overlay_41_residual_7.o
+    Object src/overlay41_helpers_8.o
+    Object asm/overlay_41_residual_8.o
+    Object src/overlay41_helpers_9.o
+    Object asm/overlay_41_residual_9.o
+    Object src/overlay41_helpers_10.o
+    Object asm/overlay_41_residual_10.o
+    Object src/overlay41_helpers_11.o
+    Object asm/overlay_41_residual_11.o
+    Object src/overlay41_helpers_12.o
+    Object asm/overlay_41_residual_12.o
+    Object src/overlay41_helpers_13.o
+    Object asm/overlay_41_residual_13.o
+    Object src/overlay41_helpers_14.o
+    Object asm/overlay_41_residual_14.o
+    Object src/overlay41_helpers_15.o
+    Object asm/overlay_41_residual_15.o
+    Object src/overlay41_helpers_16.o
+    Object asm/overlay_41_residual_16.o
+    Object src/overlay41_helpers_17.o
+    Object asm/overlay_41_residual_17.o
+    Object src/overlay41_helpers_18.o
+    Object asm/overlay_41_residual_18.o
+    Object src/overlay41_helpers_19.o
+    Object asm/overlay_41_residual_19.o
+    Object src/overlay41_helpers_20.o
+    Object asm/overlay_41_residual_20.o
+    Object src/overlay41_helpers_21.o
+    Object asm/overlay_41_residual_21.o
+    Object src/overlay41_helpers_22.o
+    Object asm/overlay_41_residual_22.o
+    Object src/overlay41_helpers_23.o
+    Object asm/overlay_41_residual_23.o
+    Object src/overlay41_helpers_24.o
+    Object asm/overlay_41_residual_24.o
+    Object src/overlay41_helpers_25.o
+    Object asm/overlay_41_residual_25.o
+    Object src/overlay41_helpers_26.o
+    Object asm/overlay_41_residual_26.o
+    Object src/overlay41_helpers_27.o
+    Object asm/overlay_41_residual_27.o
+    Object src/overlay41_helpers_28.o
+    Object asm/overlay_41_residual_28.o
+    Object src/overlay41_helpers_29.o
+    Object asm/overlay_41_residual_29.o
+    Object src/overlay41_helpers_30.o
+    Object asm/overlay_41_residual_30.o
+    Object src/overlay41_helpers_31.o
+    Object asm/overlay_41_residual_31.o
+    Object src/overlay41_helpers_32.o
+    Object asm/overlay_41_residual_32.o
+    Object src/overlay41_helpers_33.o
+    Object asm/overlay_41_residual_33.o
+    Object src/overlay41_helpers_34.o
+    Object asm/overlay_41_residual_34.o
+    Object src/overlay41_helpers_35.o
+    Object asm/overlay_41_residual_35.o
+    Object src/overlay41_helpers_36.o
+    Object asm/overlay_41_residual_36.o
+    Object src/overlay41_helpers_37.o
+    Object asm/overlay_41_residual_37.o
+    Object src/overlay41_helpers_38.o
+    Object asm/overlay_41_residual_38.o
+    Object src/overlay41_helpers_39.o
+    Object asm/overlay_41_residual_39.o
+    Object src/overlay41_helpers_40.o
+    Object asm/overlay_41_residual_40.o
+    Object src/overlay41_helpers_41.o
+    Object asm/overlay_41_residual_41.o
+    Object src/overlay41_helpers_42.o
+    Object asm/overlay_41_residual_42.o
+    Object src/overlay41_helpers_43.o
+    Object asm/overlay_41_residual_43.o
+    Object src/overlay41_helpers_44.o
+    Object asm/overlay_41_residual_44.o
+    Object src/overlay41_helpers_45.o
+    Object asm/overlay_41_residual_45.o
+    Object src/overlay41_helpers_46.o
+    Object asm/overlay_41_residual_46.o
+    Object src/overlay41_helpers_47.o
+    Object asm/overlay_41_residual_47.o
+    Object src/overlay41_helpers_48.o
+    Object asm/overlay_41_residual_48.o
+    Object src/overlay41_helpers_49.o
+    Object asm/overlay_41_residual_49.o
+    Object src/overlay41_helpers_50.o
+    Object asm/overlay_41_residual_50.o
 }
 Overlay OVY_42
 {
@@ -2102,7 +2201,34 @@ Overlay OVY_56
 Overlay OVY_57
 {
     After OVY_7
+    Object src/overlay57_helpers_1.o
     Object asm/overlay_57.o
+    Object src/overlay57_helpers_2.o
+    Object asm/overlay_57_residual_2.o
+    Object src/overlay57_helpers_3.o
+    Object asm/overlay_57_residual_3.o
+    Object src/overlay57_helpers_4.o
+    Object asm/overlay_57_residual_4.o
+    Object src/overlay57_helpers_5.o
+    Object asm/overlay_57_residual_5.o
+    Object src/overlay57_helpers_6.o
+    Object asm/overlay_57_residual_6.o
+    Object src/overlay57_helpers_7.o
+    Object asm/overlay_57_residual_7.o
+    Object src/overlay57_helpers_8.o
+    Object asm/overlay_57_residual_8.o
+    Object src/overlay57_helpers_9.o
+    Object asm/overlay_57_residual_9.o
+    Object src/overlay57_helpers_10.o
+    Object asm/overlay_57_residual_10.o
+    Object src/overlay57_helpers_11.o
+    Object asm/overlay_57_residual_11.o
+    Object src/overlay57_helpers_12.o
+    Object asm/overlay_57_residual_12.o
+    Object src/overlay57_helpers_13.o
+    Object asm/overlay_57_residual_13.o
+    Object src/overlay57_helpers_14.o
+    Object asm/overlay_57_residual_14.o
 }
 Overlay OVY_58
 {
@@ -2687,11 +2813,113 @@ Overlay OVY_85
 {
     After main
     Object asm/overlay_85.o
+    Object src/overlay85_helpers_1.o
+    Object asm/overlay_85_residual_2.o
+    Object src/overlay85_helpers_2.o
+    Object asm/overlay_85_residual_3.o
+    Object src/overlay85_helpers_3.o
+    Object asm/overlay_85_residual_4.o
+    Object src/overlay85_helpers_4.o
+    Object asm/overlay_85_residual_5.o
+    Object src/overlay85_helpers_5.o
+    Object asm/overlay_85_residual_6.o
+    Object src/overlay85_helpers_6.o
+    Object asm/overlay_85_residual_7.o
+    Object src/overlay85_helpers_7.o
+    Object asm/overlay_85_residual_8.o
+    Object src/overlay85_helpers_8.o
+    Object asm/overlay_85_residual_9.o
+    Object src/overlay85_helpers_9.o
+    Object asm/overlay_85_residual_10.o
+    Object src/overlay85_helpers_10.o
+    Object asm/overlay_85_residual_11.o
+    Object src/overlay85_helpers_11.o
+    Object asm/overlay_85_residual_12.o
+    Object src/overlay85_helpers_12.o
+    Object asm/overlay_85_residual_13.o
+    Object src/overlay85_helpers_13.o
+    Object asm/overlay_85_residual_14.o
+    Object src/overlay85_helpers_14.o
+    Object asm/overlay_85_residual_15.o
+    Object src/overlay85_helpers_15.o
+    Object asm/overlay_85_residual_16.o
+    Object src/overlay85_helpers_16.o
+    Object asm/overlay_85_residual_17.o
+    Object src/overlay85_helpers_17.o
+    Object asm/overlay_85_residual_18.o
+    Object src/overlay85_helpers_18.o
+    Object asm/overlay_85_residual_19.o
+    Object src/overlay85_helpers_19.o
+    Object asm/overlay_85_residual_20.o
+    Object src/overlay85_helpers_20.o
+    Object asm/overlay_85_residual_21.o
+    Object src/overlay85_helpers_21.o
+    Object asm/overlay_85_residual_22.o
+    Object src/overlay85_helpers_22.o
+    Object asm/overlay_85_residual_23.o
+    Object src/overlay85_helpers_23.o
+    Object asm/overlay_85_residual_24.o
+    Object src/overlay85_helpers_24.o
+    Object asm/overlay_85_residual_25.o
+    Object src/overlay85_helpers_25.o
+    Object asm/overlay_85_residual_26.o
+    Object src/overlay85_helpers_26.o
+    Object asm/overlay_85_residual_27.o
+    Object src/overlay85_helpers_27.o
+    Object asm/overlay_85_residual_28.o
+    Object src/overlay85_helpers_28.o
+    Object asm/overlay_85_residual_29.o
+    Object src/overlay85_helpers_29.o
+    Object asm/overlay_85_residual_30.o
+    Object src/overlay85_helpers_30.o
+    Object asm/overlay_85_residual_31.o
+    Object src/overlay85_helpers_31.o
+    Object asm/overlay_85_residual_32.o
+    Object src/overlay85_helpers_32.o
+    Object asm/overlay_85_residual_33.o
+    Object src/overlay85_helpers_33.o
+    Object asm/overlay_85_residual_34.o
 }
 Overlay OVY_86
 {
     After main
     Object asm/overlay_86.o
+    Object src/overlay86_helpers_1.o
+    Object asm/overlay_86_residual_2.o
+    Object src/overlay86_helpers_2.o
+    Object asm/overlay_86_residual_3.o
+    Object src/overlay86_helpers_3.o
+    Object asm/overlay_86_residual_4.o
+    Object src/overlay86_helpers_4.o
+    Object asm/overlay_86_residual_5.o
+    Object src/overlay86_helpers_5.o
+    Object asm/overlay_86_residual_6.o
+    Object src/overlay86_helpers_6.o
+    Object asm/overlay_86_residual_7.o
+    Object src/overlay86_helpers_7.o
+    Object asm/overlay_86_residual_8.o
+    Object src/overlay86_helpers_8.o
+    Object asm/overlay_86_residual_9.o
+    Object src/overlay86_helpers_9.o
+    Object asm/overlay_86_residual_10.o
+    Object src/overlay86_helpers_10.o
+    Object asm/overlay_86_residual_11.o
+    Object src/overlay86_helpers_11.o
+    Object asm/overlay_86_residual_12.o
+    Object src/overlay86_helpers_12.o
+    Object asm/overlay_86_residual_13.o
+    Object src/overlay86_helpers_13.o
+    Object asm/overlay_86_residual_14.o
+    Object src/overlay86_helpers_14.o
+    Object asm/overlay_86_residual_15.o
+    Object src/overlay86_helpers_15.o
+    Object asm/overlay_86_residual_16.o
+    Object src/overlay86_helpers_16.o
+    Object asm/overlay_86_residual_17.o
+    Object src/overlay86_helpers_17.o
+    Object asm/overlay_86_residual_18.o
+    Object src/overlay86_helpers_18.o
+    Object asm/overlay_86_residual_19.o
 }
 Overlay OVY_87
 {
@@ -3013,6 +3241,86 @@ Overlay OVY_102
 {
     After pokegear
     Object asm/overlay_102.o
+    Object src/overlay102_helpers_1.o
+    Object asm/overlay_102_residual_2.o
+    Object src/overlay102_helpers_2.o
+    Object asm/overlay_102_residual_3.o
+    Object src/overlay102_helpers_3.o
+    Object asm/overlay_102_residual_4.o
+    Object src/overlay102_helpers_4.o
+    Object asm/overlay_102_residual_5.o
+    Object src/overlay102_helpers_5.o
+    Object asm/overlay_102_residual_6.o
+    Object src/overlay102_helpers_6.o
+    Object asm/overlay_102_residual_7.o
+    Object src/overlay102_helpers_7.o
+    Object asm/overlay_102_residual_8.o
+    Object src/overlay102_helpers_8.o
+    Object asm/overlay_102_residual_9.o
+    Object src/overlay102_helpers_9.o
+    Object asm/overlay_102_residual_10.o
+    Object src/overlay102_helpers_10.o
+    Object asm/overlay_102_residual_11.o
+    Object src/overlay102_helpers_11.o
+    Object asm/overlay_102_residual_12.o
+    Object src/overlay102_helpers_12.o
+    Object asm/overlay_102_residual_13.o
+    Object src/overlay102_helpers_13.o
+    Object asm/overlay_102_residual_14.o
+    Object src/overlay102_helpers_14.o
+    Object asm/overlay_102_residual_15.o
+    Object src/overlay102_helpers_15.o
+    Object asm/overlay_102_residual_16.o
+    Object src/overlay102_helpers_16.o
+    Object asm/overlay_102_residual_17.o
+    Object src/overlay102_helpers_17.o
+    Object asm/overlay_102_residual_18.o
+    Object src/overlay102_helpers_18.o
+    Object asm/overlay_102_residual_19.o
+    Object src/overlay102_helpers_19.o
+    Object asm/overlay_102_residual_20.o
+    Object src/overlay102_helpers_20.o
+    Object asm/overlay_102_residual_21.o
+    Object src/overlay102_helpers_21.o
+    Object asm/overlay_102_residual_22.o
+    Object src/overlay102_helpers_22.o
+    Object asm/overlay_102_residual_23.o
+    Object src/overlay102_helpers_23.o
+    Object asm/overlay_102_residual_24.o
+    Object src/overlay102_helpers_24.o
+    Object asm/overlay_102_residual_25.o
+    Object src/overlay102_helpers_25.o
+    Object asm/overlay_102_residual_26.o
+    Object src/overlay102_helpers_26.o
+    Object asm/overlay_102_residual_27.o
+    Object src/overlay102_helpers_27.o
+    Object asm/overlay_102_residual_28.o
+    Object src/overlay102_helpers_28.o
+    Object asm/overlay_102_residual_29.o
+    Object src/overlay102_helpers_29.o
+    Object asm/overlay_102_residual_30.o
+    Object src/overlay102_helpers_30.o
+    Object asm/overlay_102_residual_31.o
+    Object src/overlay102_helpers_31.o
+    Object asm/overlay_102_residual_32.o
+    Object src/overlay102_helpers_32.o
+    Object asm/overlay_102_residual_33.o
+    Object src/overlay102_helpers_33.o
+    Object asm/overlay_102_residual_34.o
+    Object src/overlay102_helpers_34.o
+    Object asm/overlay_102_residual_35.o
+    Object src/overlay102_helpers_35.o
+    Object asm/overlay_102_residual_36.o
+    Object src/overlay102_helpers_36.o
+    Object asm/overlay_102_residual_37.o
+    Object src/overlay102_helpers_37.o
+    Object asm/overlay_102_residual_38.o
+    Object src/overlay102_helpers_38.o
+    Object asm/overlay_102_residual_39.o
+    Object src/overlay102_helpers_39.o
+    Object asm/overlay_102_residual_40.o
+    Object src/overlay102_helpers_40.o
+    Object asm/overlay_102_residual_41.o
 }
 Overlay OVY_103
 {
@@ -3179,6 +3487,14 @@ Overlay OVY_115
 {
     After OVY_31
     Object asm/overlay_115.o
+    Object src/overlay115_helpers_1.o
+    Object asm/overlay_115_residual_2.o
+    Object src/overlay115_helpers_2.o
+    Object asm/overlay_115_residual_3.o
+    Object src/overlay115_helpers_3.o
+    Object asm/overlay_115_residual_4.o
+    Object src/overlay115_helpers_4.o
+    Object asm/overlay_115_residual_5.o
 }
 Overlay OVY_116
 {
