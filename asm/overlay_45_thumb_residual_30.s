@@ -590,357 +590,334 @@
 	.public ov45_02230A58
 	.public ov45_02230AC0
 
-	thumb_func_start ov45_02229EE0
-ov45_02229EE0: ; 0x02229EE0
-	push {r3, r4, r5, lr}
-	add r4, r0, #0
-	ldr r0, _02229F68 ; =FS_OVERLAY_ID(OVY_42)
-	mov r1, #2
-	bl HandleLoadOverlay
-	bl LoadDwcOverlay
-	bl LoadOVY38
-	mov r0, #3
-	bl sub_02039FD8
-	mov r2, #5
-	mov r0, #3
-	mov r1, #0x6f
-	lsl r2, r2, #0xc
-	bl Heap_Create
-	add r0, r4, #0
-	mov r1, #0x10
-	mov r2, #0x6f
-	bl OverlayManager_CreateAndGetData
-	add r5, r0, #0
-	add r2, r5, #0
-	mov r1, #0x10
-	mov r0, #0
-_02229F18:
-	strb r0, [r2]
-	add r2, r2, #1
-	sub r1, r1, #1
-	bne _02229F18
-	add r0, r4, #0
-	bl OverlayManager_GetArgs
-	add r4, r0, #0
-	ldr r0, [r4, #4]
-	mov r1, #0x6f
-	str r0, [r5]
-	bl ov45_02229FF4
-	str r0, [r5, #4]
-	mov r0, #0x6f
-	str r0, [sp]
-	ldr r0, [r4, #8]
-	ldr r1, [r4, #4]
-	ldr r2, [r4]
-	ldr r3, [r5, #4]
-	bl ov45_0222CD1C
-	str r0, [r5, #8]
-	mov r0, #0
-	add r1, r0, #0
-	bl Main_SetVBlankIntrCB
-	bl HBlankInterruptDisable
-	ldr r0, _02229F6C ; =ov45_02229FE0
-	add r1, r5, #0
-	mov r2, #0
-	bl SysTask_CreateOnVWaitQueue
-	str r0, [r5, #0xc]
-	ldr r0, [r5, #8]
-	bl ov45_0222CD84
+	thumb_func_start ov45_0222DD44
+ov45_0222DD44: ; 0x0222DD44
+	mov r1, #0x8a
+	lsl r1, r1, #2
+	ldr r2, [r0, r1]
+	sub r1, #0x2c
+	add r0, r0, r1
+	cmp r2, r0
+	beq _0222DD56
 	mov r0, #1
-	pop {r3, r4, r5, pc}
+	bx lr
+_0222DD56:
+	mov r0, #0
+	bx lr
 	.balign 4, 0
-_02229F68: .word FS_OVERLAY_ID(OVY_42)
-_02229F6C: .word ov45_02229FE0
-	thumb_func_end ov45_02229EE0
+	thumb_func_end ov45_0222DD44
 
 
-	thumb_func_start ov45_02229F70
-ov45_02229F70: ; 0x02229F70
-	push {r3, r4, r5, lr}
-	bl OverlayManager_GetData
-	add r5, r0, #0
-	ldr r0, [r5, #8]
-	bl ov45_0222CD90
-	add r4, r0, #0
-	ldr r0, [r5, #4]
-	bl ov45_0222A15C
-	cmp r4, #1
-	bne _02229F8E
-	mov r0, #1
-	pop {r3, r4, r5, pc}
-_02229F8E:
-	mov r0, #0
-	pop {r3, r4, r5, pc}
-	.balign 4, 0
-	thumb_func_end ov45_02229F70
-
-
-	thumb_func_start ov45_02229F94
-ov45_02229F94: ; 0x02229F94
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	bl OverlayManager_GetData
-	add r4, r0, #0
-	ldr r0, [r4, #0xc]
-	bl SysTask_Destroy
-	mov r0, #0
-	add r1, r0, #0
-	bl Main_SetVBlankIntrCB
-	bl HBlankInterruptDisable
-	ldr r0, [r4, #8]
-	bl ov45_0222CD68
-	ldr r0, [r4, #4]
-	bl ov45_0222A0F0
-	add r0, r5, #0
-	bl OverlayManager_FreeData
-	mov r0, #0x6f
-	bl Heap_Destroy
-	ldr r0, _02229FDC ; =FS_OVERLAY_ID(OVY_42)
-	bl UnloadOverlayByID
-	bl UnloadOVY38
-	bl UnloadDwcOverlay
-	mov r0, #1
-	pop {r3, r4, r5, pc}
-	nop
-_02229FDC: .word FS_OVERLAY_ID(OVY_42)
-	thumb_func_end ov45_02229F94
-
-
-	thumb_func_start ov45_02229FE0
-ov45_02229FE0: ; 0x02229FE0
+	thumb_func_start ov45_0222DD5C
+ov45_0222DD5C: ; 0x0222DD5C
 	push {r4, lr}
-	add r4, r1, #0
-	ldr r0, [r4, #8]
-	bl ov45_0222CDC0
-	ldr r0, [r4, #4]
-	bl ov45_0222A1F8
+	add r4, r0, #0
+	bl ov45_0222DD44
+	cmp r0, #0
+	bne _0222DD6C
+	bl GF_AssertFail
+_0222DD6C:
+	mov r0, #0x8a
+	lsl r0, r0, #2
+	ldr r0, [r4, r0]
+	ldrb r0, [r0]
 	pop {r4, pc}
 	.balign 4, 0
-	thumb_func_end ov45_02229FE0
+	thumb_func_end ov45_0222DD5C
 
 
-	thumb_func_start ov45_02229FF4
-ov45_02229FF4: ; 0x02229FF4
+	thumb_func_start ov45_0222DD78
+ov45_0222DD78: ; 0x0222DD78
 	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x18
-	add r7, r1, #0
-	mov r1, #0x53
-	add r5, r0, #0
-	add r0, r7, #0
-	lsl r1, r1, #4
-	bl Heap_Alloc
-	mov r2, #0x53
-	mov r1, #0
-	lsl r2, r2, #4
+	sub sp, #0x10
 	add r4, r0, #0
-	bl memset
-	ldr r0, _0222A0CC ; =0x00000528
-	str r5, [r4]
-	str r7, [r4, r0]
-	ldr r0, _0222A0D0 ; =ov45_0222B2B4
-	mov r2, #0x94
-	str r0, [sp, #4]
-	ldr r0, _0222A0D4 ; =ov45_0222B470
-	add r3, sp, #4
-	str r0, [sp, #8]
-	ldr r0, _0222A0D8 ; =ov45_0222B530
+	str r1, [sp, #8]
+	add r5, r3, #0
+	bl ov45_0222DD44
+	cmp r0, #0
+	bne _0222DD8E
+	bl GF_AssertFail
+_0222DD8E:
+	mov r2, #0x8a
+	lsl r2, r2, #2
+	ldr r4, [r4, r2]
+	ldr r3, [sp, #0x28]
+	mov r0, #1
+	mov r1, #0x1b
+	add r2, #0xcd
+	bl NewMsgDataFromNarc
+	add r7, r0, #0
+	ldr r0, [sp, #0x28]
+	bl MessageFormat_New
+	ldrb r6, [r4]
 	str r0, [sp, #0xc]
-	ldr r0, _0222A0DC ; =ov45_0222B5A0
-	str r0, [sp, #0x10]
-	ldr r0, _0222A0E0 ; =ov45_0222B75C
-	str r0, [sp, #0x14]
-	str r4, [sp]
-	ldr r1, [r4]
-	add r0, r7, #0
-	bl ov45_0222E5D4
-	add r0, r7, #0
-	bl ov45_0222D860
-	str r0, [r4, #4]
-	mov r6, #0
-	add r5, r4, #0
-_0222A046:
-	add r0, r7, #0
-	bl PlayerProfile_New
-	add r1, r5, #0
-	add r1, #0xe8
-	add r6, r6, #1
-	add r5, r5, #4
-	str r0, [r1]
-	cmp r6, #4
-	blt _0222A046
-	mov r0, #0x42
-	lsl r0, r0, #2
-	ldr r1, [r4]
-	add r0, r4, r0
-	add r2, r7, #0
-	bl ov45_0222B8A0
-	mov r0, #7
-	lsl r0, r0, #6
-	add r0, r4, r0
-	bl ov45_0222BD40
-	mov r0, #0x7a
-	lsl r0, r0, #2
-	add r0, r4, r0
-	bl ov45_0222BD30
-	ldr r0, _0222A0E4 ; =ov45_02254AC4
-	mov r1, #8
-	add r2, r4, #0
-	bl ov45_0222EE20
-	mov r0, #0x7f
-	lsl r0, r0, #2
-	add r0, r4, r0
-	bl ov45_0222BC3C
-	mov r0, #0x83
-	lsl r0, r0, #2
-	add r0, r4, r0
-	bl ov45_0222C388
-	mov r0, #0xeb
-	lsl r0, r0, #2
-	add r0, r4, r0
-	bl ov45_0222C8AC
-	mov r0, #0xf9
-	lsl r0, r0, #2
-	add r0, r4, r0
-	add r1, r7, #0
-	bl ov45_0222C978
-	ldr r0, _0222A0E8 ; =0x000004BC
-	ldr r1, [r4]
-	add r0, r4, r0
-	bl ov45_0222CB44
-	ldr r0, _0222A0EC ; =0x00000508
-	add r1, r7, #0
-	add r0, r4, r0
-	bl ov45_0222BCC8
+	cmp r6, #9
+	bhs _0222DDCA
+	ldr r0, [sp, #0x28]
+	str r5, [sp]
+	str r0, [sp, #4]
 	add r0, r4, #0
-	add sp, #0x18
+	ldr r4, _0222DDE0 ; =ov45_02254C0C
+	lsl r5, r6, #2
+	ldr r1, [sp, #8]
+	ldr r2, [sp, #0xc]
+	ldr r4, [r4, r5]
+	add r3, r7, #0
+	blx r4
+	add r4, r0, #0
+	b _0222DDCC
+_0222DDCA:
+	mov r4, #0
+_0222DDCC:
+	add r0, r7, #0
+	bl DestroyMsgData
+	ldr r0, [sp, #0xc]
+	bl MessageFormat_Delete
+	add r0, r4, #0
+	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_0222A0CC: .word 0x00000528
-_0222A0D0: .word ov45_0222B2B4
-_0222A0D4: .word ov45_0222B470
-_0222A0D8: .word ov45_0222B530
-_0222A0DC: .word ov45_0222B5A0
-_0222A0E0: .word ov45_0222B75C
-_0222A0E4: .word ov45_02254AC4
-_0222A0E8: .word 0x000004BC
-_0222A0EC: .word 0x00000508
-	thumb_func_end ov45_02229FF4
+_0222DDE0: .word ov45_02254C0C
+	thumb_func_end ov45_0222DD78
 
 
-	thumb_func_start ov45_0222A0F0
-ov45_0222A0F0: ; 0x0222A0F0
-	push {r4, r5, r6, lr}
-	sub sp, #8
-	add r6, r0, #0
-	mov r0, #0x4a
+	thumb_func_start ov45_0222DDE4
+ov45_0222DDE4: ; 0x0222DDE4
+	push {r3, r4, r5, lr}
+	add r5, r0, #0
+	add r4, r2, #0
+	bl ov45_0222DD44
+	cmp r0, #0
+	bne _0222DDF6
+	bl GF_AssertFail
+_0222DDF6:
+	mov r0, #0x8a
 	lsl r0, r0, #2
-	add r0, r6, r0
-	add r1, sp, #0
-	bl ov45_0222AB0C
-	ldr r0, [r6]
-	bl sub_020318E8
-	ldr r1, [sp]
-	add r4, r0, #0
-	bl sub_020318FC
-	ldr r1, [sp, #4]
-	add r0, r4, #0
-	bl sub_02031900
-	ldr r0, _0222A158 ; =0x00000508
-	add r0, r6, r0
-	bl ov45_0222BCD8
-	mov r0, #0xf9
-	lsl r0, r0, #2
-	add r0, r6, r0
-	bl ov45_0222C994
-	bl ov45_0222EE80
-	ldr r0, [r6, #4]
-	bl ov45_0222D890
-	mov r4, #0
-	add r5, r6, #0
-_0222A138:
-	add r0, r5, #0
-	add r0, #0xe8
-	ldr r0, [r0]
-	bl Heap_Free
-	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #4
-	blt _0222A138
-	bl ov45_0222E688
-	add r0, r6, #0
-	bl Heap_Free
-	add sp, #8
-	pop {r4, r5, r6, pc}
-	.balign 4, 0
-_0222A158: .word 0x00000508
-	thumb_func_end ov45_0222A0F0
-
-
-	thumb_func_start ov45_0222A15C
-ov45_0222A15C: ; 0x0222A15C
-	push {r4, lr}
-	sub sp, #8
-	add r4, r0, #0
-	ldr r0, [r4, #4]
-	bl ov45_0222D8A4
-	add r0, sp, #0
-	bl ov45_0222ECB8
-	add r1, sp, #0
-	add r0, r1, #0
-	ldmia r0!, {r2, r3}
-	add r0, r4, #0
-	add r0, #0xd8
-	stmia r0!, {r2, r3}
-	add r0, r4, #0
-	add r0, #0xd4
-	bl ov45_0222D500
-	add r0, r4, #0
-	bl ov45_0222B840
-	mov r0, #7
-	lsl r0, r0, #6
-	add r0, r4, r0
-	bl ov45_0222BE5C
-	mov r0, #0x7a
-	lsl r0, r0, #2
-	add r0, r4, r0
-	bl ov45_0222BD30
-	add r0, r4, #0
-	add r0, #0xf8
-	bl ov45_0222BB58
-	mov r2, #0x7f
-	lsl r2, r2, #2
-	ldr r3, _0222A1EC ; =0x0000049C
-	add r0, r4, r2
+	ldr r0, [r5, r0]
+	ldrb r2, [r0]
+	cmp r2, #9
+	bhs _0222DE0E
+	lsl r3, r2, #2
+	ldr r2, _0222DE18 ; =ov45_02254BE8
 	add r1, r4, #0
-	add r2, #0x10
-	add r1, #0xf8
-	add r2, r4, r2
-	add r3, r4, r3
-	bl ov45_0222BB60
-	mov r0, #0x3a
-	lsl r0, r0, #4
-	add r0, r4, r0
-	bl ov45_0222BCB8
-	mov r0, #0x83
-	lsl r0, r0, #2
-	add r0, r4, r0
-	bl ov45_0222C3B0
-	ldr r0, _0222A1EC ; =0x0000049C
-	add r0, r4, r0
-	bl ov45_0222CAA0
-	ldr r0, _0222A1F0 ; =0x000004BC
-	add r0, r4, r0
-	bl ov45_0222CCDC
-	cmp r0, #1
-	bne _0222A1E8
-	ldr r0, _0222A1F4 ; =0x0000052C
+	ldr r2, [r2, r3]
+	blx r2
+	pop {r3, r4, r5, pc}
+_0222DE0E:
+	bl GF_AssertFail
+	mov r0, #0x14
+	pop {r3, r4, r5, pc}
+	nop
+_0222DE18: .word ov45_02254BE8
+	thumb_func_end ov45_0222DDE4
+
+
+	thumb_func_start ov45_0222DE1C
+ov45_0222DE1C: ; 0x0222DE1C
+	push {r3, r4, r5, r6, r7, lr}
+	mov r4, #0
+	add r5, r0, #0
+	mov r6, #2
+	add r7, r4, #0
+_0222DE26:
+	add r0, r5, #0
+	add r1, r4, #0
+	add r2, r6, #0
+	add r3, r7, #0
+	bl ov45_0222DE3C
+	add r4, r4, #1
+	cmp r4, #0x14
+	blt _0222DE26
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+	thumb_func_end ov45_0222DE1C
+
+
+	thumb_func_start ov45_0222DE3C
+ov45_0222DE3C: ; 0x0222DE3C
+	push {r3, r4, r5, r6, r7, lr}
+	add r4, r1, #0
+	add r5, r0, #0
+	add r6, r2, #0
+	add r7, r3, #0
+	cmp r4, #0x14
+	blo _0222DE4E
+	bl GF_AssertFail
+_0222DE4E:
+	lsl r0, r4, #2
+	strh r6, [r5, r0]
+	add r0, r5, r0
+	strh r7, [r0, #2]
+	pop {r3, r4, r5, r6, r7, pc}
+	thumb_func_end ov45_0222DE3C
+
+
+	thumb_func_start ov45_0222DE58
+ov45_0222DE58: ; 0x0222DE58
+	push {r3, r4, r5, lr}
+	add r5, r0, #0
+	add r4, r1, #0
+	bl ov45_0222DE3C
+	add r0, r5, #0
 	mov r1, #1
-	str r1, [r4, r0]
-_0222A1E8:
-	add sp, #8
+	bl ov45_0222DEA4
+	add r0, r5, #0
+	add r1, r4, #0
+	bl ov45_0222DEB8
+	pop {r3, r4, r5, pc}
+	thumb_func_end ov45_0222DE58
+
+
+	thumb_func_start ov45_0222DE74
+ov45_0222DE74: ; 0x0222DE74
+	push {r4, lr}
+	add r4, r0, #0
+	mov r2, #2
+	mov r3, #0
+	bl ov45_0222DE3C
+	add r0, r4, #0
+	mov r1, #2
+	bl ov45_0222DEA4
 	pop {r4, pc}
 	.balign 4, 0
-_0222A1EC: .word 0x0000049C
-_0222A1F0: .word 0x000004BC
-_0222A1F4: .word 0x0000052C
-	thumb_func_end ov45_0222A15C
+	thumb_func_end ov45_0222DE74
+
+
+	thumb_func_start ov45_0222DE8C
+ov45_0222DE8C: ; 0x0222DE8C
+	push {r4, r5, r6, lr}
+	add r4, r1, #0
+	add r5, r0, #0
+	add r6, r2, #0
+	cmp r4, #0x14
+	blo _0222DE9C
+	bl GF_AssertFail
+_0222DE9C:
+	lsl r0, r4, #2
+	add r0, r5, r0
+	strh r6, [r0, #2]
+	pop {r4, r5, r6, pc}
+	thumb_func_end ov45_0222DE8C
+
+
+	thumb_func_start ov45_0222DEA4
+ov45_0222DEA4: ; 0x0222DEA4
+	push {r3, r4, r5, lr}
+	add r4, r1, #0
+	add r5, r0, #0
+	cmp r4, #2
+	ble _0222DEB2
+	bl GF_AssertFail
+_0222DEB2:
+	add r5, #0x50
+	strh r4, [r5]
+	pop {r3, r4, r5, pc}
+	thumb_func_end ov45_0222DEA4
+
+
+	thumb_func_start ov45_0222DEB8
+ov45_0222DEB8: ; 0x0222DEB8
+	push {r3, r4, r5, lr}
+	add r4, r1, #0
+	add r5, r0, #0
+	cmp r4, #0x14
+	blo _0222DEC6
+	bl GF_AssertFail
+_0222DEC6:
+	add r5, #0x52
+	strh r4, [r5]
+	pop {r3, r4, r5, pc}
+	thumb_func_end ov45_0222DEB8
+
+
+	thumb_func_start ov45_0222DECC
+ov45_0222DECC: ; 0x0222DECC
+	push {r3, lr}
+	bl ov45_0222DEE0
+	cmp r0, #2
+	beq _0222DEDA
+	mov r0, #1
+	pop {r3, pc}
+_0222DEDA:
+	mov r0, #0
+	pop {r3, pc}
+	.balign 4, 0
+	thumb_func_end ov45_0222DECC
+
+
+	thumb_func_start ov45_0222DEE0
+ov45_0222DEE0: ; 0x0222DEE0
+	push {r3, r4, r5, lr}
+	add r5, r1, #0
+	add r4, r0, #0
+	cmp r5, #0x14
+	blo _0222DEEE
+	bl GF_AssertFail
+_0222DEEE:
+	lsl r0, r5, #2
+	ldrh r0, [r4, r0]
+	pop {r3, r4, r5, pc}
+	thumb_func_end ov45_0222DEE0
+
+
+	thumb_func_start ov45_0222DEF4
+ov45_0222DEF4: ; 0x0222DEF4
+	push {r3, r4, r5, lr}
+	add r5, r1, #0
+	add r4, r0, #0
+	cmp r5, #0x14
+	blo _0222DF02
+	bl GF_AssertFail
+_0222DF02:
+	lsl r0, r5, #2
+	add r0, r4, r0
+	ldrh r1, [r0, #2]
+	mov r0, #1
+	tst r1, r0
+	bne _0222DF10
+	mov r0, #0
+_0222DF10:
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+	thumb_func_end ov45_0222DEF4
+
+
+	thumb_func_start ov45_0222DF14
+ov45_0222DF14: ; 0x0222DF14
+	push {r3, r4, r5, lr}
+	add r5, r1, #0
+	add r4, r0, #0
+	cmp r5, #0x14
+	blo _0222DF22
+	bl GF_AssertFail
+_0222DF22:
+	lsl r0, r5, #2
+	add r0, r4, r0
+	ldrh r1, [r0, #2]
+	mov r0, #2
+	tst r0, r1
+	beq _0222DF32
+	mov r0, #1
+	pop {r3, r4, r5, pc}
+_0222DF32:
+	mov r0, #0
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+	thumb_func_end ov45_0222DF14
+
+
+	thumb_func_start ov45_0222DF38
+ov45_0222DF38: ; 0x0222DF38
+	push {r3, r4, r5, lr}
+	add r5, r1, #0
+	add r4, r0, #0
+	cmp r5, #0x14
+	blo _0222DF46
+	bl GF_AssertFail
+_0222DF46:
+	lsl r0, r5, #2
+	add r0, r4, r0
+	ldrh r0, [r0, #2]
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+	thumb_func_end ov45_0222DF38
