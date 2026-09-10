@@ -1,0 +1,126 @@
+#include "global.h"
+typedef struct OverlayManager OverlayManager;
+typedef struct {
+    u8 raw[0x500];
+} State;
+extern void *OverlayManager_GetData(OverlayManager *);
+extern void *OverlayManager_GetArgs(OverlayManager *);
+extern void Heap_Create(int, int, int);
+extern void *OverlayManager_CreateAndGetData(OverlayManager *, int, int);
+extern void *Save_PlayerData_GetOptionsAddr(void *);
+extern void *Save_Frontier_GetStatic(void *);
+extern void *Save_FrontierData_Get(void *);
+extern void *sub_0202D928(void *);
+extern void SetKeyRepeatTimers(int, int);
+extern void OverlayManager_FreeData(OverlayManager *);
+extern void Heap_Destroy(int);
+extern const u32 ov67_021E6E38[];
+extern void GfGfx_SetBanks(const void *);
+extern void ov67_021E6A00(void);
+extern void DoScheduledBgGpuUpdates(void *);
+extern const u8 _021E6D4C[];
+extern int TouchscreenHitbox_TouchNewIsIn(const void *);
+extern u8 gSystem[];
+extern void PlaySE(int);
+extern void ov67_021E6BB8(State *);
+extern void FreeBgTilemapBuffer(void *, int);
+extern void Heap_Free(void *);
+extern void String_Delete(void *);
+extern void MessageFormat_Delete(void *);
+extern void DestroyMsgData(void *);
+extern void FontID_Release(int);
+extern void ClearWindowTilemapAndCopyToVram(void *);
+extern void RemoveWindow(void *);
+extern void Sprite_DeleteAndFreeResources(void *);
+extern void SpriteSystem_FreeResourcesAndManager(void *, void *);
+extern void SpriteSystem_Free(void *);
+extern void ManagedSprite_TickFrame(void *);
+extern void SpriteSystem_DrawSprites(void *);
+extern void SpriteSystem_TransferOam(void);
+extern void ManagedSprite_SetAnimationFrame(void *, int);
+extern void ManagedSprite_SetAnim(void *, int);
+extern void ManagedSprite_SetPositionXY(void *, int, int);
+extern void ov67_021E6B6C(State *, int);
+extern void GridInputHandler_Free(void *);
+extern void ov67_021E6688(State *, int);
+extern void ov67_021E6C14(State *, int);
+extern void *NewMsgDataFromNarc(int, int, int, int);
+extern void *MessageFormat_New_Custom(int, int, int);
+extern void *String_New(int, int);
+extern void *NewString_ReadMsgData(void *, int);
+extern int GetWindowWidth(void *);
+extern void ov67_021E6164(State *, int, int, int, int, int, u32, int);
+extern const u8 ov67_021E6E98[];
+extern const u8 ov67_021E7020[];
+extern void AddWindow(void *, void *, const void *);
+extern void FillWindowPixelBuffer(void *, int);
+extern void FontID_Alloc(int, int);
+extern void LoadFontPal0(int, int, int);
+extern const u8 ov67_021E6EE8[];
+extern const u8 ov67_021E6E60[];
+extern const u8 ov67_021E6D6C[];
+extern void *GridInputHandler_Create(const void *, const void *, const void *, void *, int, int, int);
+extern void *GridInputHandler_GetDpadBox(void *);
+extern void DpadMenuBox_GetPosition(void *, u8 *, u8 *);
+
+int ov67_021E5968(OverlayManager *, int *);
+int ov67_021E5900(OverlayManager *, int *);
+void ov67_021E5BC0(void);
+void ov67_021E5BE0(State *);
+int ov67_021E5C04(State *);
+void ov67_021E5E84(State *);
+void ov67_021E60F4(State *);
+void ov67_021E60B4(State *);
+void ov67_021E61E8(State *);
+void ov67_021E6008(State *);
+void ov67_021E6BC4(State *);
+void ov67_021E6080(State *);
+void ov67_021E6474(State *);
+void ov67_021E681C(void);
+void ov67_021E6990(State *);
+void ov67_021E69D8(State *);
+void ov67_021E6A00(void);
+void ov67_021E6A08(State *, int, int);
+void ov67_021E6A28(State *, int, int, int);
+void ov67_021E6BB8(State *);
+void ov67_021E6C04(State *);
+void ov67_021E6C5C(void);
+void ov67_021E6D20(State *, int);
+
+void ov67_021E6990(State *p) {
+    u32 i;
+    u8 *q = (u8 *)p;
+    for (i = 0; i < 4; i++, q += 4) {
+        void *s = *(void **)(q + 0x484);
+        if (s) {
+            Sprite_DeleteAndFreeResources(s);
+            *(void **)(q + 0x484) = NULL;
+        }
+    }
+    SpriteSystem_FreeResourcesAndManager(*(void **)((u8 *)p + 0x47C), *(void **)((u8 *)p + 0x480));
+    SpriteSystem_Free(*(void **)((u8 *)p + 0x47C));
+}
+
+void ov67_021E69D8(State *p) {
+    u32 i = 0;
+    u8 *q = (u8 *)p;
+    for (; i < 4; i++, q += 4) {
+        ManagedSprite_TickFrame(*(void **)(q + 0x484));
+    }
+    SpriteSystem_DrawSprites(*(void **)((u8 *)p + 0x480));
+}
+
+void ov67_021E6A00(void) {
+    SpriteSystem_TransferOam();
+}
+
+void ov67_021E6A08(State *p, int i, int anim) {
+    int off = i * 4;
+    u8 *base = (u8 *)p + 0x484;
+    ManagedSprite_SetAnimationFrame(*(void **)(base + off), 0);
+    ManagedSprite_SetAnim(*(void **)(base + off), anim);
+}
+
+void ov67_021E6A28(State *p, int i, int x, int y) {
+    ManagedSprite_SetPositionXY(*(void **)((u8 *)p + 0x484 + i * 4), x, y);
+}
