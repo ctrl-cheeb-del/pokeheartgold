@@ -186,20 +186,6 @@
 	.include "render_window.inc"
 	.include "global.inc"
 
-	.rodata
-
-_020F5C40:
-	.byte 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00
-_020F5C50:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00
-_020F5C60:
-	.word 1, 1, 1, 1, 0, 0
-_020F5C78:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0xD5, 0x5C, 0x01, 0x00
-	.byte 0xD5, 0x5C, 0x01, 0x00, 0xD5, 0x5C, 0x01, 0x00, 0xD5, 0x5C, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-
 	.text
 	.public DrawFrameAndWindow2
 	.public sub_0200E398
@@ -214,199 +200,154 @@ _020F5C78:
 	.public sub_0200F6D4
 	.public sub_0200F714
 
-	thumb_func_start LoadUserFrameGfx1
-LoadUserFrameGfx1: ; 0x0200E3DC
-	push {r4, r5, r6, lr}
-	sub sp, #0x10
-	add r6, r0, #0
-	add r0, sp, #0x10
-	ldrb r0, [r0, #0x10]
+	thumb_func_start LoadUserFrameGfx2
+LoadUserFrameGfx2: ; 0x0200E644
+	push {r4, r5, r6, r7, lr}
+	sub sp, #0x14
+	str r0, [sp, #0x10]
+	add r0, sp, #0x18
+	ldrb r7, [r0, #0x10]
+	add r6, r2, #0
 	add r5, r1, #0
+	add r0, r7, #0
 	add r4, r3, #0
-	cmp r0, #0
-	beq _0200E3F2
-	mov r1, #1
-	b _0200E3F4
-_0200E3F2:
-	mov r1, #0
-_0200E3F4:
-	str r2, [sp]
+	bl sub_0200E63C
+	add r1, r0, #0
+	str r6, [sp]
 	mov r0, #0
 	str r0, [sp, #4]
 	str r0, [sp, #8]
-	ldr r0, [sp, #0x24]
-	add r2, r6, #0
+	ldr r0, [sp, #0x2c]
+	ldr r2, [sp, #0x10]
 	str r0, [sp, #0xc]
 	mov r0, #0x26
 	add r3, r5, #0
 	bl GfGfxLoader_LoadCharData
-	add r0, sp, #0x10
-	ldrb r0, [r0, #0x10]
-	cmp r0, #2
-	bne _0200E416
-	mov r1, #0x2e
-	b _0200E418
-_0200E416:
-	mov r1, #0x19
-_0200E418:
 	cmp r5, #4
-	bhs _0200E432
+	bhs _0200E694
+	add r0, r7, #0
+	bl sub_0200E640
+	add r1, r0, #0
 	mov r0, #0x20
 	str r0, [sp]
-	ldr r0, [sp, #0x24]
+	ldr r0, [sp, #0x2c]
 	mov r2, #0
 	str r0, [sp, #4]
 	mov r0, #0x26
 	lsl r3, r4, #5
 	bl GfGfxLoader_GXLoadPal
-	add sp, #0x10
-	pop {r4, r5, r6, pc}
-_0200E432:
+	add sp, #0x14
+	pop {r4, r5, r6, r7, pc}
+_0200E694:
+	add r0, r7, #0
+	bl sub_0200E640
+	add r1, r0, #0
 	mov r0, #0x20
 	str r0, [sp]
-	ldr r0, [sp, #0x24]
+	ldr r0, [sp, #0x2c]
 	mov r2, #4
 	str r0, [sp, #4]
 	mov r0, #0x26
 	lsl r3, r4, #5
 	bl GfGfxLoader_GXLoadPal
-	add sp, #0x10
-	pop {r4, r5, r6, pc}
-	thumb_func_end LoadUserFrameGfx1
+	add sp, #0x14
+	pop {r4, r5, r6, r7, pc}
+	.balign 4, 0
+	thumb_func_end LoadUserFrameGfx2
 
 
-	thumb_func_start sub_0200E448
-sub_0200E448: ; 0x0200E448
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x24
-	str r1, [sp, #0x14]
-	str r2, [sp, #0x18]
-	str r3, [sp, #0x1c]
-	ldr r2, [sp, #0x1c]
-	ldr r5, [sp, #0x40]
-	sub r7, r2, #1
+	thumb_func_start sub_0200E6B4
+sub_0200E6B4: ; 0x0200E6B4
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #0x30
+	str r1, [sp, #0x10]
+	str r2, [sp, #0x14]
+	str r3, [sp, #0x18]
+	ldr r2, [sp, #0x4c]
+	add r7, r0, #0
+	str r2, [sp, #0x4c]
 	ldr r2, [sp, #0x18]
-	str r0, [sp, #0x10]
+	ldr r5, [sp, #0x50]
 	sub r6, r2, #1
-	lsl r2, r7, #0x18
+	ldr r2, [sp, #0x14]
+	sub r2, r2, #2
+	str r2, [sp, #0x28]
+	lsl r2, r6, #0x18
 	lsr r2, r2, #0x18
 	str r2, [sp]
 	mov r2, #1
 	str r2, [sp, #4]
 	str r2, [sp, #8]
-	lsl r3, r6, #0x18
+	ldr r3, [sp, #0x28]
 	str r5, [sp, #0xc]
-	add r2, sp, #0x28
+	add r2, sp, #0x38
+	lsl r3, r3, #0x18
 	ldrh r2, [r2, #0x1c]
 	lsr r3, r3, #0x18
 	bl FillBgTilemapRect
-	add r1, sp, #0x28
-	ldrh r4, [r1, #0x1c]
-	lsl r0, r7, #0x18
+	ldr r0, [sp, #0x14]
+	sub r0, r0, #1
+	str r0, [sp, #0x24]
+	add r0, sp, #0x38
+	ldrh r4, [r0, #0x1c]
+	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
-	ldrb r0, [r1, #0x10]
+	mov r0, #1
+	str r0, [sp, #4]
+	str r0, [sp, #8]
+	ldr r3, [sp, #0x24]
+	str r5, [sp, #0xc]
 	add r2, r4, #1
 	lsl r2, r2, #0x10
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	str r5, [sp, #0xc]
-	ldr r0, [sp, #0x10]
-	ldr r1, [sp, #0x14]
-	ldr r3, [sp, #0x18]
-	lsr r2, r2, #0x10
-	bl FillBgTilemapRect
-	add r0, sp, #0x28
-	ldrb r1, [r0, #0x10]
-	ldr r0, [sp, #0x18]
-	add r2, r4, #2
-	add r0, r0, r1
-	str r0, [sp, #0x20]
-	lsl r0, r7, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp]
-	mov r0, #1
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	ldr r3, [sp, #0x20]
-	str r5, [sp, #0xc]
-	lsl r2, r2, #0x10
 	lsl r3, r3, #0x18
-	ldr r0, [sp, #0x10]
-	ldr r1, [sp, #0x14]
+	ldr r1, [sp, #0x10]
+	add r0, r7, #0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
 	bl FillBgTilemapRect
-	ldr r0, [sp, #0x1c]
-	add r2, r4, #3
-	str r0, [sp]
-	mov r0, #1
-	str r0, [sp, #4]
-	add r0, sp, #0x28
-	ldrb r0, [r0, #0x14]
-	lsl r2, r2, #0x10
-	lsl r3, r6, #0x18
-	str r0, [sp, #8]
-	str r5, [sp, #0xc]
-	ldr r0, [sp, #0x10]
-	ldr r1, [sp, #0x14]
-	lsr r2, r2, #0x10
-	lsr r3, r3, #0x18
-	bl FillBgTilemapRect
-	ldr r0, [sp, #0x1c]
-	ldr r3, [sp, #0x20]
-	str r0, [sp]
-	mov r0, #1
-	str r0, [sp, #4]
-	add r0, sp, #0x28
-	ldrb r0, [r0, #0x14]
-	add r2, r4, #5
-	lsl r2, r2, #0x10
-	str r0, [sp, #8]
-	str r5, [sp, #0xc]
-	lsl r3, r3, #0x18
-	ldr r0, [sp, #0x10]
-	ldr r1, [sp, #0x14]
-	lsr r2, r2, #0x10
-	lsr r3, r3, #0x18
-	bl FillBgTilemapRect
-	add r0, sp, #0x28
-	ldrb r1, [r0, #0x14]
-	ldr r0, [sp, #0x1c]
-	add r2, r4, #6
-	add r7, r0, r1
-	lsl r0, r7, #0x18
+	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
-	mov r0, #1
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	str r5, [sp, #0xc]
-	lsl r2, r2, #0x10
-	lsl r3, r6, #0x18
-	ldr r0, [sp, #0x10]
-	ldr r1, [sp, #0x14]
-	lsr r2, r2, #0x10
-	lsr r3, r3, #0x18
-	bl FillBgTilemapRect
-	lsl r0, r7, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp]
-	add r0, sp, #0x28
+	add r0, sp, #0x38
 	ldrb r0, [r0, #0x10]
-	add r2, r4, #7
+	add r2, r4, #2
 	lsl r2, r2, #0x10
 	str r0, [sp, #4]
 	mov r0, #1
 	str r0, [sp, #8]
 	str r5, [sp, #0xc]
-	ldr r0, [sp, #0x10]
-	ldr r1, [sp, #0x14]
-	ldr r3, [sp, #0x18]
+	ldr r1, [sp, #0x10]
+	ldr r3, [sp, #0x14]
+	add r0, r7, #0
 	lsr r2, r2, #0x10
 	bl FillBgTilemapRect
-	lsl r0, r7, #0x18
+	add r0, sp, #0x38
+	ldrb r1, [r0, #0x10]
+	ldr r0, [sp, #0x14]
+	add r2, r4, #3
+	add r0, r0, r1
+	str r0, [sp, #0x2c]
+	lsl r0, r6, #0x18
+	lsr r0, r0, #0x18
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	str r0, [sp, #8]
+	ldr r3, [sp, #0x2c]
+	str r5, [sp, #0xc]
+	lsl r2, r2, #0x10
+	lsl r3, r3, #0x18
+	ldr r1, [sp, #0x10]
+	add r0, r7, #0
+	lsr r2, r2, #0x10
+	lsr r3, r3, #0x18
+	bl FillBgTilemapRect
+	ldr r0, [sp, #0x2c]
+	add r2, r4, #4
+	add r0, r0, #1
+	str r0, [sp, #0x20]
+	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
 	mov r0, #1
@@ -414,28 +355,232 @@ sub_0200E448: ; 0x0200E448
 	str r0, [sp, #8]
 	ldr r3, [sp, #0x20]
 	str r5, [sp, #0xc]
-	add r4, #8
+	lsl r2, r2, #0x10
+	lsl r3, r3, #0x18
+	ldr r1, [sp, #0x10]
+	add r0, r7, #0
+	lsr r2, r2, #0x10
+	lsr r3, r3, #0x18
+	bl FillBgTilemapRect
+	ldr r0, [sp, #0x2c]
+	add r2, r4, #5
+	add r0, r0, #2
+	str r0, [sp, #0x1c]
+	lsl r0, r6, #0x18
+	lsr r0, r0, #0x18
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	str r0, [sp, #8]
+	ldr r3, [sp, #0x1c]
+	str r5, [sp, #0xc]
+	lsl r2, r2, #0x10
+	lsl r3, r3, #0x18
+	ldr r1, [sp, #0x10]
+	add r0, r7, #0
+	lsr r2, r2, #0x10
+	lsr r3, r3, #0x18
+	bl FillBgTilemapRect
+	ldr r0, [sp, #0x18]
+	ldr r3, [sp, #0x28]
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	ldr r0, [sp, #0x4c]
+	add r2, r4, #6
+	str r0, [sp, #8]
+	str r5, [sp, #0xc]
+	lsl r2, r2, #0x10
+	lsl r3, r3, #0x18
+	ldr r1, [sp, #0x10]
+	add r0, r7, #0
+	lsr r2, r2, #0x10
+	lsr r3, r3, #0x18
+	bl FillBgTilemapRect
+	ldr r0, [sp, #0x18]
+	ldr r3, [sp, #0x24]
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	ldr r0, [sp, #0x4c]
+	add r2, r4, #7
+	str r0, [sp, #8]
+	str r5, [sp, #0xc]
+	lsl r2, r2, #0x10
+	lsl r3, r3, #0x18
+	ldr r1, [sp, #0x10]
+	add r0, r7, #0
+	lsr r2, r2, #0x10
+	lsr r3, r3, #0x18
+	bl FillBgTilemapRect
+	ldr r0, [sp, #0x18]
+	add r2, r4, #0
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	ldr r0, [sp, #0x4c]
+	ldr r3, [sp, #0x2c]
+	str r0, [sp, #8]
+	str r5, [sp, #0xc]
+	add r2, #9
+	lsl r2, r2, #0x10
+	lsl r3, r3, #0x18
+	ldr r1, [sp, #0x10]
+	add r0, r7, #0
+	lsr r2, r2, #0x10
+	lsr r3, r3, #0x18
+	bl FillBgTilemapRect
+	ldr r0, [sp, #0x18]
+	add r2, r4, #0
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	ldr r0, [sp, #0x4c]
+	ldr r3, [sp, #0x20]
+	str r0, [sp, #8]
+	str r5, [sp, #0xc]
+	add r2, #0xa
+	lsl r2, r2, #0x10
+	lsl r3, r3, #0x18
+	ldr r1, [sp, #0x10]
+	add r0, r7, #0
+	lsr r2, r2, #0x10
+	lsr r3, r3, #0x18
+	bl FillBgTilemapRect
+	ldr r0, [sp, #0x18]
+	add r2, r4, #0
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	ldr r0, [sp, #0x4c]
+	ldr r3, [sp, #0x1c]
+	str r0, [sp, #8]
+	str r5, [sp, #0xc]
+	add r2, #0xb
+	lsl r2, r2, #0x10
+	lsl r3, r3, #0x18
+	ldr r1, [sp, #0x10]
+	add r0, r7, #0
+	lsr r2, r2, #0x10
+	lsr r3, r3, #0x18
+	bl FillBgTilemapRect
+	add r2, r4, #0
+	ldr r3, [sp, #0x28]
+	add r2, #0xc
+	lsl r2, r2, #0x10
+	lsl r3, r3, #0x18
+	ldr r1, [sp, #0x18]
+	ldr r0, [sp, #0x4c]
+	lsr r2, r2, #0x10
+	add r6, r1, r0
+	lsl r0, r6, #0x18
+	lsr r0, r0, #0x18
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	str r0, [sp, #8]
+	str r5, [sp, #0xc]
+	ldr r1, [sp, #0x10]
+	add r0, r7, #0
+	lsr r3, r3, #0x18
+	bl FillBgTilemapRect
+	lsl r0, r6, #0x18
+	lsr r0, r0, #0x18
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	str r0, [sp, #8]
+	add r2, r4, #0
+	ldr r3, [sp, #0x24]
+	str r5, [sp, #0xc]
+	add r2, #0xd
+	lsl r2, r2, #0x10
+	lsl r3, r3, #0x18
+	ldr r1, [sp, #0x10]
+	add r0, r7, #0
+	lsr r2, r2, #0x10
+	lsr r3, r3, #0x18
+	bl FillBgTilemapRect
+	lsl r0, r6, #0x18
+	lsr r0, r0, #0x18
+	str r0, [sp]
+	add r0, sp, #0x38
+	ldrb r0, [r0, #0x10]
+	add r2, r4, #0
+	add r2, #0xe
+	str r0, [sp, #4]
+	mov r0, #1
+	str r0, [sp, #8]
+	str r5, [sp, #0xc]
+	lsl r2, r2, #0x10
+	ldr r1, [sp, #0x10]
+	ldr r3, [sp, #0x14]
+	add r0, r7, #0
+	lsr r2, r2, #0x10
+	bl FillBgTilemapRect
+	lsl r0, r6, #0x18
+	lsr r0, r0, #0x18
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	str r0, [sp, #8]
+	add r2, r4, #0
+	ldr r3, [sp, #0x2c]
+	str r5, [sp, #0xc]
+	add r2, #0xf
+	lsl r2, r2, #0x10
+	lsl r3, r3, #0x18
+	ldr r1, [sp, #0x10]
+	add r0, r7, #0
+	lsr r2, r2, #0x10
+	lsr r3, r3, #0x18
+	bl FillBgTilemapRect
+	lsl r0, r6, #0x18
+	lsr r0, r0, #0x18
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	str r0, [sp, #8]
+	add r2, r4, #0
+	ldr r3, [sp, #0x20]
+	str r5, [sp, #0xc]
+	add r2, #0x10
+	lsl r2, r2, #0x10
+	lsl r3, r3, #0x18
+	ldr r1, [sp, #0x10]
+	add r0, r7, #0
+	lsr r2, r2, #0x10
+	lsr r3, r3, #0x18
+	bl FillBgTilemapRect
+	lsl r0, r6, #0x18
+	lsr r0, r0, #0x18
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	str r0, [sp, #8]
+	ldr r3, [sp, #0x1c]
+	str r5, [sp, #0xc]
+	add r4, #0x11
 	lsl r2, r4, #0x10
 	lsl r3, r3, #0x18
-	ldr r0, [sp, #0x10]
-	ldr r1, [sp, #0x14]
+	ldr r1, [sp, #0x10]
+	add r0, r7, #0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
 	bl FillBgTilemapRect
-	add sp, #0x24
-	pop {r4, r5, r6, r7, pc}
+	add sp, #0x30
+	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
-	thumb_func_end sub_0200E448
+	thumb_func_end sub_0200E6B4
 
 
-	thumb_func_start DrawFrameAndWindow1
-DrawFrameAndWindow1: ; 0x0200E580
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x20
+	thumb_func_start sub_0200E948
+sub_0200E948: ; 0x0200E948
+	push {r4, r5, r6, r7, lr}
+	sub sp, #0x1c
 	add r5, r0, #0
-	add r4, r1, #0
-	add r6, r2, #0
-	add r7, r3, #0
+	add r6, r1, #0
+	add r7, r2, #0
 	bl GetWindowBgId
 	str r0, [sp, #0x10]
 	add r0, r5, #0
@@ -446,75 +591,23 @@ DrawFrameAndWindow1: ; 0x0200E580
 	str r0, [sp, #0x18]
 	add r0, r5, #0
 	bl GetWindowWidth
-	str r0, [sp, #0x1c]
+	add r4, r0, #0
 	add r0, r5, #0
 	bl GetWindowHeight
-	ldr r1, [sp, #0x1c]
-	ldr r2, [sp, #0x14]
-	str r1, [sp]
+	str r4, [sp]
 	str r0, [sp, #4]
-	str r7, [sp, #8]
-	str r6, [sp, #0xc]
-	ldr r0, [r5]
-	ldr r1, [sp, #0x10]
-	ldr r3, [sp, #0x18]
-	bl sub_0200E448
-	cmp r4, #0
-	bne _0200E5D0
-	add r0, r5, #0
-	bl CopyWindowToVram
-_0200E5D0:
-	add sp, #0x20
-	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end DrawFrameAndWindow1
-
-
-	thumb_func_start sub_0200E5D4
-sub_0200E5D4: ; 0x0200E5D4
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x18
-	add r5, r0, #0
-	add r4, r1, #0
-	bl GetWindowBgId
-	str r0, [sp, #0x10]
-	add r0, r5, #0
-	bl GetWindowX
-	add r6, r0, #0
-	add r0, r5, #0
-	bl GetWindowY
-	add r7, r0, #0
-	add r0, r5, #0
-	bl GetWindowWidth
-	str r0, [sp, #0x14]
-	add r0, r5, #0
-	bl GetWindowHeight
-	sub r1, r7, #1
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x18
-	str r1, [sp]
-	ldr r1, [sp, #0x14]
-	add r0, r0, #2
-	add r1, r1, #2
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x18
-	lsl r0, r0, #0x18
-	str r1, [sp, #4]
+	lsl r0, r7, #0x18
 	lsr r0, r0, #0x18
-	sub r3, r6, #1
-	lsl r3, r3, #0x18
 	str r0, [sp, #8]
-	mov r2, #0
-	str r2, [sp, #0xc]
+	lsl r0, r6, #0x10
+	lsr r0, r0, #0x10
+	str r0, [sp, #0xc]
 	ldr r0, [r5]
 	ldr r1, [sp, #0x10]
-	lsr r3, r3, #0x18
-	bl FillBgTilemapRect
-	cmp r4, #0
-	bne _0200E636
-	add r0, r5, #0
-	bl ClearWindowTilemapAndCopyToVram
-_0200E636:
-	add sp, #0x18
-	pop {r3, r4, r5, r6, r7, pc}
+	ldr r2, [sp, #0x14]
+	ldr r3, [sp, #0x18]
+	bl sub_0200E6B4
+	add sp, #0x1c
+	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
-	thumb_func_end sub_0200E5D4
+	thumb_func_end sub_0200E948

@@ -53,7 +53,20 @@ Static main
     Object src/unk_0200CE7C.o
     Object src/sprite_system.o
     Object src/sys_task_api.o
+    Object src/render_window_helpers_1.o
     Object asm/render_window.o
+    Object src/render_window_helpers_2.o
+    Object asm/render_window_residual_2.o
+    Object src/render_window_helpers_3.o
+    Object asm/render_window_residual_3.o
+    Object src/render_window_helpers_4.o
+    Object asm/render_window_residual_4.o
+    Object src/render_window_helpers_5.o
+    Object asm/render_window_residual_5.o
+    Object src/render_window_helpers_6.o
+    Object asm/render_window_residual_6.o
+    Object src/render_window_helpers_7.o
+    Object asm/render_window_residual_7.o
     Object asm/unk_0200FA24.o
     Object src/palette_fade_state_1.o
     Object asm/unk_0200FA24_residual_2.o
@@ -1970,6 +1983,26 @@ Overlay OVY_69
 {
     After main
     Object asm/overlay_69.o
+    Object src/overlay69_helpers_1.o
+    Object asm/overlay_69_residual_2.o
+    Object src/overlay69_helpers_2.o
+    Object asm/overlay_69_residual_3.o
+    Object src/overlay69_helpers_3.o
+    Object asm/overlay_69_residual_4.o
+    Object src/overlay69_helpers_4.o
+    Object asm/overlay_69_residual_5.o
+    Object src/overlay69_helpers_5.o
+    Object asm/overlay_69_residual_6.o
+    Object src/overlay69_helpers_6.o
+    Object asm/overlay_69_residual_7.o
+    Object src/overlay69_helpers_7.o
+    Object asm/overlay_69_residual_8.o
+    Object src/overlay69_helpers_8.o
+    Object asm/overlay_69_residual_9.o
+    Object src/overlay69_helpers_9.o
+    Object asm/overlay_69_residual_10.o
+    Object src/overlay69_helpers_10.o
+    Object asm/overlay_69_residual_11.o
 }
 Overlay OVY_70
 {
