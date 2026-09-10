@@ -1,6 +1,7 @@
 #include "global.h"
 
 #include "field_system.h"
+#include "frontier_application_internal.h"
 #include "game_stats.h"
 #include "heap.h"
 #include "launch_application.h"
@@ -9,16 +10,6 @@
 #include "task.h"
 #include "unk_02037C94.h"
 
-typedef struct Input97024 {
-    u32 words[7];
-} Input97024;
-typedef struct Work97024 {
-    u32 unk0[4];
-    u32 result;
-    Input97024 input;
-    void *menu;
-    u8 pad34[8];
-} Work97024;
 typedef struct Main97024 {
     u32 state;
     u32 selection;
@@ -35,9 +26,6 @@ typedef struct Main97024 {
     PokemonSummaryArgs *summary;
 } Main97024;
 
-void *sub_02096C88(Work97024 *work, enum HeapID heapID);
-void sub_02096CF4(void *ptr);
-void sub_02096CC8(void *ptr);
 Work97024 *sub_02097024(const Input97024 *input, enum HeapID heapID);
 void sub_02097060(Work97024 *work);
 u32 sub_02097078(Work97024 *work);

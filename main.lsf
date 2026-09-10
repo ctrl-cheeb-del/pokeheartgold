@@ -70,7 +70,10 @@ Static main
     Object asm/unk_02014DA0.o
     Object src/mail_message.o
     Object src/easy_chat.o
+    Object src/graphics_object.o
     Object asm/unk_02015DD8.o
+    Object src/graphics_object_vram.o
+    Object asm/unk_020161CC.o
     Object asm/unk_020163E0.o
     Object src/yes_no_prompt.o
     Object asm/unk_02016EDC.o
@@ -81,7 +84,11 @@ Static main
     Object src/touchscreen_list_menu.o
     Object src/camera_translation.o
     Object asm/unk_020192D0.o
+    Object src/bg_cell.o
     Object asm/unk_0201956C.o
+    Object src/bg_cell_scroll.o
+    Object asm/unk_020199F4.o
+    Object src/bg_cell_properties.o
     Object src/unk_02019BA4.o
     Object src/system.o
     Object src/heap.o
@@ -97,7 +104,10 @@ Static main
     Object src/unk_02020A0C.o
     Object src/ascii_util.o
     Object asm/unk_02020B8C.o
+    Object src/touch_sampling.o
     Object asm/unk_020210A0.o
+    Object src/touch_sampling_output.o
+    Object asm/unk_02021540.o
     Object src/obj_char_transfer.o
     Object src/obj_pltt_transfer.o
     Object src/gf_gfx_planes.o
@@ -189,7 +199,21 @@ Static main
     Object src/apricorn_flavors.o
     Object src/pokewalker.o
     Object src/save_trainer_house.o
+    Object src/wireless_parent_start.o
     Object asm/unk_02032844.o
+    Object src/wireless_parent_stop.o
+    Object asm/unk_02032B84.o
+    Object src/wireless_scan.o
+    Object asm/unk_02032E9C.o
+    Object src/wireless_connection.o
+    Object src/wireless_port.o
+    Object src/wireless_status.o
+    Object asm/unk_020332C0.o
+    Object src/wireless_init.o
+    Object asm/unk_02033668.o
+    Object src/wireless_start.o
+    Object src/wireless_mode.o
+    Object src/wireless_state.o
     Object asm/unk_02033AE0.o
     Object asm/unk_02034354.o
     Object asm/unk_02034B0C.o
@@ -310,7 +334,11 @@ Static main
     Object src/party.o
     Object src/pokedex_util.o
     Object src/battle_regulation.o
+    Object src/battle_link.o
     Object asm/unk_02074E5C.o
+    Object src/battle_link_exchange.o
+    Object asm/unk_0207527C.o
+    Object src/battle_link_tasks.o
     Object asm/unk_020755E8.o
     Object src/particle_scene.o
     Object src/type_icon_resources.o
@@ -376,6 +404,7 @@ Static main
 	Object src/unk_020968B0.o
     Object src/battle_frontier_communication.o
     Object asm/unk_02096910.o
+    Object src/frontier_menu_communication.o
     Object asm/unk_02096C88.o
     Object src/frontier_application_flow.o
     Object asm/unk_02097024.o

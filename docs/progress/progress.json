@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "6909035d820af55a085a8fded82e7a356e376856",
+  "commit": "d476cc5813706448a676f1602f0c8e1592597a4a",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "4b7737005664b767098c4f0991ad166d33c6a64bd62cb7d43ce44ea3b7950a75",
-    "ARM7": "01e566efbb55a8e71e7d3d5e0c42e30b0dc141c24a497f5eb0c3dd201ba4dcba"
+    "ARM9": "4b09ceedc5d199323cac3a14ae3a43c9e1d807e095221b4f0e4a1adf1ab45ca0",
+    "ARM7": "148cfd18675b1b4eb5f5ecb9c3748b1df512f0022bbff92681b696fcbdd68530"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 3096360,
+    "asm": 3089132,
     "mixed": 18270,
-    "c": 961168,
+    "c": 968298,
     "unknown": 8792
   },
   "objects": [
@@ -2787,6 +2787,30 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "battle_link.o",
+      "bytes": 304,
+      "status": "c",
+      "source": "src/battle_link.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "battle_link_exchange.o",
+      "bytes": 590,
+      "status": "c",
+      "source": "src/battle_link_exchange.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "battle_link_tasks.o",
+      "bytes": 778,
+      "status": "c",
+      "source": "src/battle_link_tasks.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "battle_record.o",
       "bytes": 3776,
       "status": "c",
@@ -2807,6 +2831,30 @@
       "bytes": 3284,
       "status": "c",
       "source": "src/battle/battle_setup.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "bg_cell.o",
+      "bytes": 378,
+      "status": "c",
+      "source": "src/bg_cell.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "bg_cell_properties.o",
+      "bytes": 148,
+      "status": "c",
+      "source": "src/bg_cell_properties.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "bg_cell_scroll.o",
+      "bytes": 246,
+      "status": "c",
+      "source": "src/bg_cell_scroll.c"
     },
     {
       "cpu": "ARM9",
@@ -3211,6 +3259,14 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "frontier_menu_communication.o",
+      "bytes": 906,
+      "status": "c",
+      "source": "src/frontier_menu_communication.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "frontier_save.o",
       "bytes": 1178,
       "status": "c",
@@ -3407,6 +3463,22 @@
       "bytes": 734,
       "status": "c",
       "source": "src/gf_rtc.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "graphics_object.o",
+      "bytes": 806,
+      "status": "c",
+      "source": "src/graphics_object.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "graphics_object_vram.o",
+      "bytes": 92,
+      "status": "c",
+      "source": "src/graphics_object_vram.c"
     },
     {
       "cpu": "ARM9",
@@ -5083,6 +5155,22 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "touch_sampling.o",
+      "bytes": 852,
+      "status": "c",
+      "source": "src/touch_sampling.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "touch_sampling_output.o",
+      "bytes": 24,
+      "status": "c",
+      "source": "src/touch_sampling_output.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "touchscreen.o",
       "bytes": 682,
       "status": "c",
@@ -5196,9 +5284,17 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_02015DD8.o",
-      "bytes": 1540,
+      "bytes": 88,
       "status": "asm",
       "source": "asm/unk_02015DD8.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_020161CC.o",
+      "bytes": 532,
+      "status": "asm",
+      "source": "asm/unk_020161CC.s"
     },
     {
       "cpu": "ARM9",
@@ -5244,9 +5340,17 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_0201956C.o",
-      "bytes": 1592,
+      "bytes": 532,
       "status": "asm",
       "source": "asm/unk_0201956C.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_020199F4.o",
+      "bytes": 276,
+      "status": "asm",
+      "source": "asm/unk_020199F4.s"
     },
     {
       "cpu": "ARM9",
@@ -5284,9 +5388,17 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_020210A0.o",
-      "bytes": 1280,
+      "bytes": 304,
       "status": "asm",
       "source": "asm/unk_020210A0.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_02021540.o",
+      "bytes": 96,
+      "status": "asm",
+      "source": "asm/unk_02021540.s"
     },
     {
       "cpu": "ARM9",
@@ -5404,9 +5516,41 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_02032844.o",
-      "bytes": 4764,
+      "bytes": 472,
       "status": "asm",
       "source": "asm/unk_02032844.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_02032B84.o",
+      "bytes": 672,
+      "status": "asm",
+      "source": "asm/unk_02032B84.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_02032E9C.o",
+      "bytes": 484,
+      "status": "asm",
+      "source": "asm/unk_02032E9C.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_020332C0.o",
+      "bytes": 756,
+      "status": "asm",
+      "source": "asm/unk_020332C0.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_02033668.o",
+      "bytes": 360,
+      "status": "asm",
+      "source": "asm/unk_02033668.s"
     },
     {
       "cpu": "ARM9",
@@ -5756,9 +5900,17 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_02074E5C.o",
-      "bytes": 1932,
+      "bytes": 140,
       "status": "asm",
       "source": "asm/unk_02074E5C.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_0207527C.o",
+      "bytes": 92,
+      "status": "asm",
+      "source": "asm/unk_0207527C.s"
     },
     {
       "cpu": "ARM9",
@@ -6027,14 +6179,6 @@
     {
       "cpu": "ARM9",
       "module": "main",
-      "object": "unk_02096C88.o",
-      "bytes": 924,
-      "status": "asm",
-      "source": "asm/unk_02096C88.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
       "object": "unk_020971F8.o",
       "bytes": 108,
       "status": "c",
@@ -6143,6 +6287,86 @@
       "bytes": 64492,
       "status": "asm",
       "source": "lib/asm/wifi.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "wireless_connection.o",
+      "bytes": 200,
+      "status": "c",
+      "source": "src/wireless_connection.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "wireless_init.o",
+      "bytes": 174,
+      "status": "c",
+      "source": "src/wireless_init.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "wireless_mode.o",
+      "bytes": 120,
+      "status": "c",
+      "source": "src/wireless_mode.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "wireless_parent_start.o",
+      "bytes": 240,
+      "status": "c",
+      "source": "src/wireless_parent_start.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "wireless_parent_stop.o",
+      "bytes": 118,
+      "status": "c",
+      "source": "src/wireless_parent_stop.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "wireless_port.o",
+      "bytes": 200,
+      "status": "c",
+      "source": "src/wireless_port.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "wireless_scan.o",
+      "bytes": 120,
+      "status": "c",
+      "source": "src/wireless_scan.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "wireless_start.o",
+      "bytes": 134,
+      "status": "c",
+      "source": "src/wireless_start.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "wireless_state.o",
+      "bytes": 528,
+      "status": "c",
+      "source": "src/wireless_state.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "wireless_status.o",
+      "bytes": 172,
+      "status": "c",
+      "source": "src/wireless_status.c"
     },
     {
       "cpu": "ARM9",

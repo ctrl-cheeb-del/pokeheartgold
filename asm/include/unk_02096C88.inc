@@ -32,3 +32,30 @@
 .public ov85_021E8748
 .public ov85_021E9C84
 .public ov85_021E9D9C
+
+	.public sub_02096D60
+	.public sub_02096D80
+	.public sub_02096DA8
+	.public sub_02096DB4
+	.public sub_02096DBC
+	.public sub_02096DE4
+	.public sub_02096DF4
+	.public sub_02096ED0
+	.public sub_02096EF0
+	.public sub_02096F0C
+	.public sub_02096F2C
+	.public sub_02096F3C
+	.public sub_02096F50
+	.public sub_02096F60
+	.public sub_02096F70
+	.public sub_02096F80
+	.public sub_02096F9C
+	.public sub_02096FAC
+	.public sub_02096FBC
+	.public sub_02096FD0
+	.public sub_02096FE4
+	.public sub_02096FE8
+	.public sub_02096FF0
+
+	.public sub_02096D14
+	.public sub_02096FFC

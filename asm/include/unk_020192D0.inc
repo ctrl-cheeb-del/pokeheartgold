@@ -87,3 +87,6 @@
 .public ov39_02228140
 .public ov39_02228308
 .public ov39_02228370
+
+	.public sub_02019BA0
+	.public _020F6298

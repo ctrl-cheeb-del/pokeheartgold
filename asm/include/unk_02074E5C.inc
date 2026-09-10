@@ -57,3 +57,33 @@
 .public ov12_0223BC20
 .public ov12_0223BC2C
 .public ov12_02264334
+
+	.public sub_02074ED8
+	.public sub_02074EDC
+	.public sub_02074EE4
+	.public sub_02074EEC
+	.public sub_02074EF4
+	.public sub_02074EF8
+	.public sub_02074F18
+	.public sub_02074F38
+	.public sub_02074F54
+	.public sub_02074F74
+	.public sub_02074F7C
+	.public sub_02074F84
+	.public sub_02074F8C
+	.public sub_02074F94
+	.public sub_02075028
+	.public sub_020750B4
+	.public sub_0207513C
+	.public sub_020751A8
+	.public sub_02075210
+	.public sub_0207530C
+	.public sub_02075398
+	.public sub_02075424
+	.public sub_02075534
+	.public sub_02075554
+	.public sub_020755B4
+	.public sub_020755E4
+
+	.public sub_02075434
+	.public sub_020754C0

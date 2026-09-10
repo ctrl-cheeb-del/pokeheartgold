@@ -864,3 +864,19 @@ Larger batches reduced repeated ROM-build overhead. This is an observed
 throughput comparison across different tasks, not a controlled model
 benchmark. No GitHub CI runs were used. Work stopped after exceeding the
 requested 23.5% target.
+
+### Forty-fourth batch: touch, wireless, graphics, and battle communication
+
+Converted 197 functions across touch sampling, wireless state and callbacks,
+graphics objects and VRAM resources, scrolling background cells, battle-link
+exchange, and the Frontier menu communication module. Recovered private
+layouts describe the shared menu state, background cells, and graphics
+resources. Remaining assembly keeps its original tables and explicit
+imports across the new object boundaries.
+
+Both complete retail ROM SHA1s match locally. HeartGold C-only mapped
+coverage increased from 23.531566% to 23.706694%, adding
+7,130 C bytes (961,168 → 968,298) out of 4,084,492 mapped bytes.
+This brings the fork to 1028 converted functions and 46,304 additional
+mapped C bytes relative to the initial baseline. The treemap was refreshed.
+GitHub CI remains disabled; validation used local builds only.

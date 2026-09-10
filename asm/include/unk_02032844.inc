@@ -69,3 +69,48 @@
 .public WM_SetEntry
 .public memcmp
 .public _s32_div_f
+
+	.public sub_02032844
+	.public sub_02032858
+	.public sub_02032874
+	.public sub_020328A4
+	.public sub_020328C8
+	.public sub_02033080
+	.public sub_020330A4
+	.public sub_020330C8
+	.public sub_020330F0
+	.public sub_02033108
+	.public sub_0203312C
+	.public sub_0203314C
+	.public sub_020331A4
+	.public sub_020331CC
+	.public sub_02033214
+	.public sub_02033264
+	.public sub_020339F0
+	.public _021D4124
+	.public _0210F8FC
+
+	.public sub_02032934
+	.public sub_02032A40
+	.public sub_02032AB0
+	.public sub_02032B0C
+	.public sub_02032B30
+	.public sub_02032B50
+	.public sub_02032B6C
+	.public sub_02032C84
+	.public sub_02032D4C
+	.public sub_02032E48
+	.public sub_02032E64
+	.public sub_02032E9C
+	.public sub_02032F0C
+	.public sub_02032FCC
+	.public sub_0203301C
+	.public sub_0203335C
+	.public sub_020333D8
+	.public sub_02033454
+	.public sub_02033494
+	.public sub_020335BC
+	.public sub_020335D4
+	.public sub_02033620
+	.public sub_02033664
+	.public sub_02033830

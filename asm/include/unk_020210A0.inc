@@ -17,3 +17,16 @@
 .public TP_CheckBusy
 .public _u32_div_f
 .public gSystem
+
+	.public _021D2198
+	.public sub_020211AC
+	.public sub_020211E0
+	.public GF_TouchpadStopAutoSampling
+	.public sub_020212EC
+	.public GF_TouchpadStartAutoSampling
+	.public sub_020213C8
+	.public sub_02021528
+
+	.public sub_020213F8
+	.public sub_020214B0
+	.public sub_02021540
