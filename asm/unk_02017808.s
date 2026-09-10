@@ -2,6 +2,17 @@
 	.include "unk_02016EDC.inc"
 	.include "global.inc"
 	.text
+	.public sub_02017808
+	.public sub_0201783C
+	.public sub_02017874
+	.public sub_020178BC
+	.public sub_0201790C
+	.public sub_020179D4
+	.public sub_02017A1C
+	.public sub_02017A84
+	.public sub_02017AD8
+	.public sub_02017AEC
+	.public sub_02017B2C
 	thumb_func_start sub_02017808
 sub_02017808: ; 0x02017808
 	push {r3, r4, lr}

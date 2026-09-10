@@ -136,11 +136,13 @@ Static main
     Object src/pokepic_animation_3.o
     Object asm/unk_02017220.o
     Object src/pokepic_animation_4.o
+    Object src/pokepic_animation_decode_1.o
     Object asm/unk_020172C8.o
+    Object src/pokepic_animation_decode_2.o
     Object src/pokepic_animation_5.o
     Object asm/unk_020175EC.o
     Object src/pokepic_animation_6.o
-    Object asm/unk_02017808.o
+    Object src/pokepic_animation_commands_1.o
     Object src/pokepic_animation_7.o
     Object src/motion_state_update.o
     Object asm/unk_02017FAC.o
@@ -1097,7 +1099,7 @@ Overlay field
     Object asm/overlay_01_021E90C0.o
     Object src/field_binary_records.o
     Object src/overlay_01_021EA824.o
-    Object asm/model_attributes.o
+    Object src/model_attributes_helpers_1.o
     Object src/field_camera_manager_1.o
     Object asm/overlay_01_021EABA8.o
     Object src/field_camera_manager_2.o
@@ -1661,6 +1663,24 @@ Overlay trainer_card_signature
 {
     After trainer_card_main
     Object asm/overlay_trainer_card_signature.o
+    Object src/trainer_card_signature_helpers_1.o
+    Object asm/overlay_trainer_card_signature_residual_2.o
+    Object src/trainer_card_signature_helpers_2.o
+    Object asm/overlay_trainer_card_signature_residual_3.o
+    Object src/trainer_card_signature_helpers_3.o
+    Object asm/overlay_trainer_card_signature_residual_4.o
+    Object src/trainer_card_signature_helpers_4.o
+    Object asm/overlay_trainer_card_signature_residual_5.o
+    Object src/trainer_card_signature_helpers_5.o
+    Object asm/overlay_trainer_card_signature_residual_6.o
+    Object src/trainer_card_signature_helpers_6.o
+    Object asm/overlay_trainer_card_signature_residual_7.o
+    Object src/trainer_card_signature_helpers_7.o
+    Object asm/overlay_trainer_card_signature_residual_8.o
+    Object src/trainer_card_signature_helpers_8.o
+    Object asm/overlay_trainer_card_signature_residual_9.o
+    Object src/trainer_card_signature_helpers_9.o
+    Object asm/overlay_trainer_card_signature_residual_10.o
 }
 Overlay OVY_53
 {
@@ -1827,6 +1847,40 @@ Overlay OVY_75
 {
     After OVY_70
     Object asm/overlay_75.o
+    Object src/overlay75_helpers_1.o
+    Object asm/overlay_75_residual_2.o
+    Object src/overlay75_helpers_2.o
+    Object asm/overlay_75_residual_3.o
+    Object src/overlay75_helpers_3.o
+    Object asm/overlay_75_residual_4.o
+    Object src/overlay75_helpers_4.o
+    Object asm/overlay_75_residual_5.o
+    Object src/overlay75_helpers_5.o
+    Object asm/overlay_75_residual_6.o
+    Object src/overlay75_helpers_6.o
+    Object asm/overlay_75_residual_7.o
+    Object src/overlay75_helpers_7.o
+    Object asm/overlay_75_residual_8.o
+    Object src/overlay75_helpers_8.o
+    Object asm/overlay_75_residual_9.o
+    Object src/overlay75_helpers_9.o
+    Object asm/overlay_75_residual_10.o
+    Object src/overlay75_helpers_10.o
+    Object asm/overlay_75_residual_11.o
+    Object src/overlay75_helpers_11.o
+    Object asm/overlay_75_residual_12.o
+    Object src/overlay75_helpers_12.o
+    Object asm/overlay_75_residual_13.o
+    Object src/overlay75_helpers_13.o
+    Object asm/overlay_75_residual_14.o
+    Object src/overlay75_helpers_14.o
+    Object asm/overlay_75_residual_15.o
+    Object src/overlay75_helpers_15.o
+    Object asm/overlay_75_residual_16.o
+    Object src/overlay75_helpers_16.o
+    Object asm/overlay_75_residual_17.o
+    Object src/overlay75_helpers_17.o
+    Object asm/overlay_75_residual_18.o
 }
 Overlay credits
 {
@@ -1857,7 +1911,9 @@ Overlay OVY_80
     Object asm/overlay_80_0222ACA0.o
     Object asm/overlay_80_0222AEF8.o
     Object asm/overlay_80_0222BDF4.o
+    Object src/overlay80_frontier_commands_1.o
     Object asm/overlay_80_0222F608.o
+    Object src/overlay80_frontier_commands_2.o
     Object asm/overlay_80_0222FD08.o
     Object asm/overlay_80_02230B8C.o
     Object asm/overlay_80_022310C4.o
@@ -2010,7 +2066,24 @@ Overlay OVY_96
 Overlay OVY_97
 {
     After OVY_96
+    Object src/overlay97_helpers_1.o
     Object asm/overlay_97.o
+    Object src/overlay97_helpers_2.o
+    Object asm/overlay_97_residual_2.o
+    Object src/overlay97_helpers_3.o
+    Object asm/overlay_97_residual_3.o
+    Object src/overlay97_helpers_4.o
+    Object asm/overlay_97_residual_4.o
+    Object src/overlay97_helpers_5.o
+    Object asm/overlay_97_residual_5.o
+    Object src/overlay97_helpers_6.o
+    Object asm/overlay_97_residual_6.o
+    Object src/overlay97_helpers_7.o
+    Object asm/overlay_97_residual_7.o
+    Object src/overlay97_helpers_8.o
+    Object asm/overlay_97_residual_8.o
+    Object src/overlay97_helpers_9.o
+    Object asm/overlay_97_residual_9.o
 }
 Overlay OVY_98
 {
