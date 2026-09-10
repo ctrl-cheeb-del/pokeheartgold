@@ -64,82 +64,76 @@
 	.public ov64_021E6BD8
 	.public ov64_021E6E30
 
-	thumb_func_start HallOfFameShowcase_Init
-HallOfFameShowcase_Init: ; 0x021E5900
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	mov r0, #0
-	add r1, r0, #0
-	bl Main_SetVBlankIntrCB
-	bl HBlankInterruptDisable
-	mov r0, #0
-	bl GfGfx_EngineASetPlanes
-	mov r0, #0
-	bl GfGfx_EngineBSetPlanes
-	ldr r0, _021E59B4 ; =0x04000050
-	mov r1, #0
-	strh r1, [r0]
-	ldr r0, _021E59B8 ; =0x04001050
-	strh r1, [r0]
-	bl sub_020210BC
-	mov r0, #4
-	bl sub_02021148
-	ldr r2, _021E59BC ; =0x04000304
-	ldr r0, _021E59C0 ; =0xFFFF7FFF
-	ldrh r1, [r2]
-	and r0, r1
-	strh r0, [r2]
-	mov r2, #1
-	mov r0, #3
-	mov r1, #0x3b
-	lsl r2, r2, #0x12
-	bl Heap_Create
-	mov r1, #0x1d
-	add r0, r5, #0
-	lsl r1, r1, #4
-	mov r2, #0x3b
-	bl OverlayManager_CreateAndGetData
-	mov r2, #0x1d
-	mov r1, #0
-	lsl r2, r2, #4
+	thumb_func_start ov64_021E607C
+ov64_021E607C: ; 0x021E607C
+	push {r4, lr}
 	add r4, r0, #0
-	bl MI_CpuFill8
-	add r0, r5, #0
-	bl OverlayManager_GetArgs
-	str r0, [r4]
-	bl Save_HOF_GetNumRecords
-	mov r1, #0x6e
+	mov r0, #0
+	mov r1, #0x1b
+	mov r2, #0xb5
+	mov r3, #0x3b
+	bl NewMsgDataFromNarc
+	mov r1, #0x46
 	lsl r1, r1, #2
 	str r0, [r4, r1]
-	mov r0, #0xb4
-	mov r1, #0x3b
-	bl NARC_New
-	mov r1, #0x61
-	lsl r1, r1, #2
-	str r0, [r4, r1]
-	bl ov64_021E5B00
-	add r0, r4, #0
-	bl ov64_021E5B10
-	add r0, r4, #0
-	bl ov64_021E5CD0
-	add r0, r4, #0
-	bl ov64_021E607C
-	add r0, r4, #0
-	bl ov64_021E6170
-	add r0, r4, #0
-	bl ov64_021E622C
-	add r0, r4, #0
-	mov r1, #0
-	bl ov64_021E652C
-	ldr r0, _021E59C4 ; =ov64_021E5A88
-	add r1, r4, #0
-	bl Main_SetVBlankIntrCB
 	mov r0, #1
-	pop {r3, r4, r5, pc}
+	mov r1, #0x1b
+	mov r2, #0xed
+	mov r3, #0x3b
+	bl NewMsgDataFromNarc
+	mov r1, #0x47
+	lsl r1, r1, #2
+	str r0, [r4, r1]
+	ldr r2, _021E6114 ; =0x000002EE
+	mov r0, #1
+	mov r1, #0x1b
+	mov r3, #0x3b
+	bl NewMsgDataFromNarc
+	mov r1, #0x12
+	lsl r1, r1, #4
+	str r0, [r4, r1]
+	mov r0, #0x3b
+	bl MessageFormat_New
+	mov r1, #0x49
+	lsl r1, r1, #2
+	str r0, [r4, r1]
+	sub r1, #0x24
+	add r0, r1, #0
+	mov r1, #0x3b
+	bl String_New
+	mov r1, #0x4a
+	lsl r1, r1, #2
+	str r0, [r4, r1]
+	sub r1, #0x28
+	add r0, r1, #0
+	mov r1, #0x3b
+	bl String_New
+	mov r1, #0x4b
+	lsl r1, r1, #2
+	str r0, [r4, r1]
+	sub r1, #0x2c
+	add r0, r1, #0
+	mov r1, #0x3b
+	bl String_New
+	mov r1, #0x69
+	lsl r1, r1, #2
+	str r0, [r4, r1]
+	sub r1, #0xa4
+	add r0, r1, #0
+	mov r1, #0x3b
+	bl String_New
+	mov r1, #0x6a
+	lsl r1, r1, #2
+	str r0, [r4, r1]
+	sub r0, r1, #4
+	ldr r2, [r4, r0]
+	add r0, r1, #0
+	sub r0, #0x20
+	str r2, [r4, r0]
+	ldr r0, [r4, r1]
+	sub r1, #0x1c
+	str r0, [r4, r1]
+	pop {r4, pc}
 	.balign 4, 0
-_021E59B4: .word 0x04000050
-_021E59B8: .word 0x04001050
-_021E59BC: .word 0x04000304
-_021E59C0: .word 0xFFFF7FFF
-_021E59C4: .word ov64_021E5A88
-	thumb_func_end HallOfFameShowcase_Init
+_021E6114: .word 0x000002EE
+	thumb_func_end ov64_021E607C

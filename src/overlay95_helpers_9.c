@@ -1,0 +1,119 @@
+#include "global.h"
+typedef struct {
+    u8 raw[0x200];
+} State;
+extern const u32 ov95_021E7810[];
+extern const u32 ov95_021E7860[];
+extern const s16 ov95_021E7818[];
+extern void ov95_021E5974(void *, u32);
+extern void GfGfx_DisableEngineAPlanes(void);
+extern void GfGfx_DisableEngineBPlanes(void);
+extern void G2x_SetBlendAlpha_(u32, int, int, int, int);
+extern void GF_3DVramMan_Create(int, int, int, int, int, void *);
+extern void PokepicManager_HandleLoadImgAndOrPltt(void *);
+extern void GF_RunVramTransferTasks(void);
+extern void SpriteSystem_TransferOam(void);
+extern void PaletteData_PushTransparentBuffers(void *);
+extern void DoScheduledBgGpuUpdates(void *);
+extern void Thunk_G3X_Reset(void);
+extern int sub_0201543C(void);
+extern void NNS_G2dSetupSoftwareSpriteCamera(void);
+extern void sub_02015460(void);
+extern void RequestSwap3DBuffers(int, int);
+extern void BeginNormalPaletteFade(int, int, int, int, int, int, int);
+extern void ClearWindowTilemapAndCopyToVram(void *);
+extern void RemoveWindow(void *);
+extern void GfGfxLoader_LoadCharData(int, int, void *, int, int, int, int, int);
+extern void GfGfxLoader_LoadScrnData(int, int, void *, int, int, int, int, int);
+extern void PaletteData_LoadNarc(void *, int, int, int, int, int, int);
+extern void *sub_020154D0(void *);
+extern void sub_02014EBC(void *);
+extern void Heap_Free(void *);
+extern int sub_020154B0(void *);
+extern int ov95_021E60A4(State *);
+extern void Sprite_DeleteAndFreeResources(void *);
+extern void *Heap_Alloc(int, u32);
+extern void *MessageFormat_New(int);
+extern void FontID_Alloc(int, int);
+extern void InitBgFromTemplate(void *, int, const void *, int);
+extern void BgClearTilemapBufferAndCommit(void *, int);
+extern void ManagedSprite_SetAnimationFrame(void *, int);
+extern void PlaySE(int);
+extern void ov95_021E7308(void *);
+extern State *ov95_021E7020(void *, void *, void *, int);
+void ov95_021E72B8(State *);
+void ov95_021E6FC4(void *);
+int ov95_021E67F0(State *);
+void ov95_021E7078(State *);
+void ov95_021E7208(State *, int, int);
+void ov95_021E72B8(State *);
+void ov95_021E7404(State *);
+void ov95_021E7410(State *);
+extern void FontID_Release(int);
+extern void MessageFormat_Delete(void *);
+extern void FreeBgTilemapBuffer(void *, int);
+extern void ov95_021E7328(void *, void *, int);
+extern void ov95_021E7410(State *);
+extern void ToggleBgLayer(int, int);
+extern void GfGfx_EngineBTogglePlanes(int, int);
+extern void ManagedSprite_SetDrawFlag(void *, int);
+extern void AddWindowParameterized(void *, void *, int, int, int, int, int, int, int);
+extern void ManagedSprite_SetPositionXY(void *, int, int);
+extern void SpriteSystem_FreeResourcesAndManager(void *, void *);
+extern void SpriteSystem_Free(void *);
+extern void Pokepic_Delete(void *);
+extern void Pokepic_SetAttr(void *, int, int);
+extern void GF_AssertFail(void);
+extern int ManagedSprite_GetActiveAnim(void *);
+extern int ManagedSprite_IsAnimated(void *);
+void ov95_021E5900(void);
+void ov95_021E5928(void);
+void ov95_021E5954(void);
+void ov95_021E5B24(State *);
+void ov95_021E5B58(void);
+void ov95_021E5B7C(void);
+void ov95_021E5B9C(void);
+void ov95_021E5D34(void *);
+void ov95_021E5D44(void *, void *);
+void ov95_021E5E40(void *);
+void ov95_021E5E58(State *);
+int ov95_021E5EDC(State *);
+void ov95_021E5EF0(void *);
+int ov95_021E6150(State *, int);
+void ov95_021E6184(State *);
+void ov95_021E6228(State *);
+void ov95_021E62E4(State *);
+void ov95_021E62F0(State *, int);
+void ov95_021E6300(State *);
+void ov95_021E7308(void *);
+State *ov95_021E7020(void *, void *, void *, int);
+void ov95_021E72B8(State *);
+void ov95_021E6FC4(void *);
+int ov95_021E67F0(State *);
+void ov95_021E7078(State *);
+void ov95_021E7208(State *, int, int);
+void ov95_021E72B8(State *);
+void ov95_021E7404(State *);
+void ov95_021E7410(State *);
+int ov95_021E7514(State *);
+
+int ov95_021E67F0(State *p) {
+    switch (*(u32 *)((u8 *)p + 0x68)) {
+    case 0:
+        ManagedSprite_SetAnimationFrame(*(void **)((u8 *)p + 0x74), 0);
+        (*(u32 *)((u8 *)p + 0x68))++;
+        break;
+    case 1:
+        (*(s32 *)((u8 *)p + 0x64))++;
+        if (*(s32 *)((u8 *)p + 0x64) >= 25) {
+            PlaySE(0x714);
+            (*(u32 *)((u8 *)p + 0x68))++;
+        }
+        break;
+    default:
+        *(u32 *)((u8 *)p + 0x68) = 0;
+        *(u32 *)((u8 *)p + 0x64) = 0;
+        return 0;
+    }
+    return 1;
+}

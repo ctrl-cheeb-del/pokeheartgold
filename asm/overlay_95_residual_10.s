@@ -1,0 +1,127 @@
+	.include "asm/macros.inc"
+	.include "overlay_95.inc"
+	.include "global.inc"
+	.public HatchEggApp_Exit
+	.public HatchEggApp_Init
+	.public HatchEggApp_Main
+	.public ov95_021E5954
+	.public ov95_021E5974
+	.public ov95_021E59F8
+	.public ov95_021E5A38
+	.public ov95_021E5BBC
+	.public ov95_021E5C44
+	.public ov95_021E5CAC
+	.public ov95_021E5D44
+	.public ov95_021E5D98
+	.public ov95_021E5DB4
+	.public ov95_021E5DD0
+	.public ov95_021E5E18
+	.public ov95_021E5E90
+	.public ov95_021E5EC0
+	.public ov95_021E5EF8
+	.public ov95_021E6000
+	.public ov95_021E60A4
+	.public ov95_021E619C
+	.public ov95_021E623C
+	.public ov95_021E62A4
+	.public ov95_021E6314
+	.public ov95_021E65A0
+	.public ov95_021E6838
+	.public ov95_021E68A8
+	.public ov95_021E6900
+	.public ov95_021E6964
+	.public ov95_021E6B74
+	.public ov95_021E7020
+	.public ov95_021E70BC
+	.public ov95_021E7258
+	.public ov95_021E7308
+	.public ov95_021E7328
+	.public ov95_021E7388
+	.public ov95_021E7410
+	.public ov95_021E7450
+	.public ov95_021E7538
+	.public ov95_021E7548
+	.public ov95_021E755C
+	.public ov95_021E7574
+	.public ov95_021E7594
+	.public ov95_021E75B4
+	.public ov95_021E75DC
+	.public ov95_021E762C
+	.public ov95_021E767C
+	.public ov95_021E76D0
+	.public ov95_021E7770
+	.public ov95_021E7810
+	.public ov95_021E7818
+	.public ov95_021E7820
+	.public ov95_021E782C
+	.public ov95_021E7860
+
+
+	.text
+	.public ov95_021E5900
+	.public ov95_021E5928
+	.public ov95_021E5B24
+	.public ov95_021E5B58
+	.public ov95_021E5B7C
+	.public ov95_021E5B9C
+	.public ov95_021E5D34
+	.public ov95_021E5E40
+	.public ov95_021E5E58
+	.public ov95_021E5EDC
+	.public ov95_021E5EF0
+	.public ov95_021E6150
+	.public ov95_021E6184
+	.public ov95_021E6228
+	.public ov95_021E62E4
+	.public ov95_021E62F0
+	.public ov95_021E6300
+	.public ov95_021E67F0
+	.public ov95_021E6FC4
+	.public ov95_021E7078
+	.public ov95_021E7208
+	.public ov95_021E72B8
+	.public ov95_021E7404
+	.public ov95_021E7514
+
+	thumb_func_start ov95_021E7020
+ov95_021E7020: ; 0x021E7020
+	push {r3, r4, r5, r6, r7, lr}
+	add r5, r0, #0
+	add r6, r1, #0
+	add r7, r2, #0
+	str r3, [sp]
+	cmp r5, #0
+	bne _021E7032
+	bl GF_AssertFail
+_021E7032:
+	cmp r6, #0
+	bne _021E703A
+	bl GF_AssertFail
+_021E703A:
+	cmp r7, #0
+	bne _021E7042
+	bl GF_AssertFail
+_021E7042:
+	ldr r0, [sp]
+	mov r1, #0x3c
+	bl Heap_Alloc
+	mov r1, #0
+	mov r2, #0x3c
+	add r4, r0, #0
+	bl MI_CpuFill8
+	ldr r0, [sp]
+	str r0, [r4]
+	str r5, [r4, #0xc]
+	str r6, [r4, #4]
+	str r7, [r4, #8]
+	bl MessageFormat_New
+	str r0, [r4, #0x14]
+	ldr r1, [r4]
+	mov r0, #4
+	bl FontID_Alloc
+	add r0, r4, #0
+	bl ov95_021E72B8
+	add r0, r4, #0
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+	thumb_func_end ov95_021E7020
