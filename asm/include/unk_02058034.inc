@@ -75,3 +75,45 @@
 .public MI_CpuFill8
 .public ov03_02255BEC
 .public ov03_02255C54
+
+	.public sub_02058034
+	.public sub_02058038
+	.public sub_02058098
+	.public sub_020582CC
+	.public sub_020582F4
+	.public sub_02058304
+	.public sub_02058328
+	.public sub_0205832C
+	.public sub_02058348
+	.public sub_0205834C
+	.public sub_0205836C
+	.public sub_02058388
+	.public sub_0205838C
+	.public sub_020583EC
+	.public sub_02058444
+	.public sub_02058478
+	.public sub_020584BC
+	.public sub_02058518
+	.public sub_0205857C
+	.public sub_02058608
+	.public sub_02058640
+	.public sub_02058690
+	.public sub_020586A0
+	.public sub_020586EC
+	.public sub_0205876C
+	.public sub_020587E8
+	.public sub_0205882C
+	.public sub_02058854
+	.public sub_02058870
+	.public sub_020588A0
+	.public sub_020588B4
+	.public sub_020588F8
+	.public sub_02058930
+	.public sub_0205896C
+	.public sub_020589B0
+	.public sub_020589D8
+	.public sub_020589F4
+	.public sub_02058A38
+	.public sub_02058A60
+	.public sub_02058A78
+	.public _021D41C8

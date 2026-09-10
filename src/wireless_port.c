@@ -1,9 +1,4 @@
-#include "global.h"
-typedef struct WirelessGlobal {
-    u32 unused;
-    u8 *work;
-} WirelessGlobal;
-extern WirelessGlobal _021D4124;
+#include "wireless_internal.h"
 void sub_02032858(int error);
 void sub_020331A4(void *arg);
 void sub_020331CC(void *arg);
@@ -14,7 +9,7 @@ void sub_020331CC(void *arg);
 
 BOOL sub_0203314C(const void *data, u32 length, int priority, u32 port) {
     int result;
-    DC_FlushRange(_021D4124.work + 0xF40, *(u32 *)(_021D4124.work + 0x1304));
+    DC_FlushRange((u8 *)_021D4124.work + 0xF40, _021D4124.work->mpRecvSize);
     result = WM_SetMPDataToPortEx(sub_020331A4, port, data, length, 0xFFFF, priority, 2);
     if (result == 2) {
         return TRUE;
@@ -39,7 +34,7 @@ void sub_020331CC(void *arg) {
         sub_02032858(error);
         return;
     }
-    callback = *(void (**)(u16, void *, u16))(_021D4124.work + 0x1318);
+    callback = (void (*)(u16, void *, u16))_021D4124.work->portCallback;
     if (callback == NULL) {
         return;
     }

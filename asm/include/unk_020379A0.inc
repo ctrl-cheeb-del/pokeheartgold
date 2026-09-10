@@ -27,3 +27,5 @@
 .public sub_02037C68
 .public MI_CpuFill8
 .public MI_CpuCopy8
+
+	.public _021D414C

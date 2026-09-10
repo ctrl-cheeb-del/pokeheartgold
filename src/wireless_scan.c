@@ -1,9 +1,4 @@
-#include "global.h"
-typedef struct WirelessGlobal {
-    u32 unused;
-    u8 *work;
-} WirelessGlobal;
-extern WirelessGlobal _021D4124;
+#include "wireless_internal.h"
 typedef void (*WMCallback)(void *);
 void sub_02032844(int);
 void sub_02032858(int);
@@ -14,7 +9,7 @@ BOOL sub_02032E24(void);
 BOOL sub_02032E48(void);
 void sub_02032E64(void *);
 BOOL sub_02032E24(void) {
-    if (*(u32 *)(_021D4124.work + 0x1310) != 2) {
+    if (_021D4124.work->state != 2) {
         return FALSE;
     }
     sub_02032844(3);
@@ -34,7 +29,7 @@ void sub_02032E64(void *a) {
         return;
     }
     sub_02032844(1);
-    if (*(u16 *)(_021D4124.work + 0x130E) != 0 && !sub_02032E9C()) {
+    if (_021D4124.work->connectPending != 0 && !sub_02032E9C()) {
         sub_02032844(9);
     }
 }

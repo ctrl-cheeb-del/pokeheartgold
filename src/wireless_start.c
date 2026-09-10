@@ -1,9 +1,4 @@
-#include "global.h"
-typedef struct WirelessGlobal {
-    u32 unused;
-    u8 *work;
-} WirelessGlobal;
-extern WirelessGlobal _021D4124;
+#include "wireless_internal.h"
 void sub_02032844(int);
 u16 sub_020338F4(void);
 u16 sub_02033250(void);
@@ -16,7 +11,7 @@ BOOL sub_02033800(const void *data, u32 length, int priority, u32 port);
 void sub_02033830(void);
 void sub_020337D0(void *callback, int port) {
     int result;
-    *(void **)(_021D4124.work + 0x1318) = callback;
+    _021D4124.work->portCallback = callback;
     result = WM_SetPortCallback((u16)port, sub_020331CC, NULL);
     if (result != 0) {
         sub_02032844(9);
@@ -32,7 +27,7 @@ BOOL sub_02033800(const void *data, u32 length, int priority, u32 port) {
     return sub_0203314C(data, length, priority, port);
 }
 void sub_02033830(void) {
-    if (*(u32 *)(_021D4124.work + 0x1310) == 2) {
+    if (_021D4124.work->state == 2) {
         for (;;) {}
     }
     if (!sub_02033108()) {

@@ -1,9 +1,4 @@
-#include "global.h"
-typedef struct WirelessGlobal {
-    u32 unused;
-    u8 *work;
-} WirelessGlobal;
-extern WirelessGlobal _021D4124;
+#include "wireless_internal.h"
 void sub_02032844(int);
 void sub_02032858(int);
 void sub_02039AD8(int);
@@ -29,9 +24,9 @@ BOOL sub_020335D4(int mode) {
     int result;
     sub_02032844(3);
     if (mode == 1) {
-        result = WM_Initialize(_021D4124.work + 0x40, sub_02033620, 2);
+        result = WM_Initialize(_021D4124.work->wmSystem, sub_02033620, 2);
     } else {
-        result = WM_InitializeForListening(_021D4124.work + 0x40, sub_02033620, 2, 0);
+        result = WM_InitializeForListening(_021D4124.work->wmSystem, sub_02033620, 2, 0);
     }
     if (result != 2) {
         sub_02032858(result);

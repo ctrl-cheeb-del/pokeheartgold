@@ -55,6 +55,10 @@ Static main
     Object src/sys_task_api.o
     Object asm/render_window.o
     Object asm/unk_0200FA24.o
+    Object src/screen_fade_update.o
+    Object asm/unk_0200FEE4.o
+    Object src/screen_fade_update_2.o
+    Object asm/unk_020100C4.o
     Object asm/unk_0201010C.o
     Object asm/unk_02012DD8.o
     Object src/font_sprite.o
@@ -218,6 +222,7 @@ Static main
     Object asm/unk_02034354.o
     Object asm/unk_02034B0C.o
     Object asm/unk_02035900.o
+    Object src/link_synchronization.o
     Object asm/unk_020379A0.o
     Object asm/unk_02037C94.o
     Object asm/unk_0203A3B0.o
@@ -281,7 +286,13 @@ Static main
     Object src/unk_02055BF0.o
     Object asm/unk_02056680.o
     Object asm/unk_02056D7C.o
+    Object src/link_lobby.o
     Object asm/unk_02058034.o
+    Object src/link_lobby_2.o
+    Object asm/unk_02058304.o
+    Object src/link_lobby_3.o
+    Object asm/unk_0205857C.o
+    Object src/link_lobby_4.o
     Object asm/unk_02058AEC.o
     Object asm/unk_0205A44C.o
     Object asm/unk_0205AC88.o
@@ -295,7 +306,23 @@ Static main
     Object src/map_object.o
     Object asm/unk_data_020FCBD8.o
     Object asm/unk_0205FD20.o
+    Object src/map_object_movement.o
     Object asm/unk_02061284.o
+    Object src/map_object_movement_2.o
+    Object asm/unk_020616FC.o
+    Object src/map_object_movement_3.o
+    Object asm/unk_020617AC.o
+    Object src/map_object_movement_4.o
+    Object asm/unk_020618C8.o
+    Object src/map_object_movement_5.o
+    Object asm/unk_020619FC.o
+    Object src/map_object_movement_6.o
+    Object asm/unk_02061C40.o
+    Object src/map_object_movement_7.o
+    Object asm/unk_02061E6C.o
+    Object src/map_object_movement_8.o
+    Object asm/unk_0206207C.o
+    Object src/map_object_movement_9.o
     Object asm/unk_data_020FD978.o
     Object asm/unk_02062108.o
     Object asm/unk_data_020FDB44.o

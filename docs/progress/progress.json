@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "d476cc5813706448a676f1602f0c8e1592597a4a",
+  "commit": "889ec8cc9bbbeadb3833b359cd758cbe5badc91d",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "4b09ceedc5d199323cac3a14ae3a43c9e1d807e095221b4f0e4a1adf1ab45ca0",
-    "ARM7": "148cfd18675b1b4eb5f5ecb9c3748b1df512f0022bbff92681b696fcbdd68530"
+    "ARM9": "e5804d1ffe0b016b6439225567f8cfaf08d92c92a0a91679f63a2dc21db07a81",
+    "ARM7": "30eadfa2d085da03e70741a83b92f7044185c2a0d79249895895ef7ca37aedc5"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 3089132,
+    "asm": 3083596,
     "mixed": 18270,
-    "c": 968298,
+    "c": 973738,
     "unknown": 8792
   },
   "objects": [
@@ -3619,10 +3619,50 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "link_lobby.o",
+      "bytes": 346,
+      "status": "c",
+      "source": "src/link_lobby.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "link_lobby_2.o",
+      "bytes": 172,
+      "status": "c",
+      "source": "src/link_lobby_2.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "link_lobby_3.o",
+      "bytes": 590,
+      "status": "c",
+      "source": "src/link_lobby_3.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "link_lobby_4.o",
+      "bytes": 1252,
+      "status": "c",
+      "source": "src/link_lobby_4.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "link_ruleset_data.o",
       "bytes": 192,
       "status": "c",
       "source": "src/link_ruleset_data.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "link_synchronization.o",
+      "bytes": 754,
+      "status": "c",
+      "source": "src/link_synchronization.c"
     },
     {
       "cpu": "ARM9",
@@ -3735,6 +3775,78 @@
       "bytes": 7074,
       "status": "c",
       "source": "src/map_object.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "map_object_movement.o",
+      "bytes": 362,
+      "status": "c",
+      "source": "src/map_object_movement.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "map_object_movement_2.o",
+      "bytes": 180,
+      "status": "c",
+      "source": "src/map_object_movement_2.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "map_object_movement_3.o",
+      "bytes": 136,
+      "status": "c",
+      "source": "src/map_object_movement_3.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "map_object_movement_4.o",
+      "bytes": 128,
+      "status": "c",
+      "source": "src/map_object_movement_4.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "map_object_movement_5.o",
+      "bytes": 126,
+      "status": "c",
+      "source": "src/map_object_movement_5.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "map_object_movement_6.o",
+      "bytes": 354,
+      "status": "c",
+      "source": "src/map_object_movement_6.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "map_object_movement_7.o",
+      "bytes": 264,
+      "status": "c",
+      "source": "src/map_object_movement_7.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "map_object_movement_8.o",
+      "bytes": 44,
+      "status": "c",
+      "source": "src/map_object_movement_8.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "map_object_movement_9.o",
+      "bytes": 16,
+      "status": "c",
+      "source": "src/map_object_movement_9.c"
     },
     {
       "cpu": "ARM9",
@@ -4835,6 +4947,22 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "screen_fade_update.o",
+      "bytes": 360,
+      "status": "c",
+      "source": "src/screen_fade_update.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "screen_fade_update_2.o",
+      "bytes": 356,
+      "status": "c",
+      "source": "src/screen_fade_update_2.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "script.o",
       "bytes": 346,
       "status": "c",
@@ -5244,9 +5372,25 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_0200FA24.o",
-      "bytes": 1768,
+      "bytes": 848,
       "status": "asm",
       "source": "asm/unk_0200FA24.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_0200FEE4.o",
+      "bytes": 120,
+      "status": "asm",
+      "source": "asm/unk_0200FEE4.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_020100C4.o",
+      "bytes": 72,
+      "status": "asm",
+      "source": "asm/unk_020100C4.s"
     },
     {
       "cpu": "ARM9",
@@ -5587,14 +5731,6 @@
     {
       "cpu": "ARM9",
       "module": "main",
-      "object": "unk_020379A0.o",
-      "bytes": 756,
-      "status": "asm",
-      "source": "asm/unk_020379A0.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
       "object": "unk_02037C94.o",
       "bytes": 10012,
       "status": "asm",
@@ -5724,9 +5860,25 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_02058034.o",
-      "bytes": 2744,
+      "bytes": 200,
       "status": "asm",
       "source": "asm/unk_02058034.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_02058304.o",
+      "bytes": 36,
+      "status": "asm",
+      "source": "asm/unk_02058304.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_0205857C.o",
+      "bytes": 140,
+      "status": "asm",
+      "source": "asm/unk_0205857C.s"
     },
     {
       "cpu": "ARM9",
@@ -5796,9 +5948,65 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_02061284.o",
-      "bytes": 3716,
+      "bytes": 592,
       "status": "asm",
       "source": "asm/unk_02061284.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_020616FC.o",
+      "bytes": 36,
+      "status": "asm",
+      "source": "asm/unk_020616FC.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_020617AC.o",
+      "bytes": 152,
+      "status": "asm",
+      "source": "asm/unk_020617AC.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_020618C8.o",
+      "bytes": 180,
+      "status": "asm",
+      "source": "asm/unk_020618C8.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_020619FC.o",
+      "bytes": 192,
+      "status": "asm",
+      "source": "asm/unk_020619FC.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_02061C40.o",
+      "bytes": 272,
+      "status": "asm",
+      "source": "asm/unk_02061C40.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_02061E6C.o",
+      "bytes": 484,
+      "status": "asm",
+      "source": "asm/unk_02061E6C.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_0206207C.o",
+      "bytes": 124,
+      "status": "asm",
+      "source": "asm/unk_0206207C.s"
     },
     {
       "cpu": "ARM9",

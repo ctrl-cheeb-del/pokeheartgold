@@ -880,3 +880,16 @@ coverage increased from 23.531566% to 23.706694%, adding
 This brings the fork to 1028 converted functions and 46,304 additional
 mapped C bytes relative to the initial baseline. The treemap was refreshed.
 GitHub CI remains disabled; validation used local builds only.
+
+### Forty-fifth batch: movement, lobby states, fades, and link synchronization
+
+Converted 160 functions covering map-object movement, lobby state transitions,
+screen-fade update and interrupt helpers, and link synchronization. Wireless
+code from the previous batch now uses a shared recovered work layout, with
+compile-time offset checks, instead of repeated byte-offset accesses.
+
+Both complete retail ROM hashes match locally. HeartGold C-only mapped
+coverage increased from 23.706694% to 23.840441%, adding 5,440 C bytes
+(968,298 → 973,738) out of 4,084,396 mapped bytes. There are now
+1188 converted functions and 51,744 additional mapped C bytes relative
+to the initial baseline. The treemap was refreshed. GitHub CI stayed disabled.

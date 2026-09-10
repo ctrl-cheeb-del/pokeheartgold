@@ -72,3 +72,34 @@
 .public GX_LoadBGPltt
 .public GXS_LoadBGPltt
 .public memset
+
+	.public HandleEndFade
+	.public DoFadeUpdateFrame
+	.public FadeWork_UpdateFrame
+	.public CallFadeFunc
+	.public sub_0200FE14
+	.public sub_0200FE78
+	.public sub_0200FE84
+	.public sub_0200FEB0
+	.public sub_0200FECC
+	.public sub_0200FEE4
+	.public sub_0200FF5C
+	.public sub_0200FFD8
+	.public sub_0200FFF8
+	.public sub_02010014
+	.public sub_02010018
+	.public sub_0201002C
+	.public sub_02010050
+	.public sub_02010064
+	.public sub_02010094
+	.public sub_020100C4
+	.public sFadeFuncPtrs
+
+	.public _021D0EF4
+	.public _021D0EF8
+	.public _021D0EFC
+	.public _021D0F08
+	.public _021D0F38
+	.public _021D0F68
+	.public _021D0F80
+	.public _021D1034
