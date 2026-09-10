@@ -23,3 +23,9 @@
 .public ov85_021E88AC
 .public ov85_021E8A08
 .public ov85_021E8B08
+.public sub_020970E4
+.public sub_02097108
+.public sub_02097148
+.public sub_020971AC
+.public sub_020971D4
+.public sub_020971EC

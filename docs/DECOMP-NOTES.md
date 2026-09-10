@@ -825,3 +825,42 @@ from 948,604 to 953,958 C bytes out of 4,084,704 mapped bytes. This adds
 654 converted functions and 31,964 additional mapped C bytes relative
 to the initial baseline. The treemap was refreshed, formatting and whitespace
 checks passed, and GitHub CI remained disabled.
+
+## Forty-third batch: reaching 23.5% with parallel matching
+
+This batch converts 177 functions across OAM management, texture animation,
+model resources, particle scenes, type-icon sprites, Frontier communication
+and application flow, the friend-roster tail, fashion record handling, and
+five independent Apricorn blocks. Shared Apricorn layouts now describe the
+30-bit mixing-progress field without changing existing save accessors.
+The Apricorn owner-name declaration reflects the original full-width signed
+argument; its existing caller still supplies a halfword value.
+
+The original data tables remain in assembly. Splitting the remaining
+Apricorn code and moving callback implementations to C required explicit
+assembly imports for the shared tables and callbacks. Those integration
+errors were resolved before verification and commit.
+
+Both complete ROM hashes match retail locally. HeartGold C-only mapped
+coverage increased from 23.354397% to 23.531566% (+0.177169 percentage
+points), from 953,958 to 961,168 C bytes out of 4,084,590 mapped bytes.
+This adds 7,210 C bytes; 114 alignment bytes leave the mapped total.
+There are now 831 converted functions and 39,174 additional mapped C
+bytes relative to the initial baseline. The treemap was refreshed and
+GitHub CI remained disabled.
+
+### Larger-batch parallel run
+
+The run started at 23:02:56 UTC on 2026-09-09 and completed local ROM
+verification at 00:03:09 UTC on 2026-09-10 (60m 13s). Three Sol
+workers prepared independent blocks while the primary agent also matched
+code and integrated the results. The three verified batches converted
+506 functions and added 19,440 mapped C bytes, increasing coverage from
+23.053825% to 23.531566% (+0.477741 percentage points).
+
+This run achieved about 323 new mapped C bytes per minute through final
+verification, compared with about 53 in the earlier five-task experiment.
+Larger batches reduced repeated ROM-build overhead. This is an observed
+throughput comparison across different tasks, not a controlled model
+benchmark. No GitHub CI runs were used. Work stopped after exceeding the
+requested 23.5% target.

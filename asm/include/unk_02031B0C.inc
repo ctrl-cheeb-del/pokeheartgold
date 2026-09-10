@@ -50,3 +50,21 @@
 .public sub_02031B3C
 .public sub_02031B5C
 .public ApricornBox_TakeApricorn
+
+.public sub_02031D6C
+
+.public sub_02032158
+
+.public sub_02032340
+
+.public sub_02032354
+
+.public sub_020324F4
+
+.public sub_02032504
+
+.public sub_02032588
+
+.public sub_020325CC
+.public _020F68DE
+.public _020F6902

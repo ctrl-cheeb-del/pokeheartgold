@@ -66,3 +66,11 @@
 .public ov84_0223ED34
 .public ov84_0223EDA8
 .public ov84_0223EE08
+.public sub_02096924
+.public sub_020969C4
+.public sub_020969F8
+.public sub_02096A7C
+.public sub_02096ACC
+.public sub_02096BB8
+.public sub_02096C18
+.public sub_02096C60

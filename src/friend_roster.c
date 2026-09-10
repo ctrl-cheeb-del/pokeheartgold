@@ -226,3 +226,114 @@ void sub_0202C4B0(UnkStruct_021D2230 *data, s32 index) {
         data->roster.entries[index].value2D = date.day;
     }
 }
+
+void sub_0202C4B0(UnkStruct_021D2230 *data, s32 index);
+void sub_0202C4F0(UnkStruct_021D2230 *data, s32 index, s32 a, s32 b, s32 c);
+void sub_0202C554(UnkStruct_021D2230 *data, s32 index, s32 value);
+void sub_0202C584(UnkStruct_021D2230 *data, s32 index, s32 value);
+void sub_0202C5B4(UnkStruct_021D2230 *data, s32 index, s32 value);
+void sub_0202C5E4(UnkStruct_021D2230 *data, s32 src, s32 dest);
+UnkStruct_021D2230 *sub_0202C6F4(SaveData *saveData);
+void sub_0202C6FC(SaveData *saveData);
+void sub_0202C714(SaveData *saveData);
+extern UnkStruct_021D2230 _021D2230;
+
+void sub_0202C4F0(UnkStruct_021D2230 *data, s32 index, s32 a, s32 b, s32 c) {
+    if (index >= 0 && index < 32) {
+        data->roster.entries[index].value24 += a;
+        if (data->roster.entries[index].value24 > 9999) {
+            data->roster.entries[index].value24 = 9999;
+        }
+        data->roster.entries[index].value26 += b;
+        if (data->roster.entries[index].value26 > 9999) {
+            data->roster.entries[index].value26 = 9999;
+        }
+        data->roster.entries[index].value28 += c;
+        if (data->roster.entries[index].value28 > 9999) {
+            data->roster.entries[index].value28 = 9999;
+        }
+        sub_0202C4B0(data, index);
+    }
+}
+
+void sub_0202C554(UnkStruct_021D2230 *data, s32 index, s32 value) {
+    if (index >= 0 && index < 32) {
+        data->roster.entries[index].value32 += value;
+        if (data->roster.entries[index].value32 > 9999) {
+            data->roster.entries[index].value32 = 9999;
+        }
+        sub_0202C4B0(data, index);
+    }
+}
+
+void sub_0202C584(UnkStruct_021D2230 *data, s32 index, s32 value) {
+    if (index >= 0 && index < 32) {
+        data->roster.entries[index].value34 += value;
+        if (data->roster.entries[index].value34 > 9999) {
+            data->roster.entries[index].value34 = 9999;
+        }
+        sub_0202C4B0(data, index);
+    }
+}
+
+void sub_0202C5B4(UnkStruct_021D2230 *data, s32 index, s32 value) {
+    if (index >= 0 && index < 32) {
+        data->roster.entries[index].value36 += value;
+        if (data->roster.entries[index].value36 > 9999) {
+            data->roster.entries[index].value36 = 9999;
+        }
+        sub_0202C4B0(data, index);
+    }
+}
+
+void sub_0202C5E4(UnkStruct_021D2230 *data, s32 src, s32 dest) {
+    if (dest >= 0 && dest < 32 && src >= 0 && src < 32) {
+        data->roster.entries[dest].value24 += data->roster.entries[src].value24;
+        if (data->roster.entries[dest].value24 > 9999) {
+            data->roster.entries[dest].value24 = 9999;
+        }
+        data->roster.entries[dest].value26 += data->roster.entries[src].value26;
+        if (data->roster.entries[dest].value26 > 9999) {
+            data->roster.entries[dest].value26 = 9999;
+        }
+        data->roster.entries[dest].value28 += data->roster.entries[src].value28;
+        if (data->roster.entries[dest].value28 > 9999) {
+            data->roster.entries[dest].value28 = 9999;
+        }
+        data->roster.entries[dest].value30 += data->roster.entries[src].value30;
+        if (data->roster.entries[dest].value30 > 9999) {
+            data->roster.entries[dest].value30 = 9999;
+        }
+        data->roster.entries[dest].value32 += data->roster.entries[src].value32;
+        if (data->roster.entries[dest].value32 > 9999) {
+            data->roster.entries[dest].value32 = 9999;
+        }
+        data->roster.entries[dest].value34 += data->roster.entries[src].value34;
+        if (data->roster.entries[dest].value34 > 9999) {
+            data->roster.entries[dest].value34 = 9999;
+        }
+        data->roster.entries[dest].value36 += data->roster.entries[src].value36;
+        if (data->roster.entries[dest].value36 > 9999) {
+            data->roster.entries[dest].value36 = 9999;
+        }
+        MI_CpuCopyFast(data->roster.entries[src].name, data->roster.entries[dest].name, sizeof(data->roster.entries[src].name));
+        MI_CpuClearFast(&data->roster.entries[src], sizeof(FriendEntry));
+        data->roster.entries[src].name2[0] = 0xFFFF;
+        data->roster.entries[src].name[0] = 0xFFFF;
+        data->roster.entries[src].value2E = 2;
+    }
+}
+
+UnkStruct_021D2230 *sub_0202C6F4(SaveData *saveData) {
+    return &_021D2230;
+}
+
+void sub_0202C6FC(SaveData *saveData) {
+    UnkStruct_021D2230 *data = SaveArray_Get(saveData, 25);
+    MI_CpuCopy8(data, &_021D2230, sizeof(UnkStruct_021D2230));
+}
+
+void sub_0202C714(SaveData *saveData) {
+    UnkStruct_021D2230 *data = SaveArray_Get(saveData, 25);
+    MI_CpuCopy8(&_021D2230, data, sizeof(UnkStruct_021D2230));
+}

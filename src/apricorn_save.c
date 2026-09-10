@@ -2,20 +2,7 @@
 
 #include "constants/items.h"
 
-#include "unk_02031B0C.h"
-
-struct SaveApricornBox {
-    u8 apricorns[7];
-    u8 kurtQuantity;
-    u8 kurtApricorn;
-    u8 unk_09;
-    u16 unk_0A;
-    u8 unk_0C[8];
-    u32 unk_14;
-    u32 unk_18;
-    u32 unk_1C;
-    u8 unk_20[3][0x20];
-};
+#include "apricorn_internal.h"
 
 void sub_02031B5C(void *ptr);
 void sub_02031B3C(SaveApricornBox *apricornBox);
