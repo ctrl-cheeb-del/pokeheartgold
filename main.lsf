@@ -351,6 +351,7 @@ Static main
     Object src/field_link_messages_3.o
     Object asm/unk_0205AA9C.o
     Object src/field_link_messages_4.o
+    Object src/field_link_avatar_alloc.o
     Object asm/unk_0205ABD8.o
     Object src/field_link_messages_5.o
     Object src/field_player_effect.o
@@ -395,10 +396,12 @@ Static main
     Object asm/unk_02063A14.o
     Object src/map_object_behavior_2.o
     Object src/map_object_trainer_behavior.o
+    Object src/trainer_turn_sequence.o
     Object asm/unk_02063AFC.o
     Object src/map_object_trainer_behavior_2.o
     Object asm/unk_02063D30.o
     Object src/map_object_trainer_behavior_3.o
+    Object src/trainer_encounter_start.o
     Object asm/unk_020640C8.o
     Object src/map_object_trainer_behavior_4.o
     Object asm/unk_020642C4.o
@@ -490,6 +493,8 @@ Static main
     Object asm/unk_02085604.o
     Object asm/unk_020863F4.o
     Object asm/unk_02087284.o
+    Object src/touch_motion_vector.o
+    Object asm/unk_020873D4.o
     Object src/touch_sprite_motion.o
     Object src/battle_transition_application.o
     Object asm/unk_02087A78.o
@@ -500,6 +505,7 @@ Static main
     Object asm/unk_02088288.o
     Object asm/unk_0208B1AC.o
     Object asm/unk_0208C3E4.o
+    Object src/pokemon_picture_graphics_init.o
     Object asm/unk_0208DE40.o
     Object src/pokemon_picture_scene.o
     Object asm/unk_0208DF2C.o

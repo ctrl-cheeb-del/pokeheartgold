@@ -964,3 +964,21 @@ The mapped total decreased by 62 alignment bytes supplied by the linker.
 The fork now has 1,648 converted functions and 76,198 additional mapped C
 bytes relative to the initial baseline. The treemap was refreshed after both
 builds. No GitHub CI was used.
+
+### Late trainer, sprite, and graphics candidates
+
+Converted five further functions: trainer turn sequencing, trainer encounter
+startup, field-link avatar allocation, touch-motion vector calculation, and
+Pokémon-picture graphics initialization. Trainer lookup templates retain their
+original assembly storage/order and are copied through typed external aggregates.
+Corrected four private declarations of ov01_021F635C to three parameters after
+reviewing the callee and both assembly callers; no tracked C calls needed edits.
+
+All five selected functions matched after integration and formatting, followed by
+sequential local HeartGold and SoulSilver builds with matching full ROM SHA1s.
+
+Coverage increased from 24.440870% to 24.466530%, adding 1,048
+mapped C bytes (998,192 → 999,240) with total mapped bytes unchanged at
+4,084,110. This brings the fork to 1,653 converted functions and 77,246
+additional mapped C bytes relative to the initial baseline. Treemap refreshed;
+validation remained local with GitHub CI disabled.

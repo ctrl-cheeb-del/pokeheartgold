@@ -24,7 +24,7 @@ int sub_02054954(FieldSystem *fieldSystem, VecFx32 *playerPos, int x, int z, u8 
 
 extern BOOL ov01_021FB42C(int x, int z, void *dthm, u8 *outAttr);
 extern int ov01_021F6328(int idx, int stride);
-extern int ov01_021F635C(int chunkIdx, int a1, MapLoadManager *mapLoadManager, int chunkZ);
+extern int ov01_021F635C(int chunkIdx, int a1, MapLoadManager *mapLoadManager);
 extern void *ov01_021F65D0(MapLoadManager *mapLoadManager, u8 idx);
 extern int ov01_021FAE50(int a0, int a1, fx32 x, fx32 z, void *a4, fx32 *outY);
 extern fx32 ov01_021FB474(u8 attr, void *dthm);

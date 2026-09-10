@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "e3c45698be51ec5455d563a54d3cc6d24106a0d5",
+  "commit": "6c70d1c49f37f0c1c73732b4562bbc6f680affa0",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "f676dad75d583f738d17bad4c3708d209a963622630ae28b859cd5cdabeb4c22",
-    "ARM7": "9ebee7b555318b07b21627c199f179bcd020bd41a61fb32a1419264506068bc1"
+    "ARM9": "e5795c61a84abee090998eab43aec58b8e928fa1eb9a9e46fa5d70fead34fff4",
+    "ARM7": "8e62de24c23347b732c71690559c37cb687979e7a09b5b5fddd42df41ec74dcf"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 3058856,
+    "asm": 3057808,
     "mixed": 18270,
-    "c": 998192,
+    "c": 999240,
     "unknown": 8792
   },
   "objects": [
@@ -3195,6 +3195,14 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "field_link_avatar_alloc.o",
+      "bytes": 116,
+      "status": "c",
+      "source": "src/field_link_avatar_alloc.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "field_link_messages.o",
       "bytes": 244,
       "status": "c",
@@ -4939,6 +4947,14 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "pokemon_picture_graphics_init.o",
+      "bytes": 156,
+      "status": "c",
+      "source": "src/pokemon_picture_graphics_init.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "pokemon_picture_scene.o",
       "bytes": 80,
       "status": "c",
@@ -5835,6 +5851,14 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "touch_motion_vector.o",
+      "bytes": 248,
+      "status": "c",
+      "source": "src/touch_motion_vector.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "touch_sampling.o",
       "bytes": 852,
       "status": "c",
@@ -5891,10 +5915,26 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "trainer_encounter_start.o",
+      "bytes": 292,
+      "status": "c",
+      "source": "src/trainer_encounter_start.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "trainer_memo.o",
       "bytes": 4172,
       "status": "c",
       "source": "src/trainer_memo.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "trainer_turn_sequence.o",
+      "bytes": 236,
+      "status": "c",
+      "source": "src/trainer_turn_sequence.c"
     },
     {
       "cpu": "ARM9",
@@ -6531,14 +6571,6 @@
     {
       "cpu": "ARM9",
       "module": "main",
-      "object": "unk_0205ABD8.o",
-      "bytes": 116,
-      "status": "asm",
-      "source": "asm/unk_0205ABD8.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
       "object": "unk_0205AC88.o",
       "bytes": 260,
       "status": "asm",
@@ -6667,14 +6699,6 @@
     {
       "cpu": "ARM9",
       "module": "main",
-      "object": "unk_02063AFC.o",
-      "bytes": 236,
-      "status": "asm",
-      "source": "asm/unk_02063AFC.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
       "object": "unk_02063D30.o",
       "bytes": 288,
       "status": "asm",
@@ -6684,7 +6708,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_020640C8.o",
-      "bytes": 420,
+      "bytes": 128,
       "status": "asm",
       "source": "asm/unk_020640C8.s"
     },
@@ -6940,9 +6964,17 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_02087284.o",
-      "bytes": 952,
+      "bytes": 88,
       "status": "asm",
       "source": "asm/unk_02087284.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "unk_020873D4.o",
+      "bytes": 616,
+      "status": "asm",
+      "source": "asm/unk_020873D4.s"
     },
     {
       "cpu": "ARM9",
@@ -6999,14 +7031,6 @@
       "bytes": 6748,
       "status": "asm",
       "source": "asm/unk_0208C3E4.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
-      "object": "unk_0208DE40.o",
-      "bytes": 156,
-      "status": "asm",
-      "source": "asm/unk_0208DE40.s"
     },
     {
       "cpu": "ARM9",
