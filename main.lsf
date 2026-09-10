@@ -1549,6 +1549,28 @@ Overlay OVY_31
 {
     After OVY_27
     Object asm/overlay_31.o
+    Object src/overlay31_helpers_1.o
+    Object asm/overlay_31_residual_2.o
+    Object src/overlay31_helpers_2.o
+    Object asm/overlay_31_residual_3.o
+    Object src/overlay31_helpers_3.o
+    Object asm/overlay_31_residual_4.o
+    Object src/overlay31_helpers_4.o
+    Object asm/overlay_31_residual_5.o
+    Object src/overlay31_helpers_5.o
+    Object asm/overlay_31_residual_6.o
+    Object src/overlay31_helpers_6.o
+    Object asm/overlay_31_residual_7.o
+    Object src/overlay31_helpers_7.o
+    Object asm/overlay_31_residual_8.o
+    Object src/overlay31_helpers_8.o
+    Object asm/overlay_31_residual_9.o
+    Object src/overlay31_helpers_9.o
+    Object asm/overlay_31_residual_10.o
+    Object src/overlay31_helpers_10.o
+    Object asm/overlay_31_residual_11.o
+    Object src/overlay31_helpers_11.o
+    Object asm/overlay_31_residual_12.o
 }
 Overlay OVY_32
 {
@@ -1985,7 +2007,7 @@ Overlay OVY_80
 {
     After OVY_42
     Object asm/overlay_80_02229EE0.o
-    Object asm/frontier_system.o
+    Object src/frontier_system_helpers_1.o
     Object src/frontier/frontier_script_context.o
     Object asm/overlay_80_0222ACA0.o
     Object asm/overlay_80_0222AEF8.o

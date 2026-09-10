@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "7641eabc7d69067fbc63eca04b204800344f8509",
+  "commit": "cfca827e4a0213d977e0cbd388a05d428341861c",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "0e9fed2aad526f32b09a9f752ad337cc8e45274d4bc834f9c35b179de83a80ac",
+    "ARM9": "694fb330d5ae2233a2c19d881475cf9ffde7d6ba57a7bcaa13f833a77800526a",
     "ARM7": "f15e016f3eddcf686522ba7809647eed4ef507fab6fd632a435e8cc5d110a16f"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 2934620,
+    "asm": 2932624,
     "mixed": 18270,
-    "c": 1121010,
+    "c": 1122980,
     "unknown": 8792
   },
   "objects": [
@@ -963,10 +963,178 @@
     {
       "cpu": "ARM9",
       "module": "OVY_31",
+      "object": "overlay31_helpers_1.o",
+      "bytes": 118,
+      "status": "c",
+      "source": "src/overlay31_helpers_1.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay31_helpers_10.o",
+      "bytes": 192,
+      "status": "c",
+      "source": "src/overlay31_helpers_10.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay31_helpers_11.o",
+      "bytes": 158,
+      "status": "c",
+      "source": "src/overlay31_helpers_11.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay31_helpers_2.o",
+      "bytes": 142,
+      "status": "c",
+      "source": "src/overlay31_helpers_2.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay31_helpers_3.o",
+      "bytes": 32,
+      "status": "c",
+      "source": "src/overlay31_helpers_3.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay31_helpers_4.o",
+      "bytes": 50,
+      "status": "c",
+      "source": "src/overlay31_helpers_4.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay31_helpers_5.o",
+      "bytes": 30,
+      "status": "c",
+      "source": "src/overlay31_helpers_5.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay31_helpers_6.o",
+      "bytes": 36,
+      "status": "c",
+      "source": "src/overlay31_helpers_6.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay31_helpers_7.o",
+      "bytes": 158,
+      "status": "c",
+      "source": "src/overlay31_helpers_7.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay31_helpers_8.o",
+      "bytes": 216,
+      "status": "c",
+      "source": "src/overlay31_helpers_8.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay31_helpers_9.o",
+      "bytes": 96,
+      "status": "c",
+      "source": "src/overlay31_helpers_9.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
       "object": "overlay_31.o",
-      "bytes": 6432,
+      "bytes": 236,
       "status": "asm",
       "source": "asm/overlay_31.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay_31_residual_10.o",
+      "bytes": 372,
+      "status": "asm",
+      "source": "asm/overlay_31_residual_10.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay_31_residual_11.o",
+      "bytes": 920,
+      "status": "asm",
+      "source": "asm/overlay_31_residual_11.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay_31_residual_2.o",
+      "bytes": 140,
+      "status": "asm",
+      "source": "asm/overlay_31_residual_2.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay_31_residual_3.o",
+      "bytes": 772,
+      "status": "asm",
+      "source": "asm/overlay_31_residual_3.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay_31_residual_4.o",
+      "bytes": 220,
+      "status": "asm",
+      "source": "asm/overlay_31_residual_4.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay_31_residual_5.o",
+      "bytes": 288,
+      "status": "asm",
+      "source": "asm/overlay_31_residual_5.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay_31_residual_6.o",
+      "bytes": 236,
+      "status": "asm",
+      "source": "asm/overlay_31_residual_6.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay_31_residual_7.o",
+      "bytes": 704,
+      "status": "asm",
+      "source": "asm/overlay_31_residual_7.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay_31_residual_8.o",
+      "bytes": 752,
+      "status": "asm",
+      "source": "asm/overlay_31_residual_8.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_31",
+      "object": "overlay_31_residual_9.o",
+      "bytes": 552,
+      "status": "asm",
+      "source": "asm/overlay_31_residual_9.s"
     },
     {
       "cpu": "ARM9",
@@ -2683,10 +2851,10 @@
     {
       "cpu": "ARM9",
       "module": "OVY_80",
-      "object": "frontier_system.o",
-      "bytes": 756,
-      "status": "asm",
-      "source": "asm/frontier_system.s"
+      "object": "frontier_system_helpers_1.o",
+      "bytes": 742,
+      "status": "c",
+      "source": "src/frontier_system_helpers_1.c"
     },
     {
       "cpu": "ARM9",

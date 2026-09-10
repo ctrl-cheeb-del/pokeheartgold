@@ -1,3 +1,17 @@
+	.public FrontierSystem_AddTask
+	.public FrontierSystem_Create
+	.public FrontierSystem_GetFrontierMap
+	.public FrontierSystem_Main
+	.public FrontierSystem_deadstripped_0222AA3C
+	.public ov80_0222A920
+	.public ov80_0222A9DC
+	.public ov80_0222AA0C
+	.public ov80_0222AA40
+	.public ov80_0222AA7C
+	.public ov80_0222AAD8
+	.public ov80_0222AAF8
+	.public ov80_0222AB14
+	.public ov80_0222AB2C
 	.include "asm/macros.inc"
 	.include "overlay_80_0222A84C.inc"
 	.include "global.inc"
@@ -413,4 +427,3 @@ FrontierSystem_GetFrontierMap: ; 0x0222AB34
 	nop
 _0222AB3C: .word sub_0209680C
 	thumb_func_end FrontierSystem_GetFrontierMap
-    
