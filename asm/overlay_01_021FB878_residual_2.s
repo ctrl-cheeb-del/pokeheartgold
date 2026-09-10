@@ -1,0 +1,216 @@
+#include "constants/sndseq.h"
+#include "constants/moves.h"
+#include "constants/std_script.h"
+#include "constants/species.h"
+#include "constants/sprites.h"
+#include "constants/maps.h"
+#include "constants/mmodel.h"
+#include "constants/items.h"
+#include "msgdata/msg/msg_0096_D31R0201.h"
+#include "msgdata/msg/msg_0066_D23R0102.h"
+	.include "asm/macros.inc"
+	.include "overlay_01_021FB878.inc"
+	.include "global.inc"
+	.public ov01_021FB878
+	.public AreaDataManager_Alloc
+	.public ov01_021FB904
+	.public ov01_021FB90C
+	.public AreaDataManager_GetMapPropModelFile
+	.public AreaDataManager_Free
+	.public AreaDataManager_GetMapTexture
+	.public ov01_021FB9E0
+	.public ov01_021FB9F4
+	.public ov01_021FBA00
+	.public AreaDataManager_GetAreaLightArchiveID
+	.public AreaDataManager_Load
+	.public Field3dModel_LoadFromFilesystem
+	.public ov01_021FBD38
+	.public ov01_021FBD8C
+	.public Field3dModel_Unload
+	.public ov01_021FBDFC
+	.public Field3dModelAnimation_LoadFromFilesystem
+	.public ov01_021FBE70
+	.public Field3dModelAnimation_Unload
+	.public Field3dModelAnimation_FrameAdvanceAndLoop
+	.public Field3dModelAnimation_FrameAdvanceAndCheck
+	.public Field3dModelAnimation_FrameSet
+	.public ov01_021FBF28
+	.public Field3dObject_InitFromModel
+	.public Field3dObject_AddAnimation
+	.public Field3dObject_RemoveAnimation
+	.public Field3dObject_Draw
+	.public Field3dObject_SetActiveFlag
+	.public Field3dObject_GetActiveFlag
+	.public Field3dObject_SetPosEx
+	.public Field3dObject_SetPos
+	.public Field3dObject_SetXRotation
+	.public ov01_021FC030
+	.public _021FB884
+	.public _021FB8D8
+	.public _021FB8EE
+	.public _021FB8F8
+	.public _021FB8FC
+	.public _021FB900
+	.public _021FB918
+	.public _021FB92C
+	.public _021FB930
+	.public _021FB93E
+	.public _021FB962
+	.public _021FB968
+	.public _021FB976
+	.public _021FB9BC
+	.public _021FB9C0
+	.public _021FB9C4
+	.public _021FB9C8
+	.public _021FB9D6
+	.public _021FB9DC
+	.public _021FB9EA
+	.public _021FB9F0
+	.public _021FB9FC
+	.public _021FBA0C
+	.public _021FBA10
+	.public _021FBA26
+	.public _021FBA2A
+	.public _021FBA2E
+	.public _021FBA32
+	.public _021FBA38
+	.public _021FBA70
+	.public _021FBAB2
+	.public _021FBAB8
+	.public _021FBAC8
+	.public _021FBAE8
+	.public _021FBAF6
+	.public _021FBB06
+	.public _021FBB0E
+	.public _021FBB32
+	.public _021FBB4C
+	.public _021FBB7C
+	.public _021FBBB4
+	.public _021FBBB6
+	.public _021FBBC0
+	.public _021FBBC2
+	.public _021FBBDA
+	.public _021FBBEC
+	.public _021FBC1C
+	.public _021FBC2C
+	.public _021FBC50
+	.public _021FBC56
+	.public _021FBC70
+	.public _021FBC76
+	.public _021FBC94
+	.public _021FBC98
+	.public _021FBC9C
+	.public _021FBCA0
+	.public _021FBCA4
+	.public _021FBCA8
+	.public _021FBCAC
+	.public _021FBCB0
+	.public _021FBCB4
+	.public _021FBCB8
+	.public _021FBCBC
+	.public _021FBCC0
+	.public _021FBCC4
+	.public _021FBCC8
+	.public _021FBCCC
+	.public _021FBCD0
+	.public _021FBCD4
+	.public _021FBD0A
+	.public _021FBD0C
+	.public _021FBD16
+	.public _021FBD18
+	.public _021FBD32
+	.public _021FBD34
+	.public _021FBD5E
+	.public _021FBD60
+	.public _021FBD6A
+	.public _021FBD6C
+	.public _021FBD86
+	.public _021FBD88
+	.public _021FBDD8
+	.public _021FBDE2
+	.public _021FBDE6
+	.public _021FBDF4
+	.public _021FBDF8
+	.public _021FBE2C
+	.public _021FBE30
+	.public _021FBE3C
+	.public _021FBE40
+	.public _021FBE9E
+	.public _021FBEA2
+	.public _021FBECA
+	.public _021FBEDC
+	.public _021FBF00
+	.public _021FBF06
+	.public _021FBF0E
+	.public _021FBF12
+	.public _021FBF58
+	.public _021FBF64
+	.public _021FBFFC
+	.public _021FC000
+
+	.text
+	.public AreaDataManager_Alloc
+	.public AreaDataManager_Free
+	.public AreaDataManager_GetAreaLightArchiveID
+	.public AreaDataManager_GetMapPropModelFile
+	.public AreaDataManager_GetMapTexture
+	.public Field3dModelAnimation_FrameAdvanceAndCheck
+	.public Field3dModelAnimation_FrameSet
+	.public Field3dModelAnimation_LoadFromFilesystem
+	.public Field3dModelAnimation_Unload
+	.public Field3dModel_LoadFromFilesystem
+	.public Field3dModel_Unload
+	.public Field3dObject_AddAnimation
+	.public Field3dObject_Draw
+	.public Field3dObject_GetActiveFlag
+	.public Field3dObject_InitFromModel
+	.public Field3dObject_RemoveAnimation
+	.public Field3dObject_SetActiveFlag
+	.public Field3dObject_SetPos
+	.public Field3dObject_SetPosEx
+	.public Field3dObject_SetXRotation
+	.public ov01_021FB878
+	.public ov01_021FB904
+	.public ov01_021FB90C
+	.public ov01_021FB9E0
+	.public ov01_021FB9F4
+	.public ov01_021FBA00
+	.public ov01_021FBD38
+	.public ov01_021FBD8C
+	.public ov01_021FBDFC
+	.public ov01_021FBE70
+	.public ov01_021FBF28
+	.public ov01_021FC030
+
+	thumb_func_start Field3dModelAnimation_FrameAdvanceAndLoop
+Field3dModelAnimation_FrameAdvanceAndLoop: ; 0x021FBEAC
+	push {r4, lr}
+	add r4, r0, #0
+	ldr r0, [r4, #8]
+	ldr r0, [r0, #8]
+	ldrh r0, [r0, #4]
+	lsl r2, r0, #0xc
+	cmp r1, #0
+	ble _021FBECA
+	ldr r0, [r4, #0xc]
+	add r0, r0, r1
+	add r1, r2, #0
+	bl _s32_div_f
+	str r1, [r4, #0xc]
+	b _021FBEDC
+_021FBECA:
+	ldr r0, [r4, #0xc]
+	add r3, r4, #0
+	add r3, #0xc
+	add r0, r0, r1
+	str r0, [r4, #0xc]
+	bpl _021FBEDC
+	ldr r0, [r3]
+	add r0, r0, r2
+	str r0, [r3]
+_021FBEDC:
+	ldr r1, [r4, #0xc]
+	ldr r0, [r4, #8]
+	str r1, [r0]
+	pop {r4, pc}
+	thumb_func_end Field3dModelAnimation_FrameAdvanceAndLoop

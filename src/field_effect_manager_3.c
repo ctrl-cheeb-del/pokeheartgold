@@ -1,0 +1,195 @@
+#include "field_effect_manager_internal.h"
+
+// ---- external prototypes (declared locally; see report.md for proposals) ----
+void *NARC_New(int narcId, enum HeapID heapID);
+void NARC_Delete(void *narc);
+u32 NARC_GetMemberSize(void *narc, u32 fileId);
+void NARC_ReadWholeMember(void *narc, u32 fileId, void *dest);
+void *MapObject_GetFieldSystem(void *mapObject);
+void *sub_020689C8(enum HeapID heapID, u32 count);
+void sub_020689F8(void *manager);
+void sub_02068BAC(void *manager);
+void *sub_02068B0C(void *manager, const void *tmpl, void *pos, int param, void *userData, u32 priority);
+void sub_02068B48(int a0);
+void *sub_020237EC(const FieldEffectAnimReq *req);
+void sub_02023874(void *a0);
+void *sub_02023D44(const FieldEffectModelReq *req);
+NNSG3dResMdl *sub_02023F90(void *a0);
+void sub_02026E18(void *a0, FieldEffectMtx *out);
+void *ov01_021FC4C4(enum HeapID heapID, int a1, int a2, int a3);
+void ov01_021FC520(void *a0);
+void *ov01_021FC5A4(void *a0, int a1);
+void *ov01_021FC588(void *a0, int a1);
+void ov01_021FC5CC(void *a0, int a1, void *narc, int a3, int a4);
+void ov01_021EA3B0(NNSG3dResMdl *mdl);
+void NNS_G3dMdlSetMdlFogEnableFlagAll(NNSG3dResMdl *mdl, int flag);
+void sub_020696C4(void *a0, int a1, void *resMan, int a2, enum HeapID heapID, int a3);
+void sub_02069714(void *a0);
+void sub_020697DC(void *a0, int a1, void *resMan, int a2, enum HeapID heapID, int a3);
+void sub_02069894(void *a0, int a1, int a2, int a3, enum HeapID heapID);
+void *GF3dGfxRawResMan_Create(int num, enum HeapID heapID);
+void GF3dGfxRawResMan_Destroy(void *man);
+void *GF3dGfxRawResMan_AllocObjAndKeys(void *man, void *res, int id, BOOL copyWithoutTex, enum HeapID heapID);
+void GF3dGfxRawResMan_FreeObjById(void *man, int id);
+void *GF3dGfxRawResMan_GetObjById(void *man, int id);
+NNSG3dResTex *GF3dGfxRawResObj_GetTex(void *obj);
+void GF3dGfxRawResMan_LoadObjTexById(void *man, int id);
+void GF3dGfxRawResMan_FreeObjVramAndSecondaryHeaderById(void *man, int id);
+u32 GF3dGfxRawResObj_GetTexKey(void *obj);
+u32 GF3dGfxRawResObj_GetTex4x4Key(void *obj);
+u32 GF3dGfxRawResObj_GetPlttKey(void *obj);
+BOOL GF3dRender_ResTexIsLoaded(NNSG3dResTex *tex);
+struct SysTask *SysTask_CreateOnVBlankQueue(FieldEffectTaskFunc func, void *data, u32 priority);
+struct SysTask *SysTask_CreateOnVWaitQueue(FieldEffectTaskFunc func, void *data, u32 priority);
+void SysTask_Destroy(struct SysTask *task);
+
+// ---- this module ----
+FieldEffectManager *FieldEffectManager_New(void *fieldSystem, u32 rendererCount, enum HeapID heapID);
+void FieldEffectManager_InitAnimManagerList(FieldEffectManager *manager, u32 animManagerCount);
+void ov01_021F1390(FieldEffectManager *manager, enum HeapID heapID, u32 a2, u32 a3, u32 a4, u32 a5, int a6, int a7, int a8);
+void ov01_021F13B0(FieldEffectManager *manager, u32 id);
+void FieldEffectManager_InitRenderers(FieldEffectManager *manager, const u32 *ids);
+void FieldEffectManager_Render(FieldEffectManager *manager);
+void FieldEffectManager_Free(FieldEffectManager *manager);
+void *ov01_021F141C(FieldEffectManager *manager, u32 size, int atEnd);
+void *ov01_021F1430(FieldEffectManager *manager, u32 size, int atEnd, int fill);
+void ov01_021F1448(void *ptr);
+void *ov01_021F1450(FieldEffectManager *manager, u32 id);
+void *ov01_021F1468(FieldEffectManager *manager);
+FieldEffectManager *ov01_021F146C(void *mapObject);
+enum HeapID ov01_021F1478(FieldEffectManager *manager);
+void ov01_021F147C(FieldEffectManager *manager);
+void ov01_021F1490(FieldEffectManager *manager);
+u32 ov01_021F149C(FieldEffectManager *manager, u32 fileId);
+void ov01_021F14A8(FieldEffectManager *manager, u32 fileId, void *dest);
+void *ov01_021F14B4(FieldEffectManager *manager, u32 fileId, int atEnd);
+void ov01_021F14DC(FieldEffectManager *manager);
+void ov01_021F14F4(FieldEffectManager *manager, u32 id);
+void ov01_021F151C(FieldEffectManager *manager, FieldEffectEntry *entry);
+void ov01_021F1538(FieldEffectManager *manager);
+FieldEffectEntry *ov01_021F1560(FieldEffectManager *manager);
+FieldEffectEntry *ov01_021F1588(FieldEffectManager *manager, u32 id);
+void ov01_021F15A0(FieldEffectEntry *entry);
+void ov01_021F15AC(FieldEffectEntry *entry, u32 id, void *data);
+BOOL ov01_021F15B4(FieldEffectEntry *entry);
+const FieldEffectRenderer *ov01_021F15C4(u32 id);
+void ov01_021F15EC(FieldEffectManager *manager);
+void ov01_021F15FC(FieldEffectManager *manager);
+void ov01_021F1610(FieldEffectManager *manager);
+void *ov01_021F1620(FieldEffectManager *manager, const void *tmpl, void *pos, int param, void *userData, u32 priority);
+void ov01_021F1640(int a0);
+void ov01_021F1648(FieldEffectManager *manager, enum HeapID heapID, u32 a2, u32 a3, u32 a4, u32 a5, int a6, int a7, int a8);
+void ov01_021F16B8(FieldEffectManager *manager);
+void *ov01_021F16EC(FieldEffectManager *manager, void *a1, const VecFx32 *position);
+void *ov01_021F1740(FieldEffectManager *manager, u32 id, const VecFx32 *position);
+FieldEffectRecord *ov01_021F1758(FieldEffectManager *manager, u32 key, int a2, int a3, int objId, int a5, int a6);
+void ov01_021F17BC(FieldEffectManager *manager, FieldEffectGfx *gfx, u32 count);
+void ov01_021F17F0(FieldEffectGfx *gfx);
+void ov01_021F1804(FieldEffectGfx *gfx, u32 id);
+FieldEffectRecord *ov01_021F1824(FieldEffectGfx *gfx, u32 key, void *a2, const FieldEffectMtx *src, void *tex, void *obj, int a6);
+FieldEffectRecord *ov01_021F18A8(FieldEffectGfx *gfx, u32 id);
+void ov01_021F18C8(FieldEffectManager *manager, u32 id);
+void ov01_021F18D4(FieldEffectManager *manager, int a1, int a2);
+void *ov01_021F18F0(FieldEffectManager *manager, int a1);
+void *ov01_021F18FC(FieldEffectManager *manager, int a1);
+void ov01_021F1908(FieldEffectManager *manager, int a1, int a2);
+void *ov01_021F1924(FieldEffectManager *manager, int a1);
+void ov01_021F1930(FieldEffectManager *manager, int id, u32 fileId, BOOL copyWithoutTex);
+void ov01_021F1970(FieldEffectManager *manager, int id);
+void ov01_021F197C(FieldEffectManager *manager, int id, void *resMan);
+void ov01_021F19B4(struct SysTask *task, void *data);
+void ov01_021F19D0(struct SysTask *task, void *data);
+void ov01_021F19F4(FieldEffectGfx *gfx, void *a1, int a2, int a3, int a4);
+void ov01_021F1A18(FieldEffectGfx *gfx, void *a1, int a2, int a3, int a4);
+void ov01_021F1A34(FieldEffectGfx *gfx, void *a1, int a2, int a3, int a4);
+void ov01_021F1A48(FieldEffectManager *manager, NNSG3dRenderObj *renderObj, NNSG3dResMdl **ppMdl, void **ppRes);
+void ov01_021F1AB8(FieldEffectManager *manager, u32 fileId, int atEnd, NNSG3dRenderObj *renderObj, NNSG3dResMdl **ppMdl, void **ppRes);
+NNSG3dResTex *ov01_021F1AD4(FieldEffectManager *manager, int id);
+
+extern const VecFx32 ov01_02206988;
+
+FieldEffectRecord *ov01_021F18A8(FieldEffectGfx *gfx, u32 id) {
+    u32 i = gfx->count;
+    FieldEffectSlot *slot = gfx->slots;
+    do {
+        if (slot->id == id) {
+            return slot->record;
+        }
+        slot++;
+    } while (--i != 0);
+    GF_AssertFail();
+    return NULL;
+}
+
+void ov01_021F18C8(FieldEffectManager *manager, u32 id) {
+    ov01_021F1804(manager->gfx, id);
+}
+
+void ov01_021F18D4(FieldEffectManager *manager, int a1, int a2) {
+    ov01_021FC5CC(manager->gfx->unk10, a1, manager->narc, a2, 0);
+}
+
+void *ov01_021F18F0(FieldEffectManager *manager, int a1) {
+    return ov01_021FC5A4(manager->gfx->unk10, a1);
+}
+
+void *ov01_021F18FC(FieldEffectManager *manager, int a1) {
+    return ov01_021FC588(manager->gfx->unk10, a1);
+}
+
+void ov01_021F1908(FieldEffectManager *manager, int a1, int a2) {
+    ov01_021FC5CC(manager->gfx->unk14, a1, manager->narc, a2, 0);
+}
+
+void *ov01_021F1924(FieldEffectManager *manager, int a1) {
+    return ov01_021FC588(manager->gfx->unk14, a1);
+}
+
+void ov01_021F1930(FieldEffectManager *manager, int id, u32 fileId, BOOL copyWithoutTex) {
+    FieldEffectGfx *gfx = manager->gfx;
+    void *res = ov01_021F14B4(manager, fileId, 1);
+    GF_ASSERT(GF3dGfxRawResMan_AllocObjAndKeys(gfx->resMan, res, id, copyWithoutTex, ov01_021F1478(manager)) != NULL);
+    ov01_021F197C(manager, id, gfx->resMan);
+}
+
+void ov01_021F1970(FieldEffectManager *manager, int id) {
+    GF3dGfxRawResMan_FreeObjById(manager->gfx->resMan, id);
+}
+
+void ov01_021F197C(FieldEffectManager *manager, int id, void *resMan) {
+    FieldEffectLoadTask *task = ov01_021F141C(manager, sizeof(FieldEffectLoadTask), 1);
+    task->state = 1;
+    task->id = id;
+    task->resMan = resMan;
+    SysTask_CreateOnVBlankQueue(ov01_021F19B4, task, 0xff);
+    SysTask_CreateOnVWaitQueue(ov01_021F19D0, task, 0xff);
+}
+
+void ov01_021F19B4(struct SysTask *sysTask, void *data) {
+    FieldEffectLoadTask *task = data;
+    GF3dGfxRawResMan_LoadObjTexById(task->resMan, task->id);
+    task->state = 1;
+    SysTask_Destroy(sysTask);
+}
+
+void ov01_021F19D0(struct SysTask *sysTask, void *data) {
+    FieldEffectLoadTask *task = data;
+    if (task->state == 1) {
+        GF3dGfxRawResMan_FreeObjVramAndSecondaryHeaderById(task->resMan, task->id);
+        ov01_021F1448(task);
+        SysTask_Destroy(sysTask);
+    }
+}
+
+void ov01_021F19F4(FieldEffectGfx *gfx, void *a1, int a2, int a3, int a4) {
+    sub_020696C4(a1, a2, gfx->resMan, a3, gfx->heapID, a4);
+    sub_02069714(a1);
+}
+
+void ov01_021F1A18(FieldEffectGfx *gfx, void *a1, int a2, int a3, int a4) {
+    sub_020697DC(a1, a2, gfx->resMan, a3, gfx->heapID, a4);
+}
+
+void ov01_021F1A34(FieldEffectGfx *gfx, void *a1, int a2, int a3, int a4) {
+    sub_02069894(a1, a2, a3, a4, gfx->heapID);
+}

@@ -1,0 +1,54 @@
+#include "constants/items.h"
+#include "constants/moves.h"
+#include "constants/pokemon.h"
+#include "constants/ribbon.h"
+#include "constants/field_move_response.h"
+#include "msgdata/msg/msg_0300.h"
+	.include "asm/macros.inc"
+	.include "unk_020863F4.inc"
+	.include "global.inc"
+
+	.public gOverlayTemplate_Battle
+	.public gNatureStatMods
+
+	.text
+	.public _021027C8
+	.public _021027DC
+	.public _021027F4
+	.public sub_020863F4
+	.public sub_02086490
+	.public sub_020866CC
+	.public sub_02086758
+	.public sub_020868A0
+	.public sub_020869BC
+	.public sub_02086AB4
+	.public sub_02086AE4
+	.public sub_02086B2C
+	.public sub_02086B6C
+	.public sub_02086BB4
+	.public sub_02086C80
+	.public sub_02086C8C
+	.public sub_02086D98
+	.public sub_02086DA4
+	.public sub_02086DE4
+	.public sub_02086F44
+	.public sub_02086FCC
+	.public sub_02086FE8
+	.public sub_02087028
+	.public sub_02087064
+	.public sub_02087090
+	.public sub_020871C4
+	.public sub_02087230
+	.rodata
+
+_021027C8:
+	.byte 0x60, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00
+	.byte 0x00, 0x40, 0x00, 0x00, 0x10, 0x00, 0x10, 0x00, 0x10, 0x00, 0x00, 0x00
+_021027DC:
+	.byte 0x60, 0x00, 0x00, 0x00
+	.byte 0x20, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00
+	.byte 0x10, 0x00, 0x00, 0x00
+_021027F4:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x20, 0x00, 0x00, 0x00

@@ -71,6 +71,8 @@ extern const u8 _02104FFC[][4];
 void sub_0208DEDC(UnkStruct_0208DE40 *a);
 void sub_0208DEFC(UnkStruct_0208DE40 *a);
 void sub_0208DF9C(const UnkAnimVec *src, UnkVec3s *dst, int t);
+void sub_0208DFF8(const UnkVec3s *from, const UnkVec3s *to, UnkVec3s *out);
+void sub_0208E174(UnkStruct_0208DE40 *summary);
 void sub_0208E3AC(UnkStruct_0208DE40 *a);
 void sub_0208E444(UnkStruct_0208DE40 *a);
 void sub_0208E4B4(UnkStruct_0208DE40 *a);

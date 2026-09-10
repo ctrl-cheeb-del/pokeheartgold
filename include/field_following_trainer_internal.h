@@ -1,0 +1,88 @@
+#ifndef POKEHEARTGOLD_FIELD_FOLLOWING_TRAINER_INTERNAL_H
+#define POKEHEARTGOLD_FIELD_FOLLOWING_TRAINER_INTERNAL_H
+#include "global.h"
+typedef struct FollowTaskEnv {
+    void *fieldSystem;
+    u16 state;
+    u16 flag;
+    u16 mapNo;
+    s16 x;
+    s16 y;
+    u16 partySlot;
+    void *mon;
+    void *effect;
+    void *movement;
+} FollowTaskEnv;
+extern void *Heap_Alloc();
+extern void *Heap_AllocAtEnd();
+extern void Heap_Free();
+extern void MIi_CpuClearFast();
+extern void *Save_VarsFlags_Get();
+extern void StrengthFlagAction();
+extern void FlypointFlagAction();
+extern void *Save_Roamers_Get();
+extern void RoamerSave_SetFlute();
+extern int Save_VarsFlags_CheckSafariSysFlag();
+extern void UpdatePlayerLocationHistoryIfAnyRoamersActive();
+extern void Save_UpdateRoamersLocation();
+extern void ClearFlag972();
+extern int MapHeader_IsCave();
+extern void SysFlagFlashClear();
+extern void SysFlagDefogClear();
+extern void *Save_LocalFieldData_Get();
+extern u8 *LocalFieldData_GetPlayer();
+extern int MapHeader_IsBikeAllowed();
+extern void Save_VarsFlags_ClearSafariSysFlag();
+extern void Save_RandomizeRoamersLocation();
+extern void Save_VarsFlags_ClearHaveFollowerFlag();
+extern void Save_VarsFlags_SetFollowerTrainerNum();
+void *sub_02067A60(int);
+void sub_02067A78(void *);
+void sub_02067A80(void *, void *);
+void sub_02067A88(u8 *);
+void sub_02067AE4(u8 *);
+void sub_02067B88(u8 *);
+void sub_02067BA4(u8 *);
+void sub_02067BC0(u8 *);
+void FieldSystem_ClearFollowingTrainer(u8 *);
+void sub_02067BE8(u8 *);
+void *sub_02067BF8(int, void *, void *, int, u16, s16, s16);
+BOOL sub_02067C30(void *);
+typedef struct WarpData {
+    s32 map;
+    s32 x;
+    s32 y;
+    s32 dir;
+    s32 warp;
+} WarpData;
+extern u8 *TaskManager_GetFieldSystem();
+extern FollowTaskEnv *TaskManager_GetEnvironment();
+extern void TaskManager_Call();
+extern void ov01_02205A60();
+extern int PlayerAvatar_GetState();
+extern void *SaveArray_Party_Get();
+extern int GetIdxOfFirstAliveMonInParty_CrashIfNone();
+extern void ov01_02205D68();
+extern int FollowMon_IsVisible();
+extern int ov02_02250780();
+extern void FieldSystem_UnkSub108_AddMonMood();
+extern void ov02_022507B4();
+extern int GetMonData();
+extern void PlayCry();
+extern int IsCryFinished();
+extern void *PlayerAvatar_GetMapObject();
+extern void *EventObjectMovementMan_Create();
+extern int EventObjectMovementMan_IsFinish();
+extern void EventObjectMovementMan_Delete();
+extern int PlayerAvatar_GetGender();
+extern void *ov02_02249458();
+extern int ov02_0224953C();
+extern void ov02_02249548();
+extern int sub_0203BB50();
+extern void GetFlyWarpData();
+extern void *LocalFieldData_GetSpecialSpawnWarpPtr();
+extern void GetSpecialSpawnWarpData();
+extern void sub_02053908();
+extern const u16 _020FE7AC[];
+
+#endif

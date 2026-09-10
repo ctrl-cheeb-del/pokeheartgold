@@ -12,265 +12,180 @@
 	.include "overlay_01_021FB878.inc"
 	.include "global.inc"
 
+	.public ov01_021FB878
+	.public AreaDataManager_Alloc
+	.public ov01_021FB904
+	.public ov01_021FB90C
+	.public AreaDataManager_GetMapPropModelFile
+	.public AreaDataManager_Free
+	.public AreaDataManager_GetMapTexture
+	.public ov01_021FB9E0
+	.public ov01_021FB9F4
+	.public ov01_021FBA00
+	.public AreaDataManager_GetAreaLightArchiveID
+	.public AreaDataManager_Load
+	.public Field3dModel_LoadFromFilesystem
+	.public ov01_021FBD38
+	.public ov01_021FBD8C
+	.public Field3dModel_Unload
+	.public ov01_021FBDFC
+	.public Field3dModelAnimation_LoadFromFilesystem
+	.public ov01_021FBE70
+	.public Field3dModelAnimation_Unload
+	.public Field3dModelAnimation_FrameAdvanceAndLoop
+	.public Field3dModelAnimation_FrameAdvanceAndCheck
+	.public Field3dModelAnimation_FrameSet
+	.public ov01_021FBF28
+	.public Field3dObject_InitFromModel
+	.public Field3dObject_AddAnimation
+	.public Field3dObject_RemoveAnimation
+	.public Field3dObject_Draw
+	.public Field3dObject_SetActiveFlag
+	.public Field3dObject_GetActiveFlag
+	.public Field3dObject_SetPosEx
+	.public Field3dObject_SetPos
+	.public Field3dObject_SetXRotation
+	.public ov01_021FC030
+	.public _021FB884
+	.public _021FB8D8
+	.public _021FB8EE
+	.public _021FB8F8
+	.public _021FB8FC
+	.public _021FB900
+	.public _021FB918
+	.public _021FB92C
+	.public _021FB930
+	.public _021FB93E
+	.public _021FB962
+	.public _021FB968
+	.public _021FB976
+	.public _021FB9BC
+	.public _021FB9C0
+	.public _021FB9C4
+	.public _021FB9C8
+	.public _021FB9D6
+	.public _021FB9DC
+	.public _021FB9EA
+	.public _021FB9F0
+	.public _021FB9FC
+	.public _021FBA0C
+	.public _021FBA10
+	.public _021FBA26
+	.public _021FBA2A
+	.public _021FBA2E
+	.public _021FBA32
+	.public _021FBA38
+	.public _021FBA70
+	.public _021FBAB2
+	.public _021FBAB8
+	.public _021FBAC8
+	.public _021FBAE8
+	.public _021FBAF6
+	.public _021FBB06
+	.public _021FBB0E
+	.public _021FBB32
+	.public _021FBB4C
+	.public _021FBB7C
+	.public _021FBBB4
+	.public _021FBBB6
+	.public _021FBBC0
+	.public _021FBBC2
+	.public _021FBBDA
+	.public _021FBBEC
+	.public _021FBC1C
+	.public _021FBC2C
+	.public _021FBC50
+	.public _021FBC56
+	.public _021FBC70
+	.public _021FBC76
+	.public _021FBC94
+	.public _021FBC98
+	.public _021FBC9C
+	.public _021FBCA0
+	.public _021FBCA4
+	.public _021FBCA8
+	.public _021FBCAC
+	.public _021FBCB0
+	.public _021FBCB4
+	.public _021FBCB8
+	.public _021FBCBC
+	.public _021FBCC0
+	.public _021FBCC4
+	.public _021FBCC8
+	.public _021FBCCC
+	.public _021FBCD0
+	.public _021FBCD4
+	.public ov01_02208BA0
+	.public ov01_02208BB0
+	.public ov01_02209A88
+	.public ov01_02209AB4
+	.public _021FBD0A
+	.public _021FBD0C
+	.public _021FBD16
+	.public _021FBD18
+	.public _021FBD32
+	.public _021FBD34
+	.public _021FBD5E
+	.public _021FBD60
+	.public _021FBD6A
+	.public _021FBD6C
+	.public _021FBD86
+	.public _021FBD88
+	.public _021FBDD8
+	.public _021FBDE2
+	.public _021FBDE6
+	.public _021FBDF4
+	.public _021FBDF8
+	.public _021FBE2C
+	.public _021FBE30
+	.public _021FBE3C
+	.public _021FBE40
+	.public _021FBE9E
+	.public _021FBEA2
+	.public _021FBECA
+	.public _021FBEDC
+	.public _021FBF00
+	.public _021FBF06
+	.public _021FBF0E
+	.public _021FBF12
+	.public _021FBF58
+	.public _021FBF64
+	.public _021FBFFC
+	.public _021FC000
+
 	.text
-
-	thumb_func_start ov01_021FB878
-ov01_021FB878: ; 0x021FB878
-	ldr r2, [r1, #0x14]
-	ldr r3, _021FB884 ; =Heap_Realloc
-	add r1, r1, r2
-	sub r1, r1, r0
-	bx r3
-	nop
-_021FB884: .word Heap_Realloc
-	thumb_func_end ov01_021FB878
-
-	thumb_func_start AreaDataManager_Alloc
-AreaDataManager_Alloc: ; 0x021FB888
-	push {r3, r4, r5, lr}
-	ldr r1, _021FB8F8 ; =0x000008C4
-	add r5, r0, #0
-	mov r0, #4
-	bl Heap_Alloc
-	add r4, r0, #0
-	mov r0, #4
-	mov r1, #0x10
-	bl Heap_AllocAtEnd
-	ldr r1, _021FB8FC ; =0x000008B8
-	mov r2, #0
-	str r0, [r4, r1]
-	ldr r0, [r4, r1]
-	str r5, [r0]
-	ldr r0, [r4, r1]
-	sub r1, #8
-	str r2, [r0, #4]
-	add r0, r4, r1
-	mov r1, #0x2a
-	add r2, r5, #0
-	bl ReadWholeNarcMemberByIdPair
-	ldr r0, _021FB900 ; =0x000008B6
-	ldrb r0, [r4, r0]
-	cmp r0, #0
-	beq _021FB8D8
-	mov r0, #0x6b
-	mov r1, #4
-	bl NARC_New
-	mov r1, #0x23
-	lsl r1, r1, #6
-	str r0, [r4, r1]
-	mov r0, #0x28
-	mov r1, #4
-	bl NARC_New
-	b _021FB8EE
-_021FB8D8:
-	mov r0, #0x6c
-	mov r1, #4
-	bl NARC_New
-	mov r1, #0x23
-	lsl r1, r1, #6
-	str r0, [r4, r1]
-	mov r0, #0x94
-	mov r1, #4
-	bl NARC_New
-_021FB8EE:
-	ldr r1, _021FB8FC ; =0x000008B8
-	ldr r1, [r4, r1]
-	str r0, [r1, #8]
-	add r0, r4, #0
-	pop {r3, r4, r5, pc}
-	.balign 4, 0
-_021FB8F8: .word 0x000008C4
-_021FB8FC: .word 0x000008B8
-_021FB900: .word 0x000008B6
-	thumb_func_end AreaDataManager_Alloc
-
-	thumb_func_start ov01_021FB904
-ov01_021FB904: ; 0x021FB904
-	mov r1, #0x23
-	lsl r1, r1, #6
-	ldr r0, [r0, r1]
-	bx lr
-	thumb_func_end ov01_021FB904
-
-	thumb_func_start ov01_021FB90C
-ov01_021FB90C: ; 0x021FB90C
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	add r4, r1, #0
-	bne _021FB918
-	bl GF_AssertFail
-_021FB918:
-	add r2, r4, #4
-	lsl r1, r5, #2
-	ldr r0, [r2, r1]
-	cmp r0, #0
-	bne _021FB930
-	ldr r0, [r4, #4]
-	cmp r0, #0
-	bne _021FB92C
-	bl GF_AssertFail
-_021FB92C:
-	add r0, r4, #4
-	pop {r3, r4, r5, pc}
-_021FB930:
-	add r0, r2, r1
-	pop {r3, r4, r5, pc}
-	thumb_func_end ov01_021FB90C
-
-	thumb_func_start AreaDataManager_GetMapPropModelFile
-AreaDataManager_GetMapPropModelFile: ; 0x021FB934
-	push {r4, lr}
-	add r4, r0, #0
-	bne _021FB93E
-	bl GF_AssertFail
-_021FB93E:
-	add r0, r4, #4
-	pop {r4, pc}
-	.balign 4, 0
-	thumb_func_end AreaDataManager_GetMapPropModelFile
-
-	thumb_func_start AreaDataManager_Free
-AreaDataManager_Free: ; 0x021FB944
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	mov r0, #0x23
-	ldr r1, [r5]
-	lsl r0, r0, #6
-	ldr r0, [r1, r0]
-	bl NARC_Delete
-	ldr r1, [r5]
-	ldr r0, _021FB9BC ; =0x000008AC
-	ldr r0, [r1, r0]
-	cmp r0, #0
-	beq _021FB962
-	bl ov01_021EA7E0
-_021FB962:
-	mov r6, #0
-	ldr r7, _021FB9C0 ; =0x00000226
-	add r4, r6, #0
-_021FB968:
-	ldr r0, [r5]
-	add r0, r0, r4
-	ldr r0, [r0, #4]
-	cmp r0, #0
-	beq _021FB976
-	bl Heap_Free
-_021FB976:
-	add r6, r6, #1
-	add r4, r4, #4
-	cmp r6, r7
-	blt _021FB968
-	ldr r1, [r5]
-	ldr r0, _021FB9C4 ; =0x000008BC
-	ldr r0, [r1, r0]
-	bl Heap_Free
-	ldr r1, [r5]
-	ldr r0, _021FB9C8 ; =0x0000089C
-	ldr r0, [r1, r0]
-	bl Heap_Free
-	ldr r1, [r5]
-	ldr r0, _021FB9C8 ; =0x0000089C
-	mov r2, #0
-	str r2, [r1, r0]
-	ldr r1, [r5]
-	add r0, r0, #4
-	ldr r0, [r1, r0]
-	bl Heap_Free
-	mov r0, #0x8a
-	ldr r1, [r5]
-	mov r2, #0
-	lsl r0, r0, #4
-	str r2, [r1, r0]
-	ldr r0, [r5]
-	bl Heap_Free
-	mov r0, #0
-	str r0, [r5]
-	pop {r3, r4, r5, r6, r7, pc}
-	nop
-_021FB9BC: .word 0x000008AC
-_021FB9C0: .word 0x00000226
-_021FB9C4: .word 0x000008BC
-_021FB9C8: .word 0x0000089C
-	thumb_func_end AreaDataManager_Free
-
-	thumb_func_start AreaDataManager_GetMapTexture
-AreaDataManager_GetMapTexture: ; 0x021FB9CC
-	push {r4, lr}
-	add r4, r0, #0
-	bne _021FB9D6
-	bl GF_AssertFail
-_021FB9D6:
-	ldr r0, _021FB9DC ; =0x000008A4
-	ldr r0, [r4, r0]
-	pop {r4, pc}
-	.balign 4, 0
-_021FB9DC: .word 0x000008A4
-	thumb_func_end AreaDataManager_GetMapTexture
-
-	thumb_func_start ov01_021FB9E0
-ov01_021FB9E0: ; 0x021FB9E0
-	push {r4, lr}
-	add r4, r0, #0
-	bne _021FB9EA
-	bl GF_AssertFail
-_021FB9EA:
-	ldr r0, _021FB9F0 ; =0x000008A8
-	ldr r0, [r4, r0]
-	pop {r4, pc}
-	.balign 4, 0
-_021FB9F0: .word 0x000008A8
-	thumb_func_end ov01_021FB9E0
-
-	thumb_func_start ov01_021FB9F4
-ov01_021FB9F4: ; 0x021FB9F4
-	ldr r1, _021FB9FC ; =0x000008AC
-	ldr r0, [r0, r1]
-	bx lr
-	nop
-_021FB9FC: .word 0x000008AC
-	thumb_func_end ov01_021FB9F4
-
-	thumb_func_start ov01_021FBA00
-ov01_021FBA00: ; 0x021FBA00
-	ldr r1, _021FBA10 ; =0x000008B7
-	ldrb r0, [r0, r1]
-	cmp r0, #0
-	beq _021FBA0C
-	mov r0, #1
-	bx lr
-_021FBA0C:
-	mov r0, #0
-	bx lr
-	.balign 4, 0
-_021FBA10: .word 0x000008B7
-	thumb_func_end ov01_021FBA00
-
-	thumb_func_start AreaDataManager_GetAreaLightArchiveID
-AreaDataManager_GetAreaLightArchiveID: ; 0x021FBA14
-	ldr r1, _021FBA38 ; =0x000008B7
-	ldrb r0, [r0, r1]
-	cmp r0, #0
-	beq _021FBA26
-	cmp r0, #1
-	beq _021FBA2A
-	cmp r0, #2
-	beq _021FBA2E
-	b _021FBA32
-_021FBA26:
-	mov r0, #1
-	bx lr
-_021FBA2A:
-	mov r0, #0
-	bx lr
-_021FBA2E:
-	mov r0, #3
-	bx lr
-_021FBA32:
-	mov r0, #0
-	bx lr
-	nop
-_021FBA38: .word 0x000008B7
-	thumb_func_end AreaDataManager_GetAreaLightArchiveID
+	.public AreaDataManager_Alloc
+	.public AreaDataManager_Free
+	.public AreaDataManager_GetAreaLightArchiveID
+	.public AreaDataManager_GetMapPropModelFile
+	.public AreaDataManager_GetMapTexture
+	.public Field3dModelAnimation_FrameAdvanceAndCheck
+	.public Field3dModelAnimation_FrameSet
+	.public Field3dModelAnimation_LoadFromFilesystem
+	.public Field3dModelAnimation_Unload
+	.public Field3dModel_LoadFromFilesystem
+	.public Field3dModel_Unload
+	.public Field3dObject_AddAnimation
+	.public Field3dObject_Draw
+	.public Field3dObject_GetActiveFlag
+	.public Field3dObject_InitFromModel
+	.public Field3dObject_RemoveAnimation
+	.public Field3dObject_SetActiveFlag
+	.public Field3dObject_SetPos
+	.public Field3dObject_SetPosEx
+	.public Field3dObject_SetXRotation
+	.public ov01_021FB878
+	.public ov01_021FB904
+	.public ov01_021FB90C
+	.public ov01_021FB9E0
+	.public ov01_021FB9F4
+	.public ov01_021FBA00
+	.public ov01_021FBD38
+	.public ov01_021FBD8C
+	.public ov01_021FBDFC
+	.public ov01_021FBE70
+	.public ov01_021FBF28
+	.public ov01_021FC030
 
 	thumb_func_start AreaDataManager_Load
 AreaDataManager_Load: ; 0x021FBA3C
@@ -578,544 +493,3 @@ _021FBCCC: .word ov01_02208BB0
 _021FBCD0: .word ov01_02209A88
 _021FBCD4: .word ov01_02209AB4
 	thumb_func_end AreaDataManager_Load
-
-	thumb_func_start Field3dModel_LoadFromFilesystem
-Field3dModel_LoadFromFilesystem: ; 0x021FBCD8
-	push {r3, r4, r5, lr}
-	mov r5, #0
-	add r4, r0, #0
-	add r0, r1, #0
-	add r1, r2, #0
-	str r5, [sp]
-	add r2, r5, #0
-	bl GfGfxLoader_LoadFromNarc
-	str r0, [r4]
-	bl NNS_G3dGetMdlSet
-	str r0, [r4, #4]
-	cmp r0, #0
-	beq _021FBD16
-	add r2, r0, #0
-	add r2, #8
-	beq _021FBD0A
-	ldrb r1, [r0, #9]
-	cmp r1, #0
-	bls _021FBD0A
-	ldrh r1, [r0, #0xe]
-	add r1, r2, r1
-	add r1, r1, #4
-	b _021FBD0C
-_021FBD0A:
-	mov r1, #0
-_021FBD0C:
-	cmp r1, #0
-	beq _021FBD16
-	ldr r1, [r1]
-	add r0, r0, r1
-	b _021FBD18
-_021FBD16:
-	mov r0, #0
-_021FBD18:
-	str r0, [r4, #8]
-	ldr r0, [r4]
-	bl NNS_G3dGetTex
-	str r0, [r4, #0xc]
-	cmp r0, #0
-	beq _021FBD32
-	mov r2, #1
-	ldr r0, _021FBD34 ; =ov01_021FBD8C
-	add r1, r4, #0
-	lsl r2, r2, #0xa
-	bl SysTask_CreateOnVWaitQueue
-_021FBD32:
-	pop {r3, r4, r5, pc}
-	.balign 4, 0
-_021FBD34: .word ov01_021FBD8C
-	thumb_func_end Field3dModel_LoadFromFilesystem
-
-	thumb_func_start ov01_021FBD38
-ov01_021FBD38: ; 0x021FBD38
-	push {r4, lr}
-	add r4, r0, #0
-	add r0, r1, #0
-	str r1, [r4]
-	bl NNS_G3dGetMdlSet
-	str r0, [r4, #4]
-	cmp r0, #0
-	beq _021FBD6A
-	add r2, r0, #0
-	add r2, #8
-	beq _021FBD5E
-	ldrb r1, [r0, #9]
-	cmp r1, #0
-	bls _021FBD5E
-	ldrh r1, [r0, #0xe]
-	add r1, r2, r1
-	add r1, r1, #4
-	b _021FBD60
-_021FBD5E:
-	mov r1, #0
-_021FBD60:
-	cmp r1, #0
-	beq _021FBD6A
-	ldr r1, [r1]
-	add r0, r0, r1
-	b _021FBD6C
-_021FBD6A:
-	mov r0, #0
-_021FBD6C:
-	str r0, [r4, #8]
-	ldr r0, [r4]
-	bl NNS_G3dGetTex
-	str r0, [r4, #0xc]
-	cmp r0, #0
-	beq _021FBD86
-	mov r2, #1
-	ldr r0, _021FBD88 ; =ov01_021FBD8C
-	add r1, r4, #0
-	lsl r2, r2, #0xa
-	bl SysTask_CreateOnVWaitQueue
-_021FBD86:
-	pop {r4, pc}
-	.balign 4, 0
-_021FBD88: .word ov01_021FBD8C
-	thumb_func_end ov01_021FBD38
-
-	thumb_func_start ov01_021FBD8C
-ov01_021FBD8C: ; 0x021FBD8C
-	push {r3, r4, r5, lr}
-	add r4, r1, #0
-	add r5, r0, #0
-	ldr r0, [r4, #0xc]
-	bl GF3dRender_AllocAndLoadTexResources
-	ldr r0, [r4]
-	ldr r1, [r4, #0xc]
-	bl GF3dRender_BindModelSet
-	add r0, r5, #0
-	bl SysTask_Destroy
-	pop {r3, r4, r5, pc}
-	thumb_func_end ov01_021FBD8C
-
-	thumb_func_start Field3dModel_Unload
-Field3dModel_Unload: ; 0x021FBDA8
-	push {r4, lr}
-	sub sp, #8
-	add r4, r0, #0
-	ldr r0, [r4, #0xc]
-	cmp r0, #0
-	beq _021FBDD8
-	add r1, sp, #4
-	add r2, sp, #0
-	bl NNS_G3dTexReleaseTexKey
-	ldr r1, _021FBDF4 ; =NNS_GfdDefaultFuncFreeTexVram
-	ldr r0, [sp, #4]
-	ldr r1, [r1]
-	blx r1
-	ldr r1, _021FBDF4 ; =NNS_GfdDefaultFuncFreeTexVram
-	ldr r0, [sp]
-	ldr r1, [r1]
-	blx r1
-	ldr r0, [r4, #0xc]
-	bl NNS_G3dPlttReleasePlttKey
-	ldr r1, _021FBDF8 ; =NNS_GfdDefaultFuncFreePlttVram
-	ldr r1, [r1]
-	blx r1
-_021FBDD8:
-	ldr r0, [r4]
-	cmp r0, #0
-	beq _021FBDE2
-	bl Heap_Free
-_021FBDE2:
-	mov r1, #0x10
-	mov r0, #0
-_021FBDE6:
-	strb r0, [r4]
-	add r4, r4, #1
-	sub r1, r1, #1
-	bne _021FBDE6
-	add sp, #8
-	pop {r4, pc}
-	nop
-_021FBDF4: .word NNS_GfdDefaultFuncFreeTexVram
-_021FBDF8: .word NNS_GfdDefaultFuncFreePlttVram
-	thumb_func_end Field3dModel_Unload
-
-	thumb_func_start ov01_021FBDFC
-ov01_021FBDFC: ; 0x021FBDFC
-	push {r4, lr}
-	sub sp, #8
-	add r4, r0, #0
-	ldr r0, [r4, #0xc]
-	cmp r0, #0
-	beq _021FBE2C
-	add r1, sp, #4
-	add r2, sp, #0
-	bl NNS_G3dTexReleaseTexKey
-	ldr r1, _021FBE3C ; =NNS_GfdDefaultFuncFreeTexVram
-	ldr r0, [sp, #4]
-	ldr r1, [r1]
-	blx r1
-	ldr r1, _021FBE3C ; =NNS_GfdDefaultFuncFreeTexVram
-	ldr r0, [sp]
-	ldr r1, [r1]
-	blx r1
-	ldr r0, [r4, #0xc]
-	bl NNS_G3dPlttReleasePlttKey
-	ldr r1, _021FBE40 ; =NNS_GfdDefaultFuncFreePlttVram
-	ldr r1, [r1]
-	blx r1
-_021FBE2C:
-	mov r1, #0x10
-	mov r0, #0
-_021FBE30:
-	strb r0, [r4]
-	add r4, r4, #1
-	sub r1, r1, #1
-	bne _021FBE30
-	add sp, #8
-	pop {r4, pc}
-	.balign 4, 0
-_021FBE3C: .word NNS_GfdDefaultFuncFreeTexVram
-_021FBE40: .word NNS_GfdDefaultFuncFreePlttVram
-	thumb_func_end ov01_021FBDFC
-
-	thumb_func_start Field3dModelAnimation_LoadFromFilesystem
-Field3dModelAnimation_LoadFromFilesystem: ; 0x021FBE44
-	push {r3, r4, r5, r6, lr}
-	sub sp, #4
-	add r4, r1, #0
-	mov r6, #0
-	add r1, r3, #0
-	add r5, r0, #0
-	add r0, r2, #0
-	ldr r3, [sp, #0x18]
-	add r2, r6, #0
-	str r6, [sp]
-	bl GfGfxLoader_LoadFromNarc
-	add r2, r0, #0
-	ldr r3, [sp, #0x1c]
-	add r0, r5, #0
-	add r1, r4, #0
-	bl ov01_021FC030
-	add r0, r6, #0
-	str r0, [r5, #0x10]
-	add sp, #4
-	pop {r3, r4, r5, r6, pc}
-	thumb_func_end Field3dModelAnimation_LoadFromFilesystem
-
-	thumb_func_start ov01_021FBE70
-ov01_021FBE70: ; 0x021FBE70
-	push {r4, lr}
-	add r4, r0, #0
-	bl ov01_021FC030
-	mov r0, #1
-	str r0, [r4, #0x10]
-	pop {r4, pc}
-	.balign 4, 0
-	thumb_func_end ov01_021FBE70
-
-	thumb_func_start Field3dModelAnimation_Unload
-Field3dModelAnimation_Unload: ; 0x021FBE80
-	push {r4, lr}
-	add r4, r0, #0
-	ldr r0, [r4]
-	cmp r0, #0
-	beq _021FBE9E
-	add r0, r1, #0
-	ldr r1, [r4, #8]
-	bl NNS_G3dFreeAnmObj
-	ldr r0, [r4, #0x10]
-	cmp r0, #0
-	bne _021FBE9E
-	ldr r0, [r4]
-	bl Heap_Free
-_021FBE9E:
-	mov r1, #0x14
-	mov r0, #0
-_021FBEA2:
-	strb r0, [r4]
-	add r4, r4, #1
-	sub r1, r1, #1
-	bne _021FBEA2
-	pop {r4, pc}
-	thumb_func_end Field3dModelAnimation_Unload
-
-	thumb_func_start Field3dModelAnimation_FrameAdvanceAndLoop
-Field3dModelAnimation_FrameAdvanceAndLoop: ; 0x021FBEAC
-	push {r4, lr}
-	add r4, r0, #0
-	ldr r0, [r4, #8]
-	ldr r0, [r0, #8]
-	ldrh r0, [r0, #4]
-	lsl r2, r0, #0xc
-	cmp r1, #0
-	ble _021FBECA
-	ldr r0, [r4, #0xc]
-	add r0, r0, r1
-	add r1, r2, #0
-	bl _s32_div_f
-	str r1, [r4, #0xc]
-	b _021FBEDC
-_021FBECA:
-	ldr r0, [r4, #0xc]
-	add r3, r4, #0
-	add r3, #0xc
-	add r0, r0, r1
-	str r0, [r4, #0xc]
-	bpl _021FBEDC
-	ldr r0, [r3]
-	add r0, r0, r2
-	str r0, [r3]
-_021FBEDC:
-	ldr r1, [r4, #0xc]
-	ldr r0, [r4, #8]
-	str r1, [r0]
-	pop {r4, pc}
-	thumb_func_end Field3dModelAnimation_FrameAdvanceAndLoop
-
-	thumb_func_start Field3dModelAnimation_FrameAdvanceAndCheck
-Field3dModelAnimation_FrameAdvanceAndCheck: ; 0x021FBEE4
-	push {r3, r4}
-	ldr r2, [r0, #8]
-	ldr r3, [r0, #0xc]
-	ldr r2, [r2, #8]
-	ldrh r2, [r2, #4]
-	lsl r4, r2, #0xc
-	mov r2, #0
-	cmp r1, #0
-	ble _021FBF06
-	add r1, r3, r1
-	cmp r1, r4
-	bge _021FBF00
-	str r1, [r0, #0xc]
-	b _021FBF12
-_021FBF00:
-	str r4, [r0, #0xc]
-	mov r2, #1
-	b _021FBF12
-_021FBF06:
-	add r1, r3, r1
-	bmi _021FBF0E
-	str r1, [r0, #0xc]
-	b _021FBF12
-_021FBF0E:
-	str r2, [r0, #0xc]
-	mov r2, #1
-_021FBF12:
-	ldr r1, [r0, #0xc]
-	ldr r0, [r0, #8]
-	str r1, [r0]
-	add r0, r2, #0
-	pop {r3, r4}
-	bx lr
-	.balign 4, 0
-	thumb_func_end Field3dModelAnimation_FrameAdvanceAndCheck
-
-	thumb_func_start Field3dModelAnimation_FrameSet
-Field3dModelAnimation_FrameSet: ; 0x021FBF20
-	str r1, [r0, #0xc]
-	ldr r0, [r0, #8]
-	str r1, [r0]
-	bx lr
-	thumb_func_end Field3dModelAnimation_FrameSet
-
-	thumb_func_start ov01_021FBF28
-ov01_021FBF28: ; 0x021FBF28
-	ldr r0, [r0, #0xc]
-	bx lr
-	thumb_func_end ov01_021FBF28
-
-	thumb_func_start Field3dObject_InitFromModel
-Field3dObject_InitFromModel: ; 0x021FBF2C
-	push {r3, r4, r5, lr}
-	add r5, r1, #0
-	mov r1, #0
-	mov r2, #0x78
-	add r4, r0, #0
-	bl memset
-	ldr r1, [r5, #8]
-	add r0, r4, #0
-	bl NNS_G3dRenderObjInit
-	mov r0, #1
-	str r0, [r4, #0x6c]
-	lsl r0, r0, #0xc
-	str r0, [r4, #0x60]
-	str r0, [r4, #0x64]
-	str r0, [r4, #0x68]
-	pop {r3, r4, r5, pc}
-	thumb_func_end Field3dObject_InitFromModel
-
-	thumb_func_start Field3dObject_AddAnimation
-Field3dObject_AddAnimation: ; 0x021FBF50
-	ldr r3, _021FBF58 ; =NNS_G3dRenderObjAddAnmObj
-	ldr r1, [r1, #8]
-	bx r3
-	nop
-_021FBF58: .word NNS_G3dRenderObjAddAnmObj
-	thumb_func_end Field3dObject_AddAnimation
-
-	thumb_func_start Field3dObject_RemoveAnimation
-Field3dObject_RemoveAnimation: ; 0x021FBF5C
-	ldr r3, _021FBF64 ; =NNS_G3dRenderObjRemoveAnmObj
-	ldr r1, [r1, #8]
-	bx r3
-	nop
-_021FBF64: .word NNS_G3dRenderObjRemoveAnmObj
-	thumb_func_end Field3dObject_RemoveAnimation
-
-	thumb_func_start Field3dObject_Draw
-Field3dObject_Draw: ; 0x021FBF68
-	push {r4, lr}
-	sub sp, #0x48
-	add r4, r0, #0
-	ldr r0, [r4, #0x6c]
-	cmp r0, #0
-	beq _021FBFFC
-	add r0, sp, #0x24
-	bl MTX_Identity33_
-	add r0, r4, #0
-	add r0, #0x70
-	ldrh r0, [r0]
-	ldr r3, _021FC000 ; =FX_SinCosTable_
-	asr r0, r0, #4
-	lsl r2, r0, #1
-	lsl r1, r2, #1
-	add r2, r2, #1
-	lsl r2, r2, #1
-	ldrsh r1, [r3, r1]
-	ldrsh r2, [r3, r2]
-	add r0, sp, #0
-	bl MTX_RotX33_
-	add r1, sp, #0x24
-	add r0, sp, #0
-	add r2, r1, #0
-	bl MTX_Concat33
-	add r0, r4, #0
-	add r0, #0x74
-	ldrh r0, [r0]
-	ldr r3, _021FC000 ; =FX_SinCosTable_
-	asr r0, r0, #4
-	lsl r2, r0, #1
-	lsl r1, r2, #1
-	add r2, r2, #1
-	lsl r2, r2, #1
-	ldrsh r1, [r3, r1]
-	ldrsh r2, [r3, r2]
-	add r0, sp, #0
-	bl MTX_RotZ33_
-	add r1, sp, #0x24
-	add r0, sp, #0
-	add r2, r1, #0
-	bl MTX_Concat33
-	add r0, r4, #0
-	add r0, #0x72
-	ldrh r0, [r0]
-	ldr r3, _021FC000 ; =FX_SinCosTable_
-	asr r0, r0, #4
-	lsl r2, r0, #1
-	lsl r1, r2, #1
-	add r2, r2, #1
-	lsl r2, r2, #1
-	ldrsh r1, [r3, r1]
-	ldrsh r2, [r3, r2]
-	add r0, sp, #0
-	bl MTX_RotY33_
-	add r1, sp, #0x24
-	add r0, sp, #0
-	add r2, r1, #0
-	bl MTX_Concat33
-	add r1, r4, #0
-	add r0, r4, #0
-	add r4, #0x60
-	add r1, #0x54
-	add r2, sp, #0x24
-	add r3, r4, #0
-	bl GF3dRender_DrawModel
-_021FBFFC:
-	add sp, #0x48
-	pop {r4, pc}
-	.balign 4, 0
-_021FC000: .word FX_SinCosTable_
-	thumb_func_end Field3dObject_Draw
-
-	thumb_func_start Field3dObject_SetActiveFlag
-Field3dObject_SetActiveFlag: ; 0x021FC004
-	str r1, [r0, #0x6c]
-	bx lr
-	thumb_func_end Field3dObject_SetActiveFlag
-
-	thumb_func_start Field3dObject_GetActiveFlag
-Field3dObject_GetActiveFlag: ; 0x021FC008
-	ldr r0, [r0, #0x6c]
-	bx lr
-	thumb_func_end Field3dObject_GetActiveFlag
-
-	thumb_func_start Field3dObject_SetPosEx
-Field3dObject_SetPosEx: ; 0x021FC00C
-	str r1, [r0, #0x54]
-	str r2, [r0, #0x58]
-	str r3, [r0, #0x5c]
-	bx lr
-	thumb_func_end Field3dObject_SetPosEx
-
-	thumb_func_start Field3dObject_SetPos
-Field3dObject_SetPos: ; 0x021FC014
-	add r3, r1, #0
-	add r2, r0, #0
-	ldmia r3!, {r0, r1}
-	add r2, #0x54
-	stmia r2!, {r0, r1}
-	ldr r0, [r3]
-	str r0, [r2]
-	bx lr
-	thumb_func_end Field3dObject_SetPos
-
-	thumb_func_start Field3dObject_SetXRotation
-Field3dObject_SetXRotation: ; 0x021FC024
-	lsl r2, r2, #1
-	add r0, r0, r2
-	add r0, #0x70
-	strh r1, [r0]
-	bx lr
-	.balign 4, 0
-	thumb_func_end Field3dObject_SetXRotation
-
-	thumb_func_start ov01_021FC030
-ov01_021FC030: ; 0x021FC030
-	push {r4, r5, r6, lr}
-	add r5, r0, #0
-	add r4, r1, #0
-	str r2, [r5]
-	add r0, r2, #0
-	mov r1, #0
-	add r6, r3, #0
-	bl NNS_G3dGetAnmByIdx
-	str r0, [r5, #4]
-	ldr r1, [r5, #4]
-	ldr r2, [r4, #8]
-	add r0, r6, #0
-	bl NNS_G3dAllocAnmObj
-	str r0, [r5, #8]
-	ldr r1, [r5, #4]
-	ldr r2, [r4, #8]
-	ldr r3, [r4, #0xc]
-	bl NNS_G3dAnmObjInit
-	pop {r4, r5, r6, pc}
-	thumb_func_end ov01_021FC030
-
-	.rodata
-
-ov01_02208BA0: ; 0x02208BA0
-	.byte 0x00, 0x00, 0x84, 0x10, 0x84, 0x10, 0x84, 0x10, 0x84, 0x10, 0x84, 0x10, 0x84, 0x10, 0x84, 0x10
-
-ov01_02208BB0: ; 0x02208BB0
-	.byte 0x84, 0x10, 0x84, 0x10, 0x84, 0x10, 0x84, 0x10, 0x84, 0x10, 0x84, 0x10, 0x84, 0x10, 0x84, 0x10
-
-	.data
-
-	.balign 4, 0
-ov01_02209A88: ; 0x02209A88
-	.asciz "fielddata/build_model/bm_field_matshp.dat"
-
-	.balign 4, 0
-ov01_02209AB4: ; 0x02209AB4
-	.asciz "fielddata/build_model/bm_room_matshp.dat"

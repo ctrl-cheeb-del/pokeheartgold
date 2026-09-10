@@ -1,178 +1,58 @@
 	.include "asm/macros.inc"
 	.include "unk_0201010C.inc"
 	.include "global.inc"
+	.public sub_02010AB0
+	.public sub_02010B14
+	.public sub_02010BB4
+	.public sub_02010BF4
+	.public sub_02010C38
+	.public sub_02010E64
+	.public _02010B28
+	.public _02010B44
+	.public _02010B50
+	.public _02010B5C
+	.public _02010B66
+	.public _02010B72
+	.public _02010B7C
+	.public _02010BB0
+	.public _02010BCC
+	.public _02010BDC
+	.public _02010BEE
+	.public _02010BF0
+	.public _02010C1C
+	.public _02010C22
+	.public _02010C32
+	.public _02010C42
+	.public _02010C52
+	.public _02010C9C
+	.public _02010CBC
+	.public _02010CE0
+	.public _02010CE8
+	.public _02010CEA
+	.public _02010D02
+	.public _02010D48
+	.public _02010D68
+	.public _02010D8E
+	.public _02010DAC
+	.public _02010DEE
+	.public _02010E0E
+	.public _02010E32
+	.public _02010E50
+	.public _02010E54
+	.public _02010E58
+	.public _02010E5C
+	.public _02010E60
+	.public _02010E7A
+	.public _02010E94
+	.public _02010EAE
+	.public _02010EC0
+	.public _02010EC4
+
 	.text
-	thumb_func_start sub_02010AB0
-sub_02010AB0: ; 0x02010AB0
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r3, #0
-	add r6, r2, #0
-	ldrb r2, [r5]
-	ldr r4, [sp, #0x18]
-	ldr r7, [sp, #0x1c]
-	lsl r2, r2, #7
-	str r2, [r0]
-	ldrb r2, [r5, #1]
-	lsl r2, r2, #7
-	str r2, [r0, #4]
-	ldrb r2, [r5, #2]
-	lsl r2, r2, #7
-	str r2, [r0, #8]
-	ldrb r2, [r5, #3]
-	lsl r2, r2, #7
-	str r2, [r0, #0xc]
-	ldrb r0, [r4]
-	add r2, r7, #0
-	str r0, [r1]
-	ldrb r0, [r4, #1]
-	str r0, [r1, #4]
-	ldrb r0, [r4, #2]
-	str r0, [r1, #8]
-	ldrb r0, [r4, #3]
-	str r0, [r1, #0xc]
-	ldrb r0, [r5]
-	ldrb r1, [r4]
-	bl sub_02010A6C
-	str r0, [r6]
-	ldrb r0, [r5, #1]
-	ldrb r1, [r4, #1]
-	add r2, r7, #0
-	bl sub_02010A6C
-	str r0, [r6, #4]
-	ldrb r0, [r5, #2]
-	ldrb r1, [r4, #2]
-	add r2, r7, #0
-	bl sub_02010A6C
-	str r0, [r6, #8]
-	ldrb r0, [r5, #3]
-	ldrb r1, [r4, #3]
-	add r2, r7, #0
-	bl sub_02010A6C
-	str r0, [r6, #0xc]
-	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end sub_02010AB0
-	thumb_func_start sub_02010B14
-sub_02010B14: ; 0x02010B14
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	ldr r0, [r5, #0x20]
-	add r6, r1, #0
-	mov r1, #0x1c
-	bl Heap_Alloc
-	str r0, [r5, #0x14]
-	mov r2, #0x1c
-	mov r1, #0
-_02010B28:
-	strb r1, [r0]
-	add r0, r0, #1
-	sub r2, r2, #1
-	bne _02010B28
-	ldr r4, [r5, #0x14]
-	cmp r6, #0
-	ldrh r1, [r5, #0x24]
-	ldr r0, _02010BB0 ; =0x00007FFF
-	bne _02010B5C
-	cmp r1, r0
-	bne _02010B44
-	mov r7, #0x10
-	mov r6, #0
-	b _02010B7C
-_02010B44:
-	cmp r1, #0
-	bne _02010B50
-	mov r7, #0xf
-	mvn r7, r7
-	mov r6, #0
-	b _02010B7C
-_02010B50:
-	mov r7, #0xf
-	mvn r7, r7
-	mov r6, #0
-	bl GF_AssertFail
-	b _02010B7C
-_02010B5C:
-	cmp r1, r0
-	bne _02010B66
-	mov r7, #0
-	mov r6, #0x10
-	b _02010B7C
-_02010B66:
-	cmp r1, #0
-	bne _02010B72
-	mov r7, #0
-	add r6, r7, #0
-	sub r6, #0x10
-	b _02010B7C
-_02010B72:
-	mov r7, #0
-	add r6, r7, #0
-	sub r6, #0x10
-	bl GF_AssertFail
-_02010B7C:
-	ldr r0, [r5, #0x10]
-	add r1, r7, #0
-	bl SetMasterBrightness
-	ldr r0, [r5, #4]
-	add r1, r6, #0
-	str r0, [r4]
-	ldr r0, [r5, #8]
-	str r0, [r4, #4]
-	mov r0, #0
-	str r0, [r4, #8]
-	lsl r0, r7, #7
-	str r0, [r4, #0xc]
-	lsl r0, r6, #7
-	str r0, [r4, #0x10]
-	ldr r2, [r5, #4]
-	add r0, r7, #0
-	bl sub_02010A6C
-	str r0, [r4, #0x14]
-	ldr r0, [r5, #0x10]
-	str r0, [r4, #0x18]
-	ldr r0, [r5, #0xc]
-	add r0, r0, #1
-	str r0, [r5, #0xc]
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_02010BB0: .word 0x00007FFF
-	thumb_func_end sub_02010B14
-	thumb_func_start sub_02010BB4
-sub_02010BB4: ; 0x02010BB4
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	ldr r1, [r5, #0xc]
-	mov r4, #0
-	ldr r0, [r5, #0x14]
-	cmp r1, #1
-	beq _02010BCC
-	cmp r1, #2
-	beq _02010BDC
-	cmp r1, #3
-	beq _02010BEE
-	b _02010BF0
-_02010BCC:
-	bl sub_02010BF4
-	cmp r0, #1
-	bne _02010BF0
-	ldr r0, [r5, #0xc]
-	add r0, r0, #1
-	str r0, [r5, #0xc]
-	b _02010BF0
-_02010BDC:
-	bl Heap_Free
-	add r0, r4, #0
-	str r0, [r5, #0x14]
-	ldr r0, [r5, #0xc]
-	mov r4, #1
-	add r0, r0, #1
-	str r0, [r5, #0xc]
-	b _02010BF0
-_02010BEE:
-	mov r4, #1
-_02010BF0:
-	add r0, r4, #0
-	pop {r3, r4, r5, pc}
-	thumb_func_end sub_02010BB4
+	.public sub_02010AB0
+	.public sub_02010B14
+	.public sub_02010BB4
+	.public sub_02010E64
 	thumb_func_start sub_02010BF4
 sub_02010BF4: ; 0x02010BF4
 	push {r4, lr}
@@ -501,55 +381,3 @@ _02010E58: .word 0x04000004
 _02010E5C: .word 0x04001040
 _02010E60: .word 0x04001042
 	thumb_func_end sub_02010C38
-	thumb_func_start sub_02010E64
-sub_02010E64: ; 0x02010E64
-	push {r4, r5, r6, lr}
-	add r4, r1, #0
-	add r5, r0, #0
-	add r6, r2, #0
-	cmp r4, #0
-	beq _02010E7A
-	cmp r4, #1
-	beq _02010E7A
-	cmp r4, #2
-	beq _02010E94
-	pop {r4, r5, r6, pc}
-_02010E7A:
-	ldr r1, _02010EC0 ; =0x00000604
-	add r0, r3, #0
-	bl Heap_Alloc
-	str r0, [r5]
-	mov r0, #1
-	str r0, [r5, #4]
-	str r6, [r5, #8]
-	mov r0, #6
-	ldr r1, [r5]
-	lsl r0, r0, #8
-	str r4, [r1, r0]
-	pop {r4, r5, r6, pc}
-_02010E94:
-	ldr r1, _02010EC4 ; =0x00000C08
-	add r0, r3, #0
-	bl Heap_Alloc
-	str r0, [r5]
-	mov r0, #2
-	str r0, [r5, #4]
-	mov r0, #6
-	mov r3, #0
-	lsl r0, r0, #8
-	str r6, [r5, #8]
-	add r4, r3, #0
-	add r1, r0, #4
-_02010EAE:
-	ldr r2, [r5]
-	add r2, r2, r4
-	str r3, [r2, r0]
-	add r3, r3, #1
-	add r4, r4, r1
-	cmp r3, #2
-	blt _02010EAE
-	pop {r4, r5, r6, pc}
-	nop
-_02010EC0: .word 0x00000604
-_02010EC4: .word 0x00000C08
-	thumb_func_end sub_02010E64

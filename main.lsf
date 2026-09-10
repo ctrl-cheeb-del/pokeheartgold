@@ -55,6 +55,9 @@ Static main
     Object src/sys_task_api.o
     Object asm/render_window.o
     Object asm/unk_0200FA24.o
+    Object src/palette_fade_state_1.o
+    Object asm/unk_0200FA24_residual_2.o
+    Object src/palette_fade_state_2.o
     Object src/screen_fade_update.o
     Object asm/unk_0200FEE4.o
     Object src/screen_fade_update_2.o
@@ -64,13 +67,32 @@ Static main
     Object src/palette_fade_effects_2.o
     Object asm/unk_020109D8.o
     Object src/palette_fade_effects_3.o
+    Object src/brightness_transition_1.o
     Object asm/unk_02010AB0.o
+    Object src/brightness_transition_2.o
     Object src/palette_fade_effects_4.o
     Object asm/unk_02010F34.o
     Object src/palette_fade_effects_5.o
     Object asm/unk_02011080.o
     Object src/palette_fade_effects_6.o
     Object asm/unk_02011130.o
+    Object src/palette_fade_11130_1.o
+    Object asm/unk_02011130_residual_2.o
+    Object src/palette_fade_11130_2.o
+    Object asm/unk_02011130_residual_3.o
+    Object src/palette_fade_11130_3.o
+    Object asm/unk_02011130_residual_4.o
+    Object src/palette_fade_11130_4.o
+    Object asm/unk_02011130_residual_5.o
+    Object src/palette_fade_11130_5.o
+    Object asm/unk_02011130_residual_6.o
+    Object src/palette_fade_11130_6.o
+    Object asm/unk_02011130_residual_7.o
+    Object src/palette_fade_11130_7.o
+    Object asm/unk_02011130_residual_8.o
+    Object src/palette_fade_11130_8.o
+    Object asm/unk_02011130_residual_9.o
+    Object src/palette_fade_11130_9.o
     Object src/palette_fade_effects_7.o
     Object asm/unk_02012204.o
     Object src/palette_fade_effects_8.o
@@ -120,7 +142,7 @@ Static main
     Object src/pokepic_animation_6.o
     Object asm/unk_02017808.o
     Object src/pokepic_animation_7.o
-    Object asm/unk_02017BF8.o
+    Object src/motion_state_update.o
     Object asm/unk_02017FAC.o
     Object src/model_animation.o
     Object src/unk_02018380.o
@@ -298,6 +320,8 @@ Static main
     Object asm/unk_02036144.o
     Object src/communication_manager_3.o
     Object asm/unk_02036298.o
+    Object src/field_model_transform_1.o
+    Object asm/unk_02036298_residual_2.o
     Object src/communication_manager_4.o
     Object asm/unk_0203667C.o
     Object src/communication_manager_5.o
@@ -422,7 +446,7 @@ Static main
     Object src/save_vars_flags.o
     Object src/task.o
     Object src/encounter.o
-    Object asm/unk_020517A4.o
+    Object src/battle_intro_config.o
     Object src/battle/battle_setup.o
     Object src/blackout.o
     Object src/game_clear.o
@@ -450,6 +474,9 @@ Static main
     Object asm/unk_02055BF0_data.o
     Object src/unk_02055BF0.o
     Object asm/unk_02056680.o
+    Object src/field_transition_tasks_1.o
+    Object asm/unk_02056680_residual_2.o
+    Object src/field_transition_tasks_2.o
     Object asm/unk_02056D7C.o
     Object src/communication_player_movement.o
     Object asm/unk_02056EF4.o
@@ -625,6 +652,8 @@ Static main
     Object asm/unk_02063290.o
     Object asm/unk_data_020FDB44.o
     Object asm/unk_020632B0.o
+    Object src/map_object_jump_1.o
+    Object asm/unk_020632B0_residual_2.o
     Object src/map_object_behavior.o
     Object asm/unk_02063A14.o
     Object src/map_object_behavior_2.o
@@ -676,13 +705,16 @@ Static main
     Object asm/unk_0206759C.o
     Object src/field_roamer.o
     Object asm/unk_0206793C.o
-    Object asm/unk_02067A60.o
+    Object src/field_following_trainer.o
     Object src/field_move.o
     Object src/field_move_environment.o
     Object src/field_effects.o
     Object src/gymmick_init.o
     Object src/unk_02068F84.o
     Object asm/unk_02068FC8.o
+    Object src/field_context_access_1.o
+    Object asm/unk_02068FC8_residual_2.o
+    Object src/field_context_access_2.o
     Object src/unk_02069528.o
     Object src/render_model.o
     Object src/render_animation.o
@@ -707,7 +739,13 @@ Static main
     Object src/battle_link_exchange.o
     Object asm/unk_0207527C.o
     Object src/battle_link_tasks.o
+    Object src/overlay_resource_actor_1.o
     Object asm/unk_020755E8.o
+    Object src/overlay_resource_actor_2.o
+    Object asm/unk_020755E8_residual_2.o
+    Object src/overlay_resource_actor_3.o
+    Object asm/unk_020755E8_residual_3.o
+    Object src/overlay_resource_actor_4.o
     Object src/particle_scene.o
     Object src/type_icon_resources.o
     Object asm/unk_02077678.o
@@ -723,8 +761,26 @@ Static main
     Object src/party_menu_items.o
     Object src/naming_screen.o
     Object asm/unk_020850F4.o
+    Object src/field_ui_85604_1.o
     Object asm/unk_02085604.o
+    Object src/field_ui_85604_2.o
+    Object asm/unk_02085604_residual_2.o
+    Object src/field_ui_85604_3.o
+    Object asm/unk_02085604_residual_3.o
+    Object src/field_ui_85604_4.o
+    Object asm/unk_02085604_residual_4.o
+    Object src/field_ui_85604_5.o
+    Object asm/unk_02085604_residual_5.o
+    Object src/field_ui_863f4_1.o
     Object asm/unk_020863F4.o
+    Object src/field_ui_863f4_2.o
+    Object asm/unk_020863F4_residual_2.o
+    Object src/field_ui_863f4_3.o
+    Object asm/unk_020863F4_residual_3.o
+    Object src/field_ui_863f4_4.o
+    Object asm/unk_020863F4_residual_4.o
+    Object src/field_ui_863f4_5.o
+    Object asm/unk_020863F4_residual_5.o
     Object asm/unk_02087284.o
     Object src/touch_motion_vector.o
     Object asm/unk_020873D4.o
@@ -756,11 +812,17 @@ Static main
     Object src/summary_screen_helpers_10.o
     Object asm/unk_02089D68.o
     Object src/summary_screen_helpers_11.o
-    Object asm/unk_02089E98.o
+    Object src/summary_ui_stats.o
     Object src/summary_screen_helpers_12.o
     Object asm/unk_0208A2E0.o
     Object src/summary_screen_helpers_13.o
+    Object src/field_ui_8a3f4_1.o
     Object asm/unk_0208A3F4.o
+    Object src/field_ui_8a3f4_2.o
+    Object asm/unk_0208A3F4_residual_2.o
+    Object src/field_ui_8a3f4_3.o
+    Object asm/unk_0208A3F4_residual_3.o
+    Object src/field_ui_8a3f4_4.o
     Object src/summary_screen_helpers_14.o
     Object asm/unk_0208AED4.o
     Object src/summary_screen_helpers_15.o
@@ -768,18 +830,51 @@ Static main
     Object src/summary_screen_helpers_16.o
     Object asm/unk_0208B118.o
     Object asm/unk_0208B1AC.o
+    Object src/field_ui_8b1ac_1.o
+    Object asm/unk_0208B1AC_residual_2.o
+    Object src/field_ui_8b1ac_2.o
+    Object asm/unk_0208B1AC_residual_3.o
+    Object src/field_ui_8b1ac_3.o
+    Object asm/unk_0208B1AC_residual_4.o
+    Object src/field_ui_8b1ac_4.o
+    Object asm/unk_0208B1AC_residual_5.o
+    Object src/field_ui_8b1ac_5.o
+    Object asm/unk_0208B1AC_residual_6.o
+    Object src/field_ui_8b1ac_6.o
+    Object asm/unk_0208B1AC_residual_7.o
+    Object src/field_ui_8b1ac_7.o
+    Object asm/unk_0208B1AC_residual_8.o
+    Object src/field_ui_8b1ac_8.o
+    Object asm/unk_0208B1AC_residual_9.o
+    Object src/field_ui_8b1ac_9.o
+    Object asm/unk_0208B1AC_residual_10.o
+    Object src/field_ui_8b1ac_10.o
+    Object asm/unk_0208B1AC_residual_11.o
     Object asm/unk_0208C3E4.o
+    Object src/field_ui_8c3e4_1.o
+    Object asm/unk_0208C3E4_residual_2.o
+    Object src/field_ui_8c3e4_2.o
+    Object asm/unk_0208C3E4_residual_3.o
+    Object src/field_ui_8c3e4_3.o
+    Object asm/unk_0208C3E4_residual_4.o
+    Object src/field_ui_8c3e4_4.o
+    Object asm/unk_0208C3E4_residual_5.o
+    Object src/field_ui_8c3e4_5.o
+    Object asm/unk_0208C3E4_residual_6.o
+    Object src/field_ui_8c3e4_6.o
+    Object asm/unk_0208C3E4_residual_7.o
     Object src/pokemon_picture_graphics_init.o
     Object asm/unk_0208DE40.o
     Object src/pokemon_picture_scene.o
     Object asm/unk_0208DF2C.o
     Object src/pokemon_picture_scene_2.o
-    Object asm/unk_0208DFF8.o
+    Object src/pokemon_picture_scene_vectors.o
     Object src/pokemon_picture_scene_3.o
     Object src/ribbon.o
     Object src/trainer_memo.o
     Object src/trade_communication.o
     Object asm/unk_0208F658.o
+    Object src/wireless_room_packets.o
     Object asm/unk_0208F814.o
     Object src/wireless_room.o
     Object asm/unk_0208FB64.o
@@ -805,14 +900,17 @@ Static main
     Object src/mom_gift.o
     Object src/unk_020932A4.o
     Object asm/unk_020932E0.o
+    Object src/grid_cursor.o
     Object asm/unk_020957B0.o
+    Object src/grid_cursor_2.o
     Object asm/unk_02095DF4.o
     Object src/phonebook_dat.o
     Object src/choose_starter.o
     Object asm/unk_020961D8.o
     Object src/error_message_reset.o
     Object src/sin_vcount.o
-    Object asm/frontier.o
+    Object src/frontier_runtime.o
+    Object asm/frontier_template.o
 	Object src/unk_020968B0.o
     Object src/battle_frontier_communication.o
     Object asm/unk_02096910.o
@@ -992,51 +1090,80 @@ Overlay field
     Object src/field/scrcmd_message.o
     Object src/field/draw_map_name.o
     Object asm/overlay_01_021EFB38.o
+    Object src/field_effect_manager_1.o
     Object asm/overlay_01_021F1348.o
+    Object src/field_effect_manager_2.o
+    Object asm/overlay_01_021F1348_residual_2.o
+    Object src/field_effect_manager_3.o
+    Object asm/overlay_01_021F1348_residual_3.o
+    Object src/field_effect_manager_4.o
+    Object asm/overlay_01_021F1348_residual_4.o
     Object asm/overlay_01_021F1AFC.o
     Object asm/overlay_01_021F3114.o
     Object asm/overlay_01_021F3378.o
     Object src/field/map_prop_manager.o
     Object src/field/signpost.o
+    Object asm/overlay_01_021F3F50_data_local.o
+    Object src/field_save_stats_printer_1.o
     Object asm/overlay_01_021F3F50.o
+    Object src/field_save_stats_printer_2.o
     Object asm/overlay_01_021F4464.o
     Object asm/overlay_01_021F467C.o
     Object asm/overlay_01_021F4704.o
-    Object asm/overlay_01_021F6830.o
-    Object asm/overlay_01_021F6CFC.o
+    Object src/field_overlay_app_dispatch.o
+    Object src/field_friendship_exchange.o
     Object asm/overlay_01_sprite_data.o
     Object asm/overlay_01_021F72DC.o
-    Object asm/overlay_01_021F8D80.o
+    Object src/field_object_models.o
     Object asm/overlay_01_021F944C.o
     Object asm/overlay_01_021FAC44.o
     Object asm/overlay_01_021FAD1C.o
-    Object asm/overlay_01_021FB04C.o
+    Object src/field_resource_stream.o
     Object asm/overlay_01_021FB368.o
     Object asm/overlay_01_021FB4C0.o
     Object asm/overlay_01_021FB5D4.o
+    Object src/area_data_manager_1.o
     Object asm/overlay_01_021FB878.o
-    Object asm/overlay_01_021FC05C.o
+    Object src/area_data_manager_2.o
+    Object asm/overlay_01_021FB878_residual_2.o
+    Object src/area_data_manager_3.o
+    Object asm/overlay_01_021FB878_residual_3.o
+    Object src/field_honey_sweet_scent.o
     Object asm/overlay_01_021FC4C4.o
     Object asm/overlay_01_data_02208BFC.o
-    Object asm/overlay_01_021FC66C.o
+    Object src/field_fishing.o
     Object asm/overlay_01_021FCD2C.o
     Object asm/overlay_01_021FCE98.o
-    Object asm/overlay_01_021FD1B8.o
+    Object src/field_effect_renderer_list.o
+    Object src/field_follow_shadow_1.o
     Object asm/overlay_01_021FD41C.o
+    Object src/field_follow_shadow_2.o
+    Object asm/overlay_01_021FD41C_residual_2.o
+    Object src/field_follow_shadow_3.o
+    Object asm/overlay_01_021FD41C_residual_3.o
+    Object src/field_follow_shadow_4.o
+    Object asm/overlay_01_021FD41C_residual_4.o
     Object asm/overlay_01_021FDA14.o
-    Object asm/overlay_01_021FE200.o
+    Object src/field_effect_model_bank.o
     Object asm/overlay_01_021FE590.o
     Object asm/overlay_01_021FE780.o
     Object asm/overlay_01_021FEA0C.o
     Object asm/overlay_01_021FEC38.o
     Object asm/overlay_01_021FED9C.o
+    Object asm/overlay_01_021FEEEC_data_local.o
+    Object src/field_effect_follow_object_1.o
     Object asm/overlay_01_021FEEEC.o
+    Object src/field_effect_follow_object_2.o
+    Object asm/overlay_01_021FEEEC_residual_2.o
+    Object src/field_effect_follow_object_3.o
     Object asm/overlay_01_021FF464.o
     Object asm/overlay_01_021FF6B0.o
-    Object asm/overlay_01_021FF854.o
+    Object asm/overlay_01_021FF854_data_local.o
+    Object src/field_effect_map_marker.o
     Object asm/overlay_01_021FFC0C.o
     Object src/field/overlay_01_021FFECC.o
     Object asm/overlay_01_02200040.o
+    Object src/field_effect_animation.o
     Object asm/overlay_01_022001E4.o
     Object asm/overlay_01_022006A8.o
     Object asm/overlay_01_02200858.o
@@ -1044,7 +1171,7 @@ Overlay field
     Object src/field/scrcmd_move_tutor.o
     Object src/field/scrcmd_moneybox.o
     Object asm/overlay_01_022031C0.o
-    Object asm/overlay_01_02203A18.o
+    Object src/field_effect_ground_marker.o
     Object asm/overlay_01_02203E40.o
     Object src/field/overlay_01_02204004.o
     Object src/field/apricorn_tree_anim.o
