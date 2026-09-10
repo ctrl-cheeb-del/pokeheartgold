@@ -171,3 +171,29 @@
 .public ov01_022000DC
 .public ov01_022003F4
 .public ov01_02200540
+
+	.public MovementScriptMachine
+	.public MovementScriptMachineSub_Init
+	.public MovementScriptMachineSub_WaitReady
+	.public MovementScriptMachineSub_SetMovementCommand
+	.public MovementScriptMachineSub_WaitMovementCommand
+	.public MovementScriptMachineSub_LoopCheck
+	.public MovementScriptMachineSub_Done
+	.public MapObject_RunMovementCommand
+	.public sub_0206247C
+	.public sub_020624CC
+	.public sub_020627B0
+	.public sub_02062958
+	.public sub_02062D54
+	.public sub_02062F48
+	.public sub_02062FAC
+	.public sub_02062FEC
+	.public _020FDA1C
+	.public _020FDA28
+	.public _020FDA50
+	.public _020FDA68
+	.public _020FDA84
+	.public _020FDAC4
+	.public _020FDB04
+	.public _0210FACC
+	.public sMovementScriptMachineStateFuncs

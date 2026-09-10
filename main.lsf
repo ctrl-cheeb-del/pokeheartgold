@@ -59,7 +59,26 @@ Static main
     Object asm/unk_0200FEE4.o
     Object src/screen_fade_update_2.o
     Object asm/unk_020100C4.o
+    Object src/palette_fade_effects.o
     Object asm/unk_0201010C.o
+    Object src/palette_fade_effects_2.o
+    Object asm/unk_020109D8.o
+    Object src/palette_fade_effects_3.o
+    Object asm/unk_02010AB0.o
+    Object src/palette_fade_effects_4.o
+    Object asm/unk_02010F34.o
+    Object src/palette_fade_effects_5.o
+    Object asm/unk_02011080.o
+    Object src/palette_fade_effects_6.o
+    Object asm/unk_02011130.o
+    Object src/palette_fade_effects_7.o
+    Object asm/unk_02012204.o
+    Object src/palette_fade_effects_8.o
+    Object asm/unk_020124B0.o
+    Object src/palette_fade_effects_9.o
+    Object asm/unk_020127B8.o
+    Object src/palette_fade_effects_10.o
+    Object asm/unk_02012A90.o
     Object src/screen_window_effect.o
     Object src/screen_effect_step.o
     Object asm/unk_02012DD8.o
@@ -260,7 +279,63 @@ Static main
     Object asm/unk_02035900.o
     Object src/link_synchronization.o
     Object asm/unk_020379A0.o
+    Object src/network_communication_state.o
     Object asm/unk_02037C94.o
+    Object src/network_communication_state_2.o
+    Object asm/unk_02037E4C.o
+    Object src/network_communication_state_3.o
+    Object asm/unk_02037EC8.o
+    Object src/network_communication_state_4.o
+    Object asm/unk_02037FF0.o
+    Object src/network_communication_state_5.o
+    Object asm/unk_020384B4.o
+    Object src/network_communication_state_6.o
+    Object asm/unk_02038550.o
+    Object src/network_communication_state_7.o
+    Object asm/unk_020386AC.o
+    Object src/network_communication_state_8.o
+    Object asm/unk_02038804.o
+    Object src/network_communication_state_9.o
+    Object asm/unk_020388E0.o
+    Object src/network_communication_state_10.o
+    Object asm/unk_02038A10.o
+    Object src/network_communication_state_11.o
+    Object asm/unk_02038C3C.o
+    Object src/network_communication_state_12.o
+    Object asm/unk_02038D90.o
+    Object src/network_communication_state_13.o
+    Object asm/unk_02038EB8.o
+    Object src/network_communication_state_14.o
+    Object asm/unk_020390C4.o
+    Object src/network_communication_state_15.o
+    Object asm/unk_02039378.o
+    Object src/network_communication_state_16.o
+    Object asm/unk_020393C8.o
+    Object src/network_communication_state_17.o
+    Object asm/unk_020394A0.o
+    Object src/network_communication_state_18.o
+    Object asm/unk_02039528.o
+    Object src/network_communication_state_19.o
+    Object asm/unk_020395B0.o
+    Object src/network_communication_state_20.o
+    Object asm/unk_0203981C.o
+    Object src/network_communication_state_21.o
+    Object asm/unk_02039918.o
+    Object src/network_communication_state_22.o
+    Object asm/unk_02039A00.o
+    Object src/network_communication_state_23.o
+    Object asm/unk_02039BA0.o
+    Object src/network_communication_state_24.o
+    Object asm/unk_02039D8C.o
+    Object src/network_communication_state_25.o
+    Object asm/unk_02039DE4.o
+    Object src/network_communication_state_26.o
+    Object asm/unk_02039EB4.o
+    Object src/network_communication_state_27.o
+    Object asm/unk_02039FD8.o
+    Object src/network_communication_state_28.o
+    Object asm/unk_0203A084.o
+    Object src/network_communication_state_29.o
     Object src/wireless_status_icon.o
     Object asm/unk_0203A3B0.o
     Object src/wireless_status_icon_2.o
@@ -389,7 +464,30 @@ Static main
     Object asm/unk_0206207C.o
     Object src/map_object_movement_9.o
     Object asm/unk_data_020FD978.o
+    Object src/map_object_movement_commands.o
     Object asm/unk_02062108.o
+    Object src/map_object_movement_commands_2.o
+    Object asm/unk_020624CC.o
+    Object src/map_object_movement_commands_3.o
+    Object asm/unk_020627B0.o
+    Object src/map_object_movement_commands_4.o
+    Object asm/unk_02062958.o
+    Object src/map_object_movement_commands_5.o
+    Object asm/unk_02062D54.o
+    Object src/map_object_movement_commands_6.o
+    Object asm/unk_02062DE0.o
+    Object src/map_object_movement_commands_7.o
+    Object asm/unk_02062F48.o
+    Object src/map_object_movement_commands_8.o
+    Object asm/unk_0206308C.o
+    Object src/map_object_movement_commands_9.o
+    Object asm/unk_020630E4.o
+    Object src/map_object_movement_commands_10.o
+    Object asm/unk_0206313C.o
+    Object src/map_object_movement_commands_11.o
+    Object asm/unk_02063170.o
+    Object src/map_object_movement_commands_12.o
+    Object asm/unk_02063290.o
     Object asm/unk_data_020FDB44.o
     Object asm/unk_020632B0.o
     Object src/map_object_behavior.o
@@ -502,7 +600,38 @@ Static main
     Object asm/unk_02087E70.o
     Object asm/unk_02087FD4.o
     Object src/unk_0208805C.o
+    Object src/summary_screen_helpers.o
     Object asm/unk_02088288.o
+    Object src/summary_screen_helpers_2.o
+    Object asm/unk_02088630.o
+    Object src/summary_screen_helpers_3.o
+    Object asm/unk_020887C4.o
+    Object src/summary_screen_helpers_4.o
+    Object asm/unk_02088894.o
+    Object src/summary_screen_helpers_5.o
+    Object asm/unk_02088B08.o
+    Object src/summary_screen_helpers_6.o
+    Object asm/unk_02088D48.o
+    Object src/summary_screen_helpers_7.o
+    Object asm/unk_0208931C.o
+    Object src/summary_screen_helpers_8.o
+    Object asm/unk_02089478.o
+    Object src/summary_screen_helpers_9.o
+    Object asm/unk_02089698.o
+    Object src/summary_screen_helpers_10.o
+    Object asm/unk_02089D68.o
+    Object src/summary_screen_helpers_11.o
+    Object asm/unk_02089E98.o
+    Object src/summary_screen_helpers_12.o
+    Object asm/unk_0208A2E0.o
+    Object src/summary_screen_helpers_13.o
+    Object asm/unk_0208A3F4.o
+    Object src/summary_screen_helpers_14.o
+    Object asm/unk_0208AED4.o
+    Object src/summary_screen_helpers_15.o
+    Object asm/unk_0208B0B0.o
+    Object src/summary_screen_helpers_16.o
+    Object asm/unk_0208B118.o
     Object asm/unk_0208B1AC.o
     Object asm/unk_0208C3E4.o
     Object src/pokemon_picture_graphics_init.o

@@ -982,3 +982,22 @@ mapped C bytes (998,192 → 999,240) with total mapped bytes unchanged at
 4,084,110. This brings the fork to 1,653 converted functions and 77,246
 additional mapped C bytes relative to the initial baseline. Treemap refreshed;
 validation remained local with GitHub CI disabled.
+
+### Network state, palette fades, summary helpers, and movement commands
+
+Converted 322 functions across network communication state, palette fade
+effects, summary-screen helpers, and map-object movement commands. The primary
+integrator independently matched 106 wrapper-heavy movement functions while
+three Sol workers handled disjoint modules. Original tables, strings, and BSS
+remain assembly-owned and exported to the new C translation units.
+
+Every selected function passed explicit-name comparison after splitting and
+formatting, and every residual assembly unit passed an assembly preflight.
+Both complete retail ROM SHA1s match from sequential local builds.
+
+HeartGold C-only mapped coverage increased from 24.466530% to 24.715279%,
+adding 10,130 C bytes (999,240 → 1,009,370) out of 4,083,992 mapped
+bytes. The mapped total decreased by 118 terminal alignment bytes supplied by
+the linker. This brings the fork to 1,975 converted functions and 87,376
+additional mapped C bytes relative to the initial baseline. The treemap was
+refreshed after SoulSilver. Validation used local builds only.
