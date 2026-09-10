@@ -46,3 +46,25 @@
 .public _021028B4
 .public _021028C4
 .public ov40_02244920
+
+	.public sub_02087A8C
+	.public sub_02087B10
+	.public sub_02087B1C
+	.public sub_02087B28
+	.public sub_02087B34
+	.public sub_02087B40
+	.public sub_02087B4C
+	.public sub_02087B58
+	.public sub_02087B64
+	.public sub_02087BAC
+	.public sub_02087BE8
+	.public sub_02087C38
+	.public sub_02087E34
+	.public _02102840
+	.public _02102850
+	.public _02102860
+	.public _02102870
+	.public _02102880
+	.public _02102890
+	.public _021028A0
+	.public _02110594

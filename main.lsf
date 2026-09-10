@@ -61,6 +61,7 @@ Static main
     Object asm/unk_020100C4.o
     Object asm/unk_0201010C.o
     Object src/screen_window_effect.o
+    Object src/screen_effect_step.o
     Object asm/unk_02012DD8.o
     Object src/screen_window_effect_2.o
     Object asm/unk_02013004.o
@@ -316,11 +317,15 @@ Static main
     Object src/field_terrain_queries.o
     Object asm/unk_02054648.o
     Object src/field_terrain_queries_2.o
+    Object src/field_terrain_dispatch.o
     Object asm/unk_02054874.o
     Object src/field_terrain_queries_3.o
+    Object src/field_metatile_query.o
     Object asm/unk_02054918.o
     Object src/field_terrain_queries_4.o
+    Object src/field_terrain_dispatch_extended.o
     Object asm/unk_02054954.o
+    Object src/field_terrain_dispatch_extended_2.o
     Object src/unk_02054E00.o
     Object src/field_bgm.o
     Object asm/unk_020551B8.o
@@ -339,10 +344,19 @@ Static main
     Object asm/unk_0205857C.o
     Object src/link_lobby_4.o
     Object asm/unk_02058AEC.o
+    Object src/field_link_messages.o
     Object asm/unk_0205A44C.o
+    Object src/field_link_messages_2.o
+    Object asm/unk_0205A904.o
+    Object src/field_link_messages_3.o
+    Object asm/unk_0205AA9C.o
+    Object src/field_link_messages_4.o
+    Object asm/unk_0205ABD8.o
+    Object src/field_link_messages_5.o
     Object src/field_player_effect.o
     Object asm/unk_0205AC88.o
     Object src/field_player_effect_2.o
+    Object src/field_player_object_sync.o
     Object asm/unk_0205AF78.o
     Object src/field_player_effect_3.o
     Object src/unk_0205B3DC.o
@@ -380,7 +394,15 @@ Static main
     Object src/map_object_behavior.o
     Object asm/unk_02063A14.o
     Object src/map_object_behavior_2.o
+    Object src/map_object_trainer_behavior.o
     Object asm/unk_02063AFC.o
+    Object src/map_object_trainer_behavior_2.o
+    Object asm/unk_02063D30.o
+    Object src/map_object_trainer_behavior_3.o
+    Object asm/unk_020640C8.o
+    Object src/map_object_trainer_behavior_4.o
+    Object asm/unk_020642C4.o
+    Object src/map_object_trainer_behavior_5.o
     Object src/map_object_behavior_3.o
     Object asm/unk_02064468.o
     Object src/map_object_behavior_4.o
@@ -412,6 +434,7 @@ Static main
     Object asm/unk_02066444.o
     Object src/sys_flags.o
     Object src/sys_vars.o
+    Object src/frontier_party_application.o
     Object asm/unk_02066EDC.o
     Object src/frontier_field_support.o
     Object asm/unk_0206759C.o
@@ -467,7 +490,10 @@ Static main
     Object asm/unk_02085604.o
     Object asm/unk_020863F4.o
     Object asm/unk_02087284.o
+    Object src/touch_sprite_motion.o
+    Object src/battle_transition_application.o
     Object asm/unk_02087A78.o
+    Object src/battle_transition_application_2.o
     Object asm/unk_02087E70.o
     Object asm/unk_02087FD4.o
     Object src/unk_0208805C.o
@@ -475,6 +501,11 @@ Static main
     Object asm/unk_0208B1AC.o
     Object asm/unk_0208C3E4.o
     Object asm/unk_0208DE40.o
+    Object src/pokemon_picture_scene.o
+    Object asm/unk_0208DF2C.o
+    Object src/pokemon_picture_scene_2.o
+    Object asm/unk_0208DFF8.o
+    Object src/pokemon_picture_scene_3.o
     Object src/ribbon.o
     Object src/trainer_memo.o
     Object src/trade_communication.o

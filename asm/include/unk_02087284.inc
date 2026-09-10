@@ -53,3 +53,11 @@
 .public _s32_div_f
 .public gOverlayTemplate_Battle
 .public gNatureStatMods
+
+	.public sub_020872DC
+	.public sub_020873D4
+	.public sub_020876B0
+	.public sub_020877B4
+	.public sub_02087830
+	.public sub_02087930
+	.public _02102814

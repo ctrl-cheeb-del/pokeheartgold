@@ -64,3 +64,30 @@
 .public sub_020691A8
 .public MI_CpuFill8
 .public _020FC824
+
+	.public sub_0205A51C
+	.public sub_0205A544
+	.public sub_0205A730
+	.public sub_0205A8B4
+	.public sub_0205AA4C
+	.public _020FC7D4
+	.public _020FC7DC
+	.public _020FC7E4
+	.public _020FC7EC
+	.public _020FC7F4
+	.public _020FC7FC
+	.public _020FC804
+	.public _020FC814
+	.public _020FC838
+	.public _020FC850
+	.public _020FC868
+	.public _020FC880
+	.public _020FC898
+	.public _020FC8B4
+	.public _020FC8D4
+	.public _020FC8F4
+	.public _020FC914
+	.public _020FC934
+	.public _020FC95C
+	.public _020FC99C
+	.public _020FC9D4

@@ -944,3 +944,23 @@ increased from 24.102290% to 24.281299%, adding 7,298 C bytes
 size decreased by 54 alignment bytes. This brings the fork to 1,550 converted
 functions and 69,696 additional mapped C bytes relative to the initial baseline.
 The treemap was refreshed after both builds. Validation used local builds only.
+
+### Terrain dispatch, trainer behavior, and application helpers
+
+Converted 98 additional functions across terrain queries and dispatch, trainer
+interaction, field link messages and object synchronization, Frontier party
+applications, screen effects, touch sprite motion, battle transitions, and
+Pokémon picture scenes. Original tables and BSS remain assembly-owned; recovered
+layouts include size/offset assertions. Partial functions remain in assembly.
+
+Every selected function passed explicit-name comparison after splitting and
+formatting. Residual assembly and linker object names passed preflights. Both
+complete retail ROM SHA1s match from sequential local builds. The existing
+FieldEffectManager debug-type warning is unchanged from the previous batch.
+
+HeartGold C-only mapped coverage increased from 24.281299% to 24.440870%,
+adding 6,502 C bytes (991,690 → 998,192) out of 4,084,110 mapped bytes.
+The mapped total decreased by 62 alignment bytes supplied by the linker.
+The fork now has 1,648 converted functions and 76,198 additional mapped C
+bytes relative to the initial baseline. The treemap was refreshed after both
+builds. No GitHub CI was used.

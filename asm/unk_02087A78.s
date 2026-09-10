@@ -15,256 +15,6 @@
 
 	.text
 
-	thumb_func_start sub_02087A78
-sub_02087A78: ; 0x02087A78
-	push {r3, lr}
-	bl OverlayManager_GetArgs
-	ldr r0, [r0, #0x14]
-	pop {r3, pc}
-	.balign 4, 0
-	thumb_func_end sub_02087A78
-
-	thumb_func_start sub_02087A84
-sub_02087A84: ; 0x02087A84
-	str r1, [r0]
-	str r2, [r0, #4]
-	bx lr
-	.balign 4, 0
-	thumb_func_end sub_02087A84
-
-	thumb_func_start sub_02087A8C
-sub_02087A8C: ; 0x02087A8C
-	push {r4, r5, r6, lr}
-	mov r2, #1
-	add r5, r0, #0
-	add r6, r1, #0
-	mov r0, #3
-	mov r1, #0x7e
-	lsl r2, r2, #0x10
-	bl Heap_Create
-	add r0, r5, #0
-	mov r1, #0x2c
-	mov r2, #0x7e
-	bl OverlayManager_CreateAndGetData
-	mov r1, #0
-	mov r2, #0x2c
-	add r4, r0, #0
-	bl MI_CpuFill8
-	add r0, r5, #0
-	bl OverlayManager_GetArgs
-	str r0, [r4, #0x28]
-	ldr r0, [r0, #0xc]
-	ldr r1, _02087B00 ; =0x00004170
-	str r0, [r4, #0xc]
-	mov r0, #0x7e
-	bl Heap_Alloc
-	ldr r2, _02087B00 ; =0x00004170
-	str r0, [r4, #0x14]
-	mov r1, #0
-	bl MI_CpuFill8
-	add r2, r4, #0
-	ldr r1, [r4, #0x14]
-	ldr r0, _02087B04 ; =0x00000868
-	add r2, #0x18
-	str r2, [r1, r0]
-	ldr r2, [r4, #0xc]
-	ldr r1, [r4, #0x14]
-	sub r0, #0x38
-	str r2, [r1, r0]
-	ldr r0, [r4, #0x14]
-	str r6, [r0]
-	ldr r4, [r4, #0x14]
-	ldr r1, [r4]
-	add r0, r4, #0
-	bl sub_02087FF8
-	ldr r1, _02087B08 ; =0x000006D8
-	ldr r1, [r4, r1]
-	lsl r1, r1, #2
-	add r2, r4, r1
-	ldr r1, _02087B0C ; =0x0000081C
-	str r0, [r2, r1]
-	pop {r4, r5, r6, pc}
-	nop
-_02087B00: .word 0x00004170
-_02087B04: .word 0x00000868
-_02087B08: .word 0x000006D8
-_02087B0C: .word 0x0000081C
-	thumb_func_end sub_02087A8C
-
-	thumb_func_start sub_02087B10
-sub_02087B10: ; 0x02087B10
-	push {r3, lr}
-	mov r1, #0
-	bl sub_02087A8C
-	mov r0, #1
-	pop {r3, pc}
-	thumb_func_end sub_02087B10
-
-	thumb_func_start sub_02087B1C
-sub_02087B1C: ; 0x02087B1C
-	push {r3, lr}
-	mov r1, #1
-	bl sub_02087A8C
-	mov r0, #1
-	pop {r3, pc}
-	thumb_func_end sub_02087B1C
-
-	thumb_func_start sub_02087B28
-sub_02087B28: ; 0x02087B28
-	push {r3, lr}
-	mov r1, #2
-	bl sub_02087A8C
-	mov r0, #1
-	pop {r3, pc}
-	thumb_func_end sub_02087B28
-
-	thumb_func_start sub_02087B34
-sub_02087B34: ; 0x02087B34
-	push {r3, lr}
-	mov r1, #3
-	bl sub_02087A8C
-	mov r0, #1
-	pop {r3, pc}
-	thumb_func_end sub_02087B34
-
-	thumb_func_start sub_02087B40
-sub_02087B40: ; 0x02087B40
-	push {r3, lr}
-	mov r1, #4
-	bl sub_02087A8C
-	mov r0, #1
-	pop {r3, pc}
-	thumb_func_end sub_02087B40
-
-	thumb_func_start sub_02087B4C
-sub_02087B4C: ; 0x02087B4C
-	push {r3, lr}
-	mov r1, #5
-	bl sub_02087A8C
-	mov r0, #1
-	pop {r3, pc}
-	thumb_func_end sub_02087B4C
-
-	thumb_func_start sub_02087B58
-sub_02087B58: ; 0x02087B58
-	push {r3, lr}
-	mov r1, #6
-	bl sub_02087A8C
-	mov r0, #1
-	pop {r3, pc}
-	thumb_func_end sub_02087B58
-
-	thumb_func_start sub_02087B64
-sub_02087B64: ; 0x02087B64
-	push {r3, r4, r5, lr}
-	add r5, r1, #0
-	bl OverlayManager_GetData
-	ldr r1, [r5]
-	add r4, r0, #0
-	cmp r1, #0
-	beq _02087B7A
-	cmp r1, #1
-	beq _02087B98
-	b _02087BA8
-_02087B7A:
-	mov r1, #0x7e
-	bl sub_02087BE8
-	cmp r0, #0
-	beq _02087BA8
-	ldr r0, [r4, #0x18]
-	cmp r0, #1
-	bne _02087B94
-	mov r0, #1
-	str r0, [r5]
-	mov r0, #0
-	str r0, [r4]
-	b _02087BA8
-_02087B94:
-	mov r0, #1
-	pop {r3, r4, r5, pc}
-_02087B98:
-	mov r1, #0x7e
-	bl sub_02087C38
-	cmp r0, #0
-	beq _02087BA8
-	mov r0, #0
-	str r0, [r5]
-	str r0, [r4]
-_02087BA8:
-	mov r0, #0
-	pop {r3, r4, r5, pc}
-	thumb_func_end sub_02087B64
-
-	thumb_func_start sub_02087BAC
-sub_02087BAC: ; 0x02087BAC
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	bl OverlayManager_GetData
-	add r4, r0, #0
-	bl sub_0202FC48
-	cmp r0, #1
-	bne _02087BC2
-	bl sub_0202FC24
-_02087BC2:
-	ldr r0, [r4, #0x14]
-	bl Heap_Free
-	add r0, r5, #0
-	bl OverlayManager_FreeData
-	mov r0, #1
-	mov r1, #0x7f
-	bl GF_SndHandleSetPlayerVolume
-	mov r0, #7
-	mov r1, #0x7f
-	bl GF_SndHandleSetPlayerVolume
-	mov r0, #0x7e
-	bl Heap_Destroy
-	mov r0, #1
-	pop {r3, r4, r5, pc}
-	thumb_func_end sub_02087BAC
-
-	thumb_func_start sub_02087BE8
-sub_02087BE8: ; 0x02087BE8
-	push {r4, lr}
-	add r4, r0, #0
-	ldr r0, [r4]
-	add r2, r1, #0
-	cmp r0, #0
-	bne _02087C18
-	ldr r0, [r4, #0x14]
-	ldr r0, [r0]
-	cmp r0, #0
-	bne _02087C06
-	ldr r0, _02087C30 ; =_021028B4
-	add r1, r4, #0
-	bl OverlayManager_New
-	b _02087C0E
-_02087C06:
-	ldr r0, _02087C34 ; =_021028C4
-	add r1, r4, #0
-	bl OverlayManager_New
-_02087C0E:
-	str r0, [r4, #8]
-	ldr r0, [r4]
-	add r0, r0, #1
-	str r0, [r4]
-	b _02087C2C
-_02087C18:
-	ldr r0, [r4, #8]
-	bl OverlayManager_Run
-	cmp r0, #0
-	beq _02087C2C
-	ldr r0, [r4, #8]
-	bl OverlayManager_Delete
-	mov r0, #1
-	pop {r4, pc}
-_02087C2C:
-	mov r0, #0
-	pop {r4, pc}
-	.balign 4, 0
-_02087C30: .word _021028B4
-_02087C34: .word _021028C4
-	thumb_func_end sub_02087BE8
-
 	thumb_func_start sub_02087C38
 sub_02087C38: ; 0x02087C38
 	push {r4, r5, r6, lr}
@@ -479,83 +229,31 @@ _02087E08: .word 0x0000045D
 _02087E0C: .word gOverlayTemplate_Battle
 	thumb_func_end sub_02087C38
 
-	thumb_func_start sub_02087E10
-sub_02087E10: ; 0x02087E10
-	lsl r1, r0, #2
-	ldr r0, _02087E18 ; =_02110594
-	ldr r0, [r0, r1]
-	bx lr
-	.balign 4, 0
-_02087E18: .word _02110594
-	thumb_func_end sub_02087E10
-
-	thumb_func_start sub_02087E1C
-sub_02087E1C: ; 0x02087E1C
-	push {r3, lr}
-	mov r1, #0x83
-	lsl r1, r1, #4
-	ldr r0, [r0, r1]
-	bl Save_VarsFlags_Get
-	mov r1, #2
-	mov r2, #0x1b
-	bl Save_VarsFlags_FlypointFlagAction
-	pop {r3, pc}
-	.balign 4, 0
-	thumb_func_end sub_02087E1C
-
-	thumb_func_start sub_02087E34
-sub_02087E34: ; 0x02087E34
-	push {r3, r4, r5}
-	sub sp, #0x14
-	ldr r5, _02087E6C ; =_021028A0
-	add r3, r0, #0
-	ldmia r5!, {r0, r1}
-	add r4, sp, #0
-	add r2, r4, #0
-	stmia r4!, {r0, r1}
-	ldmia r5!, {r0, r1}
-	stmia r4!, {r0, r1}
-	ldr r0, [r5]
-	mov r1, #0
-	str r0, [r4]
-_02087E4E:
-	ldr r0, [r2]
-	cmp r3, r0
-	bne _02087E5C
-	add sp, #0x14
-	mov r0, #1
-	pop {r3, r4, r5}
-	bx lr
-_02087E5C:
-	add r1, r1, #1
-	add r2, r2, #4
-	cmp r1, #5
-	blo _02087E4E
-	mov r0, #0
-	add sp, #0x14
-	pop {r3, r4, r5}
-	bx lr
-	.balign 4, 0
-_02087E6C: .word _021028A0
-	thumb_func_end sub_02087E34
-
 	.rodata
 
 	.public _02102830
+	.public _02102830
 _02102830:
 	.word sub_02087B10, sub_02087B64, sub_02087BAC, 0xFFFFFFFF
+	.public _02102840
 _02102840:
 	.word sub_02087B58, sub_02087B64, sub_02087BAC, 0xFFFFFFFF
+	.public _02102850
 _02102850:
 	.word sub_02087B4C, sub_02087B64, sub_02087BAC, 0xFFFFFFFF
+	.public _02102860
 _02102860:
 	.word sub_02087B40, sub_02087B64, sub_02087BAC, 0xFFFFFFFF
+	.public _02102870
 _02102870:
 	.word sub_02087B34, sub_02087B64, sub_02087BAC, 0xFFFFFFFF
+	.public _02102880
 _02102880:
 	.word sub_02087B28, sub_02087B64, sub_02087BAC, 0xFFFFFFFF
+	.public _02102890
 _02102890:
 	.word sub_02087B1C, sub_02087B64, sub_02087BAC, 0xFFFFFFFF
+	.public _021028A0
 _021028A0:
 	.word 0x61
 	.word 0x63
@@ -565,6 +263,7 @@ _021028A0:
 
 	.data
 
+	.public _02110594
 _02110594:
 	.word _02102830
 	.word _02102890
