@@ -276,7 +276,47 @@ Static main
     Object src/communication_player_state.o
     Object asm/unk_02034354.o
     Object asm/unk_02034B0C.o
+    Object src/wireless_connection_state.o
+    Object asm/unk_02034C20.o
+    Object src/wireless_connection_state_2.o
+    Object asm/unk_0203511C.o
+    Object src/wireless_connection_state_3.o
+    Object asm/unk_020351AC.o
+    Object src/wireless_connection_state_4.o
+    Object asm/unk_0203540C.o
+    Object src/wireless_connection_state_5.o
+    Object asm/unk_020355DC.o
+    Object src/wireless_connection_state_6.o
+    Object asm/unk_0203569C.o
+    Object src/wireless_connection_state_7.o
+    Object asm/unk_02035724.o
+    Object src/wireless_connection_state_8.o
     Object asm/unk_02035900.o
+    Object src/communication_manager.o
+    Object asm/unk_02035DE0.o
+    Object src/communication_manager_2.o
+    Object asm/unk_02036144.o
+    Object src/communication_manager_3.o
+    Object asm/unk_02036298.o
+    Object src/communication_manager_4.o
+    Object asm/unk_0203667C.o
+    Object src/communication_manager_5.o
+    Object asm/unk_020367B0.o
+    Object src/communication_manager_6.o
+    Object asm/unk_0203690C.o
+    Object src/communication_manager_7.o
+    Object asm/unk_02036AD8.o
+    Object src/communication_manager_8.o
+    Object asm/unk_02036E60.o
+    Object src/communication_manager_9.o
+    Object asm/unk_020371C4.o
+    Object src/communication_manager_10.o
+    Object asm/unk_02037334.o
+    Object src/communication_manager_11.o
+    Object asm/unk_02037594.o
+    Object src/communication_manager_12.o
+    Object asm/unk_0203778C.o
+    Object src/communication_manager_13.o
     Object src/link_synchronization.o
     Object asm/unk_020379A0.o
     Object src/network_communication_state.o
@@ -404,13 +444,36 @@ Static main
     Object src/unk_02054E00.o
     Object src/field_bgm.o
     Object asm/unk_020551B8.o
-    Object asm/unk_02055244.o
+    Object src/field_overworld_transition.o
     Object src/unk_02055418.o
     Object src/catching_show.o
     Object asm/unk_02055BF0_data.o
     Object src/unk_02055BF0.o
     Object asm/unk_02056680.o
     Object asm/unk_02056D7C.o
+    Object src/communication_player_movement.o
+    Object asm/unk_02056EF4.o
+    Object src/communication_player_movement_2.o
+    Object asm/unk_0205704C.o
+    Object src/communication_player_movement_3.o
+    Object asm/unk_0205712C.o
+    Object src/communication_player_movement_4.o
+    Object asm/unk_02057184.o
+    Object src/communication_player_movement_5.o
+    Object asm/unk_02057480.o
+    Object src/communication_player_movement_6.o
+    Object asm/unk_02057550.o
+    Object src/communication_player_movement_7.o
+    Object asm/unk_0205779C.o
+    Object src/communication_player_movement_8.o
+    Object asm/unk_02057A34.o
+    Object src/communication_player_movement_9.o
+    Object asm/unk_02057BEC.o
+    Object src/communication_player_movement_10.o
+    Object asm/unk_02057D74.o
+    Object src/communication_player_movement_11.o
+    Object asm/unk_CommPlayerManager_ForcePosition.o
+    Object src/communication_player_movement_12.o
     Object src/link_lobby.o
     Object asm/unk_02058034.o
     Object src/link_lobby_2.o
@@ -419,6 +482,29 @@ Static main
     Object asm/unk_0205857C.o
     Object src/link_lobby_4.o
     Object asm/unk_02058AEC.o
+    Object src/field_application_tasks.o
+    Object asm/unk_02058D4C.o
+    Object src/field_application_tasks_2.o
+    Object asm/unk_020596F0.o
+    Object src/field_application_tasks_3.o
+    Object asm/unk_0205975C.o
+    Object src/field_application_tasks_4.o
+    Object asm/unk_020597A8.o
+    Object src/field_application_tasks_5.o
+    Object asm/unk_02059820.o
+    Object src/field_application_tasks_6.o
+    Object asm/unk_02059B64.o
+    Object src/field_application_tasks_7.o
+    Object asm/unk_02059EBC.o
+    Object src/field_application_tasks_8.o
+    Object asm/unk_02059F78.o
+    Object src/field_application_tasks_9.o
+    Object asm/unk_0205A03C.o
+    Object src/field_application_tasks_10.o
+    Object asm/unk_0205A200.o
+    Object src/field_application_tasks_11.o
+    Object asm/unk_0205A3B0.o
+    Object src/field_application_tasks_12.o
     Object src/field_link_messages.o
     Object asm/unk_0205A44C.o
     Object src/field_link_messages_2.o
@@ -443,9 +529,58 @@ Static main
     Object asm/unk_0205BFF0.o
     Object src/player_avatar.o
     Object asm/unk_0205CB48.o
+    Object src/player_avatar_movement_control.o
+    Object asm/unk_0205CC94.o
+    Object src/player_avatar_movement_control_2.o
+    Object asm/unk_0205CF60.o
+    Object src/player_avatar_movement_control_3.o
+    Object asm/unk_0205D01C.o
+    Object src/player_avatar_movement_control_4.o
+    Object asm/unk_0205D0A8.o
+    Object src/player_avatar_movement_control_5.o
+    Object asm/unk_0205D340.o
+    Object src/player_avatar_movement_control_6.o
+    Object asm/unk_0205D450.o
+    Object src/player_avatar_movement_control_7.o
+    Object asm/unk_0205D4B4.o
+    Object src/player_avatar_movement_control_8.o
+    Object asm/unk_0205D640.o
+    Object src/player_avatar_movement_control_9.o
+    Object asm/unk_0205D6E8.o
+    Object src/player_avatar_movement_control_10.o
+    Object asm/unk_0205D7AC.o
+    Object src/player_avatar_movement_control_11.o
+    Object asm/unk_0205D83C.o
+    Object src/player_avatar_movement_control_12.o
+    Object asm/unk_0205D978.o
+    Object src/player_avatar_movement_control_13.o
+    Object asm/unk_0205DA34.o
+    Object src/player_avatar_movement_control_14.o
+    Object asm/unk_0205DCFC.o
+    Object src/player_avatar_movement_control_15.o
+    Object asm/unk_0205DDD4.o
+    Object src/player_avatar_movement_control_16.o
+    Object asm/unk_0205DF0C.o
+    Object src/player_avatar_movement_control_17.o
     Object src/map_object.o
     Object asm/unk_data_020FCBD8.o
+    Object src/map_object_movement_utilities.o
     Object asm/unk_0205FD20.o
+    Object src/map_object_movement_utilities_2.o
+    Object asm/unk_0206008C.o
+    Object src/map_object_movement_utilities_3.o
+    Object asm/unk_020601BC.o
+    Object src/map_object_movement_utilities_4.o
+    Object asm/unk_020603F8.o
+    Object src/map_object_movement_utilities_5.o
+    Object asm/unk_020607D8.o
+    Object src/map_object_movement_utilities_6.o
+    Object asm/unk_02060AF4.o
+    Object src/map_object_movement_utilities_7.o
+    Object asm/unk_02060BFC.o
+    Object src/map_object_movement_utilities_8.o
+    Object asm/unk_02061070.o
+    Object src/map_object_movement_utilities_9.o
     Object src/map_object_movement.o
     Object asm/unk_02061284.o
     Object src/map_object_movement_2.o

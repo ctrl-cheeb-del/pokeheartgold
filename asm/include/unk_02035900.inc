@@ -120,3 +120,41 @@
 .public ov00_021E7080
 .public ov00_021E70CC
 .public ov00_021EE4FC
+
+	.public sub_02035900
+	.public sub_02035AE0
+	.public sub_02035DA4
+	.public sub_02035DD8
+	.public sub_02035DE0
+	.public sub_02035E9C
+	.public sub_02035ED0
+	.public sub_02035F4C
+	.public sub_02035FA8
+	.public sub_02035FF0
+	.public sub_020360EC
+	.public sub_0203611C
+	.public sub_02036298
+	.public sub_02036438
+	.public sub_02036508
+	.public sub_02036630
+	.public sub_0203667C
+	.public sub_020367B0
+	.public sub_0203690C
+	.public sub_02036AA0
+	.public sub_02036ABC
+	.public sub_02036AD8
+	.public sub_02036BE4
+	.public sub_02036D14
+	.public sub_02036DA0
+	.public sub_02036E60
+	.public sub_02036F30
+	.public sub_02036FA8
+	.public sub_020371A8
+	.public sub_020371C4
+	.public sub_020372E4
+	.public sub_02037334
+	.public sub_0203751C
+	.public sub_02037594
+	.public sub_0203772C
+	.public _0210F900
+	.public _021D4140

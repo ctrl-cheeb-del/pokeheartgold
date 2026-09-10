@@ -1001,3 +1001,30 @@ bytes. The mapped total decreased by 118 terminal alignment bytes supplied by
 the linker. This brings the fork to 1,975 converted functions and 87,376
 additional mapped C bytes relative to the initial baseline. The treemap was
 refreshed after SoulSilver. Validation used local builds only.
+
+### Communication and field movement pass 25%
+
+Converted 279 functions across the communication manager, wireless connection
+state, linked-player movement, player-avatar movement control, map-object
+movement utilities, field application tasks, and overworld transitions. Three
+parallel Sol rounds produced disjoint scratch candidates, which were integrated
+and rechecked by the primary coordinator. Partial functions remain in residual
+assembly.
+
+The full build caught a duplicated 20-byte initializer for `sub_02057524` that
+the text-only scratch comparison could not detect. Moving ownership of that
+constant from residual assembly to the generated C object restored the original
+section layout while retaining the exact instruction sequence.
+
+Both complete retail ROM SHA1s match from sequential local builds:
+
+- HeartGold: `4fcded0e2713dc03929845de631d0932ea2b5a37`
+- SoulSilver: `f8dc38ea20c17541a43b58c5e6d18c1732c7e582`
+
+HeartGold C-only mapped coverage increased from 24.715279% to 25.008901%,
+adding 11,954 C bytes (1,009,370 → 1,021,324) out of 4,083,842 mapped
+bytes. The mapped total decreased by 150 alignment bytes supplied by the
+linker. This brings the fork to 2,254 converted functions and 99,330
+additional mapped C bytes relative to the initial baseline. The treemap was
+refreshed after both builds. Validation used local builds only; GitHub CI
+remained disabled.

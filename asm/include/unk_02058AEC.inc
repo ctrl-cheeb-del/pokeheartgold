@@ -149,3 +149,47 @@
 .public gOverlayTemplate_PokemonSummary
 .public gSystem
 .public FieldMap_FadeScreen
+
+	.public sub_02058AEC
+	.public sub_02058B84
+	.public sub_02058C80
+	.public sub_02058CD8
+	.public sub_02058D04
+	.public sub_02058D24
+	.public sub_02058D4C
+	.public sub_02059478
+	.public sub_020594C8
+	.public sub_02059650
+	.public sub_0205969C
+	.public sub_020596A8
+	.public sub_020596F0
+	.public sub_02059738
+	.public sub_02059748
+	.public sub_0205975C
+	.public sub_02059798
+	.public sub_020597A8
+	.public sub_020597D4
+	.public sub_02059820
+	.public sub_0205993C
+	.public sub_02059A08
+	.public sub_02059AD8
+	.public sub_02059B64
+	.public sub_02059E1C
+	.public sub_02059E88
+	.public sub_02059EBC
+	.public sub_02059F30
+	.public sub_02059F54
+	.public sub_02059F78
+	.public sub_02059FF8
+	.public sub_0205A034
+	.public sub_0205A03C
+	.public sub_0205A07C
+	.public sub_0205A0A0
+	.public sub_0205A0B4
+	.public sub_0205A114
+	.public sub_0205A144
+	.public sub_0205A1AC
+	.public sub_0205A1D4
+	.public _020FC7CC
+	.public _021D41CC
+	.public _021D41D8

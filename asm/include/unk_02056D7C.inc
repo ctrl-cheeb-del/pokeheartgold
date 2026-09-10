@@ -83,3 +83,36 @@
 .public MI_CpuFill8
 .public abs
 .public gSystem
+
+	.public sub_02056EF4
+	.public sub_02056FD0
+	.public sub_0205704C
+	.public sub_020570C8
+	.public sub_0205712C
+	.public sub_02057184
+	.public sub_0205724C
+	.public sub_020572AC
+	.public sub_020572DC
+	.public sub_02057314
+	.public sub_02057358
+	.public sub_02057384
+	.public sub_02057454
+	.public sub_02057480
+	.public sub_020574C4
+	.public sub_02057524
+	.public sub_02057550
+	.public sub_02057818
+	.public sub_02057B4C
+	.public sub_02057B9C
+	.public sub_02057BEC
+	.public sub_02057C24
+	.public sub_02057C5C
+	.public sub_02057D74
+	.public sub_02057EEC
+	.public sub_02058024
+	.public _020FC7A0
+	.public _020FC7A8
+	.public _0210FAB4
+	.public _0210FABC
+	.public _0210FAC4
+	.public _021D41C4

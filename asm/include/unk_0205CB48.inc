@@ -121,3 +121,57 @@
 .public ov01_021F2F24
 .public ov01_02205990
 .public ov04_022566EC
+
+	.public sub_0205CBEC
+	.public sub_0205CC4C
+	.public sub_0205CC74
+	.public sub_0205CC94
+	.public sub_0205CD70
+	.public sub_0205D004
+	.public sub_0205D01C
+	.public sub_0205D07C
+	.public sub_0205D09C
+	.public sub_0205D0A8
+	.public sub_0205D190
+	.public sub_0205D1FC
+	.public sub_0205D240
+	.public sub_0205D2A0
+	.public sub_0205D2D0
+	.public sub_0205D340
+	.public sub_0205D3A8
+	.public sub_0205D40C
+	.public sub_0205D428
+	.public sub_0205D44C
+	.public sub_0205D450
+	.public sub_0205D494
+	.public sub_0205D4B4
+	.public sub_0205D610
+	.public sub_0205D640
+	.public sub_0205D658
+	.public sub_0205D684
+	.public sub_0205D6B4
+	.public sub_0205D6E8
+	.public sub_0205D75C
+	.public sub_0205D778
+	.public sub_0205D7AC
+	.public sub_0205D818
+	.public sub_0205D83C
+	.public sub_0205D948
+	.public sub_0205D978
+	.public sub_0205DA1C
+	.public sub_0205DAA8
+	.public sub_0205DB68
+	.public sub_0205DBF4
+	.public sub_0205DCA0
+	.public sub_0205DCFC
+	.public sub_0205DD9C
+	.public sub_0205DDB8
+	.public sub_0205DDD4
+	.public sub_0205DE64
+	.public sub_0205DE88
+	.public sub_0205DFFC
+	.public sub_0205E048
+	.public sub_0205E078
+	.public _020FCB7C
+	.public _020FCB88
+	.public _020FCB98

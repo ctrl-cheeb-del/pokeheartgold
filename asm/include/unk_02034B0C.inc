@@ -94,3 +94,21 @@
 .public MI_CpuCopy8
 .public WM_GetDispersionBeaconPeriod
 .public WM_GetNextTgid
+
+	.public sub_02034BF8
+	.public sub_02034C20
+	.public sub_02034C94
+	.public sub_02034D60
+	.public sub_02034D78
+	.public sub_02034DF0
+	.public sub_02034E64
+	.public sub_02034E8C
+	.public sub_020350D4
+	.public sub_020352D8
+	.public sub_020353B8
+	.public sub_0203540C
+	.public sub_020355DC
+	.public sub_02035610
+	.public sub_02035724
+	.public _020F6A88
+	.public _021D4134
