@@ -140,74 +140,92 @@
 	.public ov93_022629B8
 	.public ov93_022629E4
 
-	thumb_func_start ov93_0225FBF0
-ov93_0225FBF0: ; 0x0225FBF0
+	thumb_func_start ov93_02262250
+ov93_02262250: ; 0x02262250
 	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x18
+	sub sp, #0x40
 	add r7, r0, #0
-	str r1, [sp, #0x10]
-	mov r0, #0xc9
-	mov r1, #0x75
-	add r5, r2, #0
-	add r4, r3, #0
-	bl NARC_New
-	mov r1, #0
-	str r1, [sp]
-	str r1, [sp, #4]
-	str r1, [sp, #8]
-	mov r1, #0x75
-	str r1, [sp, #0xc]
-	ldr r1, _0225FC7C ; =ov93_02262CEC
-	lsl r6, r5, #3
-	ldrh r1, [r1, r6]
-	add r2, r7, #0
-	mov r3, #7
-	str r0, [sp, #0x14]
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	ldr r1, _0225FC80 ; =ov93_02262CEE
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	mov r0, #0x75
-	str r0, [sp, #0xc]
-	ldrh r1, [r1, r6]
-	ldr r0, [sp, #0x14]
-	add r2, r7, #0
-	mov r3, #7
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	ldr r0, [sp, #0x14]
-	bl NARC_Delete
-	add r0, r4, #0
-	mov r1, #0
-	mov r2, #0x30
-	bl MI_CpuFill8
-	ldr r0, [sp, #0x10]
-	mov r1, #0xc
-	add r2, r0, #0
-	mul r2, r1
-	ldr r0, _0225FC84 ; =ov93_02262FD4
-	lsl r1, r5, #2
-	add r0, r0, r2
-	ldr r0, [r1, r0]
-	mov r1, #1
-	str r0, [r4, #0xc]
-	str r5, [r4, #4]
-	add r0, r4, #0
-	str r1, [r4]
-	add r0, #0x2c
-	strb r1, [r0]
-	ldr r2, [sp, #0x10]
+	ldr r0, _022622FC ; =0x00003848
+	add r6, r7, #0
+	ldr r0, [r7, r0]
+	add r4, r7, #0
+	str r0, [sp, #0x2c]
+	mov r0, #5
+	str r0, [sp, #0x30]
+	ldr r0, _02262300 ; =0x000016B0
+	add r6, #0x64
+	add r5, r7, r0
+	add r4, #0xc8
+	add r5, #0x64
+_0226226E:
+	ldr r0, _02262300 ; =0x000016B0
+	ldr r0, [r6, r0]
+	cmp r0, #0
+	beq _0226227A
+	bl GF_AssertFail
+_0226227A:
+	ldr r0, [sp, #0x2c]
+	mov r1, #0xa
+	bl _u32_div_f
 	add r0, r7, #0
-	add r1, r4, #0
-	bl ov93_0225FCA4
-	ldr r0, _0225FC88 ; =0x000005EB
-	bl PlaySE
-	add sp, #0x18
+	add r0, #0x80
+	ldr r0, [r0]
+	add r1, r1, #4
+	bl NewString_ReadMsgData
+	str r0, [sp, #0x34]
+	ldr r0, [sp, #0x2c]
+	mov r1, #0xa
+	bl _u32_div_f
+	str r0, [sp, #0x2c]
+	ldr r0, _02262304 ; =0x000015AC
+	add r1, sp, #0x3c
+	ldr r0, [r4, r0]
+	add r2, sp, #0x38
+	bl sub_02013794
+	ldr r0, [sp, #0x34]
+	add r2, r7, #0
+	str r0, [sp]
+	mov r0, #0
+	str r0, [sp, #4]
+	ldr r0, _02262308 ; =0x000E0F00
+	add r2, #0x90
+	str r0, [sp, #8]
+	mov r0, #0
+	str r0, [sp, #0xc]
+	ldr r0, _0226230C ; =0x00002713
+	add r3, r5, #0
+	str r0, [sp, #0x10]
+	ldr r0, [sp, #0x3c]
+	str r0, [sp, #0x14]
+	mov r0, #0xa8
+	str r0, [sp, #0x18]
+	mov r0, #0
+	str r0, [sp, #0x1c]
+	mov r0, #1
+	str r0, [sp, #0x20]
+	mov r0, #0xc
+	str r0, [sp, #0x24]
+	mov r0, #2
+	str r0, [sp, #0x28]
+	ldr r0, [r7, #0x2c]
+	ldr r1, [r7, #0x28]
+	ldr r2, [r2]
+	bl ov93_02261EB8
+	ldr r0, [sp, #0x34]
+	bl String_Delete
+	ldr r0, [sp, #0x30]
+	sub r6, #0x14
+	sub r4, #0x28
+	sub r5, #0x14
+	sub r0, r0, #1
+	str r0, [sp, #0x30]
+	bpl _0226226E
+	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_0225FC7C: .word ov93_02262CEC
-_0225FC80: .word ov93_02262CEE
-_0225FC84: .word ov93_02262FD4
-_0225FC88: .word 0x000005EB
-	thumb_func_end ov93_0225FBF0
+	nop
+_022622FC: .word 0x00003848
+_02262300: .word 0x000016B0
+_02262304: .word 0x000015AC
+_02262308: .word 0x000E0F00
+_0226230C: .word 0x00002713
+	thumb_func_end ov93_02262250

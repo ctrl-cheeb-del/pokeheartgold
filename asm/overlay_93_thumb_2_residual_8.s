@@ -140,74 +140,43 @@
 	.public ov93_022629B8
 	.public ov93_022629E4
 
-	thumb_func_start ov93_0225FBF0
-ov93_0225FBF0: ; 0x0225FBF0
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x18
-	add r7, r0, #0
-	str r1, [sp, #0x10]
-	mov r0, #0xc9
-	mov r1, #0x75
-	add r5, r2, #0
-	add r4, r3, #0
-	bl NARC_New
-	mov r1, #0
-	str r1, [sp]
-	str r1, [sp, #4]
-	str r1, [sp, #8]
-	mov r1, #0x75
-	str r1, [sp, #0xc]
-	ldr r1, _0225FC7C ; =ov93_02262CEC
-	lsl r6, r5, #3
-	ldrh r1, [r1, r6]
-	add r2, r7, #0
-	mov r3, #7
-	str r0, [sp, #0x14]
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
+	thumb_func_start ov93_02260F3C
+ov93_02260F3C: ; 0x02260F3C
+	push {r4, r5}
+	ldr r2, _02260F80 ; =0x00002FB0
+	add r4, r0, #0
+	sub r0, r2, #4
+	add r3, r1, #0
+	ldr r1, [r4, r2]
+	ldr r0, [r4, r0]
+	sub r0, r1, r0
+	cmp r0, #8
+	blt _02260F56
 	mov r0, #0
-	str r0, [sp]
-	ldr r1, _0225FC80 ; =ov93_02262CEE
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	mov r0, #0x75
-	str r0, [sp, #0xc]
-	ldrh r1, [r1, r6]
-	ldr r0, [sp, #0x14]
-	add r2, r7, #0
-	mov r3, #7
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	ldr r0, [sp, #0x14]
-	bl NARC_Delete
-	add r0, r4, #0
-	mov r1, #0
-	mov r2, #0x30
-	bl MI_CpuFill8
-	ldr r0, [sp, #0x10]
-	mov r1, #0xc
-	add r2, r0, #0
-	mul r2, r1
-	ldr r0, _0225FC84 ; =ov93_02262FD4
-	lsl r1, r5, #2
-	add r0, r0, r2
-	ldr r0, [r1, r0]
-	mov r1, #1
-	str r0, [r4, #0xc]
-	str r5, [r4, #4]
-	add r0, r4, #0
-	str r1, [r4]
-	add r0, #0x2c
-	strb r1, [r0]
-	ldr r2, [sp, #0x10]
-	add r0, r7, #0
-	add r1, r4, #0
-	bl ov93_0225FCA4
-	ldr r0, _0225FC88 ; =0x000005EB
-	bl PlaySE
-	add sp, #0x18
-	pop {r3, r4, r5, r6, r7, pc}
+	pop {r4, r5}
+	bx lr
+_02260F56:
+	lsr r5, r1, #0x1f
+	lsl r1, r1, #0x1d
+	sub r1, r1, r5
+	mov r0, #0x1d
+	ror r1, r0
+	add r0, r5, r1
+	lsl r0, r0, #4
+	add r1, r4, r0
+	add r0, r2, #0
+	sub r0, #0x84
+	add r5, r1, r0
+	ldmia r3!, {r0, r1}
+	stmia r5!, {r0, r1}
+	ldmia r3!, {r0, r1}
+	stmia r5!, {r0, r1}
+	ldr r0, [r4, r2]
+	add r0, r0, #1
+	str r0, [r4, r2]
+	mov r0, #1
+	pop {r4, r5}
+	bx lr
 	.balign 4, 0
-_0225FC7C: .word ov93_02262CEC
-_0225FC80: .word ov93_02262CEE
-_0225FC84: .word ov93_02262FD4
-_0225FC88: .word 0x000005EB
-	thumb_func_end ov93_0225FBF0
+_02260F80: .word 0x00002FB0
+	thumb_func_end ov93_02260F3C

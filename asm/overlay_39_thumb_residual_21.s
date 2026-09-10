@@ -111,123 +111,136 @@
 	.public ov39_02228EA4
 	.public ov39_0222908C
 
-	thumb_func_start ov39_02227088
-ov39_02227088: ; 0x02227088
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x10
-	add r6, r2, #0
-	mov r2, #0x67
-	add r5, r1, #0
-	add r7, r3, #0
-	str r0, [sp, #4]
-	add r0, r7, #0
-	mov r1, #0
-	lsl r2, r2, #2
-	bl MI_CpuFill8
-	ldr r1, [sp, #0x28]
-	mov r0, #0x3c
-	bl String_New
+	thumb_func_start ov39_02228DA0
+ov39_02228DA0: ; 0x02228DA0
+	push {r4, lr}
+	sub sp, #8
 	add r4, r0, #0
-	add r0, r5, #0
-	add r1, r6, #0
-	add r2, r4, #0
-	bl PCStorage_GetBoxName
+	bl ov00_021ECDC8
+	cmp r0, #5
+	bhi _02228E44
+	add r0, r0, r0
+	add r0, pc
+	ldrh r0, [r0, #6]
+	lsl r0, r0, #0x10
+	asr r0, r0, #0x10
+	add pc, r0
+_02228DBA: ; jump table
+	.short _02228DCC - _02228DBA - 2 ; case 0
+	.short _02228E44 - _02228DBA - 2 ; case 1
+	.short _02228E44 - _02228DBA - 2 ; case 2
+	.short _02228DC6 - _02228DBA - 2 ; case 3
+	.short _02228DCC - _02228DBA - 2 ; case 4
+	.short _02228DCC - _02228DBA - 2 ; case 5
+_02228DC6:
+	mov r0, #5
+	str r0, [r4, #8]
+	b _02228E44
+_02228DCC:
 	add r0, r4, #0
-	add r1, r7, #0
-	mov r2, #0x14
-	bl CopyStringToU16Array
-	add r0, r4, #0
-	bl String_Delete
-	mov r4, #0
-	str r7, [sp, #0xc]
-	str r7, [sp, #8]
-_022270CA:
-	mov r0, #0
-	str r0, [sp]
-	add r0, r5, #0
-	add r1, r6, #0
-	add r2, r4, #0
-	mov r3, #5
-	bl PCStorage_GetMonDataByIndexPair
-	ldr r1, [sp, #0xc]
-	add r2, r4, #0
-	strh r0, [r1, #0x28]
-	mov r0, #0
-	str r0, [sp]
-	add r0, r5, #0
-	add r1, r6, #0
-	mov r3, #0
-	bl PCStorage_GetMonDataByIndexPair
-	ldr r1, [sp, #8]
-	add r2, r4, #0
-	str r0, [r1, #0x64]
-	mov r0, #0
-	str r0, [sp]
-	add r0, r5, #0
-	add r1, r6, #0
-	mov r3, #7
-	bl PCStorage_GetMonDataByIndexPair
-	ldr r1, [sp, #8]
-	add r2, r4, #0
-	add r1, #0xdc
-	str r0, [r1]
-	mov r0, #0
-	str r0, [sp]
-	add r0, r5, #0
-	add r1, r6, #0
-	mov r3, #0xae
-	bl PCStorage_GetMonDataByIndexPair
-	ldr r1, _02227180 ; =0x000001EE
-	cmp r0, r1
-	bne _02227130
-	add r0, r1, #0
-	sub r0, #0x9a
-	ldr r1, [r7, r0]
-	mov r0, #1
-	lsl r0, r4
-	orr r1, r0
-	mov r0, #0x55
-	lsl r0, r0, #2
-	str r1, [r7, r0]
-_02227130:
-	mov r0, #0
-	str r0, [sp]
-	add r0, r5, #0
-	add r1, r6, #0
-	add r2, r4, #0
-	mov r3, #0x70
-	bl PCStorage_GetMonDataByIndexPair
-	mov r1, #0x56
-	add r2, r7, r4
-	lsl r1, r1, #2
-	strb r0, [r2, r1]
-	ldr r0, [sp, #0xc]
-	add r4, r4, #1
-	add r0, r0, #2
-	str r0, [sp, #0xc]
-	ldr r0, [sp, #8]
-	add r0, r0, #4
-	str r0, [sp, #8]
-	cmp r4, #0x1e
-	blt _022270CA
-	add r0, r5, #0
-	add r1, r6, #0
-	bl PCStorage_GetBoxWallpaper
-	ldr r2, _02227184 ; =0x00000176
-	mov r1, #0
-	strb r0, [r7, r2]
-	add r0, r2, #1
-	strb r1, [r7, r0]
+	bl ov39_02228AA8
+	add r0, sp, #4
+	add r1, sp, #0
+	bl ov00_021EC11C
+	str r0, [r4, #0x14]
 	ldr r0, [sp, #4]
-	add r1, r7, #0
-	add r2, #0x22
-	bl SaveArray_CalcCRC16
-	mov r1, #0x66
-	lsl r1, r1, #2
-	strh r0, [r7, r1]
-	add sp, #0x10
-	pop {r3, r4, r5, r6, r7, pc}
+	str r0, [r4, #0x18]
+	ldr r0, [sp]
+	str r0, [r4, #0x1c]
+	bl ov00_021EC210
+	bl ov00_021EC8D8
+	mov r0, #6
+	str r0, [r4, #8]
+	ldr r1, [sp]
+	cmp r1, #7
+	bhi _02228E32
+	add r1, r1, r1
+	add r1, pc
+	ldrh r1, [r1, #6]
+	lsl r1, r1, #0x10
+	asr r1, r1, #0x10
+	add pc, r1
+_02228E02: ; jump table
+	.short _02228E32 - _02228E02 - 2 ; case 0
+	.short _02228E12 - _02228E02 - 2 ; case 1
+	.short _02228E12 - _02228E02 - 2 ; case 2
+	.short _02228E24 - _02228E02 - 2 ; case 3
+	.short _02228E16 - _02228E02 - 2 ; case 4
+	.short _02228E2E - _02228E02 - 2 ; case 5
+	.short _02228E20 - _02228E02 - 2 ; case 6
+	.short _02228E2E - _02228E02 - 2 ; case 7
+_02228E12:
+	str r0, [r4, #8]
+	b _02228E32
+_02228E16:
+	bl ov00_021FA0D8
+	mov r0, #6
+	str r0, [r4, #8]
+	b _02228E32
+_02228E20:
+	str r0, [r4, #8]
+	b _02228E32
+_02228E24:
+	bl ov00_021ED9B4
+	mov r0, #6
+	str r0, [r4, #8]
+	b _02228E32
+_02228E2E:
+	bl sub_020399EC
+_02228E32:
+	ldr r1, [sp, #4]
+	ldr r0, _02228E4C ; =0xFFFFB1E0
+	cmp r1, r0
+	bge _02228E44
+	ldr r0, _02228E50 ; =0xFFFF8AD1
+	cmp r1, r0
+	blt _02228E44
+	mov r0, #6
+	str r0, [r4, #8]
+_02228E44:
+	mov r0, #0
+	add sp, #8
+	pop {r4, pc}
+	nop
+_02228E4C: .word 0xFFFFB1E0
+_02228E50: .word 0xFFFF8AD1
+	thumb_func_end ov39_02228DA0
+
+
+	thumb_func_start ov39_02228E54
+ov39_02228E54: ; 0x02228E54
+	push {r4, r5, r6, lr}
+	add r5, r0, #0
+	ldr r0, [r5]
+	ldr r0, [r0]
+	ldr r0, [r0, #4]
+	bl sub_0202C6F4
+	add r6, r0, #0
+	ldr r0, [r5]
+	ldr r0, [r0]
+	ldr r0, [r0, #4]
+	bl Save_SysInfo_Get
+	add r4, r0, #0
+	add r0, r6, #0
+	bl sub_0202C08C
+	add r0, r4, #0
+	bl Save_SysInfo_GetDwcProfileId
+	cmp r0, #0
+	bne _02228E8E
+	add r0, r6, #0
+	bl sub_0203A040
+	add r1, r0, #0
+	add r0, r4, #0
+	bl Save_SysInfo_SetDwcProfileId
+_02228E8E:
+	add r0, r4, #0
+	bl Save_SysInfo_GetDwcProfileId
+	mov r0, #9
+	str r0, [r5, #8]
+	ldr r0, [r5]
+	mov r1, #1
+	str r1, [r0, #0x7c]
+	mov r0, #0
+	pop {r4, r5, r6, pc}
 	.balign 4, 0
-_02227180: .word 0x000001EE
-_02227184: .word 0x00000176
-	thumb_func_end ov39_02227088
+	thumb_func_end ov39_02228E54

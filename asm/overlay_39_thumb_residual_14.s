@@ -111,123 +111,85 @@
 	.public ov39_02228EA4
 	.public ov39_0222908C
 
-	thumb_func_start ov39_02227088
-ov39_02227088: ; 0x02227088
+	thumb_func_start ov39_0222801C
+ov39_0222801C: ; 0x0222801C
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x10
-	add r6, r2, #0
-	mov r2, #0x67
-	add r5, r1, #0
-	add r7, r3, #0
-	str r0, [sp, #4]
-	add r0, r7, #0
-	mov r1, #0
-	lsl r2, r2, #2
-	bl MI_CpuFill8
-	ldr r1, [sp, #0x28]
-	mov r0, #0x3c
-	bl String_New
-	add r4, r0, #0
-	add r0, r5, #0
-	add r1, r6, #0
-	add r2, r4, #0
-	bl PCStorage_GetBoxName
-	add r0, r4, #0
-	add r1, r7, #0
-	mov r2, #0x14
-	bl CopyStringToU16Array
-	add r0, r4, #0
-	bl String_Delete
-	mov r4, #0
-	str r7, [sp, #0xc]
-	str r7, [sp, #8]
-_022270CA:
-	mov r0, #0
+	str r2, [sp, #8]
 	str r0, [sp]
-	add r0, r5, #0
-	add r1, r6, #0
-	add r2, r4, #0
-	mov r3, #5
-	bl PCStorage_GetMonDataByIndexPair
-	ldr r1, [sp, #0xc]
-	add r2, r4, #0
-	strh r0, [r1, #0x28]
-	mov r0, #0
-	str r0, [sp]
-	add r0, r5, #0
-	add r1, r6, #0
-	mov r3, #0
-	bl PCStorage_GetMonDataByIndexPair
-	ldr r1, [sp, #8]
-	add r2, r4, #0
-	str r0, [r1, #0x64]
-	mov r0, #0
-	str r0, [sp]
-	add r0, r5, #0
-	add r1, r6, #0
-	mov r3, #7
-	bl PCStorage_GetMonDataByIndexPair
-	ldr r1, [sp, #8]
-	add r2, r4, #0
-	add r1, #0xdc
-	str r0, [r1]
-	mov r0, #0
-	str r0, [sp]
-	add r0, r5, #0
-	add r1, r6, #0
-	mov r3, #0xae
-	bl PCStorage_GetMonDataByIndexPair
-	ldr r1, _02227180 ; =0x000001EE
-	cmp r0, r1
-	bne _02227130
-	add r0, r1, #0
-	sub r0, #0x9a
-	ldr r1, [r7, r0]
-	mov r0, #1
-	lsl r0, r4
-	orr r1, r0
-	mov r0, #0x55
-	lsl r0, r0, #2
-	str r1, [r7, r0]
-_02227130:
-	mov r0, #0
-	str r0, [sp]
-	add r0, r5, #0
-	add r1, r6, #0
-	add r2, r4, #0
-	mov r3, #0x70
-	bl PCStorage_GetMonDataByIndexPair
-	mov r1, #0x56
-	add r2, r7, r4
-	lsl r1, r1, #2
-	strb r0, [r2, r1]
-	ldr r0, [sp, #0xc]
-	add r4, r4, #1
-	add r0, r0, #2
-	str r0, [sp, #0xc]
+	str r1, [sp, #4]
+	bl ov39_0222A2B4
+	ldr r1, [r0, #4]
+	add r4, r0, #4
 	ldr r0, [sp, #8]
-	add r0, r0, #4
-	str r0, [sp, #8]
-	cmp r4, #0x1e
-	blt _022270CA
-	add r0, r5, #0
-	add r1, r6, #0
-	bl PCStorage_GetBoxWallpaper
-	ldr r2, _02227184 ; =0x00000176
-	mov r1, #0
-	strb r0, [r7, r2]
-	add r0, r2, #1
-	strb r1, [r7, r0]
-	ldr r0, [sp, #4]
-	add r1, r7, #0
-	add r2, #0x22
+	str r1, [sp, #0xc]
+	cmp r1, r0
+	ble _0222803C
+	str r0, [sp, #0xc]
+	bl GF_AssertFail
+_0222803C:
+	ldr r0, [sp, #0xc]
+	add r5, r4, #4
+	mov r6, #0
+	cmp r0, #0
+	ble _02228096
+	ldr r4, [sp, #4]
+_02228048:
+	add r2, r5, #0
+	add r2, #0xc
+	add r3, r2, #0
+	str r2, [r4]
+	add r3, #0xd8
+	ldr r3, [r3]
+	ldr r0, [r5, #8]
+	mov ip, r3
+	add r3, r2, #0
+	add r3, #0xdc
+	ldr r3, [r3]
+	add r7, r0, #0
+	eor r7, r3
+	ldr r1, [r5, #4]
+	mov r3, ip
+	eor r3, r1
+	orr r3, r7
+	beq _0222808A
+	add r3, r2, #0
+	add r3, #0xd8
+	str r1, [r3]
+	add r2, #0xdc
+	str r0, [r2]
+	ldr r0, [sp]
+	ldr r1, [r4]
+	ldr r0, [r0]
+	add r1, #0x80
+	mov r2, #0x58
 	bl SaveArray_CalcCRC16
-	mov r1, #0x66
-	lsl r1, r1, #2
-	strh r0, [r7, r1]
+	ldr r1, [r4]
+	add r1, #0xe0
+	strh r0, [r1]
+_0222808A:
+	ldr r0, [sp, #0xc]
+	add r6, r6, #1
+	add r5, #0xf0
+	add r4, r4, #4
+	cmp r6, r0
+	blt _02228048
+_02228096:
+	ldr r0, [sp, #8]
+	cmp r6, r0
+	bge _022280AE
+	ldr r0, [sp, #4]
+	lsl r1, r6, #2
+	add r2, r0, r1
+	mov r1, #0
+_022280A4:
+	ldr r0, [sp, #8]
+	add r6, r6, #1
+	stmia r2!, {r1}
+	cmp r6, r0
+	blt _022280A4
+_022280AE:
+	ldr r0, [sp, #0xc]
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_02227180: .word 0x000001EE
-_02227184: .word 0x00000176
-	thumb_func_end ov39_02227088
+	thumb_func_end ov39_0222801C

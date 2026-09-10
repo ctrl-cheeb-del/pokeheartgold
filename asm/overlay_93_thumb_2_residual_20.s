@@ -140,74 +140,158 @@
 	.public ov93_022629B8
 	.public ov93_022629E4
 
-	thumb_func_start ov93_0225FBF0
-ov93_0225FBF0: ; 0x0225FBF0
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x18
-	add r7, r0, #0
-	str r1, [sp, #0x10]
-	mov r0, #0xc9
-	mov r1, #0x75
-	add r5, r2, #0
-	add r4, r3, #0
-	bl NARC_New
-	mov r1, #0
-	str r1, [sp]
-	str r1, [sp, #4]
-	str r1, [sp, #8]
-	mov r1, #0x75
-	str r1, [sp, #0xc]
-	ldr r1, _0225FC7C ; =ov93_02262CEC
-	lsl r6, r5, #3
-	ldrh r1, [r1, r6]
-	add r2, r7, #0
-	mov r3, #7
-	str r0, [sp, #0x14]
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
+	thumb_func_start ov93_022625BC
+ov93_022625BC: ; 0x022625BC
+	push {r3, r4, r5, lr}
+	add r5, r1, #0
+	bl OverlayManager_GetData
+	add r4, r0, #0
+	ldr r0, [r4]
+	add r1, r0, #0
+	add r1, #0x3d
+	ldrb r1, [r1]
+	cmp r1, #1
+	bne _02262642
+	add r1, r0, #0
+	add r1, #0x3e
+	ldrb r1, [r1]
+	cmp r1, #0
+	beq _022625E4
+	cmp r1, #1
+	beq _02262606
+	cmp r1, #2
+	b _0226261E
+_022625E4:
+	bl IsPaletteFadeFinished
+	cmp r0, #1
+	bne _022625F0
+	bl sub_0200FB70
+_022625F0:
 	mov r0, #0
-	str r0, [sp]
-	ldr r1, _0225FC80 ; =ov93_02262CEE
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	mov r0, #0x75
-	str r0, [sp, #0xc]
-	ldrh r1, [r1, r6]
-	ldr r0, [sp, #0x14]
-	add r2, r7, #0
-	mov r3, #7
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	ldr r0, [sp, #0x14]
-	bl NARC_Delete
-	add r0, r4, #0
-	mov r1, #0
-	mov r2, #0x30
-	bl MI_CpuFill8
-	ldr r0, [sp, #0x10]
-	mov r1, #0xc
-	add r2, r0, #0
-	mul r2, r1
-	ldr r0, _0225FC84 ; =ov93_02262FD4
-	lsl r1, r5, #2
-	add r0, r0, r2
-	ldr r0, [r1, r0]
-	mov r1, #1
-	str r0, [r4, #0xc]
-	str r5, [r4, #4]
-	add r0, r4, #0
-	str r1, [r4]
-	add r0, #0x2c
-	strb r1, [r0]
-	ldr r2, [sp, #0x10]
-	add r0, r7, #0
-	add r1, r4, #0
-	bl ov93_0225FCA4
-	ldr r0, _0225FC88 ; =0x000005EB
-	bl PlaySE
-	add sp, #0x18
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_0225FC7C: .word ov93_02262CEC
-_0225FC80: .word ov93_02262CEE
-_0225FC84: .word ov93_02262FD4
-_0225FC88: .word 0x000005EB
-	thumb_func_end ov93_0225FBF0
+	bl sub_0200FC20
+	ldr r1, [r4]
+	add r0, r1, #0
+	add r0, #0x3e
+	ldrb r0, [r0]
+	add r1, #0x3e
+	add r0, r0, #1
+	strb r0, [r1]
+	b _0226263E
+_02262606:
+	bl ov90_02258B98
+	cmp r0, #1
+	bne _0226263E
+	ldr r1, [r4]
+	add r0, r1, #0
+	add r0, #0x3e
+	ldrb r0, [r0]
+	add r1, #0x3e
+	add r0, r0, #1
+	strb r0, [r1]
+	b _0226263E
+_0226261E:
+	ldr r0, [r4, #4]
+	cmp r0, #0
+	beq _0226262C
+	bl ov90_02258938
+	mov r0, #0
+	str r0, [r4, #4]
+_0226262C:
+	ldr r0, [r4, #8]
+	cmp r0, #0
+	beq _0226263A
+	bl ov90_02258A04
+	mov r0, #0
+	str r0, [r4, #8]
+_0226263A:
+	mov r0, #1
+	pop {r3, r4, r5, pc}
+_0226263E:
+	mov r0, #0
+	pop {r3, r4, r5, pc}
+_02262642:
+	ldr r1, [r5]
+	cmp r1, #5
+	bhi _022626E0
+	add r1, r1, r1
+	add r1, pc
+	ldrh r1, [r1, #6]
+	lsl r1, r1, #0x10
+	asr r1, r1, #0x10
+	add pc, r1
+_02262654: ; jump table
+	.short _02262660 - _02262654 - 2 ; case 0
+	.short _02262674 - _02262654 - 2 ; case 1
+	.short _02262684 - _02262654 - 2 ; case 2
+	.short _022626A8 - _02262654 - 2 ; case 3
+	.short _022626BC - _02262654 - 2 ; case 4
+	.short _022626E0 - _02262654 - 2 ; case 5
+_02262660:
+	add r0, #0x31
+	ldrb r0, [r0]
+	cmp r0, #0
+	bne _0226266E
+	mov r0, #1
+	str r0, [r5]
+	b _022626E4
+_0226266E:
+	mov r0, #3
+	str r0, [r5]
+	b _022626E4
+_02262674:
+	mov r1, #0x75
+	bl ov90_0225892C
+	str r0, [r4, #4]
+	ldr r0, [r5]
+	add r0, r0, #1
+	str r0, [r5]
+	b _022626E4
+_02262684:
+	ldr r0, [r4, #4]
+	bl ov90_022589BC
+	cmp r0, #1
+	bne _022626E4
+	ldr r0, [r4, #4]
+	bl ov90_022589CC
+	ldr r1, [r4]
+	str r0, [r1, #0x34]
+	ldr r0, [r4, #4]
+	bl ov90_02258938
+	mov r0, #0
+	str r0, [r4, #4]
+	mov r0, #5
+	str r0, [r5]
+	b _022626E4
+_022626A8:
+	add r1, r0, #0
+	add r1, #0x10
+	mov r2, #0x75
+	bl ov90_022589F8
+	str r0, [r4, #8]
+	ldr r0, [r5]
+	add r0, r0, #1
+	str r0, [r5]
+	b _022626E4
+_022626BC:
+	ldr r0, [r4, #8]
+	bl ov90_02258AA0
+	cmp r0, #1
+	bne _022626E4
+	ldr r0, [r4, #8]
+	bl ov90_02258AA4
+	ldr r1, [r4]
+	str r0, [r1, #0x38]
+	ldr r0, [r4, #8]
+	bl ov90_02258A04
+	mov r0, #0
+	str r0, [r4, #8]
+	mov r0, #5
+	str r0, [r5]
+	b _022626E4
+_022626E0:
+	mov r0, #1
+	pop {r3, r4, r5, pc}
+_022626E4:
+	mov r0, #0
+	pop {r3, r4, r5, pc}
+	thumb_func_end ov93_022625BC

@@ -140,74 +140,114 @@
 	.public ov93_022629B8
 	.public ov93_022629E4
 
-	thumb_func_start ov93_0225FBF0
-ov93_0225FBF0: ; 0x0225FBF0
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x18
-	add r7, r0, #0
-	str r1, [sp, #0x10]
-	mov r0, #0xc9
-	mov r1, #0x75
-	add r5, r2, #0
-	add r4, r3, #0
-	bl NARC_New
-	mov r1, #0
-	str r1, [sp]
-	str r1, [sp, #4]
-	str r1, [sp, #8]
-	mov r1, #0x75
-	str r1, [sp, #0xc]
-	ldr r1, _0225FC7C ; =ov93_02262CEC
-	lsl r6, r5, #3
-	ldrh r1, [r1, r6]
-	add r2, r7, #0
-	mov r3, #7
-	str r0, [sp, #0x14]
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	ldr r1, _0225FC80 ; =ov93_02262CEE
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	mov r0, #0x75
-	str r0, [sp, #0xc]
-	ldrh r1, [r1, r6]
-	ldr r0, [sp, #0x14]
-	add r2, r7, #0
-	mov r3, #7
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	ldr r0, [sp, #0x14]
-	bl NARC_Delete
-	add r0, r4, #0
-	mov r1, #0
-	mov r2, #0x30
-	bl MI_CpuFill8
-	ldr r0, [sp, #0x10]
-	mov r1, #0xc
-	add r2, r0, #0
-	mul r2, r1
-	ldr r0, _0225FC84 ; =ov93_02262FD4
-	lsl r1, r5, #2
-	add r0, r0, r2
-	ldr r0, [r1, r0]
+	thumb_func_start ov93_02262374
+ov93_02262374: ; 0x02262374
+	push {r4, lr}
+	add r4, r1, #0
+	mov r0, #4
+	ldrsh r1, [r4, r0]
+	cmp r1, #0xa
+	bhi _0226243E
+	add r1, r1, r1
+	add r1, pc
+	ldrh r1, [r1, #6]
+	lsl r1, r1, #0x10
+	asr r1, r1, #0x10
+	add pc, r1
+_0226238C: ; jump table
+	.short _022623A2 - _0226238C - 2 ; case 0
+	.short _022623C2 - _0226238C - 2 ; case 1
+	.short _022623EA - _0226238C - 2 ; case 2
+	.short _0226240C - _0226238C - 2 ; case 3
+	.short _0226241E - _0226238C - 2 ; case 4
+	.short _022623A2 - _0226238C - 2 ; case 5
+	.short _022623C2 - _0226238C - 2 ; case 6
+	.short _022623EA - _0226238C - 2 ; case 7
+	.short _0226240C - _0226238C - 2 ; case 8
+	.short _0226241E - _0226238C - 2 ; case 9
+	.short _0226243A - _0226238C - 2 ; case 10
+_022623A2:
+	mov r3, #0x16
+	ldr r0, [r4]
+	mov r1, #0x80
+	mov r2, #0x10
+	lsl r3, r3, #0x10
+	bl ManagedSprite_SetPositionXYWithSubscreenOffset
+	ldr r0, [r4]
 	mov r1, #1
-	str r0, [r4, #0xc]
-	str r5, [r4, #4]
-	add r0, r4, #0
-	str r1, [r4]
-	add r0, #0x2c
-	strb r1, [r0]
-	ldr r2, [sp, #0x10]
-	add r0, r7, #0
-	add r1, r4, #0
-	bl ov93_0225FCA4
-	ldr r0, _0225FC88 ; =0x000005EB
-	bl PlaySE
-	add sp, #0x18
-	pop {r3, r4, r5, r6, r7, pc}
+	bl ManagedSprite_SetDrawFlag
+	mov r0, #4
+	ldrsh r0, [r4, r0]
+	add r0, r0, #1
+	strh r0, [r4, #4]
+	b _0226243E
+_022623C2:
+	mov r1, #6
+	ldrsh r2, [r4, r1]
+	add r2, r2, #1
+	strh r2, [r4, #6]
+	ldrsh r1, [r4, r1]
+	cmp r1, #0xf
+	ble _0226243E
+	mov r1, #0
+	strh r1, [r4, #6]
+	mov r1, #1
+	str r1, [r4, #0x14]
+	str r1, [r4, #0x18]
+	mov r1, #0x80
+	str r1, [r4, #0xc]
+	mov r1, #0x20
+	str r1, [r4, #0x10]
+	ldrsh r0, [r4, r0]
+	add r0, r0, #1
+	strh r0, [r4, #4]
+	b _0226243E
+_022623EA:
+	mov r1, #0
+	str r1, [r4, #0x18]
+	ldr r0, [r4, #0x10]
+	mov r2, #6
+	add r0, r0, #6
+	str r0, [r4, #0x10]
+	ldr r0, [r4]
+	bl ManagedSprite_OffsetPositionXY
+	ldr r0, [r4, #0x10]
+	cmp r0, #0x60
+	ble _0226243E
+	mov r0, #4
+	ldrsh r0, [r4, r0]
+	add r0, r0, #1
+	strh r0, [r4, #4]
+	b _0226243E
+_0226240C:
+	mov r1, #0
+	str r1, [r4, #0x14]
+	ldr r0, [r4]
+	bl ManagedSprite_SetDrawFlag
+	mov r0, #4
+	ldrsh r0, [r4, r0]
+	add r0, r0, #1
+	strh r0, [r4, #4]
+_0226241E:
+	mov r0, #6
+	ldrsh r1, [r4, r0]
+	add r1, r1, #1
+	strh r1, [r4, #6]
+	ldrsh r0, [r4, r0]
+	cmp r0, #0x1e
+	ble _0226243E
+	mov r0, #0
+	strh r0, [r4, #6]
+	mov r0, #4
+	ldrsh r0, [r4, r0]
+	add r0, r0, #1
+	strh r0, [r4, #4]
+	b _0226243E
+_0226243A:
+	mov r0, #1
+	pop {r4, pc}
+_0226243E:
+	mov r0, #0
+	pop {r4, pc}
 	.balign 4, 0
-_0225FC7C: .word ov93_02262CEC
-_0225FC80: .word ov93_02262CEE
-_0225FC84: .word ov93_02262FD4
-_0225FC88: .word 0x000005EB
-	thumb_func_end ov93_0225FBF0
+	thumb_func_end ov93_02262374

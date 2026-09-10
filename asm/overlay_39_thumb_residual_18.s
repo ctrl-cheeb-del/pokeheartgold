@@ -111,123 +111,145 @@
 	.public ov39_02228EA4
 	.public ov39_0222908C
 
-	thumb_func_start ov39_02227088
-ov39_02227088: ; 0x02227088
-	push {r3, r4, r5, r6, r7, lr}
+	thumb_func_start ov39_02228964
+ov39_02228964: ; 0x02228964
+	push {r4, lr}
+	add r4, r0, #0
+	cmp r3, #1
+	beq _02228972
+	cmp r3, #2
+	beq _02228988
+	b _02228996
+_02228972:
+	ldr r0, [sp, #0xc]
+	mov r2, #0
+	bl FontID_String_GetWidth
+	ldrb r1, [r4, #7]
+	lsl r1, r1, #3
+	sub r1, r1, r0
+	lsr r0, r1, #0x1f
+	add r0, r1, r0
+	asr r2, r0, #1
+	b _02228996
+_02228988:
+	ldr r0, [sp, #0xc]
+	mov r2, #0
+	bl FontID_String_GetWidth
+	ldrb r1, [r4, #7]
+	lsl r1, r1, #3
+	sub r2, r1, r0
+_02228996:
+	add r0, r2, #0
+	pop {r4, pc}
+	.balign 4, 0
+	thumb_func_end ov39_02228964
+
+
+	thumb_func_start ov39_0222899C
+ov39_0222899C: ; 0x0222899C
+	push {r4, r5, r6, lr}
 	sub sp, #0x10
-	add r6, r2, #0
-	mov r2, #0x67
-	add r5, r1, #0
-	add r7, r3, #0
-	str r0, [sp, #4]
-	add r0, r7, #0
+	add r4, r3, #0
+	ldr r3, [sp, #0x24]
+	add r5, r0, #0
+	str r3, [sp]
+	mov r3, #1
+	str r3, [sp, #4]
+	ldr r3, [sp, #0x20]
+	add r6, r1, #0
+	bl ov39_02228964
+	add r3, r0, #0
+	str r4, [sp]
 	mov r1, #0
-	lsl r2, r2, #2
-	bl MI_CpuFill8
-	ldr r1, [sp, #0x28]
-	mov r0, #0x3c
+	ldr r0, [sp, #0x24]
+	str r1, [sp, #4]
+	str r0, [sp, #8]
+	str r1, [sp, #0xc]
+	add r0, r5, #0
+	mov r1, #1
+	add r2, r6, #0
+	bl AddTextPrinterParameterizedWithColor
+	add sp, #0x10
+	pop {r4, r5, r6, pc}
+	thumb_func_end ov39_0222899C
+
+
+	thumb_func_start ov39_022289D0
+ov39_022289D0: ; 0x022289D0
+	push {r3, r4, r5, r6, lr}
+	sub sp, #0xc
+	add r5, r0, #0
+	mov r0, #1
+	add r6, r1, #0
+	lsl r0, r0, #8
+	mov r1, #0x7c
 	bl String_New
 	add r4, r0, #0
-	add r0, r5, #0
+	ldr r0, [r5, #0x2c]
 	add r1, r6, #0
 	add r2, r4, #0
-	bl PCStorage_GetBoxName
-	add r0, r4, #0
-	add r1, r7, #0
-	mov r2, #0x14
-	bl CopyStringToU16Array
+	bl ReadMsgDataIntoString
+	ldr r0, [r5, #0x20]
+	ldr r1, [r5, #0x3c]
+	add r2, r4, #0
+	bl StringExpandPlaceholders
+	add r0, r5, #0
+	add r0, #0x64
+	mov r1, #0xf
+	bl FillWindowPixelBuffer
+	add r0, r5, #0
+	add r0, #0x64
+	mov r1, #1
+	mov r2, #0x1f
+	mov r3, #0xb
+	bl DrawFrameAndWindow1
+	mov r3, #0
+	str r3, [sp]
+	str r3, [sp, #4]
+	str r3, [sp, #8]
+	add r0, r5, #0
+	ldr r2, [r5, #0x3c]
+	add r0, #0x64
+	mov r1, #1
+	bl AddTextPrinterParameterized
+	mov r0, #0xff
+	str r0, [r5, #0x40]
 	add r0, r4, #0
 	bl String_Delete
-	mov r4, #0
-	str r7, [sp, #0xc]
-	str r7, [sp, #8]
-_022270CA:
-	mov r0, #0
-	str r0, [sp]
-	add r0, r5, #0
-	add r1, r6, #0
-	add r2, r4, #0
-	mov r3, #5
-	bl PCStorage_GetMonDataByIndexPair
-	ldr r1, [sp, #0xc]
-	add r2, r4, #0
-	strh r0, [r1, #0x28]
-	mov r0, #0
-	str r0, [sp]
-	add r0, r5, #0
-	add r1, r6, #0
-	mov r3, #0
-	bl PCStorage_GetMonDataByIndexPair
-	ldr r1, [sp, #8]
-	add r2, r4, #0
-	str r0, [r1, #0x64]
-	mov r0, #0
-	str r0, [sp]
-	add r0, r5, #0
-	add r1, r6, #0
-	mov r3, #7
-	bl PCStorage_GetMonDataByIndexPair
-	ldr r1, [sp, #8]
-	add r2, r4, #0
-	add r1, #0xdc
-	str r0, [r1]
-	mov r0, #0
-	str r0, [sp]
-	add r0, r5, #0
-	add r1, r6, #0
-	mov r3, #0xae
-	bl PCStorage_GetMonDataByIndexPair
-	ldr r1, _02227180 ; =0x000001EE
-	cmp r0, r1
-	bne _02227130
-	add r0, r1, #0
-	sub r0, #0x9a
-	ldr r1, [r7, r0]
-	mov r0, #1
-	lsl r0, r4
-	orr r1, r0
-	mov r0, #0x55
-	lsl r0, r0, #2
-	str r1, [r7, r0]
-_02227130:
-	mov r0, #0
-	str r0, [sp]
-	add r0, r5, #0
-	add r1, r6, #0
-	add r2, r4, #0
-	mov r3, #0x70
-	bl PCStorage_GetMonDataByIndexPair
-	mov r1, #0x56
-	add r2, r7, r4
-	lsl r1, r1, #2
-	strb r0, [r2, r1]
-	ldr r0, [sp, #0xc]
-	add r4, r4, #1
-	add r0, r0, #2
-	str r0, [sp, #0xc]
-	ldr r0, [sp, #8]
-	add r0, r0, #4
-	str r0, [sp, #8]
-	cmp r4, #0x1e
-	blt _022270CA
-	add r0, r5, #0
-	add r1, r6, #0
-	bl PCStorage_GetBoxWallpaper
-	ldr r2, _02227184 ; =0x00000176
-	mov r1, #0
-	strb r0, [r7, r2]
-	add r0, r2, #1
-	strb r1, [r7, r0]
-	ldr r0, [sp, #4]
-	add r1, r7, #0
-	add r2, #0x22
-	bl SaveArray_CalcCRC16
-	mov r1, #0x66
-	lsl r1, r1, #2
-	strh r0, [r7, r1]
-	add sp, #0x10
-	pop {r3, r4, r5, r6, r7, pc}
+	add sp, #0xc
+	pop {r3, r4, r5, r6, pc}
 	.balign 4, 0
-_02227180: .word 0x000001EE
-_02227184: .word 0x00000176
-	thumb_func_end ov39_02227088
+	thumb_func_end ov39_022289D0
+
+
+	thumb_func_start ov39_02228A34
+ov39_02228A34: ; 0x02228A34
+	push {r3, r4, r5, lr}
+	sub sp, #8
+	add r5, r0, #0
+	mov r0, #0
+	add r4, r1, #0
+	mvn r0, r0
+	cmp r4, r0
+	bne _02228A46
+	mov r4, #0xb
+_02228A46:
+	mov r0, #2
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	ldr r0, [r5, #0x20]
+	mov r1, #0
+	mov r3, #5
+	bl BufferIntegerAsString
+	add r0, r5, #0
+	add r0, #0x44
+	mov r1, #1
+	bl ClearFrameAndWindow2
+	add r0, r5, #0
+	add r1, r4, #0
+	bl ov39_022289D0
+	add sp, #8
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+	thumb_func_end ov39_02228A34

@@ -140,74 +140,182 @@
 	.public ov93_022629B8
 	.public ov93_022629E4
 
-	thumb_func_start ov93_0225FBF0
-ov93_0225FBF0: ; 0x0225FBF0
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x18
-	add r7, r0, #0
-	str r1, [sp, #0x10]
-	mov r0, #0xc9
-	mov r1, #0x75
-	add r5, r2, #0
-	add r4, r3, #0
-	bl NARC_New
-	mov r1, #0
-	str r1, [sp]
-	str r1, [sp, #4]
-	str r1, [sp, #8]
-	mov r1, #0x75
-	str r1, [sp, #0xc]
-	ldr r1, _0225FC7C ; =ov93_02262CEC
-	lsl r6, r5, #3
-	ldrh r1, [r1, r6]
-	add r2, r7, #0
-	mov r3, #7
-	str r0, [sp, #0x14]
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
+	thumb_func_start ov93_02261FC8
+ov93_02261FC8: ; 0x02261FC8
+	push {r4, r5, r6, r7, lr}
+	sub sp, #0xc
 	str r0, [sp]
-	ldr r1, _0225FC80 ; =ov93_02262CEE
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	mov r0, #0x75
-	str r0, [sp, #0xc]
-	ldrh r1, [r1, r6]
-	ldr r0, [sp, #0x14]
-	add r2, r7, #0
-	mov r3, #7
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	ldr r0, [sp, #0x14]
-	bl NARC_Delete
-	add r0, r4, #0
-	mov r1, #0
-	mov r2, #0x30
-	bl MI_CpuFill8
-	ldr r0, [sp, #0x10]
-	mov r1, #0xc
-	add r2, r0, #0
-	mul r2, r1
-	ldr r0, _0225FC84 ; =ov93_02262FD4
-	lsl r1, r5, #2
-	add r0, r0, r2
-	ldr r0, [r1, r0]
-	mov r1, #1
-	str r0, [r4, #0xc]
-	str r5, [r4, #4]
-	add r0, r4, #0
-	str r1, [r4]
-	add r0, #0x2c
-	strb r1, [r0]
-	ldr r2, [sp, #0x10]
-	add r0, r7, #0
-	add r1, r4, #0
-	bl ov93_0225FCA4
-	ldr r0, _0225FC88 ; =0x000005EB
-	bl PlaySE
-	add sp, #0x18
-	pop {r3, r4, r5, r6, r7, pc}
+	mov r7, #0
+	add r5, r0, #0
+_02261FD2:
+	ldr r0, [sp]
+	add r1, r0, r7
+	mov r0, #6
+	lsl r0, r0, #6
+	ldrb r1, [r1, r0]
+	cmp r1, #0x40
+	bge _02261FEA
+	mov r0, #0x40
+	sub r6, r0, r1
+	add r4, r6, #0
+	sub r4, #0x50
+	b _02262004
+_02261FEA:
+	cmp r1, #0x80
+	bge _02261FFA
+	mov r0, #0xa0
+	sub r4, r0, r1
+	sub r4, #0x10
+	add r6, r4, #0
+	sub r6, #0x50
+	b _02262004
+_02261FFA:
+	sub r1, #0xa0
+	mov r0, #0x40
+	sub r6, r0, r1
+	add r4, r6, #0
+	sub r4, #0x50
+_02262004:
+	ldr r0, [r5, #4]
+	add r1, sp, #8
+	add r2, sp, #4
+	bl sub_02013794
+	mov r2, #0xa8
+	ldr r0, [r5, #4]
+	ldr r1, [sp, #8]
+	sub r2, r2, r6
+	bl sub_020136B4
+	mov r2, #0xa8
+	ldr r0, [r5, #0x18]
+	ldr r1, [sp, #8]
+	sub r2, r2, r4
+	bl sub_020136B4
+	add r7, r7, #1
+	add r5, #0x28
+	cmp r7, #6
+	blt _02261FD2
+	add sp, #0xc
+	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
-_0225FC7C: .word ov93_02262CEC
-_0225FC80: .word ov93_02262CEE
-_0225FC84: .word ov93_02262FD4
-_0225FC88: .word 0x000005EB
-	thumb_func_end ov93_0225FBF0
+	thumb_func_end ov93_02261FC8
+
+
+	thumb_func_start ov93_02262034
+ov93_02262034: ; 0x02262034
+	push {r3, r4, r5, lr}
+	ldr r0, _02262094 ; =0x0000019E
+	add r4, r1, #0
+	ldrsb r1, [r4, r0]
+	cmp r1, #0
+	ble _02262046
+	sub r1, r1, #1
+	strb r1, [r4, r0]
+	pop {r3, r4, r5, pc}
+_02262046:
+	add r0, r0, #2
+	ldrb r0, [r4, r0]
+	cmp r0, #0
+	beq _02262054
+	cmp r0, #1
+	beq _02262070
+	pop {r3, r4, r5, pc}
+_02262054:
+	add r0, r4, #0
+	bl ov93_02262108
+	cmp r0, #1
+	bne _02262066
+	add r0, r4, #0
+	bl ov93_022620D4
+	pop {r3, r4, r5, pc}
+_02262066:
+	mov r0, #0x1a
+	lsl r0, r0, #4
+	ldrb r1, [r4, r0]
+	add r1, r1, #1
+	strb r1, [r4, r0]
+_02262070:
+	add r0, r4, #0
+	bl ov93_02262130
+	add r5, r0, #0
+	add r0, r4, #0
+	bl ov93_02261FC8
+	cmp r5, #1
+	bne _02262092
+	ldr r0, _02262094 ; =0x0000019E
+	mov r1, #0xf
+	strb r1, [r4, r0]
+	add r1, r0, #2
+	ldrb r1, [r4, r1]
+	add r0, r0, #2
+	sub r1, r1, #1
+	strb r1, [r4, r0]
+_02262092:
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+_02262094: .word 0x0000019E
+	thumb_func_end ov93_02262034
+
+
+	thumb_func_start ov93_02262098
+ov93_02262098: ; 0x02262098
+	push {r3, r4, r5, r6, r7, lr}
+	ldr r5, _022620D0 ; =0x000186A0
+	add r7, r0, #0
+	add r6, r1, #0
+	mov r4, #0
+_022620A2:
+	add r0, r6, #0
+	add r1, r5, #0
+	bl _s32_div_f
+	add r3, r0, #0
+	mov r0, #0x63
+	lsl r2, r3, #4
+	add r1, r7, r4
+	lsl r0, r0, #2
+	strb r2, [r1, r0]
+	add r0, r3, #0
+	mul r0, r5
+	sub r6, r6, r0
+	add r0, r5, #0
+	mov r1, #0xa
+	bl _s32_div_f
+	add r4, r4, #1
+	add r5, r0, #0
+	cmp r4, #6
+	blt _022620A2
+	pop {r3, r4, r5, r6, r7, pc}
+	nop
+_022620D0: .word 0x000186A0
+	thumb_func_end ov93_02262098
+
+
+	thumb_func_start ov93_022620D4
+ov93_022620D4: ; 0x022620D4
+	push {r4, r5, r6, r7}
+	mov r1, #0x66
+	mov r5, #0
+	lsl r1, r1, #2
+	add r3, r5, #0
+	sub r2, r1, #6
+_022620E0:
+	mov r6, #0x63
+	add r4, r0, r5
+	lsl r6, r6, #2
+	ldrb r7, [r4, r6]
+	sub r6, r6, #6
+	strb r7, [r4, r6]
+	mov r6, #5
+	sub r6, r6, r5
+	lsl r6, r6, #1
+	strb r6, [r4, r1]
+	add r5, r5, #1
+	strb r3, [r4, r2]
+	cmp r5, #6
+	blt _022620E0
+	ldr r1, _02262104 ; =0x0000019F
+	strb r3, [r0, r1]
+	pop {r4, r5, r6, r7}
+	bx lr
+	.balign 4, 0
+_02262104: .word 0x0000019F
+	thumb_func_end ov93_022620D4
