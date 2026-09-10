@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "6ccdacfa7fb1487572b33155673dd144fe200e08",
+  "commit": "bf1c515efdb47085b874e5d97fc6301fff72d139",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "99510b0706d3420901e25ee35fd9b4a2a090a9b5c13b71590fa27266d7b32fd9",
+    "ARM9": "6d116126a16cb0b0c924a6634ef2dc60fb259877920fef770bdb145271185b35",
     "ARM7": "f15e016f3eddcf686522ba7809647eed4ef507fab6fd632a435e8cc5d110a16f"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 2955060,
+    "asm": 2952312,
     "mixed": 18270,
-    "c": 1100880,
+    "c": 1103610,
     "unknown": 8792
   },
   "objects": [
@@ -987,10 +987,10 @@
     {
       "cpu": "ARM9",
       "module": "OVY_58",
-      "object": "overlay_58.o",
-      "bytes": 1116,
-      "status": "asm",
-      "source": "asm/overlay_58.s"
+      "object": "apricorn_box_overlay.o",
+      "bytes": 1110,
+      "status": "c",
+      "source": "src/apricorn_box_overlay.c"
     },
     {
       "cpu": "ARM9",
@@ -1171,6 +1171,30 @@
     {
       "cpu": "ARM9",
       "module": "OVY_80",
+      "object": "frontier_resource_manager.o",
+      "bytes": 402,
+      "status": "c",
+      "source": "src/frontier/frontier_resource_manager.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_80",
+      "object": "frontier_save_data_helpers.o",
+      "bytes": 328,
+      "status": "c",
+      "source": "src/frontier/frontier_save_data_helpers.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_80",
+      "object": "frontier_script_commands_misc.o",
+      "bytes": 890,
+      "status": "c",
+      "source": "src/frontier/frontier_script_commands_misc.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_80",
       "object": "frontier_script_context.o",
       "bytes": 346,
       "status": "c",
@@ -1283,22 +1307,6 @@
     {
       "cpu": "ARM9",
       "module": "OVY_80",
-      "object": "overlay_80_02235438.o",
-      "bytes": 892,
-      "status": "asm",
-      "source": "asm/overlay_80_02235438.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "OVY_80",
-      "object": "overlay_80_022357B4.o",
-      "bytes": 332,
-      "status": "asm",
-      "source": "asm/overlay_80_022357B4.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "OVY_80",
       "object": "overlay_80_02235900.o",
       "bytes": 1736,
       "status": "asm",
@@ -1359,14 +1367,6 @@
       "bytes": 368,
       "status": "asm",
       "source": "asm/overlay_80_022384D8.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "OVY_80",
-      "object": "overlay_80_02239960.o",
-      "bytes": 408,
-      "status": "asm",
-      "source": "asm/overlay_80_02239960.s"
     },
     {
       "cpu": "ARM9",

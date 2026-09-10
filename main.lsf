@@ -1692,7 +1692,7 @@ Overlay OVY_57
 Overlay OVY_58
 {
     After OVY_7
-    Object asm/overlay_58.o
+    Object src/apricorn_box_overlay.o
 }
 Overlay OVY_59
 {
@@ -1825,8 +1825,8 @@ Overlay OVY_80
     Object src/frontier/frontier_cmd_arcade.o
     Object asm/overlay_80_022340E8.o
     Object asm/overlay_80_02235390.o
-    Object asm/overlay_80_02235438.o
-    Object asm/overlay_80_022357B4.o
+    Object src/frontier/frontier_script_commands_misc.o
+    Object src/frontier/frontier_save_data_helpers.o
     Object asm/overlay_80_02235900.o
     Object asm/overlay_80_02235FC8.o
     Object asm/overlay_80_02236450.o
@@ -1836,7 +1836,7 @@ Overlay OVY_80
     Object asm/overlay_80_02238034.o
     Object asm/overlay_80_022384D8.o
     Object asm/frontier_map.o
-    Object asm/overlay_80_02239960.o
+    Object src/frontier/frontier_resource_manager.o
     Object asm/overlay_80_02239AF8.o
     Object asm/overlay_80_02239BF0.o
     Object asm/overlay_80_02239D74.o
