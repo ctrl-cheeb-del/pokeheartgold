@@ -61,3 +61,15 @@
 .public MI_CpuCopy8
 .public gOverlayTemplate_PartyMenu
 .public gOverlayTemplate_PokemonSummary
+
+	.public sub_02066EDC
+	.public sub_02066F90
+	.public sub_02066FEC
+	.public sub_02067088
+	.public sub_020670B0
+	.public sub_02067164
+	.public sub_0206718C
+	.public sub_020671B0
+	.public sub_02067238
+	.public sub_020674B0
+	.public _020FE4B0

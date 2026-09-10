@@ -924,3 +924,23 @@ candidates while the primary agent matched more code, integrated each batch,
 and ran both ROM builds sequentially. Three verified batches converted
 556 functions and added 19,608 mapped C bytes, increasing coverage
 from 23.531566% to 24.013660%. No GitHub CI runs were used.
+
+### Screen-window effects, field helpers, and communication state
+
+Converted 114 functions across screen-window register effects and deferred
+callbacks, field-player effects and messages, Frontier application/stat helpers,
+communication player state, wireless status icons, and terrain queries.
+Original data, strings, dispatch tables, and BSS remain in assembly with explicit
+exports. New C objects use distinct names from residual assembly objects.
+
+Independent source review corrected the friend-index return type and the fade
+helper's integer arguments. Recovered window argument layouts have size and
+offset assertions. Every selected function passed comparison again after the C
+files were split and formatted; residual assembly passed assembly preflights.
+
+Both complete retail ROM hashes match locally. HeartGold C-only mapped coverage
+increased from 24.102290% to 24.281299%, adding 7,298 C bytes
+(984,392 → 991,690) out of 4,084,172 mapped bytes. The total mapped
+size decreased by 54 alignment bytes. This brings the fork to 1,550 converted
+functions and 69,696 additional mapped C bytes relative to the initial baseline.
+The treemap was refreshed after both builds. Validation used local builds only.

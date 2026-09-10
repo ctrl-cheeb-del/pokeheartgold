@@ -28,3 +28,26 @@
 .public GX_LoadOBJ
 .public GXS_LoadOBJ
 .public DC_FlushRange
+
+	.public sub_0203A3B0
+	.public sub_0203A42C
+	.public sub_0203A438
+	.public sub_0203A444
+	.public sub_0203A478
+	.public sub_0203A4D4
+	.public sub_0203A534
+	.public sub_0203A59C
+	.public sub_0203A700
+	.public sub_0203A8A8
+	.public sub_0203A8CC
+	.public _020F6A9C
+	.public _020F6AA4
+	.public _020F6AAC
+	.public _020F6AB4
+	.public _020F6ABC
+	.public _0210F91C
+	.public _0210F930
+	.public _0210F940
+	.public _0210F954
+	.public _0210F964
+	.public _021D4154

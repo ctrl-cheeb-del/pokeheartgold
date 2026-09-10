@@ -60,7 +60,13 @@ Static main
     Object src/screen_fade_update_2.o
     Object asm/unk_020100C4.o
     Object asm/unk_0201010C.o
+    Object src/screen_window_effect.o
     Object asm/unk_02012DD8.o
+    Object src/screen_window_effect_2.o
+    Object asm/unk_02013004.o
+    Object src/screen_window_effect_3.o
+    Object asm/unk_0201333C.o
+    Object src/screen_window_effect_4.o
     Object src/font_sprite.o
     Object asm/unk_02013534.o
     Object src/unk_02013FDC.o
@@ -247,13 +253,16 @@ Static main
     Object src/communication_dispatch_4.o
     Object asm/unk_02034280.o
     Object src/communication_dispatch_5.o
+    Object src/communication_player_state.o
     Object asm/unk_02034354.o
     Object asm/unk_02034B0C.o
     Object asm/unk_02035900.o
     Object src/link_synchronization.o
     Object asm/unk_020379A0.o
     Object asm/unk_02037C94.o
+    Object src/wireless_status_icon.o
     Object asm/unk_0203A3B0.o
+    Object src/wireless_status_icon_2.o
     Object src/communication_error.o
     Object src/unk_0203AC88.o
     Object src/wfc_user_info_warning.o
@@ -304,7 +313,14 @@ Static main
     Object src/field_warp_tasks.o
     Object src/script_pokemon_util.o
     Object src/terrain_attributes.o
+    Object src/field_terrain_queries.o
     Object asm/unk_02054648.o
+    Object src/field_terrain_queries_2.o
+    Object asm/unk_02054874.o
+    Object src/field_terrain_queries_3.o
+    Object asm/unk_02054918.o
+    Object src/field_terrain_queries_4.o
+    Object asm/unk_02054954.o
     Object src/unk_02054E00.o
     Object src/field_bgm.o
     Object asm/unk_020551B8.o
@@ -324,7 +340,11 @@ Static main
     Object src/link_lobby_4.o
     Object asm/unk_02058AEC.o
     Object asm/unk_0205A44C.o
+    Object src/field_player_effect.o
     Object asm/unk_0205AC88.o
+    Object src/field_player_effect_2.o
+    Object asm/unk_0205AF78.o
+    Object src/field_player_effect_3.o
     Object src/unk_0205B3DC.o
     Object src/dialog_box.o
     Object src/metatile_behavior.o
@@ -393,6 +413,8 @@ Static main
     Object src/sys_flags.o
     Object src/sys_vars.o
     Object asm/unk_02066EDC.o
+    Object src/frontier_field_support.o
+    Object asm/unk_0206759C.o
     Object src/field_roamer.o
     Object asm/unk_0206793C.o
     Object asm/unk_02067A60.o

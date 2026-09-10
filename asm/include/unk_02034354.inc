@@ -60,3 +60,6 @@
 .public OS_GetMacAddress
 .public MI_CpuFill8
 .public MI_CpuCopy8
+
+	.public sub_02034960
+	.public _021D4130

@@ -50,3 +50,21 @@
 .public _020FC824
 .public ov01_021FD8E8
 .public ov01_02200730
+
+	.public sub_0205AD60
+	.public sub_0205AD9C
+	.public sub_0205AEA0
+	.public sub_0205AEA8
+	.public sub_0205AF78
+	.public sub_0205B0DC
+	.public sub_0205B118
+	.public sub_0205B13C
+	.public sub_0205B1E4
+	.public sub_0205B218
+	.public sub_0205B240
+	.public sub_0205B338
+	.public sub_0205B35C
+	.public sub_0205B380
+	.public sub_0205B3A0
+	.public sub_0205B3B8
+	.public sub_0205B3CC

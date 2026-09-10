@@ -30,3 +30,12 @@
 .public GF_AssertFail
 .public _s32_div_f
 .public FX_SinCosTable_
+
+	.public sub_02012E6C
+	.public sub_02012F54
+	.public sub_02013004
+	.public sub_020131AC
+	.public sub_020134BC
+	.public sub_020134D0
+	.public sub_020134EC
+	.public sub_02013504

@@ -38,3 +38,16 @@
 .public ov01_021FAE50
 .public ov01_021FB42C
 .public ov01_021FB474
+
+	.public sub_02054648
+	.public sub_02054654
+	.public sub_020547A4
+	.public sub_020547D8
+	.public sub_02054824
+	.public sub_02054954
+	.public sub_02054A9C
+	.public sub_02054E00
+	.public _020FC5FC
+	.public _020FC604
+	.public _020FC60C
+	.public _020FC614
