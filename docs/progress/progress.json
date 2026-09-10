@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "80d873430690dc30b21b8392e748827cb00bdb41",
+  "commit": "1f88721a54b3f8daa14f99ffeb1de660c71a9a24",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "99ee9cf9866cf856cd5cbcb68483e713dae7daccf941e8c80e6548f87df74ef9",
-    "ARM7": "0005f69573d200e5eba3b3604fae560db348ae9290135e2b60c9a0211311a45f"
+    "ARM9": "41d29f8462a5bb2b678d27deae89398d731f193fcb9af27a8cdace9d61b0542c",
+    "ARM7": "f8a29dec0280b0b87ce06657831caf9aa25068a7035277eb1c33b39a90741551"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 3076404,
+    "asm": 3072772,
     "mixed": 18270,
-    "c": 980776,
+    "c": 984392,
     "unknown": 8792
   },
   "objects": [
@@ -2707,6 +2707,14 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "apricorn_mix.o",
+      "bytes": 32,
+      "status": "c",
+      "source": "src/apricorn_mix.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "apricorn_names.o",
       "bytes": 166,
       "status": "c",
@@ -3003,6 +3011,14 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "communication_packet_queue.o",
+      "bytes": 654,
+      "status": "c",
+      "source": "src/communication_packet_queue.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "crt0.o",
       "bytes": 928,
       "status": "asm",
@@ -3143,6 +3159,14 @@
       "bytes": 1010,
       "status": "c",
       "source": "src/field_effects.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "field_interaction.o",
+      "bytes": 770,
+      "status": "c",
+      "source": "src/field_interaction.c"
     },
     {
       "cpu": "ARM9",
@@ -4483,6 +4507,14 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "overlay_app_manager.o",
+      "bytes": 668,
+      "status": "c",
+      "source": "src/overlay_app_manager.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "overlay_manager.o",
       "bytes": 220,
       "status": "c",
@@ -4607,6 +4639,14 @@
       "bytes": 2224,
       "status": "c",
       "source": "src/player_avatar.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "player_avatar_anim_indices.o",
+      "bytes": 630,
+      "status": "c",
+      "source": "src/player_avatar_anim_indices.c"
     },
     {
       "cpu": "ARM9",
@@ -5755,14 +5795,6 @@
     {
       "cpu": "ARM9",
       "module": "main",
-      "object": "unk_020192D0.o",
-      "bytes": 668,
-      "status": "asm",
-      "source": "asm/unk_020192D0.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
       "object": "unk_0201956C.o",
       "bytes": 532,
       "status": "asm",
@@ -5916,7 +5948,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_02031D80.o",
-      "bytes": 616,
+      "bytes": 584,
       "status": "asm",
       "source": "asm/unk_02031D80.s"
     },
@@ -5948,7 +5980,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_02032B84.o",
-      "bytes": 672,
+      "bytes": 416,
       "status": "asm",
       "source": "asm/unk_02032B84.s"
     },
@@ -5964,7 +5996,7 @@
       "cpu": "ARM9",
       "module": "main",
       "object": "unk_020332C0.o",
-      "bytes": 756,
+      "bytes": 148,
       "status": "asm",
       "source": "asm/unk_020332C0.s"
     },
@@ -5983,14 +6015,6 @@
       "bytes": 172,
       "status": "asm",
       "source": "asm/unk_02033AE0.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
-      "object": "unk_02033CB0.o",
-      "bytes": 660,
-      "status": "asm",
-      "source": "asm/unk_02033CB0.s"
     },
     {
       "cpu": "ARM9",
@@ -6063,14 +6087,6 @@
       "bytes": 344,
       "status": "asm",
       "source": "asm/unk_0203BA5C.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
-      "object": "unk_0203DB6C.o",
-      "bytes": 776,
-      "status": "asm",
-      "source": "asm/unk_0203DB6C.s"
     },
     {
       "cpu": "ARM9",
@@ -6223,14 +6239,6 @@
       "bytes": 1236,
       "status": "asm",
       "source": "asm/unk_0205BB1C.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
-      "object": "unk_0205BFF0.o",
-      "bytes": 632,
-      "status": "asm",
-      "source": "asm/unk_0205BFF0.s"
     },
     {
       "cpu": "ARM9",
@@ -6959,6 +6967,30 @@
       "bytes": 120,
       "status": "c",
       "source": "src/wireless_scan.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "wireless_scan_param.o",
+      "bytes": 256,
+      "status": "c",
+      "source": "src/wireless_scan_param.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "wireless_session.o",
+      "bytes": 466,
+      "status": "c",
+      "source": "src/wireless_session.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
+      "object": "wireless_session_2.o",
+      "bytes": 140,
+      "status": "c",
+      "source": "src/wireless_session_2.c"
     },
     {
       "cpu": "ARM9",

@@ -4,28 +4,6 @@
 
 	.text
 
-	thumb_func_start sub_02031D80
-sub_02031D80: ; 0x02031D80
-	mov r3, #0
-	add r2, r3, #0
-_02031D84:
-	add r1, r0, r2
-	ldrb r1, [r1, #3]
-	add r2, r2, #1
-	add r1, r3, r1
-	lsl r1, r1, #0x10
-	lsr r3, r1, #0x10
-	cmp r2, #5
-	blt _02031D84
-	cmp r3, #0x64
-	bls _02031D9A
-	mov r3, #0x64
-_02031D9A:
-	lsl r0, r3, #0x18
-	lsr r0, r0, #0x18
-	bx lr
-	thumb_func_end sub_02031D80
-
 	thumb_func_start sub_02031DA0
 sub_02031DA0: ; 0x02031DA0
 	push {r3, r4, r5, r6, r7, lr}

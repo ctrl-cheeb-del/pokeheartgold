@@ -90,3 +90,10 @@
 
 	.public sub_02019BA0
 	.public _020F6298
+
+	.public sub_020194B4
+	.public sub_020194F8
+	.public sub_02019520
+	.public sub_02019548
+	.public _020F6288
+	.public _021D1108

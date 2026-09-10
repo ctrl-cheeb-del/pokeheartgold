@@ -39,8 +39,8 @@ struct WarpEvent {
 
 struct CoordEvent {
     u16 scriptId;
-    s16 x;
-    s16 z;
+    u16 x;
+    u16 z;
     u16 w;
     u16 h;
     u16 y;

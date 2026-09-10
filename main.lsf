@@ -101,6 +101,7 @@ Static main
     Object src/menu_input_state.o
     Object src/touchscreen_list_menu.o
     Object src/camera_translation.o
+    Object src/overlay_app_manager.o
     Object asm/unk_020192D0.o
     Object src/bg_cell.o
     Object asm/unk_0201956C.o
@@ -209,6 +210,7 @@ Static main
     Object src/apricorn_queue.o
     Object asm/unk_02031CEC.o
     Object src/apricorn_validity.o
+    Object src/apricorn_mix.o
     Object asm/unk_02031D80.o
     Object src/apricorn_juice.o
     Object asm/unk_020321A0.o
@@ -220,13 +222,16 @@ Static main
     Object src/wireless_parent_start.o
     Object asm/unk_02032844.o
     Object src/wireless_parent_stop.o
+    Object src/wireless_scan_param.o
     Object asm/unk_02032B84.o
     Object src/wireless_scan.o
     Object asm/unk_02032E9C.o
     Object src/wireless_connection.o
     Object src/wireless_port.o
     Object src/wireless_status.o
+    Object src/wireless_session.o
     Object asm/unk_020332C0.o
+    Object src/wireless_session_2.o
     Object src/wireless_init.o
     Object asm/unk_02033668.o
     Object src/wireless_start.o
@@ -235,6 +240,7 @@ Static main
     Object src/communication_dispatch.o
     Object asm/unk_02033AE0.o
     Object src/communication_dispatch_2.o
+    Object src/communication_packet_queue.o
     Object asm/unk_02033CB0.o
     Object src/communication_dispatch_3.o
     Object asm/unk_02033FC4.o
@@ -258,6 +264,7 @@ Static main
     Object asm/unk_0203BA5C.o
     Object src/field_system_rtc_weather.o
     Object src/start_menu.o
+    Object src/field_interaction.o
     Object asm/unk_0203DB6C.o
     Object src/field_system.o
     Object src/location_backup.o
@@ -322,6 +329,7 @@ Static main
     Object src/dialog_box.o
     Object src/metatile_behavior.o
     Object asm/unk_0205BB1C.o
+    Object src/player_avatar_anim_indices.o
     Object asm/unk_0205BFF0.o
     Object src/player_avatar.o
     Object asm/unk_0205CB48.o

@@ -20,3 +20,8 @@
 .public MapObject_CheckFlag19Disabled
 .public MapObject_GetPositionVectorYCoordUInt
 .public MapObjectManager_GetFirstObjectWithXAndZ
+
+	.public _GetCoordsOfFacingTile
+	.public sub_0203DBD4
+	.public BgEventIsUncollectedHiddenItem
+	.public BgEventDirectionIsCompatibleWithPlayerFacing
