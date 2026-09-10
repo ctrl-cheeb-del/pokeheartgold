@@ -66,6 +66,7 @@ Static main
     Object src/unk_02013FDC.o
     Object src/gf_rtc.o
     Object src/list_menu_items.o
+    Object src/scanline_effect.o
     Object asm/unk_02014A08.o
     Object src/particle_context.o
     Object src/particle_runtime.o
@@ -80,7 +81,20 @@ Static main
     Object asm/unk_020161CC.o
     Object asm/unk_020163E0.o
     Object src/yes_no_prompt.o
+    Object src/pokepic_animation.o
     Object asm/unk_02016EDC.o
+    Object src/pokepic_animation_2.o
+    Object asm/unk_020170FC.o
+    Object src/pokepic_animation_3.o
+    Object asm/unk_02017220.o
+    Object src/pokepic_animation_4.o
+    Object asm/unk_020172C8.o
+    Object src/pokepic_animation_5.o
+    Object asm/unk_020175EC.o
+    Object src/pokepic_animation_6.o
+    Object asm/unk_02017808.o
+    Object src/pokepic_animation_7.o
+    Object asm/unk_02017BF8.o
     Object asm/unk_02017FAC.o
     Object src/model_animation.o
     Object src/unk_02018380.o
@@ -218,7 +232,15 @@ Static main
     Object src/wireless_start.o
     Object src/wireless_mode.o
     Object src/wireless_state.o
+    Object src/communication_dispatch.o
     Object asm/unk_02033AE0.o
+    Object src/communication_dispatch_2.o
+    Object asm/unk_02033CB0.o
+    Object src/communication_dispatch_3.o
+    Object asm/unk_02033FC4.o
+    Object src/communication_dispatch_4.o
+    Object asm/unk_02034280.o
+    Object src/communication_dispatch_5.o
     Object asm/unk_02034354.o
     Object asm/unk_02034B0C.o
     Object asm/unk_02035900.o
@@ -327,9 +349,39 @@ Static main
     Object asm/unk_02062108.o
     Object asm/unk_data_020FDB44.o
     Object asm/unk_020632B0.o
+    Object src/map_object_behavior.o
+    Object asm/unk_02063A14.o
+    Object src/map_object_behavior_2.o
+    Object asm/unk_02063AFC.o
+    Object src/map_object_behavior_3.o
+    Object asm/unk_02064468.o
+    Object src/map_object_behavior_4.o
+    Object asm/unk_02064518.o
+    Object src/map_object_behavior_5.o
+    Object asm/unk_02064824.o
+    Object src/map_object_behavior_6.o
     Object src/unk_020648EC.o
     Object src/field_use_item.o
+    Object src/map_object_follow.o
     Object asm/unk_020658D4.o
+    Object src/map_object_follow_2.o
+    Object asm/unk_020659A8.o
+    Object src/map_object_follow_3.o
+    Object asm/unk_020659CC.o
+    Object src/map_object_follow_4.o
+    Object asm/unk_02065DF4.o
+    Object src/map_object_follow_5.o
+    Object asm/unk_02066024.o
+    Object src/map_object_follow_6.o
+    Object asm/unk_020660C0.o
+    Object src/map_object_follow_7.o
+    Object asm/unk_020662C4.o
+    Object src/map_object_follow_8.o
+    Object asm/unk_0206633C.o
+    Object src/map_object_follow_9.o
+    Object asm/unk_02066370.o
+    Object src/map_object_follow_10.o
+    Object asm/unk_02066444.o
     Object src/sys_flags.o
     Object src/sys_vars.o
     Object asm/unk_02066EDC.o
@@ -395,8 +447,10 @@ Static main
     Object asm/unk_0208DE40.o
     Object src/ribbon.o
     Object src/trainer_memo.o
+    Object src/trade_communication.o
     Object asm/unk_0208F658.o
     Object asm/unk_0208F814.o
+    Object src/wireless_room.o
     Object asm/unk_0208FB64.o
     Object src/use_item_on_mon.o
     Object src/mail_misc.o

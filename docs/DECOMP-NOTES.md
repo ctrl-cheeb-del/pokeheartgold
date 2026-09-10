@@ -893,3 +893,34 @@ coverage increased from 23.706694% to 23.840441%, adding 5,440 C bytes
 (968,298 → 973,738) out of 4,084,396 mapped bytes. There are now
 1188 converted functions and 51,744 additional mapped C bytes relative
 to the initial baseline. The treemap was refreshed. GitHub CI stayed disabled.
+
+### Forty-sixth batch: matching C coverage passes 24%
+
+Converted 199 functions covering trade communication, wireless-room
+callbacks, scanline effects, map-object behaviors and following movement,
+communication dispatch, and Pokémon picture-animation commands. Shared
+private layouts describe the new modules; original data tables remain in
+assembly with explicit imports across the split object files.
+
+Every new C function passed an independent comparison against its frozen
+original object. All changed assembly fragments passed an assembly check
+before the full builds. Both complete retail ROM SHA1s then matched locally:
+
+- HeartGold: `4fcded0e2713dc03929845de631d0932ea2b5a37`
+- SoulSilver: `f8dc38ea20c17541a43b58c5e6d18c1732c7e582`
+
+HeartGold C-only mapped coverage increased from 23.840441% to 24.013660%,
+adding 7,038 C bytes (973,738 → 980,776) out of 4,084,242 mapped
+bytes. This brings the fork to 1,387 converted functions and
+58,782 additional mapped C bytes relative to the initial baseline. The
+treemap was refreshed and GitHub CI remained disabled.
+
+### Run to 24%
+
+This run started at 07:52:52 UTC on 2026-09-10 and completed final local
+ROM verification at 08:36:02 UTC on 2026-09-10
+(43m 10s). Three Sol workers prepared independent scratch
+candidates while the primary agent matched more code, integrated each batch,
+and ran both ROM builds sequentially. Three verified batches converted
+556 functions and added 19,608 mapped C bytes, increasing coverage
+from 23.531566% to 24.013660%. No GitHub CI runs were used.

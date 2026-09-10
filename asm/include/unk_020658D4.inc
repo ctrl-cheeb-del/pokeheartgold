@@ -94,3 +94,40 @@
 .public ov01_0220542C
 .public ov01_022055DC
 .public ov01_02205604
+
+	.public sub_02065A4C
+	.public sub_02065B70
+	.public sub_02065BE8
+	.public sub_02065C2C
+	.public sub_02065C48
+	.public sub_02065C90
+	.public sub_02065CD0
+	.public sub_02065CFC
+	.public sub_02065D24
+	.public sub_02065D58
+	.public sub_02065D78
+	.public sub_02065DB4
+	.public sub_02065DF4
+	.public sub_02065F44
+	.public sub_02065FBC
+	.public sub_02066064
+	.public sub_020660A0
+	.public sub_02066150
+	.public sub_020661CC
+	.public sub_020661F0
+	.public sub_0206623C
+	.public sub_020662C4
+	.public sub_020663B4
+	.public sub_020663E4
+	.public sub_02066444
+	.public sub_020664D8
+	.public _020FE3CC
+	.public _020FE3D4
+	.public _020FE3DC
+	.public _020FE3E8
+	.public _020FE3F4
+	.public _020FE404
+	.public _020FE414
+	.public _020FE424
+	.public _020FE434
+	.public _020FE444

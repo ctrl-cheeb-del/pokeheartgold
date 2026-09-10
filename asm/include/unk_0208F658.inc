@@ -15,3 +15,22 @@
 .public gNatureStatMods
 .public ov65_0221DE24
 .public ov65_0221DE64
+
+	.public sub_0208F66C
+	.public sub_0208F680
+	.public sub_0208F6F4
+	.public sub_0208F714
+	.public sub_0208F724
+	.public sub_0208F728
+	.public sub_0208F72C
+	.public sub_0208F738
+	.public sub_0208F73C
+	.public sub_0208F74C
+	.public sub_0208F77C
+	.public sub_0208F7A8
+	.public sub_0208F7E8
+	.public sub_0208F7F0
+	.public sub_0208F7F4
+	.public sub_0208F7F8
+	.public sub_0208F800
+	.public _02105430

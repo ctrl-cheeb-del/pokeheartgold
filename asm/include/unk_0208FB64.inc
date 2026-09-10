@@ -20,3 +20,20 @@
 .public ov73_021E705C
 .public ov73_021E7120
 .public ov73_021E7488
+
+	.public sub_0208FB78
+	.public sub_0208FB88
+	.public sub_0208FB98
+	.public sub_0208FBE0
+	.public sub_0208FBF0
+	.public sub_0208FCDC
+	.public sub_0208FCFC
+	.public sub_0208FD00
+	.public sub_0208FD04
+	.public sub_0208FD1C
+	.public sub_0208FD3C
+	.public sub_0208FD7C
+	.public sub_0208FD80
+	.public sub_0208FD84
+	.public sub_0208FD88
+	.public _021059DC

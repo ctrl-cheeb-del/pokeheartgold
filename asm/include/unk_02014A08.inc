@@ -30,3 +30,8 @@
 .public _ll_mul
 .public _s32_div_f
 .public FX_SinCosTable_
+
+	.public sub_02014C60
+	.public sub_02014CBC
+	.public sub_02014D68
+	.public sub_02014D70

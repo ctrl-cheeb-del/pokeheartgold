@@ -60,3 +60,22 @@
 .public MI_CpuFill8
 .public MI_CpuCopy8
 .public _s32_div_f
+
+	.public sub_02033B78
+	.public sub_02033BF4
+	.public sub_02033C14
+	.public sub_02033C30
+	.public sub_02033C70
+	.public sub_02033C94
+	.public sub_02033CB0
+	.public sub_02033D28
+	.public sub_02033E88
+	.public sub_02033EA8
+	.public sub_020342C8
+	.public sub_020342CC
+	.public sub_02034310
+	.public sub_02034338
+	.public _020F692C
+	.public _020F6955
+	.public _020F6980
+	.public _021D412C
