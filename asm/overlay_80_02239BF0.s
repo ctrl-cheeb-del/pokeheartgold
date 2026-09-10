@@ -1,92 +1,14 @@
 	.include "asm/macros.inc"
 	.include "overlay_80_02239BF0.inc"
 	.include "global.inc"
+	.public ov80_02239C80
+	.public ov80_0223DB24
+
 
     .text
-
-	thumb_func_start ov80_02239BF0
-ov80_02239BF0: ; 0x02239BF0
-	push {r3, r4, r5, r6, r7, lr}
-	add r7, r2, #0
-	add r5, r3, #0
-	ldr r6, [sp, #0x18]
-	bl ov80_02239938
-	add r4, r0, #0
-	add r0, #0x26
-	mov r1, #0
-	mov r2, #0x10
-	bl MI_CpuFill8
-	add r0, r4, #0
-	add r0, #0x26
-	mov r2, #0
-	strb r7, [r0]
-	cmp r6, #0
-	ble _02239C24
-	add r0, r2, #0
-_02239C16:
-	ldrsh r1, [r5, r0]
-	add r2, r2, #1
-	add r5, r5, #2
-	strh r1, [r4, #0x28]
-	add r4, r4, #2
-	cmp r2, r6
-	blt _02239C16
-_02239C24:
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov80_02239BF0
-
-	thumb_func_start ov80_02239C28
-ov80_02239C28: ; 0x02239C28
-	push {r4, lr}
-	add r4, r1, #0
-	add r2, r4, #0
-	add r2, #0x26
-	ldrb r2, [r2]
-	lsl r3, r2, #2
-	ldr r2, _02239C50 ; =ov80_0223DB24
-	ldr r2, [r2, r3]
-	cmp r2, #0
-	beq _02239C4E
-	blx r2
-	cmp r0, #1
-	bne _02239C4E
-	add r4, #0x26
-	add r0, r4, #0
-	mov r1, #0
-	mov r2, #0x10
-	bl MI_CpuFill8
-_02239C4E:
-	pop {r4, pc}
-	.balign 4, 0
-_02239C50: .word ov80_0223DB24
-	thumb_func_end ov80_02239C28
-
-	thumb_func_start ov80_02239C54
-ov80_02239C54: ; 0x02239C54
-	push {r4, r5, r6, lr}
-	add r6, r0, #0
-	bl sub_02096868
-	add r4, r0, #0
-	mov r5, #0
-_02239C60:
-	ldr r0, [r4]
-	cmp r0, #0
-	beq _02239C74
-	ldr r0, [r4, #0x38]
-	cmp r0, #0
-	bne _02239C74
-	add r0, r6, #0
-	add r1, r4, #0
-	bl ov80_02239C28
-_02239C74:
-	add r5, r5, #1
-	add r4, #0x3c
-	cmp r5, #0x20
-	blt _02239C60
-	pop {r4, r5, r6, pc}
-	.balign 4, 0
-	thumb_func_end ov80_02239C54
+	.public ov80_02239BF0
+	.public ov80_02239C28
+	.public ov80_02239C54
 
 	thumb_func_start ov80_02239C80
 ov80_02239C80: ; 0x02239C80

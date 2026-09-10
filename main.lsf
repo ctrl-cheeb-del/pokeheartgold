@@ -127,7 +127,7 @@ Static main
     Object asm/unk_02015DD8.o
     Object src/graphics_object_vram.o
     Object asm/unk_020161CC.o
-    Object asm/unk_020163E0.o
+    Object src/palette_fade_task_1.o
     Object src/yes_no_prompt.o
     Object src/pokepic_animation.o
     Object asm/unk_02016EDC.o
@@ -1855,12 +1855,21 @@ Overlay OVY_80
     Object asm/overlay_80_022372D8.o
     Object asm/overlay_80_02237A70.o
     Object asm/overlay_80_02238034.o
+    Object src/overlay80_tile_blink_1.o
     Object asm/overlay_80_022384D8.o
+    Object src/overlay80_tile_blink_2.o
     Object asm/frontier_map.o
     Object src/frontier/frontier_resource_manager.o
-    Object asm/overlay_80_02239AF8.o
+    Object src/overlay80_sprite_resources_1.o
+    Object asm/overlay_80_02239AF8_residual_1.o
+    Object src/overlay80_object_updates_1.o
     Object asm/overlay_80_02239BF0.o
+    Object src/overlay80_palette_effect_1.o
     Object asm/overlay_80_02239D74.o
+    Object src/overlay80_palette_effect_2.o
+    Object asm/overlay_80_02239D74_residual_2.o
+    Object src/overlay80_palette_effect_3.o
+    Object asm/overlay_80_02239D74_residual_3.o
     Object asm/overlay_80_0223A00C.o
     Object asm/overlay_80_0223AC24.o
 }

@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "3394667f7c6ac3c99ea1bf9f6e24a77efad0d1de",
+  "commit": "2c7cbf76df9e7523551476e8072e3764e5087c5e",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "acce1fb27e5a32fa9f9c2f0321605dd5f993e24adf9aee1043b4e22a5812e4c0",
+    "ARM9": "8aff1acb8d0f05c5f3f814aa24f35034734b4d8fd176b67695e09234653c4d2a",
     "ARM7": "f15e016f3eddcf686522ba7809647eed4ef507fab6fd632a435e8cc5d110a16f"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 2949784,
+    "asm": 2948212,
     "mixed": 18270,
-    "c": 1106112,
+    "c": 1107654,
     "unknown": 8792
   },
   "objects": [
@@ -1475,6 +1475,62 @@
     {
       "cpu": "ARM9",
       "module": "OVY_80",
+      "object": "overlay80_object_updates_1.o",
+      "bytes": 140,
+      "status": "c",
+      "source": "src/overlay80_object_updates_1.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_80",
+      "object": "overlay80_palette_effect_1.o",
+      "bytes": 92,
+      "status": "c",
+      "source": "src/overlay80_palette_effect_1.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_80",
+      "object": "overlay80_palette_effect_2.o",
+      "bytes": 18,
+      "status": "c",
+      "source": "src/overlay80_palette_effect_2.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_80",
+      "object": "overlay80_palette_effect_3.o",
+      "bytes": 192,
+      "status": "c",
+      "source": "src/overlay80_palette_effect_3.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_80",
+      "object": "overlay80_sprite_resources_1.o",
+      "bytes": 248,
+      "status": "c",
+      "source": "src/overlay80_sprite_resources_1.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_80",
+      "object": "overlay80_tile_blink_1.o",
+      "bytes": 162,
+      "status": "c",
+      "source": "src/overlay80_tile_blink_1.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_80",
+      "object": "overlay80_tile_blink_2.o",
+      "bytes": 144,
+      "status": "c",
+      "source": "src/overlay80_tile_blink_2.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_80",
       "object": "overlay_80_02229EE0.o",
       "bytes": 2412,
       "status": "asm",
@@ -1628,23 +1684,15 @@
       "cpu": "ARM9",
       "module": "OVY_80",
       "object": "overlay_80_022384D8.o",
-      "bytes": 368,
+      "bytes": 52,
       "status": "asm",
       "source": "asm/overlay_80_022384D8.s"
     },
     {
       "cpu": "ARM9",
       "module": "OVY_80",
-      "object": "overlay_80_02239AF8.o",
-      "bytes": 248,
-      "status": "asm",
-      "source": "asm/overlay_80_02239AF8.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "OVY_80",
       "object": "overlay_80_02239BF0.o",
-      "bytes": 388,
+      "bytes": 244,
       "status": "asm",
       "source": "asm/overlay_80_02239BF0.s"
     },
@@ -1652,9 +1700,17 @@
       "cpu": "ARM9",
       "module": "OVY_80",
       "object": "overlay_80_02239D74.o",
-      "bytes": 664,
+      "bytes": 244,
       "status": "asm",
       "source": "asm/overlay_80_02239D74.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_80",
+      "object": "overlay_80_02239D74_residual_2.o",
+      "bytes": 112,
+      "status": "asm",
+      "source": "asm/overlay_80_02239D74_residual_2.s"
     },
     {
       "cpu": "ARM9",
@@ -7683,6 +7739,14 @@
     {
       "cpu": "ARM9",
       "module": "main",
+      "object": "palette_fade_task_1.o",
+      "bytes": 546,
+      "status": "c",
+      "source": "src/palette_fade_task_1.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "main",
       "object": "particle_context.o",
       "bytes": 516,
       "status": "c",
@@ -9463,14 +9527,6 @@
       "bytes": 532,
       "status": "asm",
       "source": "asm/unk_020161CC.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "main",
-      "object": "unk_020163E0.o",
-      "bytes": 556,
-      "status": "asm",
-      "source": "asm/unk_020163E0.s"
     },
     {
       "cpu": "ARM9",
