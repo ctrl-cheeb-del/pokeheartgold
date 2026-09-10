@@ -147,21 +147,38 @@
 	.public ov103_021EEAC8
 	.public ov103_021EEB04
 
-	thumb_func_start ov103_021EC9B4
-ov103_021EC9B4: ; 0x021EC9B4
-	push {r3, lr}
-	ldr r0, [r0, #0xc]
-	ldr r0, [r0]
-	bl DoScheduledBgGpuUpdates
-	bl SpriteSystem_TransferOam
-	ldr r3, _021EC9D0 ; =0x027E0000
-	ldr r1, _021EC9D4 ; =0x00003FF8
-	mov r0, #1
-	ldr r2, [r3, r1]
-	orr r0, r2
-	str r0, [r3, r1]
-	pop {r3, pc}
-	.balign 4, 0
-_021EC9D0: .word 0x027E0000
-_021EC9D4: .word 0x00003FF8
-	thumb_func_end ov103_021EC9B4
+	thumb_func_start ov103_021EE7DC
+ov103_021EE7DC: ; 0x021EE7DC
+	push {r4, r5, r6, lr}
+	sub sp, #0x10
+	add r5, r0, #0
+	mov r6, #0x72
+	ldr r4, [r5, #0xc]
+	lsl r6, r6, #2
+	add r0, r4, r6
+	mov r1, #0xf
+	bl FillWindowPixelBuffer
+	ldr r0, [r5]
+	bl Options_GetTextFrameDelay
+	mov r3, #0
+	str r3, [sp]
+	str r0, [sp, #4]
+	ldr r0, _021EE820 ; =0x0001020F
+	add r2, r6, #0
+	str r0, [sp, #8]
+	str r3, [sp, #0xc]
+	add r0, r4, r6
+	ldr r4, [r5, #0xc]
+	add r2, #0x68
+	ldr r2, [r4, r2]
+	mov r1, #1
+	bl AddTextPrinterParameterizedWithColor
+	add r1, r6, #0
+	ldr r2, [r5, #0xc]
+	add r1, #0x6c
+	strb r0, [r2, r1]
+	add sp, #0x10
+	pop {r4, r5, r6, pc}
+	nop
+_021EE820: .word 0x0001020F
+	thumb_func_end ov103_021EE7DC

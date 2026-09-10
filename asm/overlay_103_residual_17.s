@@ -147,21 +147,20 @@
 	.public ov103_021EEAC8
 	.public ov103_021EEB04
 
-	thumb_func_start ov103_021EC9B4
-ov103_021EC9B4: ; 0x021EC9B4
-	push {r3, lr}
-	ldr r0, [r0, #0xc]
-	ldr r0, [r0]
-	bl DoScheduledBgGpuUpdates
-	bl SpriteSystem_TransferOam
-	ldr r3, _021EC9D0 ; =0x027E0000
-	ldr r1, _021EC9D4 ; =0x00003FF8
-	mov r0, #1
-	ldr r2, [r3, r1]
-	orr r0, r2
-	str r0, [r3, r1]
-	pop {r3, pc}
+	thumb_func_start ov103_021EE078
+ov103_021EE078: ; 0x021EE078
+	push {r3, r4, r5, lr}
+	lsl r5, r1, #2
+	mov r1, #0x96
+	lsl r1, r1, #2
+	add r4, r0, r1
+	ldr r0, [r4, r5]
+	cmp r0, #0
+	beq _021EE090
+	bl Sprite_DeleteAndFreeResources
+	mov r0, #0
+	str r0, [r4, r5]
+_021EE090:
+	pop {r3, r4, r5, pc}
 	.balign 4, 0
-_021EC9D0: .word 0x027E0000
-_021EC9D4: .word 0x00003FF8
-	thumb_func_end ov103_021EC9B4
+	thumb_func_end ov103_021EE078

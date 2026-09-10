@@ -147,21 +147,56 @@
 	.public ov103_021EEAC8
 	.public ov103_021EEB04
 
-	thumb_func_start ov103_021EC9B4
-ov103_021EC9B4: ; 0x021EC9B4
-	push {r3, lr}
-	ldr r0, [r0, #0xc]
-	ldr r0, [r0]
-	bl DoScheduledBgGpuUpdates
-	bl SpriteSystem_TransferOam
-	ldr r3, _021EC9D0 ; =0x027E0000
-	ldr r1, _021EC9D4 ; =0x00003FF8
-	mov r0, #1
-	ldr r2, [r3, r1]
-	orr r0, r2
-	str r0, [r3, r1]
-	pop {r3, pc}
+	thumb_func_start ov103_021ED0C0
+ov103_021ED0C0: ; 0x021ED0C0
+	push {r3, r4, r5, r6, r7, lr}
+	add r5, r0, #0
+	ldrh r1, [r5, #0x1c]
+	mov r0, #0xa
+	mov r4, #0
+	mul r0, r1
+	lsl r0, r0, #0x10
+	lsr r2, r0, #0x10
+	mov r0, #0xb3
+	ldr r1, [r5, #0xc]
+	lsl r0, r0, #2
+	add r0, r1, r0
+	add r0, r0, r2
+	str r0, [sp]
+	lsl r0, r2, #0x10
+	lsr r7, r0, #0x10
+	add r6, r4, #0
+_021ED0E2:
+	ldr r0, [sp]
+	ldrb r3, [r0, r6]
+	cmp r3, #0xff
+	bne _021ED0F6
+	ldr r0, [r5, #0xc]
+	add r1, r4, #0
+	ldr r0, [r0, #4]
+	bl sub_0201980C
+	b _021ED10A
+_021ED0F6:
+	add r0, r5, #0
+	add r1, r4, #0
+	add r2, r7, #0
+	bl ov103_021EE468
+	ldr r0, [r5, #0xc]
+	add r1, r4, #0
+	ldr r0, [r0, #4]
+	bl sub_020197F4
+_021ED10A:
+	add r0, r7, #1
+	lsl r0, r0, #0x10
+	lsr r7, r0, #0x10
+	add r0, r4, #1
+	lsl r0, r0, #0x10
+	lsr r4, r0, #0x10
+	add r0, r6, #1
+	lsl r0, r0, #0x10
+	lsr r6, r0, #0x10
+	cmp r6, #0xa
+	blo _021ED0E2
+	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
-_021EC9D0: .word 0x027E0000
-_021EC9D4: .word 0x00003FF8
-	thumb_func_end ov103_021EC9B4
+	thumb_func_end ov103_021ED0C0

@@ -147,21 +147,79 @@
 	.public ov103_021EEAC8
 	.public ov103_021EEB04
 
-	thumb_func_start ov103_021EC9B4
-ov103_021EC9B4: ; 0x021EC9B4
-	push {r3, lr}
-	ldr r0, [r0, #0xc]
-	ldr r0, [r0]
-	bl DoScheduledBgGpuUpdates
-	bl SpriteSystem_TransferOam
-	ldr r3, _021EC9D0 ; =0x027E0000
-	ldr r1, _021EC9D4 ; =0x00003FF8
-	mov r0, #1
-	ldr r2, [r3, r1]
-	orr r0, r2
-	str r0, [r3, r1]
-	pop {r3, pc}
-	.balign 4, 0
-_021EC9D0: .word 0x027E0000
-_021EC9D4: .word 0x00003FF8
-	thumb_func_end ov103_021EC9B4
+	thumb_func_start ov103_021ED00C
+ov103_021ED00C: ; 0x021ED00C
+	push {r3, r4, r5, r6, r7, lr}
+	add r5, r0, #0
+	mov r0, #0x2e
+	mov r4, #0
+	ldr r1, [r5, #0xc]
+	lsl r0, r0, #4
+	strh r4, [r1, r0]
+	add r6, r4, #0
+	mov r7, #0xff
+_021ED01E:
+	ldr r0, [r5, #0xc]
+	add r2, r4, #0
+	add r1, r0, r4
+	mov r0, #0xb3
+	lsl r0, r0, #2
+	strb r7, [r1, r0]
+	ldr r0, [r5, #4]
+	mov r1, #0
+	mov r3, #0x9d
+	bl Mailbox_AllocAndFetchMailI
+	ldr r1, [r5, #0xc]
+	add r2, r1, r6
+	mov r1, #0x9f
+	lsl r1, r1, #2
+	str r0, [r2, r1]
+	ldr r0, [r5, #0xc]
+	add r1, r0, r6
+	mov r0, #0x9f
+	lsl r0, r0, #2
+	ldr r0, [r1, r0]
+	bl Mail_TypeIsValid
+	cmp r0, #1
+	bne _021ED070
+	mov r0, #0x2e
+	ldr r1, [r5, #0xc]
+	lsl r0, r0, #4
+	ldrh r0, [r1, r0]
+	add r1, r1, r0
+	mov r0, #0xb3
+	lsl r0, r0, #2
+	strb r4, [r1, r0]
+	mov r1, #0x2e
+	ldr r0, [r5, #0xc]
+	lsl r1, r1, #4
+	ldrh r1, [r0, r1]
+	add r2, r1, #1
+	mov r1, #0x2e
+	lsl r1, r1, #4
+	strh r2, [r0, r1]
+_021ED070:
+	add r4, r4, #1
+	add r6, r6, #4
+	cmp r4, #0x14
+	blo _021ED01E
+	mov r0, #0x2e
+	ldr r4, [r5, #0xc]
+	lsl r0, r0, #4
+	ldrh r1, [r4, r0]
+	cmp r1, #0
+	bne _021ED08C
+	mov r1, #0
+	add r0, r0, #2
+	strh r1, [r4, r0]
+	pop {r3, r4, r5, r6, r7, pc}
+_021ED08C:
+	sub r0, r1, #1
+	mov r1, #0xa
+	bl _s32_div_f
+	ldr r1, _021ED09C ; =0x000002E2
+	strh r0, [r4, r1]
+	pop {r3, r4, r5, r6, r7, pc}
+	nop
+_021ED09C: .word 0x000002E2
+	thumb_func_end ov103_021ED00C

@@ -147,21 +147,195 @@
 	.public ov103_021EEAC8
 	.public ov103_021EEB04
 
-	thumb_func_start ov103_021EC9B4
-ov103_021EC9B4: ; 0x021EC9B4
-	push {r3, lr}
-	ldr r0, [r0, #0xc]
-	ldr r0, [r0]
-	bl DoScheduledBgGpuUpdates
-	bl SpriteSystem_TransferOam
-	ldr r3, _021EC9D0 ; =0x027E0000
-	ldr r1, _021EC9D4 ; =0x00003FF8
+	thumb_func_start ov103_021EE8A8
+ov103_021EE8A8: ; 0x021EE8A8
+	push {r4, lr}
+	add r4, r0, #0
+	cmp r1, #4
+	bhi _021EE928
+	add r0, r1, r1
+	add r0, pc
+	ldrh r0, [r0, #6]
+	lsl r0, r0, #0x10
+	asr r0, r0, #0x10
+	add pc, r0
+_021EE8BC: ; jump table
+	.short _021EE8C6 - _021EE8BC - 2 ; case 0
+	.short _021EE8DA - _021EE8BC - 2 ; case 1
+	.short _021EE8EE - _021EE8BC - 2 ; case 2
+	.short _021EE902 - _021EE8BC - 2 ; case 3
+	.short _021EE916 - _021EE8BC - 2 ; case 4
+_021EE8C6:
+	mov r2, #0x8a
+	ldr r3, [r4, #0xc]
+	lsl r2, r2, #2
+	ldr r0, [r3, r2]
+	add r2, #8
+	ldr r2, [r3, r2]
+	mov r1, #0xa
+	bl ReadMsgDataIntoString
+	b _021EE928
+_021EE8DA:
+	mov r2, #0x8a
+	ldr r3, [r4, #0xc]
+	lsl r2, r2, #2
+	ldr r0, [r3, r2]
+	add r2, #8
+	ldr r2, [r3, r2]
+	mov r1, #0xb
+	bl ReadMsgDataIntoString
+	b _021EE928
+_021EE8EE:
+	mov r2, #0x8a
+	ldr r3, [r4, #0xc]
+	lsl r2, r2, #2
+	ldr r0, [r3, r2]
+	add r2, #8
+	ldr r2, [r3, r2]
+	mov r1, #0xc
+	bl ReadMsgDataIntoString
+	b _021EE928
+_021EE902:
+	mov r2, #0x8a
+	ldr r3, [r4, #0xc]
+	lsl r2, r2, #2
+	ldr r0, [r3, r2]
+	add r2, #8
+	ldr r2, [r3, r2]
+	mov r1, #0xd
+	bl ReadMsgDataIntoString
+	b _021EE928
+_021EE916:
+	mov r2, #0x8a
+	ldr r3, [r4, #0xc]
+	lsl r2, r2, #2
+	ldr r0, [r3, r2]
+	add r2, #8
+	ldr r2, [r3, r2]
+	mov r1, #0xe
+	bl ReadMsgDataIntoString
+_021EE928:
+	add r0, r4, #0
+	bl ov103_021EE7DC
+	pop {r4, pc}
+	thumb_func_end ov103_021EE8A8
+
+
+	thumb_func_start ov103_021EE930
+ov103_021EE930: ; 0x021EE930
+	push {r4, r5, r6, r7, lr}
+	sub sp, #0xc
+	mov r4, #0
+	add r5, r0, #0
+	add r7, r4, #0
+_021EE93A:
+	add r0, r4, #0
+	add r0, #0x1a
+	lsl r6, r0, #4
+	ldr r0, [r5, #0xc]
+	add r1, r7, #0
+	add r0, #0x48
+	add r0, r0, r6
+	bl FillWindowPixelBuffer
+	add r1, r4, #0
+	add r0, r5, #0
+	add r1, #0x1a
+	add r2, r4, #0
+	bl ov103_021EE9C8
+	ldr r0, [r5, #0xc]
+	add r0, #0x48
+	add r0, r0, r6
+	bl ScheduleWindowCopyToVram
+	add r4, r4, #1
+	cmp r4, #3
+	blo _021EE93A
+	mov r0, #0x86
+	ldr r1, [r5, #0xc]
+	lsl r0, r0, #2
+	add r0, r1, r0
+	mov r1, #0
+	bl FillWindowPixelBuffer
+	ldrb r0, [r5, #0x1f]
+	ldr r1, [r5, #0xc]
+	lsl r0, r0, #2
+	add r1, r1, r0
+	mov r0, #0x9f
+	lsl r0, r0, #2
+	ldr r0, [r1, r0]
+	bl Mail_GetAuthorNamePtr
+	add r1, r0, #0
+	mov r0, #0x23
+	ldr r2, [r5, #0xc]
+	lsl r0, r0, #4
+	ldr r0, [r2, r0]
+	bl CopyU16ArrayToString
+	mov r1, #0x86
+	ldr r4, [r5, #0xc]
+	mov r3, #1
+	ldr r0, _021EE9C4 ; =0x00010200
+	str r3, [sp]
+	str r0, [sp, #4]
+	mov r2, #0
+	lsl r1, r1, #2
+	add r0, r4, r1
+	str r2, [sp, #8]
+	add r1, #0x18
+	ldr r1, [r4, r1]
+	bl ov103_021EE3E4
+	mov r0, #0x86
+	ldr r1, [r5, #0xc]
+	lsl r0, r0, #2
+	add r0, r1, r0
+	bl ScheduleWindowCopyToVram
+	add sp, #0xc
+	pop {r4, r5, r6, r7, pc}
+	nop
+_021EE9C4: .word 0x00010200
+	thumb_func_end ov103_021EE930
+
+
+	thumb_func_start ov103_021EE9C8
+ov103_021EE9C8: ; 0x021EE9C8
+	push {r3, r4, r5, r6, lr}
+	sub sp, #0xc
+	add r5, r0, #0
+	ldrb r0, [r5, #0x1f]
+	add r4, r1, #0
+	ldr r1, [r5, #0xc]
+	lsl r0, r0, #2
+	add r1, r1, r0
+	mov r0, #0x9f
+	lsl r0, r0, #2
+	ldr r0, [r1, r0]
+	lsl r1, r2, #0x18
+	lsr r1, r1, #0x18
+	bl Mail_GetUnk20Array
+	add r6, r0, #0
+	bl MailMsg_IsInit
+	cmp r0, #0
+	beq _021EEA1C
+	add r0, r6, #0
+	mov r1, #0x9d
+	bl MailMsg_GetExpandedString
+	add r6, r0, #0
 	mov r0, #1
-	ldr r2, [r3, r1]
-	orr r0, r2
-	str r0, [r3, r1]
-	pop {r3, pc}
+	str r0, [sp]
+	ldr r0, _021EEA20 ; =0x00010200
+	mov r2, #0
+	str r0, [sp, #4]
+	str r2, [sp, #8]
+	ldr r1, [r5, #0xc]
+	lsl r0, r4, #4
+	add r1, #0x48
+	add r0, r1, r0
+	add r1, r6, #0
+	add r3, r2, #0
+	bl ov103_021EE3E4
+	add r0, r6, #0
+	bl String_Delete
+_021EEA1C:
+	add sp, #0xc
+	pop {r3, r4, r5, r6, pc}
 	.balign 4, 0
-_021EC9D0: .word 0x027E0000
-_021EC9D4: .word 0x00003FF8
-	thumb_func_end ov103_021EC9B4
+_021EEA20: .word 0x00010200
+	thumb_func_end ov103_021EE9C8

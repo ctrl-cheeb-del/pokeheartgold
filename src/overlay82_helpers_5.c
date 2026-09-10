@@ -1,0 +1,104 @@
+#include "overlay_82_helpers_internal.h"
+
+extern u8 ov80_02237920(u8);
+extern u32 ov80_0223792C(u8);
+extern u32 sub_02037030(u32, void *, u32);
+extern void ov82_0223F95C(void *, void *);
+extern void sub_02037BEC(void);
+extern void sub_02037AC0(u32);
+extern u32 sub_02037B38(u32);
+extern void GX_LoadBGPltt(const void *, u32, u32);
+extern void GfGfx_DisableEngineBPlanes(void);
+extern void CopyWindowToVram(Window *);
+extern u8 ov82_0223EF1C(Ov82Work *, Window *, u32, u32, u32, u32, u32, u32, u32, u32);
+extern void BufferIntegerAsString(void *, u32, u32, u32, u32, u32);
+extern void PrintUIntOnWindow(void *, u32, u32, u32, Window *, u32, u32);
+extern void ScheduleWindowCopyToVram(Window *);
+
+extern const GraphicsBanks ov82_0223FEC4;
+extern u32 sub_0203769C(void);
+extern u32 sub_02030BD0(u8, void *);
+extern void *Save_PlayerData_GetProfile(void *);
+extern void *Party_GetMonByIndex(void *, int);
+extern u32 GetMonData(void *, int, void *);
+extern void ClearFrameAndWindow2(Window *, u32);
+extern void LoadUserFrameGfx2(void *, u32, u32, u32, u32, u32);
+extern void DrawFrameAndWindow2(Window *, u32, u32, u32);
+extern void SpriteTransfer_DeleteCharTransferTask(void *);
+extern void SpriteTransfer_DeletePlttTransferTask(void *);
+extern void OamManager_Free(void);
+extern void ObjCharTransfer_Destroy(void);
+extern void ObjPlttTransfer_Destroy(void);
+extern void ObjPlttTransfer_Init(u32, u32);
+extern void ObjCharTransfer_ClearBuffers(void);
+extern void ObjPlttTransfer_Reset(void);
+extern u32 Pokemon_GetIconPalette(u32);
+extern void MI_CpuFill8(void *, u8, u32);
+extern void BufferTypeName(void *, u32, u32);
+extern u32 Options_GetFrame(void *);
+
+extern u16 ov82_0223F558(Ov82Work *);
+extern u16 ov82_0223F570(Ov82Work *);
+extern u8 ov82_0223F6C4(u8);
+extern BOOL ov82_0223F6CC(Ov82Work *);
+extern u8 ov82_0223F6E4(Ov82Work *);
+extern void ov82_0223F74C(Ov82Work *, u16);
+extern void ov82_0223F770(Ov82Work *, u16, u16);
+extern void ov82_0223F808(Ov82Work *, u16, u16);
+extern void ov82_0223FB08(void);
+extern void ov82_0223FCB0(Ov82Spr *, BOOL);
+extern void ov82_0223FCFC(Ov82Spr *, u32);
+extern void ov82_0223EFCC(Ov82Work *, Window *, u32, u32, u32, u32, u32, u32);
+
+extern const ObjCharTransferTemplate ov82_0223FEF0;
+extern const WindowTemplate ov82_0223FF00[4];
+
+BOOL ov82_0223E7E8(Ov82Work *work);
+void ov82_0223E9B0(void);
+u8 ov82_0223EF7C(Ov82Work *work, u32 a, u32 b);
+void ov82_0223EE38(void);
+void ov82_0223EB9C(Ov82Work *work);
+void ov82_0223EC48(void);
+void ov82_0223EFB4(Ov82Work *work, u32 a, u32 b);
+void ov82_0223F10C(Ov82Work *work, Window *win, u32 c, u32 d, u32 f);
+void ov82_0223F2F8(Ov82Work *work, u32 *dest, u32 val);
+BOOL ov82_0223F53C(Ov82Work *work);
+u16 ov82_0223F558(Ov82Work *work);
+u16 ov82_0223F570(Ov82Work *work);
+void ov82_0223F580(Ov82Work *work, BgConfig *bgConfig);
+void ov82_0223F5E0(BgConfig *bgConfig, u8 idx, u32 mode);
+u8 ov82_0223F6C4(u8 a);
+BOOL ov82_0223F6CC(Ov82Work *work);
+u8 ov82_0223F6E4(Ov82Work *work);
+BOOL ov82_0223F6E8(Ov82Work *work, u16 cmd, u16 arg);
+void ov82_0223F74C(Ov82Work *work, u16 a);
+void ov82_0223F764(u32 a);
+void ov82_0223F770(Ov82Work *work, u16 a, u16 b);
+void ov82_0223F7B4(u32 a, u32 unused, const u16 *msg, Ov82Work *work);
+void ov82_0223F808(Ov82Work *work, u16 a, u16 b);
+void ov82_0223F814(u32 a, u32 unused, const u16 *msg, u8 *dst);
+void ov82_0223F834(Ov82Work *work);
+void ov82_0223F8E4(Ov82Work *work);
+void ov82_0223F90C(Ov82Work *work);
+void ov82_0223F948(s32 a);
+void ov82_0223FC14(void);
+u32 ov82_0223FC9C(Ov82Spr *spr);
+void ov82_0223FCB0(Ov82Spr *spr, BOOL flag);
+void ov82_0223FCBC(Ov82Spr *spr, s32 x, s32 y);
+void ov82_0223FCFC(Ov82Spr *spr, u32 seq);
+void ov82_0223FD18(Ov82Spr *spr, u32 species);
+void ov82_0223FD2C(BgConfig *bgConfig, Window *wins);
+void ov82_0223FD5C(Window *wins);
+void ov82_0223FD78(Window *win, u32 frame);
+YesNoPrompt *ov82_0223FDB8(enum HeapID heapId);
+void ov82_0223FDC0(YesNoPrompt *p);
+void ov82_0223FDC8(YesNoPrompt *prompt, BgConfig *bgConfig, u8 a);
+u32 ov82_0223FE18(YesNoPrompt *p);
+
+void ov82_0223EE38(void) {
+    NNSG2dPaletteData *plttData;
+    void *raw = GfGfxLoader_GetPlttData((NarcId)0xb7, 0x99, &plttData, HEAP_ID_105);
+    DC_FlushRange(plttData->pRawData, 0xc0);
+    GX_LoadBGPltt(plttData->pRawData, 0, 0xc0);
+    Heap_Free(raw);
+}

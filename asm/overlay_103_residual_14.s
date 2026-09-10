@@ -147,21 +147,74 @@
 	.public ov103_021EEAC8
 	.public ov103_021EEB04
 
-	thumb_func_start ov103_021EC9B4
-ov103_021EC9B4: ; 0x021EC9B4
-	push {r3, lr}
-	ldr r0, [r0, #0xc]
+	thumb_func_start ov103_021EDD54
+ov103_021EDD54: ; 0x021EDD54
+	push {r3, r4, lr}
+	sub sp, #4
+	add r4, r0, #0
+	ldrh r0, [r4, #0x22]
+	bl ItemToMailId
+	add r3, r0, #0
+	mov r0, #0x9c
+	add r2, r4, #0
+	str r0, [sp]
+	add r2, #0x21
+	ldrb r2, [r2]
+	ldr r0, [r4, #8]
+	mov r1, #2
+	lsl r2, r2, #0x19
 	ldr r0, [r0]
-	bl DoScheduledBgGpuUpdates
-	bl SpriteSystem_TransferOam
-	ldr r3, _021EC9D0 ; =0x027E0000
-	ldr r1, _021EC9D4 ; =0x00003FF8
-	mov r0, #1
-	ldr r2, [r3, r1]
-	orr r0, r2
-	str r0, [r3, r1]
-	pop {r3, pc}
+	lsr r2, r2, #0x19
+	bl sub_02090E68
+	ldr r1, [r4, #8]
+	mov r2, #0x9c
+	ldr r1, [r1, #8]
+	str r1, [r0, #0x1c]
+	str r0, [r4, #0x14]
+	ldr r0, _021EDD94 ; =ov103_021EEC58
+	ldr r1, [r4, #0x14]
+	bl OverlayManager_New
+	str r0, [r4, #0x10]
+	mov r0, #0
+	add sp, #4
+	pop {r3, r4, pc}
 	.balign 4, 0
-_021EC9D0: .word 0x027E0000
-_021EC9D4: .word 0x00003FF8
-	thumb_func_end ov103_021EC9B4
+_021EDD94: .word ov103_021EEC58
+	thumb_func_end ov103_021EDD54
+
+
+	thumb_func_start ov103_021EDD98
+ov103_021EDD98: ; 0x021EDD98
+	push {r4, lr}
+	add r4, r0, #0
+	ldr r0, [r4, #0x14]
+	bl sub_02090F6C
+	str r0, [r4, #0x24]
+	cmp r0, #1
+	bne _021EDDD8
+	ldr r0, [r4, #8]
+	ldr r0, [r0]
+	bl SaveArray_Party_Get
+	add r1, r4, #0
+	add r1, #0x21
+	ldrb r1, [r1]
+	lsl r1, r1, #0x19
+	lsr r1, r1, #0x19
+	bl Party_GetMonByIndex
+	add r1, r0, #0
+	ldr r0, [r4, #0x14]
+	bl sub_02090F70
+	ldr r0, [r4, #8]
+	ldr r0, [r0]
+	bl Save_Bag_Get
+	ldrh r1, [r4, #0x22]
+	mov r2, #1
+	mov r3, #0x9c
+	bl Bag_TakeItem
+_021EDDD8:
+	ldr r0, [r4, #0x14]
+	bl sub_02090F90
+	mov r0, #0
+	pop {r4, pc}
+	.balign 4, 0
+	thumb_func_end ov103_021EDD98
