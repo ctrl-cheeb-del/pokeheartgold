@@ -1,0 +1,150 @@
+#include "global.h"
+
+extern void OamManager_ApplyAndResetBuffers(void);
+extern void DoScheduledBgGpuUpdates(void *);
+extern void SpriteList_RenderAndAnimateSprites(void *);
+extern void MessageFormat_ResetBuffers(void *);
+extern void Sprite_SetDrawFlag(void *, BOOL);
+extern void YesNoPrompt_Destroy(void *);
+extern void BufferPlayersName(void *, int, void *);
+extern void BufferCountryName(void *, int, int);
+extern void BufferWiFiPlazaInstrumentName(void *, int, int);
+extern void BufferWiFiPlazaActivityName(void *, int, int);
+extern void Heap_Free(void *);
+extern void RemoveWindow(void *);
+extern void String_Delete(void *);
+extern void GF_AssertFail(void);
+extern void BufferCityName(void *, int, int, int);
+extern void ScheduleWindowCopyToVram(void *);
+extern void ScheduleBgTilemapBufferTransfer(void *, int);
+extern void ov90_02259588(void *, int, int);
+extern void ov90_0225A6B4(void *, int, int, int);
+extern void ov90_0225B53C(void *, int);
+extern const u8 ov90_0225C4FC[];
+extern void SpriteList_Delete(void *);
+extern void ObjCharTransfer_Destroy(void);
+extern void ObjPlttTransfer_Destroy(void);
+extern void OamManager_Free(void);
+extern void MessageFormat_Delete(void *);
+extern void DestroyMsgData(void *);
+extern void sub_0200F478(void *);
+extern void Sprite_Delete(void *);
+extern void sub_02014A8C(void *);
+extern void sub_02014A78(void *, int);
+extern void ov90_0225B330(u8 *);
+extern void PlayFanfare(u16);
+extern void sub_0203410C(const void *, int, void *);
+extern void BufferIntegerAsString(void *, int, int, int, int, int);
+extern void ReadMsgDataIntoString(void *, int, void *);
+extern void StringExpandPlaceholders(void *, void *, void *);
+extern BOOL TextPrinterCheckActive(u8);
+extern void *WaitingIcon_New(void *, int);
+extern void *SpriteResourceCollection_Find(void *, int);
+extern int SpriteTransfer_GetPlttOffset(void *, int);
+extern void ov90_0225BC28(void *, int);
+
+u8 ov90_02258AA0(const u8 *p);
+u8 ov90_02258AA4(const u8 *p);
+u8 ov90_0225B538(const u8 *p);
+int ov90_0225C158(void);
+int ov90_0225C194(void);
+int ov90_0225C198(void);
+void ov90_02258B24(u8 *p, int value);
+void ov90_0225917C(void);
+void ov90_0225B594(u8 *p, u8 value);
+const u8 *ov90_0225C150(void);
+void ov90_02258914(void *p, int value);
+void ov90_02258920(void *p, int value);
+void ov90_0225892C(void *p, int value);
+void ov90_022589E0(void *p, int a, int b);
+void ov90_022589EC(void *p, int a, int b);
+void ov90_022589F8(void *p, int a, int b);
+void ov90_022590C0(void **p);
+void ov90_02259170(void **p);
+void ov90_022591F4(void **p);
+void ov90_02259EA0(void **p);
+void ov90_0225B380(void **p);
+void ov90_0225C1C8(int a, int b, int c, void *data);
+void ov90_0225C1D4(int a, int b, int c, void *data);
+void ov90_0225C19C(int a, int b, int *p, u8 *data);
+BOOL ov90_022589BC(const u8 *p);
+u8 ov90_022589CC(u8 *p);
+void ov90_02258B44(u8 *p, u8 value);
+BOOL ov90_02258CE0(const u16 *p);
+void ov90_02259200(void **p, void *value);
+void ov90_02259210(void **p, int value);
+void ov90_0225926C(void **p, int value);
+void ov90_0225927C(void **p, int value);
+void ov90_02259784(u8 *p);
+void ov90_0225A340(u8 *p);
+void ov90_0225B330(u8 *p);
+void ov90_0225C1A8(int value, int b, int c, void *data);
+void ov90_0225C1B8(int value, int b, int c, void *data);
+void ov90_02259220(void **p, int value, int city);
+void ov90_02259E8C(void *window, void **data);
+void ov90_0225B6B0(u8 *p, u8 value);
+void ov90_02259158(void **p);
+void ov90_022591D4(void **p);
+void ov90_02259570(u8 *p, int index);
+void ov90_0225B690(void **p);
+void ov90_0225A198(u8 *p);
+void ov90_0225A960(u8 *p);
+void ov90_0225B954(u8 *p);
+int ov90_0225BA14(u8 *p);
+void ov90_0225C15C(void *data);
+void ov90_0225C178(void *data);
+void ov90_02259234(void **p, int value, int width);
+void ov90_02259250(void **p, int value);
+void ov90_0225928C(void **p, void *dest, int msgNo);
+BOOL ov90_02259538(u8 *p, int index);
+void ov90_02259554(u8 *p, int index);
+int ov90_0225886C(const u8 *p, u8 value);
+void ov90_02258DB0(u8 *p, u16 delta);
+void ov90_02258B2C(u8 *p, int a, int b);
+int ov90_02258C74(void **p);
+int ov90_0225A28C(u32 value);
+BOOL ov90_0225BBD0(u8 *p);
+
+const u8 *ov90_0225C150(void) {
+    return ov90_0225C4FC;
+}
+
+int ov90_0225C158(void) {
+    return 5;
+}
+
+void ov90_0225C15C(void *data) {
+    sub_0203410C(ov90_0225C150(), ov90_0225C158(), data);
+}
+
+void ov90_0225C178(void *data) {
+    sub_0203410C(ov90_0225C150(), ov90_0225C158(), data);
+}
+
+int ov90_0225C194(void) {
+    return 0;
+}
+
+int ov90_0225C198(void) {
+    return 4;
+}
+
+void ov90_0225C19C(int a, int b, int *p, u8 *data) {
+    ov90_02258B24(data, *p);
+}
+
+void ov90_0225C1A8(int value, int b, int c, void *data) {
+    ov90_02258B2C(data, value, 1);
+}
+
+void ov90_0225C1B8(int value, int b, int c, void *data) {
+    ov90_02258B2C(data, value, 0);
+}
+
+void ov90_0225C1C8(int a, int b, int c, void *data) {
+    ov90_02258B44(data, 1);
+}
+
+void ov90_0225C1D4(int a, int b, int c, void *data) {
+    ov90_02258B44(data, 0);
+}

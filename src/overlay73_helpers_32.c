@@ -1,0 +1,191 @@
+#include "overlay_73_helpers_internal.h"
+void ov73_021E66F0(void);
+void ov73_021E7468(void);
+int ov73_021E7818(void);
+int ov73_021E795C(void *unused);
+void *ov73_021E7960(void *p);
+void ov73_021E8164(void);
+int ov73_021E9D10(void);
+void ov73_021EA370(void);
+int ov73_021E7488(void *p);
+int ov73_021E7A74(void);
+int ov73_021E7A7C(void);
+int ov73_021E7A84(void);
+void ov73_021E83EC(void *p, u32 a, u32 b);
+void ov73_021E844C(void *p, u32 a, u32 b);
+int ov73_021E9B94(void *p);
+int ov73_021EA12C(void *p);
+void *ov73_021EA31C(void *p, u32 n);
+int ov73_021E8440(void *p);
+int ov73_021EA25C(void *p);
+void *ov73_021EA2A8(void *p);
+void ov73_021E670C(void *p, u32 v);
+void ov73_021E761C(void *p);
+int ov73_021E8DB8(void *p);
+void ov73_021E6048(void *p);
+void *ov73_021E66F4(void *, void *);
+void *ov73_021E69D0(void *, void *);
+int ov73_021E83D4(void *);
+int ov73_021E9B9C(void *);
+void ov73_021EA290(void *);
+void *ov73_021E6890(void *, void *);
+void *ov73_021E6A90(void *, void *);
+void *ov73_021E6D38(void *, void *);
+int ov73_021E7340(void);
+int ov73_021E746C(void *unused);
+void ov73_021E8148(void *, void *);
+int ov73_021E8EBC(void *);
+int ov73_021E9CBC(void *);
+void ov73_021EA180(void *);
+void ov73_021EA2E0(void *);
+void *ov73_021E6A70(void *, void *);
+void *ov73_021E6CDC(void *, void *);
+void *ov73_021E6E6C(void *, void *);
+void ov73_021E8454(void *p);
+int ov73_021E9D44(void *);
+void ov73_021EA134(void *, u32, u32);
+void *ov73_021EA268(void *, u32, u32);
+void *ov73_021EA348(void *, u32, u32);
+void ov73_021EA15C(void *);
+int ov73_021E9BB4(void *);
+int ov73_021E9EAC(void *);
+int ov73_021E9C04(void *);
+int ov73_021E9C60(void *);
+void ov73_021E82A8(void *, void *, u32, u32);
+void ov73_021E5F0C(void *);
+int ov73_021E9FC8(void *);
+void *ov73_021E6484(void *, void *);
+int ov73_021E91F4(void *);
+int ov73_021E93EC(void *);
+int ov73_021E9728(void *);
+int ov73_021E987C(void *);
+int ov73_021E9BD4(void *);
+int ov73_021E9C30(void *);
+int ov73_021E9C8C(void *);
+int ov73_021E941C(void *);
+int ov73_021E9A3C(void *);
+int ov73_021E8BFC(void *);
+int ov73_021E8C8C(void *);
+int ov73_021E955C(void *);
+int ov73_021E9598(void *);
+int ov73_021E96EC(void *);
+int ov73_021E9B58(void *);
+int ov73_021E9CD8(void *);
+int ov73_021E8C2C(void *);
+int ov73_021E99D4(void *);
+void *ov73_021E6BF8(void *, void *);
+int ov73_021E9120(void *);
+void ov73_021EA324(void *);
+void ov73_021EA2FC(void *);
+int ov73_021E8FB0(void *);
+void ov73_021E6B98(void *);
+void *ov73_021E6C20(void *, void *);
+void ov73_021E77E8(void *);
+void ov73_021E870C(void *);
+void ov73_021E8D0C(void *);
+int ov73_021E75FC(u32);
+int ov73_021E7D54(u32, u32, u32);
+int ov73_021E9ECC(void *);
+int ov73_021E9F00(void *);
+void *ov73_021E6E48(void *, void *);
+void *ov73_021E6EF8(void *, void *);
+int ov73_021E9224(void *);
+int ov73_021E9758(void *);
+int ov73_021E98AC(void *);
+void *ov73_021E6CC0(void *, void *);
+int ov73_021E64B0(void *);
+void ov73_021E5ED4(void *);
+void ov73_021E6400(void *);
+void ov73_021E5CD8(void *);
+void ov73_021E8100(void *);
+void *ov73_021E83F4(void *, u32, s32);
+void ov73_021E841C(void *, void *);
+
+int ov73_021E9B58(void *p) {
+    ov73_021E9FF8(p, PTR(p, 0xbd4), 3, 1, 0xf0f);
+    ov73_021E83EC(p, 0x2f, 0x2d);
+    ov73_021EA180(p);
+    U32(PTR(p, 0), 0x20) = 0;
+    return 3;
+}
+
+int ov73_021E9B94(void *p) {
+    U32(p, 0x1c) = 0x29;
+    return 3;
+}
+
+int ov73_021E9B9C(void *p) {
+    Save_PrepareForAsyncWrite(PTR(PTR(p, 0), 0xc), 2);
+    U32(p, 0x1c) = 0x28;
+    return 3;
+}
+
+int ov73_021E9BB4(void *p) {
+    if (Save_WriteFileAsync(PTR(PTR(p, 0), 0xc)) == 2) {
+        U32(p, 0x1c) = U32(p, 0x20);
+        ov73_021EA180(p);
+    }
+    return 3;
+}
+
+int ov73_021E9BD4(void *p) {
+    ov73_021E9FF8(p, PTR(p, 0xbd4), 4, 1, 0xf0f);
+    ov73_021E83EC(p, 0x30, 0x16);
+    return 3;
+}
+
+int ov73_021E9C04(void *p) {
+    int r = ov73_021E83D4(PTR(p, 0x12c8));
+    if (r) {
+        if (r == 2) {
+            U32(p, 0x1c) = 0xd;
+        } else {
+            U32(p, 0x1c) = 0x29;
+            U32(PTR(p, 0), 0x20) = 1;
+        }
+    }
+    return 3;
+}
+
+int ov73_021E9C30(void *p) {
+    ov73_021E9FF8(p, PTR(p, 0xbd4), 9, 1, 0xf0f);
+    ov73_021E83EC(p, 0x30, 0x18);
+    return 3;
+}
+
+int ov73_021E9C60(void *p) {
+    int r = ov73_021E83D4(PTR(p, 0x12c8));
+    if (r) {
+        if (r == 2) {
+            U32(p, 0x1c) = 0x1d;
+        } else {
+            U32(p, 0x1c) = 0x29;
+            U32(PTR(p, 0), 0x20) = 1;
+        }
+    }
+    return 3;
+}
+
+int ov73_021E9C8C(void *p) {
+    ov73_021E9FF8(p, PTR(p, 0xbdc), 0x1a, 1, 0xf0f);
+    ov73_021E83EC(p, 0x2f, 0x2a);
+    return 3;
+}
+
+int ov73_021E9CBC(void *p) {
+    ov00_021EC8D8(p);
+    ov73_021E844C(p, 0, 0);
+    U32(p, 0x1c) = 0x2b;
+    return 3;
+}
+
+int ov73_021E9CD8(void *p) {
+    ov73_021E9FF8(p, PTR(p, 0xbdc), 0x1b, 1, 0xf0f);
+    ov73_021E83EC(p, 0x31, 0x2e);
+    U32(p, 0xf20) = 0;
+    return 3;
+}
+
+int ov73_021E9D10(void) {
+    return 3;
+}

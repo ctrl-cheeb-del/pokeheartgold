@@ -1,0 +1,558 @@
+#include "config.h"
+	.include "asm/macros.inc"
+	.include "overlay_73.inc"
+	.include "global.inc"
+
+	.text
+	.public _021EA51C
+	.public _021EA7C0
+	.public _021EA940
+	.public ov73_021E5900
+	.public ov73_021E5AB8
+	.public ov73_021E5BAC
+	.public ov73_021E5C74
+	.public ov73_021E5CD8
+	.public ov73_021E5D00
+	.public ov73_021E5D20
+	.public ov73_021E5E0C
+	.public ov73_021E5ED4
+	.public ov73_021E5F38
+	.public ov73_021E6060
+	.public ov73_021E6090
+	.public ov73_021E6184
+	.public ov73_021E629C
+	.public ov73_021E63BC
+	.public ov73_021E6444
+	.public ov73_021E6484
+	.public ov73_021E64B0
+	.public ov73_021E6508
+	.public ov73_021E66F4
+	.public ov73_021E671C
+	.public ov73_021E6778
+	.public ov73_021E67A8
+	.public ov73_021E6830
+	.public ov73_021E6890
+	.public ov73_021E68AC
+	.public ov73_021E69E8
+	.public ov73_021E6A70
+	.public ov73_021E6A90
+	.public ov73_021E6AAC
+	.public ov73_021E6B6C
+	.public ov73_021E6BC8
+	.public ov73_021E6C50
+	.public ov73_021E6CC0
+	.public ov73_021E6CDC
+	.public ov73_021E6CFC
+	.public ov73_021E6D38
+	.public ov73_021E6D54
+	.public ov73_021E6DF8
+	.public ov73_021E6E48
+	.public ov73_021E6E6C
+	.public ov73_021E6E8C
+	.public ov73_021E6ECC
+	.public ov73_021E6EF8
+	.public ov73_021E6F1C
+	.public ov73_021E6FAC
+	.public ov73_021E6FE8
+	.public ov73_021E705C
+	.public ov73_021E7120
+	.public ov73_021E71E4
+	.public ov73_021E7230
+	.public ov73_021E72F4
+	.public ov73_021E735C
+	.public ov73_021E7490
+	.public ov73_021E756C
+	.public ov73_021E762C
+	.public ov73_021E7740
+	.public ov73_021E77A4
+	.public ov73_021E781C
+	.public ov73_021E7870
+	.public ov73_021E7964
+	.public ov73_021E79A8
+	.public ov73_021E79F4
+	.public ov73_021E7A8C
+	.public ov73_021E7AC0
+	.public ov73_021E7B3C
+	.public ov73_021E7B84
+	.public ov73_021E7BC8
+	.public ov73_021E7C0C
+	.public ov73_021E7C50
+	.public ov73_021E7C94
+	.public ov73_021E7CD8
+	.public ov73_021E7D74
+	.public ov73_021E7E24
+	.public ov73_021E7E4C
+	.public ov73_021E7FB8
+	.public ov73_021E808C
+	.public ov73_021E8100
+	.public ov73_021E8128
+	.public ov73_021E8168
+	.public ov73_021E8198
+	.public ov73_021E82D4
+	.public ov73_021E8390
+	.public ov73_021E847C
+	.public ov73_021E84D0
+	.public ov73_021E85AC
+	.public ov73_021E85DC
+	.public ov73_021E8628
+	.public ov73_021E8730
+	.public ov73_021E8960
+	.public ov73_021E8A08
+	.public ov73_021E8B20
+	.public ov73_021E8B64
+	.public ov73_021E8BBC
+	.public ov73_021E8CBC
+	.public ov73_021E8D2C
+	.public ov73_021E8DC8
+	.public ov73_021E8E7C
+	.public ov73_021E8ED8
+	.public ov73_021E8FE4
+	.public ov73_021E9144
+	.public ov73_021E9224
+	.public ov73_021E926C
+	.public ov73_021E9378
+	.public ov73_021E944C
+	.public ov73_021E95CC
+	.public ov73_021E9618
+	.public ov73_021E9758
+	.public ov73_021E97A8
+	.public ov73_021E98AC
+	.public ov73_021E98FC
+	.public ov73_021E9A6C
+	.public ov73_021E9D14
+	.public ov73_021E9D6C
+	.public ov73_021E9DE0
+	.public ov73_021E9ECC
+	.public ov73_021E9F34
+	.public ov73_021E9F9C
+	.public ov73_021E9FC8
+	.public ov73_021E9FF8
+	.public ov73_021EA050
+	.public ov73_021EA088
+	.public ov73_021EA0BC
+	.public ov73_021EA0F0
+	.public ov73_021EA19C
+	.public ov73_021EA218
+	.public ov73_021EA268
+	.public ov73_021EA2B4
+	.public ov73_021EA2E0
+	.public ov73_021EA324
+	.public ov73_021EA374
+	.public ov73_021EA3D0
+	.public ov73_021EA520
+	.public ov73_021EA52A
+	.public ov73_021EA52B
+	.public ov73_021EA534
+	.public ov73_021EA540
+	.public ov73_021EA550
+	.public ov73_021EA560
+	.public ov73_021EA578
+	.public ov73_021EA594
+	.public ov73_021EA5B0
+	.public ov73_021EA5CC
+	.public ov73_021EA5E8
+	.public ov73_021EA610
+	.public ov73_021EA618
+	.public ov73_021EA624
+	.public ov73_021EA630
+	.public ov73_021EA640
+	.public ov73_021EA650
+	.public ov73_021EA664
+	.public ov73_021EA684
+	.public ov73_021EA68C
+	.public ov73_021EA69C
+	.public ov73_021EA6AC
+	.public ov73_021EA6D4
+	.public ov73_021EA6F0
+	.public ov73_021EA70C
+	.public ov73_021EA728
+	.public ov73_021EA744
+	.public ov73_021EA83C
+	.public ov73_021EA840
+	.public ov73_021EA844
+	.public ov73_021EA848
+
+	.public ov73_021E5F0C
+	.public ov73_021E6048
+	.public ov73_021E6400
+	.public ov73_021E66F0
+	.public ov73_021E670C
+	.public ov73_021E69D0
+	.public ov73_021E6B98
+	.public ov73_021E6BF8
+	.public ov73_021E6C20
+	.public ov73_021E7340
+	.public ov73_021E7468
+	.public ov73_021E746C
+	.public ov73_021E7488
+	.public ov73_021E75FC
+	.public ov73_021E761C
+	.public ov73_021E77E8
+	.public ov73_021E7818
+	.public ov73_021E795C
+	.public ov73_021E7960
+	.public ov73_021E7A74
+	.public ov73_021E7A7C
+	.public ov73_021E7A84
+	.public ov73_021E7D54
+	.public ov73_021E8148
+	.public ov73_021E8164
+	.public ov73_021E82A8
+	.public ov73_021E83D4
+	.public ov73_021E83EC
+	.public ov73_021E83F4
+	.public ov73_021E841C
+	.public ov73_021E8440
+	.public ov73_021E844C
+	.public ov73_021E8454
+	.public ov73_021E870C
+	.public ov73_021E8BFC
+	.public ov73_021E8C2C
+	.public ov73_021E8C8C
+	.public ov73_021E8D0C
+	.public ov73_021E8DB8
+	.public ov73_021E8EBC
+	.public ov73_021E8FB0
+	.public ov73_021E9120
+	.public ov73_021E91F4
+	.public ov73_021E93EC
+	.public ov73_021E941C
+	.public ov73_021E955C
+	.public ov73_021E9598
+	.public ov73_021E96EC
+	.public ov73_021E9728
+	.public ov73_021E987C
+	.public ov73_021E99D4
+	.public ov73_021E9A3C
+	.public ov73_021E9B58
+	.public ov73_021E9B94
+	.public ov73_021E9B9C
+	.public ov73_021E9BB4
+	.public ov73_021E9BD4
+	.public ov73_021E9C04
+	.public ov73_021E9C30
+	.public ov73_021E9C60
+	.public ov73_021E9C8C
+	.public ov73_021E9CBC
+	.public ov73_021E9CD8
+	.public ov73_021E9D10
+	.public ov73_021E9D44
+	.public ov73_021E9EAC
+	.public ov73_021E9F00
+	.public ov73_021EA12C
+	.public ov73_021EA134
+	.public ov73_021EA15C
+	.public ov73_021EA180
+	.public ov73_021EA25C
+	.public ov73_021EA290
+	.public ov73_021EA2A8
+	.public ov73_021EA2FC
+	.public ov73_021EA31C
+	.public ov73_021EA348
+	.public ov73_021EA370
+
+	thumb_func_start ov73_021E847C
+ov73_021E847C: ; 0x021E847C
+	push {r3, r4, r5, r6, r7, lr}
+	add r6, r0, #0
+	ldr r0, _021E84C0 ; =0x00000D34
+	ldr r0, [r6, r0]
+	bl SpriteTransfer_DeleteCharTransferTask
+	ldr r0, _021E84C4 ; =0x00000D38
+	ldr r0, [r6, r0]
+	bl SpriteTransfer_DeletePlttTransferTask
+	ldr r7, _021E84C8 ; =0x00000D24
+	mov r4, #0
+	add r5, r6, #0
+_021E8496:
+	ldr r0, [r5, r7]
+	bl Destroy2DGfxResObjMan
+	add r4, r4, #1
+	add r5, r5, #4
+	cmp r4, #4
+	blt _021E8496
+	ldr r0, _021E84CC ; =0x00000BF8
+	ldr r0, [r6, r0]
+	bl SpriteList_Delete
+	ldr r0, _021E84CC ; =0x00000BF8
+	mov r1, #0
+	str r1, [r6, r0]
+	bl OamManager_Free
+	bl ObjCharTransfer_Destroy
+	bl ObjPlttTransfer_Destroy
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+_021E84C0: .word 0x00000D34
+_021E84C4: .word 0x00000D38
+_021E84C8: .word 0x00000D24
+_021E84CC: .word 0x00000BF8
+	thumb_func_end ov73_021E847C
+
+
+	thumb_func_start ov73_021E84D0
+ov73_021E84D0: ; 0x021E84D0
+	push {r3, r4, lr}
+	sub sp, #0xc
+	add r4, r0, #0
+	bl ov73_021E8B64
+	mov r0, #8
+	str r0, [sp]
+	mov r1, #1
+	str r1, [sp, #4]
+	mov r0, #0x96
+	str r0, [sp, #8]
+	mov r0, #0
+	add r2, r1, #0
+	add r3, r0, #0
+	bl BeginNormalPaletteFade
+	ldr r0, [r4, #4]
+	bl ov73_021E8628
+	add r0, r4, #0
+	bl ov73_021E8730
+	add r0, r4, #0
+	bl ov73_021E8A08
+	mov r0, #1
+	add r1, r0, #0
+	bl GfGfx_EngineATogglePlanes
+	mov r0, #2
+	mov r1, #1
+	bl GfGfx_EngineATogglePlanes
+	mov r0, #1
+	add r1, r0, #0
+	bl GfGfx_EngineBTogglePlanes
+	mov r0, #2
+	mov r1, #1
+	bl GfGfx_EngineBTogglePlanes
+	ldr r0, [r4]
+	ldr r0, [r0, #0xc]
+	bl sub_02039418
+	add r0, r4, #0
+	bl ov73_021EA12C
+	ldr r0, [r4]
+	mov r1, #0
+	ldr r0, [r0]
+	bl sub_0202D488
+	add r1, r4, #0
+	add r1, #0x90
+	str r0, [r1]
+	add r0, r4, #0
+	add r0, #0x90
+	ldr r1, [r0]
+	add r0, r4, #0
+	add r0, #0x94
+	str r1, [r0]
+	add r0, r4, #0
+	mov r1, #1
+	add r0, #0x9c
+	str r1, [r0]
+	ldr r0, _021E85A0 ; =0x00000F0C
+	mov r1, #0
+	str r1, [r4, r0]
+	bl ov00_021EC5B4
+	cmp r0, #0
+	bne _021E8594
+	ldr r0, [r4]
+	ldr r0, [r0, #0x24]
+	cmp r0, #0
+	beq _021E858E
+	ldr r0, _021E85A4 ; =0x00000F0F
+	ldr r1, _021E85A8 ; =0x00000BD8
+	str r0, [sp]
+	mov r2, #1
+	ldr r1, [r4, r1]
+	add r0, r4, #0
+	add r3, r2, #0
+	bl ov73_021E9FF8
+	add r0, r4, #0
+	mov r1, #0x2f
+	mov r2, #2
+	bl ov73_021E83EC
+	add r0, r4, #0
+	bl ov73_021EA15C
+	b _021E8598
+_021E858E:
+	mov r0, #0
+	str r0, [r4, #0x1c]
+	b _021E8598
+_021E8594:
+	mov r0, #0x33
+	str r0, [r4, #0x1c]
+_021E8598:
+	mov r0, #2
+	add sp, #0xc
+	pop {r3, r4, pc}
+	nop
+_021E85A0: .word 0x00000F0C
+_021E85A4: .word 0x00000F0F
+_021E85A8: .word 0x00000BD8
+	thumb_func_end ov73_021E84D0
+
+
+	thumb_func_start ov73_021E85AC
+ov73_021E85AC: ; 0x021E85AC
+	push {r3, r4, r5, lr}
+	add r5, r0, #0
+	bl ov73_021E8440
+	bl sub_0203A930
+	ldr r4, [r5, #0x1c]
+	ldr r1, _021E85D8 ; =ov73_021EA848
+	lsl r2, r4, #2
+	ldr r1, [r1, r2]
+	add r0, r5, #0
+	blx r1
+	ldr r1, [r5, #0x1c]
+	cmp r4, r1
+	beq _021E85D6
+	mov r1, #0xf9
+	mov r2, #0
+	lsl r1, r1, #4
+	strh r2, [r5, r1]
+	add r1, r1, #2
+	strh r2, [r5, r1]
+_021E85D6:
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+_021E85D8: .word ov73_021EA848
+	thumb_func_end ov73_021E85AC
+
+
+	thumb_func_start ov73_021E85DC
+ov73_021E85DC: ; 0x021E85DC
+	push {r4, lr}
+	add r4, r0, #0
+	ldr r0, _021E8620 ; =0x00000F98
+	ldr r0, [r4, r0]
+	cmp r0, #0
+	beq _021E85F6
+	bl SysTask_Destroy
+	ldr r0, _021E8620 ; =0x00000F98
+	mov r1, #0
+	str r1, [r4, r0]
+	add r0, r0, #4
+	str r1, [r4, r0]
+_021E85F6:
+	add r0, r4, #0
+	bl ov73_021E8BBC
+	add r0, r4, #0
+	bl ov73_021E8B20
+	ldr r0, [r4, #4]
+	bl ov73_021E870C
+	ldr r0, _021E8624 ; =0x00000F9C
+	mov r1, #0
+	str r1, [r4, r0]
+	ldr r0, [r4, #0x14]
+	str r0, [r4, #0x10]
+	cmp r0, #0
+	bne _021E861A
+	mov r0, #5
+	pop {r4, pc}
+_021E861A:
+	mov r0, #1
+	pop {r4, pc}
+	nop
+_021E8620: .word 0x00000F98
+_021E8624: .word 0x00000F9C
+	thumb_func_end ov73_021E85DC
+
+
+	thumb_func_start ov73_021E8628
+ov73_021E8628: ; 0x021E8628
+	push {r3, r4, r5, lr}
+	sub sp, #0x70
+	ldr r5, _021E86FC ; =ov73_021EA70C
+	add r4, r0, #0
+	ldmia r5!, {r0, r1}
+	add r3, sp, #0x54
+	add r2, r3, #0
+	stmia r3!, {r0, r1}
+	ldmia r5!, {r0, r1}
+	stmia r3!, {r0, r1}
+	ldmia r5!, {r0, r1}
+	stmia r3!, {r0, r1}
+	ldr r0, [r5]
+	mov r1, #0
+	str r0, [r3]
+	add r0, r4, #0
+	add r3, r1, #0
+	bl InitBgFromTemplate
+	mov r0, #1
+	mov r1, #0
+	bl GfGfx_EngineATogglePlanes
+	add r0, r4, #0
+	mov r1, #0
+	bl BgClearTilemapBufferAndCommit
+	ldr r5, _021E8700 ; =ov73_021EA6F0
+	add r3, sp, #0x38
+	ldmia r5!, {r0, r1}
+	add r2, r3, #0
+	stmia r3!, {r0, r1}
+	ldmia r5!, {r0, r1}
+	stmia r3!, {r0, r1}
+	ldmia r5!, {r0, r1}
+	stmia r3!, {r0, r1}
+	ldr r0, [r5]
+	mov r1, #1
+	str r0, [r3]
+	add r0, r4, #0
+	mov r3, #0
+	bl InitBgFromTemplate
+	mov r0, #2
+	mov r1, #0
+	bl GfGfx_EngineATogglePlanes
+	ldr r5, _021E8704 ; =ov73_021EA728
+	add r3, sp, #0x1c
+	ldmia r5!, {r0, r1}
+	add r2, r3, #0
+	stmia r3!, {r0, r1}
+	ldmia r5!, {r0, r1}
+	stmia r3!, {r0, r1}
+	ldmia r5!, {r0, r1}
+	stmia r3!, {r0, r1}
+	ldr r0, [r5]
+	mov r1, #4
+	str r0, [r3]
+	add r0, r4, #0
+	mov r3, #0
+	bl InitBgFromTemplate
+	mov r0, #1
+	mov r1, #0
+	bl GfGfx_EngineBTogglePlanes
+	add r0, r4, #0
+	mov r1, #4
+	bl BgClearTilemapBufferAndCommit
+	ldr r5, _021E8708 ; =ov73_021EA6D4
+	add r3, sp, #0
+	ldmia r5!, {r0, r1}
+	add r2, r3, #0
+	stmia r3!, {r0, r1}
+	ldmia r5!, {r0, r1}
+	stmia r3!, {r0, r1}
+	ldmia r5!, {r0, r1}
+	stmia r3!, {r0, r1}
+	ldr r0, [r5]
+	mov r1, #5
+	str r0, [r3]
+	add r0, r4, #0
+	mov r3, #0
+	bl InitBgFromTemplate
+	mov r0, #2
+	mov r1, #0
+	bl GfGfx_EngineBTogglePlanes
+	mov r0, #0
+	mov r1, #0x20
+	add r2, r0, #0
+	mov r3, #0x96
+	bl BG_ClearCharDataRange
+	mov r0, #4
+	mov r1, #0x20
+	mov r2, #0
+	mov r3, #0x96
+	bl BG_ClearCharDataRange
+	add sp, #0x70
+	pop {r3, r4, r5, pc}
+	nop
+_021E86FC: .word ov73_021EA70C
+_021E8700: .word ov73_021EA6F0
+_021E8704: .word ov73_021EA728
+_021E8708: .word ov73_021EA6D4
+	thumb_func_end ov73_021E8628
