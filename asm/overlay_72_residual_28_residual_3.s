@@ -211,63 +211,47 @@
 	.public ov72_0223AF1C
 	.public ov72_0223AF48
 
-	thumb_func_start ov72_0223ACA8
-ov72_0223ACA8: ; 0x0223ACA8
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x18
-	ldr r1, _0223AD14 ; =0x00001328
-	ldr r5, _0223AD18 ; =ov72_0223B46C
-	str r0, [sp, #0x14]
-	mov r7, #0
-	mov r4, #0x1f
-	add r6, r0, r1
-_0223ACB8:
-	mov r0, #0x15
-	str r0, [sp]
-	mov r0, #8
-	str r0, [sp, #4]
-	mov r0, #2
-	str r0, [sp, #8]
-	mov r0, #0xd
-	str r0, [sp, #0xc]
-	lsl r0, r4, #0x10
-	lsr r0, r0, #0x10
-	str r0, [sp, #0x10]
-	ldr r0, [sp, #0x14]
-	ldr r3, [r5]
-	ldr r0, [r0, #4]
-	lsl r3, r3, #0x18
-	add r1, r6, #0
-	mov r2, #4
-	lsr r3, r3, #0x18
-	bl AddWindowParameterized
-	add r7, r7, #1
-	add r4, #0x40
-	add r5, r5, #4
-	add r6, #0x10
-	cmp r7, #3
-	blt _0223ACB8
-	mov r0, #0x13
-	str r0, [sp]
-	mov r0, #0x1b
-	str r0, [sp, #4]
-	mov r2, #4
-	str r2, [sp, #8]
-	mov r0, #0xd
-	str r0, [sp, #0xc]
-	mov r0, #0x4f
-	str r0, [sp, #0x10]
-	ldr r0, [sp, #0x14]
-	ldr r3, _0223AD1C ; =0x00001318
-	ldr r1, [sp, #0x14]
-	ldr r0, [r0, #4]
-	add r1, r1, r3
-	mov r3, #2
-	bl AddWindowParameterized
-	add sp, #0x18
-	pop {r3, r4, r5, r6, r7, pc}
+
+	thumb_func_start ov72_0223AED0
+ov72_0223AED0: ; 0x0223AED0
+	push {r4, r5, r6, r7}
+	ldr r4, _0223AF18 ; =0x00001358
+	mov r5, #1
+	strb r5, [r0, r4]
+	mov r5, #0
+	add r6, r4, #3
+	strb r5, [r0, r6]
+	add r6, r4, #1
+	strb r5, [r0, r6]
+	mov r7, #5
+	add r6, r4, #2
+	strb r7, [r0, r6]
+	add r7, r4, #0
+	add r7, #8
+	mov r6, #1
+	strh r6, [r0, r7]
+	add r6, r4, #0
+	add r6, #0xa
+	strh r5, [r0, r6]
+	add r5, r4, #6
+	strb r1, [r0, r5]
+	add r1, r4, #7
+	strb r2, [r0, r1]
+	mov r2, #6
+	add r1, r4, #4
+	strb r2, [r0, r1]
+	add r1, r4, #5
+	strb r2, [r0, r1]
+	add r1, r4, #0
+	sub r1, #0x45
+	strb r3, [r0, r1]
+	mov r1, #0xa
+	sub r4, #0x46
+	strb r1, [r0, r4]
+	pop {r4, r5, r6, r7}
+	bx lr
 	.balign 4, 0
-_0223AD14: .word 0x00001328
-_0223AD18: .word ov72_0223B46C
-_0223AD1C: .word 0x00001318
-	thumb_func_end ov72_0223ACA8
+_0223AF18: .word 0x00001358
+	thumb_func_end ov72_0223AED0
+
+

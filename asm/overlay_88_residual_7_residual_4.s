@@ -234,95 +234,112 @@
 	.public ov88_02259508
 
 
-	thumb_func_start ov88_0225918C
-ov88_0225918C: ; 0x0225918C
+	thumb_func_start ov88_02259404
+ov88_02259404: ; 0x02259404
 	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x38
-	str r0, [sp, #0x14]
-	mov r0, #4
-	str r0, [sp]
-	mov r0, #0xa
-	str r0, [sp, #4]
-	mov r0, #8
-	add r6, r2, #0
-	str r0, [sp, #8]
-	mov r2, #0
-	str r3, [sp, #0x1c]
-	str r2, [sp, #0xc]
-	add r0, r1, #0
-	str r1, [sp, #0x18]
-	ldr r0, [r0]
-	mov r1, #3
-	mov r3, #0x15
-	ldr r7, [sp, #0x50]
-	bl FillBgTilemapRect
-	mov r5, #0
-	str r5, [sp, #0x2c]
-_022591BA:
-	ldr r0, [sp, #0x2c]
-	mov r4, #0
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x34]
-_022591C4:
-	add r0, r6, #0
-	add r1, r4, r5
-	bl ov45_0222DCFC
+	sub sp, #0x28
+	add r6, r0, #0
+	add r5, r1, #0
+	add r0, r2, #0
+	add r1, sp, #0x14
+	str r2, [sp, #4]
+	str r3, [sp, #8]
+	bl ov45_0222AB38
+	mov r0, #2
+	add r4, r6, #0
+	ldr r7, _022594DC ; =ov88_02259910
+	str r0, [sp, #0xc]
+	add r4, #0x40
+_02259422:
+	ldrb r0, [r4]
 	cmp r0, #0
-	beq _0225922E
+	beq _02259458
+	add r0, r4, #0
+	bl ov88_022595E4
+	cmp r0, #1
+	bne _02259458
+	ldr r0, [sp, #0xc]
+	add r1, r0, #1
+	cmp r1, #3
+	bge _02259452
 	add r0, r6, #0
-	add r1, r4, r5
-	bl ov45_0222DD08
-	str r0, [sp, #0x28]
-	add r0, r6, #0
-	add r1, r4, r5
-	bl ov45_0222DD14
-	str r0, [sp, #0x24]
-	add r0, r6, #0
-	add r1, r4, r5
-	bl ov45_0222DD20
-	str r0, [sp, #0x20]
-	add r0, r6, #0
-	add r1, r4, r5
-	bl ov45_0222DD2C
-	str r0, [sp, #0x30]
-	ldr r0, [sp, #0x1c]
-	add r1, r4, r5
-	bl ov45_0222AB28
-	cmp r7, #2
-	bne _0225920E
-	ldr r1, [sp, #0x30]
-	cmp r1, #1
-	bne _0225920E
-	mov r1, #0
-	b _02259210
-_0225920E:
+	add r0, #0x98
+	ldr r0, [r0]
+	add r3, r4, #0
+	str r0, [sp]
+	lsl r0, r1, #5
+	ldr r1, [r4, #8]
+	ldr r2, [r7, #4]
+	add r0, r6, r0
+	add r3, #0x1c
+	bl ov88_02259560
+_02259452:
+	add r0, r4, #0
+	bl ov88_022595DC
+_02259458:
+	ldr r0, [sp, #0xc]
+	sub r4, #0x20
+	sub r7, r7, #4
+	sub r0, r0, #1
+	str r0, [sp, #0xc]
+	bpl _02259422
+	ldrb r0, [r6]
+	cmp r0, #0
+	bne _022594D6
+	add r0, r5, #0
+	bl ov45_0222DD44
+	cmp r0, #1
+	bne _022594D6
+	add r7, sp, #0x14
+_02259476:
+	add r0, r5, #0
+	bl ov45_0222DD5C
+	add r4, r0, #0
+	ldr r0, [sp, #8]
+	add r3, r6, #0
+	str r0, [sp]
+	add r3, #0x90
+	ldr r3, [r3]
+	add r0, r5, #0
 	add r1, r7, #0
-_02259210:
-	str r1, [sp]
-	ldr r1, [sp, #0x28]
-	lsl r2, r4, #0x18
-	str r1, [sp, #4]
-	ldr r1, [sp, #0x24]
-	ldr r3, [sp, #0x34]
-	str r1, [sp, #8]
-	ldr r1, [sp, #0x20]
-	lsr r2, r2, #0x18
-	str r1, [sp, #0xc]
-	str r0, [sp, #0x10]
-	ldr r0, [sp, #0x14]
-	ldr r1, [sp, #0x18]
-	bl ov88_02258DE8
-_0225922E:
-	add r4, r4, #1
-	cmp r4, #5
-	blt _022591C4
-	ldr r0, [sp, #0x2c]
-	add r5, r5, #5
-	add r0, r0, #1
-	str r0, [sp, #0x2c]
-	cmp r0, #4
-	blt _022591BA
-	add sp, #0x38
+	add r2, r4, #0
+	bl ov45_0222DD78
+	cmp r0, #1
+	bne _022594C6
+	ldr r3, [sp, #4]
+	add r0, sp, #0x10
+	add r1, r5, #0
+	add r2, r4, #0
+	bl ov88_02259280
+	add r0, r6, #0
+	add r0, #0x98
+	ldr r0, [r0]
+	mov r2, #0x15
+	str r0, [sp]
+	add r0, r6, #0
+	add r6, #0x90
+	ldr r1, [r6]
+	lsl r2, r2, #4
+	add r3, sp, #0x10
+	bl ov88_02259560
+	add r0, r5, #0
+	bl ov45_0222DCE8
+	add sp, #0x28
+	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov88_0225918C
+_022594C6:
+	add r0, r5, #0
+	bl ov45_0222DCE8
+	add r0, r5, #0
+	bl ov45_0222DD44
+	cmp r0, #1
+	beq _02259476
+_022594D6:
+	mov r0, #0
+	add sp, #0x28
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+_022594DC: .word ov88_02259910
+	thumb_func_end ov88_02259404
+
+

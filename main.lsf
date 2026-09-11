@@ -602,7 +602,7 @@ Static main
     Object src/player_avatar_movement_control_4.o
     Object asm/unk_0205D0A8.o
     Object src/player_avatar_movement_control_5.o
-    Object asm/unk_0205D340.o
+    Object src/field_call_1.o
     Object src/player_avatar_movement_control_6.o
     Object asm/unk_0205D450.o
     Object src/player_avatar_movement_control_7.o
@@ -3374,6 +3374,7 @@ Overlay OVY_68
 Overlay OVY_69
 {
     After main
+    Object src/overlay69_globe_1.o
     Object asm/overlay_69.o
     Object src/overlay69_helpers_1.o
     Object asm/overlay_69_residual_2.o
@@ -3639,7 +3640,9 @@ Overlay OVY_72
     Object src/overlay72_helpers_21.o
     Object asm/overlay_72_residual_21.o
     Object src/overlay72_helpers_22.o
+    Object src/overlay72_event_1.o
     Object asm/overlay_72_residual_22.o
+    Object src/overlay72_event_2.o
     Object src/overlay72_helpers_23.o
     Object asm/overlay_72_residual_23.o
     Object src/overlay72_helpers_24.o
@@ -3652,6 +3655,11 @@ Overlay OVY_72
     Object asm/overlay_72_residual_27.o
     Object src/overlay72_helpers_28.o
     Object asm/overlay_72_residual_28.o
+    Object src/overlay72_anim_1.o
+    Object asm/overlay_72_residual_28_residual_2.o
+    Object src/overlay72_anim_2.o
+    Object asm/overlay_72_residual_28_residual_3.o
+    Object src/overlay72_anim_3.o
     Object src/overlay72_helpers_29.o
     Object asm/overlay_72_residual_29.o
     Object src/overlay72_helpers_30.o
@@ -4379,7 +4387,15 @@ Overlay OVY_88
     Object src/overlay88_partial_5.o
     Object asm/overlay_88_residual_6.o
     Object src/overlay88_partial_6.o
+    Object src/overlay88_window_1.o
     Object asm/overlay_88_residual_7.o
+    Object src/overlay88_window_2.o
+    Object asm/overlay_88_residual_7_residual_2.o
+    Object src/overlay88_window_3.o
+    Object asm/overlay_88_residual_7_residual_3.o
+    Object src/overlay88_window_4.o
+    Object asm/overlay_88_residual_7_residual_4.o
+    Object src/overlay88_window_5.o
     Object src/overlay88_partial_7.o
     Object asm/overlay_88_residual_8.o
     Object src/overlay88_partial_8.o
@@ -4451,7 +4467,12 @@ Overlay OVY_90
     Object src/overlay90_helpers_14.o
     Object asm/overlay_90_residual_15.o
     Object src/overlay90_helpers_15.o
+    Object src/overlay90_motion_1.o
     Object asm/overlay_90_residual_16.o
+    Object src/overlay90_motion_2.o
+    Object asm/overlay_90_residual_16_residual_2.o
+    Object src/overlay90_motion_3.o
+    Object asm/overlay_90_residual_16_residual_3.o
     Object src/overlay90_helpers_16.o
     Object asm/overlay_90_residual_17.o
     Object src/overlay90_helpers_17.o

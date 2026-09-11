@@ -234,95 +234,23 @@
 	.public ov88_02259508
 
 
-	thumb_func_start ov88_0225918C
-ov88_0225918C: ; 0x0225918C
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x38
-	str r0, [sp, #0x14]
-	mov r0, #4
-	str r0, [sp]
-	mov r0, #0xa
-	str r0, [sp, #4]
-	mov r0, #8
-	add r6, r2, #0
-	str r0, [sp, #8]
-	mov r2, #0
-	str r3, [sp, #0x1c]
-	str r2, [sp, #0xc]
-	add r0, r1, #0
-	str r1, [sp, #0x18]
-	ldr r0, [r0]
-	mov r1, #3
-	mov r3, #0x15
-	ldr r7, [sp, #0x50]
-	bl FillBgTilemapRect
+	thumb_func_start ov88_02259264
+ov88_02259264: ; 0x02259264
+	push {r3, r4, r5, lr}
+	ldr r5, [sp, #0x10]
+	mov r4, #7
+	tst r4, r5
+	bne _0225927E
+	lsr r4, r5, #3
+	mov r5, #1
+	tst r4, r5
+	beq _02259278
 	mov r5, #0
-	str r5, [sp, #0x2c]
-_022591BA:
-	ldr r0, [sp, #0x2c]
-	mov r4, #0
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x34]
-_022591C4:
-	add r0, r6, #0
-	add r1, r4, r5
-	bl ov45_0222DCFC
-	cmp r0, #0
-	beq _0225922E
-	add r0, r6, #0
-	add r1, r4, r5
-	bl ov45_0222DD08
-	str r0, [sp, #0x28]
-	add r0, r6, #0
-	add r1, r4, r5
-	bl ov45_0222DD14
-	str r0, [sp, #0x24]
-	add r0, r6, #0
-	add r1, r4, r5
-	bl ov45_0222DD20
-	str r0, [sp, #0x20]
-	add r0, r6, #0
-	add r1, r4, r5
-	bl ov45_0222DD2C
-	str r0, [sp, #0x30]
-	ldr r0, [sp, #0x1c]
-	add r1, r4, r5
-	bl ov45_0222AB28
-	cmp r7, #2
-	bne _0225920E
-	ldr r1, [sp, #0x30]
-	cmp r1, #1
-	bne _0225920E
-	mov r1, #0
-	b _02259210
-_0225920E:
-	add r1, r7, #0
-_02259210:
-	str r1, [sp]
-	ldr r1, [sp, #0x28]
-	lsl r2, r4, #0x18
-	str r1, [sp, #4]
-	ldr r1, [sp, #0x24]
-	ldr r3, [sp, #0x34]
-	str r1, [sp, #8]
-	ldr r1, [sp, #0x20]
-	lsr r2, r2, #0x18
-	str r1, [sp, #0xc]
-	str r0, [sp, #0x10]
-	ldr r0, [sp, #0x14]
-	ldr r1, [sp, #0x18]
-	bl ov88_02258DE8
-_0225922E:
-	add r4, r4, #1
-	cmp r4, #5
-	blt _022591C4
-	ldr r0, [sp, #0x2c]
-	add r5, r5, #5
-	add r0, r0, #1
-	str r0, [sp, #0x2c]
-	cmp r0, #4
-	blt _022591BA
-	add sp, #0x38
-	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov88_0225918C
+_02259278:
+	str r5, [sp]
+	bl ov88_0225918C
+_0225927E:
+	pop {r3, r4, r5, pc}
+	thumb_func_end ov88_02259264
+
+
