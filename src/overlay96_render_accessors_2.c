@@ -1,0 +1,5 @@
+#include "overlay96_render_accessors_private.h"
+extern void ov96_021EEA94(void*,u32,u32,u32);extern void ov96_021EEB84(void*,void*,u32,u32);extern void *PokeathlonCourse_GetPlayerProfileFromData(void*,u32);extern u32 PokeathlonCourse_GetHeapID(void*);extern u32 PlayerProfile_GetTrainerGender(void*);extern u16 ov96_021EEBC8(u32);extern void GF_AssertFail(void);extern const u32 ov96_0221B1BC[];extern void ov96_021EEC0C(void*,void*,u32,u32,u32,u32);extern u32 Sprite_GetVramType(void*);extern void *Sprite_GetImageProxy(void*);
+void ov96_021EEA88(void**);void ov96_021EEB74(void***,u32,u32);void ov96_021EEB84(void*,void*,u32,u32);u16 ov96_021EEBC8(u32);void ov96_021EEBE4(void*,void*,u32,u32,u32);void ov96_021EEBF8(void*,void*,u32,u32,u32,u32);void ov96_021EED14(void*,void*,u32,u32);
+
+void ov96_021EED14(void*sprite,void*data,u32 size,u32 offset){u32 type=Sprite_GetVramType(sprite);u32 location=NNS_G2dGetImageLocation((NNSG2dImageProxy *)Sprite_GetImageProxy(sprite),(NNS_G2D_VRAM_TYPE)type);DC_FlushRange(data,size);switch(type){case 1:GX_LoadOBJ(data,location+offset,size);break;case 2:GXS_LoadOBJ(data,location+offset,size);break;default:GF_AssertFail();break;}}

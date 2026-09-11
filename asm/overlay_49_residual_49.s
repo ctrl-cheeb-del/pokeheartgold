@@ -3427,34 +3427,12 @@
 	.public ov49_02268CCC
 	.public ov49_02268CDC
 	.public ov49_02269090
-
-	thumb_func_start ov49_0225E82C
-ov49_0225E82C: ; 0x0225E82C
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	ldr r0, _0225E858 ; =0x00000608
-	add r6, r1, #0
-	ldrb r0, [r5, r0]
-	add r7, r2, #0
-	mov r4, #0
-	cmp r0, #0
-	ble _0225E854
-_0225E83E:
-	add r0, r5, #0
-	add r1, r4, #0
-	add r2, r6, #0
-	add r3, r7, #0
-	bl ov49_0225E85C
-	ldr r0, _0225E858 ; =0x00000608
-	add r4, r4, #1
-	ldrb r0, [r5, r0]
-	cmp r4, r0
-	blt _0225E83E
-_0225E854:
-	pop {r3, r4, r5, r6, r7, pc}
-	nop
-_0225E858: .word 0x00000608
-	thumb_func_end ov49_0225E82C
+	.public ov49_0225E82C
+	.public ov49_0225EA10
+	.public ov49_0225EA40
+	.public ov49_0225EA70
+	.public ov49_0225EAB4
+	.public ov49_0225EAE0
 
 
 	thumb_func_start ov49_0225E85C
@@ -3491,6 +3469,8 @@ _0225E890: .word 0x00000608
 	thumb_func_end ov49_0225E85C
 
 
+
+
 	thumb_func_start ov49_0225E894
 ov49_0225E894: ; 0x0225E894
 	push {r3, r4, r5, r6, r7, lr}
@@ -3519,6 +3499,8 @@ _0225E8BE:
 	.balign 4, 0
 _0225E8C0: .word 0x00000609
 	thumb_func_end ov49_0225E894
+
+
 
 
 	thumb_func_start ov49_0225E8C4
@@ -3648,6 +3630,8 @@ _0225E9CC: .word 0x0000060C
 	thumb_func_end ov49_0225E8C4
 
 
+
+
 	thumb_func_start ov49_0225E9D0
 ov49_0225E9D0: ; 0x0225E9D0
 	push {r3, r4, r5, lr}
@@ -3683,143 +3667,3 @@ _0225EA08:
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
 	thumb_func_end ov49_0225E9D0
-
-
-	thumb_func_start ov49_0225EA10
-ov49_0225EA10: ; 0x0225EA10
-	push {r4, r5, r6, lr}
-	add r6, r1, #0
-	add r5, r0, #0
-	add r0, r6, #0
-	bl ov49_0225D1C0
-	add r4, r0, #0
-	cmp r4, #0xb
-	beq _0225EA2A
-	cmp r4, #0xc
-	beq _0225EA2A
-	bl GF_AssertFail
-_0225EA2A:
-	sub r4, #0xb
-	cmp r4, #1
-	bhi _0225EA3C
-	add r0, r5, #0
-	add r1, r6, #0
-	mov r2, #1
-	mov r3, #0
-	bl ov49_0225D214
-_0225EA3C:
-	pop {r4, r5, r6, pc}
-	.balign 4, 0
-	thumb_func_end ov49_0225EA10
-
-
-	thumb_func_start ov49_0225EA40
-ov49_0225EA40: ; 0x0225EA40
-	push {r4, r5, r6, lr}
-	add r6, r1, #0
-	add r5, r0, #0
-	add r0, r6, #0
-	bl ov49_0225D1C0
-	add r4, r0, #0
-	cmp r4, #0xb
-	beq _0225EA5A
-	cmp r4, #0xc
-	beq _0225EA5A
-	bl GF_AssertFail
-_0225EA5A:
-	sub r4, #0xb
-	cmp r4, #1
-	bhi _0225EA6C
-	add r0, r5, #0
-	add r1, r6, #0
-	mov r2, #0
-	mov r3, #2
-	bl ov49_0225D214
-_0225EA6C:
-	pop {r4, r5, r6, pc}
-	.balign 4, 0
-	thumb_func_end ov49_0225EA40
-
-
-	thumb_func_start ov49_0225EA70
-ov49_0225EA70: ; 0x0225EA70
-	push {r4, r5, r6, lr}
-	add r6, r0, #0
-	mov r4, #0
-	ldr r0, [r6, #4]
-	add r2, r4, #0
-	add r5, r1, #0
-	bl ov49_0225D3BC
-	cmp r0, #0
-	bne _0225EA88
-	mov r4, #1
-	b _0225EA9A
-_0225EA88:
-	add r0, r5, #0
-	add r1, r4, #0
-	bl ov49_0225D470
-	mov r1, #2
-	lsl r1, r1, #0xc
-	cmp r0, r1
-	ble _0225EA9A
-	mov r4, #1
-_0225EA9A:
-	cmp r4, #1
-	bne _0225EAAC
-	add r0, r6, #0
-	add r1, r5, #0
-	bl ov49_0225EAE0
-	ldr r0, _0225EAB0 ; =0x000005BC
-	bl PlaySE
-_0225EAAC:
-	pop {r4, r5, r6, pc}
-	nop
-_0225EAB0: .word 0x000005BC
-	thumb_func_end ov49_0225EA70
-
-
-	thumb_func_start ov49_0225EAB4
-ov49_0225EAB4: ; 0x0225EAB4
-	push {r4, r5, r6, lr}
-	add r5, r0, #0
-	mov r4, #0
-	ldr r0, [r5, #4]
-	add r2, r4, #0
-	add r6, r1, #0
-	bl ov49_0225D3BC
-	cmp r0, #0
-	bne _0225EACA
-	mov r4, #1
-_0225EACA:
-	cmp r4, #1
-	bne _0225EADE
-	add r0, r5, #0
-	add r1, r6, #0
-	bl ov49_0225EAE0
-	mov r0, #0x17
-	lsl r0, r0, #6
-	bl PlaySE
-_0225EADE:
-	pop {r4, r5, r6, pc}
-	thumb_func_end ov49_0225EAB4
-
-
-	thumb_func_start ov49_0225EAE0
-ov49_0225EAE0: ; 0x0225EAE0
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	add r6, r1, #0
-	mov r4, #0
-	mov r7, #1
-_0225EAEA:
-	ldr r0, [r5, #4]
-	add r1, r6, #0
-	add r2, r4, #0
-	add r3, r7, #0
-	bl ov49_0225D214
-	add r4, r4, #1
-	cmp r4, #3
-	blt _0225EAEA
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov49_0225EAE0

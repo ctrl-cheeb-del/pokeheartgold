@@ -2863,106 +2863,122 @@
 	.public ov70_0223F8D0
 
 
-	thumb_func_start ov70_0223EE10
-ov70_0223EE10: ; 0x0223EE10
-	push {r3, r4, lr}
-	sub sp, #0xc
-	add r4, r0, #0
-	ldr r0, _0223EED0 ; =0x000011A8
-	ldr r0, [r4, r0]
-	bl ov70_02242144
-	mov r1, #1
-	mvn r1, r1
-	cmp r0, r1
-	beq _0223EE2E
-	add r1, r1, #1
-	cmp r0, r1
-	beq _0223EECA
-	b _0223EE5E
-_0223EE2E:
-	ldr r0, _0223EED4 ; =0x00000F18
-	mov r1, #0
-	add r0, r4, r0
-	bl ClearFrameAndWindow2
-	mov r1, #5
-	add r0, r4, #0
-	add r2, r1, #0
-	bl ov70_02238E50
-	mov r0, #2
-	str r0, [r4, #0x2c]
-	ldr r0, _0223EED8 ; =0x000011C4
-	ldr r3, [r4, r0]
-	add r0, #0x70
-	ldrh r2, [r3, #6]
-	ldrh r1, [r3, #4]
-	add r0, r4, r0
-	add r1, r2, r1
-	ldrh r2, [r3, #0xa]
-	ldrh r3, [r3, #8]
-	bl ov70_0223F960
-	b _0223EECA
-_0223EE5E:
-	ldr r1, _0223EEDC ; =0x00000B84
-	strh r0, [r4, r1]
-	mov r1, #0x12
-	bl GetMonBaseStat
-	ldr r1, _0223EED8 ; =0x000011C4
-	ldr r2, [r4, r1]
-	str r0, [r2, #0x20]
-	ldr r1, [r4, r1]
-	ldr r0, _0223EEDC ; =0x00000B84
-	ldr r1, [r1, #0x20]
-	add r0, r4, r0
-	bl ov70_0223EDE4
-	cmp r0, #0
-	beq _0223EE88
-	mov r0, #0xa
-	str r0, [r4, #0x2c]
-	ldr r0, _0223EEE0 ; =0x00000B86
-	ldrsb r1, [r4, r0]
-	b _0223EE8E
-_0223EE88:
-	mov r0, #7
-	str r0, [r4, #0x2c]
-	mov r1, #3
-_0223EE8E:
-	ldr r2, _0223EEDC ; =0x00000B84
-	ldr r3, _0223EEE4 ; =0x00001058
-	ldrsh r0, [r4, r2]
-	add r3, r4, r3
-	str r0, [sp]
-	mov r0, #0
-	str r1, [sp, #4]
-	mvn r0, r0
-	str r0, [sp, #8]
-	add r0, r2, #0
-	add r1, r2, #0
-	add r0, #0x1c
-	add r1, #0x20
-	add r2, #0x18
-	ldr r0, [r4, r0]
-	ldr r1, [r4, r1]
-	ldr r2, [r4, r2]
-	bl ov70_0223F3D8
-	ldr r0, _0223EED8 ; =0x000011C4
-	ldr r3, [r4, r0]
-	add r0, #0x70
-	ldrh r2, [r3, #6]
-	ldrh r1, [r3, #4]
-	add r0, r4, r0
-	add r1, r2, r1
-	ldrh r2, [r3, #0xa]
-	ldrh r3, [r3, #8]
-	bl ov70_0223F960
-_0223EECA:
-	mov r0, #3
-	add sp, #0xc
-	pop {r3, r4, pc}
+	thumb_func_start ov70_0223F7E4
+ov70_0223F7E4: ; 0x0223F7E4
+	push {r3, r4, r5, r6, r7, lr}
+	add r7, r0, #0
+	str r1, [sp]
+	cmp r2, #0
+	bne _0223F7F4
+	ldr r5, _0223F820 ; =ov70_02245A4C
+	mov r6, #0xc
+	b _0223F7F8
+_0223F7F4:
+	ldr r5, _0223F824 ; =ov70_022459F4
+	mov r6, #0xb
+_0223F7F8:
+	add r0, r6, #0
+	mov r1, #0x3d
+	bl ListMenuItems_New
+	mov r4, #0
+	str r0, [r7]
+	cmp r6, #0
+	ble _0223F81C
+_0223F808:
+	ldr r0, [r7]
+	ldr r1, [sp]
+	ldr r2, [r5]
+	add r3, r4, #0
+	bl ListMenuItems_AppendFromMsgData
+	add r4, r4, #1
+	add r5, #8
+	cmp r4, r6
+	blt _0223F808
+_0223F81C:
+	add r0, r6, #0
+	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
-_0223EED0: .word 0x000011A8
-_0223EED4: .word 0x00000F18
-_0223EED8: .word 0x000011C4
-_0223EEDC: .word 0x00000B84
-_0223EEE0: .word 0x00000B86
-_0223EEE4: .word 0x00001058
-	thumb_func_end ov70_0223EE10
+_0223F820: .word ov70_02245A4C
+_0223F824: .word ov70_022459F4
+	thumb_func_end ov70_0223F7E4
+
+
+
+
+	thumb_func_start ov70_0223F828
+ov70_0223F828: ; 0x0223F828
+	push {r4, r5, r6, lr}
+	add r5, r0, #0
+	add r4, r1, #0
+	cmp r2, #0
+	bne _0223F83E
+	ldr r6, _0223F85C ; =ov70_02245A4C
+	cmp r4, #0xc
+	blt _0223F848
+	bl GF_AssertFail
+	b _0223F848
+_0223F83E:
+	ldr r6, _0223F860 ; =ov70_022459F4
+	cmp r4, #0xb
+	blt _0223F848
+	bl GF_AssertFail
+_0223F848:
+	lsl r0, r4, #3
+	add r1, r6, r0
+	mov r0, #4
+	ldrsh r0, [r1, r0]
+	strb r0, [r5, #3]
+	mov r0, #6
+	ldrsh r0, [r1, r0]
+	strb r0, [r5, #4]
+	pop {r4, r5, r6, pc}
+	nop
+_0223F85C: .word ov70_02245A4C
+_0223F860: .word ov70_022459F4
+	thumb_func_end ov70_0223F828
+
+
+
+
+	thumb_func_start ov70_0223F864
+ov70_0223F864: ; 0x0223F864
+	push {r4, r5, r6, r7}
+	cmp r2, #0
+	bne _0223F870
+	ldr r4, _0223F8A0 ; =ov70_02245A4C
+	mov r3, #0xc
+	b _0223F874
+_0223F870:
+	ldr r4, _0223F8A4 ; =ov70_022459F4
+	mov r3, #0xb
+_0223F874:
+	mov r2, #0
+	cmp r3, #0
+	ble _0223F898
+	mov r5, #6
+	mov r6, #4
+_0223F87E:
+	ldrsh r7, [r4, r6]
+	cmp r0, r7
+	bne _0223F890
+	ldrsh r7, [r4, r5]
+	cmp r1, r7
+	bne _0223F890
+	add r0, r2, #0
+	pop {r4, r5, r6, r7}
+	bx lr
+_0223F890:
+	add r2, r2, #1
+	add r4, #8
+	cmp r2, r3
+	blt _0223F87E
+_0223F898:
+	mov r0, #0
+	pop {r4, r5, r6, r7}
+	bx lr
+	nop
+_0223F8A0: .word ov70_02245A4C
+_0223F8A4: .word ov70_022459F4
+	thumb_func_end ov70_0223F864
+
+

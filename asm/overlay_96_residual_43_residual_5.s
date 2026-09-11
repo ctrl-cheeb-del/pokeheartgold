@@ -238,69 +238,177 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-	.public ov96_021E952C
-	.public ov96_021E9570
-	.public ov96_021E95D8
-	.public ov96_021E95F8
-	.public ov96_021E966C
-	.public ov96_021E96F8
-	.public ov96_021E9784
-	.public ov96_021E97B8
-	.public ov96_021E97EC
-	.public ov96_021E9820
-	.public ov96_021E9858
-	.public ov96_021E9870
-	.public ov96_021E98D0
-	.public ov96_021E98F4
-	.public ov96_021E9994
-	.public ov96_021E99B8
+	.public ov96_021EE264
+	.public ov96_021EE54C
+	.public ov96_021EE580
+	.public ov96_021EE5B4
+	.public ov96_021EE5E0
+	.public ov96_021EE60C
+	.public ov96_021EE740
+	.public ov96_021EE808
+	.public ov96_021EE944
+	.public ov96_021EE97C
+	.public ov96_021EE994
+	.public ov96_021EE9BC
+	.public ov96_021EE9D8
 
 
-	thumb_func_start ov96_021E9718
-ov96_021E9718: ; 0x021E9718
-	push {r3, r4, r5, r6, r7, lr}
-	add r4, r3, #0
-	add r5, r0, #0
-	add r0, r4, #0
-	add r6, r1, #0
-	add r7, r2, #0
-	bl ov96_021E5F24
+	thumb_func_start ov96_021EE830
+ov96_021EE830: ; 0x021EE830
+	push {r4, lr}
+	add r4, r0, #0
+	mov r0, #0
+	ldr r1, [r4, #0x2c]
+	mvn r0, r0
+	cmp r1, r0
+	beq _021EE870
+	lsl r0, r1, #0x18
+	lsr r0, r0, #0x18
+	bl TextPrinterCheckActive
 	cmp r0, #0
-	bne _021E9780
-	add r0, r4, #0
-	add r1, r5, #0
-	bl PokeathlonCourse_GetParticipantData
-	add r1, r7, #0
-	add r2, r6, #0
-	bl memcpy
-	add r0, r4, #0
-	bl PokeathlonCourse_IncrementField1EF
-	add r0, r4, #0
-	bl PokeathlonCourse_GetParticipantCount
-	add r5, r0, #0
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	cmp r5, r0
-	bne _021E9780
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	cmp r0, #4
-	bhs _021E9772
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	mov r1, #4
-	sub r1, r1, r0
-	lsl r1, r1, #0x18
-	add r0, r4, #0
-	lsr r1, r1, #0x18
-	bl ov96_021E8484
-_021E9772:
-	add r0, r4, #0
-	bl PokeathlonCourse_ResetField1EF
-	add r0, r4, #0
-	mov r1, #4
-	bl PokeathlonCourse_SetStateField07
-_021E9780:
-	pop {r3, r4, r5, r6, r7, pc}
+	bne _021EE864
+	ldr r1, [r4, #0x34]
+	ldr r0, _021EE8C4 ; =0xFFFF0000
+	and r1, r0
+	mov r0, #0x14
+	orr r0, r1
+	str r0, [r4, #0x34]
+	ldr r0, [r4, #0x10]
+	bl String_Delete
+	mov r0, #0
+	str r0, [r4, #0x10]
+	sub r0, r0, #1
+	str r0, [r4, #0x2c]
+_021EE864:
+	mov r0, #1
+	ldr r1, [r4, #0x34]
+	lsl r0, r0, #0x1c
+	orr r0, r1
+	str r0, [r4, #0x34]
+	b _021EE8BC
+_021EE870:
+	beq _021EE876
+	bl GF_AssertFail
+_021EE876:
+	ldr r1, [r4, #0x34]
+	lsl r0, r1, #0x10
+	lsr r2, r0, #0x10
+	beq _021EE8B6
+	ldr r0, [r4, #0x28]
+	cmp r0, #0
+	bne _021EE88C
+	ldr r0, _021EE8C8 ; =0xEFFFFFFF
+	and r0, r1
+	str r0, [r4, #0x34]
+	b _021EE8BC
+_021EE88C:
+	ldr r0, _021EE8C4 ; =0xFFFF0000
+	and r1, r0
+	sub r0, r2, #1
+	lsl r0, r0, #0x10
+	lsr r0, r0, #0x10
+	orr r0, r1
+	str r0, [r4, #0x34]
+	lsl r0, r0, #0x10
+	lsr r0, r0, #0x10
+	beq _021EE8A4
+	mov r2, #1
+	b _021EE8A6
+_021EE8A4:
+	mov r2, #0
+_021EE8A6:
+	ldr r1, [r4, #0x34]
+	ldr r0, _021EE8C8 ; =0xEFFFFFFF
+	and r1, r0
+	lsl r0, r2, #0x1f
+	lsr r0, r0, #3
+	orr r0, r1
+	str r0, [r4, #0x34]
+	b _021EE8BC
+_021EE8B6:
+	ldr r0, _021EE8C8 ; =0xEFFFFFFF
+	and r0, r1
+	str r0, [r4, #0x34]
+_021EE8BC:
+	ldr r0, [r4, #0x34]
+	lsl r0, r0, #3
+	lsr r0, r0, #0x1f
+	pop {r4, pc}
 	.balign 4, 0
-	thumb_func_end ov96_021E9718
+_021EE8C4: .word 0xFFFF0000
+_021EE8C8: .word 0xEFFFFFFF
+	thumb_func_end ov96_021EE830
+
+
+
+
+	thumb_func_start ov96_021EE8CC
+ov96_021EE8CC: ; 0x021EE8CC
+	push {r3, r4, lr}
+	sub sp, #0x14
+	add r4, r0, #0
+	ldr r0, [r4, #4]
+	add r2, r4, #0
+	str r0, [sp]
+	ldr r0, [r4, #8]
+	add r2, #0x10
+	str r0, [sp, #4]
+	str r1, [sp, #8]
+	ldr r0, [r4, #0x34]
+	add r1, r4, #0
+	lsl r0, r0, #5
+	lsr r0, r0, #0x1d
+	lsl r0, r0, #0x18
+	lsr r0, r0, #0x18
+	str r0, [sp, #0xc]
+	ldr r0, [r4, #0x14]
+	add r1, #0x18
+	str r0, [sp, #0x10]
+	ldr r3, [r4, #0x34]
+	ldr r0, [r4]
+	lsl r3, r3, #8
+	lsr r3, r3, #0x18
+	bl ov96_021EEA08
+	str r0, [r4, #0x2c]
+	add sp, #0x14
+	pop {r3, r4, pc}
+	.balign 4, 0
+	thumb_func_end ov96_021EE8CC
+
+
+
+
+	thumb_func_start ov96_021EE908
+ov96_021EE908: ; 0x021EE908
+	push {r3, r4, lr}
+	sub sp, #0x14
+	add r4, r0, #0
+	ldr r0, [r4, #4]
+	add r2, r4, #0
+	str r0, [sp]
+	ldr r0, [r4, #0xc]
+	add r2, #0x10
+	str r0, [sp, #4]
+	str r1, [sp, #8]
+	ldr r0, [r4, #0x34]
+	add r1, r4, #0
+	lsl r0, r0, #5
+	lsr r0, r0, #0x1d
+	lsl r0, r0, #0x18
+	lsr r0, r0, #0x18
+	str r0, [sp, #0xc]
+	ldr r0, [r4, #0x14]
+	add r1, #0x18
+	str r0, [sp, #0x10]
+	ldr r3, [r4, #0x34]
+	ldr r0, [r4]
+	lsl r3, r3, #8
+	lsr r3, r3, #0x18
+	bl ov96_021EEA08
+	str r0, [r4, #0x2c]
+	add sp, #0x14
+	pop {r3, r4, pc}
+	.balign 4, 0
+	thumb_func_end ov96_021EE908
+
+

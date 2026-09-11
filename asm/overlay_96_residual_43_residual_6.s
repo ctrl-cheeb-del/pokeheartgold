@@ -238,69 +238,75 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-	.public ov96_021E952C
-	.public ov96_021E9570
-	.public ov96_021E95D8
-	.public ov96_021E95F8
-	.public ov96_021E966C
-	.public ov96_021E96F8
-	.public ov96_021E9784
-	.public ov96_021E97B8
-	.public ov96_021E97EC
-	.public ov96_021E9820
-	.public ov96_021E9858
-	.public ov96_021E9870
-	.public ov96_021E98D0
-	.public ov96_021E98F4
-	.public ov96_021E9994
-	.public ov96_021E99B8
+	.public ov96_021EE264
+	.public ov96_021EE54C
+	.public ov96_021EE580
+	.public ov96_021EE5B4
+	.public ov96_021EE5E0
+	.public ov96_021EE60C
+	.public ov96_021EE740
+	.public ov96_021EE808
+	.public ov96_021EE944
+	.public ov96_021EE97C
+	.public ov96_021EE994
+	.public ov96_021EE9BC
+	.public ov96_021EE9D8
 
 
-	thumb_func_start ov96_021E9718
-ov96_021E9718: ; 0x021E9718
-	push {r3, r4, r5, r6, r7, lr}
-	add r4, r3, #0
-	add r5, r0, #0
+	thumb_func_start ov96_021EEA08
+ov96_021EEA08: ; 0x021EEA08
+	push {r3, r4, r5, r6, lr}
+	sub sp, #0x14
+	add r5, r1, #0
+	add r4, r2, #0
+	ldr r2, [r5]
+	add r6, r3, #0
+	cmp r2, #0
+	bne _021EEA36
+	mov r2, #0x13
+	str r2, [sp]
+	mov r2, #0x1b
+	str r2, [sp, #4]
+	mov r2, #4
+	str r2, [sp, #8]
+	mov r2, #0xf
+	str r2, [sp, #0xc]
+	mov r2, #1
+	str r2, [sp, #0x10]
+	add r2, sp, #0x18
+	ldrb r2, [r2, #0x1c]
+	mov r3, #2
+	bl AddWindowParameterized
+_021EEA36:
+	add r0, r5, #0
+	mov r1, #0xf
+	bl FillWindowPixelBuffer
+	ldr r0, [sp, #0x28]
+	ldr r1, [sp, #0x2c]
+	ldr r2, [sp, #0x30]
+	ldr r3, [sp, #0x38]
+	bl ReadMsgData_ExpandPlaceholders
+	str r0, [r4]
+	mov r3, #0
+	str r3, [sp]
+	ldr r0, _021EEA78 ; =0x0001020F
+	str r6, [sp, #4]
+	str r0, [sp, #8]
+	str r3, [sp, #0xc]
+	ldr r2, [r4]
+	add r0, r5, #0
+	mov r1, #1
+	bl AddTextPrinterParameterizedWithColor
+	add r4, r0, #0
+	ldr r2, _021EEA7C ; =0x000003D2
+	add r0, r5, #0
+	mov r1, #0
+	mov r3, #0xd
+	bl DrawFrameAndWindow2
 	add r0, r4, #0
-	add r6, r1, #0
-	add r7, r2, #0
-	bl ov96_021E5F24
-	cmp r0, #0
-	bne _021E9780
-	add r0, r4, #0
-	add r1, r5, #0
-	bl PokeathlonCourse_GetParticipantData
-	add r1, r7, #0
-	add r2, r6, #0
-	bl memcpy
-	add r0, r4, #0
-	bl PokeathlonCourse_IncrementField1EF
-	add r0, r4, #0
-	bl PokeathlonCourse_GetParticipantCount
-	add r5, r0, #0
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	cmp r5, r0
-	bne _021E9780
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	cmp r0, #4
-	bhs _021E9772
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	mov r1, #4
-	sub r1, r1, r0
-	lsl r1, r1, #0x18
-	add r0, r4, #0
-	lsr r1, r1, #0x18
-	bl ov96_021E8484
-_021E9772:
-	add r0, r4, #0
-	bl PokeathlonCourse_ResetField1EF
-	add r0, r4, #0
-	mov r1, #4
-	bl PokeathlonCourse_SetStateField07
-_021E9780:
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov96_021E9718
+	add sp, #0x14
+	pop {r3, r4, r5, r6, pc}
+	nop
+_021EEA78: .word 0x0001020F
+_021EEA7C: .word 0x000003D2
+	thumb_func_end ov96_021EEA08

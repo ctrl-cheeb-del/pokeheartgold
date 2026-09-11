@@ -238,69 +238,148 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-	.public ov96_021E952C
-	.public ov96_021E9570
-	.public ov96_021E95D8
-	.public ov96_021E95F8
-	.public ov96_021E966C
-	.public ov96_021E96F8
-	.public ov96_021E9784
-	.public ov96_021E97B8
-	.public ov96_021E97EC
-	.public ov96_021E9820
-	.public ov96_021E9858
-	.public ov96_021E9870
-	.public ov96_021E98D0
-	.public ov96_021E98F4
-	.public ov96_021E9994
-	.public ov96_021E99B8
+	.public ov96_021EE264
+	.public ov96_021EE54C
+	.public ov96_021EE580
+	.public ov96_021EE5B4
+	.public ov96_021EE5E0
+	.public ov96_021EE60C
+	.public ov96_021EE740
+	.public ov96_021EE808
+	.public ov96_021EE944
+	.public ov96_021EE97C
+	.public ov96_021EE994
+	.public ov96_021EE9BC
+	.public ov96_021EE9D8
 
 
-	thumb_func_start ov96_021E9718
-ov96_021E9718: ; 0x021E9718
+	thumb_func_start ov96_021EE644
+ov96_021EE644: ; 0x021EE644
+	push {r3, r4, r5, lr}
+	sub sp, #0x10
+	add r5, r0, #0
+	ldr r0, [r5, #8]
+	mov r2, #6
+	lsl r0, r0, #0x18
+	lsr r4, r0, #0x18
+	mov r0, #0
+	str r0, [sp]
+	ldr r0, [r5]
+	mov r1, #0xb
+	str r0, [sp, #4]
+	ldr r0, [r5, #0xc]
+	lsl r3, r2, #0xc
+	bl GfGfxLoader_GXLoadPalFromOpenNarc
+	mov r0, #0
+	str r0, [sp]
+	str r0, [sp, #4]
+	mov r0, #1
+	str r0, [sp, #8]
+	ldr r0, [r5]
+	add r1, r4, #0
+	str r0, [sp, #0xc]
+	ldr r0, [r5, #0xc]
+	ldr r2, [r5, #4]
+	add r1, #0xc
+	mov r3, #7
+	bl GfGfxLoader_LoadCharDataFromOpenNarc
+	mov r0, #0
+	str r0, [sp]
+	str r0, [sp, #4]
+	mov r0, #1
+	str r0, [sp, #8]
+	ldr r0, [r5]
+	add r4, #0x16
+	str r0, [sp, #0xc]
+	ldr r0, [r5, #0xc]
+	ldr r2, [r5, #4]
+	add r1, r4, #0
+	mov r3, #7
+	bl GfGfxLoader_LoadScrnDataFromOpenNarc
+	add sp, #0x10
+	pop {r3, r4, r5, pc}
+	thumb_func_end ov96_021EE644
+
+
+
+
+	thumb_func_start ov96_021EE6A0
+ov96_021EE6A0: ; 0x021EE6A0
 	push {r3, r4, r5, r6, r7, lr}
-	add r4, r3, #0
 	add r5, r0, #0
-	add r0, r4, #0
-	add r6, r1, #0
-	add r7, r2, #0
-	bl ov96_021E5F24
-	cmp r0, #0
-	bne _021E9780
-	add r0, r4, #0
-	add r1, r5, #0
-	bl PokeathlonCourse_GetParticipantData
-	add r1, r7, #0
-	add r2, r6, #0
-	bl memcpy
-	add r0, r4, #0
-	bl PokeathlonCourse_IncrementField1EF
-	add r0, r4, #0
-	bl PokeathlonCourse_GetParticipantCount
-	add r5, r0, #0
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	cmp r5, r0
-	bne _021E9780
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	cmp r0, #4
-	bhs _021E9772
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	mov r1, #4
-	sub r1, r1, r0
-	lsl r1, r1, #0x18
-	add r0, r4, #0
-	lsr r1, r1, #0x18
-	bl ov96_021E8484
-_021E9772:
-	add r0, r4, #0
-	bl PokeathlonCourse_ResetField1EF
-	add r0, r4, #0
-	mov r1, #4
-	bl PokeathlonCourse_SetStateField07
-_021E9780:
+	ldr r0, [r5, #8]
+	ldr r2, _021EE6FC ; =0x00000135
+	lsl r0, r0, #0x18
+	lsr r4, r0, #0x18
+	ldr r3, [r5]
+	mov r0, #1
+	mov r1, #0x1b
+	bl NewMsgDataFromNarc
+	add r6, r0, #0
+	mov r0, #1
+	ldr r1, [r5]
+	lsl r0, r0, #8
+	bl String_New
+	add r7, r0, #0
+	mov r0, #4
+	str r0, [sp]
+	add r0, r5, #0
+	add r3, r4, #0
+	add r0, #0x10
+	add r1, r6, #0
+	add r2, r7, #0
+	add r3, #0xa6
+	bl ov96_021EE700
+	mov r0, #0
+	add r4, #0xbb
+	add r5, #0x20
+	str r0, [sp]
+	add r0, r5, #0
+	add r1, r6, #0
+	add r2, r7, #0
+	add r3, r4, #0
+	bl ov96_021EE700
+	add r0, r7, #0
+	bl String_Delete
+	add r0, r6, #0
+	bl DestroyMsgData
 	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov96_021E9718
+	nop
+_021EE6FC: .word 0x00000135
+	thumb_func_end ov96_021EE6A0
+
+
+
+
+	thumb_func_start ov96_021EE700
+ov96_021EE700: ; 0x021EE700
+	push {r3, r4, r5, lr}
+	sub sp, #0x10
+	add r5, r0, #0
+	add r0, r1, #0
+	add r1, r3, #0
+	add r4, r2, #0
+	bl ReadMsgDataIntoString
+	add r0, r5, #0
+	mov r1, #0
+	bl FillWindowPixelBuffer
+	mov r3, #0
+	str r3, [sp]
+	mov r0, #0xff
+	str r0, [sp, #4]
+	ldr r0, _021EE73C ; =0x00010200
+	ldr r1, [sp, #0x20]
+	str r0, [sp, #8]
+	add r0, r5, #0
+	add r2, r4, #0
+	str r3, [sp, #0xc]
+	bl AddTextPrinterParameterizedWithColor
+	add r0, r5, #0
+	bl ScheduleWindowCopyToVram
+	add sp, #0x10
+	pop {r3, r4, r5, pc}
+	nop
+_021EE73C: .word 0x00010200
+	thumb_func_end ov96_021EE700
+
+

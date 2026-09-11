@@ -238,6 +238,11 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
+	.public ov96_021EEB84
+	.public ov96_021EEBC8
+	.public ov96_021EEBE4
+	.public ov96_021EEBF8
+	.public ov96_021EED14
 
 	thumb_func_start ov96_021EEA88
 ov96_021EEA88: ; 0x021EEA88
@@ -247,6 +252,8 @@ ov96_021EEA88: ; 0x021EEA88
 	pop {r3, pc}
 	.balign 4, 0
 	thumb_func_end ov96_021EEA88
+
+
 
 
 	thumb_func_start ov96_021EEA94
@@ -354,6 +361,8 @@ _021EEB5A:
 	thumb_func_end ov96_021EEA94
 
 
+
+
 	thumb_func_start ov96_021EEB74
 ov96_021EEB74: ; 0x021EEB74
 	push {r4, lr}
@@ -364,255 +373,3 @@ ov96_021EEB74: ; 0x021EEB74
 	pop {r4, pc}
 	.balign 4, 0
 	thumb_func_end ov96_021EEB74
-
-
-	thumb_func_start ov96_021EEB84
-ov96_021EEB84: ; 0x021EEB84
-	push {r3, r4, r5, r6, r7, lr}
-	add r4, r1, #0
-	add r6, r0, #0
-	add r0, r4, #0
-	add r1, r2, #0
-	add r5, r3, #0
-	bl PokeathlonCourse_GetPlayerProfileFromData
-	add r7, r0, #0
-	add r0, r4, #0
-	bl PokeathlonCourse_GetHeapID
-	add r4, r0, #0
-	add r0, r7, #0
-	bl PlayerProfile_GetTrainerGender
-	cmp r0, #0
-	bne _021EEBB0
-	mov r0, #0
-	bl ov96_021EEBC8
-	b _021EEBB6
-_021EEBB0:
-	mov r0, #1
-	bl ov96_021EEBC8
-_021EEBB6:
-	lsl r2, r5, #0x18
-	add r1, r0, #0
-	add r0, r6, #0
-	lsr r2, r2, #0x18
-	add r3, r4, #0
-	bl ov96_021EEA94
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov96_021EEB84
-
-
-	thumb_func_start ov96_021EEBC8
-ov96_021EEBC8: ; 0x021EEBC8
-	push {r4, lr}
-	add r4, r0, #0
-	cmp r4, #6
-	blo _021EEBD4
-	bl GF_AssertFail
-_021EEBD4:
-	ldr r0, _021EEBE0 ; =ov96_0221B1BC
-	lsl r1, r4, #2
-	ldr r0, [r0, r1]
-	lsl r0, r0, #0x10
-	lsr r0, r0, #0x10
-	pop {r4, pc}
-	.balign 4, 0
-_021EEBE0: .word ov96_0221B1BC
-	thumb_func_end ov96_021EEBC8
-
-
-	thumb_func_start ov96_021EEBE4
-ov96_021EEBE4: ; 0x021EEBE4
-	push {r4, lr}
-	sub sp, #8
-	ldr r4, [sp, #0x10]
-	str r4, [sp]
-	mov r4, #1
-	str r4, [sp, #4]
-	bl ov96_021EEC0C
-	add sp, #8
-	pop {r4, pc}
-	thumb_func_end ov96_021EEBE4
-
-
-	thumb_func_start ov96_021EEBF8
-ov96_021EEBF8: ; 0x021EEBF8
-	push {r4, lr}
-	sub sp, #8
-	ldr r4, [sp, #0x10]
-	str r4, [sp]
-	ldr r4, [sp, #0x14]
-	str r4, [sp, #4]
-	bl ov96_021EEC0C
-	add sp, #8
-	pop {r4, pc}
-	thumb_func_end ov96_021EEBF8
-
-
-	thumb_func_start ov96_021EEC0C
-ov96_021EEC0C: ; 0x021EEC0C
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x38
-	add r4, r1, #0
-	ldrh r1, [r4]
-	add r5, r0, #0
-	add r6, r3, #0
-	str r2, [sp, #0x14]
-	cmp r1, #0
-	bne _021EEC28
-	mov r1, #0
-	bl ManagedSprite_SetDrawFlag
-	add sp, #0x38
-	pop {r3, r4, r5, r6, r7, pc}
-_021EEC28:
-	ldrb r0, [r4, #6]
-	mov r3, #2
-	str r0, [sp]
-	ldrh r0, [r4, #2]
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #4]
-	ldr r0, [r4, #0xc]
-	str r0, [sp, #8]
-	ldrb r2, [r4, #7]
-	add r0, sp, #0x28
-	bl GetMonSpriteCharAndPlttNarcIdsEx
-	ldr r3, _021EECB4 ; =ov96_0221B1AC
-	add r2, sp, #0x18
-	ldmia r3!, {r0, r1}
-	stmia r2!, {r0, r1}
-	ldmia r3!, {r0, r1}
-	stmia r2!, {r0, r1}
-	mov r1, #0x32
-	ldr r0, [sp, #0x50]
-	lsl r1, r1, #6
-	bl Heap_AllocAtEnd
-	add r7, r0, #0
-	str r7, [sp]
-	ldr r0, [r4, #0xc]
-	add r1, sp, #0x18
-	str r0, [sp, #4]
-	mov r0, #0
-	str r0, [sp, #8]
-	mov r0, #2
-	str r0, [sp, #0xc]
-	ldrh r0, [r4]
-	ldr r2, [sp, #0x50]
-	add r3, sp, #0x18
-	str r0, [sp, #0x10]
-	ldrh r0, [r1, #0x10]
-	ldrh r1, [r1, #0x12]
-	bl sub_02014510
-	mov r2, #0x32
-	ldr r0, [r5]
-	add r1, r7, #0
-	lsl r2, r2, #6
-	bl ov96_021EED64
-	ldr r0, [sp, #0x54]
-	cmp r0, #0
-	beq _021EECA0
-	ldr r0, [sp, #0x50]
-	str r6, [sp]
-	str r0, [sp, #4]
-	add r2, sp, #0x18
-	ldrh r1, [r2, #0x10]
-	ldrh r2, [r2, #0x14]
-	ldr r3, [sp, #0x14]
-	add r0, r5, #0
-	bl ov96_021EED70
-_021EECA0:
-	add r0, r5, #0
-	mov r1, #1
-	bl ManagedSprite_SetDrawFlag
-	add r0, r7, #0
-	bl Heap_Free
-	add sp, #0x38
-	pop {r3, r4, r5, r6, r7, pc}
-	nop
-_021EECB4: .word ov96_0221B1AC
-	thumb_func_end ov96_021EEC0C
-
-
-	thumb_func_start ov96_021EECB8
-ov96_021EECB8: ; 0x021EECB8
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #8
-	add r4, r1, #0
-	add r5, r0, #0
-	add r6, r2, #0
-	ldrh r0, [r4]
-	ldrh r2, [r4, #2]
-	mov r1, #0
-	add r7, r3, #0
-	bl GetMonIconNaixEx
-	add r1, r0, #0
-	ldr r0, [sp, #0x24]
-	mov r2, #0
-	str r0, [sp]
-	add r0, r7, #0
-	add r3, sp, #4
-	bl GfGfxLoader_GetCharDataFromOpenNarc
-	add r7, r0, #0
-	bne _021EECE6
-	bl GF_AssertFail
-_021EECE6:
-	ldr r1, [sp, #4]
-	mov r2, #2
-	ldr r0, [r5]
-	ldr r1, [r1, #0x14]
-	ldr r3, [sp, #0x20]
-	lsl r2, r2, #8
-	bl ov96_021EED14
-	add r0, r7, #0
-	bl Heap_Free
-	ldrh r0, [r4]
-	ldrh r1, [r4, #2]
-	mov r2, #0
-	bl GetMonIconPaletteEx
-	add r1, r0, #0
-	add r0, r5, #0
-	add r1, r6, r1
-	bl ManagedSprite_SetPaletteOverride
-	add sp, #8
-	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov96_021EECB8
-
-
-	thumb_func_start ov96_021EED14
-ov96_021EED14: ; 0x021EED14
-	push {r3, r4, r5, r6, r7, lr}
-	add r6, r0, #0
-	add r7, r1, #0
-	str r2, [sp]
-	add r5, r3, #0
-	bl Sprite_GetVramType
-	add r4, r0, #0
-	add r0, r6, #0
-	bl Sprite_GetImageProxy
-	add r1, r4, #0
-	bl NNS_G2dGetImageLocation
-	add r6, r0, #0
-	ldr r1, [sp]
-	add r0, r7, #0
-	bl DC_FlushRange
-	cmp r4, #1
-	beq _021EED44
-	cmp r4, #2
-	beq _021EED50
-	b _021EED5C
-_021EED44:
-	ldr r2, [sp]
-	add r0, r7, #0
-	add r1, r6, r5
-	bl GX_LoadOBJ
-	pop {r3, r4, r5, r6, r7, pc}
-_021EED50:
-	ldr r2, [sp]
-	add r0, r7, #0
-	add r1, r6, r5
-	bl GXS_LoadOBJ
-	pop {r3, r4, r5, r6, r7, pc}
-_021EED5C:
-	bl GF_AssertFail
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov96_021EED14

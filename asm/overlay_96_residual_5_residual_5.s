@@ -238,69 +238,140 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-	.public ov96_021E952C
-	.public ov96_021E9570
-	.public ov96_021E95D8
-	.public ov96_021E95F8
-	.public ov96_021E966C
-	.public ov96_021E96F8
-	.public ov96_021E9784
-	.public ov96_021E97B8
-	.public ov96_021E97EC
-	.public ov96_021E9820
-	.public ov96_021E9858
-	.public ov96_021E9870
-	.public ov96_021E98D0
-	.public ov96_021E98F4
-	.public ov96_021E9994
-	.public ov96_021E99B8
+	.public ov96_021E67AC
+	.public ov96_021E67C4
+	.public ov96_021E6814
+	.public ov96_021E695C
+	.public ov96_021E6990
+	.public ov96_021E69C4
+	.public ov96_021E6A54
+	.public ov96_021E6A94
+	.public ov96_021E6BC0
+	.public ov96_021E6BEC
+	.public ov96_021E6C20
+	.public ov96_021E6CB8
+	.public ov96_021E6DE8
 
 
-	thumb_func_start ov96_021E9718
-ov96_021E9718: ; 0x021E9718
-	push {r3, r4, r5, r6, r7, lr}
-	add r4, r3, #0
-	add r5, r0, #0
+	thumb_func_start ov96_021E6CE4
+ov96_021E6CE4: ; 0x021E6CE4
+	push {r4, r5, r6, lr}
+	mov r1, #0x1f
+	add r4, r0, #0
+	lsl r1, r1, #4
+	ldr r1, [r4, r1]
+	ldr r6, _021E6D40 ; =0x0000FFFF
+	lsl r1, r1, #2
+	add r2, r4, r1
+	mov r1, #0xf6
+	lsl r1, r1, #2
+	ldr r1, [r2, r1]
+	ldr r2, _021E6D44 ; =0x00000728
+	lsl r5, r1, #0x18
+	mov r1, #0
+	strb r1, [r4, r2]
+	ldr r3, _021E6D48 ; =0x00000D2A
+	add r2, r2, #3
+	strh r6, [r4, r3]
+	strb r1, [r4, r2]
+	add r3, #0x42
+	str r1, [r4, r3]
+	bl PokeathlonCourse_ResetDataCopyArea
+	ldr r0, _021E6D4C ; =ov96_0221DA28
+	lsr r2, r5, #0x16
+	ldr r1, [r0, r2]
+	mov r0, #0x1e
+	lsl r0, r0, #4
+	str r1, [r4, r0]
+	mov r1, #0
+	add r0, #0xd
+	strb r1, [r4, r0]
+	ldr r0, _021E6D50 ; =_0221DA00
+	mov r1, #0xf3
+	lsl r1, r1, #2
+	ldr r0, [r0, r2]
+	add r1, r4, r1
+	bl PokeathlonCourse_InitStateInfo
 	add r0, r4, #0
-	add r6, r1, #0
-	add r7, r2, #0
-	bl ov96_021E5F24
-	cmp r0, #0
-	bne _021E9780
-	add r0, r4, #0
-	add r1, r5, #0
-	bl PokeathlonCourse_GetParticipantData
-	add r1, r7, #0
-	add r2, r6, #0
-	bl memcpy
-	add r0, r4, #0
-	bl PokeathlonCourse_IncrementField1EF
-	add r0, r4, #0
-	bl PokeathlonCourse_GetParticipantCount
-	add r5, r0, #0
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	cmp r5, r0
-	bne _021E9780
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	cmp r0, #4
-	bhs _021E9772
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	mov r1, #4
-	sub r1, r1, r0
-	lsl r1, r1, #0x18
-	add r0, r4, #0
-	lsr r1, r1, #0x18
-	bl ov96_021E8484
-_021E9772:
-	add r0, r4, #0
-	bl PokeathlonCourse_ResetField1EF
-	add r0, r4, #0
-	mov r1, #4
+	mov r1, #0x10
 	bl PokeathlonCourse_SetStateField07
-_021E9780:
-	pop {r3, r4, r5, r6, r7, pc}
+	mov r0, #0
+	pop {r4, r5, r6, pc}
+	nop
+_021E6D40: .word 0x0000FFFF
+_021E6D44: .word 0x00000728
+_021E6D48: .word 0x00000D2A
+_021E6D4C: .word ov96_0221DA28
+_021E6D50: .word _0221DA00
+	thumb_func_end ov96_021E6CE4
+
+
+
+
+	thumb_func_start ov96_021E6D54
+ov96_021E6D54: ; 0x021E6D54
+	push {r4, lr}
+	add r4, r0, #0
+	bl PokeathlonCourse_RunSubStateLoop
+	cmp r0, #0
+	beq _021E6DD8
+	add r0, r4, #0
+	bl PokeathlonCourse_GetDataCopyArea
+	add r1, r0, #0
+	mov r2, #0
+	add r1, #0x24
+	strb r2, [r1]
+	mov r1, #1
+	add r0, #0x4c
+	strb r1, [r0]
+	add r0, r4, #0
+	bl PokeathlonCourse_GetSystem
+	mov r1, #1
+	bl ov96_021E87B0
+	add r0, r4, #0
+	mov r1, #8
+	bl PokeathlonCourse_SetStateTransitionType
+	mov r0, #0x1f
+	lsl r0, r0, #4
+	ldr r1, [r4, r0]
+	ldr r0, _021E6DDC ; =0x0000072A
+	ldrb r0, [r4, r0]
+	sub r0, r0, #1
+	cmp r1, r0
+	bne _021E6DAA
+	mov r0, #0
+	bl Sound_SetScene
+	ldr r1, _021E6DE0 ; =0x00000472
+	mov r0, #0x18
+	mov r2, #0
+	bl Sound_SetSceneAndPlayBGM
+	b _021E6DBA
+_021E6DAA:
+	mov r0, #0
+	bl Sound_SetScene
+	ldr r1, _021E6DE4 ; =0x00000471
+	mov r0, #0x18
+	mov r2, #0
+	bl Sound_SetSceneAndPlayBGM
+_021E6DBA:
+	mov r0, #7
+	mov r1, #1
+	bl sub_020053A8
+	add r0, r4, #0
+	mov r1, #0x11
+	bl PokeathlonCourse_SetStateField07
+	mov r0, #0x5c
+	bl GF_heap_c_dummy_return_true
+	cmp r0, #0
+	bne _021E6DD8
+	bl GF_AssertFail
+_021E6DD8:
+	mov r0, #0
+	pop {r4, pc}
 	.balign 4, 0
-	thumb_func_end ov96_021E9718
+_021E6DDC: .word 0x0000072A
+_021E6DE0: .word 0x00000472
+_021E6DE4: .word 0x00000471
+	thumb_func_end ov96_021E6D54
+
+

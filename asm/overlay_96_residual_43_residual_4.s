@@ -238,69 +238,97 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-	.public ov96_021E952C
-	.public ov96_021E9570
-	.public ov96_021E95D8
-	.public ov96_021E95F8
-	.public ov96_021E966C
-	.public ov96_021E96F8
-	.public ov96_021E9784
-	.public ov96_021E97B8
-	.public ov96_021E97EC
-	.public ov96_021E9820
-	.public ov96_021E9858
-	.public ov96_021E9870
-	.public ov96_021E98D0
-	.public ov96_021E98F4
-	.public ov96_021E9994
-	.public ov96_021E99B8
+	.public ov96_021EE264
+	.public ov96_021EE54C
+	.public ov96_021EE580
+	.public ov96_021EE5B4
+	.public ov96_021EE5E0
+	.public ov96_021EE60C
+	.public ov96_021EE740
+	.public ov96_021EE808
+	.public ov96_021EE944
+	.public ov96_021EE97C
+	.public ov96_021EE994
+	.public ov96_021EE9BC
+	.public ov96_021EE9D8
 
 
-	thumb_func_start ov96_021E9718
-ov96_021E9718: ; 0x021E9718
+	thumb_func_start ov96_021EE75C
+ov96_021EE75C: ; 0x021EE75C
 	push {r3, r4, r5, r6, r7, lr}
-	add r4, r3, #0
 	add r5, r0, #0
-	add r0, r4, #0
-	add r6, r1, #0
-	add r7, r2, #0
-	bl ov96_021E5F24
-	cmp r0, #0
-	bne _021E9780
-	add r0, r4, #0
-	add r1, r5, #0
-	bl PokeathlonCourse_GetParticipantData
-	add r1, r7, #0
-	add r2, r6, #0
-	bl memcpy
-	add r0, r4, #0
-	bl PokeathlonCourse_IncrementField1EF
-	add r0, r4, #0
-	bl PokeathlonCourse_GetParticipantCount
-	add r5, r0, #0
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	cmp r5, r0
-	bne _021E9780
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	cmp r0, #4
-	bhs _021E9772
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	mov r1, #4
-	sub r1, r1, r0
+	add r4, r1, #0
+	add r6, r2, #0
+	add r7, r3, #0
+	ldr r0, _021EE7F4 ; =0x00000004
+	bne _021EE774
+	ldr r0, [sp, #0x18]
+	bl Save_PlayerData_GetOptionsAddr
+	bl Options_GetTextFrameDelay
+_021EE774:
+	mov r1, #0
+	str r4, [r5]
+	mvn r1, r1
+	str r1, [r5, #0x2c]
+	ldr r2, [r5, #0x34]
+	ldr r1, _021EE7F8 ; =0xF8FFFFFF
+	lsl r0, r0, #0x18
+	and r2, r1
+	lsl r1, r6, #0x1d
+	lsr r1, r1, #5
+	orr r1, r2
+	str r1, [r5, #0x34]
+	str r7, [r5, #0x28]
+	ldr r2, [r5, #0x34]
+	ldr r1, _021EE7FC ; =0xFF00FFFF
+	lsr r0, r0, #8
+	and r1, r2
+	orr r0, r1
+	str r0, [r5, #0x34]
+	ldr r2, _021EE800 ; =0x00000135
+	ldr r3, [r5, #0x14]
+	mov r0, #1
+	mov r1, #0x1b
+	bl NewMsgDataFromNarc
+	str r0, [r5, #8]
+	ldr r2, _021EE804 ; =0x00000137
+	ldr r3, [r5, #0x14]
+	mov r0, #1
+	mov r1, #0x1b
+	bl NewMsgDataFromNarc
+	str r0, [r5, #0xc]
+	ldr r0, [r5, #0x14]
+	bl MessageFormat_New
+	str r0, [r5, #4]
+	bl ResetAllTextPrinters
+	ldr r1, [r5, #0x34]
+	ldr r0, [r5]
+	lsl r1, r1, #5
+	lsr r1, r1, #0x1d
 	lsl r1, r1, #0x18
-	add r0, r4, #0
+	ldr r2, [r5, #0x14]
 	lsr r1, r1, #0x18
-	bl ov96_021E8484
-_021E9772:
-	add r0, r4, #0
-	bl PokeathlonCourse_ResetField1EF
-	add r0, r4, #0
-	mov r1, #4
-	bl PokeathlonCourse_SetStateField07
-_021E9780:
+	bl ov96_021EE9D8
+	mov r1, #0x1e
+	ldr r2, [r5, #0x14]
+	mov r0, #4
+	lsl r1, r1, #4
+	bl LoadFontPal0
+	mov r2, #0
+	str r2, [sp]
+	ldr r1, [r5, #0x34]
+	ldr r0, [r5]
+	lsl r1, r1, #5
+	lsr r1, r1, #0x1d
+	mov r3, #1
+	bl BG_FillCharDataRange
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
-	thumb_func_end ov96_021E9718
+_021EE7F4: .word 0x00000004
+_021EE7F8: .word 0xF8FFFFFF
+_021EE7FC: .word 0xFF00FFFF
+_021EE800: .word 0x00000135
+_021EE804: .word 0x00000137
+	thumb_func_end ov96_021EE75C
+
+

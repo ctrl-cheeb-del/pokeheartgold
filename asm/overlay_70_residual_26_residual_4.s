@@ -2863,106 +2863,97 @@
 	.public ov70_0223F8D0
 
 
-	thumb_func_start ov70_0223EE10
-ov70_0223EE10: ; 0x0223EE10
-	push {r3, r4, lr}
-	sub sp, #0xc
+	thumb_func_start ov70_0223F108
+ov70_0223F108: ; 0x0223F108
+	push {r4, lr}
 	add r4, r0, #0
-	ldr r0, _0223EED0 ; =0x000011A8
+	bl ov70_02238C8C
+	cmp r0, #1
+	bne _0223F13E
+	ldr r0, _0223F15C ; =0x000011C8
 	ldr r0, [r4, r0]
-	bl ov70_02242144
+	bl YesNoPrompt_Destroy
+	mov r1, #7
+	add r0, r4, #0
+	add r2, r1, #0
+	bl ov70_02238E50
+	mov r0, #2
+	str r0, [r4, #0x2c]
+	ldr r0, _0223F160 ; =0x000011FC
 	mov r1, #1
-	mvn r1, r1
-	cmp r0, r1
-	beq _0223EE2E
-	add r1, r1, #1
-	cmp r0, r1
-	beq _0223EECA
-	b _0223EE5E
-_0223EE2E:
-	ldr r0, _0223EED4 ; =0x00000F18
-	mov r1, #0
+	str r1, [r4, r0]
+	mov r0, #0x4f
+	lsl r0, r0, #2
 	add r0, r4, r0
-	bl ClearFrameAndWindow2
+	add r1, r4, #0
+	bl ov70_0223F7A4
+	b _0223F158
+_0223F13E:
+	cmp r0, #2
+	bne _0223F158
+	ldr r0, _0223F15C ; =0x000011C8
+	ldr r0, [r4, r0]
+	bl YesNoPrompt_Destroy
 	mov r1, #5
 	add r0, r4, #0
 	add r2, r1, #0
 	bl ov70_02238E50
 	mov r0, #2
 	str r0, [r4, #0x2c]
-	ldr r0, _0223EED8 ; =0x000011C4
-	ldr r3, [r4, r0]
-	add r0, #0x70
-	ldrh r2, [r3, #6]
-	ldrh r1, [r3, #4]
-	add r0, r4, r0
-	add r1, r2, r1
-	ldrh r2, [r3, #0xa]
-	ldrh r3, [r3, #8]
-	bl ov70_0223F960
-	b _0223EECA
-_0223EE5E:
-	ldr r1, _0223EEDC ; =0x00000B84
-	strh r0, [r4, r1]
-	mov r1, #0x12
-	bl GetMonBaseStat
-	ldr r1, _0223EED8 ; =0x000011C4
-	ldr r2, [r4, r1]
-	str r0, [r2, #0x20]
-	ldr r1, [r4, r1]
-	ldr r0, _0223EEDC ; =0x00000B84
-	ldr r1, [r1, #0x20]
-	add r0, r4, r0
-	bl ov70_0223EDE4
-	cmp r0, #0
-	beq _0223EE88
-	mov r0, #0xa
-	str r0, [r4, #0x2c]
-	ldr r0, _0223EEE0 ; =0x00000B86
-	ldrsb r1, [r4, r0]
-	b _0223EE8E
-_0223EE88:
-	mov r0, #7
-	str r0, [r4, #0x2c]
-	mov r1, #3
-_0223EE8E:
-	ldr r2, _0223EEDC ; =0x00000B84
-	ldr r3, _0223EEE4 ; =0x00001058
-	ldrsh r0, [r4, r2]
-	add r3, r4, r3
-	str r0, [sp]
-	mov r0, #0
-	str r1, [sp, #4]
-	mvn r0, r0
-	str r0, [sp, #8]
-	add r0, r2, #0
-	add r1, r2, #0
-	add r0, #0x1c
-	add r1, #0x20
-	add r2, #0x18
-	ldr r0, [r4, r0]
-	ldr r1, [r4, r1]
-	ldr r2, [r4, r2]
-	bl ov70_0223F3D8
-	ldr r0, _0223EED8 ; =0x000011C4
-	ldr r3, [r4, r0]
-	add r0, #0x70
-	ldrh r2, [r3, #6]
-	ldrh r1, [r3, #4]
-	add r0, r4, r0
-	add r1, r2, r1
-	ldrh r2, [r3, #0xa]
-	ldrh r3, [r3, #8]
-	bl ov70_0223F960
-_0223EECA:
+_0223F158:
 	mov r0, #3
+	pop {r4, pc}
+	.balign 4, 0
+_0223F15C: .word 0x000011C8
+_0223F160: .word 0x000011FC
+	thumb_func_end ov70_0223F108
+
+
+
+
+	thumb_func_start ov70_0223F164
+ov70_0223F164: ; 0x0223F164
+	push {r3, r4, lr}
+	sub sp, #0xc
+	add r4, r0, #0
+	ldr r0, [r4, #0x18]
+	cmp r0, #0
+	bne _0223F190
+	mov r0, #6
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	mov r0, #0x3d
+	str r0, [sp, #8]
+	mov r0, #0
+	add r1, r0, #0
+	add r2, r0, #0
+	add r3, r0, #0
+	bl BeginNormalPaletteFade
+	ldr r0, _0223F1B4 ; =0x000011FC
+	mov r1, #1
+	str r1, [r4, r0]
+	b _0223F1A8
+_0223F190:
+	mov r0, #6
+	str r0, [sp]
+	mov r1, #0
+	mov r0, #1
+	str r0, [sp, #4]
+	mov r0, #0x3d
+	str r0, [sp, #8]
+	mov r0, #3
+	add r2, r1, #0
+	add r3, r1, #0
+	bl BeginNormalPaletteFade
+_0223F1A8:
+	mov r0, #0
+	str r0, [r4, #0x2c]
+	mov r0, #4
 	add sp, #0xc
 	pop {r3, r4, pc}
-	.balign 4, 0
-_0223EED0: .word 0x000011A8
-_0223EED4: .word 0x00000F18
-_0223EED8: .word 0x000011C4
-_0223EEDC: .word 0x00000B84
-_0223EEE0: .word 0x00000B86
-_0223EEE4: .word 0x00001058
-	thumb_func_end ov70_0223EE10
+	nop
+_0223F1B4: .word 0x000011FC
+	thumb_func_end ov70_0223F164
+
+

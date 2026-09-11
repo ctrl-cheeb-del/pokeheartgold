@@ -238,69 +238,141 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-	.public ov96_021E952C
-	.public ov96_021E9570
-	.public ov96_021E95D8
-	.public ov96_021E95F8
-	.public ov96_021E966C
-	.public ov96_021E96F8
-	.public ov96_021E9784
-	.public ov96_021E97B8
-	.public ov96_021E97EC
-	.public ov96_021E9820
-	.public ov96_021E9858
-	.public ov96_021E9870
-	.public ov96_021E98D0
-	.public ov96_021E98F4
-	.public ov96_021E9994
-	.public ov96_021E99B8
+	.public ov96_021EEB84
+	.public ov96_021EEBC8
+	.public ov96_021EEBE4
+	.public ov96_021EEBF8
+	.public ov96_021EED14
 
 
-	thumb_func_start ov96_021E9718
-ov96_021E9718: ; 0x021E9718
+	thumb_func_start ov96_021EEC0C
+ov96_021EEC0C: ; 0x021EEC0C
 	push {r3, r4, r5, r6, r7, lr}
-	add r4, r3, #0
+	sub sp, #0x38
+	add r4, r1, #0
+	ldrh r1, [r4]
 	add r5, r0, #0
-	add r0, r4, #0
-	add r6, r1, #0
-	add r7, r2, #0
-	bl ov96_021E5F24
-	cmp r0, #0
-	bne _021E9780
-	add r0, r4, #0
-	add r1, r5, #0
-	bl PokeathlonCourse_GetParticipantData
-	add r1, r7, #0
-	add r2, r6, #0
-	bl memcpy
-	add r0, r4, #0
-	bl PokeathlonCourse_IncrementField1EF
-	add r0, r4, #0
-	bl PokeathlonCourse_GetParticipantCount
-	add r5, r0, #0
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	cmp r5, r0
-	bne _021E9780
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	cmp r0, #4
-	bhs _021E9772
-	add r0, r4, #0
-	bl PokeathlonCourse_GetField1EF
-	mov r1, #4
-	sub r1, r1, r0
-	lsl r1, r1, #0x18
-	add r0, r4, #0
-	lsr r1, r1, #0x18
-	bl ov96_021E8484
-_021E9772:
-	add r0, r4, #0
-	bl PokeathlonCourse_ResetField1EF
-	add r0, r4, #0
-	mov r1, #4
-	bl PokeathlonCourse_SetStateField07
-_021E9780:
+	add r6, r3, #0
+	str r2, [sp, #0x14]
+	cmp r1, #0
+	bne _021EEC28
+	mov r1, #0
+	bl ManagedSprite_SetDrawFlag
+	add sp, #0x38
 	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov96_021E9718
+_021EEC28:
+	ldrb r0, [r4, #6]
+	mov r3, #2
+	str r0, [sp]
+	ldrh r0, [r4, #2]
+	lsl r0, r0, #0x18
+	lsr r0, r0, #0x18
+	str r0, [sp, #4]
+	ldr r0, [r4, #0xc]
+	str r0, [sp, #8]
+	ldrb r2, [r4, #7]
+	add r0, sp, #0x28
+	bl GetMonSpriteCharAndPlttNarcIdsEx
+	ldr r3, _021EECB4 ; =ov96_0221B1AC
+	add r2, sp, #0x18
+	ldmia r3!, {r0, r1}
+	stmia r2!, {r0, r1}
+	ldmia r3!, {r0, r1}
+	stmia r2!, {r0, r1}
+	mov r1, #0x32
+	ldr r0, [sp, #0x50]
+	lsl r1, r1, #6
+	bl Heap_AllocAtEnd
+	add r7, r0, #0
+	str r7, [sp]
+	ldr r0, [r4, #0xc]
+	add r1, sp, #0x18
+	str r0, [sp, #4]
+	mov r0, #0
+	str r0, [sp, #8]
+	mov r0, #2
+	str r0, [sp, #0xc]
+	ldrh r0, [r4]
+	ldr r2, [sp, #0x50]
+	add r3, sp, #0x18
+	str r0, [sp, #0x10]
+	ldrh r0, [r1, #0x10]
+	ldrh r1, [r1, #0x12]
+	bl sub_02014510
+	mov r2, #0x32
+	ldr r0, [r5]
+	add r1, r7, #0
+	lsl r2, r2, #6
+	bl ov96_021EED64
+	ldr r0, [sp, #0x54]
+	cmp r0, #0
+	beq _021EECA0
+	ldr r0, [sp, #0x50]
+	str r6, [sp]
+	str r0, [sp, #4]
+	add r2, sp, #0x18
+	ldrh r1, [r2, #0x10]
+	ldrh r2, [r2, #0x14]
+	ldr r3, [sp, #0x14]
+	add r0, r5, #0
+	bl ov96_021EED70
+_021EECA0:
+	add r0, r5, #0
+	mov r1, #1
+	bl ManagedSprite_SetDrawFlag
+	add r0, r7, #0
+	bl Heap_Free
+	add sp, #0x38
+	pop {r3, r4, r5, r6, r7, pc}
+	nop
+_021EECB4: .word ov96_0221B1AC
+	thumb_func_end ov96_021EEC0C
+
+
+
+
+	thumb_func_start ov96_021EECB8
+ov96_021EECB8: ; 0x021EECB8
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #8
+	add r4, r1, #0
+	add r5, r0, #0
+	add r6, r2, #0
+	ldrh r0, [r4]
+	ldrh r2, [r4, #2]
+	mov r1, #0
+	add r7, r3, #0
+	bl GetMonIconNaixEx
+	add r1, r0, #0
+	ldr r0, [sp, #0x24]
+	mov r2, #0
+	str r0, [sp]
+	add r0, r7, #0
+	add r3, sp, #4
+	bl GfGfxLoader_GetCharDataFromOpenNarc
+	add r7, r0, #0
+	bne _021EECE6
+	bl GF_AssertFail
+_021EECE6:
+	ldr r1, [sp, #4]
+	mov r2, #2
+	ldr r0, [r5]
+	ldr r1, [r1, #0x14]
+	ldr r3, [sp, #0x20]
+	lsl r2, r2, #8
+	bl ov96_021EED14
+	add r0, r7, #0
+	bl Heap_Free
+	ldrh r0, [r4]
+	ldrh r1, [r4, #2]
+	mov r2, #0
+	bl GetMonIconPaletteEx
+	add r1, r0, #0
+	add r0, r5, #0
+	add r1, r6, r1
+	bl ManagedSprite_SetPaletteOverride
+	add sp, #8
+	pop {r3, r4, r5, r6, r7, pc}
+	thumb_func_end ov96_021EECB8
+
+
