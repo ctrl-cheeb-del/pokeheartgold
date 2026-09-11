@@ -1,0 +1,77 @@
+#ifndef SOL40_OV49_RES17_PRIVATE_H
+#define SOL40_OV49_RES17_PRIVATE_H
+#include "global.h"
+typedef void Ov49Work;
+typedef void PlayerProfile;
+typedef struct Ov49WorkView {
+    u8 pad00[0x34];
+    void *unk34;
+    u8 pad38[4];
+    u8 sub3C[0x148];
+    u8 sub184[8];
+    u8 pad18C[0x150];
+    void *unk2DC;
+    u8 pad2E0[0x18];
+    u8 sub2F8[0x20];
+    u8 sub318[0x20];
+    u8 sub338[0x6C];
+    u8 sub3A4[0x20];
+    u8 sub3C4[0x18];
+    void *unk3DC;
+} Ov49WorkView;
+
+extern void ov49_0225AB44();
+extern void ov49_0225ABA4();
+extern void ov49_0225AC5C();
+extern void ov49_0225AC08();
+extern void ov49_0225AC24();
+extern void ov49_0225AC4C();
+extern void ov49_0225AC74();
+extern void ov49_0225ACC4();
+extern void ov49_0225AEA8();
+extern void ov49_0225AEE0();
+extern void ov49_0225AEF8();
+extern void ov49_0225AF04();
+extern void ov49_0225AF08();
+extern void ov49_0225AF30();
+extern s32 ov49_0225AFD8();
+extern void ov49_0225B014();
+extern void ov49_0225B06C();
+extern void ov49_0225B0E0();
+extern void ov49_0225B124();
+extern u32 ov49_0225B148();
+extern void ov49_0225B178();
+extern void ov49_0225B388();
+extern void ov49_0225B3A8();
+extern void ov49_0225B3C8();
+extern void ov49_0225B3D8();
+extern void ov49_0225B3E8();
+extern void ov49_0225B3F8();
+extern void ov49_0225B8A8();
+extern void ov49_0225B89C();
+extern void ov49_0225B8E0();
+extern void ov49_0225B8EC();
+extern u32 ov49_0225B8F8();
+extern u32 ov49_0225B8FC();
+extern void ov49_0225B914();
+extern u32 ov49_0225B928();
+extern u32 ov49_0225B934();
+extern void ov49_0225BEA0();
+extern u32 ov49_0225BFEC();
+extern void ov49_02268968();
+extern PlayerProfile *PlayerProfile_New();
+extern void Heap_Free();
+extern u32 ov45_0222A53C();
+extern PlayerProfile *ov45_0222A5C0();
+extern PlayerProfile *ov45_0222A578();
+extern void ov45_0222A844();
+extern u32 ov45_0222D7C0();
+extern void BufferJPGreeting();
+extern void BufferENGreeting();
+extern void BufferFRGreeting();
+extern void BufferITGreeting();
+extern void BufferDEGreeting();
+extern void BufferSPGreeting();
+extern void BufferTypeName();
+extern void PlaySE();
+#endif

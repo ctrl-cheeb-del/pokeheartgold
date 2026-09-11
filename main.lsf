@@ -2937,7 +2937,7 @@ Overlay OVY_49
     Object src/overlay_49_sol_partial_16.o
     Object asm/overlay_49_residual_16.o
     Object src/overlay_49_sol_partial_17.o
-    Object asm/overlay_49_residual_17.o
+    Object src/overlay49_task_bank_1.o
     Object src/overlay_49_sol_partial_18.o
     Object asm/overlay_49_residual_18.o
     Object src/overlay_49_sol_partial_19.o
@@ -5339,7 +5339,7 @@ Overlay OVY_117
 Overlay OVY_118
 {
     After OVY_31
-    Object asm/overlay_118.o
+    Object src/overlay118_transition_1.o
 }
 Overlay OVY_119
 {
