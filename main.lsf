@@ -356,7 +356,7 @@ Static main
     Object src/communication_manager_5.o
     Object asm/unk_020367B0.o
     Object src/communication_manager_6.o
-    Object asm/unk_0203690C.o
+    Object src/communication_payload_send_1.o
     Object src/communication_manager_7.o
     Object asm/unk_02036AD8.o
     Object src/communication_manager_8.o
@@ -3125,7 +3125,10 @@ Overlay OVY_57
     Object src/overlay57_helpers_11.o
     Object asm/overlay_57_residual_11.o
     Object src/overlay57_helpers_12.o
+    Object src/overlay57_remaining_bank_1.o
     Object asm/overlay_57_residual_12.o
+    Object src/overlay57_remaining_bank_2.o
+    Object asm/overlay_57_residual_12_residual_2.o
     Object src/overlay57_helpers_13.o
     Object asm/overlay_57_residual_13.o
     Object src/overlay57_helpers_14.o
@@ -3150,6 +3153,17 @@ Overlay OVY_59
     Object asm/overlay_59_residual_5.o
     Object src/overlay59_partial_5.o
     Object asm/overlay_59_residual_6.o
+    Object src/overlay59_remaining_bank_1.o
+    Object asm/overlay_59_residual_6_residual_2.o
+    Object src/overlay59_remaining_bank_2.o
+    Object asm/overlay_59_residual_6_residual_3.o
+    Object src/overlay59_remaining_bank_3.o
+    Object asm/overlay_59_residual_6_residual_4.o
+    Object src/overlay59_remaining_bank_4.o
+    Object asm/overlay_59_residual_6_residual_5.o
+    Object src/overlay59_remaining_bank_5.o
+    Object asm/overlay_59_residual_6_residual_6.o
+    Object src/overlay59_remaining_bank_6.o
     Object src/overlay59_partial_6.o
     Object asm/overlay_59_residual_7.o
     Object src/overlay59_partial_7.o

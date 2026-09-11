@@ -205,56 +205,29 @@
 	.public ov57_0223B8B8
 
 
-	thumb_func_start ov57_0223B7C4
-ov57_0223B7C4: ; 0x0223B7C4
-	push {r3, r4, r5, r6, r7, lr}
-	mov r1, #0xfb
-	add r5, r0, #0
-	lsl r1, r1, #2
-	ldr r0, [r5, r1]
-	lsl r0, r0, #3
-	add r0, r5, r0
-	ldr r0, [r0, #4]
-	cmp r0, #0xff
-	beq _0223B7EA
-	ldr r2, [r5]
-	lsl r0, r0, #2
-	add r0, r2, r0
-	add r1, #0x6c
-	ldr r0, [r0, #4]
-	ldr r1, [r5, r1]
-	bl CopyPokemonToPokemon
-	pop {r3, r4, r5, r6, r7, pc}
-_0223B7EA:
-	ldr r1, [r5]
-	mov r6, #0
-	ldr r0, [r1]
-	cmp r0, #0
-	ble _0223B820
-	add r4, r6, #0
-_0223B7F6:
-	add r0, r1, r4
-	ldr r7, [r0, #4]
-	mov r1, #0x4c
-	add r0, r7, #0
-	mov r2, #0
-	bl GetMonData
-	cmp r0, #0
-	bne _0223B814
-	ldr r1, _0223B824 ; =0x00000458
-	add r0, r7, #0
-	ldr r1, [r5, r1]
-	bl CopyPokemonToPokemon
-	pop {r3, r4, r5, r6, r7, pc}
-_0223B814:
-	ldr r1, [r5]
-	add r6, r6, #1
-	ldr r0, [r1]
-	add r4, r4, #4
-	cmp r6, r0
-	blt _0223B7F6
-_0223B820:
-	pop {r3, r4, r5, r6, r7, pc}
-	nop
-_0223B824: .word 0x00000458
-	thumb_func_end ov57_0223B7C4
+	thumb_func_start ov57_0223B90C
+ov57_0223B90C: ; 0x0223B90C
+	push {r4, r5, r6, lr}
+	add r6, r0, #0
+	add r5, r1, #0
+	mov r0, #0x34
+	mov r1, #0xc
+	bl Heap_Alloc
+	add r4, r0, #0
+	mov r0, #1
+	str r0, [r4]
+	mov r1, #0
+	str r6, [r4, #4]
+	add r0, r5, #0
+	sub r2, r1, #1
+	str r5, [r4, #8]
+	bl ov57_0223B890
+	mov r2, #0xfa
+	ldr r0, _0223B93C ; =ov57_0223B8B8
+	add r1, r4, #0
+	lsl r2, r2, #2
+	bl SysTask_CreateOnMainQueue
+	pop {r4, r5, r6, pc}
+	.balign 4, 0
+_0223B93C: .word ov57_0223B8B8
+	thumb_func_end ov57_0223B90C

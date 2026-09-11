@@ -1,6 +1,7 @@
 	.include "asm/macros.inc"
 	.include "unk_02035900.inc"
 	.include "global.inc"
+	.include "communication_payload_send.inc"
 	.text
 	thumb_func_start sub_0203690C
 sub_0203690C: ; 0x0203690C
