@@ -2,6 +2,7 @@
 	.include "unk_02035900.inc"
 	.include "global.inc"
 	.text
+	.public sub_02036D14
 	thumb_func_start sub_02036AD8
 sub_02036AD8: ; 0x02036AD8
 	push {r4, lr}
@@ -291,78 +292,3 @@ _02036D08: .word _021D4140
 _02036D0C: .word 0x0000062C
 _02036D10: .word 0x0000065C
 	thumb_func_end sub_02036BE4
-	thumb_func_start sub_02036D14
-sub_02036D14: ; 0x02036D14
-	push {r4, r5, r6, r7}
-	ldr r4, _02036D94 ; =_021D4140
-	lsl r6, r1, #1
-	ldr r2, [r4, #8]
-	mov r5, #0
-	add r3, r2, r6
-	ldr r2, _02036D98 ; =0x00000644
-	strh r5, [r3, r2]
-	ldrb r5, [r0]
-	mov r3, #0x10
-	add r7, r5, #0
-	and r7, r3
-	cmp r7, #0x10
-	bne _02036D8C
-	mov r7, #0xc
-	and r5, r7
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	bne _02036D48
-	ldr r3, [r4, #8]
-	add r4, r3, r2
-	ldrh r3, [r4, r6]
-	mov r2, #0x40
-	orr r2, r3
-	strh r2, [r4, r6]
-	b _02036D7A
-_02036D48:
-	cmp r5, #4
-	bne _02036D5A
-	ldr r3, [r4, #8]
-	add r4, r3, r2
-	ldrh r3, [r4, r6]
-	mov r2, #0x80
-	orr r2, r3
-	strh r2, [r4, r6]
-	b _02036D7A
-_02036D5A:
-	cmp r5, #8
-	bne _02036D6C
-	ldr r3, [r4, #8]
-	add r4, r3, r2
-	ldrh r3, [r4, r6]
-	mov r2, #0x20
-	orr r2, r3
-	strh r2, [r4, r6]
-	b _02036D7A
-_02036D6C:
-	cmp r5, #0xc
-	bne _02036D7A
-	ldr r4, [r4, #8]
-	add r4, r4, r2
-	ldrh r2, [r4, r6]
-	orr r2, r3
-	strh r2, [r4, r6]
-_02036D7A:
-	ldrb r0, [r0]
-	asr r2, r0, #5
-	mov r0, #7
-	and r2, r0
-	ldr r0, _02036D94 ; =_021D4140
-	ldr r0, [r0, #8]
-	add r1, r0, r1
-	ldr r0, _02036D9C ; =0x00000654
-	strb r2, [r1, r0]
-_02036D8C:
-	mov r0, #1
-	pop {r4, r5, r6, r7}
-	bx lr
-	nop
-_02036D94: .word _021D4140
-_02036D98: .word 0x00000644
-_02036D9C: .word 0x00000654
-	thumb_func_end sub_02036D14

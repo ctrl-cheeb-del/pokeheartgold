@@ -360,6 +360,7 @@ Static main
     Object src/communication_payload_send_1.o
     Object src/communication_manager_7.o
     Object asm/unk_02036AD8.o
+    Object src/communication_mode_check_1.o
     Object src/communication_manager_8.o
     Object asm/unk_02036E60.o
     Object src/communication_manager_9.o
@@ -632,7 +633,9 @@ Static main
     Object src/map_object_movement_utilities_3.o
     Object asm/unk_020601BC.o
     Object src/map_object_movement_utilities_4.o
+    Object src/map_object_state_update_1.o
     Object asm/unk_020603F8.o
+    Object src/map_object_state_update_2.o
     Object src/map_object_movement_utilities_5.o
     Object src/map_object_behavior_samples.o
     Object src/map_object_movement_utilities_6.o
@@ -824,7 +827,8 @@ Static main
     Object asm/unk_020873D4.o
     Object src/touch_sprite_motion.o
     Object src/battle_transition_application.o
-    Object asm/unk_02087A78.o
+    Object src/field_transition_finish_1.o
+    Object asm/unk_02087A78_residual_1.o
     Object src/battle_transition_application_2.o
     Object src/unk_02087E70.o
     Object src/summary_graphics_lookup_1.o
@@ -1774,7 +1778,7 @@ Overlay OVY_5
     Object src/overlay05_helpers_9.o
     Object asm/overlay_05_residual_10.o
     Object src/overlay05_helpers_10.o
-    Object asm/overlay_05_residual_11.o
+    Object src/overlay05_window_init_1.o
     Object src/overlay05_helpers_11.o
     Object asm/overlay_05_residual_12.o
     Object src/overlay05_helpers_12.o

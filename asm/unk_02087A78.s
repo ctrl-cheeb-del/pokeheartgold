@@ -7,6 +7,7 @@
 	.include "asm/macros.inc"
 	.include "unk_02087A78.inc"
 	.include "global.inc"
+	.include "field_transition_finish.inc"
 
 	.public gOverlayTemplate_Battle
 	.public _021028B4

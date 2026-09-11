@@ -1,0 +1,10 @@
+	.public sub_02087C38
+	.public _02102830
+	.public _02102840
+	.public _02102850
+	.public _02102860
+	.public _02102870
+	.public _02102880
+	.public _02102890
+	.public _021028A0
+	.public _02110594
