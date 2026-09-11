@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "246cdefdd5a56af2e16dbf7b45496f8dcda959f8",
+  "commit": "e3074098445b1a5f6d4bf41a204a48b9b24078c2",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": false,
   "map_sha256": {
-    "ARM9": "48b5e5501f8ac026af1a1040bd1ba3e5ee32d4ee58d00af5b8d05734fbee15ab",
-    "ARM7": "bf1916e1ae2399401bea90b68b3a76666f2dbd09367bff4a5f14a2651eafe1a8"
+    "ARM9": "45a08ff8c48e5083682811af31440e482a6bea8e8fdffb8d51c1245e4ecf2e40",
+    "ARM7": "66a130891295dffff002abb2b34a4daa5ca98847ef04c80a92101eee96da38b9"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 2749724,
+    "asm": 2749232,
     "mixed": 18270,
-    "c": 1303302,
+    "c": 1303794,
     "unknown": 8792
   },
   "objects": [
@@ -22099,6 +22099,22 @@
     {
       "cpu": "ARM9",
       "module": "OVY_83",
+      "object": "ov83_wave39_safe_1.o",
+      "bytes": 148,
+      "status": "c",
+      "source": "src/ov83_wave39_safe_1.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_83",
+      "object": "ov83_wave39_safe_2.o",
+      "bytes": 344,
+      "status": "c",
+      "source": "src/ov83_wave39_safe_2.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_83",
       "object": "overlay83_sol_partial_1.o",
       "bytes": 64,
       "status": "c",
@@ -22804,9 +22820,25 @@
       "cpu": "ARM9",
       "module": "OVY_83",
       "object": "overlay_83_residual_40.o",
-      "bytes": 2904,
+      "bytes": 584,
       "status": "asm",
       "source": "asm/overlay_83_residual_40.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_83",
+      "object": "overlay_83_residual_40_residual_2.o",
+      "bytes": 1444,
+      "status": "asm",
+      "source": "asm/overlay_83_residual_40_residual_2.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_83",
+      "object": "overlay_83_residual_40_residual_3.o",
+      "bytes": 384,
+      "status": "asm",
+      "source": "asm/overlay_83_residual_40_residual_3.s"
     },
     {
       "cpu": "ARM9",
