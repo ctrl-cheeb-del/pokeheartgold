@@ -224,196 +224,207 @@
 	.public ov99_021E7C58
 
 
-	thumb_func_start ov99_021E72C0
-ov99_021E72C0: ; 0x021E72C0
+	thumb_func_start ov99_021E7AD4
+ov99_021E7AD4: ; 0x021E7AD4
 	push {r3, r4, r5, r6, r7, lr}
-	add r1, sp, #0
 	add r5, r0, #0
-	bl ov99_021E728C
-	mov r1, #0x3f
-	lsl r1, r1, #4
-	str r0, [r5, r1]
-	ldr r0, [sp]
-	mov r7, #0
-	cmp r0, #0
-	bls _021E7332
-	add r6, r7, #0
-_021E72DA:
-	mov r0, #0x3f
-	lsl r0, r0, #4
-	ldr r0, [r5, r0]
-	ldrh r4, [r0, r6]
-	cmp r4, #0
-	beq _021E72EC
-	ldr r0, _021E7384 ; =0x000001ED
-	cmp r4, r0
-	bls _021E72F0
-_021E72EC:
-	bl GF_AssertFail
-_021E72F0:
-	add r0, r5, #0
-	add r1, r4, #0
-	bl ov99_021E7180
-	cmp r0, #0
-	beq _021E7328
 	mov r0, #0xfd
 	lsl r0, r0, #2
-	ldr r0, [r5, r0]
-	lsl r0, r0, #0x12
-	lsr r0, r0, #0x17
-	lsl r0, r0, #1
-	add r0, r5, r0
-	strh r4, [r0, #0x14]
-	mov r0, #0xfd
-	lsl r0, r0, #2
+	add r4, r1, #0
 	ldr r1, [r5, r0]
-	ldr r0, _021E7388 ; =0xFFFFC01F
-	and r0, r1
-	lsl r1, r1, #0x12
-	lsr r1, r1, #0x17
-	add r1, r1, #1
-	lsl r1, r1, #0x17
-	lsr r1, r1, #0x12
-	orr r1, r0
-	mov r0, #0xfd
-	lsl r0, r0, #2
+	add r7, r2, #0
+	lsl r2, r1, #0xd
+	lsr r2, r2, #0x1b
+	cmp r4, #0
+	beq _021E7AFA
+	ldr r3, _021E7BB8 ; =0xFFF83FFF
+	and r1, r3
+	add r3, r2, #1
+	lsl r3, r3, #0x1b
+	lsr r3, r3, #0xd
+	orr r1, r3
 	str r1, [r5, r0]
-_021E7328:
-	ldr r0, [sp]
-	add r7, r7, #1
-	add r6, r6, #2
-	cmp r7, r0
-	blo _021E72DA
-_021E7332:
+	b _021E7B0C
+_021E7AFA:
+	cmp r2, #0
+	beq _021E7B0C
+	ldr r3, _021E7BB8 ; =0xFFF83FFF
+	and r1, r3
+	sub r3, r2, #1
+	lsl r3, r3, #0x1b
+	lsr r3, r3, #0xd
+	orr r1, r3
+	str r1, [r5, r0]
+_021E7B0C:
 	mov r0, #0xfd
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	lsl r0, r0, #0x12
-	lsr r0, r0, #0x17
-	beq _021E7380
-	mov r1, #0x1e
-	bl _u32_div_f
-	mov r2, #0xfd
-	lsl r2, r2, #2
-	ldr r3, [r5, r2]
-	mov r1, #0x1f
-	bic r3, r1
-	mov r1, #0x1f
+	lsl r1, r0, #0x1b
+	lsl r0, r0, #0xd
+	lsr r3, r1, #0x1b
+	lsr r0, r0, #0x1b
+	cmp r0, r3
+	bhi _021E7B20
+	add r3, r0, #0
+_021E7B20:
+	mov r6, #0xfd
+	lsl r6, r6, #2
+	ldr r1, [r5, r6]
+	ldr r0, _021E7BB8 ; =0xFFF83FFF
 	and r0, r1
-	orr r0, r3
-	str r0, [r5, r2]
-	ldr r0, [r5, r2]
-	mov r1, #0x1e
-	lsl r0, r0, #0x12
-	lsr r0, r0, #0x17
-	bl _u32_div_f
-	cmp r1, #0
-	bne _021E7380
-	mov r2, #0xfd
-	lsl r2, r2, #2
-	ldr r3, [r5, r2]
-	mov r1, #0x1f
-	add r0, r3, #0
-	bic r0, r1
 	lsl r1, r3, #0x1b
-	lsr r1, r1, #0x1b
-	sub r3, r1, #1
-	mov r1, #0x1f
-	and r1, r3
+	lsr r1, r1, #0xd
 	orr r0, r1
-	str r0, [r5, r2]
-_021E7380:
-	pop {r3, r4, r5, r6, r7, pc}
-	nop
-_021E7384: .word 0x000001ED
-_021E7388: .word 0xFFFFC01F
-	thumb_func_end ov99_021E72C0
-
-
-
-
-	thumb_func_start ov99_021E738C
-ov99_021E738C: ; 0x021E738C
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x1c
-	str r1, [sp, #0xc]
-	mov r5, #0
-	add r7, r0, #0
-	str r2, [sp, #0x10]
-	str r5, [sp, #0x14]
-_021E739A:
-	ldr r0, [sp, #0x10]
-	mov r4, #0
+	str r0, [r5, r6]
+	ldr r0, [r5, r6]
+	lsl r0, r0, #0xd
+	lsr r0, r0, #0x1b
+	cmp r0, r2
+	beq _021E7BB4
+	ldr r0, _021E7BBC ; =0x000005DC
+	bl PlaySE
+	cmp r4, #0
+	bne _021E7B4A
+	mov r2, #1
+	b _021E7B4C
+_021E7B4A:
+	mov r2, #0
+_021E7B4C:
+	mov r0, #0xfd
+	lsl r0, r0, #2
+	ldr r3, [r5, r0]
+	ldr r1, _021E7BC0 ; =0xF7FFFFFF
+	lsl r2, r2, #0x1f
+	and r1, r3
+	lsr r2, r2, #4
+	orr r1, r2
+	str r1, [r5, r0]
+	mov r1, #1
+	ldr r2, [r5, r0]
+	lsl r1, r1, #0x1c
+	orr r1, r2
+	str r1, [r5, r0]
+	add r0, #8
+	ldr r0, [r5, r0]
+	mov r6, #0
+	bl GridInputHandler_GetNextInput
+	cmp r7, #0
+	beq _021E7B80
+	cmp r0, #0x1e
+	bne _021E7B96
 	lsl r0, r0, #0x18
 	lsr r6, r0, #0x18
-_021E73A2:
-	add r0, r4, r5
-	add r1, r0, #1
-	add r0, sp, #0x18
-	strh r1, [r0]
-	str r6, [sp]
-	mov r0, #1
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	ldr r3, [sp, #0xc]
-	ldr r0, [r7]
-	add r3, r3, r4
-	lsl r3, r3, #0x18
-	mov r1, #3
-	add r2, sp, #0x18
-	lsr r3, r3, #0x18
-	bl LoadRectToBgTilemapRect
-	add r4, r4, #1
-	cmp r4, #2
-	blt _021E73A2
-	ldr r0, [sp, #0x10]
-	add r5, r5, #2
-	add r0, r0, #1
-	str r0, [sp, #0x10]
-	ldr r0, [sp, #0x14]
-	add r0, r0, #1
-	str r0, [sp, #0x14]
-	cmp r0, #2
-	blt _021E739A
-	add sp, #0x1c
-	pop {r4, r5, r6, r7, pc}
-	thumb_func_end ov99_021E738C
-
-
-
-
-	thumb_func_start ov99_021E73E0
-ov99_021E73E0: ; 0x021E73E0
-	push {r4, r5, r6, lr}
-	add r4, r1, #0
-	add r1, r2, #0
-	add r5, r0, #0
-	bl ov99_021E7198
-	cmp r0, #0
-	beq _021E7424
-	add r0, r4, #0
-	mov r1, #6
-	bl _s32_div_f
-	add r6, r1, #0
-	add r0, r4, #0
-	mov r1, #6
-	bl _s32_div_f
-	add r2, r0, #0
-	lsl r3, r2, #1
-	lsl r1, r6, #2
-	add r2, r2, r3
-	add r1, r1, #6
-	add r2, r2, #4
-	lsl r1, r1, #0x10
-	lsl r2, r2, #0x10
+	b _021E7B96
+_021E7B80:
+	lsl r0, r0, #0x18
+	lsr r0, r0, #0x18
+	cmp r4, #0
+	beq _021E7B90
+	sub r0, r0, #5
+	lsl r0, r0, #0x18
+	lsr r6, r0, #0x18
+	b _021E7B96
+_021E7B90:
+	add r0, r0, #5
+	lsl r0, r0, #0x18
+	lsr r6, r0, #0x18
+_021E7B96:
+	mov r0, #0xff
+	lsl r0, r0, #2
+	ldr r0, [r5, r0]
+	add r1, r6, #0
+	bl GridInputHandler_SetNextInput
 	add r0, r5, #0
-	asr r1, r1, #0x10
-	asr r2, r2, #0x10
-	bl ov99_021E738C
-	ldr r0, [r5]
-	mov r1, #3
-	bl BgCommitTilemapBufferToVram
-_021E7424:
+	add r1, r6, #0
+	bl ov99_021E7C58
+	ldr r0, _021E7BC4 ; =0x00000408
+	mov r1, #0
+	ldr r0, [r5, r0]
+	bl ManagedSprite_SetDrawFlag
+_021E7BB4:
+	pop {r3, r4, r5, r6, r7, pc}
+	nop
+_021E7BB8: .word 0xFFF83FFF
+_021E7BBC: .word 0x000005DC
+_021E7BC0: .word 0xF7FFFFFF
+_021E7BC4: .word 0x00000408
+	thumb_func_end ov99_021E7AD4
+
+
+
+
+	thumb_func_start ov99_021E7BC8
+ov99_021E7BC8: ; 0x021E7BC8
+	push {r4, r5, r6, lr}
+	add r5, r0, #0
+	mov r0, #0xff
+	lsl r0, r0, #2
+	ldr r0, [r5, r0]
+	bl GridInputHandler_HandleInput_AllowHold
+	add r6, r0, #0
+	mov r0, #0xff
+	lsl r0, r0, #2
+	ldr r0, [r5, r0]
+	bl GridInputHandler_GetNextInput
+	add r4, r0, #0
+	ldr r0, _021E7C50 ; =ov99_021E9F54
+	bl TouchscreenHitbox_FindHitboxAtTouchNew
+	mov r1, #0
+	mvn r1, r1
+	cmp r0, r1
+	beq _021E7C12
+	cmp r0, #0
+	bne _021E7C02
+	add r0, r5, #0
+	mov r1, #0
+	mov r2, #1
+	bl ov99_021E7AD4
+	b _021E7C4C
+_021E7C02:
+	cmp r0, #1
+	bne _021E7C4C
+	mov r1, #1
+	add r0, r5, #0
+	add r2, r1, #0
+	bl ov99_021E7AD4
+	b _021E7C4C
+_021E7C12:
+	cmp r6, r1
+	bne _021E7C3E
+	cmp r4, #0x1e
+	bhs _021E7C3E
+	ldr r0, _021E7C54 ; =gSystem
+	ldr r0, [r0, #0x4c]
+	cmp r0, #0x20
+	bne _021E7C2E
+	mov r1, #0
+	add r0, r5, #0
+	add r2, r1, #0
+	bl ov99_021E7AD4
+	b _021E7C4C
+_021E7C2E:
+	cmp r0, #0x10
+	bne _021E7C4C
+	add r0, r5, #0
+	mov r1, #1
+	mov r2, #0
+	bl ov99_021E7AD4
+	b _021E7C4C
+_021E7C3E:
+	cmp r4, #0x1e
+	bne _021E7C4C
+	ldr r0, _021E7C54 ; =gSystem
+	ldr r1, [r0, #0x48]
+	mov r0, #1
+	tst r1, r0
+	bne _021E7C4E
+_021E7C4C:
+	mov r0, #0
+_021E7C4E:
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
-	thumb_func_end ov99_021E73E0
+_021E7C50: .word ov99_021E9F54
+_021E7C54: .word gSystem
+	thumb_func_end ov99_021E7BC8
+
+

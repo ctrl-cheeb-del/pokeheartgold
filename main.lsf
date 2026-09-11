@@ -5151,6 +5151,8 @@ Overlay OVY_96
     Object asm/overlay_96_residual_97_residual_2.o
     Object src/overlay96_list_helpers_2.o
     Object asm/overlay_96_residual_97_residual_3.o
+    Object src/ov96_wave33_sprite_1.o
+    Object asm/overlay_96_residual_97_residual_3_residual_2.o
     Object src/overlay96_list_helpers_3.o
     Object asm/overlay_96_residual_97_residual_4.o
     Object src/overlay96_exact_bank_97.o
@@ -5283,7 +5285,17 @@ Overlay OVY_99
     Object src/overlay99_helpers_6.o
     Object asm/overlay_99_residual_7.o
     Object src/overlay99_helpers_7.o
+    Object src/ov99_wave33_medals_1.o
     Object asm/overlay_99_residual_8.o
+    Object src/ov99_wave33_medals_2.o
+    Object asm/overlay_99_residual_8_residual_2.o
+    Object src/ov99_wave33_medals_3.o
+    Object asm/overlay_99_residual_8_residual_3.o
+    Object src/ov99_wave33_medals_4.o
+    Object asm/overlay_99_residual_8_residual_4.o
+    Object src/ov99_wave33_medals_5.o
+    Object asm/overlay_99_residual_8_residual_5.o
+    Object src/ov99_wave33_medals_6.o
     Object src/overlay99_helpers_8.o
     Object src/overlay99_event_helpers_1.o
     Object asm/overlay_99_residual_9.o
