@@ -185,6 +185,8 @@
 	.public _0221D424
 	.public _0221D5C0
 	.public _0221D5F8
+	.public _0221D656
+	.public _0221D66E
 	.public _0221D6D4
 	.public _0221D74C
 	.public _0221D76A
@@ -241,7 +243,9 @@
 	.public _0221DE3C
 	.public _0221DE50
 	.public _0221DE54
+	.public _0221DE8A
 	.public _0221DED8
+	.public _0221DF18
 	.public _0221DF52
 	.public _0221DF82
 	.public _0221DF8E
@@ -263,6 +267,7 @@
 	.public _0221E044
 	.public _0221E048
 	.public _0221E04C
+	.public _0221E062
 	.public _0221E09C
 	.public _0221E0D6
 	.public _0221E130
@@ -293,6 +298,7 @@
 	.public _0221E324
 	.public _0221E328
 	.public _0221E32C
+	.public _0221E350
 	.public _0221E386
 	.public _0221E390
 	.public _0221E398
@@ -354,6 +360,7 @@
 	.public _0221E720
 	.public _0221E724
 	.public _0221E728
+	.public _0221E73C
 	.public _0221E75A
 	.public _0221E770
 	.public _0221E77C
@@ -505,6 +512,8 @@
 	.public _0221F4A4
 	.public _0221F4A8
 	.public _0221F4AC
+	.public _0221F4CC
+	.public _0221F4D0
 	.public _0221F4F4
 	.public _0221F540
 	.public _0221F586
@@ -519,6 +528,10 @@
 	.public _0221F6BC
 	.public _0221F70C
 	.public _0221F710
+	.public _0221F744
+	.public _0221F774
+	.public _0221F778
+	.public _0221F77C
 	.public _0221F796
 	.public _0221F798
 	.public _0221F7B8
@@ -535,11 +548,14 @@
 	.public _0221F844
 	.public _0221F848
 	.public _0221F84C
+	.public _0221F860
 	.public _0221F886
 	.public _0221F888
 	.public _0221F88C
 	.public _0221F8AC
 	.public _0221F8B0
+	.public _0221F8C8
+	.public _0221F8CC
 	.public _0221FA3A
 	.public _0221FA84
 	.public _0221FAD0
@@ -563,118 +579,8 @@
 	.public _0221FD14
 	.public _0221FD18
 	.public _0221FD1C
-	.public _0221FD34
-	.public ov65_0221BFBC
-	.public ov65_0221BFEC
-	.public ov65_0221C08C
-	.public ov65_0221C1C4
-	.public ov65_0221C3DC
-	.public ov65_0221C414
-	.public ov65_0221C46C
-	.public ov65_0221C5E0
-	.public ov65_0221C9D8
-	.public ov65_0221CA64
-	.public ov65_0221CADC
-	.public ov65_0221CB5C
-	.public ov65_0221CC0C
-	.public ov65_0221CCB0
-	.public ov65_0221CD0C
-	.public ov65_0221CE1C
-	.public ov65_0221CE98
-	.public ov65_0221CEB8
-	.public ov65_0221D0EC
-	.public ov65_0221D1C8
-	.public ov65_0221D204
-	.public ov65_0221D280
-	.public ov65_0221D3B8
-	.public ov65_0221D3E8
-	.public ov65_0221D57C
-	.public ov65_0221D5FC
-	.public ov65_0221D674
-	.public ov65_0221D8C4
-	.public ov65_0221D930
-	.public ov65_0221DBF4
-	.public ov65_0221DC34
-	.public ov65_0221DCBC
-	.public ov65_0221DCFC
-	.public ov65_0221DD34
-	.public ov65_0221DDC0
-	.public ov65_0221DE24
-	.public ov65_0221DEA0
-	.public ov65_0221DF1C
-	.public ov65_0221DFB8
-	.public ov65_0221E06C
-	.public ov65_0221E144
-	.public ov65_0221E194
-	.public ov65_0221E270
-	.public ov65_0221E2C0
-	.public ov65_0221E354
-	.public ov65_0221E3BC
-	.public ov65_0221E474
-	.public ov65_0221E558
-	.public ov65_0221E600
-	.public ov65_0221E684
-	.public ov65_0221E740
-	.public ov65_0221E858
-	.public ov65_0221E8EC
-	.public ov65_0221E928
-	.public ov65_0221E9A8
-	.public ov65_0221EA74
-	.public ov65_0221EB9C
-	.public ov65_0221EBF8
-	.public ov65_0221EC34
-	.public ov65_0221ED94
-	.public ov65_0221EE18
-	.public ov65_0221EF0C
-	.public ov65_0221F028
-	.public ov65_0221F0D8
-	.public ov65_0221F120
-	.public ov65_0221F258
-	.public ov65_0221F2A8
-	.public ov65_0221F354
-	.public ov65_0221F3B0
-	.public ov65_0221F3F4
-	.public ov65_0221F4D4
-	.public ov65_0221F5A0
-	.public ov65_0221F780
-	.public ov65_0221F79C
-	.public ov65_0221F7E0
-	.public ov65_0221F864
-	.public ov65_0221F890
-	.public ov65_0221F8D0
-	.public ov65_0221FAE0
-	.public ov65_0221FB4C
-	.public ov65_0221FB90
-	.public ov65_0221FC08
-	.public ov65_0221FC54
-	.public ov65_0221FCA0
-	.public ov65_0221FD3C
-	.public ov65_0221FD48
-	.public ov65_0221FD58
-	.public ov65_0221FD68
-	.public ov65_0221FD6C
-	.public ov65_0221FD70
-	.public ov65_0221FD80
-	.public ov65_0221FD9C
-	.public ov65_0221FDB8
-	.public ov65_0221FDD4
-	.public ov65_0221FDF0
-	.public ov65_0221FE0C
-	.public ov65_0221FE28
-	.public ov65_0221FE44
-	.public ov65_0221FE6C
-	.public ov65_0221FEA4
-	.public ov65_0221FEA8
-	.public ov65_0221FEEC
-	.public ov65_0221FF4C
-	.public ov65_0221FF50
-	.public ov65_0221FFB4
-	.public ov65_022200EC
-	.public ov65_0222010C
-	.public ov65_02220144
-	.public WirelessTradeSelectMon_Exit
-	.public WirelessTradeSelectMon_Init
-	.public WirelessTradeSelectMon_Main
+	.public _0221FD2C
+	.public _0221FD30
 	.public _0221FD34
 	.public ov65_0221BFBC
 	.public ov65_0221BFEC
@@ -779,6 +685,30 @@
 	.public ov65_0221FC54
 	.public ov65_0221FCA0
 	.public ov65_0221FD20
+	.public ov65_0221FD3C
+	.public ov65_0221FD48
+	.public ov65_0221FD58
+	.public ov65_0221FD68
+	.public ov65_0221FD6C
+	.public ov65_0221FD70
+	.public ov65_0221FD80
+	.public ov65_0221FD9C
+	.public ov65_0221FDB8
+	.public ov65_0221FDD4
+	.public ov65_0221FDF0
+	.public ov65_0221FE0C
+	.public ov65_0221FE28
+	.public ov65_0221FE44
+	.public ov65_0221FE6C
+	.public ov65_0221FEA4
+	.public ov65_0221FEA8
+	.public ov65_0221FEEC
+	.public ov65_0221FF4C
+	.public ov65_0221FF50
+	.public ov65_0221FFB4
+	.public ov65_022200EC
+	.public ov65_0222010C
+	.public ov65_02220144
 	.include "overlay_65.inc"
 	.include "global.inc"
 

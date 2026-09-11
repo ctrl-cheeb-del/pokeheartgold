@@ -1,4 +1,46 @@
 	.include "asm/macros.inc"
+	.public _02012AA6
+	.public _02012ACA
+	.public _02012AEC
+	.public _02012AFA
+	.public _02012AFC
+	.public _02012B04
+	.public _02012B10
+	.public _02012B12
+	.public _02012B1A
+	.public _02012B5E
+	.public _02012B76
+	.public _02012B98
+	.public _02012BA8
+	.public _02012BAE
+	.public _02012BC4
+	.public _02012BD6
+	.public _02012BDA
+	.public _02012BDE
+	.public _02012BE4
+	.public _02012C4C
+	.public _02012C58
+	.public _02012C64
+	.public _02012C84
+	.public _02012CBA
+	.public _02012CD0
+	.public _02012CD2
+	.public _02012CD8
+	.public _02012D48
+	.public _02012D68
+	.public _02012DAC
+	.public _02012DB8
+	.public _02012DCC
+	.public _02012DCE
+	.public _02012DD4
+	.public sub_02012A90
+	.public sub_02012ACC
+	.public sub_02012B1C
+	.public sub_02012B80
+	.public sub_02012BE8
+	.public sub_02012C68
+	.public sub_02012CDC
+	.public sub_02012D4C
 	.include "unk_0201010C.inc"
 	.include "global.inc"
 	.text

@@ -1,0 +1,808 @@
+#include "constants/sndseq.h"
+#include "constants/moves.h"
+#include "constants/std_script.h"
+#include "constants/species.h"
+#include "constants/sprites.h"
+#include "constants/maps.h"
+#include "constants/mmodel.h"
+#include "constants/items.h"
+#include "msgdata/msg/msg_0096_D31R0201.h"
+#include "msgdata/msg/msg_0066_D23R0102.h"
+	.include "asm/macros.inc"
+	.public WeatherManager_ChangeWeather
+	.public WeatherManager_Delete
+	.public WeatherManager_New
+	.public WeatherManager_SetWeather
+	.public _021EB208
+	.public _021EB242
+	.public _021EB24E
+	.public _021EB270
+	.public _021EB278
+	.public _021EB28E
+	.public _021EB2A0
+	.public _021EB2B2
+	.public _021EB2B4
+	.public _021EB2C6
+	.public _021EB2D2
+	.public _021EB2DC
+	.public _021EB2E6
+	.public _021EB302
+	.public _021EB30E
+	.public _021EB314
+	.public _021EB318
+	.public _021EB336
+	.public _021EB342
+	.public _021EB354
+	.public _021EB35C
+	.public _021EB37A
+	.public _021EB382
+	.public _021EB394
+	.public _021EB39C
+	.public _021EB3B0
+	.public _021EB3C2
+	.public _021EB3D2
+	.public _021EB3EE
+	.public _021EB406
+	.public _021EB410
+	.public _021EB422
+	.public _021EB42A
+	.public _021EB43E
+	.public _021EB450
+	.public _021EB462
+	.public _021EB46A
+	.public _021EB488
+	.public _021EB490
+	.public _021EB4B2
+	.public _021EB4EE
+	.public _021EB564
+	.public _021EB568
+	.public _021EB574
+	.public _021EB5AC
+	.public _021EB60A
+	.public _021EB614
+	.public _021EB62E
+	.public _021EB638
+	.public _021EB644
+	.public _021EB648
+	.public _021EB684
+	.public _021EB688
+	.public _021EB69A
+	.public _021EB6F6
+	.public _021EB6FC
+	.public _021EB710
+	.public _021EB720
+	.public _021EB736
+	.public _021EB740
+	.public _021EB74A
+	.public _021EB758
+	.public _021EB766
+	.public _021EB786
+	.public _021EB796
+	.public _021EB7A0
+	.public _021EB7A8
+	.public _021EB7B2
+	.public _021EB7BA
+	.public _021EB7DA
+	.public _021EB7FA
+	.public _021EB800
+	.public _021EB80C
+	.public _021EB82C
+	.public _021EB866
+	.public _021EB8E8
+	.public _021EB8F0
+	.public _021EB90E
+	.public _021EB930
+	.public _021EB94A
+	.public _021EB962
+	.public _021EB97E
+	.public _021EB988
+	.public _021EB98A
+	.public _021EB996
+	.public _021EB9A0
+	.public _021EB9A4
+	.public _021EB9C8
+	.public _021EB9E0
+	.public _021EB9F4
+	.public _021EBA00
+	.public _021EBA04
+	.public _021EBA1C
+	.public _021EBA2A
+	.public _021EBA40
+	.public _021EBA64
+	.public _021EBA6E
+	.public _021EBA78
+	.public _021EBA92
+	.public _021EBAF8
+	.public _021EBAFE
+	.public _021EBB28
+	.public _021EBB2C
+	.public _021EBB30
+	.public _021EBB34
+	.public _021EBB38
+	.public _021EBB3C
+	.public _021EBB5E
+	.public _021EBB64
+	.public _021EBB8A
+	.public _021EBB8C
+	.public _021EBBCE
+	.public _021EBBF6
+	.public _021EBC10
+	.public _021EBC1E
+	.public _021EBC36
+	.public _021EBC48
+	.public _021EBC56
+	.public _021EBC64
+	.public _021EBC70
+	.public _021EBC8C
+	.public _021EBC90
+	.public _021EBC94
+	.public _021EBC98
+	.public _021EBC9C
+	.public _021EBCA0
+	.public _021EBCD8
+	.public _021EBCF2
+	.public _021EBD06
+	.public _021EBD08
+	.public _021EBD0C
+	.public _021EBD10
+	.public _021EBD14
+	.public _021EBD56
+	.public _021EBD68
+	.public _021EBD6C
+	.public _021EBD8C
+	.public _021EBD9E
+	.public _021EBDAC
+	.public _021EBDB4
+	.public _021EBDC4
+	.public _021EBDD2
+	.public _021EBDE2
+	.public _021EBDF0
+	.public _021EBE00
+	.public _021EBE0E
+	.public _021EBE1E
+	.public _021EBE36
+	.public _021EBE46
+	.public _021EBE48
+	.public _021EBE5C
+	.public _021EBE70
+	.public _021EBEB4
+	.public _021EBECE
+	.public _021EBEE0
+	.public _021EBEE8
+	.public _021EBEEC
+	.public _021EBF1A
+	.public _021EBF20
+	.public _021EBF4E
+	.public _021EBF54
+	.public _021EBF8C
+	.public _021EBF90
+	.public _021EBFC6
+	.public _021EBFCC
+	.public _021EC022
+	.public _021EC024
+	.public _021EC032
+	.public _021EC04C
+	.public _021EC060
+	.public _021EC06C
+	.public _021EC0B8
+	.public _021EC0BC
+	.public _021EC10C
+	.public _021EC110
+	.public _021EC14A
+	.public _021EC1B4
+	.public _021EC1B8
+	.public _021EC1CC
+	.public _021EC1D4
+	.public _021EC1DC
+	.public _021EC1F0
+	.public _021EC208
+	.public _021EC22A
+	.public _021EC234
+	.public _021EC250
+	.public _021EC2D6
+	.public _021EC2E2
+	.public _021EC2F2
+	.public _021EC2FC
+	.public _021EC398
+	.public _021EC3A0
+	.public _021EC3C8
+	.public _021EC3F0
+	.public _021EC416
+	.public _021EC43E
+	.public _021EC450
+	.public _021EC45C
+	.public _021EC460
+	.public _021EC464
+	.public _021EC468
+	.public _021EC46C
+	.public _021EC494
+	.public _021EC4A4
+	.public _021EC4C6
+	.public _021EC4EC
+	.public _021EC4F4
+	.public _021EC4FE
+	.public _021EC54C
+	.public _021EC552
+	.public _021EC554
+	.public _021EC564
+	.public _021EC56C
+	.public _021EC572
+	.public _021EC57E
+	.public _021EC584
+	.public _021EC586
+	.public _021EC596
+	.public _021EC59E
+	.public _021EC5A4
+	.public _021EC5D2
+	.public _021EC5F8
+	.public _021EC630
+	.public _021EC64C
+	.public _021EC666
+	.public _021EC674
+	.public _021EC77A
+	.public _021EC78C
+	.public _021EC7A4
+	.public _021EC7C4
+	.public _021EC7FA
+	.public _021EC804
+	.public _021EC824
+	.public _021EC83A
+	.public _021EC848
+	.public _021EC856
+	.public _021EC88A
+	.public _021EC896
+	.public _021EC8A6
+	.public _021EC8C6
+	.public _021EC8D2
+	.public _021EC8DC
+	.public _021EC8EC
+	.public _021EC90E
+	.public _021EC91A
+	.public _021EC920
+	.public _021EC926
+	.public _021EC92C
+	.public _021EC93A
+	.public _021EC940
+	.public _021EC946
+	.public _021EC948
+	.public _021EC96C
+	.public _021EC978
+	.public _021EC9E2
+	.public _021ECA02
+	.public _021ECA1A
+	.public _021ECA1C
+	.public _021ECA24
+	.public _021ECA66
+	.public _021ECA96
+	.public _021ECAB2
+	.public _021ECAE0
+	.public _021ECAF4
+	.public _021ECB14
+	.public _021ECB26
+	.public _021ECB28
+	.public _021ECB42
+	.public _021ECB5A
+	.public _021ECB60
+	.public _021ECB86
+	.public _021ECB8C
+	.public _021ECB90
+	.public _021ECB94
+	.public _021ECB98
+	.public _021ECB9C
+	.public _021ECBA0
+	.public _021ECBA4
+	.public _021ECBA8
+	.public _021ECBAC
+	.public _021ECBB0
+	.public _021ECBC6
+	.public _021ECC0C
+	.public _021ECC2C
+	.public _021ECC62
+	.public _021ECC68
+	.public _021ECC6C
+	.public _021ECC92
+	.public _021ECC96
+	.public _021ECCC8
+	.public _021ECCD8
+	.public _021ECCEA
+	.public _021ECCFC
+	.public _021ECD02
+	.public _021ECD28
+	.public _021ECD34
+	.public _021ECD94
+	.public _021ECDB4
+	.public _021ECDCC
+	.public _021ECDCE
+	.public _021ECDD6
+	.public _021ECE1C
+	.public _021ECE3E
+	.public _021ECE5A
+	.public _021ECE88
+	.public _021ECE96
+	.public _021ECEB6
+	.public _021ECEC8
+	.public _021ECECA
+	.public _021ECEE4
+	.public _021ECEFC
+	.public _021ECF02
+	.public _021ECF28
+	.public _021ECF2C
+	.public _021ECF30
+	.public _021ECF34
+	.public _021ECF38
+	.public _021ECF3C
+	.public _021ECF40
+	.public _021ECF44
+	.public _021ECF48
+	.public _021ECF90
+	.public _021ECFBE
+	.public _021ED060
+	.public _021ED064
+	.public _021ED068
+	.public _021ED06C
+	.public _021ED09A
+	.public _021ED0BE
+	.public _021ED0DA
+	.public _021ED0E6
+	.public _021ED110
+	.public _021ED11C
+	.public _021ED172
+	.public _021ED192
+	.public _021ED1AA
+	.public _021ED1AC
+	.public _021ED1B4
+	.public _021ED1F6
+	.public _021ED212
+	.public _021ED22E
+	.public _021ED25C
+	.public _021ED26A
+	.public _021ED28A
+	.public _021ED2B4
+	.public _021ED2CC
+	.public _021ED2D2
+	.public _021ED2F8
+	.public _021ED2FC
+	.public _021ED300
+	.public _021ED304
+	.public _021ED308
+	.public _021ED30C
+	.public _021ED310
+	.public _021ED314
+	.public _021ED318
+	.public _021ED330
+	.public _021ED33E
+	.public _021ED370
+	.public _021ED374
+	.public _021ED406
+	.public _021ED412
+	.public _021ED424
+	.public _021ED42E
+	.public _021ED448
+	.public _021ED46E
+	.public _021ED492
+	.public _021ED49E
+	.public _021ED4CE
+	.public _021ED4E8
+	.public _021ED50E
+	.public _021ED518
+	.public _021ED532
+	.public _021ED53C
+	.public _021ED54C
+	.public _021ED54E
+	.public _021ED55C
+	.public _021ED574
+	.public _021ED57A
+	.public _021ED580
+	.public _021ED59A
+	.public _021ED5A6
+	.public _021ED5B2
+	.public _021ED602
+	.public _021ED630
+	.public _021ED656
+	.public _021ED670
+	.public _021ED68E
+	.public _021ED6A4
+	.public _021ED6B8
+	.public _021ED6BA
+	.public _021ED6DE
+	.public _021ED6F6
+	.public _021ED6FC
+	.public _021ED700
+	.public _021ED704
+	.public _021ED708
+	.public _021ED70C
+	.public _021ED72E
+	.public _021ED73A
+	.public _021ED746
+	.public _021ED77A
+	.public _021ED79E
+	.public _021ED7A8
+	.public _021ED7DC
+	.public _021ED800
+	.public _021ED81A
+	.public _021ED82E
+	.public _021ED836
+	.public _021ED85A
+	.public _021ED884
+	.public _021ED898
+	.public _021ED8F4
+	.public _021ED8FA
+	.public _021ED900
+	.public _021ED904
+	.public _021ED908
+	.public _021ED90C
+	.public _021ED910
+	.public _021ED914
+	.public _021ED918
+	.public _021ED91C
+	.public _021ED920
+	.public _021ED94C
+	.public _021ED958
+	.public _021ED98C
+	.public _021ED9B2
+	.public _021ED9BC
+	.public _021ED9F0
+	.public _021EDA16
+	.public _021EDA2A
+	.public _021EDA34
+	.public _021EDA3A
+	.public _021EDA40
+	.public _021EDA44
+	.public _021EDA48
+	.public _021EDA4C
+	.public _021EDA70
+	.public _021EDA74
+	.public _021EDA78
+	.public _021EDAA4
+	.public _021EDAA8
+	.public _021EDAAC
+	.public _021EDAB0
+	.public _021EDAC6
+	.public _021EDADC
+	.public _021EDAF8
+	.public ov01_021EB1E8
+	.public ov01_021EB31C
+	.public ov01_021EB320
+	.public ov01_021EB3F0
+	.public ov01_021EB4B4
+	.public ov01_021EB4B8
+	.public ov01_021EB56C
+	.public ov01_021EB578
+	.public ov01_021EB5A4
+	.public ov01_021EB5F4
+	.public ov01_021EB64C
+	.public ov01_021EB68C
+	.public ov01_021EB700
+	.public ov01_021EB804
+	.public ov01_021EB818
+	.public ov01_021EB830
+	.public ov01_021EB840
+	.public ov01_021EB86C
+	.public ov01_021EB898
+	.public ov01_021EB968
+	.public ov01_021EB9A8
+	.public ov01_021EBA08
+	.public ov01_021EBA44
+	.public ov01_021EBB40
+	.public ov01_021EBB68
+	.public ov01_021EBB90
+	.public ov01_021EBCA4
+	.public ov01_021EBD18
+	.public ov01_021EBD34
+	.public ov01_021EBD70
+	.public ov01_021EBE4C
+	.public ov01_021EBEB8
+	.public ov01_021EBEF0
+	.public ov01_021EBF24
+	.public ov01_021EBF58
+	.public ov01_021EBF94
+	.public ov01_021EBFD0
+	.public ov01_021EC028
+	.public ov01_021EC058
+	.public ov01_021EC078
+	.public ov01_021EC0C0
+	.public ov01_021EC114
+	.public ov01_021EC1BC
+	.public ov01_021EC1E4
+	.public ov01_021EC1F4
+	.public ov01_021EC240
+	.public ov01_021EC29C
+	.public ov01_021EC2CC
+	.public ov01_021EC2E4
+	.public ov01_021EC300
+	.public ov01_021EC304
+	.public ov01_021EC31C
+	.public ov01_021EC470
+	.public ov01_021EC4A8
+	.public ov01_021EC504
+	.public ov01_021EC52C
+	.public ov01_021EC538
+	.public ov01_021EC5FC
+	.public ov01_021EC650
+	.public ov01_021EC678
+	.public ov01_021EC6A4
+	.public ov01_021EC728
+	.public ov01_021EC774
+	.public ov01_021EC790
+	.public ov01_021EC7AC
+	.public ov01_021EC7C8
+	.public ov01_021EC7E8
+	.public ov01_021EC828
+	.public ov01_021EC85C
+	.public ov01_021EC8D8
+	.public ov01_021EC8F8
+	.public ov01_021EC94C
+	.public ov01_021ECBB4
+	.public ov01_021ECC70
+	.public ov01_021ECD08
+	.public ov01_021ECF4C
+	.public ov01_021ED070
+	.public ov01_021ED0F0
+	.public ov01_021ED31C
+	.public ov01_021ED44C
+	.public ov01_021ED474
+	.public ov01_021ED584
+	.public ov01_021ED710
+	.public ov01_021ED924
+	.public ov01_021EDA50
+	.public ov01_021EDA7C
+	.public ov01_021EDAB4
+	.public ov01_021EDAE0
+	.public ov01_0220673C
+	.public ov01_0220674C
+	.public ov01_0220675C
+	.public ov01_022098B0
+	.include "overlay_01_021EB1E8.inc"
+	.include "global.inc"
+
+	.text
+	.public WeatherManager_ChangeWeather
+	.public WeatherManager_Delete
+	.public WeatherManager_New
+	.public WeatherManager_SetWeather
+	.public ov01_021EB1E8
+	.public ov01_021EB31C
+	.public ov01_021EB4B4
+	.public ov01_021EB56C
+	.public ov01_021EB578
+	.public ov01_021EB5A4
+	.public ov01_021EB64C
+	.public ov01_021EB804
+	.public ov01_021EB818
+	.public ov01_021EB830
+	.public ov01_021EB840
+	.public ov01_021EB86C
+	.public ov01_021EB968
+	.public ov01_021EBA08
+	.public ov01_021EBB40
+	.public ov01_021EBB68
+	.public ov01_021EBD18
+	.public ov01_021EBD34
+	.public ov01_021EBEB8
+	.public ov01_021EBEF0
+	.public ov01_021EBF24
+	.public ov01_021EBF58
+	.public ov01_021EBF94
+	.public ov01_021EBFD0
+	.public ov01_021EC028
+	.public ov01_021EC058
+	.public ov01_021EC1BC
+	.public ov01_021EC1E4
+	.public ov01_021EC1F4
+	.public ov01_021EC29C
+	.public ov01_021EC2CC
+	.public ov01_021EC2E4
+	.public ov01_021EC300
+	.public ov01_021EC304
+	.public ov01_021EC470
+	.public ov01_021EC504
+	.public ov01_021EC52C
+	.public ov01_021EC650
+	.public ov01_021EC678
+	.public ov01_021EC728
+	.public ov01_021EC774
+	.public ov01_021EC790
+	.public ov01_021EC7AC
+	.public ov01_021EC7C8
+	.public ov01_021EC7E8
+	.public ov01_021EC828
+	.public ov01_021EC8D8
+	.public ov01_021EC8F8
+	.public ov01_021ED44C
+	.public ov01_021EDA50
+	.public ov01_021EDA7C
+	.public ov01_021EDAB4
+	.public ov01_021EDAE0
+
+	thumb_func_start ov01_021EB68C
+ov01_021EB68C: ; 0x021EB68C
+	push {r3, r4, r5, lr}
+	sub sp, #8
+	add r4, r0, #0
+	ldr r0, [r4]
+	cmp r0, #0
+	beq _021EB6F6
+	mov r5, #0
+_021EB69A:
+	ldr r0, [r4]
+	add r1, r5, #0
+	bl ov01_021EBB90
+	add r5, r5, #1
+	cmp r5, #0xe
+	blt _021EB69A
+	mov r2, #0
+	str r2, [sp]
+	str r2, [sp, #4]
+	mov r0, #0x41
+	ldr r1, [r4]
+	lsl r0, r0, #2
+	ldr r0, [r1, r0]
+	mov r1, #1
+	ldr r0, [r0, #0x4c]
+	add r3, r2, #0
+	bl ov01_021EA864
+	ldr r1, _021EB6FC ; =0x04000008
+	mov r0, #3
+	ldrh r2, [r1]
+	bic r2, r0
+	mov r0, #1
+	orr r0, r2
+	strh r0, [r1]
+	mov r0, #4
+	mov r1, #0
+	bl GfGfx_EngineATogglePlanes
+	ldr r0, [r4]
+	add r0, #8
+	bl ov01_021EB5A4
+	mov r0, #0x42
+	ldr r1, [r4]
+	lsl r0, r0, #2
+	ldr r0, [r1, r0]
+	bl NARC_Delete
+	ldr r1, [r4]
+	mov r0, #4
+	bl Heap_FreeExplicit
+	mov r0, #0
+	str r0, [r4]
+_021EB6F6:
+	add sp, #8
+	pop {r3, r4, r5, pc}
+	nop
+_021EB6FC: .word 0x04000008
+	thumb_func_end ov01_021EB68C
+
+
+	thumb_func_start ov01_021EB700
+ov01_021EB700: ; 0x021EB700
+	push {r4, r5, r6, lr}
+	add r4, r2, #0
+	add r5, r0, #0
+	mov r6, #1
+	cmp r4, #0xe
+	ble _021EB710
+	mov r0, #0
+	pop {r4, r5, r6, pc}
+_021EB710:
+	cmp r1, #0xa
+	bhi _021EB7FA
+	add r1, r1, r1
+	add r1, pc
+	ldrh r1, [r1, #6]
+	lsl r1, r1, #0x10
+	asr r1, r1, #0x10
+	add pc, r1
+_021EB720: ; jump table
+	.short _021EB736 - _021EB720 - 2 ; case 0
+	.short _021EB740 - _021EB720 - 2 ; case 1
+	.short _021EB74A - _021EB720 - 2 ; case 2
+	.short _021EB758 - _021EB720 - 2 ; case 3
+	.short _021EB766 - _021EB720 - 2 ; case 4
+	.short _021EB796 - _021EB720 - 2 ; case 5
+	.short _021EB7A0 - _021EB720 - 2 ; case 6
+	.short _021EB7A8 - _021EB720 - 2 ; case 7
+	.short _021EB7B2 - _021EB720 - 2 ; case 8
+	.short _021EB7BA - _021EB720 - 2 ; case 9
+	.short _021EB7DA - _021EB720 - 2 ; case 10
+_021EB736:
+	add r1, r4, #0
+	bl ov01_021EB9A8
+	add r6, r0, #0
+	b _021EB7FA
+_021EB740:
+	add r1, r4, #0
+	bl ov01_021EBA08
+	add r6, r0, #0
+	b _021EB7FA
+_021EB74A:
+	add r1, r4, #0
+	mov r2, #0
+	add r3, r6, #0
+	bl ov01_021EBA44
+	add r6, r0, #0
+	b _021EB7FA
+_021EB758:
+	add r1, r4, #0
+	mov r2, #2
+	add r3, r6, #0
+	bl ov01_021EBA44
+	add r6, r0, #0
+	b _021EB7FA
+_021EB766:
+	mov r0, #0x41
+	lsl r0, r0, #2
+	ldr r0, [r5, r0]
+	ldr r0, [r0, #0x4c]
+	bl ov01_021EA854
+	cmp r0, #1
+	bne _021EB786
+	add r0, r5, #0
+	add r1, r4, #0
+	mov r2, #0
+	mov r3, #2
+	bl ov01_021EBA44
+	add r6, r0, #0
+	b _021EB7FA
+_021EB786:
+	add r0, r5, #0
+	add r1, r4, #0
+	mov r2, #0
+	add r3, r6, #0
+	bl ov01_021EBA44
+	add r6, r0, #0
+	b _021EB7FA
+_021EB796:
+	add r1, r4, #0
+	add r2, r6, #0
+	bl ov01_021EBB40
+	b _021EB7FA
+_021EB7A0:
+	add r1, r4, #0
+	bl ov01_021EBB68
+	b _021EB7FA
+_021EB7A8:
+	add r1, r4, #0
+	mov r2, #0
+	bl ov01_021EBB40
+	b _021EB7FA
+_021EB7B2:
+	add r1, r4, #0
+	bl ov01_021EBB90
+	b _021EB7FA
+_021EB7BA:
+	mov r0, #0x1c
+	ldr r1, [r5]
+	mul r0, r4
+	add r0, r1, r0
+	ldr r2, [r0, #8]
+	cmp r2, #0
+	beq _021EB7FA
+	ldr r0, _021EB800 ; =0x00000F5C
+	ldr r1, [r2, r0]
+	cmp r1, #1
+	bne _021EB7FA
+	add r0, r0, #4
+	ldrh r0, [r2, r0]
+	bl PlaySE
+	b _021EB7FA
+_021EB7DA:
+	mov r0, #0x1c
+	ldr r1, [r5]
+	mul r0, r4
+	add r0, r1, r0
+	ldr r2, [r0, #8]
+	cmp r2, #0
+	beq _021EB7FA
+	ldr r0, _021EB800 ; =0x00000F5C
+	ldr r1, [r2, r0]
+	cmp r1, #1
+	bne _021EB7FA
+	add r0, r0, #4
+	ldrh r0, [r2, r0]
+	mov r1, #0
+	bl StopSE
+_021EB7FA:
+	add r0, r6, #0
+	pop {r4, r5, r6, pc}
+	nop
+_021EB800: .word 0x00000F5C
+	thumb_func_end ov01_021EB700

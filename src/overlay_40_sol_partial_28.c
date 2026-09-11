@@ -1,0 +1,30 @@
+#include "overlay_40_sol_partial_internal.h"
+
+#define PTR(p, off)  (*(void **)((u8 *)(p) + (off)))
+#define WORD(p, off) (*(u32 *)((u8 *)(p) + (off)))
+#define HALF(p, off) (*(u16 *)((u8 *)(p) + (off)))
+
+#define TRIGGER_FN(name, off)                               \
+    int name(void *p) {                                     \
+        void *inner = PTR(p, 0x860);                        \
+        TouchHitboxController_IsTriggered(PTR(inner, off)); \
+        return 0;                                           \
+    }
+
+#define STEP_FN(name, check, state)  \
+    int name(void *p) {              \
+        if (check(p)) {              \
+            ov40_0222BF80(p, state); \
+        }                            \
+        return 0;                    \
+    }
+
+BOOL ov40_022361C8(u16 *p) {
+    int i;
+    for (i = 0; i < 30; i++, p++) {
+        if (p[0x14] != 0) {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}

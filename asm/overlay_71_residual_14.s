@@ -1,0 +1,1470 @@
+	.include "asm/macros.inc"
+	.public TradeSequence_Exit
+	.public TradeSequence_Init
+	.public TradeSequence_Main
+	.public _02246970
+	.public _022469A6
+	.public _022469EE
+	.public _02246A20
+	.public _02246A2C
+	.public _02246A44
+	.public _02246B06
+	.public _02246B0C
+	.public _02246B14
+	.public _02246B18
+	.public _02246B1C
+	.public _02246B20
+	.public _02246B24
+	.public _02246B52
+	.public _02246BEC
+	.public _02246C24
+	.public _02246C2C
+	.public _02246C34
+	.public _02246C38
+	.public _02246C3C
+	.public _02246C40
+	.public _02246C44
+	.public _02246C64
+	.public _02246C68
+	.public _02246CA6
+	.public _02246CD6
+	.public _02246D28
+	.public _02246D30
+	.public _02246D34
+	.public _02246D38
+	.public _02246D3C
+	.public _02246D52
+	.public _02246D66
+	.public _02246D78
+	.public _02246D9A
+	.public _02246DD8
+	.public _02246E1A
+	.public _02246E5C
+	.public _02246E7C
+	.public _02246E80
+	.public _02246E94
+	.public _02246EA0
+	.public _02246EDE
+	.public _02246EE0
+	.public _02246F52
+	.public _02246F58
+	.public _02246F5C
+	.public _02246F8E
+	.public _02246FC2
+	.public _02246FD0
+	.public _02246FEA
+	.public _02246FF8
+	.public _02246FFC
+	.public _02247034
+	.public _02247058
+	.public _02247060
+	.public _02247064
+	.public _0224708A
+	.public _02247096
+	.public _022470A0
+	.public _022470AC
+	.public _022470B4
+	.public _022470D0
+	.public _02247120
+	.public _0224713C
+	.public _02247140
+	.public _02247164
+	.public _02247166
+	.public _022471A0
+	.public _022471B8
+	.public _02247202
+	.public _0224720C
+	.public _0224720E
+	.public _02247228
+	.public _0224722C
+	.public _02247242
+	.public _02247250
+	.public _02247252
+	.public _022472BA
+	.public _022472C0
+	.public _0224730E
+	.public _0224731C
+	.public _0224737C
+	.public _022473B8
+	.public _022473CC
+	.public _022473D8
+	.public _022473EC
+	.public _02247402
+	.public _02247412
+	.public _02247418
+	.public _0224741C
+	.public _02247420
+	.public _02247434
+	.public _02247444
+	.public _02247448
+	.public _02247482
+	.public _02247492
+	.public _022474A6
+	.public _022474B8
+	.public _022474EA
+	.public _022474F8
+	.public _02247502
+	.public _022475AC
+	.public _022475C0
+	.public _0224760C
+	.public _02247668
+	.public _0224766A
+	.public _02247674
+	.public _02247676
+	.public _022476AC
+	.public _02247722
+	.public _022477E8
+	.public _02247818
+	.public _02247828
+	.public _02247838
+	.public _02247848
+	.public _022478B4
+	.public _0224791E
+	.public _02247980
+	.public _0224798C
+	.public _022479B4
+	.public _022479BE
+	.public _022479C4
+	.public _02247C0C
+	.public _02247C10
+	.public _02247C14
+	.public _02247C18
+	.public _02247C1C
+	.public _02247C20
+	.public _02247C24
+	.public _02247C28
+	.public _02247C2C
+	.public _02247C30
+	.public _02247C5A
+	.public _02247C7A
+	.public _02247C84
+	.public _02247C90
+	.public _02247C9A
+	.public _02247C9C
+	.public _02247CBC
+	.public _02247CC0
+	.public _02247D04
+	.public _02247D80
+	.public _02247DB4
+	.public _02247DD4
+	.public _02247DE4
+	.public _02247E06
+	.public _02247E10
+	.public _02247E2A
+	.public _02247E50
+	.public _02247E7C
+	.public _02247E8E
+	.public _02247EAE
+	.public _02247EC6
+	.public _02247ECC
+	.public _02247F78
+	.public _02247F7C
+	.public _02247F80
+	.public _02247F84
+	.public _02247F88
+	.public _02247F8C
+	.public _02247F90
+	.public _02247F94
+	.public _02247F98
+	.public _022480A4
+	.public _022480AE
+	.public _02248106
+	.public _02248108
+	.public _0224810C
+	.public _0224811A
+	.public _0224813C
+	.public _02248162
+	.public _02248178
+	.public _022481BC
+	.public _022481C0
+	.public _022481C4
+	.public _022481D2
+	.public _022481E8
+	.public _02248208
+	.public _0224822E
+	.public _0224825C
+	.public _02248272
+	.public _02248278
+	.public _02248280
+	.public _022482E2
+	.public _022482E4
+	.public _022482E8
+	.public _0224834E
+	.public _02248354
+	.public _02248386
+	.public _02248394
+	.public _022483A4
+	.public _022483D0
+	.public _022483DA
+	.public _022483E0
+	.public _02248404
+	.public _0224844C
+	.public _02248462
+	.public _0224846E
+	.public _0224847A
+	.public _02248480
+	.public _0224849C
+	.public _022484A6
+	.public _022484B2
+	.public _022484F6
+	.public _0224850C
+	.public _02248522
+	.public _0224852A
+	.public _0224854A
+	.public _02248554
+	.public _0224856A
+	.public _02248588
+	.public _022485A4
+	.public _022485B8
+	.public _022485E6
+	.public _022485F4
+	.public _022485FC
+	.public _02248600
+	.public _0224880A
+	.public _02248880
+	.public _02248884
+	.public _02248888
+	.public _0224888C
+	.public _02248890
+	.public _02248894
+	.public _02248898
+	.public _022488B2
+	.public _022489C4
+	.public _022489C8
+	.public _022489CC
+	.public _022489D0
+	.public _022489D4
+	.public _022489D8
+	.public _022489DC
+	.public _022489E0
+	.public _022489E4
+	.public _022489E8
+	.public _022489EC
+	.public _022489F0
+	.public _022489F4
+	.public _02248A06
+	.public _02248AA2
+	.public _02248B20
+	.public _02248B2C
+	.public _02248B36
+	.public _02248B40
+	.public _02248BB4
+	.public _02248BB8
+	.public _02248BD8
+	.public _02248C1C
+	.public _02248C20
+	.public _02248C58
+	.public _02248C66
+	.public _02248CA6
+	.public _02248D0A
+	.public _02248D78
+	.public _02248D7C
+	.public _02248E02
+	.public _02248E2E
+	.public _02248E70
+	.public _02248E74
+	.public _02248E9A
+	.public _02248F38
+	.public _02248F84
+	.public _02248F88
+	.public _02248FBA
+	.public _02248FBE
+	.public _02249000
+	.public _0224902A
+	.public _0224905E
+	.public _02249068
+	.public _02249090
+	.public _022490B6
+	.public _0224911E
+	.public _0224914A
+	.public _02249156
+	.public _022491E4
+	.public _02249200
+	.public _02249204
+	.public _02249252
+	.public _022492F4
+	.public _022492F8
+	.public _0224933C
+	.public _02249354
+	.public _0224939A
+	.public _022493B0
+	.public _022493B4
+	.public _022493F8
+	.public _02249410
+	.public _02249446
+	.public _0224945C
+	.public _0224949C
+	.public _022494CA
+	.public _022494FE
+	.public _02249524
+	.public _0224952E
+	.public _02249534
+	.public _02249554
+	.public _02249598
+	.public _0224959C
+	.public _022495BA
+	.public _022495C4
+	.public _022495D0
+	.public _022495FA
+	.public _02249624
+	.public _0224964E
+	.public _0224965C
+	.public _02249664
+	.public _02249668
+	.public _0224966C
+	.public _022496BA
+	.public _022496C2
+	.public _022496CE
+	.public _022496DA
+	.public _022496E6
+	.public _022496F0
+	.public _022497B4
+	.public _022497B8
+	.public _022497BC
+	.public _022497C0
+	.public _022497C4
+	.public _022498B4
+	.public _022498B8
+	.public _022498BC
+	.public _022498C0
+	.public _022498C4
+	.public _022498C8
+	.public _022498CC
+	.public _022498D0
+	.public _022498D4
+	.public _022498D8
+	.public _022498DC
+	.public _022498EC
+	.public _0224997E
+	.public _022499A2
+	.public _02249A34
+	.public _02249A38
+	.public _02249A3C
+	.public _02249A40
+	.public _02249A44
+	.public _02249A48
+	.public _02249A4C
+	.public _02249A5A
+	.public _02249A96
+	.public _02249AB2
+	.public _02249AEC
+	.public _02249B74
+	.public _02249B7C
+	.public _02249B88
+	.public _02249B92
+	.public _02249BC6
+	.public _02249BE0
+	.public _02249C04
+	.public _02249C4A
+	.public _02249C7A
+	.public _02249C8C
+	.public _02249CE4
+	.public _02249CE8
+	.public _02249CEC
+	.public _02249D0E
+	.public _02249D24
+	.public _02249D4C
+	.public _02249D50
+	.public _02249D54
+	.public _02249D7C
+	.public _02249D98
+	.public _02249DCA
+	.public _02249DF6
+	.public _02249E04
+	.public _02249E0C
+	.public _02249E10
+	.public _02249E14
+	.public _02249E18
+	.public _02249E1C
+	.public _02249E20
+	.public _02249E52
+	.public _0224A064
+	.public _0224A068
+	.public _0224A06C
+	.public _0224A070
+	.public _0224A074
+	.public _0224A078
+	.public _0224A07C
+	.public _0224A0EC
+	.public _0224A124
+	.public _0224A128
+	.public _0224A15A
+	.public _0224A180
+	.public _0224A184
+	.public _0224A188
+	.public _0224A1C0
+	.public _0224A1DE
+	.public _0224A1E6
+	.public _0224A206
+	.public _0224A230
+	.public _0224A25C
+	.public _0224A26A
+	.public _0224A270
+	.public _0224A274
+	.public _0224A2C2
+	.public _0224A2CA
+	.public _0224A2D6
+	.public _0224A2E2
+	.public _0224A2EE
+	.public _0224A2F8
+	.public _0224A3C8
+	.public _0224A3CC
+	.public _0224A3D0
+	.public _0224A3D4
+	.public _0224A4D0
+	.public _0224A4D4
+	.public _0224A4D8
+	.public _0224A4DC
+	.public _0224A4E0
+	.public _0224A4E4
+	.public _0224A4E8
+	.public _0224A4EC
+	.public _0224A4F0
+	.public _0224A4F4
+	.public _0224A4F8
+	.public _0224A4FC
+	.public _0224A50C
+	.public _0224A59E
+	.public _0224A5C2
+	.public _0224A664
+	.public _0224A668
+	.public _0224A66C
+	.public _0224A670
+	.public _0224A674
+	.public _0224A678
+	.public _0224A67C
+	.public _0224A680
+	.public _0224A68E
+	.public _0224A6D4
+	.public _0224A6FC
+	.public _0224A730
+	.public _0224A73A
+	.public _0224A744
+	.public _0224A7BA
+	.public _0224A7CC
+	.public _0224A7DE
+	.public _0224A7F0
+	.public _0224A7F8
+	.public _0224A81E
+	.public _0224A836
+	.public _0224A858
+	.public _0224A892
+	.public _0224A8A4
+	.public _0224A8CE
+	.public _0224A910
+	.public _0224A914
+	.public _0224A918
+	.public _0224A91C
+	.public _0224A94E
+	.public _0224A96E
+	.public _0224A978
+	.public _0224A982
+	.public _0224A988
+	.public _0224A9B0
+	.public _0224A9BA
+	.public _0224A9C0
+	.public _0224A9F6
+	.public _0224AA24
+	.public _0224AA40
+	.public _0224AA4E
+	.public _0224AA6C
+	.public _0224AA86
+	.public _0224AA98
+	.public _0224AAB0
+	.public _0224AAD4
+	.public _0224AAE8
+	.public _0224AAF2
+	.public _0224AB10
+	.public _0224AB38
+	.public _0224AB62
+	.public _0224AB76
+	.public _0224AD52
+	.public _0224AD94
+	.public _0224AD98
+	.public _0224AD9C
+	.public _0224ADA0
+	.public _0224ADA4
+	.public _0224ADA8
+	.public _0224ADAC
+	.public _0224ADC0
+	.public _0224AEC8
+	.public _0224AECC
+	.public _0224AED0
+	.public _0224AED4
+	.public _0224AED8
+	.public _0224AEDC
+	.public _0224AEE0
+	.public _0224AEE4
+	.public _0224AEE8
+	.public _0224AEEC
+	.public _0224AEF0
+	.public _0224AF06
+	.public _0224AF48
+	.public _0224AF4C
+	.public _0224AF50
+	.public _0224AF54
+	.public _0224AF98
+	.public _0224AFD2
+	.public _0224B020
+	.public _0224B024
+	.public _0224B04E
+	.public _0224B082
+	.public _0224B0DC
+	.public _0224B0E0
+	.public _0224B0E4
+	.public _0224B108
+	.public _0224B136
+	.public _0224B194
+	.public _0224B1C8
+	.public _0224B1E2
+	.public _0224B1F8
+	.public _0224B220
+	.public _0224B22A
+	.public _0224B230
+	.public _0224B272
+	.public _0224B430
+	.public _0224B434
+	.public _0224B438
+	.public _0224B43C
+	.public _0224B440
+	.public _0224B444
+	.public _0224B448
+	.public _0224B44C
+	.public _0224B476
+	.public _0224B496
+	.public _0224B4A0
+	.public _0224B4AE
+	.public _0224B4DC
+	.public _0224B504
+	.public _0224B55A
+	.public _0224B566
+	.public _0224B576
+	.public _0224B596
+	.public _0224B5A2
+	.public _0224B5AE
+	.public _0224B5B8
+	.public _0224B5BA
+	.public _0224B5DA
+	.public _0224B5DE
+	.public _0224B62C
+	.public _0224B68E
+	.public _0224B6AE
+	.public _0224B6D8
+	.public _0224B6E6
+	.public _0224B6EC
+	.public _0224B702
+	.public _0224B710
+	.public _0224B71A
+	.public _0224B7C8
+	.public _0224B7CC
+	.public _0224B7D0
+	.public _0224B7D4
+	.public _0224B7D8
+	.public _0224B7DC
+	.public _0224B7E0
+	.public _0224B7E4
+	.public _0224B7E8
+	.public _0224B8F4
+	.public _0224B8FE
+	.public _0224B956
+	.public _0224B958
+	.public _0224B95C
+	.public _0224B96A
+	.public _0224B98C
+	.public _0224B9B2
+	.public _0224B9C8
+	.public _0224BA3A
+	.public _0224BA3E
+	.public _0224BA40
+	.public _0224BA44
+	.public _0224BA62
+	.public _0224BA86
+	.public _0224BA9C
+	.public _0224BAB8
+	.public _0224BADA
+	.public _0224BAE6
+	.public _0224BB06
+	.public _0224BB16
+	.public _0224BB2E
+	.public _0224BB44
+	.public _0224BB8C
+	.public _0224BB9E
+	.public _0224BBBA
+	.public _0224BBCA
+	.public _0224BBCC
+	.public _0224BBD0
+	.public _0224BBD4
+	.public _0224C020
+	.public _0224C040
+	.public ov71_02246B28
+	.public ov71_02246C48
+	.public ov71_02246C6C
+	.public ov71_02246D40
+	.public ov71_02246D54
+	.public ov71_02246D9C
+	.public ov71_02246E84
+	.public ov71_02246EAC
+	.public ov71_02246F60
+	.public ov71_02246F90
+	.public ov71_02247000
+	.public ov71_02247068
+	.public ov71_022470DC
+	.public ov71_02247124
+	.public ov71_02247230
+	.public ov71_022472C4
+	.public ov71_022472FC
+	.public ov71_02247320
+	.public ov71_02247340
+	.public ov71_02247384
+	.public ov71_02247388
+	.public ov71_0224738C
+	.public ov71_02247390
+	.public ov71_02247398
+	.public ov71_022473A0
+	.public ov71_022473A8
+	.public ov71_022473B0
+	.public ov71_022473BC
+	.public ov71_022473C4
+	.public ov71_022473D0
+	.public ov71_022473DC
+	.public ov71_022473E4
+	.public ov71_022473F0
+	.public ov71_02247424
+	.public ov71_0224744C
+	.public ov71_02247498
+	.public ov71_022474CC
+	.public ov71_02247514
+	.public ov71_022475C4
+	.public ov71_022475F8
+	.public ov71_02247610
+	.public ov71_022476B4
+	.public ov71_022476C4
+	.public ov71_022476D4
+	.public ov71_022476EC
+	.public ov71_02247704
+	.public ov71_02247708
+	.public ov71_02247730
+	.public ov71_02247738
+	.public ov71_022477EC
+	.public ov71_0224780C
+	.public ov71_0224781C
+	.public ov71_0224782C
+	.public ov71_0224783C
+	.public ov71_0224784C
+	.public ov71_022478B8
+	.public ov71_022478C8
+	.public ov71_02247924
+	.public ov71_02247990
+	.public ov71_022479C8
+	.public ov71_02247A10
+	.public ov71_02247C34
+	.public ov71_02247C60
+	.public ov71_02247DEC
+	.public ov71_02247ED0
+	.public ov71_02247F9C
+	.public ov71_02247FF8
+	.public ov71_0224809C
+	.public ov71_022480C0
+	.public ov71_02248110
+	.public ov71_02248120
+	.public ov71_02248140
+	.public ov71_0224817C
+	.public ov71_022481C8
+	.public ov71_022481D8
+	.public ov71_022481EC
+	.public ov71_0224820C
+	.public ov71_022482EC
+	.public ov71_02248358
+	.public ov71_022483AC
+	.public ov71_022483E4
+	.public ov71_02248408
+	.public ov71_0224843C
+	.public ov71_02248484
+	.public ov71_02248530
+	.public ov71_02248604
+	.public ov71_0224889C
+	.public ov71_022488E4
+	.public ov71_022489F8
+	.public ov71_02248A08
+	.public ov71_02248B24
+	.public ov71_02248B54
+	.public ov71_02248B60
+	.public ov71_02248BBC
+	.public ov71_02248C24
+	.public ov71_02248CF4
+	.public ov71_02248D0C
+	.public ov71_02248D80
+	.public ov71_02248E04
+	.public ov71_02248E30
+	.public ov71_02248E78
+	.public ov71_02248EB4
+	.public ov71_02248F8C
+	.public ov71_02248FC8
+	.public ov71_02249004
+	.public ov71_0224903C
+	.public ov71_02249184
+	.public ov71_02249208
+	.public ov71_02249254
+	.public ov71_02249260
+	.public ov71_0224926C
+	.public ov71_022492FC
+	.public ov71_02249358
+	.public ov71_022493B8
+	.public ov71_02249414
+	.public ov71_02249460
+	.public ov71_022494A0
+	.public ov71_022494D0
+	.public ov71_02249500
+	.public ov71_02249538
+	.public ov71_02249558
+	.public ov71_022495A0
+	.public ov71_02249670
+	.public ov71_022497C8
+	.public ov71_022497E0
+	.public ov71_022498E0
+	.public ov71_022498F0
+	.public ov71_02249970
+	.public ov71_02249988
+	.public ov71_02249990
+	.public ov71_022499A4
+	.public ov71_02249A50
+	.public ov71_02249A60
+	.public ov71_02249A98
+	.public ov71_02249B64
+	.public ov71_02249C90
+	.public ov71_02249C98
+	.public ov71_02249CF0
+	.public ov71_02249D14
+	.public ov71_02249D28
+	.public ov71_02249D58
+	.public ov71_02249D80
+	.public ov71_02249E24
+	.public ov71_02249E6C
+	.public ov71_0224A080
+	.public ov71_0224A0B8
+	.public ov71_0224A0F0
+	.public ov71_0224A12C
+	.public ov71_0224A15C
+	.public ov71_0224A18C
+	.public ov71_0224A1C4
+	.public ov71_0224A278
+	.public ov71_0224A3D8
+	.public ov71_0224A3F0
+	.public ov71_0224A500
+	.public ov71_0224A510
+	.public ov71_0224A590
+	.public ov71_0224A5A8
+	.public ov71_0224A5B0
+	.public ov71_0224A5C4
+	.public ov71_0224A684
+	.public ov71_0224A694
+	.public ov71_0224A6D8
+	.public ov71_0224A7D0
+	.public ov71_0224A8A8
+	.public ov71_0224A8B0
+	.public ov71_0224A920
+	.public ov71_0224A954
+	.public ov71_0224A98C
+	.public ov71_0224A9C4
+	.public ov71_0224A9F8
+	.public ov71_0224AA28
+	.public ov71_0224AAF8
+	.public ov71_0224AB7C
+	.public ov71_0224ADB0
+	.public ov71_0224ADE4
+	.public ov71_0224AEF4
+	.public ov71_0224AF08
+	.public ov71_0224AF58
+	.public ov71_0224AFB8
+	.public ov71_0224AFD4
+	.public ov71_0224B028
+	.public ov71_0224B068
+	.public ov71_0224B084
+	.public ov71_0224B0E8
+	.public ov71_0224B11C
+	.public ov71_0224B138
+	.public ov71_0224B198
+	.public ov71_0224B1FC
+	.public ov71_0224B234
+	.public ov71_0224B280
+	.public ov71_0224B450
+	.public ov71_0224B47C
+	.public ov71_0224B57C
+	.public ov71_0224B6F0
+	.public ov71_0224B720
+	.public ov71_0224B7EC
+	.public ov71_0224B848
+	.public ov71_0224B8EC
+	.public ov71_0224B910
+	.public ov71_0224B960
+	.public ov71_0224B970
+	.public ov71_0224B990
+	.public ov71_0224B9CC
+	.public ov71_0224BA48
+	.public ov71_0224BA64
+	.public ov71_0224BAA0
+	.public ov71_0224BABC
+	.public ov71_0224BBDC
+	.public ov71_0224BBEC
+	.public ov71_0224BBF0
+	.public ov71_0224BBF4
+	.public ov71_0224BBF8
+	.public ov71_0224BC5C
+	.public ov71_0224BC64
+	.public ov71_0224BC74
+	.public ov71_0224BC84
+	.public ov71_0224BCA0
+	.public ov71_0224BCBC
+	.public ov71_0224BCE4
+	.public ov71_0224BCEC
+	.public ov71_0224BCFC
+	.public ov71_0224BD0C
+	.public ov71_0224BD1C
+	.public ov71_0224BD38
+	.public ov71_0224BD54
+	.public ov71_0224BD7C
+	.public ov71_0224BD84
+	.public ov71_0224BD94
+	.public ov71_0224BDA4
+	.public ov71_0224BDC0
+	.public ov71_0224BDE8
+	.public ov71_0224BDF0
+	.public ov71_0224BE00
+	.public ov71_0224BE1C
+	.public ov71_0224BE38
+	.public ov71_0224BE54
+	.public ov71_0224BE7C
+	.public ov71_0224BE84
+	.public ov71_0224BE94
+	.public ov71_0224BEA4
+	.public ov71_0224BEC0
+	.public ov71_0224BEE8
+	.public ov71_0224BEF0
+	.public ov71_0224BEFC
+	.public ov71_0224BF0C
+	.public ov71_0224BF1C
+	.public ov71_0224BF38
+	.public ov71_0224BF54
+	.public ov71_0224BF7C
+	.public ov71_0224BF84
+	.public ov71_0224BF94
+	.public ov71_0224BFA4
+	.public ov71_0224BFC0
+	.public ov71_0224BFDC
+	.public ov71_0224C044
+	.public ov71_0224C0C4
+	.public ov71_0224C0C8
+	.public ov71_0224C0D0
+	.include "overlay_71.inc"
+	.include "global.inc"
+
+	.text
+	.public ov71_02246B28
+	.public ov71_02246D40
+	.public ov71_02246E84
+	.public ov71_02246F60
+	.public ov71_022472FC
+	.public ov71_02247384
+	.public ov71_02247388
+	.public ov71_0224738C
+	.public ov71_02247390
+	.public ov71_02247398
+	.public ov71_022473A0
+	.public ov71_022473A8
+	.public ov71_022473B0
+	.public ov71_022473BC
+	.public ov71_022473C4
+	.public ov71_022473D0
+	.public ov71_022473DC
+	.public ov71_022473E4
+	.public ov71_022473F0
+	.public ov71_02247424
+	.public ov71_022475F8
+	.public ov71_022476B4
+	.public ov71_022476C4
+	.public ov71_022476D4
+	.public ov71_022476EC
+	.public ov71_02247704
+	.public ov71_02247730
+	.public ov71_022477EC
+	.public ov71_0224780C
+	.public ov71_0224781C
+	.public ov71_0224782C
+	.public ov71_0224783C
+	.public ov71_022478B8
+	.public ov71_02247990
+	.public ov71_02247C34
+	.public ov71_0224809C
+	.public ov71_02248110
+	.public ov71_02248120
+	.public ov71_022481C8
+	.public ov71_022481D8
+	.public ov71_022481EC
+	.public ov71_022483AC
+	.public ov71_022483E4
+	.public ov71_022489F8
+	.public ov71_02248B24
+	.public ov71_02248B54
+	.public ov71_02248CF4
+	.public ov71_02248E04
+	.public ov71_02249254
+	.public ov71_02249260
+	.public ov71_022494A0
+	.public ov71_022494D0
+	.public ov71_02249500
+	.public ov71_02249538
+	.public ov71_022497C8
+	.public ov71_022498E0
+	.public ov71_02249970
+	.public ov71_02249988
+	.public ov71_02249990
+	.public ov71_02249A50
+	.public ov71_02249C90
+	.public ov71_02249CF0
+	.public ov71_02249D14
+	.public ov71_02249D28
+	.public ov71_02249D58
+	.public ov71_0224A080
+	.public ov71_0224A0B8
+	.public ov71_0224A12C
+	.public ov71_0224A15C
+	.public ov71_0224A3D8
+	.public ov71_0224A500
+	.public ov71_0224A590
+	.public ov71_0224A5A8
+	.public ov71_0224A5B0
+	.public ov71_0224A684
+	.public ov71_0224A8A8
+	.public ov71_0224A920
+	.public ov71_0224A954
+	.public ov71_0224A98C
+	.public ov71_0224A9F8
+	.public ov71_0224ADB0
+	.public ov71_0224AEF4
+	.public ov71_0224AFB8
+	.public ov71_0224B068
+	.public ov71_0224B0E8
+	.public ov71_0224B11C
+	.public ov71_0224B450
+	.public ov71_0224B6F0
+	.public ov71_0224B8EC
+	.public ov71_0224B960
+	.public ov71_0224B970
+	.public ov71_0224B990
+	.public ov71_0224BA48
+	.public ov71_0224BAA0
+
+	thumb_func_start ov71_02247C60
+ov71_02247C60: ; 0x02247C60
+	push {r4, r5, r6, r7, lr}
+	sub sp, #0x14
+	add r5, r1, #0
+	add r4, r0, #0
+	ldr r0, [r5]
+	cmp r0, #4
+	bhi _02247C9A
+	add r0, r0, r0
+	add r0, pc
+	ldrh r0, [r0, #6]
+	lsl r0, r0, #0x10
+	asr r0, r0, #0x10
+	add pc, r0
+_02247C7A: ; jump table
+	.short _02247C84 - _02247C7A - 2 ; case 0
+	.short _02247C90 - _02247C7A - 2 ; case 1
+	.short _02247D04 - _02247C7A - 2 ; case 2
+	.short _02247DB4 - _02247C7A - 2 ; case 3
+	.short _02247DD4 - _02247C7A - 2 ; case 4
+_02247C84:
+	mov r0, #0
+	str r0, [r4, #8]
+	ldr r0, [r5]
+	add r0, r0, #1
+	str r0, [r5]
+	b _02247DE4
+_02247C90:
+	ldr r0, [r4, #8]
+	add r0, r0, #1
+	str r0, [r4, #8]
+	cmp r0, #0xa
+	bgt _02247C9C
+_02247C9A:
+	b _02247DE4
+_02247C9C:
+	ldr r0, [r4]
+	bl ov71_0224738C
+	str r0, [sp, #0xc]
+	ldr r0, [r4]
+	bl ov71_02247388
+	add r7, r0, #0
+	ldr r0, [r4]
+	bl ov71_022473DC
+	cmp r0, #1
+	bne _02247CBC
+	mov r1, #0
+	mov r6, #2
+	b _02247CC0
+_02247CBC:
+	mov r1, #4
+	mov r6, #3
+_02247CC0:
+	ldr r0, [sp, #0xc]
+	ldr r2, [r4, #0x68]
+	bl ReadMsgDataIntoString
+	ldr r1, [r4, #0x6c]
+	ldr r2, [r4, #0x68]
+	add r0, r7, #0
+	bl StringExpandPlaceholders
+	mov r3, #0
+	str r3, [sp]
+	mov r0, #0xff
+	str r0, [sp, #4]
+	str r3, [sp, #8]
+	add r0, r4, #0
+	ldr r2, [r4, #0x6c]
+	add r0, #0x58
+	mov r1, #1
+	bl AddTextPrinterParameterized
+	add r0, r4, #0
+	add r0, #0x58
+	mov r1, #0x6d
+	mov r2, #2
+	bl sub_0200E948
+	add r0, r4, #0
+	add r0, #0x58
+	bl CopyWindowToVram
+	mov r0, #0
+	str r0, [r4, #8]
+	str r6, [r5]
+	b _02247DE4
+_02247D04:
+	ldr r0, [r4, #8]
+	add r0, r0, #1
+	str r0, [r4, #8]
+	cmp r0, #0x3c
+	ble _02247DE4
+	ldr r0, [r4]
+	bl ov71_0224738C
+	add r6, r0, #0
+	ldr r0, [r4]
+	bl ov71_02247388
+	add r7, r0, #0
+	ldr r2, [r4, #0x68]
+	add r0, r6, #0
+	mov r1, #1
+	bl ReadMsgDataIntoString
+	ldr r1, [r4, #0x6c]
+	ldr r2, [r4, #0x68]
+	add r0, r7, #0
+	bl StringExpandPlaceholders
+	ldr r0, [r4]
+	bl ov71_02247390
+	mov r1, #0x4c
+	mov r2, #0
+	bl GetBoxMonData
+	cmp r0, #0
+	bne _02247D80
+	ldr r0, [r4, #0x10]
+	mov r1, #1
+	bl Pokepic_StartAnim
+	ldr r0, [r4]
+	bl ov71_022473A8
+	add r2, r0, #0
+	add r0, r4, #0
+	add r0, #0x80
+	ldr r0, [r0]
+	add r1, sp, #0x10
+	mov r3, #1
+	bl sub_020729A4
+	ldr r0, [r4]
+	bl ov71_022473A8
+	add r6, r0, #0
+	ldr r0, [r4]
+	bl ov71_022473B0
+	add r2, r0, #0
+	add r1, sp, #0x10
+	lsl r2, r2, #0x18
+	ldrb r1, [r1]
+	add r0, r6, #0
+	lsr r2, r2, #0x18
+	bl sub_020062E0
+_02247D80:
+	add r0, r4, #0
+	add r0, #0x58
+	mov r1, #0xf
+	bl FillWindowPixelBuffer
+	mov r3, #0
+	str r3, [sp]
+	mov r0, #0xff
+	str r0, [sp, #4]
+	str r3, [sp, #8]
+	add r0, r4, #0
+	ldr r2, [r4, #0x6c]
+	add r0, #0x58
+	mov r1, #1
+	bl AddTextPrinterParameterized
+	add r0, r4, #0
+	add r0, #0x58
+	bl CopyWindowPixelsToVram_TextMode
+	mov r0, #0
+	str r0, [r4, #8]
+	ldr r0, [r5]
+	add r0, r0, #1
+	str r0, [r5]
+	b _02247DE4
+_02247DB4:
+	ldr r0, [r4, #8]
+	add r0, r0, #1
+	str r0, [r4, #8]
+	cmp r0, #0x3c
+	ble _02247DE4
+	add r0, r4, #0
+	add r0, #0x58
+	mov r1, #0
+	bl ClearFrameAndWindow2
+	mov r0, #0
+	str r0, [r4, #8]
+	ldr r0, [r5]
+	add r0, r0, #1
+	str r0, [r5]
+	b _02247DE4
+_02247DD4:
+	ldr r0, [r4, #8]
+	add r0, r0, #1
+	str r0, [r4, #8]
+	cmp r0, #0x14
+	ble _02247DE4
+	add sp, #0x14
+	mov r0, #1
+	pop {r4, r5, r6, r7, pc}
+_02247DE4:
+	mov r0, #0
+	add sp, #0x14
+	pop {r4, r5, r6, r7, pc}
+	.balign 4, 0
+	thumb_func_end ov71_02247C60
+
+
+	thumb_func_start ov71_02247DEC
+ov71_02247DEC: ; 0x02247DEC
+	push {r4, r5, lr}
+	sub sp, #0xc
+	add r4, r1, #0
+	ldr r1, [r4]
+	add r5, r0, #0
+	cmp r1, #4
+	bhi _02247EC6
+	add r1, r1, r1
+	add r1, pc
+	ldrh r1, [r1, #6]
+	lsl r1, r1, #0x10
+	asr r1, r1, #0x10
+	add pc, r1
+_02247E06: ; jump table
+	.short _02247E10 - _02247E06 - 2 ; case 0
+	.short _02247E2A - _02247E06 - 2 ; case 1
+	.short _02247E50 - _02247E06 - 2 ; case 2
+	.short _02247E7C - _02247E06 - 2 ; case 3
+	.short _02247EAE - _02247E06 - 2 ; case 4
+_02247E10:
+	ldr r0, _02247ECC ; =0x000006A7
+	bl PlaySE
+	add r0, r5, #0
+	mov r1, #0
+	mov r2, #0x10
+	mov r3, #0xc
+	bl ov71_022480C0
+	ldr r0, [r4]
+	add r0, r0, #1
+	str r0, [r4]
+	b _02247EC6
+_02247E2A:
+	bl ov71_02248110
+	cmp r0, #0
+	beq _02247EC6
+	ldr r0, [r5, #0x10]
+	bl Pokepic_Delete
+	ldr r0, [r5, #0x40]
+	mov r1, #0
+	bl Sprite_SetAnimCtrlSeq
+	ldr r0, [r5, #0x40]
+	mov r1, #1
+	bl Sprite_SetDrawFlag
+	ldr r0, [r4]
+	add r0, r0, #1
+	str r0, [r4]
+	b _02247EC6
+_02247E50:
+	ldr r0, [r5, #0x40]
+	bl Sprite_IsAnimated
+	cmp r0, #0
+	bne _02247EC6
+	ldr r0, [r5, #0x74]
+	mov r1, #1
+	bl ov71_02247704
+	mov r1, #0x10
+	add r0, r5, #0
+	mov r2, #0
+	add r3, r1, #0
+	bl ov71_022480C0
+	add r0, r5, #0
+	bl ov71_0224817C
+	ldr r0, [r4]
+	add r0, r0, #1
+	str r0, [r4]
+	b _02247EC6
+_02247E7C:
+	bl ov71_022481D8
+	cmp r0, #2
+	bge _02247E8E
+	add r0, r5, #0
+	bl ov71_022481C8
+	cmp r0, #1
+	bne _02247EC6
+_02247E8E:
+	mov r0, #0x18
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	mov r0, #0x39
+	str r0, [sp, #8]
+	mov r0, #0
+	add r1, r0, #0
+	add r2, r0, #0
+	add r3, r0, #0
+	bl BeginNormalPaletteFade
+	ldr r0, [r4]
+	add r0, r0, #1
+	str r0, [r4]
+	b _02247EC6
+_02247EAE:
+	bl IsPaletteFadeFinished
+	cmp r0, #0
+	beq _02247EC6
+	add r0, r5, #0
+	bl ov71_022481C8
+	cmp r0, #0
+	beq _02247EC6
+	add sp, #0xc
+	mov r0, #1
+	pop {r4, r5, pc}
+_02247EC6:
+	mov r0, #0
+	add sp, #0xc
+	pop {r4, r5, pc}
+	.balign 4, 0
+_02247ECC: .word 0x000006A7
+	thumb_func_end ov71_02247DEC
+
+
+	thumb_func_start ov71_02247ED0
+ov71_02247ED0: ; 0x02247ED0
+	push {r3, r4, r5, r6, lr}
+	sub sp, #4
+	add r5, r0, #0
+	bl NNS_G3dInit
+	bl G3X_InitMtxStack
+	ldr r0, _02247F78 ; =0x04000060
+	ldr r2, _02247F7C ; =0xFFFFCFFD
+	ldrh r1, [r0]
+	and r1, r2
+	strh r1, [r0]
+	ldrh r3, [r0]
+	add r1, r2, #2
+	and r3, r1
+	mov r1, #0x10
+	orr r1, r3
+	strh r1, [r0]
+	ldrh r3, [r0]
+	ldr r1, _02247F80 ; =0x0000CFFB
+	and r1, r3
+	strh r1, [r0]
+	add r1, r2, #2
+	ldrh r3, [r0]
+	lsr r2, r2, #0x11
+	and r3, r1
+	mov r1, #8
+	orr r1, r3
+	strh r1, [r0]
+	mov r0, #0
+	add r1, r0, #0
+	mov r3, #0x3f
+	str r0, [sp]
+	bl G3X_SetClearColor
+	ldr r1, _02247F84 ; =0x04000540
+	mov r0, #2
+	str r0, [r1]
+	ldr r0, _02247F88 ; =0xBFFF0000
+	str r0, [r1, #0x40]
+	mov r0, #1
+	add r1, r0, #0
+	bl GF_3DVramMan_InitFrameTexVramManager
+	mov r0, #1
+	lsl r0, r0, #0xe
+	mov r1, #1
+	bl GF_3DVramMan_InitFramePlttVramManager
+	ldr r3, _02247F8C ; =NNS_GfdDefaultFuncAllocTexVram
+	mov r0, #1
+	mov r1, #0
+	ldr r3, [r3]
+	lsl r0, r0, #0xe
+	add r2, r1, #0
+	blx r3
+	ldr r3, _02247F90 ; =NNS_GfdDefaultFuncAllocPlttVram
+	add r4, r0, #0
+	ldr r3, [r3]
+	mov r0, #0x80
+	mov r1, #0
+	mov r2, #1
+	blx r3
+	ldr r2, _02247F94 ; =0x7FFF0000
+	add r6, r0, #0
+	and r2, r4
+	lsl r1, r4, #0x10
+	lsr r2, r2, #0x10
+	ldr r0, [r5, #0xc]
+	lsr r1, r1, #0xd
+	lsl r2, r2, #4
+	bl PokepicManager_SetCharBaseAddrAndSize
+	ldr r2, _02247F98 ; =0xFFFF0000
+	lsl r1, r6, #0x10
+	and r2, r6
+	lsr r2, r2, #0x10
+	ldr r0, [r5, #0xc]
+	lsr r1, r1, #0xd
+	lsl r2, r2, #3
+	bl PokepicManager_SetPlttBaseAddrAndSize
+	add sp, #4
+	pop {r3, r4, r5, r6, pc}
+	.balign 4, 0
+_02247F78: .word 0x04000060
+_02247F7C: .word 0xFFFFCFFD
+_02247F80: .word 0x0000CFFB
+_02247F84: .word 0x04000540
+_02247F88: .word 0xBFFF0000
+_02247F8C: .word NNS_GfdDefaultFuncAllocTexVram
+_02247F90: .word NNS_GfdDefaultFuncAllocPlttVram
+_02247F94: .word 0x7FFF0000
+_02247F98: .word 0xFFFF0000
+	thumb_func_end ov71_02247ED0
+
+
+	thumb_func_start ov71_02247F9C
+ov71_02247F9C: ; 0x02247F9C
+	push {r3, r4, r5, lr}
+	sub sp, #0x20
+	add r5, r0, #0
+	ldr r0, [r5]
+	bl ov71_02247390
+	add r4, r0, #0
+	add r0, sp, #0x10
+	add r1, r4, #0
+	mov r2, #2
+	mov r3, #0
+	bl GetBoxmonSpriteCharAndPlttNarcIds
+	ldr r0, [r5]
+	bl ov71_022473A8
+	add r2, r0, #0
+	add r0, r5, #0
+	add r0, #0x80
+	add r1, r5, #0
+	ldr r0, [r0]
+	add r1, #0x14
+	mov r3, #1
+	bl NARC_ReadPokepicAnimScript
+	add r0, r4, #0
+	mov r1, #2
+	mov r2, #0
+	bl sub_02070854
+	add r3, r0, #0
+	mov r1, #0
+	str r1, [sp]
+	add r0, r5, #0
+	str r1, [sp, #4]
+	add r0, #0x14
+	str r0, [sp, #8]
+	str r1, [sp, #0xc]
+	ldr r0, [r5, #0xc]
+	add r3, #0x50
+	add r1, sp, #0x10
+	mov r2, #0x80
+	bl PokepicManager_CreatePokepic
+	add sp, #0x20
+	pop {r3, r4, r5, pc}
+	thumb_func_end ov71_02247F9C
+
+
+	thumb_func_start ov71_02247FF8
+ov71_02247FF8: ; 0x02247FF8
+	push {r4, lr}
+	sub sp, #0x70
+	add r4, r0, #0
+	add r0, #0x44
+	mov r1, #0x59
+	mov r2, #7
+	mov r3, #8
+	bl ov71_022472C4
+	add r0, sp, #0x5c
+	bl NNS_G2dInitImagePaletteProxy
+	add r0, sp, #0x38
+	bl NNS_G2dInitImageProxy
+	mov r3, #0
+	str r3, [sp]
+	mov r2, #1
+	str r2, [sp, #4]
+	str r3, [sp, #8]
+	mov r0, #0x39
+	str r0, [sp, #0xc]
+	add r0, sp, #0x38
+	str r0, [sp, #0x10]
+	mov r0, #0x59
+	mov r1, #9
+	bl GfGfxLoader_LoadImageMapping
+	mov r0, #0x39
+	str r0, [sp]
+	add r0, sp, #0x5c
+	str r0, [sp, #4]
+	mov r0, #0x59
+	mov r1, #0xa
+	mov r2, #1
+	mov r3, #0
+	bl GfGfxLoader_PartiallyLoadPalette
+	mov r0, #2
+	add r1, r4, #0
+	str r0, [sp]
+	add r0, sp, #0x14
+	add r1, #0x44
+	add r2, sp, #0x38
+	add r3, sp, #0x5c
+	bl ov71_02247320
+	mov r0, #0
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	ldr r0, [r4]
+	add r1, sp, #0x14
+	mov r2, #0x80
+	mov r3, #0x64
+	bl ov71_02247340
+	str r0, [r4, #0x3c]
+	mov r0, #0
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	ldr r0, [r4]
+	add r1, sp, #0x14
+	mov r2, #0x80
+	mov r3, #0x5a
+	bl ov71_02247340
+	str r0, [r4, #0x40]
+	mov r1, #1
+	bl Sprite_SetPriority
+	ldr r0, [r4, #0x3c]
+	mov r1, #0
+	bl Sprite_SetDrawFlag
+	ldr r0, [r4, #0x40]
+	mov r1, #0
+	bl Sprite_SetDrawFlag
+	add sp, #0x70
+	pop {r4, pc}
+	thumb_func_end ov71_02247FF8

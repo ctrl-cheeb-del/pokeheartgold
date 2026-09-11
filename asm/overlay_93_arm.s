@@ -1,92 +1,91 @@
 	.include "asm/macros.inc"
+	.public _0225EEA8
+	.public _0225EF20
+	.public _0225EF70
+	.public _0225EFD4
+	.public _0225F264
+	.public _0225F2C8
+	.public _0225F2DC
+	.public _0225F2EC
+	.public _0225F300
+	.public _0225F314
+	.public _0225F32C
+	.public _0225F340
+	.public _0225F358
+	.public _0225F36C
+	.public _0225F3E4
+	.public _0225F3EC
+	.public _0225F43C
+	.public _0225F440
+	.public _0225F444
+	.public _0225F448
+	.public _0225F4BC
+	.public _0225F4E8
+	.public _0225F4F4
+	.public _0225F51C
+	.public _0225F540
+	.public _0225F544
+	.public _0225F5A0
+	.public _0225F5B4
+	.public _0225F5E0
+	.public _0225F608
+	.public _0225F680
+	.public _0225F69C
+	.public _0225F6C0
+	.public _0225F6E0
+	.public _0225F700
+	.public _0225F724
+	.public _0225F7D0
+	.public _0225F7E4
+	.public _0225F8A4
+	.public _0225F8A8
+	.public _0225F948
+	.public _0225FAB4
+	.public _0225FAB8
+	.public _0225FAF8
+	.public _0225FAFC
+	.public _0225FB68
+	.public _0225FB94
+	.public _0225FBE0
+	.public _0225FBEC
+	.public _02262C04
+	.public ov93_0225EE98
+	.public ov93_0225EF0C
+	.public ov93_0225EF5C
+	.public ov93_0225EFAC
+	.public ov93_0225F268
+	.public ov93_0225F370
+	.public ov93_0225F44C
+	.public ov93_0225F548
+	.public ov93_0225F8AC
+	.public ov93_0225F8E4
+	.public ov93_0225F94C
+	.public ov93_0225F9AC
+	.public ov93_0225F9D8
+	.public ov93_0225FABC
+	.public ov93_0225FB00
+	.public ov93_0225FB6C
+	.public ov93_0225FBE4
+	.public ov93_02262C05
+	.public ov93_02262C06
+	.public ov93_02262C07
+	.public ov93_02262C08
+	.public ov93_02262C38
 	.include "overlay_93_arm.inc"
 	.include "global.inc"
 
 	.text
-
-	arm_func_start ov93_0225EE98
-ov93_0225EE98: ; 0x0225EE98
-	stmdb sp!, {r4, r5, r6, lr}
-	sub sp, sp, #0x80
-	add r3, sp, #0
-	mov r6, #0
-_0225EEA8:
-	mov r0, r6, lsl #1
-	add r5, r0, #1
-	smull r1, r0, r5, r5
-	umull ip, r2, r5, r1
-	mla r2, r5, r0, r2
-	mov r4, r5, asr #0x1f
-	umull lr, r0, r5, ip
-	mla r2, r4, r1, r2
-	mla r0, r5, r2, r0
-	mla r0, r4, ip, r0
-	mov r1, lr, lsr #0x18
-	orr r1, r1, r0, lsl #8
-	add r0, r6, #1
-	strb r1, [r3, r6]
-	and r6, r0, #0xff
-	cmp r6, #0x7f
-	blo _0225EEA8
-	mov ip, #0xff
-	add r1, sp, #0
-	mov r0, #0x34
-	mov r2, #0x20
-	strb ip, [r3, #0x7f]
-	bl NNS_G3dGeBufferOP_N
-	add sp, sp, #0x80
-	ldmia sp!, {r4, r5, r6, pc}
-	arm_func_end ov93_0225EE98
-
-	arm_func_start ov93_0225EF0C
-ov93_0225EF0C: ; 0x0225EF0C
-	stmdb sp!, {r4, lr}
-	mov lr, #0
-	mov r4, lr
-	mov ip, lr
-	mov r1, #0x80000
-_0225EF20:
-	add r3, r0, lr, lsl #5
-	str ip, [r3, #0xc]
-	str r4, [r3, #0x10]
-	str ip, [r3, #0x14]
-	sub r2, r4, #0x10000
-	str r2, [r3, #0x18]
-	str r1, [r3, #0x1c]
-	str r4, [r3, #0x20]
-	str r1, [r3, #0x24]
-	add lr, lr, #1
-	str r2, [r3, #0x28]
-	cmp lr, #8
-	sub r4, r4, #0x10000
-	blt _0225EF20
-	ldmia sp!, {r4, pc}
-	arm_func_end ov93_0225EF0C
-
-	arm_func_start ov93_0225EF5C
-ov93_0225EF5C: ; 0x0225EF5C
-	stmdb sp!, {r4, lr}
-	mov lr, #0
-	mov r4, lr
-	mov ip, lr
-	mov r1, #0x80000
-_0225EF70:
-	add r3, r0, lr, lsl #5
-	str ip, [r3, #0x10c]
-	str r4, [r3, #0x110]
-	str ip, [r3, #0x114]
-	add r2, r4, #0x10000
-	str r2, [r3, #0x118]
-	str r1, [r3, #0x11c]
-	str r4, [r3, #0x120]
-	str r1, [r3, #0x124]
-	add lr, lr, #1
-	mov r4, r2
-	str r2, [r3, #0x128]
-	cmp lr, #8
-	blt _0225EF70
-	ldmia sp!, {r4, pc}
-	arm_func_end ov93_0225EF5C
+	.public ov93_0225EE98
+	.public ov93_0225EF0C
+	.public ov93_0225EF5C
+	.public ov93_0225F8AC
+	.public ov93_0225F94C
+	.public ov93_0225F9AC
+	.public ov93_0225F9D8
+	.public ov93_0225FABC
+	.public ov93_0225FB00
+	.public ov93_0225FB6C
+	.public ov93_0225FBE4
 
 	arm_func_start ov93_0225EFAC
 ov93_0225EFAC: ; 0x0225EFAC
@@ -269,6 +268,7 @@ _0225EFD4:
 _0225F264: .word 0x1FF00000
 	arm_func_end ov93_0225EFAC
 
+
 	arm_func_start ov93_0225F268
 ov93_0225F268: ; 0x0225F268
 	stmdb sp!, {r3, r4, r5, r6, r7, lr}
@@ -348,6 +348,7 @@ _0225F358:
 _0225F36C: .word 0x00007FFF
 	arm_func_end ov93_0225F268
 
+
 	arm_func_start ov93_0225F370
 ov93_0225F370: ; 0x0225F370
 	stmdb sp!, {r3, r4, r5, lr}
@@ -409,6 +410,7 @@ _0225F440: .word ov93_02262C05
 _0225F444: .word ov93_02262C06
 _0225F448: .word ov93_02262C08
 	arm_func_end ov93_0225F370
+
 
 	arm_func_start ov93_0225F44C
 ov93_0225F44C: ; 0x0225F44C
@@ -481,6 +483,7 @@ _0225F51C:
 _0225F540: .word 0x0000058F
 _0225F544: .word ov93_02262C07
 	arm_func_end ov93_0225F44C
+
 
 	arm_func_start ov93_0225F548
 ov93_0225F548: ; 0x0225F548
@@ -715,281 +718,3 @@ _0225F7E4:
 _0225F8A4: .word FX_SinCosTable_
 _0225F8A8: .word 0x92492493
 	arm_func_end ov93_0225F548
-
-	arm_func_start ov93_0225F8AC
-ov93_0225F8AC: ; 0x0225F8AC
-	cmp r1, #1
-	moveq r0, #0
-	bxeq lr
-	ldr r2, [r0, #0x21c]
-	ldr r1, [r0, #0x224]
-	sub r0, r2, #0x10
-	cmp r1, r0
-	movlt r0, #1
-	bxlt lr
-	add r0, r2, #0x10
-	cmp r1, r0
-	movgt r0, #2
-	movle r0, #0
-	bx lr
-	arm_func_end ov93_0225F8AC
-
-	arm_func_start ov93_0225F8E4
-ov93_0225F8E4: ; 0x0225F8E4
-	stmdb sp!, {r4, lr}
-	ldr lr, [sp, #8]
-	add r4, r2, r1
-	mov r0, #0
-	cmp r4, #0x64000
-	subgt r0, r4, #0x64000
-	subgt r1, r1, r0
-	movgt r0, #1
-	ldr ip, [sp, #0xc]
-	str r2, [lr]
-	str r3, [ip]
-	add r4, r2, r1
-	str r4, [lr]
-	cmp r3, r2
-	strgt r3, [ip]
-	ldmgtia sp!, {r4, pc}
-	mov r2, #0x19
-	mul r2, r1, r2
-	ldr lr, _0225F948 ; =0x51EB851F
-	mov r1, r2, lsr #0x1f
-	smull r2, r4, lr, r2
-	add r4, r1, r4, asr #5
-	sub r1, r3, r4
-	str r1, [ip]
-	ldmia sp!, {r4, pc}
-	.balign 4, 0
-_0225F948: .word 0x51EB851F
-	arm_func_end ov93_0225F8E4
-
-	arm_func_start ov93_0225F94C
-ov93_0225F94C: ; 0x0225F94C
-	stmdb sp!, {r3, r4, r5, lr}
-	ldr r5, [r0, #0x20]
-	ldr r1, [r0, #0x10]
-	ldr r4, [r0, #0x1c]
-	sub r1, r1, r5
-	add r1, r1, r1, lsr #31
-	ldr lr, [r0, #0xc]
-	ldr ip, [r0, #0xe4]
-	ldr r3, [r0, #0xd4]
-	ldr r2, [r0, #0xd8]
-	add r0, r5, r1, asr #1
-	sub r0, r2, r0
-	sub r2, r4, lr
-	sub r1, ip, r3
-	add r1, r2, r1
-	rsb r0, r0, #0
-	smull r2, r0, r1, r0
-	adds r1, r2, #0x800
-	adc r0, r0, #0
-	mov r1, r1, lsr #0xc
-	orr r1, r1, r0, lsl #20
-	add r0, r1, r1, lsr #31
-	mov r0, r0, asr #1
-	ldmia sp!, {r3, r4, r5, pc}
-	arm_func_end ov93_0225F94C
-
-	arm_func_start ov93_0225F9AC
-ov93_0225F9AC: ; 0x0225F9AC
-	stmdb sp!, {r3, lr}
-	bl ov93_0225F94C
-	mov r2, #0x64
-	umull r3, r1, r0, r2
-	mov r0, r0, asr #0x1f
-	mla r1, r0, r2, r1
-	mov r0, r3
-	mov r3, #0
-	mov r2, #0x3200000
-	bl _ll_sdiv
-	ldmia sp!, {r3, pc}
-	arm_func_end ov93_0225F9AC
-
-	arm_func_start ov93_0225F9D8
-ov93_0225F9D8: ; 0x0225F9D8
-	stmdb sp!, {r3, r4, r5, lr}
-	sub sp, sp, #0x18
-	mov r5, r0
-	mov r0, #0xc9
-	mov r1, #0x75
-	bl NARC_New
-	mov r4, r0
-	str r4, [sp]
-	mov r0, #0x3a
-	str r0, [sp, #4]
-	mov r0, #0
-	str r0, [sp, #8]
-	mov r1, #1
-	str r1, [sp, #0xc]
-	ldr r0, _0225FAB4 ; =0x00002715
-	str r1, [sp, #0x10]
-	str r0, [sp, #0x14]
-	ldr r0, [r5, #0x8c]
-	ldr r2, [r5, #0x24]
-	ldr r3, [r5, #0x28]
-	mov r1, #2
-	bl SpriteSystem_LoadPaletteBufferFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	mov r1, #1
-	ldr r0, _0225FAB8 ; =0x00002713
-	str r1, [sp, #4]
-	str r0, [sp, #8]
-	ldr r0, [r5, #0x24]
-	ldr r1, [r5, #0x28]
-	mov r2, r4
-	mov r3, #0x37
-	bl SpriteSystem_LoadCharResObjFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	ldr r0, _0225FAB8 ; =0x00002713
-	mov r2, r4
-	str r0, [sp, #4]
-	ldr r0, [r5, #0x24]
-	ldr r1, [r5, #0x28]
-	mov r3, #0x39
-	bl SpriteSystem_LoadCellResObjFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	ldr r0, _0225FAB8 ; =0x00002713
-	mov r2, r4
-	str r0, [sp, #4]
-	ldr r0, [r5, #0x24]
-	ldr r1, [r5, #0x28]
-	mov r3, #0x38
-	bl SpriteSystem_LoadAnimResObjFromOpenNarc
-	mov r0, r4
-	bl NARC_Delete
-	add sp, sp, #0x18
-	ldmia sp!, {r3, r4, r5, pc}
-	.balign 4, 0
-_0225FAB4: .word 0x00002715
-_0225FAB8: .word 0x00002713
-	arm_func_end ov93_0225F9D8
-
-	arm_func_start ov93_0225FABC
-ov93_0225FABC: ; 0x0225FABC
-	stmdb sp!, {r4, lr}
-	mov r4, r0
-	ldr r0, [r4, #0x28]
-	ldr r1, _0225FAF8 ; =0x00002713
-	bl SpriteManager_UnloadCharObjById
-	ldr r0, [r4, #0x28]
-	ldr r1, _0225FAF8 ; =0x00002713
-	bl SpriteManager_UnloadCellObjById
-	ldr r0, [r4, #0x28]
-	ldr r1, _0225FAF8 ; =0x00002713
-	bl SpriteManager_UnloadAnimObjById
-	ldr r0, [r4, #0x28]
-	ldr r1, _0225FAFC ; =0x00002715
-	bl SpriteManager_UnloadPlttObjById
-	ldmia sp!, {r4, pc}
-	.balign 4, 0
-_0225FAF8: .word 0x00002713
-_0225FAFC: .word 0x00002715
-	arm_func_end ov93_0225FABC
-
-	arm_func_start ov93_0225FB00
-ov93_0225FB00: ; 0x0225FB00
-	stmdb sp!, {r4, r5, lr}
-	sub sp, sp, #0x34
-	ldr lr, _0225FB68 ; =ov93_02262C38
-	mov r5, r0
-	ldmia lr!, {r0, r1, r2, r3}
-	add ip, sp, #0
-	mov r4, ip
-	stmia ip!, {r0, r1, r2, r3}
-	ldmia lr!, {r0, r1, r2, r3}
-	stmia ip!, {r0, r1, r2, r3}
-	ldmia lr!, {r0, r1, r2, r3}
-	stmia ip!, {r0, r1, r2, r3}
-	ldr r0, [lr]
-	mov r2, r4
-	str r0, [ip]
-	ldr r0, [r5, #0x24]
-	ldr r1, [r5, #0x28]
-	bl SpriteSystem_NewSprite
-	mov r4, r0
-	mov r1, #0
-	bl ManagedSprite_SetDrawFlag
-	ldr r0, [r4]
-	bl Sprite_TickFrame
-	mov r0, r4
-	add sp, sp, #0x34
-	ldmia sp!, {r4, r5, pc}
-	.balign 4, 0
-_0225FB68: .word ov93_02262C38
-	arm_func_end ov93_0225FB00
-
-	arm_func_start ov93_0225FB6C
-ov93_0225FB6C: ; 0x0225FB6C
-	stmdb sp!, {r4, r5, r6, lr}
-	mov r6, r0
-	ldr r2, [r6, #0x238]
-	mov r5, r1
-	cmp r2, #0
-	moveq r4, #0
-	beq _0225FB94
-	mov r1, #0
-	bl ov93_0225F8AC
-	add r4, r0, #1
-_0225FB94:
-	ldr r1, [r6, #0x270]
-	ldr r0, _0225FBE0 ; =ov93_02262C07
-	ldr r3, [r6, #0x21c]
-	ldrb r0, [r0, r1, lsl #2]
-	ldr r2, [r6, #0x230]
-	mov r1, r3, lsl #0x10
-	add r0, r0, r2, asr #12
-	mov r2, r0, lsl #0x10
-	mov r0, r5
-	mov r1, r1, asr #0x10
-	mov r2, r2, asr #0x10
-	mov r3, #0x160000
-	bl ManagedSprite_SetPositionXYWithSubscreenOffset
-	mov r0, r5
-	mov r1, r4
-	bl ManagedSprite_SetAnim
-	ldr r0, [r5]
-	bl Sprite_TickFrame
-	ldmia sp!, {r4, r5, r6, pc}
-	.balign 4, 0
-_0225FBE0: .word ov93_02262C07
-	arm_func_end ov93_0225FB6C
-
-	arm_func_start ov93_0225FBE4
-ov93_0225FBE4: ; 0x0225FBE4
-	ldr ip, _0225FBEC ; =Sprite_DeleteAndFreeResources
-	bx ip
-	.balign 4, 0
-_0225FBEC: .word Sprite_DeleteAndFreeResources
-	arm_func_end ov93_0225FBE4
-
-	.rodata
-
-_02262C04:
-	.byte 0x80
-
-ov93_02262C05: ; 0x02262C05
-	.byte 0x40
-
-ov93_02262C06: ; 0x02262C06
-	.byte 0xC0
-
-ov93_02262C07: ; 0x02262C07
-	.byte 0x10
-
-ov93_02262C08: ; 0x02262C08
-	.byte 0xA8, 0x28, 0xD8, 0x00, 0xA8, 0x54, 0xAC, 0x08
-	.byte 0xA8, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF, 0x0F, 0x00, 0x00, 0xFF, 0x0F, 0x00, 0x00, 0xFF, 0x0F
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0xF0, 0x00, 0x00, 0x01, 0xF0, 0x00, 0x00
-	.byte 0x01, 0xF0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-
-ov93_02262C38: ; 0x02262C38
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x13, 0x27, 0x00, 0x00
-	.byte 0x15, 0x27, 0x00, 0x00, 0x13, 0x27, 0x00, 0x00, 0x13, 0x27, 0x00, 0x00, 0xFF, 0xFF, 0xFF, 0xFF
-	.byte 0xFF, 0xFF, 0xFF, 0xFF, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
