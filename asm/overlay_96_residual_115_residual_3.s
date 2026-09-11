@@ -244,74 +244,76 @@
 	.public ov96_02215F64
 	.public ov96_02215F80
 
-	thumb_func_start ov96_02215DD4
-ov96_02215DD4: ; 0x02215DD4
-	push {r4, lr}
+
+	thumb_func_start ov96_02215EE8
+ov96_02215EE8: ; 0x02215EE8
+	push {r3, r4, r5, r6, r7, lr}
 	add r4, r1, #0
+	add r6, r2, #0
 	bl PokeathlonCourse_GetHeapAllocPtr4
-	mov r1, #0x69
-	lsl r1, r1, #2
-	add r1, r0, r1
+	add r7, r0, #0
 	mov r0, #0xa8
-	mul r0, r4
-	add r0, r1, r0
-	add r0, #0x2c
-	pop {r4, pc}
-	thumb_func_end ov96_02215DD4
-
-
-
-
-	thumb_func_start ov96_02215DEC
-ov96_02215DEC: ; 0x02215DEC
-	push {r4, r5, lr}
-	sub sp, #0xc
-	add r5, r1, #0
-	add r4, r2, #0
-	bl PokeathlonCourse_GetHeapAllocPtr4
-	mov r1, #0x69
-	lsl r1, r1, #2
-	add r1, r0, r1
-	mov r0, #0xa8
-	mul r0, r5
-	add r2, r1, r0
-	add r0, sp, #4
-	str r0, [sp]
-	ldr r0, [r2, #4]
-	ldr r1, [r2, #0x2c]
-	ldr r2, [r2, #0x30]
-	ldr r0, [r0]
-	asr r1, r1, #0xc
-	asr r2, r2, #0xc
-	add r3, sp, #8
-	bl ov96_021EB06C
-	ldr r0, [sp, #8]
-	lsl r0, r0, #0xc
-	str r0, [r4]
-	ldr r0, [sp, #4]
-	lsl r0, r0, #0xc
-	str r0, [r4, #4]
-	add sp, #0xc
-	pop {r4, r5, pc}
-	.balign 4, 0
-	thumb_func_end ov96_02215DEC
-
-
-
-
-	thumb_func_start ov96_02215E2C
-ov96_02215E2C: ; 0x02215E2C
-	push {r4, lr}
-	add r4, r1, #0
-	bl PokeathlonCourse_GetHeapAllocPtr4
-	mov r1, #0xa8
-	mul r1, r4
-	add r1, r0, r1
+	add r5, r4, #0
+	mul r5, r0
 	mov r0, #0x81
 	lsl r0, r0, #2
-	ldr r0, [r1, r0]
-	lsl r0, r0, #0xc
-	lsr r0, r0, #0x1c
-	pop {r4, pc}
-	.balign 4, 0
-	thumb_func_end ov96_02215E2C
+	add r4, r7, r0
+	ldr r0, [r4, r5]
+	lsl r0, r0, #3
+	lsr r0, r0, #0x1f
+	beq _02215F0C
+	bl GF_AssertFail
+_02215F0C:
+	mov r0, #1
+	ldr r1, [r4, r5]
+	lsl r0, r0, #0x1e
+	orr r0, r1
+	str r0, [r4, r5]
+	mov r0, #0
+	ldrsh r1, [r6, r0]
+	mov r0, #7
+	add r2, r7, r5
+	lsl r0, r0, #6
+	strh r1, [r2, r0]
+	mov r1, #2
+	ldrsh r1, [r6, r1]
+	add r0, r0, #2
+	strh r1, [r2, r0]
+	pop {r3, r4, r5, r6, r7, pc}
+	thumb_func_end ov96_02215EE8
+
+
+
+
+	thumb_func_start ov96_02215F2C
+ov96_02215F2C: ; 0x02215F2C
+	push {r4, r5, r6, lr}
+	add r6, r1, #0
+	bl PokeathlonCourse_GetHeapAllocPtr4
+	mov r1, #0x81
+	lsl r1, r1, #2
+	add r5, r0, r1
+	mov r0, #0xa8
+	add r4, r6, #0
+	mul r4, r0
+	ldr r0, [r5, r4]
+	lsl r0, r0, #3
+	lsr r0, r0, #0x1f
+	beq _02215F4C
+	bl GF_AssertFail
+_02215F4C:
+	ldr r0, [r5, r4]
+	lsl r0, r0, #5
+	lsr r0, r0, #0x1f
+	beq _02215F58
+	bl GF_AssertFail
+_02215F58:
+	mov r0, #2
+	ldr r1, [r5, r4]
+	lsl r0, r0, #0x1c
+	orr r0, r1
+	str r0, [r5, r4]
+	pop {r4, r5, r6, pc}
+	thumb_func_end ov96_02215F2C
+
+

@@ -244,63 +244,9 @@
 	.public ov96_02215F64
 	.public ov96_02215F80
 
-	thumb_func_start ov96_02215DD4
-ov96_02215DD4: ; 0x02215DD4
-	push {r4, lr}
-	add r4, r1, #0
-	bl PokeathlonCourse_GetHeapAllocPtr4
-	mov r1, #0x69
-	lsl r1, r1, #2
-	add r1, r0, r1
-	mov r0, #0xa8
-	mul r0, r4
-	add r0, r1, r0
-	add r0, #0x2c
-	pop {r4, pc}
-	thumb_func_end ov96_02215DD4
 
-
-
-
-	thumb_func_start ov96_02215DEC
-ov96_02215DEC: ; 0x02215DEC
-	push {r4, r5, lr}
-	sub sp, #0xc
-	add r5, r1, #0
-	add r4, r2, #0
-	bl PokeathlonCourse_GetHeapAllocPtr4
-	mov r1, #0x69
-	lsl r1, r1, #2
-	add r1, r0, r1
-	mov r0, #0xa8
-	mul r0, r5
-	add r2, r1, r0
-	add r0, sp, #4
-	str r0, [sp]
-	ldr r0, [r2, #4]
-	ldr r1, [r2, #0x2c]
-	ldr r2, [r2, #0x30]
-	ldr r0, [r0]
-	asr r1, r1, #0xc
-	asr r2, r2, #0xc
-	add r3, sp, #8
-	bl ov96_021EB06C
-	ldr r0, [sp, #8]
-	lsl r0, r0, #0xc
-	str r0, [r4]
-	ldr r0, [sp, #4]
-	lsl r0, r0, #0xc
-	str r0, [r4, #4]
-	add sp, #0xc
-	pop {r4, r5, pc}
-	.balign 4, 0
-	thumb_func_end ov96_02215DEC
-
-
-
-
-	thumb_func_start ov96_02215E2C
-ov96_02215E2C: ; 0x02215E2C
+	thumb_func_start ov96_02215E94
+ov96_02215E94: ; 0x02215E94
 	push {r4, lr}
 	add r4, r1, #0
 	bl PokeathlonCourse_GetHeapAllocPtr4
@@ -310,8 +256,30 @@ ov96_02215E2C: ; 0x02215E2C
 	mov r0, #0x81
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	lsl r0, r0, #0xc
-	lsr r0, r0, #0x1c
+	lsl r0, r0, #5
+	lsr r0, r0, #0x1f
 	pop {r4, pc}
 	.balign 4, 0
-	thumb_func_end ov96_02215E2C
+	thumb_func_end ov96_02215E94
+
+
+
+
+	thumb_func_start ov96_02215EB0
+ov96_02215EB0: ; 0x02215EB0
+	push {r4, lr}
+	add r4, r1, #0
+	bl PokeathlonCourse_GetHeapAllocPtr4
+	mov r1, #0xa8
+	mul r1, r4
+	add r1, r0, r1
+	mov r0, #0x81
+	lsl r0, r0, #2
+	ldr r0, [r1, r0]
+	lsl r0, r0, #4
+	lsr r0, r0, #0x1f
+	pop {r4, pc}
+	.balign 4, 0
+	thumb_func_end ov96_02215EB0
+
+

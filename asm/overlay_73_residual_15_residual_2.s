@@ -257,100 +257,78 @@
 	.public ov73_021E7C50
 	.public ov73_021E7C94
 
-	thumb_func_start ov73_021E7A8C
-ov73_021E7A8C: ; 0x021E7A8C
-	push {r4, r5}
-	ldr r4, _021E7ABC ; =ov73_021EA664
-	lsl r5, r0, #2
-	ldr r0, [r4, r5]
-	mov r2, #0
-	ldrb r3, [r0]
-	cmp r3, #0xff
-	beq _021E7AB4
-	add r4, r0, #0
-_021E7A9E:
-	ldrb r3, [r0]
-	cmp r1, r3
-	bne _021E7AAA
-	mov r0, #1
-	pop {r4, r5}
-	bx lr
-_021E7AAA:
-	add r2, r2, #1
-	ldrb r3, [r4, r2]
-	add r0, r0, #1
-	cmp r3, #0xff
-	bne _021E7A9E
-_021E7AB4:
+
+	thumb_func_start ov73_021E7CD8
+ov73_021E7CD8: ; 0x021E7CD8
+	push {r4, r5, r6, lr}
+	add r6, r2, #0
+	add r4, r1, #0
+	ldrb r1, [r6, #0x18]
+	add r5, r0, #0
+	cmp r1, #0
+	bne _021E7CEA
 	mov r0, #0
-	pop {r4, r5}
-	bx lr
-	nop
-_021E7ABC: .word ov73_021EA664
-	thumb_func_end ov73_021E7A8C
-
-
-
-
-	thumb_func_start ov73_021E7AC0
-ov73_021E7AC0: ; 0x021E7AC0
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #8
-	add r5, r1, #0
-	add r7, r2, #0
-	str r3, [sp]
-	bl Save_PlayerData_GetProfile
-	add r4, r0, #0
-	mov r0, #0
-	str r0, [sp, #4]
-	ldr r0, [sp]
+	pop {r4, r5, r6, pc}
+_021E7CEA:
+	add r0, r3, #0
+	bl ov73_021E7A8C
 	cmp r0, #0
-	ble _021E7B36
-_021E7ADA:
+	bne _021E7CFA
 	mov r0, #0
-	add r1, r5, #0
-	mov r2, #0x48
-	bl MIi_CpuClearFast
-	add r0, r4, #0
-	bl PlayerProfile_GetTrainerID
-	str r0, [r5]
-	add r0, r4, #0
-	bl PlayerProfile_GetTrainerGender
-	strb r0, [r5, #4]
-	mov r0, #GAME_VERSION
-	strb r0, [r5, #5]
-	mov r0, #2
-	strb r0, [r5, #6]
-	add r0, r4, #0
-	bl PlayerProfile_GetNamePtr
-	add r1, r0, #0
-	add r0, r5, #0
-	add r0, #8
-	mov r2, #8
-	bl CopyU16StringArrayN
-	add r3, r5, #0
-	add r6, r7, #0
-	add r3, #0x18
-	mov r2, #6
-_021E7B16:
+	mvn r0, r0
+	pop {r4, r5, r6, pc}
+_021E7CFA:
+	mov r1, #0
+	cmp r4, #0
+	ble _021E7D24
+	add r2, r5, #0
+_021E7D02:
+	ldrb r0, [r2, #0x18]
+	cmp r0, #0
+	bne _021E7D1C
+	mov r0, #0x48
+	mul r0, r1
+	add r3, r5, r0
+	mov r2, #9
+_021E7D10:
 	ldmia r6!, {r0, r1}
 	stmia r3!, {r0, r1}
 	sub r2, r2, #1
-	bne _021E7B16
+	bne _021E7D10
+	mov r0, #1
+	pop {r4, r5, r6, pc}
+_021E7D1C:
+	add r1, r1, #1
+	add r2, #0x48
+	cmp r1, r4
+	blt _021E7D02
+_021E7D24:
+	mov r2, #0
+	cmp r4, #0
+	ble _021E7D4E
+	add r1, r5, #0
+_021E7D2C:
+	ldrb r0, [r1, #0x19]
+	cmp r0, #3
+	blo _021E7D46
+	mov r0, #0x48
+	mul r0, r2
+	add r3, r5, r0
+	mov r2, #9
+_021E7D3A:
+	ldmia r6!, {r0, r1}
+	stmia r3!, {r0, r1}
+	sub r2, r2, #1
+	bne _021E7D3A
+	mov r0, #1
+	pop {r4, r5, r6, pc}
+_021E7D46:
+	add r2, r2, #1
+	add r1, #0x48
+	cmp r2, r4
+	blt _021E7D2C
+_021E7D4E:
 	mov r0, #0
-	strb r0, [r5, #0x19]
-	strb r0, [r5, #0x18]
-	ldr r0, [sp, #4]
-	add r7, #0x30
-	add r0, r0, #1
-	str r0, [sp, #4]
-	add r1, r0, #0
-	ldr r0, [sp]
-	add r5, #0x48
-	cmp r1, r0
-	blt _021E7ADA
-_021E7B36:
-	add sp, #8
-	pop {r3, r4, r5, r6, r7, pc}
+	pop {r4, r5, r6, pc}
 	.balign 4, 0
-	thumb_func_end ov73_021E7AC0
+	thumb_func_end ov73_021E7CD8
