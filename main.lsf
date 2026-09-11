@@ -4459,6 +4459,10 @@ Overlay OVY_83
     Object asm/overlay_83_residual_39.o
     Object src/overlay83_sol_partial_39.o
     Object asm/overlay_83_residual_40.o
+    Object src/ov83_wave39_safe_1.o
+    Object asm/overlay_83_residual_40_residual_2.o
+    Object src/ov83_wave39_safe_2.o
+    Object asm/overlay_83_residual_40_residual_3.o
     Object src/overlay83_sol_partial_40.o
     Object asm/overlay_83_residual_41.o
     Object src/overlay83_sol_partial_41.o
