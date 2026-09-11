@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "945a98e358510a419cf514dc2f035db49c89ab40",
+  "commit": "d350e8ce5637cbee3e0a8a2ed47997cbb4ca532e",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": false,
   "map_sha256": {
     "ARM9": "d58a9b6c52da30f6de8a0685058e4202ef74371d58ae7141e743811fe343a9c2",
-    "ARM7": "094556f8c8eb34c60c49d809fc42ea06cdffe37fceb60f8c4d647fae8af943f3"
+    "ARM7": "6e8aaea37eb33060048b39a5c857fba5f4535088e5fd636f30b1e447ca4c1998"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 2740840,
+    "asm": 2739680,
     "mixed": 18270,
     "c": 1312124,
-    "unknown": 8792
+    "unknown": 9952
   },
   "objects": [
     {
@@ -14181,8 +14181,8 @@
       "module": "OVY_5",
       "object": "overlay_05_residual_12_residual_4.o",
       "bytes": 184,
-      "status": "asm",
-      "source": "asm/overlay_05_residual_12_residual_4.s"
+      "status": "unknown",
+      "source": null
     },
     {
       "cpu": "ARM9",
@@ -23077,16 +23077,16 @@
       "module": "OVY_83",
       "object": "overlay_83_residual_4_residual_2.o",
       "bytes": 508,
-      "status": "asm",
-      "source": "asm/overlay_83_residual_4_residual_2.s"
+      "status": "unknown",
+      "source": null
     },
     {
       "cpu": "ARM9",
       "module": "OVY_83",
       "object": "overlay_83_residual_4_residual_3.o",
       "bytes": 468,
-      "status": "asm",
-      "source": "asm/overlay_83_residual_4_residual_3.s"
+      "status": "unknown",
+      "source": null
     },
     {
       "cpu": "ARM9",

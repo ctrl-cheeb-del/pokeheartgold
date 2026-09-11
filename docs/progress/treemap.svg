@@ -5,13 +5,13 @@
 <g font-family="system-ui, sans-serif" fill="#edf2fa">
 <text x="28" y="42" font-size="25" font-weight="700">HeartGold · decompilation</text>
 <text x="1172" y="42" text-anchor="end" font-size="22">32.16% C-only source</text>
-<text x="28" y="71" font-size="14" fill="#b9c7da">Matching US ROM verified · 945a98e35 · ARM9 + ARM7 · 4,080,026 mapped code bytes</text>
+<text x="28" y="71" font-size="14" fill="#b9c7da">Matching US ROM verified · d350e8ce5 · ARM9 + ARM7 · 4,080,026 mapped code bytes</text>
 <rect x="28" y="91" width="12" height="12" rx="2" fill="#35b85a"/>
 <text x="47" y="102" font-size="14">C-only source 32.2%</text>
 <rect x="316" y="91" width="12" height="12" rx="2" fill="#e4ad42"/>
 <text x="335" y="102" font-size="14">C with assembly 0.4%</text>
 <rect x="604" y="91" width="12" height="12" rx="2" fill="#455268"/>
-<text x="623" y="102" font-size="14">Assembly 67.2%</text>
+<text x="623" y="102" font-size="14">Assembly 67.1%</text>
 <rect x="892" y="91" width="12" height="12" rx="2" fill="#b875ae"/>
 <text x="911" y="102" font-size="14">Unresolved source 0.2%</text>
 <rect x="28.000" y="125.000" width="146.538" height="103.243" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / main / nnsys.o
@@ -9368,12 +9368,12 @@ asm/overlay_83_residual_18.s</title></rect>
 <rect x="623.648" y="553.674" width="8.173" height="10.642" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_83 / overlay_83_residual_21.o
 524 bytes · Assembly
 asm/overlay_83_residual_21.s</title></rect>
-<rect x="631.821" y="542.075" width="6.870" height="12.274" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_83 / overlay_83_residual_4_residual_2.o
-508 bytes · Assembly
-asm/overlay_83_residual_4_residual_2.s</title></rect>
-<rect x="638.691" y="542.075" width="6.329" height="12.274" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_83 / overlay_83_residual_4_residual_3.o
-468 bytes · Assembly
-asm/overlay_83_residual_4_residual_3.s</title></rect>
+<rect x="631.821" y="542.075" width="6.870" height="12.274" fill="#b875ae" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_83 / overlay_83_residual_4_residual_2.o
+508 bytes · Unresolved source
+Source mapping unresolved</title></rect>
+<rect x="638.691" y="542.075" width="6.329" height="12.274" fill="#b875ae" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_83 / overlay_83_residual_4_residual_3.o
+468 bytes · Unresolved source
+Source mapping unresolved</title></rect>
 <rect x="645.019" y="542.075" width="6.221" height="12.274" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_83 / overlay_83_residual_13.o
 460 bytes · Assembly
 asm/overlay_83_residual_13.s</title></rect>
@@ -13510,9 +13510,9 @@ asm/overlay_05_residual_12_residual_6.s</title></rect>
 <rect x="1146.458" y="444.814" width="7.153" height="5.383" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_5 / overlay05_window_init_1.o
 232 bytes · C-only source
 src/overlay05_window_init_1.c</title></rect>
-<rect x="1146.458" y="450.198" width="7.153" height="4.270" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_5 / overlay_05_residual_12_residual_4.o
-184 bytes · Assembly
-asm/overlay_05_residual_12_residual_4.s</title></rect>
+<rect x="1146.458" y="450.198" width="7.153" height="4.270" fill="#b875ae" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_5 / overlay_05_residual_12_residual_4.o
+184 bytes · Unresolved source
+Source mapping unresolved</title></rect>
 <rect x="1153.611" y="444.814" width="5.709" height="4.885" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_5 / ov05_wave42_1.o
 168 bytes · C-only source
 src/ov05_wave42_1.c</title></rect>
