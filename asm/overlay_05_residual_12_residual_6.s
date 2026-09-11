@@ -131,166 +131,116 @@
 	.public ov05_0221E74C
 
 
-	thumb_func_start ov05_0221DD08
-ov05_0221DD08: ; 0x0221DD08
+	thumb_func_start ov05_0221E624
+ov05_0221E624: ; 0x0221E624
 	push {r4, r5, r6, r7, lr}
-	sub sp, #0x1c
+	sub sp, #0x24
+	ldr r4, [sp, #0x3c]
 	add r5, r0, #0
-	ldr r6, _0221DDDC ; =ov05_0221EA60
-	mov r4, #0
 	add r7, r5, #0
-_0221DD14:
-	cmp r4, #0
-	beq _0221DD1C
+	lsl r0, r4, #6
+	add r7, #0x10
+	str r0, [sp, #0x1c]
+	str r1, [sp, #0x10]
+	str r3, [sp, #0x14]
+	ldr r6, [sp, #0x38]
 	cmp r4, #3
-	bne _0221DD24
-_0221DD1C:
-	mov r0, #0xa9
-	lsl r0, r0, #2
-	add r1, r5, r0
-	b _0221DD3A
-_0221DD24:
-	mov r0, #0x86
-	lsl r0, r0, #2
-	ldrh r0, [r7, r0]
-	cmp r0, #0
-	bne _0221DD34
-	ldr r0, _0221DDE0 ; =0x00000424
-	add r1, r5, r0
-	b _0221DD3A
-_0221DD34:
-	mov r0, #0xd9
-	lsl r0, r0, #2
-	add r1, r5, r0
-_0221DD3A:
-	mov r0, #0x10
-	str r0, [sp]
-	mov r0, #6
-	str r0, [sp, #4]
-	str r1, [sp, #8]
-	mov r0, #0
-	str r0, [sp, #0xc]
-	str r0, [sp, #0x10]
-	mov r0, #0x10
-	str r0, [sp, #0x14]
-	mov r0, #6
+	ldr r0, [r5]
+	bhs _0221E64C
+	ldr r0, [r0, #4]
+	add r1, r4, #0
+	bl Party_GetMonByIndex
 	str r0, [sp, #0x18]
-	ldrb r2, [r6]
-	ldrb r3, [r6, #1]
-	ldr r0, [r5, #0xc]
-	mov r1, #2
-	bl CopyToBgTilemapRect
-	mov r0, #0x86
-	lsl r0, r0, #2
-	ldrh r0, [r7, r0]
-	cmp r0, #0
-	beq _0221DDC6
-	mov r0, #0x10
-	str r0, [sp]
-	mov r0, #6
+	b _0221E656
+_0221E64C:
+	ldr r0, [r0, #0xc]
+	sub r1, r4, #3
+	bl Party_GetMonByIndex
+	str r0, [sp, #0x18]
+_0221E656:
+	add r1, r4, #0
+	ldr r0, [sp, #0x10]
+	add r1, #8
+	bl NewString_ReadMsgData
+	str r0, [sp, #0x20]
+	ldr r0, [sp, #0x18]
+	bl Mon_GetBoxMon
+	add r2, r0, #0
+	ldr r0, [sp, #0x14]
+	mov r1, #0
+	bl BufferBoxMonNickname
+	ldr r0, [sp, #0x14]
+	ldr r2, [sp, #0x20]
+	add r1, r6, #0
+	bl StringExpandPlaceholders
+	ldr r0, [sp, #0x20]
+	bl String_Delete
+	mov r1, #0
+	str r1, [sp]
+	mov r0, #0xff
 	str r0, [sp, #4]
-	add r0, r4, #3
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
+	ldr r0, _0221E708 ; =0x000F0E00
+	add r2, r6, #0
 	str r0, [sp, #8]
-	ldrb r2, [r6]
-	ldrb r3, [r6, #1]
-	ldr r0, [r5, #0xc]
-	mov r1, #2
-	bl BgTilemapRectChangePalette
-	cmp r4, #3
-	bhs _0221DD92
-	ldr r0, [r5]
-	add r0, #0x29
-	ldrb r0, [r0]
-	cmp r0, #1
-	beq _0221DDA0
-_0221DD92:
-	cmp r4, #3
-	blo _0221DDB4
-	ldr r0, [r5]
-	add r0, #0x29
-	ldrb r0, [r0]
+	ldr r0, [sp, #0x1c]
+	add r3, r1, #0
+	add r0, r7, r0
+	str r1, [sp, #0xc]
+	bl AddTextPrinterParameterizedWithColor
+	mov r0, #0x18
+	mul r0, r4
+	add r2, r5, r0
+	ldr r0, _0221E70C ; =0x00000222
+	ldrb r1, [r2, r0]
+	cmp r1, #0
+	bne _0221E704
+	sub r0, r0, #1
+	ldrb r0, [r2, r0]
 	cmp r0, #0
-	bne _0221DDB4
-_0221DDA0:
-	ldr r1, _0221DDE4 ; =0x00000504
-	add r3, r4, #3
-	lsl r3, r3, #0x15
-	mov r0, #2
-	add r1, r5, r1
-	mov r2, #0x20
-	lsr r3, r3, #0x10
-	bl BG_LoadPlttData
-	b _0221DDC6
-_0221DDB4:
-	ldr r1, _0221DDE8 ; =0x000004E4
-	add r3, r4, #3
-	lsl r3, r3, #0x15
-	mov r0, #2
-	add r1, r5, r1
-	mov r2, #0x20
-	lsr r3, r3, #0x10
-	bl BG_LoadPlttData
-_0221DDC6:
-	add r4, r4, #1
-	add r7, #0x18
-	add r6, r6, #2
-	cmp r4, #6
-	blo _0221DD14
-	ldr r0, [r5, #0xc]
-	mov r1, #2
-	bl ScheduleBgTilemapBufferTransfer
-	add sp, #0x1c
+	bne _0221E6DC
+	ldr r0, [sp, #0x10]
+	mov r1, #0x1b
+	add r2, r6, #0
+	bl ReadMsgDataIntoString
+	mov r1, #0
+	str r1, [sp]
+	mov r0, #0xff
+	str r0, [sp, #4]
+	mov r0, #0xc1
+	lsl r0, r0, #0xa
+	str r0, [sp, #8]
+	ldr r0, [sp, #0x1c]
+	add r2, r6, #0
+	add r0, r7, r0
+	mov r3, #0x40
+	str r1, [sp, #0xc]
+	bl AddTextPrinterParameterizedWithColor
+	add sp, #0x24
+	pop {r4, r5, r6, r7, pc}
+_0221E6DC:
+	cmp r0, #1
+	bne _0221E704
+	ldr r0, [sp, #0x10]
+	mov r1, #0x1c
+	add r2, r6, #0
+	bl ReadMsgDataIntoString
+	mov r1, #0
+	str r1, [sp]
+	mov r0, #0xff
+	str r0, [sp, #4]
+	ldr r0, _0221E710 ; =0x00050600
+	add r2, r6, #0
+	str r0, [sp, #8]
+	ldr r0, [sp, #0x1c]
+	mov r3, #0x40
+	add r0, r7, r0
+	str r1, [sp, #0xc]
+	bl AddTextPrinterParameterizedWithColor
+_0221E704:
+	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
-_0221DDDC: .word ov05_0221EA60
-_0221DDE0: .word 0x00000424
-_0221DDE4: .word 0x00000504
-_0221DDE8: .word 0x000004E4
-	thumb_func_end ov05_0221DD08
-
-
-
-
-	thumb_func_start ov05_0221DDEC
-ov05_0221DDEC: ; 0x0221DDEC
-	push {r3, r4, r5, r6, r7, lr}
-	add r4, r0, #0
-	ldr r0, [r4, #0xc]
-	str r1, [sp]
-	add r1, r2, #0
-	bl GetBgTilemapBuffer
-	add r6, r0, #0
-	ldr r0, [r4]
-	add r0, #0x29
-	ldrb r0, [r0]
-	cmp r0, #0
-	bne _0221DE0A
-	mov r7, #0x10
-	b _0221DE0C
-_0221DE0A:
-	mov r7, #0
-_0221DE0C:
-	mov r5, #0
-_0221DE0E:
-	lsl r0, r5, #5
-	add r0, r7, r0
-	lsl r4, r0, #1
-	ldr r0, [sp]
-	lsl r1, r5, #5
-	add r0, r0, r1
-	add r1, r6, r4
-	mov r2, #0x20
-	bl memcpy
-	add r0, r6, r4
-	mov r1, #0
-	mov r2, #0x20
-	bl memset
-	add r0, r5, #1
-	lsl r0, r0, #0x10
-	lsr r5, r0, #0x10
-	cmp r5, #0x18
-	blo _0221DE0E
-	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov05_0221DDEC
+_0221E708: .word 0x000F0E00
+_0221E70C: .word 0x00000222
+_0221E710: .word 0x00050600
+	thumb_func_end ov05_0221E624

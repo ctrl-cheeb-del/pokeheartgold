@@ -131,166 +131,89 @@
 	.public ov05_0221E74C
 
 
-	thumb_func_start ov05_0221DD08
-ov05_0221DD08: ; 0x0221DD08
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x1c
-	add r5, r0, #0
-	ldr r6, _0221DDDC ; =ov05_0221EA60
-	mov r4, #0
-	add r7, r5, #0
-_0221DD14:
-	cmp r4, #0
-	beq _0221DD1C
-	cmp r4, #3
-	bne _0221DD24
-_0221DD1C:
-	mov r0, #0xa9
-	lsl r0, r0, #2
-	add r1, r5, r0
-	b _0221DD3A
-_0221DD24:
-	mov r0, #0x86
-	lsl r0, r0, #2
-	ldrh r0, [r7, r0]
-	cmp r0, #0
-	bne _0221DD34
-	ldr r0, _0221DDE0 ; =0x00000424
-	add r1, r5, r0
-	b _0221DD3A
-_0221DD34:
-	mov r0, #0xd9
-	lsl r0, r0, #2
-	add r1, r5, r0
-_0221DD3A:
-	mov r0, #0x10
-	str r0, [sp]
-	mov r0, #6
-	str r0, [sp, #4]
-	str r1, [sp, #8]
-	mov r0, #0
-	str r0, [sp, #0xc]
-	str r0, [sp, #0x10]
-	mov r0, #0x10
-	str r0, [sp, #0x14]
-	mov r0, #6
-	str r0, [sp, #0x18]
-	ldrb r2, [r6]
-	ldrb r3, [r6, #1]
-	ldr r0, [r5, #0xc]
-	mov r1, #2
-	bl CopyToBgTilemapRect
-	mov r0, #0x86
-	lsl r0, r0, #2
-	ldrh r0, [r7, r0]
-	cmp r0, #0
-	beq _0221DDC6
-	mov r0, #0x10
-	str r0, [sp]
-	mov r0, #6
-	str r0, [sp, #4]
-	add r0, r4, #3
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #8]
-	ldrb r2, [r6]
-	ldrb r3, [r6, #1]
-	ldr r0, [r5, #0xc]
-	mov r1, #2
-	bl BgTilemapRectChangePalette
-	cmp r4, #3
-	bhs _0221DD92
-	ldr r0, [r5]
-	add r0, #0x29
-	ldrb r0, [r0]
-	cmp r0, #1
-	beq _0221DDA0
-_0221DD92:
-	cmp r4, #3
-	blo _0221DDB4
-	ldr r0, [r5]
-	add r0, #0x29
-	ldrb r0, [r0]
-	cmp r0, #0
-	bne _0221DDB4
-_0221DDA0:
-	ldr r1, _0221DDE4 ; =0x00000504
-	add r3, r4, #3
-	lsl r3, r3, #0x15
-	mov r0, #2
-	add r1, r5, r1
-	mov r2, #0x20
-	lsr r3, r3, #0x10
-	bl BG_LoadPlttData
-	b _0221DDC6
-_0221DDB4:
-	ldr r1, _0221DDE8 ; =0x000004E4
-	add r3, r4, #3
-	lsl r3, r3, #0x15
-	mov r0, #2
-	add r1, r5, r1
-	mov r2, #0x20
-	lsr r3, r3, #0x10
-	bl BG_LoadPlttData
-_0221DDC6:
-	add r4, r4, #1
-	add r7, #0x18
-	add r6, r6, #2
-	cmp r4, #6
-	blo _0221DD14
-	ldr r0, [r5, #0xc]
-	mov r1, #2
-	bl ScheduleBgTilemapBufferTransfer
-	add sp, #0x1c
-	pop {r4, r5, r6, r7, pc}
-	.balign 4, 0
-_0221DDDC: .word ov05_0221EA60
-_0221DDE0: .word 0x00000424
-_0221DDE4: .word 0x00000504
-_0221DDE8: .word 0x000004E4
-	thumb_func_end ov05_0221DD08
-
-
-
-
-	thumb_func_start ov05_0221DDEC
-ov05_0221DDEC: ; 0x0221DDEC
+	thumb_func_start ov05_0221E2D8
+ov05_0221E2D8: ; 0x0221E2D8
 	push {r3, r4, r5, r6, r7, lr}
-	add r4, r0, #0
-	ldr r0, [r4, #0xc]
-	str r1, [sp]
-	add r1, r2, #0
-	bl GetBgTilemapBuffer
-	add r6, r0, #0
-	ldr r0, [r4]
-	add r0, #0x29
-	ldrb r0, [r0]
-	cmp r0, #0
-	bne _0221DE0A
-	mov r7, #0x10
-	b _0221DE0C
-_0221DE0A:
-	mov r7, #0
-_0221DE0C:
-	mov r5, #0
-_0221DE0E:
-	lsl r0, r5, #5
-	add r0, r7, r0
-	lsl r4, r0, #1
-	ldr r0, [sp]
-	lsl r1, r5, #5
-	add r0, r0, r1
-	add r1, r6, r4
-	mov r2, #0x20
-	bl memcpy
-	add r0, r6, r4
-	mov r1, #0
-	mov r2, #0x20
-	bl memset
-	add r0, r5, #1
-	lsl r0, r0, #0x10
-	lsr r5, r0, #0x10
-	cmp r5, #0x18
-	blo _0221DE0E
+	sub sp, #0x10
+	add r5, r0, #0
+	ldr r1, [r5]
+	mov r0, #0x14
+	ldr r1, [r1, #0x24]
+	bl NARC_New
+	add r7, r0, #0
+	bl sub_02074490
+	add r3, r0, #0
+	mov r0, #0
+	str r0, [sp]
+	mov r0, #3
+	str r0, [sp, #4]
+	mov r0, #1
+	str r0, [sp, #8]
+	ldr r0, _0221E388 ; =0x0000B808
+	mov r1, #0x19
+	lsl r1, r1, #4
+	str r0, [sp, #0xc]
+	ldr r0, [r5, r1]
+	add r1, r1, #4
+	ldr r1, [r5, r1]
+	add r2, r7, #0
+	bl SpriteSystem_LoadPlttResObjFromOpenNarc
+	bl sub_02074498
+	add r3, r0, #0
+	mov r0, #0
+	str r0, [sp]
+	ldr r0, _0221E38C ; =0x0000B809
+	mov r1, #0x19
+	lsl r1, r1, #4
+	str r0, [sp, #4]
+	ldr r0, [r5, r1]
+	add r1, r1, #4
+	ldr r1, [r5, r1]
+	add r2, r7, #0
+	bl SpriteSystem_LoadCellResObjFromOpenNarc
+	bl sub_020744A4
+	add r3, r0, #0
+	mov r0, #0
+	str r0, [sp]
+	ldr r0, _0221E38C ; =0x0000B809
+	mov r1, #0x19
+	lsl r1, r1, #4
+	str r0, [sp, #4]
+	ldr r0, [r5, r1]
+	add r1, r1, #4
+	ldr r1, [r5, r1]
+	add r2, r7, #0
+	bl SpriteSystem_LoadAnimResObjFromOpenNarc
+	mov r4, #0
+	add r6, r5, #0
+_0221E350:
+	mov r0, #0
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	ldr r0, _0221E38C ; =0x0000B809
+	mov r1, #0x65
+	add r0, r4, r0
+	str r0, [sp, #8]
+	mov r0, #0x19
+	mov r3, #0x85
+	lsl r0, r0, #4
+	lsl r1, r1, #2
+	lsl r3, r3, #2
+	ldr r0, [r5, r0]
+	ldr r1, [r5, r1]
+	ldr r3, [r6, r3]
+	add r2, r7, #0
+	bl SpriteSystem_LoadCharResObjFromOpenNarc
+	add r4, r4, #1
+	add r6, #0x18
+	cmp r4, #6
+	blo _0221E350
+	add r0, r7, #0
+	bl NARC_Delete
+	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov05_0221DDEC
+	.balign 4, 0
+_0221E388: .word 0x0000B808
+_0221E38C: .word 0x0000B809
+	thumb_func_end ov05_0221E2D8
