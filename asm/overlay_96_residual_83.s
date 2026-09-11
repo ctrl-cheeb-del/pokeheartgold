@@ -239,60 +239,122 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_021E604C
-ov96_021E604C: ; 0x021E604C
+	thumb_func_start ov96_02203BD0
+ov96_02203BD0: ; 0x02203BD0
 	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	str r0, [sp]
-	mov r2, #0xa1
-	ldr r1, [sp]
-	lsl r2, r2, #2
-	ldr r1, [r1, r2]
-	mov r0, #0xa9
-	bl NARC_New
-	add r7, r0, #0
-	mov r0, #0
+	sub sp, #0x24
+	add r6, r1, #0
+	add r5, r0, #0
+	add r0, r6, #0
+	mov r1, #0x64
+	bl _s32_div_f
+	lsl r0, r0, #0x10
+	lsr r4, r0, #0x10
+	add r0, r4, #0
+	mov r1, #5
+	bl _s32_div_f
+	lsl r1, r1, #2
+	add r0, sp, #0x1c
+	strb r1, [r0, #3]
+	add r0, r4, #0
+	mov r1, #5
+	bl _s32_div_f
+	lsl r1, r0, #3
+	add r0, sp, #0x1c
+	strb r1, [r0]
+	mov r0, #0x64
+	mul r0, r4
+	sub r0, r6, r0
+	lsl r0, r0, #0x10
+	lsr r0, r0, #0x10
+	mov r1, #0xa
+	bl _u32_div_f
+	lsl r0, r0, #0x10
+	lsr r4, r0, #0x10
+	add r0, r4, #0
+	mov r1, #5
+	bl _s32_div_f
+	lsl r1, r1, #2
+	add r0, sp, #0x1c
+	strb r1, [r0, #4]
+	add r0, r4, #0
+	mov r1, #5
+	bl _s32_div_f
+	lsl r1, r0, #3
+	add r0, sp, #0x1c
+	strb r1, [r0, #1]
+	add r0, r6, #0
+	mov r1, #0xa
+	bl _s32_div_f
+	lsl r0, r1, #0x10
+	lsr r4, r0, #0x10
+	add r0, r4, #0
+	mov r1, #5
+	bl _s32_div_f
+	lsl r1, r1, #2
+	add r0, sp, #0x1c
+	strb r1, [r0, #5]
+	add r0, r4, #0
+	mov r1, #5
+	bl _s32_div_f
+	lsl r1, r0, #3
+	add r0, sp, #0x1c
+	strb r1, [r0, #2]
+	mov r4, #0
+	mov r6, #4
+	mov r7, #8
+_02203C5E:
+	str r6, [sp]
+	str r7, [sp, #4]
+	ldr r0, [r5, #0x20]
+	lsl r2, r4, #2
+	add r0, #0xc
 	str r0, [sp, #8]
-	ldr r1, _021E60B8 ; =0x00000618
-	ldr r0, [sp]
-	add r0, r0, r1
-	str r0, [sp, #4]
-_021E606E:
-	ldr r4, [sp]
-	ldr r5, [sp, #4]
-	mov r6, #0
-_021E6074:
-	mov r0, #0x3f
-	ldr r1, _021E60BC ; =0x000003F2
-	lsl r0, r0, #4
-	ldrh r0, [r4, r0]
-	ldrh r1, [r4, r1]
-	bl ov96_021E679C
-	add r1, r0, #0
-	add r0, r7, #0
-	add r2, r5, #0
-	bl NARC_ReadWholeMember
-	add r6, r6, #1
-	add r4, #0x28
-	add r5, #0x14
-	cmp r6, #3
-	blt _021E6074
-	ldr r0, [sp]
-	add r0, #0x7c
-	str r0, [sp]
-	ldr r0, [sp, #4]
-	add r0, #0x3c
-	str r0, [sp, #4]
-	ldr r0, [sp, #8]
-	add r0, r0, #1
-	str r0, [sp, #8]
-	cmp r0, #4
-	blt _021E606E
-	add r0, r7, #0
-	bl NARC_Delete
-	add sp, #0xc
+	add r0, sp, #0x1c
+	add r0, #3
+	ldrb r0, [r0, r4]
+	add r2, #0x13
+	lsl r2, r2, #0x18
+	str r0, [sp, #0xc]
+	add r0, sp, #0x1c
+	ldrb r0, [r0, r4]
+	mov r1, #5
+	lsr r2, r2, #0x18
+	str r0, [sp, #0x10]
+	mov r0, #0x14
+	str r0, [sp, #0x14]
+	str r0, [sp, #0x18]
+	ldr r0, [r5, #8]
+	mov r3, #0x10
+	bl CopyRectToBgTilemapRect
+	add r0, r4, #1
+	lsl r0, r0, #0x18
+	lsr r4, r0, #0x18
+	cmp r4, #3
+	blo _02203C5E
+	ldr r0, [r5, #8]
+	mov r1, #5
+	bl ScheduleBgTilemapBufferTransfer
+	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
-	nop
-_021E60B8: .word 0x00000618
-_021E60BC: .word 0x000003F2
-	thumb_func_end ov96_021E604C
+	thumb_func_end ov96_02203BD0
+
+
+	thumb_func_start ov96_02203CA4
+ov96_02203CA4: ; 0x02203CA4
+	push {r4, r5, r6, lr}
+	add r4, r1, #0
+	add r5, r0, #0
+	add r6, r2, #0
+	cmp r4, #3
+	blo _02203CB4
+	bl GF_AssertFail
+_02203CB4:
+	lsl r0, r4, #2
+	add r0, r5, r0
+	ldr r0, [r0, #0x54]
+	add r1, r6, r4
+	bl ov96_021EB570
+	pop {r4, r5, r6, pc}
+	.balign 4, 0
+	thumb_func_end ov96_02203CA4

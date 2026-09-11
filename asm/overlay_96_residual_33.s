@@ -239,60 +239,42 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_021E604C
-ov96_021E604C: ; 0x021E604C
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	str r0, [sp]
-	mov r2, #0xa1
-	ldr r1, [sp]
-	lsl r2, r2, #2
-	ldr r1, [r1, r2]
-	mov r0, #0xa9
-	bl NARC_New
-	add r7, r0, #0
+	thumb_func_start ov96_021EB5EC
+ov96_021EB5EC: ; 0x021EB5EC
+	push {r4, r5, r6, lr}
+	add r6, r2, #0
+	add r5, r0, #0
+	add r4, r1, #0
+	cmp r6, #4
+	blo _021EB5FC
+	bl GF_AssertFail
+_021EB5FC:
+	ldr r2, [r5, #0xc]
 	mov r0, #0
-	str r0, [sp, #8]
-	ldr r1, _021E60B8 ; =0x00000618
-	ldr r0, [sp]
-	add r0, r0, r1
-	str r0, [sp, #4]
-_021E606E:
-	ldr r4, [sp]
-	ldr r5, [sp, #4]
-	mov r6, #0
-_021E6074:
-	mov r0, #0x3f
-	ldr r1, _021E60BC ; =0x000003F2
-	lsl r0, r0, #4
-	ldrh r0, [r4, r0]
-	ldrh r1, [r4, r1]
-	bl ov96_021E679C
-	add r1, r0, #0
-	add r0, r7, #0
-	add r2, r5, #0
-	bl NARC_ReadWholeMember
-	add r6, r6, #1
-	add r4, #0x28
-	add r5, #0x14
-	cmp r6, #3
-	blt _021E6074
-	ldr r0, [sp]
-	add r0, #0x7c
-	str r0, [sp]
-	ldr r0, [sp, #4]
-	add r0, #0x3c
-	str r0, [sp, #4]
-	ldr r0, [sp, #8]
+	cmp r2, #0
+	ble _021EB628
+	mov r1, #0x15
+	lsl r1, r1, #4
+	ldr r1, [r5, r1]
+	add r5, r1, #0
+_021EB60C:
+	ldr r3, [r5]
+	cmp r4, r3
+	bne _021EB620
+	mov r2, #0x14
+	mul r2, r0
+	add r0, r1, r2
+	add r1, r0, #4
+	lsl r0, r6, #2
+	add r0, r1, r0
+	pop {r4, r5, r6, pc}
+_021EB620:
 	add r0, r0, #1
-	str r0, [sp, #8]
-	cmp r0, #4
-	blt _021E606E
-	add r0, r7, #0
-	bl NARC_Delete
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	nop
-_021E60B8: .word 0x00000618
-_021E60BC: .word 0x000003F2
-	thumb_func_end ov96_021E604C
+	add r5, #0x14
+	cmp r0, r2
+	blt _021EB60C
+_021EB628:
+	bl GF_AssertFail
+	mov r0, #0
+	pop {r4, r5, r6, pc}
+	thumb_func_end ov96_021EB5EC

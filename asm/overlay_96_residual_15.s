@@ -239,60 +239,239 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_021E604C
-ov96_021E604C: ; 0x021E604C
+	thumb_func_start ov96_021E9104
+ov96_021E9104: ; 0x021E9104
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0xc
+	add r4, r0, #0
+	ldr r0, [r4]
+	bl GF2DGfxResObj_GetCharDataPtr
+	ldrh r1, [r4, #0x18]
+	cmp r1, #0
+	beq _021E911A
+	mov r6, #8
+	b _021E911C
+_021E911A:
+	mov r6, #4
+_021E911C:
+	mov r1, #0xff
+	str r1, [sp, #8]
+	ldr r0, [r0, #0x14]
 	str r0, [sp]
-	mov r2, #0xa1
-	ldr r1, [sp]
-	lsl r2, r2, #2
-	ldr r1, [r1, r2]
-	mov r0, #0xa9
-	bl NARC_New
-	add r7, r0, #0
 	mov r0, #0
-	str r0, [sp, #8]
-	ldr r1, _021E60B8 ; =0x00000618
-	ldr r0, [sp]
-	add r0, r0, r1
 	str r0, [sp, #4]
-_021E606E:
-	ldr r4, [sp]
-	ldr r5, [sp, #4]
-	mov r6, #0
-_021E6074:
-	mov r0, #0x3f
-	ldr r1, _021E60BC ; =0x000003F2
-	lsl r0, r0, #4
-	ldrh r0, [r4, r0]
-	ldrh r1, [r4, r1]
-	bl ov96_021E679C
-	add r1, r0, #0
-	add r0, r7, #0
-	add r2, r5, #0
-	bl NARC_ReadWholeMember
-	add r6, r6, #1
-	add r4, #0x28
-	add r5, #0x14
-	cmp r6, #3
-	blt _021E6074
+	cmp r6, #0
+	ble _021E916E
+	add r7, r0, #0
+_021E912E:
+	mov r4, #0xff
+	mov r5, #0
+	cmp r6, #0
+	ble _021E9150
+_021E9136:
+	add r1, r5, r7
 	ldr r0, [sp]
-	add r0, #0x7c
-	str r0, [sp]
+	lsl r1, r1, #5
+	bl ov96_021E9180
+	cmp r0, #0xff
+	beq _021E914A
+	cmp r4, r0
+	bls _021E914A
+	add r4, r0, #0
+_021E914A:
+	add r5, r5, #1
+	cmp r5, r6
+	blt _021E9136
+_021E9150:
+	cmp r4, #0xff
+	beq _021E9162
 	ldr r0, [sp, #4]
-	add r0, #0x3c
-	str r0, [sp, #4]
-	ldr r0, [sp, #8]
-	add r0, r0, #1
+	lsl r0, r0, #3
+	add r0, r4, r0
+	lsl r0, r0, #0x18
+	lsr r0, r0, #0x18
 	str r0, [sp, #8]
-	cmp r0, #4
-	blt _021E606E
-	add r0, r7, #0
-	bl NARC_Delete
+	b _021E916E
+_021E9162:
+	ldr r0, [sp, #4]
+	add r7, r7, r6
+	add r0, r0, #1
+	str r0, [sp, #4]
+	cmp r0, r6
+	blt _021E912E
+_021E916E:
+	ldr r0, [sp, #8]
+	cmp r0, #0xff
+	bne _021E9178
+	bl GF_AssertFail
+_021E9178:
+	ldr r0, [sp, #8]
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
+	.balign 4, 0
+	thumb_func_end ov96_021E9104
+
+
+	thumb_func_start ov96_021E9180
+ov96_021E9180: ; 0x021E9180
+	push {r4, r5}
+	mov r4, #0
+	mov r2, #0xff
+	add r0, r0, r1
+	add r3, r4, #0
+_021E918A:
+	add r5, r3, #0
+_021E918C:
+	ldrb r1, [r0]
+	cmp r1, #0
+	beq _021E9196
+	add r2, r4, #0
+	b _021E91A2
+_021E9196:
+	add r1, r5, #1
+	lsl r1, r1, #0x18
+	lsr r5, r1, #0x18
+	add r0, r0, #1
+	cmp r5, #4
+	blo _021E918C
+_021E91A2:
+	cmp r5, #4
+	bne _021E91B0
+	add r1, r4, #1
+	lsl r1, r1, #0x18
+	lsr r4, r1, #0x18
+	cmp r4, #8
+	blo _021E918A
+_021E91B0:
+	add r0, r2, #0
+	pop {r4, r5}
+	bx lr
+	.balign 4, 0
+	thumb_func_end ov96_021E9180
+
+
+	thumb_func_start ov96_021E91B8
+ov96_021E91B8: ; 0x021E91B8
+	push {r3, r4, r5, r6, r7, lr}
+	add r5, r0, #0
+	add r6, r1, #0
+	add r7, r2, #0
+	cmp r5, #0
+	ble _021E91CA
+	ldr r1, _021E91FC ; =0x000001ED
+	cmp r5, r1
+	ble _021E91CE
+_021E91CA:
+	mov r4, #1
+	b _021E91F6
+_021E91CE:
+	bl SpeciesToOverworldModelIndexOffset
+	ldr r1, _021E9200 ; =0x00000129
+	add r4, r0, r1
+	add r0, r5, #0
+	bl OverworldModelLookupHasFemaleForm
+	cmp r0, #0
+	beq _021E91E8
+	cmp r7, #1
+	bne _021E91F6
+	add r4, r4, #1
+	b _021E91F6
+_021E91E8:
+	add r0, r5, #0
+	bl OverworldModelLookupFormCount
+	cmp r6, r0
+	ble _021E91F4
+	mov r6, #0
+_021E91F4:
+	add r4, r4, r6
+_021E91F6:
+	add r0, r4, #0
+	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_021E60B8: .word 0x00000618
-_021E60BC: .word 0x000003F2
-	thumb_func_end ov96_021E604C
+_021E91FC: .word 0x000001ED
+_021E9200: .word 0x00000129
+	thumb_func_end ov96_021E91B8
+
+
+	thumb_func_start ov96_021E9204
+ov96_021E9204: ; 0x021E9204
+	push {r3, r4, r5, r6, lr}
+	sub sp, #0xc
+	add r5, r1, #0
+	add r4, r2, #0
+	add r2, sp, #0
+	mov r1, #0
+	str r1, [r2]
+	str r1, [r2, #4]
+	str r1, [r2, #8]
+	bl ov96_021E8BAC
+	add r6, r0, #0
+	add r0, r5, #0
+	mov r1, #0
+	bl _fgr
+	ldr r0, _021E928C ; =0x45800000
+	bls _021E923A
+	add r1, r5, #0
+	bl _fmul
+	add r1, r0, #0
+	mov r0, #0x3f
+	lsl r0, r0, #0x18
+	bl _fadd
+	b _021E9248
+_021E923A:
+	add r1, r5, #0
+	bl _fmul
+	mov r1, #0x3f
+	lsl r1, r1, #0x18
+	bl _fsub
+_021E9248:
+	bl _ffix
+	str r0, [sp]
+	add r0, r4, #0
+	mov r1, #0
+	bl _fgr
+	ldr r0, _021E928C ; =0x45800000
+	bls _021E926C
+	add r1, r4, #0
+	bl _fmul
+	add r1, r0, #0
+	mov r0, #0x3f
+	lsl r0, r0, #0x18
+	bl _fadd
+	b _021E927A
+_021E926C:
+	add r1, r4, #0
+	bl _fmul
+	mov r1, #0x3f
+	lsl r1, r1, #0x18
+	bl _fsub
+_021E927A:
+	bl _ffix
+	str r0, [sp, #4]
+	add r0, r6, #0
+	add r1, sp, #0
+	bl Sprite_SetAffineScale
+	add sp, #0xc
+	pop {r3, r4, r5, r6, pc}
+	.balign 4, 0
+_021E928C: .word 0x45800000
+	thumb_func_end ov96_021E9204
+
+
+	thumb_func_start ov96_021E9290
+ov96_021E9290: ; 0x021E9290
+	push {r4, lr}
+	add r4, r0, #0
+	bne _021E929A
+	bl GF_AssertFail
+_021E929A:
+	ldr r0, [r4, #0xc]
+	cmp r0, #0
+	beq _021E92A4
+	bl GF_AssertFail
+_021E92A4:
+	mov r0, #1
+	str r0, [r4, #8]
+	pop {r4, pc}
+	.balign 4, 0
+	thumb_func_end ov96_021E9290

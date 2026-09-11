@@ -239,60 +239,177 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_021E604C
-ov96_021E604C: ; 0x021E604C
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	str r0, [sp]
-	mov r2, #0xa1
-	ldr r1, [sp]
-	lsl r2, r2, #2
-	ldr r1, [r1, r2]
-	mov r0, #0xa9
-	bl NARC_New
-	add r7, r0, #0
+	thumb_func_start ov96_021E8A44
+ov96_021E8A44: ; 0x021E8A44
+	push {r3, r4, r5, r6, r7, lr}
+	add r4, r1, #0
+	add r6, r0, #0
+	add r5, r2, #0
+	cmp r4, #0x10
+	bls _021E8A54
+	bl GF_AssertFail
+_021E8A54:
+	strh r4, [r6, #4]
 	mov r0, #0
-	str r0, [sp, #8]
-	ldr r1, _021E60B8 ; =0x00000618
-	ldr r0, [sp]
-	add r0, r0, r1
-	str r0, [sp, #4]
-_021E606E:
-	ldr r4, [sp]
-	ldr r5, [sp, #4]
-	mov r6, #0
-_021E6074:
-	mov r0, #0x3f
-	ldr r1, _021E60BC ; =0x000003F2
-	lsl r0, r0, #4
-	ldrh r0, [r4, r0]
-	ldrh r1, [r4, r1]
-	bl ov96_021E679C
-	add r1, r0, #0
-	add r0, r7, #0
+	strh r0, [r6, #6]
+	str r0, [r6, #0xc]
+	str r0, [r6, #8]
+	mov r1, #0x2c
+	ldr r0, [r6]
+	mul r1, r4
+	bl Heap_Alloc
+	mov r1, #0x55
+	lsl r1, r1, #2
+	str r0, [r6, r1]
+	cmp r5, #0
+	bne _021E8A86
+	ldrh r0, [r6, #4]
+	add r1, r6, #0
+	ldr r2, [r6]
+	add r1, #0x1c
+	bl G2dRenderer_Init
+	str r0, [r6, #0x14]
+	str r0, [r6, #0x18]
+	mov r0, #1
+	b _021E8A8A
+_021E8A86:
+	str r5, [r6, #0x18]
+	mov r0, #0
+_021E8A8A:
+	mov r7, #0x51
+	str r0, [r6, #0x10]
+	mov r4, #0
+	add r5, r6, #0
+	lsl r7, r7, #2
+_021E8A94:
+	ldrh r0, [r6, #4]
+	ldr r2, [r6]
+	add r1, r4, #0
+	bl Create2DGfxResObjMan
+	str r0, [r5, r7]
+	add r4, r4, #1
+	add r5, r5, #4
+	cmp r4, #4
+	blt _021E8A94
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+	thumb_func_end ov96_021E8A44
+
+
+	thumb_func_start ov96_021E8AAC
+ov96_021E8AAC: ; 0x021E8AAC
+	push {r3, r4, r5, r6, r7, lr}
+	add r5, r0, #0
+	ldrh r0, [r5, #4]
+	mov r4, #0
+	cmp r0, #0
+	ble _021E8AE4
+	mov r7, #0x55
+	lsl r7, r7, #2
+_021E8ABC:
+	mov r0, #0x2c
+	add r6, r4, #0
+	mul r6, r0
+	mov r0, #0x55
+	lsl r0, r0, #2
+	ldr r0, [r5, r0]
+	ldr r0, [r0, r6]
+	bl SpriteTransfer_DeleteCharTransferTask
+	ldr r0, [r5, r7]
+	add r0, r0, r6
+	ldr r0, [r0, #4]
+	bl SpriteTransfer_DeletePlttTransferTask
+	add r0, r4, #1
+	lsl r0, r0, #0x18
+	lsr r4, r0, #0x18
+	ldrh r0, [r5, #4]
+	cmp r4, r0
+	blt _021E8ABC
+_021E8AE4:
+	mov r6, #0x51
+	mov r4, #0
+	lsl r6, r6, #2
+_021E8AEA:
+	lsl r0, r4, #2
+	add r0, r5, r0
+	ldr r0, [r0, r6]
+	bl Destroy2DGfxResObjMan
+	add r0, r4, #1
+	lsl r0, r0, #0x18
+	lsr r4, r0, #0x18
+	cmp r4, #4
+	blo _021E8AEA
+	mov r0, #0x55
+	lsl r0, r0, #2
+	ldr r0, [r5, r0]
+	bl Heap_Free
+	ldr r0, [r5, #0x10]
+	cmp r0, #0
+	beq _021E8B14
+	ldr r0, [r5, #0x14]
+	bl SpriteList_Delete
+_021E8B14:
+	add r0, r5, #0
+	bl Heap_Free
+	pop {r3, r4, r5, r6, r7, pc}
+	thumb_func_end ov96_021E8AAC
+
+
+	thumb_func_start ov96_021E8B1C
+ov96_021E8B1C: ; 0x021E8B1C
+	push {r3, r4, r5, r6, r7, lr}
+	add r5, r0, #0
+	add r7, r1, #0
+	mov r1, #0x55
+	ldr r0, [r5]
+	lsl r1, r1, #2
+	add r6, r2, #0
+	add r4, r3, #0
+	bl Heap_AllocAtEnd
+	strh r7, [r0]
+	add r2, r0, #0
+	mov ip, r0
+	str r5, [r0, #0xc]
+	add r2, #0x10
+	mov r3, #8
+_021E8B3C:
+	ldmia r4!, {r0, r1}
+	stmia r2!, {r0, r1}
+	sub r3, r3, #1
+	bne _021E8B3C
+	ldr r0, [r4]
+	mov r4, #0
+	str r0, [r2]
+	mov r0, ip
+	str r4, [r0, #8]
+	ldr r1, [sp, #0x1c]
+	mov r0, ip
+	str r1, [r0, #4]
+	mov r0, ip
+	strh r4, [r0, #2]
+	str r4, [r5, #0xc]
+	cmp r7, #0
+	ble _021E8B78
+	mov r5, ip
+_021E8B60:
 	add r2, r5, #0
-	bl NARC_ReadWholeMember
-	add r6, r6, #1
-	add r4, #0x28
-	add r5, #0x14
-	cmp r6, #3
-	blt _021E6074
-	ldr r0, [sp]
-	add r0, #0x7c
-	str r0, [sp]
-	ldr r0, [sp, #4]
-	add r0, #0x3c
-	str r0, [sp, #4]
-	ldr r0, [sp, #8]
-	add r0, r0, #1
-	str r0, [sp, #8]
-	cmp r0, #4
-	blt _021E606E
-	add r0, r7, #0
-	bl NARC_Delete
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	nop
-_021E60B8: .word 0x00000618
-_021E60BC: .word 0x000003F2
-	thumb_func_end ov96_021E604C
+	add r3, r6, #0
+	add r2, #0x54
+	ldmia r3!, {r0, r1}
+	stmia r2!, {r0, r1}
+	ldmia r3!, {r0, r1}
+	add r4, r4, #1
+	stmia r2!, {r0, r1}
+	add r6, #0x10
+	add r5, #0x10
+	cmp r4, r7
+	blt _021E8B60
+_021E8B78:
+	ldr r0, _021E8B84 ; =ov96_021E8FB4
+	ldr r2, [sp, #0x18]
+	mov r1, ip
+	bl SysTask_CreateOnMainQueue
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+_021E8B84: .word ov96_021E8FB4
+	thumb_func_end ov96_021E8B1C

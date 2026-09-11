@@ -239,60 +239,218 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_021E604C
-ov96_021E604C: ; 0x021E604C
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	str r0, [sp]
-	mov r2, #0xa1
-	ldr r1, [sp]
-	lsl r2, r2, #2
-	ldr r1, [r1, r2]
-	mov r0, #0xa9
-	bl NARC_New
-	add r7, r0, #0
+	thumb_func_start ov96_021EEFAC
+ov96_021EEFAC: ; 0x021EEFAC
+	push {r3, r4, r5, r6, lr}
+	sub sp, #4
+	mov r2, #1
+	add r5, r0, #0
+	mov r1, #0x9f
+	mov r0, #0x5c
+	lsl r2, r2, #0x12
+	bl Heap_Create
 	mov r0, #0
-	str r0, [sp, #8]
-	ldr r1, _021E60B8 ; =0x00000618
-	ldr r0, [sp]
-	add r0, r0, r1
-	str r0, [sp, #4]
-_021E606E:
-	ldr r4, [sp]
-	ldr r5, [sp, #4]
-	mov r6, #0
-_021E6074:
-	mov r0, #0x3f
-	ldr r1, _021E60BC ; =0x000003F2
-	lsl r0, r0, #4
-	ldrh r0, [r4, r0]
-	ldrh r1, [r4, r1]
-	bl ov96_021E679C
 	add r1, r0, #0
-	add r0, r7, #0
-	add r2, r5, #0
-	bl NARC_ReadWholeMember
-	add r6, r6, #1
-	add r4, #0x28
-	add r5, #0x14
-	cmp r6, #3
-	blt _021E6074
-	ldr r0, [sp]
-	add r0, #0x7c
+	bl Main_SetVBlankIntrCB
+	mov r0, #0
+	add r1, r0, #0
+	bl Main_SetHBlankIntrCB
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
+	mov r2, #1
+	lsl r2, r2, #0x1a
+	ldr r1, [r2]
+	ldr r0, _021EF04C ; =0xFFFFE0FF
+	and r1, r0
+	str r1, [r2]
+	ldr r2, _021EF050 ; =0x04001000
+	ldr r1, [r2]
+	and r0, r1
+	str r0, [r2]
+	bl ov96_021EEECC
+	add r0, r5, #0
+	mov r1, #0x10
+	bl PokeathlonCourse_AllocPtr4FromHeap
+	mov r1, #0
+	mov r2, #0x10
+	add r4, r0, #0
+	bl MI_CpuFill8
+	mov r0, #0x9f
+	str r0, [r4]
+	bl BgConfig_Alloc
+	str r0, [r4, #4]
+	ldr r1, [r4]
+	bl ov96_021EEF0C
+	ldr r0, [r4]
+	bl ov96_021EE740
+	str r0, [r4, #8]
+	add r0, r5, #0
+	bl PokeathlonCourse_GetMode
+	add r6, r0, #0
+	add r0, r5, #0
+	bl PokeathlonCourse_GetSaveData
 	str r0, [sp]
-	ldr r0, [sp, #4]
-	add r0, #0x3c
-	str r0, [sp, #4]
-	ldr r0, [sp, #8]
-	add r0, r0, #1
-	str r0, [sp, #8]
-	cmp r0, #4
-	blt _021E606E
-	add r0, r7, #0
-	bl NARC_Delete
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
+	ldr r0, [r4, #8]
+	ldr r1, [r4, #4]
+	mov r2, #0
+	add r3, r6, #0
+	bl ov96_021EE75C
+	ldr r0, _021EF054 ; =ov96_021EEEEC
+	add r1, r4, #0
+	bl Main_SetVBlankIntrCB
+	ldr r0, _021EF058 ; =gSystem + 0x60
+	mov r1, #0
+	strb r1, [r0, #9]
+	bl GfGfx_SwapDisplay
+	add sp, #4
+	pop {r3, r4, r5, r6, pc}
 	nop
-_021E60B8: .word 0x00000618
-_021E60BC: .word 0x000003F2
-	thumb_func_end ov96_021E604C
+_021EF04C: .word 0xFFFFE0FF
+_021EF050: .word 0x04001000
+_021EF054: .word ov96_021EEEEC
+_021EF058: .word gSystem + 0x60
+	thumb_func_end ov96_021EEFAC
+
+
+	thumb_func_start ov96_021EF05C
+ov96_021EF05C: ; 0x021EF05C
+	push {r3, r4, r5, lr}
+	add r5, r0, #0
+	bl PokeathlonCourse_GetHeapAllocPtr4
+	add r4, r0, #0
+	mov r0, #0
+	add r1, r0, #0
+	bl Main_SetVBlankIntrCB
+	mov r0, #0
+	add r1, r0, #0
+	bl Main_SetHBlankIntrCB
+	bl sub_0203A914
+	ldr r0, [r4, #8]
+	bl ov96_021EE808
+	add r0, r4, #0
+	bl ov96_021EEF98
+	add r0, r5, #0
+	bl PokeathlonCourse_FreePtr4HeapAlloc
+	mov r0, #0x9f
+	bl Heap_Destroy
+	pop {r3, r4, r5, pc}
+	thumb_func_end ov96_021EF05C
+
+
+	thumb_func_start ov96_021EF094
+ov96_021EF094: ; 0x021EF094
+	push {r4, r5, lr}
+	sub sp, #0xc
+	add r5, r1, #0
+	bl PokeathlonCourse_GetHeapAllocPtr4
+	add r4, r0, #0
+	ldrb r0, [r5]
+	cmp r0, #0
+	beq _021EF0AC
+	cmp r0, #1
+	beq _021EF0DC
+	b _021EF0F0
+_021EF0AC:
+	ldr r0, [r4, #0xc]
+	add r0, r0, #1
+	str r0, [r4, #0xc]
+	cmp r0, #0xf
+	ble _021EF0F4
+	ldr r0, [r4, #8]
+	bl ov96_021EE9BC
+	mov r0, #4
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	ldr r0, [r4]
+	str r0, [sp, #8]
+	mov r0, #0
+	add r1, r0, #0
+	add r2, r0, #0
+	add r3, r0, #0
+	bl BeginNormalPaletteFade
+	ldrb r0, [r5]
+	add r0, r0, #1
+	strb r0, [r5]
+	b _021EF0F4
+_021EF0DC:
+	bl IsPaletteFadeFinished
+	cmp r0, #0
+	beq _021EF0F4
+	ldr r0, [r4, #8]
+	bl ov96_021EE944
+	add sp, #0xc
+	mov r0, #1
+	pop {r4, r5, pc}
+_021EF0F0:
+	bl GF_AssertFail
+_021EF0F4:
+	mov r0, #0
+	add sp, #0xc
+	pop {r4, r5, pc}
+	.balign 4, 0
+	thumb_func_end ov96_021EF094
+
+
+	thumb_func_start ov96_021EF0FC
+ov96_021EF0FC: ; 0x021EF0FC
+	push {r3, r4, r5, lr}
+	add r5, r0, #0
+	bl PokeathlonCourse_GetHeapAllocPtr4
+	add r4, r0, #0
+	add r0, r5, #0
+	bl PokeathlonCourse_GetField1ED
+	cmp r0, #0
+	beq _021EF116
+	cmp r0, #1
+	beq _021EF124
+	b _021EF182
+_021EF116:
+	add r0, r5, #0
+	bl ov96_021EF2C0
+	add r0, r5, #0
+	bl PokeathlonCourse_IncrementField1ED
+	b _021EF186
+_021EF124:
+	add r0, r4, #0
+	bl ov96_021EF818
+	ldr r0, [r4, #4]
+	ldr r1, [r4, #0xc]
+	bl ov96_021EF4D0
+	add r0, r4, #0
+	add r0, #0x20
+	ldrb r0, [r0]
+	ldr r1, [r4, #0xc]
+	bl ov96_021EE5B4
+	str r0, [r4, #0x34]
+	ldr r1, [r4, #4]
+	bl ov96_021EE60C
+	add r0, r4, #0
+	bl ov96_021EF54C
+	ldr r0, [r4, #0x34]
+	bl ov96_021EE644
+	add r0, r4, #0
+	bl ov96_021EFA28
+	mov r0, #2
+	bl sub_0203A994
+	mov r0, #0x10
+	mov r1, #1
+	bl GfGfx_EngineATogglePlanes
+	mov r0, #0x10
+	mov r1, #1
+	bl GfGfx_EngineBTogglePlanes
+	add r0, r5, #0
+	mov r1, #1
+	bl PokeathlonCourse_SetField1F4
+	add r0, r5, #0
+	mov r1, #0
+	bl PokeathlonCourse_SetField1ED
+	mov r0, #1
+	pop {r3, r4, r5, pc}
+_021EF182:
+	bl GF_AssertFail
+_021EF186:
+	mov r0, #0
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+	thumb_func_end ov96_021EF0FC

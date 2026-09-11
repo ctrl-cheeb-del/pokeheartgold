@@ -239,60 +239,35 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_021E604C
-ov96_021E604C: ; 0x021E604C
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	str r0, [sp]
-	mov r2, #0xa1
-	ldr r1, [sp]
-	lsl r2, r2, #2
-	ldr r1, [r1, r2]
-	mov r0, #0xa9
-	bl NARC_New
-	add r7, r0, #0
-	mov r0, #0
-	str r0, [sp, #8]
-	ldr r1, _021E60B8 ; =0x00000618
-	ldr r0, [sp]
-	add r0, r0, r1
-	str r0, [sp, #4]
-_021E606E:
-	ldr r4, [sp]
-	ldr r5, [sp, #4]
-	mov r6, #0
-_021E6074:
-	mov r0, #0x3f
-	ldr r1, _021E60BC ; =0x000003F2
-	lsl r0, r0, #4
-	ldrh r0, [r4, r0]
-	ldrh r1, [r4, r1]
-	bl ov96_021E679C
-	add r1, r0, #0
-	add r0, r7, #0
-	add r2, r5, #0
-	bl NARC_ReadWholeMember
-	add r6, r6, #1
-	add r4, #0x28
-	add r5, #0x14
-	cmp r6, #3
-	blt _021E6074
-	ldr r0, [sp]
-	add r0, #0x7c
-	str r0, [sp]
-	ldr r0, [sp, #4]
-	add r0, #0x3c
-	str r0, [sp, #4]
-	ldr r0, [sp, #8]
-	add r0, r0, #1
-	str r0, [sp, #8]
-	cmp r0, #4
-	blt _021E606E
-	add r0, r7, #0
-	bl NARC_Delete
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	nop
-_021E60B8: .word 0x00000618
-_021E60BC: .word 0x000003F2
-	thumb_func_end ov96_021E604C
+	thumb_func_start ov96_02208AF8
+ov96_02208AF8: ; 0x02208AF8
+	push {r3, r4, r5, r6}
+	mov r3, #0
+	add r5, r3, #0
+	mov r6, #1
+_02208B00:
+	ldrb r2, [r1]
+	ldrb r4, [r1, #1]
+	lsl r2, r2, #0x13
+	lsl r4, r4, #0x13
+	lsr r2, r2, #0x10
+	lsr r4, r4, #0x10
+	cmp r2, #0
+	beq _02208B1C
+	cmp r4, #0
+	beq _02208B1C
+	str r6, [r0, #0x20]
+	str r2, [r0, #0x24]
+	str r4, [r0, #0x28]
+	b _02208B1E
+_02208B1C:
+	str r5, [r0, #0x20]
+_02208B1E:
+	add r3, r3, #1
+	add r1, r1, #2
+	add r0, #0xc
+	cmp r3, #0x14
+	blt _02208B00
+	pop {r3, r4, r5, r6}
+	bx lr
+	thumb_func_end ov96_02208AF8

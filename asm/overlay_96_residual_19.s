@@ -239,60 +239,338 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_021E604C
-ov96_021E604C: ; 0x021E604C
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	str r0, [sp]
-	mov r2, #0xa1
-	ldr r1, [sp]
-	lsl r2, r2, #2
-	ldr r1, [r1, r2]
-	mov r0, #0xa9
-	bl NARC_New
+	thumb_func_start ov96_021E9A78
+ov96_021E9A78: ; 0x021E9A78
+	push {r3, r4, r5, r6, r7, lr}
+	add r4, r1, #0
+	add r6, r2, #0
+	mov r1, #0
+	add r5, r0, #0
+	add r2, sp, #0
+	add r0, r1, #0
+_021E9A86:
+	add r1, r1, #1
+	strb r0, [r2]
+	add r2, r2, #1
+	cmp r1, #4
+	blt _021E9A86
+	mov r0, #1
+	tst r0, r4
+	beq _021E9AAA
+	add r0, sp, #0
+	ldrb r1, [r0]
+	add r1, r1, #1
+	strb r1, [r0]
+	ldrb r1, [r0, #2]
+	add r1, r1, #1
+	strb r1, [r0, #2]
+	ldrb r1, [r0, #3]
+	add r1, r1, #1
+	strb r1, [r0, #3]
+_021E9AAA:
+	mov r0, #4
+	tst r0, r4
+	beq _021E9AC4
+	add r0, sp, #0
+	ldrb r1, [r0]
+	add r1, r1, #1
+	strb r1, [r0]
+	ldrb r1, [r0, #2]
+	add r1, r1, #1
+	strb r1, [r0, #2]
+	ldrb r1, [r0, #3]
+	add r1, r1, #1
+	strb r1, [r0, #3]
+_021E9AC4:
+	mov r0, #2
+	tst r0, r4
+	beq _021E9ADE
+	add r0, sp, #0
+	ldrb r1, [r0]
+	add r1, r1, #1
+	strb r1, [r0]
+	ldrb r1, [r0, #2]
+	add r1, r1, #1
+	strb r1, [r0, #2]
+	ldrb r1, [r0, #3]
+	add r1, r1, #1
+	strb r1, [r0, #3]
+_021E9ADE:
+	mov r0, #8
+	tst r0, r4
+	beq _021E9AF8
+	add r0, sp, #0
+	ldrb r1, [r0]
+	add r1, r1, #1
+	strb r1, [r0]
+	ldrb r1, [r0, #2]
+	add r1, r1, #1
+	strb r1, [r0, #2]
+	ldrb r1, [r0, #3]
+	add r1, r1, #1
+	strb r1, [r0, #3]
+_021E9AF8:
+	mov r0, #0x10
+	tst r0, r4
+	beq _021E9B12
+	add r0, sp, #0
+	ldrb r1, [r0]
+	add r1, r1, #1
+	strb r1, [r0]
+	ldrb r1, [r0, #2]
+	add r1, r1, #1
+	strb r1, [r0, #2]
+	ldrb r1, [r0, #3]
+	add r1, r1, #1
+	strb r1, [r0, #3]
+_021E9B12:
+	mov r0, #0x20
+	tst r0, r4
+	beq _021E9B2C
+	add r0, sp, #0
+	ldrb r1, [r0]
+	add r1, r1, #1
+	strb r1, [r0]
+	ldrb r1, [r0, #2]
+	add r1, r1, #1
+	strb r1, [r0, #2]
+	ldrb r1, [r0, #3]
+	add r1, r1, #1
+	strb r1, [r0, #3]
+_021E9B2C:
+	mov r0, #0x40
+	tst r0, r4
+	beq _021E9B46
+	add r0, sp, #0
+	ldrb r1, [r0]
+	add r1, r1, #1
+	strb r1, [r0]
+	ldrb r1, [r0, #2]
+	add r1, r1, #1
+	strb r1, [r0, #2]
+	ldrb r1, [r0, #3]
+	add r1, r1, #1
+	strb r1, [r0, #3]
+_021E9B46:
+	mov r0, #0x80
+	tst r0, r4
+	beq _021E9B60
+	add r0, sp, #0
+	ldrb r1, [r0]
+	add r1, r1, #1
+	strb r1, [r0]
+	ldrb r1, [r0, #2]
+	add r1, r1, #1
+	strb r1, [r0, #2]
+	ldrb r1, [r0, #3]
+	add r1, r1, #1
+	strb r1, [r0, #3]
+_021E9B60:
+	mov r0, #1
+	lsl r0, r0, #8
+	tst r0, r4
+	beq _021E9B7C
+	add r0, sp, #0
+	ldrb r1, [r0]
+	add r1, r1, #1
+	strb r1, [r0]
+	ldrb r1, [r0, #2]
+	add r1, r1, #1
+	strb r1, [r0, #2]
+	ldrb r1, [r0, #3]
+	add r1, r1, #1
+	strb r1, [r0, #3]
+_021E9B7C:
+	mov r0, #2
+	lsl r0, r0, #8
+	tst r0, r4
+	beq _021E9B98
+	add r0, sp, #0
+	ldrb r1, [r0]
+	add r1, r1, #1
+	strb r1, [r0]
+	ldrb r1, [r0, #2]
+	add r1, r1, #1
+	strb r1, [r0, #2]
+	ldrb r1, [r0, #3]
+	add r1, r1, #1
+	strb r1, [r0, #3]
+_021E9B98:
+	mov r0, #1
+	lsl r0, r0, #0xa
+	tst r0, r4
+	beq _021E9BB4
+	add r0, sp, #0
+	ldrb r1, [r0]
+	add r1, r1, #1
+	strb r1, [r0]
+	ldrb r1, [r0, #2]
+	add r1, r1, #1
+	strb r1, [r0, #2]
+	ldrb r1, [r0, #3]
+	add r1, r1, #1
+	strb r1, [r0, #3]
+_021E9BB4:
+	mov r0, #2
+	lsl r0, r0, #0xa
+	tst r0, r4
+	beq _021E9BD0
+	add r0, sp, #0
+	ldrb r1, [r0]
+	add r1, r1, #1
+	strb r1, [r0]
+	ldrb r1, [r0, #2]
+	add r1, r1, #1
+	strb r1, [r0, #2]
+	ldrb r1, [r0, #3]
+	add r1, r1, #1
+	strb r1, [r0, #3]
+_021E9BD0:
+	mov r1, #2
+	add r0, sp, #0
+	strb r1, [r0, #1]
+	add r0, r5, #0
+	mov r1, #0xb4
+	bl Heap_Alloc
 	add r7, r0, #0
-	mov r0, #0
-	str r0, [sp, #8]
-	ldr r1, _021E60B8 ; =0x00000618
-	ldr r0, [sp]
-	add r0, r0, r1
-	str r0, [sp, #4]
-_021E606E:
-	ldr r4, [sp]
-	ldr r5, [sp, #4]
+	str r5, [r7]
+	str r4, [r7, #4]
+	str r6, [r7, #8]
+	mov r5, #0
+	add r4, sp, #0
+	add r6, r7, #0
+_021E9BEC:
+	ldrb r0, [r4]
+	ldr r2, [r7]
+	add r1, r5, #0
+	bl Create2DGfxResObjMan
+	str r0, [r6, #0xc]
+	add r5, r5, #1
+	add r4, r4, #1
+	add r6, r6, #4
+	cmp r5, #4
+	blt _021E9BEC
+	add r0, r7, #0
+	bl ov96_021E9D10
+	add r0, r7, #0
+	pop {r3, r4, r5, r6, r7, pc}
+	thumb_func_end ov96_021E9A78
+
+
+	thumb_func_start ov96_021E9C0C
+ov96_021E9C0C: ; 0x021E9C0C
+	push {r4, r5, r6, lr}
+	add r5, r0, #0
+	ldr r1, [r5, #4]
+	mov r0, #1
+	tst r0, r1
+	beq _021E9C1E
+	ldr r0, [r5, #0x1c]
+	bl SpriteTransfer_DeleteCharTransferTask
+_021E9C1E:
+	ldr r1, [r5, #4]
+	mov r0, #4
+	tst r0, r1
+	beq _021E9C2C
+	ldr r0, [r5, #0x20]
+	bl SpriteTransfer_DeleteCharTransferTask
+_021E9C2C:
+	ldr r1, [r5, #4]
+	mov r0, #2
+	tst r0, r1
+	beq _021E9C3A
+	ldr r0, [r5, #0x24]
+	bl SpriteTransfer_DeleteCharTransferTask
+_021E9C3A:
+	ldr r1, [r5, #4]
+	mov r0, #8
+	tst r0, r1
+	beq _021E9C48
+	ldr r0, [r5, #0x28]
+	bl SpriteTransfer_DeleteCharTransferTask
+_021E9C48:
+	ldr r1, [r5, #4]
+	mov r0, #0x10
+	tst r0, r1
+	beq _021E9C56
+	ldr r0, [r5, #0x2c]
+	bl SpriteTransfer_DeleteCharTransferTask
+_021E9C56:
+	ldr r1, [r5, #4]
+	mov r0, #0x20
+	tst r0, r1
+	beq _021E9C64
+	ldr r0, [r5, #0x30]
+	bl SpriteTransfer_DeleteCharTransferTask
+_021E9C64:
+	ldr r1, [r5, #4]
+	mov r0, #0x40
+	tst r0, r1
+	beq _021E9C72
+	ldr r0, [r5, #0x34]
+	bl SpriteTransfer_DeleteCharTransferTask
+_021E9C72:
+	ldr r1, [r5, #4]
+	mov r0, #0x80
+	tst r0, r1
+	beq _021E9C80
+	ldr r0, [r5, #0x38]
+	bl SpriteTransfer_DeleteCharTransferTask
+_021E9C80:
+	mov r0, #1
+	ldr r1, [r5, #4]
+	lsl r0, r0, #8
+	tst r0, r1
+	beq _021E9C90
+	ldr r0, [r5, #0x3c]
+	bl SpriteTransfer_DeleteCharTransferTask
+_021E9C90:
+	mov r0, #2
+	ldr r1, [r5, #4]
+	lsl r0, r0, #8
+	tst r0, r1
+	beq _021E9CA0
+	ldr r0, [r5, #0x40]
+	bl SpriteTransfer_DeleteCharTransferTask
+_021E9CA0:
+	mov r0, #1
+	ldr r1, [r5, #4]
+	lsl r0, r0, #0xa
+	tst r0, r1
+	beq _021E9CB0
+	ldr r0, [r5, #0x44]
+	bl SpriteTransfer_DeleteCharTransferTask
+_021E9CB0:
+	mov r0, #2
+	ldr r1, [r5, #4]
+	lsl r0, r0, #0xa
+	tst r0, r1
+	beq _021E9CC0
+	ldr r0, [r5, #0x48]
+	bl SpriteTransfer_DeleteCharTransferTask
+_021E9CC0:
+	add r0, r5, #0
+	add r0, #0xac
+	ldr r0, [r0]
+	bl SpriteTransfer_DeletePlttTransferTask
+	add r0, r5, #0
+	add r0, #0xb0
+	ldr r0, [r0]
+	cmp r0, #0
+	beq _021E9CD8
+	bl SpriteTransfer_DeletePlttTransferTask
+_021E9CD8:
 	mov r6, #0
-_021E6074:
-	mov r0, #0x3f
-	ldr r1, _021E60BC ; =0x000003F2
-	lsl r0, r0, #4
-	ldrh r0, [r4, r0]
-	ldrh r1, [r4, r1]
-	bl ov96_021E679C
-	add r1, r0, #0
-	add r0, r7, #0
-	add r2, r5, #0
-	bl NARC_ReadWholeMember
+	add r4, r5, #0
+_021E9CDC:
+	ldr r0, [r4, #0xc]
+	bl Destroy2DGfxResObjMan
 	add r6, r6, #1
-	add r4, #0x28
-	add r5, #0x14
-	cmp r6, #3
-	blt _021E6074
-	ldr r0, [sp]
-	add r0, #0x7c
-	str r0, [sp]
-	ldr r0, [sp, #4]
-	add r0, #0x3c
-	str r0, [sp, #4]
-	ldr r0, [sp, #8]
-	add r0, r0, #1
-	str r0, [sp, #8]
-	cmp r0, #4
-	blt _021E606E
-	add r0, r7, #0
-	bl NARC_Delete
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	nop
-_021E60B8: .word 0x00000618
-_021E60BC: .word 0x000003F2
-	thumb_func_end ov96_021E604C
+	add r4, r4, #4
+	cmp r6, #4
+	blt _021E9CDC
+	add r0, r5, #0
+	bl Heap_Free
+	pop {r4, r5, r6, pc}
+	.balign 4, 0
+	thumb_func_end ov96_021E9C0C

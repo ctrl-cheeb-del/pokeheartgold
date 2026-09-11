@@ -239,60 +239,109 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_021E604C
-ov96_021E604C: ; 0x021E604C
+	thumb_func_start ov96_02210240
+ov96_02210240: ; 0x02210240
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0xc
-	str r0, [sp]
-	mov r2, #0xa1
-	ldr r1, [sp]
-	lsl r2, r2, #2
-	ldr r1, [r1, r2]
-	mov r0, #0xa9
-	bl NARC_New
-	add r7, r0, #0
-	mov r0, #0
-	str r0, [sp, #8]
-	ldr r1, _021E60B8 ; =0x00000618
-	ldr r0, [sp]
-	add r0, r0, r1
-	str r0, [sp, #4]
-_021E606E:
-	ldr r4, [sp]
-	ldr r5, [sp, #4]
-	mov r6, #0
-_021E6074:
-	mov r0, #0x3f
-	ldr r1, _021E60BC ; =0x000003F2
-	lsl r0, r0, #4
-	ldrh r0, [r4, r0]
-	ldrh r1, [r4, r1]
-	bl ov96_021E679C
-	add r1, r0, #0
-	add r0, r7, #0
-	add r2, r5, #0
-	bl NARC_ReadWholeMember
-	add r6, r6, #1
-	add r4, #0x28
-	add r5, #0x14
-	cmp r6, #3
-	blt _021E6074
-	ldr r0, [sp]
-	add r0, #0x7c
-	str r0, [sp]
-	ldr r0, [sp, #4]
-	add r0, #0x3c
-	str r0, [sp, #4]
+	add r5, r0, #0
+	add r6, r1, #0
+	ldr r0, [sp, #0x28]
+	mov r1, #0xe8
+	add r7, r2, #0
+	str r3, [sp, #8]
+	bl Heap_Alloc
+	add r4, r0, #0
+	mov r1, #0
+	mov r2, #0xe8
+	bl MI_CpuFill8
+	str r5, [r4, #8]
+	str r6, [r4, #0xc]
+	add r0, sp, #0x10
+	ldrb r0, [r0, #0x14]
+	strb r0, [r4, #0x1c]
+	ldr r0, [sp, #0x28]
+	str r0, [r4, #4]
 	ldr r0, [sp, #8]
-	add r0, r0, #1
-	str r0, [sp, #8]
-	cmp r0, #4
-	blt _021E606E
-	add r0, r7, #0
-	bl NARC_Delete
+	str r7, [r4, #0x10]
+	str r0, [r4, #0x14]
+	ldr r0, [sp, #0x20]
+	str r0, [r4, #0x18]
+	ldr r0, [sp, #0x2c]
+	str r0, [r4]
+	add r0, r4, #0
+	bl ov96_02210538
+	mov r0, #8
+	str r0, [sp]
+	mov r0, #0
+	str r0, [sp, #4]
+	ldr r0, [r4, #8]
+	ldr r1, [r4, #0xc]
+	mov r2, #0xd2
+	mov r3, #0x4c
+	bl ov96_022104D8
+	str r0, [r4, #0x68]
+	add r0, r4, #0
+	bl ov96_0221075C
+	add r0, r4, #0
+	bl ov96_0221065C
+	add r0, r4, #0
+	bl ov96_0221069C
+	ldr r0, [r4, #4]
+	add r3, r4, #0
+	str r0, [sp]
+	mov r0, #0xed
+	mov r1, #0xe
+	mov r2, #1
+	add r3, #0x24
+	bl GfGfxLoader_GetScrnData
+	str r0, [r4, #0x20]
+	add r0, r4, #0
+	mov r1, #0x3c
+	bl ov96_0221040C
+	add r0, r4, #0
+	mov r1, #0
+	bl ov96_0221058C
+	add r0, r4, #0
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
-	nop
-_021E60B8: .word 0x00000618
-_021E60BC: .word 0x000003F2
-	thumb_func_end ov96_021E604C
+	.balign 4, 0
+	thumb_func_end ov96_02210240
+
+
+	thumb_func_start ov96_022102D4
+ov96_022102D4: ; 0x022102D4
+	push {r4, r5, r6, lr}
+	add r6, r0, #0
+	bne _022102DE
+	bl GF_AssertFail
+_022102DE:
+	ldr r0, [r6, #0x20]
+	bl Heap_Free
+	add r5, r6, #0
+	mov r4, #0
+	add r5, #0x28
+_022102EA:
+	add r0, r5, #0
+	bl RemoveWindow
+	add r4, r4, #1
+	add r5, #0x10
+	cmp r4, #4
+	blt _022102EA
+	mov r5, #0
+	add r4, r6, #0
+_022102FC:
+	ldr r0, [r4, #0x68]
+	cmp r0, #0
+	bne _02210306
+	bl GF_AssertFail
+_02210306:
+	ldr r0, [r4, #0x68]
+	bl Sprite_DeleteAndFreeResources
+	add r5, r5, #1
+	add r4, r4, #4
+	cmp r5, #0x1f
+	blt _022102FC
+	add r0, r6, #0
+	bl Heap_Free
+	pop {r4, r5, r6, pc}
+	thumb_func_end ov96_022102D4

@@ -239,60 +239,142 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_021E604C
-ov96_021E604C: ; 0x021E604C
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	str r0, [sp]
-	mov r2, #0xa1
-	ldr r1, [sp]
-	lsl r2, r2, #2
-	ldr r1, [r1, r2]
-	mov r0, #0xa9
-	bl NARC_New
-	add r7, r0, #0
+	thumb_func_start ov96_021EFA3C
+ov96_021EFA3C: ; 0x021EFA3C
+	push {r4, r5, lr}
+	sub sp, #0x1c
+	add r5, r0, #0
+	ldr r0, [r5, #0x28]
+	mov r4, #0
+	cmp r0, #0
+	bne _021EFA4C
+	mov r4, #0x20
+_021EFA4C:
+	ldr r1, _021EFAC8 ; =0x00000125
 	mov r0, #0
-	str r0, [sp, #8]
-	ldr r1, _021E60B8 ; =0x00000618
-	ldr r0, [sp]
-	add r0, r0, r1
-	str r0, [sp, #4]
-_021E606E:
-	ldr r4, [sp]
-	ldr r5, [sp, #4]
-	mov r6, #0
-_021E6074:
-	mov r0, #0x3f
-	ldr r1, _021E60BC ; =0x000003F2
-	lsl r0, r0, #4
-	ldrh r0, [r4, r0]
-	ldrh r1, [r4, r1]
-	bl ov96_021E679C
-	add r1, r0, #0
-	add r0, r7, #0
-	add r2, r5, #0
-	bl NARC_ReadWholeMember
-	add r6, r6, #1
-	add r4, #0x28
-	add r5, #0x14
-	cmp r6, #3
-	blt _021E6074
-	ldr r0, [sp]
-	add r0, #0x7c
+	str r1, [sp, #0xc]
+	str r0, [sp, #0x10]
+	str r0, [sp, #0x14]
+	str r1, [sp, #0x18]
+	bl OS_WaitVBlankIntr
+	mov r0, #0x60
 	str r0, [sp]
-	ldr r0, [sp, #4]
-	add r0, #0x3c
+	ldr r0, [r5, #4]
+	mov r1, #7
+	add r2, sp, #0xc
+	mov r3, #0x80
+	bl SetBgAffine
+	mov r0, #0x60
+	str r0, [sp]
+	ldr r0, [r5, #4]
+	mov r1, #6
+	add r2, sp, #0xc
+	mov r3, #0x80
+	bl SetBgAffine
+	add r0, sp, #0xc
+	str r0, [sp]
+	mov r0, #0x80
 	str r0, [sp, #4]
-	ldr r0, [sp, #8]
-	add r0, r0, #1
+	mov r0, #0x60
 	str r0, [sp, #8]
-	cmp r0, #4
-	blt _021E606E
-	add r0, r7, #0
-	bl NARC_Delete
+	ldr r0, [r5, #4]
+	mov r1, #7
+	mov r2, #5
+	add r3, r4, #0
+	bl Bg_SetTextDimAndAffineParams
+	add r0, sp, #0xc
+	str r0, [sp]
+	mov r0, #0x80
+	str r0, [sp, #4]
+	mov r0, #0x60
+	str r0, [sp, #8]
+	ldr r0, [r5, #4]
+	mov r1, #6
+	mov r2, #5
+	add r3, r4, #0
+	bl Bg_SetTextDimAndAffineParams
+	mov r0, #4
+	mov r1, #1
+	bl GfGfx_EngineBTogglePlanes
+	mov r0, #8
+	mov r1, #1
+	bl GfGfx_EngineBTogglePlanes
+	mov r0, #0
+	str r0, [r5, #0x1c]
+	mov r0, #1
+	str r0, [r5, #0x2c]
+	add sp, #0x1c
+	pop {r4, r5, pc}
+	.balign 4, 0
+_021EFAC8: .word 0x00000125
+	thumb_func_end ov96_021EFA3C
+
+
+	thumb_func_start ov96_021EFACC
+ov96_021EFACC: ; 0x021EFACC
+	push {r3, r4, lr}
+	sub sp, #0x14
+	add r4, r0, #0
+	ldr r0, [r4, #0x1c]
+	mov r1, #0xe
+	add r0, r0, #1
+	str r0, [r4, #0x1c]
+	lsl r0, r0, #0xc
+	bl _s32_div_f
+	mov r1, #0
+	str r0, [sp, #4]
+	str r1, [sp, #8]
+	str r1, [sp, #0xc]
+	str r0, [sp, #0x10]
+	bl OS_WaitVBlankIntr
+	mov r0, #0x60
+	str r0, [sp]
+	ldr r0, [r4, #4]
+	mov r1, #7
+	add r2, sp, #4
+	mov r3, #0x80
+	bl SetBgAffine
+	mov r0, #0x60
+	str r0, [sp]
+	ldr r0, [r4, #4]
+	mov r1, #6
+	add r2, sp, #4
+	mov r3, #0x80
+	bl SetBgAffine
+	ldr r0, [r4, #0x1c]
+	cmp r0, #0xe
+	blt _021EFB1A
+	mov r0, #0
+	str r0, [r4, #0x1c]
+	str r0, [r4, #0x2c]
+_021EFB1A:
+	add sp, #0x14
+	pop {r3, r4, pc}
+	.balign 4, 0
+	thumb_func_end ov96_021EFACC
+
+
+	thumb_func_start ov96_021EFB20
+ov96_021EFB20: ; 0x021EFB20
+	push {r4, r5, lr}
+	sub sp, #0xc
+	add r5, r1, #0
+	bl PokeathlonCourse_GetHeapAllocPtr4
+	add r4, r0, #0
+	mov r0, #4
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	ldr r0, [r4, #0xc]
+	ldr r3, _021EFB4C ; =0x00007FFF
+	str r0, [sp, #8]
+	mov r0, #0
+	add r1, r0, #0
+	add r2, r0, #0
+	bl BeginNormalPaletteFade
+	str r5, [r4, #0x18]
 	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
+	pop {r4, r5, pc}
 	nop
-_021E60B8: .word 0x00000618
-_021E60BC: .word 0x000003F2
-	thumb_func_end ov96_021E604C
+_021EFB4C: .word 0x00007FFF
+	thumb_func_end ov96_021EFB20

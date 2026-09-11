@@ -239,60 +239,38 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_021E604C
-ov96_021E604C: ; 0x021E604C
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	str r0, [sp]
-	mov r2, #0xa1
-	ldr r1, [sp]
-	lsl r2, r2, #2
-	ldr r1, [r1, r2]
-	mov r0, #0xa9
-	bl NARC_New
-	add r7, r0, #0
-	mov r0, #0
-	str r0, [sp, #8]
-	ldr r1, _021E60B8 ; =0x00000618
-	ldr r0, [sp]
-	add r0, r0, r1
-	str r0, [sp, #4]
-_021E606E:
-	ldr r4, [sp]
-	ldr r5, [sp, #4]
+	thumb_func_start ov96_021EB63C
+ov96_021EB63C: ; 0x021EB63C
+	push {r3, r4, r5, r6, r7, lr}
+	add r5, r0, #0
+	ldr r0, [r5, #8]
 	mov r6, #0
-_021E6074:
-	mov r0, #0x3f
-	ldr r1, _021E60BC ; =0x000003F2
-	lsl r0, r0, #4
-	ldrh r0, [r4, r0]
-	ldrh r1, [r4, r1]
-	bl ov96_021E679C
-	add r1, r0, #0
-	add r0, r7, #0
-	add r2, r5, #0
-	bl NARC_ReadWholeMember
+	cmp r0, #0
+	ble _021EB676
+	add r4, r6, #0
+	cmp r1, #0
+	bne _021EB652
+	mov r7, #1
+	b _021EB654
+_021EB652:
+	add r7, r6, #0
+_021EB654:
+	mov r0, #0x55
+	lsl r0, r0, #2
+	ldr r1, [r5, r0]
+	ldrh r0, [r1, r4]
+	cmp r0, #0
+	beq _021EB66C
+	add r0, r1, r4
+	bl ov96_021EB5B8
+	add r1, r7, #0
+	bl Sprite_SetAnimActiveFlag
+_021EB66C:
+	ldr r0, [r5, #8]
 	add r6, r6, #1
-	add r4, #0x28
-	add r5, #0x14
-	cmp r6, #3
-	blt _021E6074
-	ldr r0, [sp]
-	add r0, #0x7c
-	str r0, [sp]
-	ldr r0, [sp, #4]
-	add r0, #0x3c
-	str r0, [sp, #4]
-	ldr r0, [sp, #8]
-	add r0, r0, #1
-	str r0, [sp, #8]
-	cmp r0, #4
-	blt _021E606E
-	add r0, r7, #0
-	bl NARC_Delete
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	nop
-_021E60B8: .word 0x00000618
-_021E60BC: .word 0x000003F2
-	thumb_func_end ov96_021E604C
+	add r4, #0xc
+	cmp r6, r0
+	blt _021EB654
+_021EB676:
+	pop {r3, r4, r5, r6, r7, pc}
+	thumb_func_end ov96_021EB63C

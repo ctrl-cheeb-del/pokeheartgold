@@ -239,60 +239,226 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_021E604C
-ov96_021E604C: ; 0x021E604C
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	str r0, [sp]
-	mov r2, #0xa1
-	ldr r1, [sp]
-	lsl r2, r2, #2
-	ldr r1, [r1, r2]
-	mov r0, #0xa9
-	bl NARC_New
-	add r7, r0, #0
-	mov r0, #0
-	str r0, [sp, #8]
-	ldr r1, _021E60B8 ; =0x00000618
-	ldr r0, [sp]
-	add r0, r0, r1
-	str r0, [sp, #4]
-_021E606E:
-	ldr r4, [sp]
-	ldr r5, [sp, #4]
-	mov r6, #0
-_021E6074:
-	mov r0, #0x3f
-	ldr r1, _021E60BC ; =0x000003F2
-	lsl r0, r0, #4
-	ldrh r0, [r4, r0]
-	ldrh r1, [r4, r1]
-	bl ov96_021E679C
-	add r1, r0, #0
-	add r0, r7, #0
-	add r2, r5, #0
-	bl NARC_ReadWholeMember
-	add r6, r6, #1
-	add r4, #0x28
-	add r5, #0x14
-	cmp r6, #3
-	blt _021E6074
-	ldr r0, [sp]
-	add r0, #0x7c
-	str r0, [sp]
-	ldr r0, [sp, #4]
-	add r0, #0x3c
-	str r0, [sp, #4]
-	ldr r0, [sp, #8]
-	add r0, r0, #1
-	str r0, [sp, #8]
-	cmp r0, #4
-	blt _021E606E
-	add r0, r7, #0
-	bl NARC_Delete
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	nop
-_021E60B8: .word 0x00000618
-_021E60BC: .word 0x000003F2
-	thumb_func_end ov96_021E604C
+	thumb_func_start ov96_021EAC0C
+ov96_021EAC0C: ; 0x021EAC0C
+	push {r4, lr}
+	add r4, r1, #0
+	str r4, [r0, #0x34]
+	beq _021EAC5A
+	ldr r0, [r0]
+	bl ov96_021E8BAC
+	cmp r4, #6
+	bhi _021EAC50
+	add r1, r4, r4
+	add r1, pc
+	ldrh r1, [r1, #6]
+	lsl r1, r1, #0x10
+	asr r1, r1, #0x10
+	add pc, r1
+_021EAC2A: ; jump table
+	.short _021EAC50 - _021EAC2A - 2 ; case 0
+	.short _021EAC38 - _021EAC2A - 2 ; case 1
+	.short _021EAC3C - _021EAC2A - 2 ; case 2
+	.short _021EAC40 - _021EAC2A - 2 ; case 3
+	.short _021EAC44 - _021EAC2A - 2 ; case 4
+	.short _021EAC48 - _021EAC2A - 2 ; case 5
+	.short _021EAC4C - _021EAC2A - 2 ; case 6
+_021EAC38:
+	mov r1, #0
+	b _021EAC56
+_021EAC3C:
+	mov r1, #1
+	b _021EAC56
+_021EAC40:
+	mov r1, #2
+	b _021EAC56
+_021EAC44:
+	mov r1, #3
+	b _021EAC56
+_021EAC48:
+	mov r1, #4
+	b _021EAC56
+_021EAC4C:
+	mov r1, #8
+	b _021EAC56
+_021EAC50:
+	bl GF_AssertFail
+	pop {r4, pc}
+_021EAC56:
+	bl Sprite_TryChangeAnimSeq
+_021EAC5A:
+	pop {r4, pc}
+	thumb_func_end ov96_021EAC0C
+
+
+	thumb_func_start ov96_021EAC5C
+ov96_021EAC5C: ; 0x021EAC5C
+	push {r3, r4, r5, lr}
+	add r5, r0, #0
+	ldr r0, [r5]
+	add r4, r1, #0
+	bl ov96_021E8BAC
+	cmp r4, #8
+	bgt _021EAC7E
+	bge _021EACAE
+	cmp r4, #4
+	bgt _021EAD04
+	cmp r4, #0
+	blt _021EAD04
+	beq _021EACAE
+	cmp r4, #4
+	beq _021EACAE
+	pop {r3, r4, r5, pc}
+_021EAC7E:
+	cmp r4, #0x16
+	bgt _021EACAA
+	add r1, r4, #0
+	sub r1, #0xc
+	bmi _021EAD04
+	add r1, r1, r1
+	add r1, pc
+	ldrh r1, [r1, #6]
+	lsl r1, r1, #0x10
+	asr r1, r1, #0x10
+	add pc, r1
+_021EAC94: ; jump table
+	.short _021EACAE - _021EAC94 - 2 ; case 0
+	.short _021EACB2 - _021EAC94 - 2 ; case 1
+	.short _021EACB2 - _021EAC94 - 2 ; case 2
+	.short _021EACB2 - _021EAC94 - 2 ; case 3
+	.short _021EACAE - _021EAC94 - 2 ; case 4
+	.short _021EACB2 - _021EAC94 - 2 ; case 5
+	.short _021EACB2 - _021EAC94 - 2 ; case 6
+	.short _021EACB2 - _021EAC94 - 2 ; case 7
+	.short _021EACAE - _021EAC94 - 2 ; case 8
+	.short _021EACAE - _021EAC94 - 2 ; case 9
+	.short _021EACAE - _021EAC94 - 2 ; case 10
+_021EACAA:
+	cmp r4, #0x1a
+	bne _021EAD04
+_021EACAE:
+	str r4, [r5, #0x38]
+	b _021EACB4
+_021EACB2:
+	pop {r3, r4, r5, pc}
+_021EACB4:
+	cmp r4, #0x14
+	beq _021EACFC
+	cmp r4, #0x15
+	beq _021EACFC
+	ldr r1, [r5, #0x34]
+	cmp r1, #4
+	bhi _021EACF6
+	add r1, r1, r1
+	add r1, pc
+	ldrh r1, [r1, #6]
+	lsl r1, r1, #0x10
+	asr r1, r1, #0x10
+	add pc, r1
+_021EACCE: ; jump table
+	.short _021EACF6 - _021EACCE - 2 ; case 0
+	.short _021EACD8 - _021EACCE - 2 ; case 1
+	.short _021EACDE - _021EACCE - 2 ; case 2
+	.short _021EACE6 - _021EACCE - 2 ; case 3
+	.short _021EACEE - _021EACCE - 2 ; case 4
+_021EACD8:
+	lsl r1, r4, #0x18
+	lsr r1, r1, #0x18
+	b _021EAD00
+_021EACDE:
+	add r1, r4, #1
+	lsl r1, r1, #0x18
+	lsr r1, r1, #0x18
+	b _021EAD00
+_021EACE6:
+	add r1, r4, #2
+	lsl r1, r1, #0x18
+	lsr r1, r1, #0x18
+	b _021EAD00
+_021EACEE:
+	add r1, r4, #3
+	lsl r1, r1, #0x18
+	lsr r1, r1, #0x18
+	b _021EAD00
+_021EACF6:
+	bl GF_AssertFail
+	pop {r3, r4, r5, pc}
+_021EACFC:
+	lsl r1, r4, #0x18
+	lsr r1, r1, #0x18
+_021EAD00:
+	bl Sprite_TryChangeAnimSeq
+_021EAD04:
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+	thumb_func_end ov96_021EAC5C
+
+
+	thumb_func_start ov96_021EAD08
+ov96_021EAD08: ; 0x021EAD08
+	push {r3, r4, r5, lr}
+	add r4, r0, #0
+	ldr r0, [r4]
+	add r5, r1, #0
+	bl ov96_021E8BAC
+	cmp r5, #0
+	beq _021EAD22
+	cmp r5, #0x14
+	beq _021EAD28
+	cmp r5, #0x15
+	beq _021EAD2E
+	pop {r3, r4, r5, pc}
+_021EAD22:
+	mov r1, #0
+	str r1, [r4, #0x38]
+	b _021EAD32
+_021EAD28:
+	mov r1, #4
+	str r1, [r4, #0x38]
+	b _021EAD32
+_021EAD2E:
+	mov r1, #5
+	str r1, [r4, #0x38]
+_021EAD32:
+	cmp r5, #0x14
+	beq _021EAD6C
+	cmp r5, #0x15
+	beq _021EAD6C
+	ldr r1, [r4, #0x34]
+	cmp r1, #4
+	bhi _021EAD66
+	add r1, r1, r1
+	add r1, pc
+	ldrh r1, [r1, #6]
+	lsl r1, r1, #0x10
+	asr r1, r1, #0x10
+	add pc, r1
+_021EAD4C: ; jump table
+	.short _021EAD66 - _021EAD4C - 2 ; case 0
+	.short _021EAD56 - _021EAD4C - 2 ; case 1
+	.short _021EAD5A - _021EAD4C - 2 ; case 2
+	.short _021EAD5E - _021EAD4C - 2 ; case 3
+	.short _021EAD62 - _021EAD4C - 2 ; case 4
+_021EAD56:
+	mov r1, #0
+	b _021EAD72
+_021EAD5A:
+	mov r1, #1
+	b _021EAD72
+_021EAD5E:
+	mov r1, #2
+	b _021EAD72
+_021EAD62:
+	mov r1, #3
+	b _021EAD72
+_021EAD66:
+	bl GF_AssertFail
+	pop {r3, r4, r5, pc}
+_021EAD6C:
+	ldr r1, [r4, #0x38]
+	lsl r1, r1, #0x18
+	lsr r1, r1, #0x18
+_021EAD72:
+	bl Sprite_TryChangeAnimSeq
+	pop {r3, r4, r5, pc}
+	thumb_func_end ov96_021EAD08

@@ -239,60 +239,215 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_021E604C
-ov96_021E604C: ; 0x021E604C
+	thumb_func_start ov96_021EAF94
+ov96_021EAF94: ; 0x021EAF94
 	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	str r0, [sp]
-	mov r2, #0xa1
-	ldr r1, [sp]
-	lsl r2, r2, #2
-	ldr r1, [r1, r2]
-	mov r0, #0xa9
-	bl NARC_New
-	add r7, r0, #0
+	sub sp, #0x1c
+	add r5, r0, #0
+	add r4, r1, #0
+	add r1, sp, #4
 	mov r0, #0
-	str r0, [sp, #8]
-	ldr r1, _021E60B8 ; =0x00000618
-	ldr r0, [sp]
-	add r0, r0, r1
-	str r0, [sp, #4]
-_021E606E:
-	ldr r4, [sp]
-	ldr r5, [sp, #4]
-	mov r6, #0
-_021E6074:
-	mov r0, #0x3f
-	ldr r1, _021E60BC ; =0x000003F2
-	lsl r0, r0, #4
-	ldrh r0, [r4, r0]
-	ldrh r1, [r4, r1]
-	bl ov96_021E679C
-	add r1, r0, #0
-	add r0, r7, #0
-	add r2, r5, #0
-	bl NARC_ReadWholeMember
-	add r6, r6, #1
-	add r4, #0x28
-	add r5, #0x14
-	cmp r6, #3
-	blt _021E6074
-	ldr r0, [sp]
-	add r0, #0x7c
+	str r0, [r1]
+	str r0, [r1, #4]
+	str r0, [r1, #8]
+	ldr r0, [r5]
+	add r6, r2, #0
+	bl ov96_021E8BAC
+	add r2, sp, #0x10
+	add r3, sp, #4
 	str r0, [sp]
-	ldr r0, [sp, #4]
-	add r0, #0x3c
-	str r0, [sp, #4]
-	ldr r0, [sp, #8]
-	add r0, r0, #1
+	ldmia r3!, {r0, r1}
+	add r7, r2, #0
+	stmia r2!, {r0, r1}
+	ldr r0, [r3]
+	str r0, [r2]
+	lsl r0, r4, #0xc
+	str r0, [sp, #0x10]
+	lsl r0, r6, #0xc
+	str r0, [sp, #0x14]
+	ldr r0, [r5, #4]
+	cmp r0, #0
+	beq _021EAFD2
+	add r1, r7, #0
+	bl Sprite_SetMatrix
+_021EAFD2:
+	ldr r0, [r5, #8]
+	cmp r0, #0
+	beq _021EAFDE
+	add r1, sp, #0x10
+	bl Sprite_SetMatrix
+_021EAFDE:
+	ldr r0, [r5, #0x10]
+	add r1, r6, r0
+	ldr r0, [r5, #0x18]
+	lsl r0, r0, #1
+	sub r0, r1, r0
+	ldr r1, [r5, #0x14]
+	str r4, [r5, #0x20]
+	sub r2, r4, r1
+	ldr r1, [r5, #0x18]
+	add r1, r0, r1
+	str r1, [r5, #0x24]
+	lsl r1, r2, #0xc
+	lsl r0, r0, #0xc
+	str r1, [sp, #4]
 	str r0, [sp, #8]
-	cmp r0, #4
-	blt _021E606E
-	add r0, r7, #0
-	bl NARC_Delete
-	add sp, #0xc
+	ldr r0, [r5]
+	bl ov96_021E92AC
+	cmp r0, #0
+	beq _021EB010
+	mov r0, #2
+	ldr r1, [sp, #8]
+	lsl r0, r0, #0xe
+	add r0, r1, r0
+	str r0, [sp, #8]
+_021EB010:
+	ldr r0, [sp]
+	add r1, sp, #4
+	bl Sprite_SetMatrix
+	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
-	nop
-_021E60B8: .word 0x00000618
-_021E60BC: .word 0x000003F2
-	thumb_func_end ov96_021E604C
+	thumb_func_end ov96_021EAF94
+
+
+	thumb_func_start ov96_021EB01C
+ov96_021EB01C: ; 0x021EB01C
+	push {r4, r5, r6, lr}
+	ldr r5, [r0, #0x14]
+	ldr r4, [r0, #0x28]
+	sub r1, r1, r5
+	ldr r5, [r0, #0x18]
+	lsl r5, r5, #1
+	sub r6, r5, r4
+	lsr r5, r6, #0x1f
+	add r5, r6, r5
+	asr r5, r5, #1
+	add r4, r4, r5
+	sub r2, r2, r4
+	bl ov96_021EAD88
+	pop {r4, r5, r6, pc}
+	.balign 4, 0
+	thumb_func_end ov96_021EB01C
+
+
+	thumb_func_start ov96_021EB03C
+ov96_021EB03C: ; 0x021EB03C
+	push {r4, r5, r6, r7}
+	add r4, r0, #0
+	add r7, r1, #0
+	ldr r1, [r4, #0x18]
+	add r6, r3, #0
+	ldr r3, [r4, #0x28]
+	lsl r5, r1, #1
+	add r0, r2, #0
+	sub r2, r5, r3
+	lsr r1, r2, #0x1f
+	add r1, r2, r1
+	asr r1, r1, #1
+	add r1, r3, r1
+	lsl r1, r1, #0xc
+	sub r0, r0, r1
+	ldr r1, [r4, #0x2c]
+	sub r1, r5, r1
+	lsl r1, r1, #0xc
+	add r1, r0, r1
+	ldr r0, [sp, #0x10]
+	str r7, [r6]
+	str r1, [r0]
+	pop {r4, r5, r6, r7}
+	bx lr
+	thumb_func_end ov96_021EB03C
+
+
+	thumb_func_start ov96_021EB06C
+ov96_021EB06C: ; 0x021EB06C
+	push {r3, r4, r5, r6, r7, lr}
+	add r4, r0, #0
+	add r7, r1, #0
+	ldr r1, [r4, #4]
+	add r0, r2, #0
+	add r6, r3, #0
+	cmp r1, #0
+	bne _021EB082
+	bl GF_AssertFail
+	pop {r3, r4, r5, r6, r7, pc}
+_021EB082:
+	ldr r1, [r4, #0x18]
+	ldr r3, [r4, #0x28]
+	lsl r5, r1, #1
+	sub r2, r5, r3
+	lsr r1, r2, #0x1f
+	add r1, r2, r1
+	asr r1, r1, #1
+	add r1, r3, r1
+	sub r0, r0, r1
+	add r1, r0, r5
+	ldr r0, [r4, #0x10]
+	sub r1, r1, r0
+	ldr r0, [sp, #0x18]
+	str r7, [r6]
+	str r1, [r0]
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+	thumb_func_end ov96_021EB06C
+
+
+	thumb_func_start ov96_021EB0A4
+ov96_021EB0A4: ; 0x021EB0A4
+	push {r3, r4}
+	ldr r4, [r0, #0x10]
+	add r4, r2, r4
+	ldr r2, [r0, #0x18]
+	str r1, [r3]
+	ldr r1, [r0, #0x28]
+	ldr r0, [r0, #0x18]
+	lsl r2, r2, #1
+	lsl r0, r0, #1
+	sub r3, r0, r1
+	lsr r0, r3, #0x1f
+	add r0, r3, r0
+	sub r2, r4, r2
+	asr r0, r0, #1
+	add r0, r2, r0
+	add r1, r1, r0
+	ldr r0, [sp, #8]
+	str r1, [r0]
+	pop {r3, r4}
+	bx lr
+	thumb_func_end ov96_021EB0A4
+
+
+	thumb_func_start ov96_021EB0CC
+ov96_021EB0CC: ; 0x021EB0CC
+	push {r3, r4, lr}
+	sub sp, #0x24
+	add r4, r0, #0
+	lsl r0, r3, #0xc
+	str r0, [sp]
+	ldr r0, [sp, #0x30]
+	str r1, [sp, #0xc]
+	lsl r0, r0, #0xc
+	str r0, [sp, #4]
+	mov r0, #0
+	str r2, [sp, #0x10]
+	str r0, [sp, #8]
+	str r0, [sp, #0x14]
+	add r0, sp, #0
+	add r1, sp, #0xc
+	add r2, sp, #0x18
+	bl VEC_Subtract
+	add r0, sp, #0x18
+	bl VEC_Mag
+	ldr r1, [r4, #0x1c]
+	lsl r1, r1, #0xc
+	cmp r0, r1
+	bge _021EB104
+	add sp, #0x24
+	mov r0, #1
+	pop {r3, r4, pc}
+_021EB104:
+	mov r0, #0
+	add sp, #0x24
+	pop {r3, r4, pc}
+	.balign 4, 0
+	thumb_func_end ov96_021EB0CC

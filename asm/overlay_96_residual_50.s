@@ -239,60 +239,75 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_021E604C
-ov96_021E604C: ; 0x021E604C
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
+	thumb_func_start ov96_021EF99C
+ov96_021EF99C: ; 0x021EF99C
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #8
 	str r0, [sp]
-	mov r2, #0xa1
-	ldr r1, [sp]
-	lsl r2, r2, #2
-	ldr r1, [r1, r2]
-	mov r0, #0xa9
-	bl NARC_New
-	add r7, r0, #0
+	ldr r5, _021EF9FC ; =ov96_0221DA80
 	mov r0, #0
-	str r0, [sp, #8]
-	ldr r1, _021E60B8 ; =0x00000618
-	ldr r0, [sp]
-	add r0, r0, r1
+	ldr r4, _021EFA00 ; =ov96_0221BA80
+	ldr r6, [sp]
 	str r0, [sp, #4]
-_021E606E:
-	ldr r4, [sp]
-	ldr r5, [sp, #4]
-	mov r6, #0
-_021E6074:
-	mov r0, #0x3f
-	ldr r1, _021E60BC ; =0x000003F2
-	lsl r0, r0, #4
-	ldrh r0, [r4, r0]
-	ldrh r1, [r4, r1]
-	bl ov96_021E679C
-	add r1, r0, #0
-	add r0, r7, #0
-	add r2, r5, #0
-	bl NARC_ReadWholeMember
-	add r6, r6, #1
-	add r4, #0x28
-	add r5, #0x14
-	cmp r6, #3
-	blt _021E6074
+	add r7, r5, #0
+_021EF9AE:
 	ldr r0, [sp]
-	add r0, #0x7c
-	str r0, [sp]
+	ldr r1, [sp]
+	mov r2, #0
+	ldrsh r2, [r4, r2]
+	ldr r0, [r0, #0x10]
+	ldr r1, [r1, #0x14]
+	mov r3, #2
+	strh r2, [r5]
+	mov r2, #2
+	ldrsh r2, [r4, r2]
+	lsl r3, r3, #0x14
+	strh r2, [r5, #2]
+	add r2, r7, #0
+	bl SpriteSystem_NewSpriteWithYOffset
+	mov r1, #1
+	str r0, [r6, #0x38]
+	bl ManagedSprite_SetAnimateFlag
 	ldr r0, [sp, #4]
-	add r0, #0x3c
-	str r0, [sp, #4]
-	ldr r0, [sp, #8]
+	add r4, r4, #4
 	add r0, r0, #1
-	str r0, [sp, #8]
+	add r5, #0x34
+	add r7, #0x34
+	add r6, r6, #4
+	str r0, [sp, #4]
 	cmp r0, #4
-	blt _021E606E
-	add r0, r7, #0
-	bl NARC_Delete
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
+	blt _021EF9AE
+	ldr r0, [sp]
+	mov r1, #0
+	ldr r0, [r0, #0x40]
+	bl ManagedSprite_SetAnimateFlag
+	ldr r0, [sp]
+	bl ov96_021EFA04
+	add sp, #8
+	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_021E60B8: .word 0x00000618
-_021E60BC: .word 0x000003F2
-	thumb_func_end ov96_021E604C
+_021EF9FC: .word ov96_0221DA80
+_021EFA00: .word ov96_0221BA80
+	thumb_func_end ov96_021EF99C
+
+
+	thumb_func_start ov96_021EFA04
+ov96_021EFA04: ; 0x021EFA04
+	push {r4, lr}
+	add r2, r0, #0
+	add r1, r2, #0
+	add r1, #0x20
+	ldrb r1, [r1]
+	ldr r0, [r2, #0x40]
+	add r2, #0x21
+	lsl r4, r1, #3
+	ldrb r1, [r2]
+	ldr r3, _021EFA24 ; =ov96_0221BAE8
+	lsl r2, r1, #2
+	add r1, r3, r4
+	ldr r1, [r2, r1]
+	bl ManagedSprite_SetAnim
+	pop {r4, pc}
+	.balign 4, 0
+_021EFA24: .word ov96_0221BAE8
+	thumb_func_end ov96_021EFA04

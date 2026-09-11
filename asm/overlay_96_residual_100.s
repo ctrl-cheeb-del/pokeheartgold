@@ -239,60 +239,112 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_021E604C
-ov96_021E604C: ; 0x021E604C
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	str r0, [sp]
-	mov r2, #0xa1
-	ldr r1, [sp]
-	lsl r2, r2, #2
-	ldr r1, [r1, r2]
-	mov r0, #0xa9
-	bl NARC_New
-	add r7, r0, #0
-	mov r0, #0
-	str r0, [sp, #8]
-	ldr r1, _021E60B8 ; =0x00000618
-	ldr r0, [sp]
-	add r0, r0, r1
-	str r0, [sp, #4]
-_021E606E:
-	ldr r4, [sp]
-	ldr r5, [sp, #4]
+	thumb_func_start ov96_0220E890
+ov96_0220E890: ; 0x0220E890
+	ldr r2, [r0]
+	cmp r2, #0
+	beq _0220E8BC
+	bge _0220E89C
+	neg r3, r2
+	b _0220E89E
+_0220E89C:
+	add r3, r2, #0
+_0220E89E:
+	cmp r3, r1
+	bge _0220E8A8
+	mov r1, #0
+	str r1, [r0]
+	bx lr
+_0220E8A8:
+	cmp r2, #0
+	ble _0220E8B0
+	mov r2, #1
+	b _0220E8B4
+_0220E8B0:
+	mov r2, #0
+	mvn r2, r2
+_0220E8B4:
+	ldr r3, [r0]
+	mul r2, r1
+	sub r1, r3, r2
+	str r1, [r0]
+_0220E8BC:
+	bx lr
+	.balign 4, 0
+	thumb_func_end ov96_0220E890
+
+
+	thumb_func_start ov96_0220E8C0
+ov96_0220E8C0: ; 0x0220E8C0
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #8
+	mov r7, #0xfe
+	add r5, r0, #0
+	add r4, r1, #0
+	str r2, [sp]
 	mov r6, #0
-_021E6074:
+	lsl r7, r7, #0x16
+	cmp r5, #0
+	bne _0220E8D8
+	bl GF_AssertFail
+_0220E8D8:
+	ldrb r0, [r5]
+	str r0, [sp, #4]
+	sub r0, r4, r0
+	bl ov96_0220E888
+	add r4, r0, #0
+	ldr r0, [sp, #4]
+	bl ov96_0220E888
+	sub r4, r4, r0
+	beq _0220E94E
+	ldrb r0, [r5, #1]
+	cmp r0, #0
+	beq _0220E906
+	lsl r0, r0, #0xc
+	bl _fflt
+	add r1, r0, #0
 	mov r0, #0x3f
-	ldr r1, _021E60BC ; =0x000003F2
-	lsl r0, r0, #4
-	ldrh r0, [r4, r0]
-	ldrh r1, [r4, r1]
-	bl ov96_021E679C
+	lsl r0, r0, #0x18
+	bl _fadd
+	b _0220E914
+_0220E906:
+	lsl r0, r0, #0xc
+	bl _fflt
+	mov r1, #0x3f
+	lsl r1, r1, #0x18
+	bl _fsub
+_0220E914:
+	bl _ffix
+	cmp r0, #0
+	beq _0220E94E
+	mov r1, #0xa
+	bl _s32_div_f
+	add r6, r0, #0
+	ldr r0, _0220E958 ; =0xFFFE8000
+	mul r6, r4
+	cmp r6, r0
+	bgt _0220E92E
+	add r6, r0, #0
+_0220E92E:
+	mov r0, #1
+	lsl r0, r0, #0xe
+	sub r0, r6, r0
+	mov r1, #0x64
+	bl _s32_div_f
+	bl _fflt
+	ldr r1, _0220E95C ; =0x45800000
+	bl _fdiv
 	add r1, r0, #0
 	add r0, r7, #0
-	add r2, r5, #0
-	bl NARC_ReadWholeMember
-	add r6, r6, #1
-	add r4, #0x28
-	add r5, #0x14
-	cmp r6, #3
-	blt _021E6074
+	bl _fsub
+	add r7, r0, #0
+_0220E94E:
 	ldr r0, [sp]
-	add r0, #0x7c
-	str r0, [sp]
-	ldr r0, [sp, #4]
-	add r0, #0x3c
-	str r0, [sp, #4]
-	ldr r0, [sp, #8]
-	add r0, r0, #1
-	str r0, [sp, #8]
-	cmp r0, #4
-	blt _021E606E
-	add r0, r7, #0
-	bl NARC_Delete
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	nop
-_021E60B8: .word 0x00000618
-_021E60BC: .word 0x000003F2
-	thumb_func_end ov96_021E604C
+	str r7, [r0]
+	asr r0, r6, #0xc
+	add sp, #8
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+_0220E958: .word 0xFFFE8000
+_0220E95C: .word 0x45800000
+	thumb_func_end ov96_0220E8C0

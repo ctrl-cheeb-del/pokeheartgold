@@ -239,60 +239,273 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_021E604C
-ov96_021E604C: ; 0x021E604C
+	thumb_func_start ov96_021E883C
+ov96_021E883C: ; 0x021E883C
+	push {r3, r4, r5, r6, r7, lr}
+	add r6, r1, #0
+	mov r1, #0x1d
+	add r5, r0, #0
+	add r0, r3, #0
+	lsl r1, r1, #4
+	add r7, r2, #0
+	bl Heap_Alloc
+	mov r2, #0x1d
+	mov r1, #0
+	lsl r2, r2, #4
+	add r4, r0, #0
+	bl memset
+	mov r1, #7
+	lsl r1, r1, #6
+	str r5, [r4, r1]
+	add r0, r1, #4
+	str r6, [r4, r0]
+	add r1, #8
+	str r7, [r4, r1]
+	ldr r0, _021E887C ; =ov96_021E8884
+	ldr r2, _021E8880 ; =0x00001388
+	add r1, r4, #0
+	bl SysTask_CreateOnVWaitQueue
+	mov r1, #0x73
+	lsl r1, r1, #2
+	str r0, [r4, r1]
+	add r0, r4, #0
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+_021E887C: .word ov96_021E8884
+_021E8880: .word 0x00001388
+	thumb_func_end ov96_021E883C
+
+
+	thumb_func_start ov96_021E8884
+ov96_021E8884: ; 0x021E8884
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0xc
-	str r0, [sp]
-	mov r2, #0xa1
-	ldr r1, [sp]
-	lsl r2, r2, #2
-	ldr r1, [r1, r2]
-	mov r0, #0xa9
-	bl NARC_New
-	add r7, r0, #0
+	add r7, r1, #0
 	mov r0, #0
-	str r0, [sp, #8]
-	ldr r1, _021E60B8 ; =0x00000618
-	ldr r0, [sp]
-	add r0, r0, r1
-	str r0, [sp, #4]
-_021E606E:
-	ldr r4, [sp]
-	ldr r5, [sp, #4]
-	mov r6, #0
-_021E6074:
-	mov r0, #0x3f
-	ldr r1, _021E60BC ; =0x000003F2
-	lsl r0, r0, #4
-	ldrh r0, [r4, r0]
-	ldrh r1, [r4, r1]
-	bl ov96_021E679C
-	add r1, r0, #0
-	add r0, r7, #0
-	add r2, r5, #0
-	bl NARC_ReadWholeMember
-	add r6, r6, #1
-	add r4, #0x28
-	add r5, #0x14
-	cmp r6, #3
-	blt _021E6074
-	ldr r0, [sp]
-	add r0, #0x7c
 	str r0, [sp]
-	ldr r0, [sp, #4]
-	add r0, #0x3c
-	str r0, [sp, #4]
-	ldr r0, [sp, #8]
+	add r6, r7, #0
+_021E8890:
+	ldr r0, [r6]
+	cmp r0, #1
+	bne _021E88EA
+	ldr r1, [r6, #0x30]
+	cmp r1, #0x26
+	bgt _021E88BE
+	mov r4, #7
+	lsl r4, r4, #6
+	ldr r4, [r7, r4]
+	mov r3, #0x72
+	str r4, [sp, #4]
+	ldr r4, [r6, #4]
+	mov r5, #0xc
+	mul r5, r4
+	ldr r4, [sp, #4]
+	lsl r3, r3, #2
+	add r2, r6, #0
+	ldr r3, [r7, r3]
+	ldr r4, [r4, r5]
+	mov r0, #0
+	add r2, #8
+	blx r4
+	b _021E88E0
+_021E88BE:
+	mov r4, #7
+	lsl r4, r4, #6
+	ldr r4, [r7, r4]
+	mov r3, #0x72
+	mov ip, r4
+	ldr r4, [r6, #4]
+	mov r5, #0xc
+	mul r5, r4
+	str r5, [sp, #8]
+	lsl r3, r3, #2
+	ldr r4, [sp, #8]
+	mov r5, ip
+	ldr r2, [r6, #0x34]
+	ldr r3, [r7, r3]
+	ldr r4, [r5, r4]
+	mov r0, #0
+	blx r4
+_021E88E0:
+	add r0, r6, #0
+	mov r1, #0
+	mov r2, #0x38
+	bl memset
+_021E88EA:
+	ldr r0, [sp]
+	add r6, #0x38
 	add r0, r0, #1
-	str r0, [sp, #8]
-	cmp r0, #4
-	blt _021E606E
-	add r0, r7, #0
-	bl NARC_Delete
+	str r0, [sp]
+	cmp r0, #8
+	blt _021E8890
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
-	nop
-_021E60B8: .word 0x00000618
-_021E60BC: .word 0x000003F2
-	thumb_func_end ov96_021E604C
+	.balign 4, 0
+	thumb_func_end ov96_021E8884
+
+
+	thumb_func_start ov96_021E88FC
+ov96_021E88FC: ; 0x021E88FC
+	push {r4, lr}
+	add r4, r0, #0
+	mov r0, #0x73
+	lsl r0, r0, #2
+	ldr r0, [r4, r0]
+	bl SysTask_Destroy
+	add r0, r4, #0
+	bl Heap_Free
+	pop {r4, pc}
+	.balign 4, 0
+	thumb_func_end ov96_021E88FC
+
+
+	thumb_func_start ov96_021E8914
+ov96_021E8914: ; 0x021E8914
+	push {r3, r4, r5, r6, r7, lr}
+	add r6, r0, #0
+	mov r4, #0
+	str r2, [sp]
+	add r7, r1, #0
+	add r5, r3, #0
+	add r0, r4, #0
+	add r2, r6, #0
+_021E8924:
+	ldr r1, [r2]
+	cmp r1, #0
+	bne _021E8932
+	mov r1, #0x38
+	mul r1, r0
+	add r4, r6, r1
+	b _021E893A
+_021E8932:
+	add r0, r0, #1
+	add r2, #0x38
+	cmp r0, #8
+	blt _021E8924
+_021E893A:
+	cmp r4, #0
+	bne _021E8942
+	bl GF_AssertFail
+_021E8942:
+	mov r0, #7
+	lsl r0, r0, #6
+	add r1, r7, #0
+	ldr r2, [r6, r0]
+	sub r1, #0x16
+	mov r0, #0xc
+	mul r0, r1
+	add r0, r2, r0
+	ldr r0, [r0, #4]
+	cmp r0, #0
+	beq _021E8962
+	blx r0
+	cmp r0, r5
+	beq _021E8962
+	bl GF_AssertFail
+_021E8962:
+	cmp r5, #0x26
+	ble _021E896A
+	bl GF_AssertFail
+_021E896A:
+	sub r7, #0x16
+	str r7, [r4, #4]
+	cmp r5, #0
+	ble _021E897E
+	add r0, r4, #0
+	ldr r1, [sp]
+	add r0, #8
+	add r2, r5, #0
+	bl memcpy
+_021E897E:
+	str r5, [r4, #0x30]
+	mov r0, #1
+	str r0, [r4]
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+	thumb_func_end ov96_021E8914
+
+
+	thumb_func_start ov96_021E8988
+ov96_021E8988: ; 0x021E8988
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #8
+	add r5, r0, #0
+	str r2, [sp, #4]
+	mov r4, #0
+	str r1, [sp]
+	add r6, r3, #0
+	add r1, r4, #0
+	add r2, r5, #0
+_021E899A:
+	ldr r0, [r2]
+	cmp r0, #0
+	bne _021E89A8
+	mov r0, #0x38
+	mul r0, r1
+	add r4, r5, r0
+	b _021E89B0
+_021E89A8:
+	add r1, r1, #1
+	add r2, #0x38
+	cmp r1, #8
+	blt _021E899A
+_021E89B0:
+	cmp r4, #0
+	bne _021E89B8
+	bl GF_AssertFail
+_021E89B8:
+	ldr r1, [sp]
+	mov r0, #0xc
+	sub r1, #0x16
+	add r7, r1, #0
+	mul r7, r0
+	mov r0, #7
+	lsl r0, r0, #6
+	ldr r0, [r5, r0]
+	add r0, r0, r7
+	ldr r0, [r0, #4]
+	blx r0
+	ldr r1, _021E8A1C ; =0x0000FFFF
+	cmp r0, r1
+	beq _021E89DC
+	cmp r0, r6
+	beq _021E89DC
+	bl GF_AssertFail
+_021E89DC:
+	mov r1, #7
+	lsl r1, r1, #6
+	ldr r0, [r5, r1]
+	add r0, r0, r7
+	ldr r3, [r0, #8]
+	cmp r3, #0
+	beq _021E8A06
+	add r1, #8
+	ldr r1, [r5, r1]
+	mov r0, #0
+	add r2, r6, #0
+	blx r3
+	add r5, r0, #0
+	cmp r6, #0
+	ble _021E8A02
+	ldr r1, [sp, #4]
+	add r2, r6, #0
+	bl memcpy
+_021E8A02:
+	str r5, [r4, #0x34]
+	b _021E8A0A
+_021E8A06:
+	ldr r0, [sp, #4]
+	str r0, [r4, #0x34]
+_021E8A0A:
+	ldr r0, [sp]
+	sub r0, #0x16
+	str r0, [r4, #4]
+	str r0, [sp]
+	str r6, [r4, #0x30]
+	mov r0, #1
+	str r0, [r4]
+	add sp, #8
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+_021E8A1C: .word 0x0000FFFF
+	thumb_func_end ov96_021E8988
