@@ -168,7 +168,8 @@ Static main
     Object src/pokepic_animation_commands_1.o
     Object src/pokepic_animation_7.o
     Object src/motion_state_update.o
-    Object asm/unk_02017FAC.o
+    Object asm/unk_02017FAC_data.o
+    Object src/map_matrix_1.o
     Object src/model_animation.o
     Object src/unk_02018380.o
     Object src/menu_input_state.o
@@ -678,7 +679,7 @@ Static main
     Object src/map_object_movement_commands_5.o
     Object asm/unk_02062D54.o
     Object src/map_object_movement_commands_6.o
-    Object asm/unk_02062DE0.o
+    Object src/movement067_1.o
     Object src/map_object_movement_commands_7.o
     Object src/movement_command_helpers_1.o
     Object src/map_object_movement_commands_8.o
@@ -1956,6 +1957,9 @@ Overlay OVY_14
     Object asm/overlay_14_residual_11.o
     Object src/overlay_14_sol_partial_11.o
     Object asm/overlay_14_residual_12.o
+    Object src/overlay14_scene_1.o
+    Object asm/overlay_14_residual_12_residual_2.o
+    Object src/overlay14_scene_2.o
     Object src/overlay_14_sol_partial_12.o
     Object asm/overlay_14_residual_13.o
     Object src/overlay_14_sol_partial_13.o
@@ -2057,6 +2061,7 @@ Overlay OVY_14
     Object src/overlay_14_sol_partial_61.o
     Object asm/overlay_14_residual_62.o
     Object src/overlay_14_sol_partial_62.o
+    Object src/overlay14_message_1.o
     Object asm/overlay_14_residual_63.o
     Object src/overlay_14_sol_partial_63.o
     Object asm/overlay_14_residual_64.o
@@ -2987,7 +2992,11 @@ Overlay OVY_49
     Object src/overlay_49_sol_partial_40.o
     Object asm/overlay_49_residual_40.o
     Object src/overlay_49_sol_partial_41.o
+    Object src/overlay49_state_1.o
     Object asm/overlay_49_residual_41.o
+    Object src/overlay49_state_2.o
+    Object asm/overlay_49_residual_41_residual_2.o
+    Object src/overlay49_state_3.o
     Object src/overlay_49_sol_partial_42.o
     Object asm/overlay_49_residual_42.o
     Object src/overlay_49_sol_partial_43.o

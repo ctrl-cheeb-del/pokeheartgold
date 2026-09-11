@@ -3436,159 +3436,22 @@
 	.public ov49_0225D470
 
 
-	thumb_func_start ov49_0225D224
-ov49_0225D224: ; 0x0225D224
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	add r5, r2, #0
-	str r0, [sp]
-	add r4, r1, #0
-	add r7, r3, #0
-	cmp r5, #3
-	blt _0225D238
-	bl GF_AssertFail
-_0225D238:
-	cmp r7, #7
-	blt _0225D240
-	bl GF_AssertFail
-_0225D240:
-	ldrh r0, [r4, #2]
-	cmp r0, #0x12
-	blo _0225D24A
-	bl GF_AssertFail
-_0225D24A:
-	ldrh r0, [r4, #2]
-	mov r1, #0xc
-	lsl r6, r5, #2
-	mul r1, r0
-	ldr r0, [sp]
-	add r0, r0, r1
-	add r1, r0, r6
-	mov r0, #0xef
-	lsl r0, r0, #2
-	ldr r0, [r1, r0]
-	cmp r0, #0
-	beq _0225D324
-	add r0, r4, #0
-	str r0, [sp, #4]
-	add r0, #0xb8
-	str r0, [sp, #4]
-	ldrb r0, [r0, r5]
-	cmp r0, #0
-	bne _0225D280
-	add r2, r4, #0
-	mov r1, #0x14
-	add r2, #0x7c
-	mul r1, r5
-	add r0, r4, #4
-	add r1, r2, r1
-	bl sub_020181D4
-_0225D280:
-	ldr r0, [sp, #4]
-	mov r1, #1
-	strb r1, [r0, r5]
-	add r0, r4, r5
-	add r0, #0xbc
-	strb r7, [r0]
-	add r0, r4, r6
-	ldr r1, [sp, #0x20]
-	add r0, #0xd0
-	str r1, [r0]
-	add r0, r4, #0
-	str r0, [sp, #8]
-	add r0, #0xcd
-	str r0, [sp, #8]
-	mov r0, #0
-	ldr r1, [sp, #8]
-	cmp r7, #6
-	strb r0, [r1, r5]
-	bhi _0225D310
-	add r1, r7, r7
-	add r1, pc
-	ldrh r1, [r1, #6]
-	lsl r1, r1, #0x10
-	asr r1, r1, #0x10
-	add pc, r1
-_0225D2B2: ; jump table
-	.short _0225D2C0 - _0225D2B2 - 2 ; case 0
-	.short _0225D2C0 - _0225D2B2 - 2 ; case 1
-	.short _0225D2C0 - _0225D2B2 - 2 ; case 2
-	.short _0225D2C8 - _0225D2B2 - 2 ; case 3
-	.short _0225D2C8 - _0225D2B2 - 2 ; case 4
-	.short _0225D2DE - _0225D2B2 - 2 ; case 5
-	.short _0225D2F8 - _0225D2B2 - 2 ; case 6
-_0225D2C0:
-	add r1, r4, r6
-	add r1, #0xc0
-	str r0, [r1]
-	b _0225D310
-_0225D2C8:
-	add r1, r4, #0
-	mov r0, #0x14
-	add r1, #0x7c
-	mul r0, r5
-	add r0, r1, r0
-	bl sub_020181A4
-	add r1, r4, r6
-	add r1, #0xc0
-	str r0, [r1]
-	b _0225D310
-_0225D2DE:
-	add r1, r4, r6
-	add r1, #0xc0
-	str r0, [r1]
-	bl MTRandom
-	add r1, r4, #0
-	add r1, #0xcc
-	ldrb r1, [r1]
-	bl _u32_div_f
-	ldr r0, [sp, #8]
-	strb r1, [r0, r5]
-	b _0225D310
-_0225D2F8:
-	add r1, r4, r6
-	add r1, #0xc0
-	str r0, [r1]
-	bl MTRandom
-	add r1, r4, #0
-	add r1, #0xcc
-	ldrb r1, [r1]
-	bl _u32_div_f
-	ldr r0, [sp, #8]
-	strb r1, [r0, r5]
-_0225D310:
-	add r1, r4, #0
-	mov r0, #0x14
-	add r1, #0x7c
-	mul r0, r5
-	add r0, r1, r0
-	add r1, r4, r6
-	add r1, #0xc0
-	ldr r1, [r1]
-	bl sub_02018198
-_0225D324:
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	thumb_func_end ov49_0225D224
-
-
-
-
-	thumb_func_start ov49_0225D328
-ov49_0225D328: ; 0x0225D328
-	push {r4, r5, r6, lr}
+	thumb_func_start ov49_0225D3F8
+ov49_0225D3F8: ; 0x0225D3F8
+	push {r3, r4, r5, r6, r7, lr}
 	add r4, r2, #0
 	add r6, r0, #0
 	add r5, r1, #0
+	add r7, r3, #0
 	cmp r4, #3
-	blt _0225D338
+	blt _0225D40A
 	bl GF_AssertFail
-_0225D338:
+_0225D40A:
 	ldrh r0, [r5, #2]
 	cmp r0, #0x12
-	blo _0225D342
+	blo _0225D414
 	bl GF_AssertFail
-_0225D342:
+_0225D414:
 	ldrh r1, [r5, #2]
 	mov r0, #0xc
 	mul r0, r1
@@ -3599,35 +3462,26 @@ _0225D342:
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	cmp r0, #0
-	beq _0225D390
-	add r6, r5, #0
-	add r6, #0xb8
-	ldrb r0, [r6, r4]
-	cmp r0, #1
-	bne _0225D390
+	bne _0225D42E
+	bl GF_AssertFail
+_0225D42E:
+	add r0, r5, r4
+	add r0, #0xbc
+	ldrb r0, [r0]
+	cmp r0, #2
+	bne _0225D44E
 	add r2, r5, #0
-	mov r1, #0x14
-	add r2, #0x7c
-	mul r1, r4
-	add r0, r5, #4
-	add r1, r2, r1
-	bl sub_020181E0
-	lsl r2, r4, #2
-	mov r0, #0
-	add r1, r5, r2
-	strb r0, [r6, r4]
-	add r1, #0xc0
-	str r0, [r1]
-	add r1, r5, r4
-	add r1, #0xbc
-	strb r0, [r1]
-	add r1, r5, r4
-	add r1, #0xcd
-	strb r0, [r1]
-	add r1, r5, r2
-	add r1, #0xd0
-	str r0, [r1]
-_0225D390:
-	pop {r4, r5, r6, pc}
-	.balign 4, 0
-	thumb_func_end ov49_0225D328
+	mov r0, #0x14
+	add r2, #0xc0
+	lsl r1, r4, #2
+	str r7, [r2, r1]
+	add r5, #0x7c
+	mul r0, r4
+	ldr r1, [r2, r1]
+	add r0, r5, r0
+	bl sub_02018198
+_0225D44E:
+	pop {r3, r4, r5, r6, r7, pc}
+	thumb_func_end ov49_0225D3F8
+
+
