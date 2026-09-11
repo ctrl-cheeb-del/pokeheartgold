@@ -503,58 +503,97 @@
 	.public ov41_0224A15C
 
 
-	thumb_func_start ov41_02249CF8
-ov41_02249CF8: ; 0x02249CF8
-	push {r3, r4, r5, lr}
-	sub sp, #0x18
+
+
+	thumb_func_start ov41_02249E60
+ov41_02249E60: ; 0x02249E60
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #0x28
 	add r5, r0, #0
-	ldr r0, [r5, #0xc]
-	add r1, r0, r1
-	str r1, [r5, #0xc]
-	ldr r0, [r5, #8]
-	cmp r1, r0
-	ble _02249D5C
-	mov r2, #0
-	str r2, [r5, #0xc]
-	ldr r0, [r5, #0x10]
-	cmp r0, #0
-	bne _02249D1C
-	ldr r1, [r5, #4]
-	mov r0, #1
-	str r0, [r5, #0x10]
-	b _02249D22
-_02249D1C:
-	ldr r0, [r5]
-	ldr r1, [r0, #8]
-	str r2, [r5, #0x10]
-_02249D22:
-	ldr r0, [r5, #0x14]
-	mov r2, #0
+	add r4, r1, #0
+	ldr r1, [r5, #0x14]
+	add r6, r2, #0
+	asr r0, r1, #2
+	lsr r0, r0, #0x1d
+	add r0, r1, r0
+	asr r0, r0, #3
+	ldr r1, [r5, #0x18]
+	str r0, [sp, #0x18]
+	asr r0, r1, #2
+	lsr r0, r0, #0x1d
+	add r0, r1, r0
+	asr r0, r0, #3
+	str r0, [sp, #0x14]
+	ldr r0, [r5, #0x28]
 	str r0, [sp]
-	ldr r0, [r5]
-	add r3, sp, #0x14
-	ldr r0, [r0, #4]
-	bl GfGfxLoader_GetScrnData
-	ldr r3, [r5]
-	add r4, r0, #0
-	ldr r0, [r3, #0x18]
-	str r0, [sp]
-	ldr r0, [r3, #0xc]
+	ldr r0, [r5, #0x2c]
 	str r0, [sp, #4]
-	ldr r0, [r3, #0x10]
+	ldr r0, [r5, #4]
+	ldr r1, [r5, #8]
+	ldr r2, [r5]
+	ldr r3, [r5, #0x1c]
+	bl ov41_02249FFC
+	ldr r0, [r5, #0x1c]
+	cmp r0, #4
+	bge _02249EA0
+	mov r2, #0
+	b _02249EA2
+_02249EA0:
+	mov r2, #4
+_02249EA2:
+	ldr r0, [r5, #0x20]
+	lsl r0, r0, #5
+	str r0, [sp]
+	ldr r0, [r5, #0x2c]
+	str r0, [sp, #4]
+	ldr r3, [r5, #0x24]
+	ldr r0, [r5, #4]
+	ldr r1, [r5, #0xc]
+	lsl r3, r3, #5
+	bl ov41_0224A04C
+	ldr r0, [r5, #0x2c]
+	mov r2, #0
+	str r0, [sp]
+	ldr r0, [r5, #4]
+	ldr r1, [r5, #0x10]
+	add r3, sp, #0x24
+	bl GfGfxLoader_GetScrnData
+	ldr r2, [sp, #0x24]
+	str r0, [sp, #0x20]
+	ldrh r0, [r2]
+	lsr r7, r0, #3
+	ldrh r0, [r2, #2]
+	add r3, r7, #0
+	lsr r0, r0, #3
+	str r0, [sp, #0x1c]
+	str r0, [sp]
+	ldr r0, [sp, #0x18]
+	str r0, [sp, #4]
+	ldr r0, [sp, #0x14]
 	str r0, [sp, #8]
-	ldr r0, [r3, #0x28]
+	ldr r0, [r5, #0x28]
 	str r0, [sp, #0xc]
-	ldr r0, [r3, #0x20]
+	ldr r0, [r5, #0x24]
 	str r0, [sp, #0x10]
-	ldr r0, [r3]
-	ldr r1, [r3, #0x1c]
-	ldr r2, [sp, #0x14]
-	ldr r3, [r3, #0x14]
+	ldr r0, [r5]
+	ldr r1, [r5, #0x1c]
 	bl ov41_02249F7C
-	add r0, r4, #0
+	ldr r0, [sp, #0x20]
 	bl Heap_Free
-_02249D5C:
-	add sp, #0x18
-	pop {r3, r4, r5, pc}
-	thumb_func_end ov41_02249CF8
+	cmp r4, #0
+	beq _02249EFE
+	str r7, [r4]
+_02249EFE:
+	cmp r6, #0
+	beq _02249F06
+	ldr r0, [sp, #0x1c]
+	str r0, [r6]
+_02249F06:
+	add sp, #0x28
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+	thumb_func_end ov41_02249E60
+
+
+
+

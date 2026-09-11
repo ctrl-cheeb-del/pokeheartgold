@@ -248,181 +248,235 @@
 	.public ov96_0220B500
 
 
-	thumb_func_start ov96_0220B374
-ov96_0220B374: ; 0x0220B374
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x18
-	add r7, r0, #0
-	add r0, r3, #0
-	add r5, r1, #0
-	add r6, r2, #0
-	str r3, [sp, #8]
-	bl ov96_021E5F24
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0xc]
-	add r0, r7, #0
-	mov r1, #0x48
-	bl Heap_Alloc
+
+
+	thumb_func_start ov96_0220B528
+ov96_0220B528: ; 0x0220B528
+	push {r3, r4, r5, r6, lr}
+	sub sp, #4
 	add r4, r0, #0
-	mov r1, #0
-	mov r2, #0x48
-	bl MI_CpuFill8
-	str r7, [r4]
-	str r5, [r4, #4]
-	ldr r0, [sp, #8]
-	str r6, [r4, #8]
-	str r0, [r4, #0xc]
-	ldr r1, [r4, #0x44]
-	mov r0, #0xff
-	bic r1, r0
-	str r1, [r4, #0x44]
+	add r5, r1, #0
+	cmp r4, #0
+	bne _0220B538
+	bl GF_AssertFail
+_0220B538:
+	ldr r0, [r4, #0x40]
+	lsl r0, r0, #0x16
+	lsr r0, r0, #0x18
+	cmp r0, #3
+	bhi _0220B578
+	add r0, r0, r0
+	add r0, pc
+	ldrh r0, [r0, #6]
+	lsl r0, r0, #0x10
+	asr r0, r0, #0x10
+	add pc, r0
+_0220B54E: ; jump table
+	.short _0220B556 - _0220B54E - 2 ; case 0
+	.short _0220B560 - _0220B54E - 2 ; case 1
+	.short _0220B568 - _0220B54E - 2 ; case 2
+	.short _0220B570 - _0220B54E - 2 ; case 3
+_0220B556:
 	add r0, r4, #0
-	ldr r1, [sp, #0xc]
-	ldr r2, [sp, #8]
+	add r1, r5, #0
+	bl ov96_0220B940
+	b _0220B57C
+_0220B560:
+	add r0, r4, #0
+	bl ov96_0220B95C
+	b _0220B57C
+_0220B568:
+	add r0, r4, #0
+	bl ov96_0220B988
+	b _0220B57C
+_0220B570:
+	add r0, r4, #0
+	bl ov96_0220B9A8
+	b _0220B57C
+_0220B578:
+	bl GF_AssertFail
+_0220B57C:
+	ldr r0, _0220B62C ; =ov96_0221E5A4
+	ldr r1, [r0]
+	add r1, r1, #1
+	str r1, [r0]
+	cmp r5, #0
+	bne _0220B58E
+	add r0, r4, #0
+	bl ov96_0220C680
+_0220B58E:
+	add r0, r4, #0
+	bl ov96_0220BD38
+	ldr r2, [r4, #0x40]
+	add r0, r4, #0
+	lsl r1, r2, #0xb
+	lsl r2, r2, #0x1e
+	lsr r2, r2, #0x1e
+	lsl r2, r2, #0x18
 	add r0, #0x34
-	bl ov96_0220D200
-	add r0, r4, #0
-	ldr r1, [r4, #4]
-	ldr r2, [r4, #8]
-	add r0, #0x10
-	bl ov96_0220C490
-	add r1, sp, #0x14
-	mov r3, #1
-	ldr r0, [r4, #0x24]
-	add r1, #2
-	add r2, sp, #0x14
-	lsl r3, r3, #0x14
-	bl ManagedSprite_GetPositionXYWithSubscreenOffset
-	add r3, sp, #0x10
-	mov r7, #4
-	ldrsh r0, [r3, r7]
-	mov r2, #6
-	add r1, r6, #0
-	sub r0, #0x18
-	strh r0, [r3, #4]
-	mov r0, #0x11
-	str r0, [sp]
-	mov r0, #0
-	str r0, [sp, #4]
-	ldrsh r2, [r3, r2]
-	ldrsh r3, [r3, r7]
-	add r0, r5, #0
-	bl ov96_0220D1A0
-	str r0, [r4, #0x2c]
-	mov r1, #0
-	bl ManagedSprite_SetDrawFlag
-	add r1, sp, #0x14
-	ldr r0, [r4, #0x28]
-	add r1, #2
-	add r2, sp, #0x14
-	lsl r3, r7, #0x12
-	bl ManagedSprite_GetPositionXYWithSubscreenOffset
-	add r3, sp, #0x10
-	ldrsh r0, [r3, r7]
-	mov r2, #6
-	add r1, r6, #0
-	sub r0, #0x18
-	strh r0, [r3, #4]
-	mov r0, #0x11
-	str r0, [sp]
-	mov r0, #0
-	str r0, [sp, #4]
-	ldrsh r2, [r3, r2]
-	ldrsh r3, [r3, r7]
-	add r0, r5, #0
-	bl ov96_0220D1A0
-	str r0, [r4, #0x30]
-	mov r1, #0
-	bl ManagedSprite_SetDrawFlag
-	add r1, sp, #0x10
+	lsr r1, r1, #0x15
+	lsr r2, r2, #0x18
+	bl ov96_0220D2AC
+	ldr r1, [r4, #0x40]
+	ldr r0, _0220B630 ; =0xFFE003FF
+	and r0, r1
+	lsl r1, r1, #0xb
+	lsr r1, r1, #0x15
+	add r1, r1, #1
+	lsl r1, r1, #0x15
+	lsr r1, r1, #0xb
+	orr r0, r1
+	str r0, [r4, #0x40]
+	ldr r0, [r4, #0x10]
+	bl ManagedSprite_IsAnimated
+	cmp r0, #0
+	beq _0220B628
+	ldr r0, [r4, #0x10]
+	ldr r0, [r0]
+	bl Sprite_GetCellAnim
+	add r6, r0, #0
+	bl NNS_G2dGetAnimCtrlCurrentElement
+	add r5, r0, #0
+	ldr r0, [r6, #0xc]
+	cmp r0, #0
+	bne _0220B5E2
+	bl GF_AssertFail
+_0220B5E2:
+	add r1, sp, #0
 	ldr r0, [r4, #0x10]
 	add r1, #2
-	add r2, sp, #0x10
+	add r2, sp, #0
 	bl ManagedSprite_GetPositionXY
-	mov r0, #0x11
-	str r0, [sp]
-	mov r0, #0x1a
-	str r0, [sp, #4]
-	add r7, sp, #0x10
-	mov r2, #2
-	mov r3, #0
-	ldrsh r2, [r7, r2]
-	ldrsh r3, [r7, r3]
-	add r0, r5, #0
-	add r1, r6, #0
-	bl ov96_0220D13C
-	mov r1, #0
-	str r0, [r4, #0x14]
-	bl ManagedSprite_SetDrawFlag
-	mov r0, #0xf
-	str r0, [sp]
-	mov r0, #0x17
-	str r0, [sp, #4]
-	mov r2, #2
-	mov r3, #0
-	ldrsh r2, [r7, r2]
-	ldrsh r3, [r7, r3]
-	add r0, r5, #0
-	add r1, r6, #0
-	bl ov96_0220D13C
-	mov r1, #0
-	str r0, [r4, #0x1c]
-	bl ManagedSprite_SetDrawFlag
-	mov r0, #0x1b
-	str r0, [sp]
-	mov r0, #0x18
-	str r0, [sp, #4]
-	mov r2, #2
-	mov r3, #0
-	ldrsh r2, [r7, r2]
-	ldrsh r3, [r7, r3]
-	add r0, r5, #0
-	add r1, r6, #0
-	bl ov96_0220D13C
-	mov r1, #0
-	str r0, [r4, #0x20]
-	bl ManagedSprite_SetDrawFlag
-	add r3, r7, #0
-	mov r7, #0
-	ldrsh r0, [r3, r7]
-	mov r2, #2
-	add r1, r6, #0
+	mov r0, #4
+	add r3, sp, #0
+	mov r1, #2
+	ldrsh r2, [r3, r1]
+	ldrsh r0, [r5, r0]
+	mov r6, #6
+	add r0, r2, r0
+	strh r0, [r3, #2]
+	mov r2, #0
+	ldrsh r0, [r3, r2]
+	ldrsh r5, [r5, r6]
+	add r0, r0, r5
+	strh r0, [r3]
+	ldrsh r1, [r3, r1]
+	ldrsh r2, [r3, r2]
+	ldr r0, [r4, #0x14]
+	bl ManagedSprite_SetPositionXY
+	add r3, sp, #0
+	mov r2, #0
+	ldrsh r0, [r3, r2]
+	mov r1, #2
 	sub r0, #0x18
 	strh r0, [r3]
-	mov r0, #0x18
-	str r0, [sp]
-	mov r0, #0x19
-	str r0, [sp, #4]
+	ldrsh r1, [r3, r1]
 	ldrsh r2, [r3, r2]
-	ldrsh r3, [r3, r7]
+	ldr r0, [r4, #0x18]
+	bl ManagedSprite_SetPositionXY
+_0220B628:
+	add sp, #4
+	pop {r3, r4, r5, r6, pc}
+	.balign 4, 0
+_0220B62C: .word ov96_0221E5A4
+_0220B630: .word 0xFFE003FF
+	thumb_func_end ov96_0220B528
+
+
+
+
+
+
+
+
+	thumb_func_start ov96_0220B634
+ov96_0220B634: ; 0x0220B634
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #8
+	add r5, r0, #0
+	add r7, r1, #0
+	ldr r0, _0220B6E4 ; =ov96_0221E5A4
+	str r2, [sp, #4]
+	mov r1, #0
+	str r1, [r0]
+	ldr r0, [r5, #0x40]
+	lsl r0, r0, #0x16
+	lsr r0, r0, #0x18
+	cmp r0, #2
+	bne _0220B652
+	bl GF_AssertFail
+_0220B652:
+	ldr r0, [r5, #0x40]
+	lsl r1, r0, #0x16
+	lsr r1, r1, #0x18
+	cmp r1, #1
+	bne _0220B69C
+	lsl r0, r0, #0x1e
+	add r4, r5, #0
+	lsr r0, r0, #0x1e
+	ldr r1, [r5, #0x44]
+	add r4, #0x34
+	lsl r6, r0, #2
+	ldr r0, [r4, r6]
+	lsl r1, r1, #8
+	lsr r1, r1, #0x18
+	lsl r0, r0, #6
+	lsl r1, r1, #0x10
+	lsr r0, r0, #0x18
+	lsr r1, r1, #0x10
+	bl ov96_0220D33C
+	lsl r0, r0, #0x18
+	ldr r2, [r4, r6]
+	ldr r1, _0220B6E8 ; =0xFC03FFFF
+	lsr r0, r0, #6
+	and r1, r2
+	orr r0, r1
+	str r0, [r4, r6]
+	ldr r0, [r4, r6]
+	lsl r0, r0, #6
+	lsr r0, r0, #0x18
+	bne _0220B69C
 	add r0, r5, #0
-	bl ov96_0220D13C
+	mov r1, #2
+	bl ov96_0220C578
+	add sp, #8
+	pop {r3, r4, r5, r6, r7, pc}
+_0220B69C:
+	ldr r0, [r5, #0x44]
+	lsl r0, r0, #0x17
+	lsr r0, r0, #0x1f
+	bne _0220B6AE
+	ldr r2, [sp, #4]
+	add r0, r5, #0
 	add r1, r7, #0
-	str r0, [r4, #0x18]
-	bl ManagedSprite_SetDrawFlag
+	bl ov96_0220C714
+_0220B6AE:
+	ldr r0, [r5, #0x10]
+	mov r1, #2
+	bl ManagedSprite_SetAnim
+	ldr r0, [r5, #0xc]
+	bl ov96_021E5F24
+	add r1, r0, #0
 	mov r0, #1
 	str r0, [sp]
-	add r1, r7, #0
-	ldr r2, [sp, #0xc]
-	add r0, r4, #0
-	add r3, r1, #0
-	bl ov96_0220C54C
-	add r0, r7, #0
-	str r0, [sp]
-	ldr r2, [sp, #0xc]
-	add r0, r4, #0
-	mov r1, #5
-	mov r3, #2
-	bl ov96_0220C54C
-	add r0, r7, #0
-	str r0, [sp]
-	ldr r2, [sp, #0xc]
-	add r0, r4, #0
-	mov r1, #6
-	mov r3, #1
-	bl ov96_0220C54C
-	add r0, r4, #0
-	add sp, #0x18
+	ldr r2, [r5, #0x40]
+	lsl r1, r1, #0x18
+	lsl r2, r2, #0x1e
+	lsr r2, r2, #0x1e
+	lsl r2, r2, #0x18
+	ldr r0, [r5, #0xc]
+	lsr r1, r1, #0x18
+	lsr r2, r2, #0x18
+	mov r3, #4
+	bl ov96_021E8228
+	add r0, r5, #0
+	mov r1, #1
+	bl ov96_0220C578
+	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov96_0220B374
+	.balign 4, 0
+_0220B6E4: .word ov96_0221E5A4
+_0220B6E8: .word 0xFC03FFFF
+	thumb_func_end ov96_0220B634
+
+

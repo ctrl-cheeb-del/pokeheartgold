@@ -2682,6 +2682,13 @@ Overlay OVY_41
     Object asm/overlay_41_residual_50_residual_4.o
     Object src/overlay41_accessors_4.o
     Object asm/overlay_41_residual_50_residual_5.o
+    Object src/ov41_wave31_helpers_1.o
+    Object asm/overlay_41_residual_50_residual_5_residual_2.o
+    Object src/ov41_wave31_helpers_2.o
+    Object asm/overlay_41_residual_50_residual_5_residual_3.o
+    Object src/ov41_wave31_helpers_3.o
+    Object asm/overlay_41_residual_50_residual_5_residual_4.o
+    Object src/ov41_wave31_helpers_4.o
     Object src/overlay41_accessors_5.o
     Object asm/overlay_41_residual_50_residual_6.o
     Object src/overlay41_accessors_6.o
@@ -2920,6 +2927,7 @@ Overlay OVY_47
     Object src/overlay47_exact_bank_4.o
     Object asm/overlay_47_residual_5.o
     Object src/overlay47_exact_bank_5.o
+    Object src/ov47_wave31_tail_1.o
     Object asm/overlay_47_residual_6.o
     Object src/overlay47_exact_bank_6.o
     Object asm/overlay_47_residual_7.o
@@ -4473,6 +4481,9 @@ Overlay OVY_85
     Object asm/overlay_85_residual_16.o
     Object src/overlay85_helpers_16.o
     Object asm/overlay_85_residual_17.o
+    Object src/ov85_wave31_helpers_1.o
+    Object asm/overlay_85_residual_17_residual_2.o
+    Object src/ov85_wave31_helpers_2.o
     Object src/overlay85_helpers_17.o
     Object asm/overlay_85_residual_18.o
     Object src/overlay85_helpers_18.o
@@ -5127,6 +5138,8 @@ Overlay OVY_96
     Object asm/overlay_96_residual_94_residual_4.o
     Object src/overlay96_result_helpers_4.o
     Object asm/overlay_96_residual_94_residual_5.o
+    Object src/ov96_wave31_free_1.o
+    Object asm/overlay_96_residual_94_residual_5_residual_2.o
     Object src/overlay96_result_helpers_5.o
     Object src/overlay96_exact_bank_94.o
     Object asm/overlay_96_residual_95.o

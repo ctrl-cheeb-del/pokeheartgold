@@ -41,14 +41,7 @@
 	.public ov47_02259D58
 	.public ov47_02259DA4
 	.public ov47_02259DCC
-
-	thumb_func_start ov47_02259480
-ov47_02259480: ; 0x02259480
-	ldr r3, _02259484 ; =ov47_02259968
-	bx r3
-	.balign 4, 0
-_02259484: .word ov47_02259968
-	thumb_func_end ov47_02259480
+	.public ov47_02259480
 
 
 	thumb_func_start ov47_02259488
@@ -163,6 +156,8 @@ _02259564:
 	nop
 _02259574: .word ov47_02259EE8
 	thumb_func_end ov47_02259488
+
+
 
 
 	thumb_func_start ov47_02259578
