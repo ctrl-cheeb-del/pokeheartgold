@@ -1067,65 +1067,101 @@
 	.public ov81_022425D8
 
 
-	thumb_func_start ov81_02241C0C
-ov81_02241C0C: ; 0x02241C0C
-	push {r3, r4, r5, lr}
+	thumb_func_start ov81_02242514
+ov81_02242514: ; 0x02242514
+	push {r3, r4, lr}
+	sub sp, #0xc
 	add r4, r0, #0
-	ldr r0, _02241C80 ; =0x00000464
+	mov r0, #0x1a
+	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl GridInputHandler_GetNextInput
-	add r2, r0, #0
-	cmp r2, #6
-	bhs _02241C7C
-	ldrb r1, [r4, #0x11]
+	cmp r0, #0
+	beq _02242580
+	ldr r1, _02242584 ; =0x00000478
+	ldr r1, [r4, r1]
+	cmp r1, #0xff
+	beq _02242580
+	bl PaletteData_GetSelectedBuffersBitmask
+	cmp r0, #0
+	bne _02242580
+	ldr r0, _02242584 ; =0x00000478
+	ldr r0, [r4, r0]
+	cmp r0, #0
+	bne _0224255A
 	mov r0, #0
-	cmp r1, #0
-	ble _02241C3E
-	mov r3, #0xf2
-	lsl r3, r3, #2
-_02241C2A:
-	lsl r5, r0, #1
-	add r5, r4, r5
-	ldrh r5, [r5, r3]
-	cmp r2, r5
-	beq _02241C3E
-	add r0, r0, #1
-	lsl r0, r0, #0x10
-	lsr r0, r0, #0x10
-	cmp r0, r1
-	blt _02241C2A
-_02241C3E:
-	cmp r1, #0
-	beq _02241C5A
-	cmp r0, r1
-	beq _02241C5A
-	lsl r0, r1, #2
-	add r1, r4, r0
-	mov r0, #0x6b
-	lsl r0, r0, #2
-	ldr r0, [r1, r0]
-	mov r1, #6
-	mov r2, #1
-	bl Pokepic_SetAttr
-	b _02241C76
-_02241C5A:
-	add r0, r4, #0
-	mov r3, #0
-	bl ov81_02241E68
-	ldrb r0, [r4, #0x11]
+	str r0, [sp]
+	mov r0, #0x10
+	str r0, [sp, #4]
+	ldr r0, _02242588 ; =0x0000FFFF
+	mov r1, #4
+	str r0, [sp, #8]
+	mov r0, #0x1a
+	lsl r0, r0, #4
+	ldr r0, [r4, r0]
+	mov r2, #8
+	mov r3, #2
+	bl PaletteData_BeginPaletteFade
+	b _02242576
+_0224255A:
+	mov r0, #0x10
+	str r0, [sp]
+	mov r0, #0
+	str r0, [sp, #4]
+	ldr r0, _02242588 ; =0x0000FFFF
+	mov r1, #4
+	str r0, [sp, #8]
+	mov r0, #0x1a
+	lsl r0, r0, #4
+	ldr r0, [r4, r0]
+	mov r2, #8
+	mov r3, #2
+	bl PaletteData_BeginPaletteFade
+_02242576:
+	ldr r1, _02242584 ; =0x00000478
+	mov r0, #1
+	ldr r2, [r4, r1]
+	eor r0, r2
+	str r0, [r4, r1]
+_02242580:
+	add sp, #0xc
+	pop {r3, r4, pc}
+	.balign 4, 0
+_02242584: .word 0x00000478
+_02242588: .word 0x0000FFFF
+	thumb_func_end ov81_02242514
+
+
+
+
+	thumb_func_start ov81_0224258C
+ov81_0224258C: ; 0x0224258C
+	push {r3, r4}
+	ldr r4, _022425BC ; =0x00000484
+	strb r1, [r0, r4]
+	add r1, r4, #1
+	strb r2, [r0, r1]
+	ldr r2, _022425C0 ; =0xFFFFFFF8
+	add r1, r4, #2
+	strb r3, [r0, r1]
+	add r2, sp
+	ldrb r3, [r2, #0x10]
+	add r1, r4, #3
+	strb r3, [r0, r1]
+	ldrb r2, [r2, #0x14]
+	add r1, r4, #7
+	strb r2, [r0, r1]
 	mov r2, #0
-	lsl r0, r0, #2
-	add r1, r4, r0
-	mov r0, #0x6b
-	lsl r0, r0, #2
-	ldr r0, [r1, r0]
-	mov r1, #6
-	bl Pokepic_SetAttr
-_02241C76:
-	add r0, r4, #0
-	bl ov81_02241CEC
-_02241C7C:
-	pop {r3, r4, r5, pc}
-	nop
-_02241C80: .word 0x00000464
-	thumb_func_end ov81_02241C0C
+	add r1, r4, #4
+	strb r2, [r0, r1]
+	add r1, r4, #5
+	strb r2, [r0, r1]
+	add r1, r4, #6
+	strb r2, [r0, r1]
+	pop {r3, r4}
+	bx lr
+	.balign 4, 0
+_022425BC: .word 0x00000484
+_022425C0: .word 0xFFFFFFF8
+	thumb_func_end ov81_0224258C
+
+
