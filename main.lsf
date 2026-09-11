@@ -2082,6 +2082,7 @@ Overlay OVY_14
     Object asm/overlay_14_residual_56.o
     Object src/overlay_14_sol_partial_56.o
     Object asm/overlay_14_residual_57.o
+    Object src/overlay14_box_item_panel.o
     Object src/overlay_14_sol_partial_57.o
     Object asm/overlay_14_residual_58.o
     Object src/overlay_14_sol_partial_58.o
@@ -2575,10 +2576,11 @@ Overlay OVY_40
     Object asm/overlay_40_residual_34.o
     Object src/overlay_40_sol_partial_34.o
     Object asm/overlay_40_residual_35.o
+    Object src/overlay40_pc_state_handlers_tail_35.o
     Object src/overlay_40_sol_partial_35.o
     Object asm/overlay_40_residual_36.o
     Object src/overlay_40_sol_partial_36.o
-    Object asm/overlay_40_residual_37.o
+    Object src/overlay40_trainer_card_pages.o
     Object src/overlay_40_sol_partial_37.o
     Object asm/overlay_40_residual_38.o
     Object src/overlay_40_sol_partial_38.o
@@ -4599,6 +4601,7 @@ Overlay OVY_85
     Object asm/overlay_85_residual_33.o
     Object src/overlay85_helpers_33.o
     Object asm/overlay_85_residual_34.o
+    Object src/overlay85_arcade_scene_core.o
 }
 Overlay OVY_86
 {
@@ -5172,12 +5175,14 @@ Overlay OVY_96
     Object asm/overlay_96_residual_78.o
     Object src/overlay96_exact_bank_78.o
     Object asm/overlay_96_residual_79.o
+    Object src/overlay96_pokeathlon_medal_ui.o
     Object src/overlay96_exact_bank_79.o
     Object asm/overlay_96_residual_80.o
     Object src/overlay96_exact_bank_80.o
     Object asm/overlay_96_residual_81.o
     Object src/overlay96_exact_bank_81.o
     Object asm/overlay_96_residual_82.o
+    Object src/overlay96_pokeathlon_course_ui.o
     Object src/overlay96_exact_bank_82.o
     Object asm/overlay_96_residual_83.o
     Object src/overlay96_exact_bank_83.o
@@ -5219,7 +5224,14 @@ Overlay OVY_96
     Object src/overlay96_exact_bank_94.o
     Object asm/overlay_96_residual_95.o
     Object src/overlay96_exact_bank_95.o
-    Object asm/overlay_96_residual_96.o
+    Object src/overlay96_record_ui_run1.o
+    Object asm/overlay_96_residual_96_unmatched_1.o
+    Object src/overlay96_record_ui_run2.o
+    Object asm/overlay_96_residual_96_unmatched_2.o
+    Object src/overlay96_record_ui_run3.o
+    Object asm/overlay_96_residual_96_unmatched_3.o
+    Object src/overlay96_record_ui_run4.o
+    Object asm/overlay_96_residual_96_unmatched_4.o
     Object src/overlay96_exact_bank_96.o
     Object asm/overlay_96_residual_97.o
     Object src/overlay96_list_helpers_1.o
@@ -5232,6 +5244,7 @@ Overlay OVY_96
     Object asm/overlay_96_residual_97_residual_4.o
     Object src/overlay96_exact_bank_97.o
     Object asm/overlay_96_residual_98.o
+    Object src/overlay96_pokeathlon_course_entries.o
     Object src/overlay96_exact_bank_98.o
     Object asm/overlay_96_residual_99.o
     Object src/overlay96_exact_bank_99.o
