@@ -251,102 +251,74 @@
 	.public ov96_02214690
 	.public ov96_022148E8
 
-	thumb_func_start ov96_02213364
-ov96_02213364: ; 0x02213364
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x2c
-	str r1, [sp, #8]
-	str r2, [sp, #0xc]
-	str r3, [sp, #0x10]
-	add r7, r0, #0
-	bl ov96_021E6104
-	mov r1, #0x5d
+
+	thumb_func_start ov96_02214418
+ov96_02214418: ; 0x02214418
+	push {r4, r5, r6, r7}
+	ldr r1, _02214484 ; =0x00000738
 	mov r5, #0
-	str r0, [sp, #0x14]
-	lsl r6, r0, #0xc
-	ldr r0, [sp, #8]
+	ldr r2, [r0, r1]
+	mov r1, #0x4b
 	lsl r1, r1, #2
-	add r7, #0x5c
-	mul r1, r0
-	add r4, r5, #0
-	add r7, r7, r1
-_02213388:
-	mov r0, #0x7c
-	mul r0, r4
-	add r1, r7, r0
-	ldr r0, [sp, #0x14]
-	str r0, [sp]
-	add r0, sp, #0x18
-	str r0, [sp, #4]
-	ldr r0, [r1, #0x30]
-	ldr r1, [r1, #0x34]
-	asr r2, r0, #0xb
-	lsr r2, r2, #0x14
-	add r2, r0, r2
-	asr r0, r2, #0xc
-	asr r2, r1, #0xb
-	lsr r2, r2, #0x14
-	add r2, r1, r2
-	asr r1, r2, #0xc
-	ldr r2, [sp, #0xc]
-	ldr r3, [sp, #0x10]
-	bl ov96_021E872C
-	cmp r0, #0
-	add r0, sp, #0x20
-	beq _022133CC
-	ldr r2, [sp, #0x18]
-	lsl r1, r4, #2
-	str r2, [r0, r1]
-	mov r1, #1
-	add r0, sp, #0x1c
-	strb r1, [r0, r4]
-	add r0, r5, #1
-	lsl r0, r0, #0x18
-	lsr r5, r0, #0x18
-	b _022133D6
-_022133CC:
-	lsl r2, r4, #2
-	mov r1, #0
-	str r1, [r0, r2]
-	add r0, sp, #0x1c
-	strb r1, [r0, r4]
-_022133D6:
-	add r0, r4, #1
-	lsl r0, r0, #0x18
-	lsr r4, r0, #0x18
-	cmp r4, #3
-	blo _02213388
+	cmp r2, r1
+	bgt _0221443E
+	ldr r1, _02214488 ; =0x00000818
+	add r3, r5, #0
+_0221442C:
+	add r2, r0, r5
+	strb r3, [r2, r1]
+	add r2, r5, #1
+	lsl r2, r2, #0x18
+	lsr r5, r2, #0x18
+	cmp r5, #4
+	blo _0221442C
+	pop {r4, r5, r6, r7}
+	bx lr
+_0221443E:
+	ldr r2, _0221448C ; =0x00000814
+	add r3, r5, #0
+_02214442:
+	add r1, r0, r3
+	ldrb r1, [r1, r2]
+	cmp r5, r1
+	bhs _0221444C
+	add r5, r1, #0
+_0221444C:
+	add r1, r3, #1
+	lsl r1, r1, #0x18
+	lsr r3, r1, #0x18
+	cmp r3, #4
+	blo _02214442
+	mov r6, #0
+	ldr r1, _0221448C ; =0x00000814
+	add r2, r6, #0
+	mov r3, #1
+_0221445E:
 	cmp r5, #0
-	bne _022133EA
-	add sp, #0x2c
-	mov r0, #0xc
-	pop {r4, r5, r6, r7, pc}
-_022133EA:
-	mov r0, #3
-	mov r3, #0
-	add r1, sp, #0x20
-	add r2, sp, #0x1c
-_022133F2:
-	ldrb r4, [r2, r3]
-	cmp r4, #0
-	beq _02213404
-	lsl r4, r3, #2
-	ldr r4, [r1, r4]
-	cmp r4, r6
-	bge _02213404
-	add r0, r3, #0
-	add r6, r4, #0
-_02213404:
-	add r3, r3, #1
-	lsl r3, r3, #0x18
-	lsr r3, r3, #0x18
-	cmp r3, #3
-	blo _022133F2
-	cmp r0, #3
-	bne _02213418
-	bl GF_AssertFail
-	mov r0, #0xc
-_02213418:
-	add sp, #0x2c
-	pop {r4, r5, r6, r7, pc}
-	thumb_func_end ov96_02213364
+	beq _02214470
+	add r4, r0, r6
+	ldrb r7, [r4, r1]
+	cmp r5, r7
+	bne _02214470
+	ldr r7, _02214488 ; =0x00000818
+	strb r3, [r4, r7]
+	b _02214476
+_02214470:
+	ldr r4, _02214488 ; =0x00000818
+	add r7, r0, r6
+	strb r2, [r7, r4]
+_02214476:
+	add r4, r6, #1
+	lsl r4, r4, #0x18
+	lsr r6, r4, #0x18
+	cmp r6, #4
+	blo _0221445E
+	pop {r4, r5, r6, r7}
+	bx lr
+	.balign 4, 0
+_02214484: .word 0x00000738
+_02214488: .word 0x00000818
+_0221448C: .word 0x00000814
+	thumb_func_end ov96_02214418
+
+
