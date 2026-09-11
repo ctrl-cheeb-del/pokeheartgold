@@ -1960,7 +1960,7 @@ Overlay OVY_14
     Object src/overlay_14_sol_partial_2.o
     Object asm/overlay_14_residual_3.o
     Object src/overlay_14_sol_partial_3.o
-    Object asm/overlay_14_residual_4.o
+    Object src/overlay14_pc_box_move.o
     Object src/overlay_14_sol_partial_4.o
     Object asm/overlay_14_residual_5.o
     Object src/overlay_14_sol_partial_5.o
@@ -1985,7 +1985,7 @@ Overlay OVY_14
     Object src/overlay_14_sol_partial_13.o
     Object asm/overlay_14_residual_14.o
     Object src/overlay_14_sol_partial_14.o
-    Object asm/overlay_14_residual_15.o
+    Object src/overlay14_box_ui_actions.o
     Object src/overlay_14_sol_partial_15.o
     Object asm/overlay_14_residual_16.o
     Object src/overlay_14_sol_partial_16.o
@@ -2025,15 +2025,15 @@ Overlay OVY_14
     Object src/overlay_14_sol_partial_33.o
     Object asm/overlay_14_residual_34.o
     Object src/overlay_14_sol_partial_34.o
-    Object asm/overlay_14_residual_35.o
+    Object src/overlay_14_state_handlers_ee4e4.o
     Object src/overlay_14_sol_partial_35.o
     Object asm/overlay_14_residual_36.o
     Object src/overlay_14_sol_partial_36.o
-    Object asm/overlay_14_residual_37.o
+    Object src/overlay14_box_actions.o
     Object src/overlay_14_sol_partial_37.o
     Object asm/overlay_14_residual_38.o
     Object src/overlay_14_sol_partial_38.o
-    Object asm/overlay_14_residual_39.o
+    Object src/overlay14_box_item_actions.o
     Object src/overlay_14_sol_partial_39.o
     Object asm/overlay_14_residual_40.o
     Object src/overlay_14_sol_partial_40.o
@@ -2077,7 +2077,7 @@ Overlay OVY_14
     Object src/overlay_14_sol_partial_53.o
     Object asm/overlay_14_residual_54.o
     Object src/overlay_14_sol_partial_54.o
-    Object asm/overlay_14_residual_55.o
+    Object src/overlay14_box_sprite_controls.o
     Object src/overlay_14_sol_partial_55.o
     Object asm/overlay_14_residual_56.o
     Object src/overlay_14_sol_partial_56.o
@@ -2102,7 +2102,8 @@ Overlay OVY_14
     Object src/overlay_14_sol_partial_65.o
     Object asm/overlay_14_residual_66.o
     Object src/overlay_14_sol_partial_66.o
-    Object asm/overlay_14_residual_67.o
+    Object src/overlay_14_state_input_handlers_6b8c.o
+    Object asm/overlay_14_state_dispatch_rodata_67.o
 }
 Overlay OVY_15
 {
