@@ -303,7 +303,7 @@ Static main
     Object src/wireless_scan_param.o
     Object asm/unk_02032B84.o
     Object src/wireless_scan.o
-    Object asm/unk_02032E9C.o
+    Object src/wireless_connect_state_1.o
     Object src/wireless_connection.o
     Object src/wireless_port.o
     Object src/wireless_status.o
@@ -400,7 +400,7 @@ Static main
     Object src/network_communication_state_12.o
     Object asm/unk_02038D90.o
     Object src/network_communication_state_13.o
-    Object asm/unk_02038EB8.o
+    Object src/field_state_dispatch_1.o
     Object src/network_communication_state_14.o
     Object asm/unk_020390C4.o
     Object src/network_communication_state_15.o
@@ -526,7 +526,7 @@ Static main
     Object src/communication_player_movement_7.o
     Object asm/unk_0205779C.o
     Object src/communication_player_movement_8.o
-    Object asm/unk_02057A34.o
+    Object src/remote_player_coords_1.o
     Object src/communication_player_movement_9.o
     Object asm/unk_02057BEC.o
     Object src/communication_player_movement_10.o
@@ -946,7 +946,7 @@ Static main
     Object src/application/check_savedata.o
     Object src/save_data_read_error.o
     Object src/save_data_write_error.o
-    Object asm/unk_02092B04.o
+    Object src/bag_view_tasks_1.o
     Object src/unk_02092BB8.o
     Object src/unk_02092BE8.o
     Object src/mom_gift.o
@@ -1004,7 +1004,7 @@ Static main
     Object src/field_effect_launch_1.o
     Object src/area_light_tasks_1.o
     Object asm/unk_02097B78.o
-    Object asm/unk_02097BE0.o
+    Object src/field_cinematic_tasks_1.o
     Object src/unk_02097D3C.o
     Object src/pokemon_mood.o
     Object src/unk_02097F6C.o
@@ -3008,7 +3008,7 @@ Overlay OVY_49
     Object src/overlay_49_sol_partial_46.o
     Object asm/overlay_49_residual_46.o
     Object src/overlay_49_sol_partial_47.o
-    Object asm/overlay_49_residual_47.o
+    Object src/overlay49_direction_helpers_1.o
     Object src/overlay_49_sol_partial_48.o
     Object asm/overlay_49_residual_48.o
     Object src/overlay_49_sol_partial_49.o
@@ -3465,7 +3465,7 @@ Overlay OVY_70
     Object src/overlay70_sol_partial_26.o
     Object asm/overlay_70_residual_27.o
     Object src/overlay70_sol_partial_27.o
-    Object asm/overlay_70_residual_28.o
+    Object src/overlay70_state_helpers_1.o
     Object src/overlay70_sol_partial_28.o
     Object asm/overlay_70_residual_29.o
     Object src/overlay70_sol_partial_29.o
