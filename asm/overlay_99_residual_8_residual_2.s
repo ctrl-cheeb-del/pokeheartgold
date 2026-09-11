@@ -222,94 +222,8 @@
 	.public ov99_021E77D8
 	.public ov99_021E7AB8
 	.public ov99_021E7C58
-
-
-	thumb_func_start ov99_021E7450
-ov99_021E7450: ; 0x021E7450
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x14
-	add r5, r0, #0
-	bl ov99_021E7158
-	str r0, [sp, #4]
-	add r1, sp, #8
-	mov r0, #0
-	str r0, [r1]
-	str r0, [r1, #4]
-	str r0, [r1, #8]
-	ldr r0, [r5]
-	mov r1, #3
-	bl BgClearTilemapBufferAndCommit
-	add r0, r5, #0
-	mov r1, #0
-	bl ov99_021E7428
-	ldr r0, [sp, #4]
-	mov r4, #0
-	cmp r0, #0
-	ble _021E74F2
-_021E747E:
-	mov r0, #0xfd
-	lsl r0, r0, #2
-	ldr r0, [r5, r0]
-	lsl r0, r0, #0xd
-	lsr r1, r0, #0x1b
-	mov r0, #0x1e
-	mul r0, r1
-	add r0, r4, r0
-	lsl r0, r0, #1
-	add r0, r5, r0
-	ldrh r6, [r0, #0x14]
-	ldr r1, [sp, #8]
-	ldr r0, _021E74F8 ; =0xFFFFFE00
-	and r1, r0
-	lsr r0, r0, #0x17
-	and r0, r6
-	orr r0, r1
-	str r0, [sp, #8]
-	add r0, r5, #0
-	add r1, r6, #0
-	bl ov99_021E71E4
-	lsl r0, r0, #0x1b
-	ldr r2, [sp, #8]
-	ldr r1, _021E74FC ; =0xFFFFC1FF
-	lsr r0, r0, #0x12
-	and r1, r2
-	orr r0, r1
-	str r0, [sp, #8]
-	add r0, r4, #0
-	add r0, #0x14
-	lsl r0, r0, #2
-	add r7, r5, r0
-	mov r0, #0
-	str r0, [sp]
-	ldr r0, _021E7500 ; =0x00000404
-	ldr r1, _021E7504 ; =0x00000408
-	ldr r0, [r5, r0]
-	ldr r1, [r7, r1]
-	add r2, sp, #8
-	mov r3, #1
-	bl ov98_0221E970
-	ldr r0, _021E7504 ; =0x00000408
-	mov r1, #1
-	ldr r0, [r7, r0]
-	bl ManagedSprite_SetDrawFlag
-	lsl r1, r4, #0x10
-	add r0, r5, #0
-	lsr r1, r1, #0x10
-	add r2, r6, #0
-	bl ov99_021E73E0
-	ldr r0, [sp, #4]
-	add r4, r4, #1
-	cmp r4, r0
-	blt _021E747E
-_021E74F2:
-	add sp, #0x14
-	pop {r4, r5, r6, r7, pc}
-	nop
-_021E74F8: .word 0xFFFFFE00
-_021E74FC: .word 0xFFFFC1FF
-_021E7500: .word 0x00000404
-_021E7504: .word 0x00000408
-	thumb_func_end ov99_021E7450
+	.public ov99_021E7450
+	.public ov99_021E76D8
 
 
 
@@ -386,6 +300,10 @@ _021E753A:
 	nop
 _021E7594: .word 0x0000040C
 	thumb_func_end ov99_021E7508
+
+
+
+
 
 
 
@@ -549,69 +467,3 @@ _021E76B4:
 	.balign 4, 0
 _021E76D4: .word 0x00000458
 	thumb_func_end ov99_021E7598
-
-
-
-
-	thumb_func_start ov99_021E76D8
-ov99_021E76D8: ; 0x021E76D8
-	push {r3, r4, r5, lr}
-	sub sp, #0x10
-	add r3, sp, #4
-	mov r2, #0
-	str r2, [r3]
-	str r2, [r3, #4]
-	str r2, [r3, #8]
-	ldr r2, [sp, #4]
-	ldr r3, _021E7744 ; =0xFFFFFE00
-	add r4, r1, #0
-	and r2, r3
-	lsr r3, r3, #0x17
-	and r3, r4
-	orr r2, r3
-	str r2, [sp, #4]
-	add r5, r0, #0
-	bl ov99_021E71E4
-	lsl r0, r0, #0x1b
-	ldr r2, [sp, #4]
-	ldr r1, _021E7748 ; =0xFFFFC1FF
-	lsr r0, r0, #0x12
-	and r1, r2
-	orr r0, r1
-	str r0, [sp, #4]
-	add r0, r5, #0
-	add r1, r4, #0
-	bl ov99_021E7208
-	lsl r0, r0, #0x1e
-	ldr r2, [sp, #4]
-	ldr r1, _021E774C ; =0xFFFF3FFF
-	lsr r0, r0, #0x10
-	and r1, r2
-	orr r0, r1
-	str r0, [sp, #4]
-	ldr r0, _021E7750 ; =0x00000147
-	cmp r4, r0
-	bne _021E772E
-	add r0, r5, #0
-	bl ov99_021E723C
-	str r0, [sp, #8]
-_021E772E:
-	ldr r0, [r5, #0xc]
-	mov r2, #0
-	str r0, [sp]
-	ldr r0, _021E7754 ; =0x00000414
-	add r1, sp, #4
-	ldr r0, [r5, r0]
-	add r3, r2, #0
-	bl ov98_0221E7E8
-	add sp, #0x10
-	pop {r3, r4, r5, pc}
-	.balign 4, 0
-_021E7744: .word 0xFFFFFE00
-_021E7748: .word 0xFFFFC1FF
-_021E774C: .word 0xFFFF3FFF
-_021E7750: .word 0x00000147
-_021E7754: .word 0x00000414
-	thumb_func_end ov99_021E76D8
-
-

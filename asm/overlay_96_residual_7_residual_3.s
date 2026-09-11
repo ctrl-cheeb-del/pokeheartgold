@@ -242,6 +242,7 @@
 	.public ov96_021E7C94
 	.public ov96_021E7D18
 	.public ov96_021E7D30
+	.public ov96_021E7F48
 
 
 	thumb_func_start ov96_021E7D6C
@@ -471,49 +472,3 @@ _021E7F3C: .word 0x0000072C
 _021E7F40: .word 0x0098967F
 _021E7F44: .word 0x0000072A
 	thumb_func_end ov96_021E7D6C
-
-
-
-
-	thumb_func_start ov96_021E7F48
-ov96_021E7F48: ; 0x021E7F48
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	mov r0, #0x7e
-	lsl r0, r0, #2
-	ldr r0, [r5, r0]
-	ldr r0, [r0]
-	bl Save_Pokeathlon_FriendshipRecords_Get
-	add r4, r0, #0
-	add r0, r5, #0
-	bl ov96_021E5F24
-	lsl r0, r0, #0x18
-	lsr r2, r0, #0x18
-	mov r0, #0x3f
-	lsl r0, r0, #4
-	add r1, r5, r0
-	mov r0, #0x7c
-	mul r0, r2
-	add r3, r1, r0
-	mov r2, #0
-	mov r5, #0x28
-_021E7F74:
-	add r6, r2, #0
-	mul r6, r5
-	add r1, r3, r6
-	ldrh r6, [r3, r6]
-	lsl r7, r2, #2
-	add r0, r4, r7
-	strh r6, [r4, r7]
-	ldrh r6, [r1, #2]
-	strb r6, [r0, #3]
-	ldrb r1, [r1, #0x11]
-	strb r1, [r0, #2]
-	add r0, r2, #1
-	lsl r0, r0, #0x18
-	lsr r2, r0, #0x18
-	cmp r2, #3
-	blo _021E7F74
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov96_021E7F48

@@ -3645,7 +3645,10 @@ Overlay OVY_70
     Object src/overlay70_sol_partial_33.o
     Object asm/overlay_70_residual_34.o
     Object src/overlay70_sol_partial_34.o
+    Object src/ov70_wave37_input_1.o
     Object asm/overlay_70_residual_35.o
+    Object src/ov70_wave37_input_2.o
+    Object asm/overlay_70_residual_35_residual_2.o
     Object src/overlay70_sol_partial_35.o
     Object asm/overlay_70_residual_36.o
     Object src/overlay70_sol_partial_36.o
@@ -4926,6 +4929,7 @@ Overlay OVY_96
     Object asm/overlay_96_residual_7_residual_2.o
     Object src/overlay96_compare_helpers_3.o
     Object asm/overlay_96_residual_7_residual_3.o
+    Object src/ov96_wave37_record_1.o
     Object src/overlay96_exact_bank_7.o
     Object src/overlay96_records_1.o
     Object asm/overlay_96_residual_8.o
@@ -5325,7 +5329,9 @@ Overlay OVY_99
     Object src/ov99_wave33_medals_1.o
     Object asm/overlay_99_residual_8.o
     Object src/ov99_wave33_medals_2.o
+    Object src/ov99_wave37_packet_1.o
     Object asm/overlay_99_residual_8_residual_2.o
+    Object src/ov99_wave37_packet_2.o
     Object src/ov99_wave33_medals_3.o
     Object asm/overlay_99_residual_8_residual_3.o
     Object src/ov99_wave33_medals_4.o
@@ -5746,6 +5752,8 @@ Overlay OVY_113
     Object asm/overlay_113_residual_12.o
     Object src/unown_report_12.o
     Object asm/overlay_113_residual_13.o
+    Object src/ov113_wave37_anim_1.o
+    Object asm/overlay_113_residual_13_residual_2.o
 }
 Overlay OVY_114
 {
