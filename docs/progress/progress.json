@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "d350e8ce5637cbee3e0a8a2ed47997cbb4ca532e",
+  "commit": "48696605d0ef252b3547b1748895c13c5a520883",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": false,
   "map_sha256": {
-    "ARM9": "d58a9b6c52da30f6de8a0685058e4202ef74371d58ae7141e743811fe343a9c2",
-    "ARM7": "6e8aaea37eb33060048b39a5c857fba5f4535088e5fd636f30b1e447ca4c1998"
+    "ARM9": "74845f961c2d5a566599785ffd26dde2f42b26fc21219188fc699e6e7d8aa47a",
+    "ARM7": "e5bc6082b2e61e0cf97301db9694c4ce4e82b29e41b7dbc09271bec6147b3167"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 2739680,
+    "asm": 2739096,
     "mixed": 18270,
-    "c": 1312124,
-    "unknown": 9952
+    "c": 1313866,
+    "unknown": 8792
   },
   "objects": [
     {
@@ -14035,6 +14035,22 @@
     {
       "cpu": "ARM9",
       "module": "OVY_5",
+      "object": "ov05_wave43a_1.o",
+      "bytes": 184,
+      "status": "c",
+      "source": "src/ov05_wave43a_1.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_5",
+      "object": "ov05_wave43b_1.o",
+      "bytes": 282,
+      "status": "c",
+      "source": "src/ov05_wave43b_1.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_5",
       "object": "overlay05_helpers_1.o",
       "bytes": 48,
       "status": "c",
@@ -14179,14 +14195,6 @@
     {
       "cpu": "ARM9",
       "module": "OVY_5",
-      "object": "overlay_05_residual_12_residual_4.o",
-      "bytes": 184,
-      "status": "unknown",
-      "source": null
-    },
-    {
-      "cpu": "ARM9",
-      "module": "OVY_5",
       "object": "overlay_05_residual_12_residual_5.o",
       "bytes": 128,
       "status": "asm",
@@ -14204,7 +14212,7 @@
       "cpu": "ARM9",
       "module": "OVY_5",
       "object": "overlay_05_residual_12_residual_7.o",
-      "bytes": 524,
+      "bytes": 240,
       "status": "asm",
       "source": "asm/overlay_05_residual_12_residual_7.s"
     },
@@ -14359,6 +14367,14 @@
       "bytes": 844,
       "status": "c",
       "source": "src/ov57_wave42_2.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_57",
+      "object": "ov57_wave43_1.o",
+      "bytes": 300,
+      "status": "c",
+      "source": "src/ov57_wave43_1.c"
     },
     {
       "cpu": "ARM9",
@@ -14628,7 +14644,7 @@
       "cpu": "ARM9",
       "module": "OVY_57",
       "object": "overlay_57_residual_4.o",
-      "bytes": 452,
+      "bytes": 152,
       "status": "asm",
       "source": "asm/overlay_57_residual_4.s"
     },
@@ -22275,6 +22291,22 @@
     {
       "cpu": "ARM9",
       "module": "OVY_83",
+      "object": "ov83_wave43a_1.o",
+      "bytes": 508,
+      "status": "c",
+      "source": "src/ov83_wave43a_1.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_83",
+      "object": "ov83_wave43b_1.o",
+      "bytes": 468,
+      "status": "c",
+      "source": "src/ov83_wave43b_1.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_83",
       "object": "overlay83_sol_partial_1.o",
       "bytes": 64,
       "status": "c",
@@ -23071,22 +23103,6 @@
       "bytes": 316,
       "status": "asm",
       "source": "asm/overlay_83_residual_49.s"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "OVY_83",
-      "object": "overlay_83_residual_4_residual_2.o",
-      "bytes": 508,
-      "status": "unknown",
-      "source": null
-    },
-    {
-      "cpu": "ARM9",
-      "module": "OVY_83",
-      "object": "overlay_83_residual_4_residual_3.o",
-      "bytes": 468,
-      "status": "unknown",
-      "source": null
     },
     {
       "cpu": "ARM9",
