@@ -1,6 +1,6 @@
 # Pokémon HeartGold and SoulSilver
 
-This is a WIP disassembly of Pokémon HeartGold and SoulSilver forked from [pret/pokeheartgold](https://github.com/pret/pokeheartgold). For instructions on how to set up the repository, please read [INSTALL.md](INSTALL.md).
+This is a work-in-progress disassembly of Pokémon HeartGold and SoulSilver, based on the initial work by [pret/pokeheartgold](https://github.com/pret/pokeheartgold). For instructions on how to set up the repository, please read [INSTALL.md](INSTALL.md).
 
 [![Source-language coverage treemap](docs/progress/treemap.svg)](INSTALL.md#progress-reports)
 
