@@ -3427,6 +3427,8 @@
 	.public ov49_02268CCC
 	.public ov49_02268CDC
 	.public ov49_02269090
+	.public ov49_022599F8
+	.public ov49_02259A20
 
 	thumb_func_start ov49_02259764
 ov49_02259764: ; 0x02259764
@@ -3655,6 +3657,8 @@ _02259916:
 	thumb_func_end ov49_02259764
 
 
+
+
 	thumb_func_start ov49_0225991C
 ov49_0225991C: ; 0x0225991C
 	push {r3, r4, r5, r6, lr}
@@ -3761,43 +3765,3 @@ _022599DE:
 	nop
 _022599F4: .word 0xFFFFE000
 	thumb_func_end ov49_0225991C
-
-
-	thumb_func_start ov49_022599F8
-ov49_022599F8: ; 0x022599F8
-	push {r3, r4, lr}
-	sub sp, #0xc
-	add r4, r0, #0
-	ldr r0, [r4, #4]
-	mov r1, #1
-	bl ov45_0223089C
-	ldr r0, [r4, #4]
-	add r1, sp, #0
-	bl ov45_02230908
-	mov r0, #0
-	str r0, [sp, #4]
-	ldr r0, [r4, #4]
-	add r1, sp, #0
-	bl ov45_022308E4
-	add sp, #0xc
-	pop {r3, r4, pc}
-	.balign 4, 0
-	thumb_func_end ov49_022599F8
-
-
-	thumb_func_start ov49_02259A20
-ov49_02259A20: ; 0x02259A20
-	strb r2, [r0, #1]
-	strb r2, [r0, #2]
-	mov r3, #0
-	strb r3, [r0, #3]
-	strh r3, [r0, #4]
-	strh r3, [r0, #6]
-	strb r3, [r0]
-	add r0, r1, #0
-	ldr r3, _02259A38 ; =ov45_02230700
-	add r1, r2, #0
-	bx r3
-	nop
-_02259A38: .word ov45_02230700
-	thumb_func_end ov49_02259A20

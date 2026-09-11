@@ -2122,6 +2122,7 @@
 	.public ov18_021F959C
 	.public ov18_021F95AC
 	.public ov18_021F95F8
+	.public ov18_021F2EC8
 
 	thumb_func_start ov18_021F2CD0
 ov18_021F2CD0: ; 0x021F2CD0
@@ -2167,6 +2168,8 @@ _021F2D20:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov18_021F2CD0
+
+
 
 
 	thumb_func_start ov18_021F2D24
@@ -2259,6 +2262,8 @@ _021F2DD0: .word 0x00001859
 	thumb_func_end ov18_021F2D24
 
 
+
+
 	thumb_func_start ov18_021F2DD4
 ov18_021F2DD4: ; 0x021F2DD4
 	push {r3, r4, r5, r6, r7, lr}
@@ -2293,6 +2298,8 @@ _021F2E0E:
 	thumb_func_end ov18_021F2DD4
 
 
+
+
 	thumb_func_start ov18_021F2E14
 ov18_021F2E14: ; 0x021F2E14
 	push {r3, r4, r5, lr}
@@ -2324,6 +2331,8 @@ _021F2E42:
 	thumb_func_end ov18_021F2E14
 
 
+
+
 	thumb_func_start ov18_021F2E4C
 ov18_021F2E4C: ; 0x021F2E4C
 	push {r3, r4, r5, r6, lr}
@@ -2351,6 +2360,8 @@ ov18_021F2E4C: ; 0x021F2E4C
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 	thumb_func_end ov18_021F2E4C
+
+
 
 
 	thumb_func_start ov18_021F2E80
@@ -2388,34 +2399,3 @@ ov18_021F2E80: ; 0x021F2E80
 	nop
 _021F2EC4: .word 0x00001859
 	thumb_func_end ov18_021F2E80
-
-
-	thumb_func_start ov18_021F2EC8
-ov18_021F2EC8: ; 0x021F2EC8
-	push {r3, lr}
-	lsl r1, r1, #2
-	add r3, r0, r1
-	ldr r1, _021F2EFC ; =0x00001032
-	ldrh r1, [r3, r1]
-	cmp r1, #2
-	bne _021F2EE8
-	lsl r1, r2, #2
-	add r1, r0, r1
-	mov r0, #0x67
-	lsl r0, r0, #4
-	ldr r0, [r1, r0]
-	mov r1, #1
-	bl ManagedSprite_SetDrawFlag
-	pop {r3, pc}
-_021F2EE8:
-	lsl r1, r2, #2
-	add r1, r0, r1
-	mov r0, #0x67
-	lsl r0, r0, #4
-	ldr r0, [r1, r0]
-	mov r1, #0
-	bl ManagedSprite_SetDrawFlag
-	pop {r3, pc}
-	nop
-_021F2EFC: .word 0x00001032
-	thumb_func_end ov18_021F2EC8

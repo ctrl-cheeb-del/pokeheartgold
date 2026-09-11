@@ -377,134 +377,185 @@
 	.public ov85_021E7BEC
 	.public ov85_021E7C70
 
-	thumb_func_start ov85_021E7660
-ov85_021E7660: ; 0x021E7660
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x14
-	add r7, r0, #0
-	mov r0, #0x66
-	mov r1, #0
-	str r0, [sp]
-	mov r2, #0x36
-	mov r5, #0x19
-	lsl r5, r5, #4
-	str r1, [sp, #4]
-	lsl r2, r2, #6
-	ldr r2, [r7, r2]
-	add r0, r7, r5
+
+	thumb_func_start ov85_021E7A54
+ov85_021E7A54: ; 0x021E7A54
+	push {r4, r5}
 	add r3, r1, #0
-	bl sub_020696C4
-	add r0, r7, r5
-	bl sub_02069714
-	mov r0, #0x66
-	str r0, [sp]
-	mov r1, #0
-	mov r2, #0x36
-	add r0, r7, r5
-	str r1, [sp, #4]
-	lsl r2, r2, #6
-	ldr r2, [r7, r2]
-	add r0, #0x14
-	mov r3, #5
-	bl sub_020696C4
-	add r0, r7, r5
-	add r0, #0x14
-	bl sub_02069714
-	add r4, r7, r5
-	ldr r0, _021E772C ; =ov85_021EA558
+	mov r0, #0
+	strh r0, [r3, #4]
+	strh r0, [r3, #6]
+	strh r0, [r3, #8]
+	ldr r5, [r3, #0x78]
+	add r4, r3, #0
+	add r5, #0x44
+	add r4, #0x18
+	ldmia r5!, {r0, r1}
+	add r2, r4, #0
+	stmia r4!, {r0, r1}
+	ldr r0, [r5]
+	str r0, [r4]
+	ldr r0, [r3, #0x78]
+	ldr r1, [r2]
+	ldr r0, [r0, #0x50]
+	sub r0, r1, r0
+	str r0, [r2]
+	ldr r0, [r3, #0x78]
+	ldr r1, [r3, #0x1c]
+	ldr r0, [r0, #0x54]
+	sub r0, r1, r0
+	str r0, [r3, #0x1c]
+	ldr r0, [r3, #0x78]
+	ldr r1, [r3, #0x20]
+	ldr r0, [r0, #0x58]
+	sub r0, r1, r0
+	str r0, [r3, #0x20]
+	mov r0, #2
+	ldr r1, [r3, #0x1c]
+	lsl r0, r0, #0xc
+	add r0, r1, r0
+	str r0, [r3, #0x1c]
+	ldr r0, [r3, #0x78]
+	ldr r1, [r0, #0x54]
+	cmp r1, #0
+	bge _021E7AA4
+	neg r1, r1
+_021E7AA4:
+	asr r0, r1, #6
+	lsr r0, r0, #0x19
+	add r0, r1, r0
+	asr r1, r0, #7
+	mov r0, #2
+	lsl r0, r0, #0xa
+	cmp r1, r0
+	ble _021E7AB6
+	add r1, r0, #0
+_021E7AB6:
+	mov r0, #1
+	lsl r0, r0, #0xc
+	sub r0, r0, r1
+	str r0, [r3, #0xc]
+	str r0, [r3, #0x10]
+	str r0, [r3, #0x14]
+	pop {r4, r5}
+	bx lr
+	.balign 4, 0
+	thumb_func_end ov85_021E7A54
+
+
+
+
+	thumb_func_start ov85_021E7AC8
+ov85_021E7AC8: ; 0x021E7AC8
+	push {r3, r4, r5, lr}
+	mov r2, #0x19
+	lsl r2, r2, #4
+	add r3, r0, r2
+	ldr r0, _021E7B00 ; =0x0000071C
+	ldr r4, [r1, #0x10]
+	add r2, r3, r0
+	add r5, r4, #0
+	mov r0, #0x68
+	mul r5, r0
+	mov r4, #1
+	str r4, [r2, r5]
+	add r4, r3, #0
+	add r0, r2, r5
+	str r1, [r0, #0x64]
+	ldr r2, [r1, #0x10]
+	mov r1, #0x14
 	add r4, #0x28
-	str r0, [sp, #0xc]
-	ldr r0, _021E7730 ; =ov85_021EA580
-	add r5, r7, r5
-	str r0, [sp, #8]
-	mov r0, #0
-	str r0, [sp, #0x10]
-	add r5, #0x8c
-	add r6, r4, #0
-_021E76BC:
-	mov r0, #0x66
-	str r0, [sp]
-	mov r0, #0
-	mov r2, #0x36
-	str r0, [sp, #4]
-	ldr r3, [sp, #0xc]
-	lsl r2, r2, #6
-	ldr r2, [r7, r2]
-	ldr r3, [r3]
-	add r0, r4, #0
-	mov r1, #0
-	bl sub_020696C4
-	add r0, r4, #0
-	bl sub_02069714
-	mov r0, #0x66
-	str r0, [sp]
-	mov r0, #0
-	mov r2, #0x36
-	str r0, [sp, #4]
-	ldr r3, [sp, #8]
-	lsl r2, r2, #6
-	ldr r2, [r7, r2]
-	ldr r3, [r3]
-	add r0, r5, #0
-	mov r1, #0
-	bl sub_020697DC
-	add r0, r5, #0
-	add r1, r6, #0
-	mov r2, #0x66
-	bl sub_02069864
-	add r0, r5, #0
-	add r1, r6, #0
-	bl sub_02069884
-	ldr r0, [sp, #0x10]
-	add r4, #0x14
-	add r0, r0, #1
-	str r0, [sp, #0x10]
-	ldr r0, [sp, #0xc]
-	add r5, #0x24
-	add r0, r0, #4
-	str r0, [sp, #0xc]
-	ldr r0, [sp, #8]
-	add r6, #0x14
-	add r0, r0, #4
-	str r0, [sp, #8]
-	ldr r0, [sp, #0x10]
-	cmp r0, #5
-	blt _021E76BC
-	add sp, #0x14
-	pop {r4, r5, r6, r7, pc}
-	nop
-_021E772C: .word ov85_021EA558
-_021E7730: .word ov85_021EA580
-	thumb_func_end ov85_021E7660
+	mul r1, r2
+	add r1, r4, r1
+	mov r4, #0x24
+	add r3, #0x8c
+	mul r4, r2
+	add r0, #0x10
+	add r2, r3, r4
+	bl sub_02069998
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+_021E7B00: .word 0x0000071C
+	thumb_func_end ov85_021E7AC8
 
 
 
 
-	thumb_func_start ov85_021E7734
-ov85_021E7734: ; 0x021E7734
-	push {r3, r4, r5, r6, r7, lr}
-	mov r7, #0x19
+	thumb_func_start ov85_021E7B04
+ov85_021E7B04: ; 0x021E7B04
+	push {r3, r4, r5, lr}
+	add r2, r1, #0
+	ldr r5, [r2, #0x64]
+	add r3, r0, #0
+	add r5, #0x44
+	ldmia r5!, {r0, r1}
+	add r4, r2, #4
+	stmia r4!, {r0, r1}
+	ldr r0, [r5]
+	str r0, [r4]
+	mov r0, #5
+	ldr r1, [r2, #8]
+	lsl r0, r0, #0xe
+	add r0, r1, r0
+	str r0, [r2, #8]
+	mov r0, #0x87
+	lsl r0, r0, #2
+	add r3, r3, r0
+	ldr r0, [r2, #0x64]
+	mov r2, #1
+	ldr r1, [r0, #0x10]
+	mov r0, #0x24
+	mul r0, r1
+	mov r1, #1
+	add r0, r3, r0
+	lsl r1, r1, #0xc
+	bl sub_020698E8
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+	thumb_func_end ov85_021E7B04
+
+
+
+
+	thumb_func_start ov85_021E7B40
+ov85_021E7B40: ; 0x021E7B40
+	push {r3, r4, r5, lr}
+	ldr r4, [sp, #0x18]
 	add r5, r0, #0
-	lsl r7, r7, #4
-	add r0, r5, r7
-	bl sub_02069784
-	add r0, r5, r7
-	add r0, #0x14
-	bl sub_02069784
-	add r4, r5, r7
-	add r5, r5, r7
-	mov r6, #0
-	add r4, #0x28
-	add r5, #0x8c
-_021E7754:
-	add r0, r4, #0
-	bl sub_02069784
-	add r0, r5, #0
-	bl sub_02069818
-	add r6, r6, #1
-	add r4, #0x14
-	add r5, #0x24
-	cmp r6, #5
-	blt _021E7754
-	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov85_021E7734
+	str r1, [r4, #0xc]
+	str r2, [r4, #0x10]
+	ldr r0, [sp, #0x10]
+	str r3, [r4, #0x14]
+	str r2, [r4, #0x18]
+	lsl r0, r0, #0xc
+	str r0, [r4, #0x1c]
+	ldr r0, [sp, #0x14]
+	mov r1, #0x18
+	lsl r0, r0, #0xc
+	str r0, [r4, #0x20]
+	mov r0, #1
+	str r0, [r4]
+	mov r0, #0
+	str r0, [r4, #8]
+	mov r0, #0x66
+	bl Heap_AllocAtEnd
+	add r1, r0, #0
+	add r3, r1, #0
+	mov r2, #0x18
+	mov r0, #0
+_021E7B72:
+	strb r0, [r3]
+	add r3, r3, #1
+	sub r2, r2, #1
+	bne _021E7B72
+	ldr r0, _021E7B88 ; =ov85_021E7B8C
+	str r5, [r1, #0x14]
+	mov r2, #0
+	str r4, [r1, #0x10]
+	bl SysTask_CreateOnMainQueue
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+_021E7B88: .word ov85_021E7B8C
+	thumb_func_end ov85_021E7B40
+
+

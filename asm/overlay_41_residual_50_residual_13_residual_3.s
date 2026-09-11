@@ -506,143 +506,185 @@
 
 
 
-	thumb_func_start ov41_0224AED8
-ov41_0224AED8: ; 0x0224AED8
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x6c
-	add r5, r1, #0
-	mov r1, #0x67
+	thumb_func_start ov41_0224B0B8
+ov41_0224B0B8: ; 0x0224B0B8
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #0x38
+	add r5, r0, #0
+	ldr r0, [r5]
+	add r4, r1, #0
+	add r7, r2, #0
+	add r6, r3, #0
+	bl GF2DGfxResObj_GetResID
+	str r0, [sp, #0x2c]
+	ldr r0, [r5, #4]
+	bl GF2DGfxResObj_GetResID
+	str r0, [sp, #0x30]
+	ldr r0, [r5, #8]
+	bl GF2DGfxResObj_GetResID
+	str r0, [sp, #0x34]
+	ldr r0, [r5, #0xc]
+	bl GF2DGfxResObj_GetResID
+	str r0, [sp]
+	mov r0, #0
+	mvn r0, r0
+	str r0, [sp, #4]
+	str r0, [sp, #8]
+	mov r0, #0
+	str r0, [sp, #0xc]
+	str r6, [sp, #0x10]
+	ldr r1, [r4]
+	ldr r2, [sp, #0x30]
+	str r1, [sp, #0x14]
+	ldr r1, [r4, #4]
+	ldr r3, [sp, #0x34]
+	str r1, [sp, #0x18]
+	ldr r1, [r4, #8]
+	str r1, [sp, #0x1c]
+	ldr r1, [r4, #0xc]
+	str r1, [sp, #0x20]
+	str r0, [sp, #0x24]
+	str r0, [sp, #0x28]
+	ldr r1, [sp, #0x2c]
+	add r0, r7, #0
+	bl CreateSpriteResourcesHeader
+	add sp, #0x38
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+	thumb_func_end ov41_0224B0B8
+
+
+
+
+
+
+
+
+	thumb_func_start ov41_0224B118
+ov41_0224B118: ; 0x0224B118
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #0x60
+	add r4, r1, #0
+	mov r1, #0xe5
 	str r1, [sp]
-	mov r1, #0xe1
+	mov r1, #0xe6
 	str r1, [sp, #4]
-	mov r1, #0x66
+	mov r1, #0xe4
 	str r1, [sp, #8]
-	mov r1, #0x65
+	mov r1, #0xe3
 	str r1, [sp, #0xc]
 	mov r1, #2
 	str r1, [sp, #0x10]
-	mov r1, #0x7d
-	add r4, r2, #0
-	str r3, [sp, #0x1c]
-	lsl r1, r1, #4
+	ldr r1, _0224B214 ; =0x00000BB8
+	add r5, r2, #0
+	str r3, [sp, #0x18]
 	str r1, [sp, #0x14]
 	ldr r3, [sp, #0x80]
-	str r0, [sp, #0x18]
-	add r1, r4, #0
+	add r7, r0, #0
+	add r1, r5, #0
 	mov r2, #0xe
 	bl ov41_0224AFF8
-	ldr r0, [sp, #0x18]
-	add r1, r4, #0
-	add r2, sp, #0x48
+	add r0, r7, #0
+	add r1, r5, #0
+	add r2, sp, #0x3c
 	mov r3, #0
 	bl ov41_0224B0B8
-	add r0, sp, #0x48
-	str r0, [sp, #0x2c]
-	mov r0, #2
-	str r0, [sp, #0x40]
-	mov r0, #0
-	str r0, [sp, #0x24]
-	str r0, [sp, #0x3c]
+	add r0, sp, #0x3c
+	str r0, [sp, #0x20]
+	mov r2, #2
 	mov r0, #0xe
-	str r0, [sp, #0x44]
-	mov r0, #0x68
-	ldr r7, [sp, #0x24]
-	str r5, [sp, #0x28]
-	str r0, [sp, #0x20]
-_0224AF2E:
-	ldr r0, [sp, #0x20]
+	mov r1, #0x3a
+	str r0, [sp, #0x38]
+	lsl r1, r1, #0xc
+	lsl r0, r2, #0x14
 	mov r6, #0
-	str r0, [sp, #0x34]
-	lsl r1, r0, #0xc
-	mov r0, #2
-	lsl r0, r0, #0x14
-	str r1, [sp, #0x34]
+	str r4, [sp, #0x1c]
+	str r1, [sp, #0x28]
 	add r0, r1, r0
-	str r0, [sp, #0x34]
-	ldr r0, [sp, #0x18]
-	lsl r1, r7, #2
-	mov r4, #0x26
-	add r5, r0, r1
-_0224AF48:
-	str r4, [sp, #0x30]
+	str r2, [sp, #0x34]
+	str r6, [sp, #0x30]
+	str r0, [sp, #0x28]
+	mov r4, #0x67
+	add r5, r7, #0
+_0224B174:
+	str r4, [sp, #0x24]
 	lsl r0, r4, #0xc
-	str r0, [sp, #0x30]
-	add r0, sp, #0x28
-	bl Sprite_Create
-	mov r1, #1
-	str r0, [r5, #0x10]
-	bl Sprite_SetAnimCtrlSeq
-	ldr r0, [sp, #0x1c]
-	add r1, r6, r7
-	cmp r1, r0
-	blt _0224AF6C
-	ldr r0, [r5, #0x10]
-	mov r1, #0
-	bl Sprite_SetDrawFlag
-_0224AF6C:
-	add r6, r6, #1
-	add r4, #0x12
-	add r5, r5, #4
-	cmp r6, #0xa
-	blt _0224AF48
-	ldr r0, [sp, #0x20]
-	add r7, #0xa
-	add r0, #0x12
-	str r0, [sp, #0x20]
-	ldr r0, [sp, #0x24]
-	add r0, r0, #1
 	str r0, [sp, #0x24]
-	cmp r0, #2
-	blt _0224AF2E
-	add sp, #0x6c
-	pop {r4, r5, r6, r7, pc}
-	thumb_func_end ov41_0224AED8
-
-
-
-
-
-
-
-
-	thumb_func_start ov41_0224AF8C
-ov41_0224AF8C: ; 0x0224AF8C
-	push {r3, r4, r5, r6, r7, lr}
-	add r7, r0, #0
-	ldr r6, [r7, #0x60]
-	add r5, r1, #0
-	cmp r6, r5
-	bge _0224AFB2
-	cmp r6, r5
-	bge _0224AFD0
-	lsl r0, r6, #2
-	add r4, r7, r0
-_0224AFA0:
-	ldr r0, [r4, #0x10]
-	mov r1, #0
-	bl Sprite_SetAnimCtrlSeq
+	add r0, sp, #0x1c
+	bl Sprite_Create
+	str r0, [r5, #0x10]
 	add r6, r6, #1
-	add r4, r4, #4
-	cmp r6, r5
-	blt _0224AFA0
-	b _0224AFD0
-_0224AFB2:
-	cmp r6, r5
-	ble _0224AFD0
-	sub r6, r6, #1
-	cmp r6, r5
-	blt _0224AFD0
-	lsl r0, r6, #2
-	add r4, r7, r0
-_0224AFC0:
-	ldr r0, [r4, #0x10]
-	mov r1, #1
-	bl Sprite_SetAnimCtrlSeq
-	sub r6, r6, #1
-	sub r4, r4, #4
-	cmp r6, r5
-	bge _0224AFC0
-_0224AFD0:
-	str r5, [r7, #0x60]
+	add r4, #0x18
+	add r5, r5, #4
+	cmp r6, #2
+	blt _0224B174
+	ldr r0, [sp, #0x18]
+	mov r1, #0x1e
+	str r0, [r7, #0x1c]
+	mul r1, r0
+	str r1, [r7, #0x20]
+	ldr r1, [sp, #0x7c]
+	str r1, [r7, #0x2c]
+	str r0, [r1]
+	ldr r1, [r7, #0x2c]
+	str r0, [r1, #8]
+	add r0, r7, #0
+	mov r1, #0
+	add r0, #0x90
+	str r1, [r0]
+	add r0, r7, #0
+	bl ov41_0224B298
+	mov r0, #0xe
+	str r0, [sp]
+	mov r0, #4
+	str r0, [sp, #4]
+	mov r0, #0xc1
+	str r0, [sp, #8]
+	mov r0, #0
+	str r0, [sp, #0xc]
+	add r0, r7, #0
+	ldr r1, [sp, #0x78]
+	add r0, #0x18
+	mov r2, #0xa
+	mov r3, #8
+	bl ov41_0224AD0C
+	ldr r0, [r7, #0x18]
+	mov r1, #0
+	bl FillWindowPixelBuffer
+	mov r0, #0
+	str r0, [sp]
+	mov r3, #4
+	ldr r0, _0224B218 ; =0x00010200
+	str r3, [sp, #4]
+	str r0, [sp, #8]
+	mov r0, #0xff
+	str r0, [sp, #0xc]
+	ldr r0, [r7, #0x18]
+	mov r1, #0x1b
+	mov r2, #0xd7
+	bl ov41_0224AE24
+	mov r0, #0x48
+	str r0, [sp]
+	mov r0, #4
+	str r0, [sp, #4]
+	ldr r0, _0224B218 ; =0x00010200
+	mov r1, #0x1b
+	str r0, [sp, #8]
+	mov r0, #0xff
+	str r0, [sp, #0xc]
+	ldr r0, [r7, #0x18]
+	mov r2, #0xd7
+	mov r3, #5
+	bl ov41_0224AE24
+	ldr r0, [r7, #0x18]
+	bl CopyWindowToVram
+	add sp, #0x60
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov41_0224AF8C
+	.balign 4, 0
+_0224B214: .word 0x00000BB8
+_0224B218: .word 0x00010200
+	thumb_func_end ov41_0224B118
+
+
+
+

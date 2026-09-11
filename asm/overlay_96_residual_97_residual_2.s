@@ -238,128 +238,83 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-	.public ov96_021E7FA8
-	.public ov96_021E8028
-	.public ov96_021E8060
-	.public ov96_021E8084
-	.public ov96_021E80C4
-	.public ov96_021E811C
-	.public ov96_021E81D8
+	.public ov96_0220CBC0
+	.public ov96_0220CBEC
+	.public ov96_0220CC18
+	.public ov96_0220CCBC
+	.public ov96_0220D33C
 
 
-	thumb_func_start ov96_021E8228
-ov96_021E8228: ; 0x021E8228
-	push {r3, r4, r5, r6, r7, lr}
+	thumb_func_start ov96_0220CC38
+ov96_0220CC38: ; 0x0220CC38
+	push {r4, r5, r6, lr}
 	add r5, r0, #0
-	add r4, r1, #0
-	add r7, r2, #0
-	str r3, [sp]
-	ldr r6, [sp, #0x18]
-	add r1, r3, #0
-	bne _021E825E
-	bl ov96_021E5F24
-	cmp r4, r0
-	beq _021E8244
+	mov r4, #0
+	bl MTRandom
+	mov r1, #0x64
+	bl _u32_div_f
+	lsl r0, r1, #0x18
+	lsr r6, r0, #0x18
+	cmp r5, #0
+	bne _0220CC54
 	bl GF_AssertFail
-_021E8244:
-	cmp r6, #1
-	beq _021E824C
-	bl GF_AssertFail
-_021E824C:
-	mov r0, #0x8b
-	lsl r0, r0, #4
-	ldr r2, [r5, r0]
-	ldr r1, _021E830C ; =0x0000270F
-	cmp r2, r1
-	bhs _021E830A
-	add r1, r2, #1
-	str r1, [r5, r0]
-	pop {r3, r4, r5, r6, r7, pc}
-_021E825E:
-	cmp r7, #3
-	blo _021E8266
-	bl GF_AssertFail
-_021E8266:
-	mov r0, #0x1e
-	lsl r0, r0, #4
-	ldr r0, [r5, r0]
-	ldr r0, [r0, #0x10]
-	cmp r0, #0
-	bne _021E829A
-	add r0, r5, #0
-	bl ov96_021E5F24
-	cmp r0, #0
-	beq _021E8280
-	bl GF_AssertFail
-_021E8280:
-	ldr r2, _021E8310 ; =0x0000072C
-	lsl r1, r6, #0x18
-	add r3, r5, r2
-	mov r2, #0x60
-	mul r2, r4
-	add r3, r3, r2
-	lsl r2, r7, #5
-	ldr r0, [sp]
-	lsr r1, r1, #0x18
-	add r2, r3, r2
-	bl ov96_021E8340
-	pop {r3, r4, r5, r6, r7, pc}
-_021E829A:
-	add r0, r5, #0
-	bl ov96_021E5F24
-	cmp r0, #0
-	bne _021E82EA
-	add r0, r5, #0
-	bl PokeathlonCourse_GetParticipantCount
-	cmp r4, r0
-	blo _021E82C8
-	ldr r2, _021E8310 ; =0x0000072C
-	lsl r1, r6, #0x18
-	add r3, r5, r2
-	mov r2, #0x60
-	mul r2, r4
-	add r3, r3, r2
-	lsl r2, r7, #5
-	ldr r0, [sp]
-	lsr r1, r1, #0x18
-	add r2, r3, r2
-	bl ov96_021E8340
-	pop {r3, r4, r5, r6, r7, pc}
-_021E82C8:
-	add r0, r5, #0
-	bl ov96_021E5F24
-	cmp r4, r0
-	beq _021E82D6
-	bl GF_AssertFail
-_021E82D6:
-	ldr r2, _021E8314 ; =0x00000B44
-	lsl r1, r6, #0x18
-	add r3, r5, r2
-	lsl r2, r7, #5
-	ldr r0, [sp]
-	lsr r1, r1, #0x18
-	add r2, r3, r2
-	bl ov96_021E8340
-	pop {r3, r4, r5, r6, r7, pc}
-_021E82EA:
-	add r0, r5, #0
-	bl ov96_021E5F24
-	cmp r4, r0
-	beq _021E82F8
-	bl GF_AssertFail
-_021E82F8:
-	ldr r2, _021E8314 ; =0x00000B44
-	lsl r1, r6, #0x18
-	add r3, r5, r2
-	lsl r2, r7, #5
-	ldr r0, [sp]
-	lsr r1, r1, #0x18
-	add r2, r3, r2
-	bl ov96_021E8340
-_021E830A:
-	pop {r3, r4, r5, r6, r7, pc}
+_0220CC54:
+	ldr r2, [r5, #0x14]
+	ldr r1, _0220CCAC ; =ov96_0221CE34
+	lsr r2, r2, #0x1e
+	lsl r2, r2, #2
+	add r2, r5, r2
+	ldr r2, [r2, #4]
+	mov r0, #0
+	lsl r2, r2, #6
+	lsr r3, r2, #0x18
+_0220CC66:
+	ldr r2, [r1]
+	cmp r3, r2
+	blo _0220CC76
+	lsl r1, r0, #2
+	ldr r0, _0220CCB0 ; =ov96_0221CE48
+	ldr r0, [r0, r1]
+	add r4, r4, r0
+	b _0220CC7E
+_0220CC76:
+	add r0, r0, #1
+	add r1, r1, #4
+	cmp r0, #5
+	blt _0220CC66
+_0220CC7E:
+	ldr r1, [r5, #0x14]
+	ldr r2, _0220CCB4 ; =ov96_0221CE14
+	lsl r1, r1, #8
+	mov r0, #0
+	lsr r3, r1, #0x18
+_0220CC88:
+	ldr r1, [r2]
+	cmp r3, r1
+	blo _0220CC98
+	lsl r1, r0, #2
+	ldr r0, _0220CCB8 ; =ov96_0221CE24
+	ldr r0, [r0, r1]
+	add r4, r4, r0
+	b _0220CCA0
+_0220CC98:
+	add r0, r0, #1
+	add r2, r2, #4
+	cmp r0, #4
+	blt _0220CC88
+_0220CCA0:
+	cmp r6, r4
+	bge _0220CCA8
+	mov r0, #1
+	pop {r4, r5, r6, pc}
+_0220CCA8:
+	mov r0, #0
+	pop {r4, r5, r6, pc}
 	.balign 4, 0
-_021E830C: .word 0x0000270F
-_021E8310: .word 0x0000072C
-_021E8314: .word 0x00000B44
-	thumb_func_end ov96_021E8228
+_0220CCAC: .word ov96_0221CE34
+_0220CCB0: .word ov96_0221CE48
+_0220CCB4: .word ov96_0221CE14
+_0220CCB8: .word ov96_0221CE24
+	thumb_func_end ov96_0220CC38
+
+
