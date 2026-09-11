@@ -238,110 +238,107 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-	.public ov96_0220AE28
-	.public ov96_0220B148
-	.public ov96_0220B1B8
-	.public ov96_0220B324
-	.public ov96_0220B354
-	.public ov96_0220B6EC
-	.public ov96_0220B708
+	.public ov96_021F8A50
+	.public ov96_021F8A98
+	.public ov96_021F8ACC
+	.public ov96_021F8BC0
+	.public ov96_021F8C04
+	.public ov96_021F8C2C
+	.public ov96_021F8C54
+	.public ov96_021F8D98
+	.public ov96_021F8DD4
+	.public ov96_021F8E94
+	.public ov96_021F8EB0
+	.public ov96_021F8F0C
+	.public ov96_021F8F44
+	.public ov96_021F910C
+	.public ov96_021F91CC
+	.public ov96_021F91E8
 
-	thumb_func_start ov96_0220AD64
-ov96_0220AD64: ; 0x0220AD64
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	mov r0, #6
-	lsl r0, r0, #6
-	ldr r1, [r5, r0]
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x1c
-	cmp r1, #0xa
-	blo _0220ADAC
+
+	thumb_func_start ov96_021F8AFC
+ov96_021F8AFC: ; 0x021F8AFC
+	push {r4, r5, r6, r7, lr}
+	sub sp, #0x44
+	add r4, r2, #0
+	mov r2, #0xb6
+	add r3, r0, #0
+	lsl r2, r2, #2
+	add r5, r1, #0
+	add r0, sp, #0x14
+	add r1, r3, #0
+	add r2, r3, r2
+	mov r3, #1
+	bl ov96_021F8A98
+	add r0, sp, #0x14
+	mov r1, #0x11
+	mov r2, #4
+	bl ov96_021F8ACC
+	str r0, [r4]
+	add r0, sp, #0x14
+	mov r1, #5
+	mov r2, #0
+	bl ov96_021F8ACC
+	str r0, [r4, #4]
+	add r0, sp, #0x14
+	mov r1, #0x12
+	mov r2, #1
+	bl ov96_021F8ACC
+	str r0, [r4, #8]
+	add r0, sp, #0x14
+	mov r1, #0
+	mov r2, #2
+	bl ov96_021F8ACC
+	str r0, [r4, #0xc]
+	add r4, r0, #0
+	bl Sprite_GetVramType
+	add r6, r0, #0
+	add r0, r4, #0
+	bl Sprite_GetImageProxy
 	add r7, r0, #0
-	mov r6, #0
-	add r4, r5, #0
-	sub r7, #0x2c
-_0220AD7E:
-	ldr r0, [r4, r7]
-	bl ov96_0220B164
-	cmp r0, #1
-	beq _0220AD90
-	add r6, r6, #1
-	add r4, r4, #4
-	cmp r6, #0xa
-	blt _0220AD7E
-_0220AD90:
-	cmp r6, #0xa
-	bne _0220AE06
-	ldr r0, _0220AE1C ; =0x000008BD
-	bl PlaySE
-	mov r1, #6
-	lsl r1, r1, #6
-	ldr r2, [r5, r1]
-	mov r0, #0xf
-	bic r2, r0
-	mov r0, #2
-	orr r0, r2
-	str r0, [r5, r1]
-	b _0220AE06
-_0220ADAC:
-	sub r1, r0, #4
-	ldr r1, [r5, r1]
-	sub r3, r0, #4
-	lsl r1, r1, #0x10
-	lsr r2, r1, #0x10
-	add r1, r3, #0
-	add r6, r2, #1
-	lsl r6, r6, #0x10
-	ldr r1, [r5, r1]
-	ldr r4, _0220AE20 ; =0xFFFF0000
-	lsr r6, r6, #0x10
-	and r1, r4
-	orr r6, r1
-	add r1, r3, #0
-	str r6, [r5, r1]
-	cmp r2, #2
-	blo _0220AE06
-	ldr r1, [r5, r3]
-	and r1, r4
-	str r1, [r5, r3]
-	ldr r1, [r5, r0]
-	sub r0, #0x2c
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x1c
-	lsl r1, r1, #2
-	add r1, r5, r1
-	ldr r0, [r1, r0]
-	bl ov96_0220AED4
-	ldr r0, _0220AE24 ; =0x000008C1
-	bl PlaySE
-	mov r2, #6
-	lsl r2, r2, #6
-	ldr r3, [r5, r2]
-	mov r1, #0xf0
-	add r0, r3, #0
-	bic r0, r1
-	lsl r1, r3, #0x18
-	lsr r1, r1, #0x1c
-	add r1, r1, #1
-	lsl r1, r1, #0x1c
-	lsr r1, r1, #0x18
-	orr r0, r1
-	str r0, [r5, r2]
-_0220AE06:
-	mov r6, #0x55
-	mov r4, #0
-	lsl r6, r6, #2
-_0220AE0C:
-	ldr r0, [r5, r6]
-	bl ov96_0220AF64
-	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #0xa
-	blt _0220AE0C
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_0220AE1C: .word 0x000008BD
-_0220AE20: .word 0xFFFF0000
-_0220AE24: .word 0x000008C1
-	thumb_func_end ov96_0220AD64
+	add r0, r4, #0
+	bl Sprite_GetPaletteProxy
+	str r0, [sp]
+	add r0, r7, #0
+	add r1, r6, #0
+	bl NNS_G2dGetImageLocation
+	str r0, [sp, #4]
+	lsl r0, r5, #9
+	str r0, [sp, #8]
+	add r0, r7, #0
+	bl NNS_G2dInitImageProxy
+	ldr r3, [sp, #4]
+	ldr r2, [sp, #8]
+	add r0, r7, #0
+	add r1, r6, #0
+	add r2, r3, r2
+	bl NNS_G2dSetImageLocation
+	ldr r0, [sp]
+	add r1, r6, #0
+	bl NNS_G2dGetImagePaletteLocation
+	str r0, [sp, #0xc]
+	add r0, r5, #6
+	lsl r0, r0, #5
+	str r0, [sp, #0x10]
+	ldr r0, [sp]
+	bl NNS_G2dInitImagePaletteProxy
+	ldr r3, [sp, #0xc]
+	ldr r2, [sp, #0x10]
+	ldr r0, [sp]
+	add r1, r6, #0
+	add r2, r3, r2
+	bl NNS_G2dSetImagePaletteLocation
+	add r0, r4, #0
+	add r1, r7, #0
+	bl Sprite_SetImageProxy
+	ldr r1, [sp]
+	add r0, r4, #0
+	bl Sprite_SetPaletteProxy
+	add r0, r4, #0
+	add r1, r5, #0
+	bl Sprite_SetPalOffset
+	add sp, #0x44
+	pop {r4, r5, r6, r7, pc}
+	thumb_func_end ov96_021F8AFC
+
+

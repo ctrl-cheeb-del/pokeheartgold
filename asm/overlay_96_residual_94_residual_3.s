@@ -246,102 +246,56 @@
 	.public ov96_0220B6EC
 	.public ov96_0220B708
 
-	thumb_func_start ov96_0220AD64
-ov96_0220AD64: ; 0x0220AD64
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	mov r0, #6
-	lsl r0, r0, #6
-	ldr r1, [r5, r0]
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x1c
-	cmp r1, #0xa
-	blo _0220ADAC
-	add r7, r0, #0
-	mov r6, #0
-	add r4, r5, #0
-	sub r7, #0x2c
-_0220AD7E:
-	ldr r0, [r4, r7]
-	bl ov96_0220B164
-	cmp r0, #1
-	beq _0220AD90
-	add r6, r6, #1
-	add r4, r4, #4
-	cmp r6, #0xa
-	blt _0220AD7E
-_0220AD90:
-	cmp r6, #0xa
-	bne _0220AE06
-	ldr r0, _0220AE1C ; =0x000008BD
-	bl PlaySE
-	mov r1, #6
-	lsl r1, r1, #6
-	ldr r2, [r5, r1]
-	mov r0, #0xf
-	bic r2, r0
-	mov r0, #2
-	orr r0, r2
-	str r0, [r5, r1]
-	b _0220AE06
-_0220ADAC:
-	sub r1, r0, #4
-	ldr r1, [r5, r1]
-	sub r3, r0, #4
-	lsl r1, r1, #0x10
-	lsr r2, r1, #0x10
-	add r1, r3, #0
-	add r6, r2, #1
-	lsl r6, r6, #0x10
-	ldr r1, [r5, r1]
-	ldr r4, _0220AE20 ; =0xFFFF0000
-	lsr r6, r6, #0x10
-	and r1, r4
-	orr r6, r1
-	add r1, r3, #0
-	str r6, [r5, r1]
-	cmp r2, #2
-	blo _0220AE06
-	ldr r1, [r5, r3]
-	and r1, r4
-	str r1, [r5, r3]
-	ldr r1, [r5, r0]
-	sub r0, #0x2c
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x1c
-	lsl r1, r1, #2
-	add r1, r5, r1
-	ldr r0, [r1, r0]
-	bl ov96_0220AED4
-	ldr r0, _0220AE24 ; =0x000008C1
-	bl PlaySE
-	mov r2, #6
-	lsl r2, r2, #6
-	ldr r3, [r5, r2]
-	mov r1, #0xf0
-	add r0, r3, #0
-	bic r0, r1
-	lsl r1, r3, #0x18
-	lsr r1, r1, #0x1c
-	add r1, r1, #1
-	lsl r1, r1, #0x1c
-	lsr r1, r1, #0x18
-	orr r0, r1
-	str r0, [r5, r2]
-_0220AE06:
-	mov r6, #0x55
-	mov r4, #0
-	lsl r6, r6, #2
-_0220AE0C:
-	ldr r0, [r5, r6]
-	bl ov96_0220AF64
-	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #0xa
-	blt _0220AE0C
-	pop {r3, r4, r5, r6, r7, pc}
+
+	thumb_func_start ov96_0220B164
+ov96_0220B164: ; 0x0220B164
+	push {r4, lr}
+	add r4, r0, #0
+	bne _0220B16E
+	bl GF_AssertFail
+_0220B16E:
+	ldr r0, [r4, #0x10]
+	lsl r0, r0, #0xc
+	lsr r0, r0, #0x18
+	pop {r4, pc}
 	.balign 4, 0
-_0220AE1C: .word 0x000008BD
-_0220AE20: .word 0xFFFF0000
-_0220AE24: .word 0x000008C1
-	thumb_func_end ov96_0220AD64
+	thumb_func_end ov96_0220B164
+
+
+
+
+	thumb_func_start ov96_0220B178
+ov96_0220B178: ; 0x0220B178
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #8
+	add r5, r0, #0
+	add r6, r1, #0
+	add r7, r2, #0
+	mov r4, #0
+_0220B184:
+	add r0, r4, #0
+	mov r1, #3
+	bl _s32_div_f
+	add r1, #0x1c
+	lsl r0, r1, #0x10
+	lsr r0, r0, #0x10
+	str r0, [sp]
+	mov r0, #1
+	mov r2, #0
+	str r0, [sp, #4]
+	add r0, r6, #0
+	add r1, r7, #0
+	add r3, r2, #0
+	bl ov96_0220D13C
+	mov r1, #0
+	str r0, [r5]
+	bl ManagedSprite_SetDrawFlag
+	add r4, r4, #1
+	add r5, #0x14
+	cmp r4, #0x10
+	blt _0220B184
+	add sp, #8
+	pop {r3, r4, r5, r6, r7, pc}
+	thumb_func_end ov96_0220B178
+
+

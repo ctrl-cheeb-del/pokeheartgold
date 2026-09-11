@@ -246,102 +246,172 @@
 	.public ov96_0220B6EC
 	.public ov96_0220B708
 
-	thumb_func_start ov96_0220AD64
-ov96_0220AD64: ; 0x0220AD64
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	mov r0, #6
-	lsl r0, r0, #6
-	ldr r1, [r5, r0]
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x1c
-	cmp r1, #0xa
-	blo _0220ADAC
-	add r7, r0, #0
-	mov r6, #0
-	add r4, r5, #0
-	sub r7, #0x2c
-_0220AD7E:
-	ldr r0, [r4, r7]
-	bl ov96_0220B164
-	cmp r0, #1
-	beq _0220AD90
-	add r6, r6, #1
-	add r4, r4, #4
-	cmp r6, #0xa
-	blt _0220AD7E
-_0220AD90:
-	cmp r6, #0xa
-	bne _0220AE06
-	ldr r0, _0220AE1C ; =0x000008BD
-	bl PlaySE
-	mov r1, #6
-	lsl r1, r1, #6
-	ldr r2, [r5, r1]
-	mov r0, #0xf
-	bic r2, r0
-	mov r0, #2
-	orr r0, r2
-	str r0, [r5, r1]
-	b _0220AE06
-_0220ADAC:
-	sub r1, r0, #4
-	ldr r1, [r5, r1]
-	sub r3, r0, #4
-	lsl r1, r1, #0x10
-	lsr r2, r1, #0x10
-	add r1, r3, #0
-	add r6, r2, #1
-	lsl r6, r6, #0x10
-	ldr r1, [r5, r1]
-	ldr r4, _0220AE20 ; =0xFFFF0000
-	lsr r6, r6, #0x10
-	and r1, r4
-	orr r6, r1
-	add r1, r3, #0
-	str r6, [r5, r1]
-	cmp r2, #2
-	blo _0220AE06
-	ldr r1, [r5, r3]
-	and r1, r4
-	str r1, [r5, r3]
-	ldr r1, [r5, r0]
-	sub r0, #0x2c
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x1c
-	lsl r1, r1, #2
-	add r1, r5, r1
-	ldr r0, [r1, r0]
-	bl ov96_0220AED4
-	ldr r0, _0220AE24 ; =0x000008C1
-	bl PlaySE
-	mov r2, #6
-	lsl r2, r2, #6
-	ldr r3, [r5, r2]
-	mov r1, #0xf0
-	add r0, r3, #0
-	bic r0, r1
-	lsl r1, r3, #0x18
-	lsr r1, r1, #0x1c
-	add r1, r1, #1
-	lsl r1, r1, #0x1c
-	lsr r1, r1, #0x18
-	orr r0, r1
-	str r0, [r5, r2]
-_0220AE06:
-	mov r6, #0x55
+
+	thumb_func_start ov96_0220B1D8
+ov96_0220B1D8: ; 0x0220B1D8
+	push {r4, r5, r6, r7, lr}
+	sub sp, #0xc
+	str r1, [sp]
 	mov r4, #0
-	lsl r6, r6, #2
-_0220AE0C:
-	ldr r0, [r5, r6]
-	bl ov96_0220AF64
+	add r5, r0, #0
+	add r7, r2, #0
+	str r3, [sp, #4]
+	add r6, r4, #0
+_0220B1E8:
+	ldr r0, [r5, #4]
+	cmp r0, #0
+	bne _0220B2C0
+	mov r0, #1
+	str r0, [r5, #4]
+	strh r7, [r5, #0x10]
+	ldr r0, [sp, #4]
+	strh r0, [r5, #0x12]
+	bl MTRandom
+	mov r1, #7
+	and r0, r1
+	add r0, r0, #4
+	beq _0220B220
+	bl MTRandom
+	mov r1, #7
+	and r0, r1
+	add r0, r0, #4
+	lsl r0, r0, #0xc
+	bl _ffltu
+	add r1, r0, #0
+	mov r0, #0x3f
+	lsl r0, r0, #0x18
+	bl _fadd
+	b _0220B238
+_0220B220:
+	bl MTRandom
+	mov r1, #7
+	and r0, r1
+	add r0, r0, #4
+	lsl r0, r0, #0xc
+	bl _ffltu
+	mov r1, #0x3f
+	lsl r1, r1, #0x18
+	bl _fsub
+_0220B238:
+	lsr r2, r6, #0x1f
+	lsl r1, r6, #0x1f
+	add r3, r0, #0
+	sub r1, r1, r2
+	mov r0, #0x1f
+	ror r1, r0
+	add r0, r2, r1
+	bne _0220B24E
+	mov r0, #1
+	str r0, [sp, #8]
+	b _0220B254
+_0220B24E:
+	mov r0, #0
+	mvn r0, r0
+	str r0, [sp, #8]
+_0220B254:
+	add r0, r3, #0
+	bl _ffix
+	ldr r1, [sp, #8]
+	mul r0, r1
+	str r0, [r5, #8]
+	bl MTRandom
+	mov r1, #7
+	and r0, r1
+	add r0, #8
+	beq _0220B288
+	bl MTRandom
+	mov r1, #7
+	and r0, r1
+	add r0, #8
+	lsl r0, r0, #0xc
+	bl _ffltu
+	add r1, r0, #0
+	mov r0, #0x3f
+	lsl r0, r0, #0x18
+	bl _fadd
+	b _0220B2A0
+_0220B288:
+	bl MTRandom
+	mov r1, #7
+	and r0, r1
+	add r0, #8
+	lsl r0, r0, #0xc
+	bl _ffltu
+	mov r1, #0x3f
+	lsl r1, r1, #0x18
+	bl _fsub
+_0220B2A0:
+	bl _ffix
+	str r0, [r5, #0xc]
+	ldr r0, [r5]
+	ldr r2, [sp, #4]
+	add r1, r7, #0
+	bl ManagedSprite_SetPositionXY
+	ldr r0, [r5]
+	bl ManagedSprite_ResetSpriteAnimCtrlState
+	ldr r0, [r5]
+	mov r1, #1
+	bl ManagedSprite_SetDrawFlag
 	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #0xa
-	blt _0220AE0C
-	pop {r3, r4, r5, r6, r7, pc}
+_0220B2C0:
+	ldr r0, [sp]
+	cmp r4, r0
+	bge _0220B2CE
+	add r6, r6, #1
+	add r5, #0x14
+	cmp r6, #0x10
+	blt _0220B1E8
+_0220B2CE:
+	add sp, #0xc
+	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
-_0220AE1C: .word 0x000008BD
-_0220AE20: .word 0xFFFF0000
-_0220AE24: .word 0x000008C1
-	thumb_func_end ov96_0220AD64
+	thumb_func_end ov96_0220B1D8
+
+
+
+
+	thumb_func_start ov96_0220B2D4
+ov96_0220B2D4: ; 0x0220B2D4
+	push {r4, lr}
+	add r4, r0, #0
+	mov r0, #0x10
+	ldrsh r1, [r4, r0]
+	ldr r0, [r4, #8]
+	asr r0, r0, #0xc
+	add r0, r1, r0
+	strh r0, [r4, #0x10]
+	ldr r0, [r4, #8]
+	mov r1, #3
+	lsl r0, r0, #2
+	bl _s32_div_f
+	str r0, [r4, #8]
+	mov r2, #0x12
+	ldr r0, [r4, #0xc]
+	ldrsh r1, [r4, r2]
+	asr r0, r0, #0xc
+	sub r0, r1, r0
+	strh r0, [r4, #0x12]
+	ldr r0, [r4, #0xc]
+	mov r1, #0x10
+	sub r0, r0, #4
+	str r0, [r4, #0xc]
+	ldrsh r1, [r4, r1]
+	ldrsh r2, [r4, r2]
+	ldr r0, [r4]
+	bl ManagedSprite_SetPositionXY
+	mov r0, #0x10
+	ldrsh r1, [r4, r0]
+	cmp r1, #0
+	blt _0220B31C
+	add r0, #0xf0
+	cmp r1, r0
+	ble _0220B320
+_0220B31C:
+	mov r0, #1
+	pop {r4, pc}
+_0220B320:
+	mov r0, #0
+	pop {r4, pc}
+	thumb_func_end ov96_0220B2D4
+
+

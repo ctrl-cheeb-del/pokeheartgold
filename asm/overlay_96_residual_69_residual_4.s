@@ -238,110 +238,99 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-	.public ov96_0220AE28
-	.public ov96_0220B148
-	.public ov96_0220B1B8
-	.public ov96_0220B324
-	.public ov96_0220B354
-	.public ov96_0220B6EC
-	.public ov96_0220B708
+	.public ov96_021F8A50
+	.public ov96_021F8A98
+	.public ov96_021F8ACC
+	.public ov96_021F8BC0
+	.public ov96_021F8C04
+	.public ov96_021F8C2C
+	.public ov96_021F8C54
+	.public ov96_021F8D98
+	.public ov96_021F8DD4
+	.public ov96_021F8E94
+	.public ov96_021F8EB0
+	.public ov96_021F8F0C
+	.public ov96_021F8F44
+	.public ov96_021F910C
+	.public ov96_021F91CC
+	.public ov96_021F91E8
 
-	thumb_func_start ov96_0220AD64
-ov96_0220AD64: ; 0x0220AD64
+
+	thumb_func_start ov96_021F8DF4
+ov96_021F8DF4: ; 0x021F8DF4
 	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #0x58
+	add r4, r1, #0
 	add r5, r0, #0
-	mov r0, #6
-	lsl r0, r0, #6
-	ldr r1, [r5, r0]
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x1c
-	cmp r1, #0xa
-	blo _0220ADAC
-	add r7, r0, #0
-	mov r6, #0
-	add r4, r5, #0
-	sub r7, #0x2c
-_0220AD7E:
-	ldr r0, [r4, r7]
-	bl ov96_0220B164
-	cmp r0, #1
-	beq _0220AD90
-	add r6, r6, #1
-	add r4, r4, #4
-	cmp r6, #0xa
-	blt _0220AD7E
-_0220AD90:
-	cmp r6, #0xa
-	bne _0220AE06
-	ldr r0, _0220AE1C ; =0x000008BD
-	bl PlaySE
-	mov r1, #6
-	lsl r1, r1, #6
-	ldr r2, [r5, r1]
-	mov r0, #0xf
-	bic r2, r0
-	mov r0, #2
-	orr r0, r2
-	str r0, [r5, r1]
-	b _0220AE06
-_0220ADAC:
-	sub r1, r0, #4
-	ldr r1, [r5, r1]
-	sub r3, r0, #4
-	lsl r1, r1, #0x10
-	lsr r2, r1, #0x10
-	add r1, r3, #0
-	add r6, r2, #1
-	lsl r6, r6, #0x10
-	ldr r1, [r5, r1]
-	ldr r4, _0220AE20 ; =0xFFFF0000
-	lsr r6, r6, #0x10
-	and r1, r4
-	orr r6, r1
-	add r1, r3, #0
-	str r6, [r5, r1]
-	cmp r2, #2
-	blo _0220AE06
-	ldr r1, [r5, r3]
-	and r1, r4
-	str r1, [r5, r3]
-	ldr r1, [r5, r0]
-	sub r0, #0x2c
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x1c
-	lsl r1, r1, #2
-	add r1, r5, r1
-	ldr r0, [r1, r0]
-	bl ov96_0220AED4
-	ldr r0, _0220AE24 ; =0x000008C1
-	bl PlaySE
-	mov r2, #6
-	lsl r2, r2, #6
-	ldr r3, [r5, r2]
-	mov r1, #0xf0
-	add r0, r3, #0
-	bic r0, r1
-	lsl r1, r3, #0x18
-	lsr r1, r1, #0x1c
-	add r1, r1, #1
-	lsl r1, r1, #0x1c
-	lsr r1, r1, #0x18
-	orr r0, r1
-	str r0, [r5, r2]
-_0220AE06:
-	mov r6, #0x55
-	mov r4, #0
-	lsl r6, r6, #2
-_0220AE0C:
-	ldr r0, [r5, r6]
-	bl ov96_0220AF64
-	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #0xa
-	blt _0220AE0C
+	add r0, r4, #0
+	mov r1, #0
+	add r7, r2, #0
+	str r3, [sp, #0x18]
+	ldr r6, [sp, #0x7c]
+	bl FillWindowPixelBufferText_AssumeTileSize32
+	mov r1, #0
+	str r1, [sp]
+	mov r0, #0xff
+	str r0, [sp, #4]
+	ldr r0, _021F8E90 ; =0x00010200
+	ldr r3, [sp, #0x18]
+	str r0, [sp, #8]
+	str r1, [sp, #0xc]
+	str r1, [sp, #0x10]
+	str r1, [sp, #0x14]
+	add r0, r4, #0
+	add r2, r7, #0
+	bl AddTextPrinterParameterizedWithColorAndSpacing
+	mov r1, #1
+	ldr r0, [r4, #0x14]
+	add r2, r1, #0
+	add r3, sp, #0x1c
+	bl sub_02021AC8
+	ldr r0, [r5, #0x10]
+	mov r1, #0
+	str r0, [sp, #0x28]
+	mov r0, #0x5f
+	str r4, [sp, #0x2c]
+	lsl r0, r0, #2
+	ldr r0, [r5, r0]
+	str r0, [sp, #0x30]
+	mov r0, #0xb1
+	lsl r0, r0, #2
+	ldr r0, [r5, r0]
+	bl SpriteTransfer_GetPaletteProxy
+	str r0, [sp, #0x34]
+	ldr r0, [sp, #0x78]
+	str r0, [sp, #0x38]
+	ldr r0, [sp, #0x20]
+	str r0, [sp, #0x3c]
+	ldr r0, [sp, #0x70]
+	str r0, [sp, #0x40]
+	ldr r0, [sp, #0x74]
+	str r0, [sp, #0x44]
+	mov r0, #0
+	str r0, [sp, #0x48]
+	mov r0, #3
+	str r0, [sp, #0x4c]
+	mov r0, #1
+	str r0, [sp, #0x50]
+	ldr r0, [r5]
+	str r0, [sp, #0x54]
+	add r0, sp, #0x28
+	bl sub_020135D8
+	add r4, r0, #0
+	mov r1, #0
+	bl TextOBJ_SetPaletteNum
+	str r4, [r6]
+	add r3, sp, #0x1c
+	ldmia r3!, {r0, r1}
+	add r2, r6, #4
+	stmia r2!, {r0, r1}
+	ldr r0, [r3]
+	str r0, [r2]
+	add sp, #0x58
 	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_0220AE1C: .word 0x000008BD
-_0220AE20: .word 0xFFFF0000
-_0220AE24: .word 0x000008C1
-	thumb_func_end ov96_0220AD64
+	nop
+_021F8E90: .word 0x00010200
+	thumb_func_end ov96_021F8DF4
+
+

@@ -238,110 +238,197 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-	.public ov96_0220AE28
-	.public ov96_0220B148
-	.public ov96_0220B1B8
-	.public ov96_0220B324
-	.public ov96_0220B354
-	.public ov96_0220B6EC
-	.public ov96_0220B708
+	.public ov96_021F8A50
+	.public ov96_021F8A98
+	.public ov96_021F8ACC
+	.public ov96_021F8BC0
+	.public ov96_021F8C04
+	.public ov96_021F8C2C
+	.public ov96_021F8C54
+	.public ov96_021F8D98
+	.public ov96_021F8DD4
+	.public ov96_021F8E94
+	.public ov96_021F8EB0
+	.public ov96_021F8F0C
+	.public ov96_021F8F44
+	.public ov96_021F910C
+	.public ov96_021F91CC
+	.public ov96_021F91E8
 
-	thumb_func_start ov96_0220AD64
-ov96_0220AD64: ; 0x0220AD64
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	mov r0, #6
-	lsl r0, r0, #6
-	ldr r1, [r5, r0]
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x1c
-	cmp r1, #0xa
-	blo _0220ADAC
-	add r7, r0, #0
-	mov r6, #0
-	add r4, r5, #0
-	sub r7, #0x2c
-_0220AD7E:
-	ldr r0, [r4, r7]
-	bl ov96_0220B164
-	cmp r0, #1
-	beq _0220AD90
-	add r6, r6, #1
+
+	thumb_func_start ov96_021F8F94
+ov96_021F8F94: ; 0x021F8F94
+	push {r4, r5, r6, r7, lr}
+	sub sp, #0x44
+	add r6, r0, #0
+	mov r0, #0
+	str r0, [sp, #0x34]
+	str r0, [sp, #0x28]
+	mov r0, #8
+	str r0, [sp, #0x24]
+	add r0, r2, #0
+	add r0, #0x10
+	lsl r0, r0, #0xc
+	str r0, [sp, #0x20]
+	add r0, r2, #0
+	add r0, #0x18
+	lsl r0, r0, #0xc
+	str r1, [sp, #0x10]
+	str r2, [sp, #0x14]
+	str r0, [sp, #0x1c]
+_021F8FB8:
+	mov r0, #3
+	str r0, [sp]
+	ldr r0, [r6, #4]
+	mov r1, #0
+	mov r2, #2
+	mov r3, #0x68
+	bl ov96_021EB408
+	mov r1, #0
+	str r1, [sp, #0x40]
+	ldr r1, [sp, #0x28]
+	add r4, r0, #0
+	lsl r1, r1, #0xc
+	str r1, [sp, #0x38]
+	ldr r1, [sp, #0x20]
+	str r1, [sp, #0x3c]
+	add r1, sp, #0x38
+	bl Sprite_SetMatrix
+	add r0, r4, #0
+	mov r1, #1
+	bl Sprite_SetAnimActiveFlag
+	add r0, r4, #0
+	mov r1, #0
+	bl Sprite_SetAnimCtrlSeq
+	ldr r1, [sp, #0x34]
+	add r0, r4, #0
+	bl Sprite_SetPalIndexRespectVramOffset
+	add r0, r4, #0
+	mov r1, #2
+	bl Sprite_SetDrawPriority
+	ldr r5, [sp, #0x24]
+	mov r7, #0
+_021F9002:
+	mov r0, #4
+	str r0, [sp]
+	ldr r0, [r6, #4]
+	mov r1, #0
+	mov r2, #2
+	mov r3, #0x68
+	bl ov96_021EB408
+	mov r1, #0
+	str r1, [sp, #0x40]
+	lsl r1, r5, #0xc
+	str r1, [sp, #0x38]
+	ldr r1, [sp, #0x1c]
+	add r4, r0, #0
+	str r1, [sp, #0x3c]
+	add r1, sp, #0x38
+	bl Sprite_SetMatrix
+	add r0, r4, #0
+	mov r1, #1
+	bl Sprite_SetAnimActiveFlag
+	add r0, r4, #0
+	mov r1, #1
+	bl Sprite_SetAnimCtrlSeq
+	add r0, r4, #0
+	mov r1, #1
+	bl Sprite_SetDrawPriority
+	add r7, r7, #1
+	add r5, #0x10
+	cmp r7, #3
+	blt _021F9002
+	ldr r0, [sp, #0x28]
+	add r0, #0x40
+	str r0, [sp, #0x28]
+	ldr r0, [sp, #0x24]
+	add r0, #0x40
+	str r0, [sp, #0x24]
+	ldr r0, [sp, #0x34]
+	add r0, r0, #1
+	str r0, [sp, #0x34]
+	cmp r0, #4
+	blt _021F8FB8
+	mov r0, #0
+	str r0, [sp, #0x18]
+	add r0, r6, #0
+	str r0, [sp, #0x30]
+	add r0, #0x24
+	str r0, [sp, #0x30]
+	add r0, r6, #0
+	str r0, [sp, #0x2c]
+	add r0, #0x34
+	add r7, r6, #0
+	str r0, [sp, #0x2c]
+_021F9072:
+	ldr r0, [r6, #4]
+	mov r1, #0x68
+	mov r2, #3
+	bl ov96_021EB4F4
+	ldr r1, [sp, #0x30]
+	str r0, [r1]
+	mov r1, #1
+	add r2, r1, #0
+	bl ov96_021EB52C
+	ldr r4, [sp, #0x30]
+	mov r5, #0
+_021F908C:
+	ldr r0, [r6, #4]
+	mov r1, #0x68
+	mov r2, #4
+	bl ov96_021EB4F4
+	mov r1, #1
+	add r2, r1, #0
+	str r0, [r4, #4]
+	bl ov96_021EB52C
+	add r5, r5, #1
 	add r4, r4, #4
-	cmp r6, #0xa
-	blt _0220AD7E
-_0220AD90:
-	cmp r6, #0xa
-	bne _0220AE06
-	ldr r0, _0220AE1C ; =0x000008BD
-	bl PlaySE
-	mov r1, #6
-	lsl r1, r1, #6
-	ldr r2, [r5, r1]
-	mov r0, #0xf
-	bic r2, r0
-	mov r0, #2
-	orr r0, r2
-	str r0, [r5, r1]
-	b _0220AE06
-_0220ADAC:
-	sub r1, r0, #4
-	ldr r1, [r5, r1]
-	sub r3, r0, #4
-	lsl r1, r1, #0x10
-	lsr r2, r1, #0x10
-	add r1, r3, #0
-	add r6, r2, #1
-	lsl r6, r6, #0x10
-	ldr r1, [r5, r1]
-	ldr r4, _0220AE20 ; =0xFFFF0000
-	lsr r6, r6, #0x10
-	and r1, r4
-	orr r6, r1
-	add r1, r3, #0
-	str r6, [r5, r1]
-	cmp r2, #2
-	blo _0220AE06
-	ldr r1, [r5, r3]
-	and r1, r4
-	str r1, [r5, r3]
-	ldr r1, [r5, r0]
-	sub r0, #0x2c
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x1c
-	lsl r1, r1, #2
-	add r1, r5, r1
-	ldr r0, [r1, r0]
-	bl ov96_0220AED4
-	ldr r0, _0220AE24 ; =0x000008C1
-	bl PlaySE
-	mov r2, #6
-	lsl r2, r2, #6
-	ldr r3, [r5, r2]
-	mov r1, #0xf0
-	add r0, r3, #0
-	bic r0, r1
-	lsl r1, r3, #0x18
-	lsr r1, r1, #0x1c
-	add r1, r1, #1
-	lsl r1, r1, #0x1c
-	lsr r1, r1, #0x18
-	orr r0, r1
-	str r0, [r5, r2]
-_0220AE06:
-	mov r6, #0x55
-	mov r4, #0
-	lsl r6, r6, #2
-_0220AE0C:
-	ldr r0, [r5, r6]
-	bl ov96_0220AF64
-	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #0xa
-	blt _0220AE0C
-	pop {r3, r4, r5, r6, r7, pc}
+	cmp r5, #3
+	blt _021F908C
+	ldr r0, [sp, #0x10]
+	ldr r1, [sp, #0x18]
+	bl PokeathlonCourse_GetPlayerProfileFromData
+	ldr r1, [r6]
+	bl PlayerProfile_GetPlayerName_NewString
+	add r4, r0, #0
+	ldr r0, [r7, #0x24]
+	bl ov96_021EB5B8
+	mov r1, #0
+	str r1, [sp]
+	sub r1, #0x10
+	str r1, [sp, #4]
+	str r0, [sp, #8]
+	ldr r0, [sp, #0x2c]
+	add r1, r6, #0
+	str r0, [sp, #0xc]
+	add r0, r6, #0
+	add r1, #0xc
+	add r2, r4, #0
+	mov r3, #2
+	bl ov96_021F9134
+	add r0, r4, #0
+	bl String_Delete
+	ldr r0, [r7, #0x34]
+	mov r1, #1
+	bl TextOBJ_SetSpritesDrawFlag
+	ldr r0, [sp, #0x14]
+	add r0, #0x10
+	str r0, [r7, #0x48]
+	ldr r0, [sp, #0x30]
+	add r7, #0x28
+	add r0, #0x28
+	str r0, [sp, #0x30]
+	ldr r0, [sp, #0x2c]
+	add r0, #0x28
+	str r0, [sp, #0x2c]
+	ldr r0, [sp, #0x18]
+	add r0, r0, #1
+	str r0, [sp, #0x18]
+	cmp r0, #4
+	blt _021F9072
+	add sp, #0x44
+	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
-_0220AE1C: .word 0x000008BD
-_0220AE20: .word 0xFFFF0000
-_0220AE24: .word 0x000008C1
-	thumb_func_end ov96_0220AD64
+	thumb_func_end ov96_021F8F94
+
+
