@@ -246,46 +246,95 @@
 	.public ov96_021F2FBC
 	.public ov96_021F30A4
 
-	thumb_func_start ov96_021F27B8
-ov96_021F27B8: ; 0x021F27B8
-	push {r3, r4, r5, r6, lr}
-	sub sp, #0x24
-	add r5, r1, #0
-	add r1, sp, #0x18
-	add r4, r0, #0
-	add r6, r2, #0
-	bl VEC_Normalize
-	add r0, r5, #0
-	add r1, sp, #0xc
-	bl VEC_Normalize
-	add r0, sp, #0x18
-	add r1, sp, #0xc
-	bl VEC_DotProduct
+
+	thumb_func_start ov96_021F2FEC
+ov96_021F2FEC: ; 0x021F2FEC
+	push {r4, r5, r6, r7, lr}
+	sub sp, #0x44
 	add r5, r0, #0
+	add r6, r1, #0
+	mov r4, #0
+_021F2FF6:
+	lsl r1, r4, #2
+	add r0, sp, #0x14
+	add r7, r0, r1
+	strh r4, [r0, r1]
+	add r0, r6, r4
+	str r0, [sp, #4]
 	add r0, r4, #0
-	bl VEC_Mag
-	add r2, r0, #0
-	add r1, sp, #0
-	mov r0, #0
-	str r0, [r1]
-	str r0, [r1, #4]
-	str r0, [r1, #8]
-	asr r1, r5, #0x1f
-	add r0, r5, #0
-	asr r3, r2, #0x1f
-	bl _ll_mul
-	mov r2, #2
-	mov r3, #0
-	lsl r2, r2, #0xa
-	add r0, r0, r2
-	adc r1, r3
-	lsl r1, r1, #0x14
-	lsr r0, r0, #0xc
-	orr r0, r1
-	add r1, sp, #0xc
-	add r2, sp, #0
+	mov r1, #3
+	bl _s32_div_f
+	str r0, [sp, #8]
+	add r0, r4, #0
+	mov r1, #3
+	bl _s32_div_f
+	add r0, sp, #0xc
+	str r0, [sp]
+	mov r0, #0x1b
+	ldr r2, [sp, #8]
+	lsl r0, r0, #4
+	mul r0, r2
+	mov r2, #0x90
+	mul r2, r1
+	add r0, r5, r0
+	add r0, r2, r0
+	ldr r2, [sp, #4]
+	ldrb r1, [r6, r4]
+	ldrb r2, [r2, #0xc]
+	ldr r0, [r0, #0x20]
+	add r3, sp, #0x10
+	bl ov96_021EB06C
+	ldr r0, [sp, #0xc]
+	strh r0, [r7, #2]
+	add r0, r4, #1
+	lsl r0, r0, #0x18
+	lsr r4, r0, #0x18
+	cmp r4, #0xc
+	blo _021F2FF6
+	mov r0, #0x7f
+	lsl r0, r0, #4
+	ldr r0, [r5, r0]
+	ldr r3, _021F30A0 ; =ov96_021F2FBC
+	str r0, [sp]
+	add r0, sp, #0x14
+	mov r1, #0xc
+	mov r2, #4
+	bl MATH_QSort
+	mov r4, #0
+_021F305A:
+	lsl r1, r4, #2
+	add r0, sp, #0x14
+	ldrh r0, [r0, r1]
+	mov r1, #3
+	lsl r0, r0, #0x18
+	lsr r7, r0, #0x18
+	add r0, r7, #0
+	bl _s32_div_f
+	add r6, r0, #0
+	add r0, r7, #0
+	mov r1, #3
+	bl _s32_div_f
+	mov r0, #0x1b
+	add r2, r1, #0
+	lsl r0, r0, #4
 	add r3, r6, #0
-	bl VEC_MultAdd
-	add sp, #0x24
-	pop {r3, r4, r5, r6, pc}
-	thumb_func_end ov96_021F27B8
+	mul r3, r0
+	mov r0, #0x90
+	mul r2, r0
+	add r0, r5, r3
+	add r0, r2, r0
+	ldr r0, [r0, #0x20]
+	add r1, r4, #6
+	bl ov96_021EABA8
+	add r0, r4, #1
+	lsl r0, r0, #0x18
+	lsr r4, r0, #0x18
+	cmp r4, #0xc
+	blo _021F305A
+	add sp, #0x44
+	pop {r4, r5, r6, r7, pc}
+	nop
+_021F30A0: .word ov96_021F2FBC
+	thumb_func_end ov96_021F2FEC
+
+

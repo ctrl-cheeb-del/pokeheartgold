@@ -238,54 +238,224 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-	.public ov96_021F2814
-	.public ov96_021F2AA4
-	.public ov96_021F2D68
-	.public ov96_021F2E2C
-	.public ov96_021F2E4C
-	.public ov96_021F2FBC
-	.public ov96_021F30A4
+	.public ov96_021ED754
+	.public ov96_021ED78C
+	.public ov96_021ED7C4
+	.public ov96_021ED7FC
+	.public ov96_021ED838
+	.public ov96_021ED86C
+	.public ov96_021ED8A4
+	.public ov96_021ED8DC
+	.public ov96_021ED954
+	.public ov96_021EDC38
+	.public ov96_021EDCB4
+	.public ov96_021EDCEC
+	.public ov96_021EDD64
+	.public ov96_021EDF3C
+	.public ov96_021EDF5C
 
-	thumb_func_start ov96_021F27B8
-ov96_021F27B8: ; 0x021F27B8
-	push {r3, r4, r5, r6, lr}
-	sub sp, #0x24
-	add r5, r1, #0
-	add r1, sp, #0x18
-	add r4, r0, #0
-	add r6, r2, #0
-	bl VEC_Normalize
-	add r0, r5, #0
-	add r1, sp, #0xc
-	bl VEC_Normalize
-	add r0, sp, #0x18
-	add r1, sp, #0xc
-	bl VEC_DotProduct
+
+	thumb_func_start ov96_021EDDA4
+ov96_021EDDA4: ; 0x021EDDA4
+	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
-	add r0, r4, #0
-	bl VEC_Mag
-	add r2, r0, #0
-	add r1, sp, #0
-	mov r0, #0
-	str r0, [r1]
-	str r0, [r1, #4]
-	str r0, [r1, #8]
-	asr r1, r5, #0x1f
+	add r6, r1, #0
+	add r7, r2, #0
+	bl PokeathlonCourse_GetHeapAllocPtr4
+	add r4, r0, #0
+_021EDDB2:
+	add r1, r4, #0
+	add r2, r4, #0
+	add r1, #0xb2
+	add r2, #0xb3
+	ldrb r1, [r1]
+	ldrb r2, [r2]
 	add r0, r5, #0
-	asr r3, r2, #0x1f
-	bl _ll_mul
-	mov r2, #2
-	mov r3, #0
-	lsl r2, r2, #0xa
-	add r0, r0, r2
-	adc r1, r3
-	lsl r1, r1, #0x14
-	lsr r0, r0, #0xc
+	blx r6
+	cmp r0, #0
+	bne _021EDDD0
+	add r0, r4, #0
+	bl ov96_021EDD64
+	cmp r0, #0
+	beq _021EDDB2
+_021EDDD0:
+	add r0, r4, #0
+	add r0, #0xb2
+	ldrb r1, [r0]
+	cmp r1, #4
+	bhs _021EDE5E
+	add r0, r4, #0
+	add r0, #0xb3
+	ldrb r2, [r0]
+	lsl r0, r1, #1
+	add r0, r1, r0
+	add r6, r2, r0
+	add r0, r4, #0
+	add r0, #0xac
+	ldrb r2, [r0, r1]
+	add r2, r2, #1
+	strb r2, [r0, r1]
+	add r0, r4, #0
+	add r0, #0xb4
+	ldrb r0, [r0]
+	add r2, r4, #0
+	add r2, #0xb3
+	add r1, r0, #1
+	add r0, r4, #0
+	add r0, #0xb4
+	strb r1, [r0]
+	add r1, r4, #0
+	add r1, #0xb2
+	ldrb r1, [r1]
+	ldrb r2, [r2]
+	add r0, r5, #0
+	bl ov96_021ED5AC
+	add r1, r4, #0
+	add r0, r4, #0
+	add r1, #0xb2
+	add r0, #0x8c
+	lsl r2, r7, #0x10
+	ldrb r1, [r1]
+	ldr r0, [r0]
+	lsr r2, r2, #0x10
+	bl ov96_021ECC38
+	lsl r1, r6, #0x18
+	add r0, r4, #0
+	lsr r1, r1, #0x18
+	bl ov96_021EC298
+	lsl r1, r6, #0x18
+	ldr r0, [r4, #0x14]
+	lsr r1, r1, #0x18
+	bl ov96_021EAA04
+	bl ov96_021EAA20
+	bl ov96_021E8BB0
+	add r5, r0, #0
+	mov r0, #1
+	bl sub_02006E3C
+	ldrh r1, [r5, #2]
+	ldrh r0, [r5]
+	lsl r1, r1, #0x18
+	lsr r1, r1, #0x18
+	bl PlayCry
+	add r0, r4, #0
+	bl ov96_021EDD64
+	mov r0, #1
+	pop {r3, r4, r5, r6, r7, pc}
+_021EDE5E:
+	mov r0, #0
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+	thumb_func_end ov96_021EDDA4
+
+
+
+
+	thumb_func_start ov96_021EDE64
+ov96_021EDE64: ; 0x021EDE64
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #8
+	add r4, r0, #0
+	add r6, r1, #0
+	bl ov96_021E5F24
+	str r0, [sp, #4]
+	add r0, r4, #0
+	bl PokeathlonCourse_GetHeapAllocPtr4
+	str r0, [sp]
+	add r0, r4, #0
+	bl PokeathlonCourse_GetFieldData
+	add r7, r0, #0
+	ldr r0, [sp]
+	add r0, #0x9c
+	ldr r0, [r0]
+	lsl r0, r0, #4
+	lsr r1, r0, #0x1c
+	ldr r0, [sp, #4]
+	cmp r1, r0
+	bne _021EDEA2
+	mov r1, #0x1d
+	lsl r1, r1, #4
+	ldrh r2, [r7, r1]
+	mov r0, #1
+	bic r2, r0
+	mov r0, #1
+	orr r0, r2
+	strh r0, [r7, r1]
+_021EDEA2:
+	ldr r5, _021EDF34 ; =0x000003E7
+	mov r4, #0
+_021EDEA6:
+	lsl r1, r4, #0x18
+	add r0, r6, #0
+	lsr r1, r1, #0x18
+	bl ov96_021ECC4C
+	cmp r5, r0
+	blt _021EDEB6
+	add r5, r0, #0
+_021EDEB6:
+	add r4, r4, #1
+	cmp r4, #4
+	blt _021EDEA6
+	ldr r1, [sp, #4]
+	add r0, r6, #0
+	lsl r1, r1, #0x18
+	lsr r1, r1, #0x18
+	bl ov96_021ECC4C
+	cmp r0, r5
+	bne _021EDED8
+	mov r1, #0x1d
+	lsl r1, r1, #4
+	ldrh r2, [r7, r1]
+	mov r0, #2
+	orr r0, r2
+	strh r0, [r7, r1]
+_021EDED8:
+	ldr r1, [sp]
+	ldr r0, [sp, #4]
+	add r0, r1, r0
+	add r0, #0xac
+	ldrb r1, [r0]
+	mov r0, #6
+	lsl r0, r0, #6
+	str r1, [r7, r0]
+	ldr r0, [sp]
+	ldr r1, [sp, #4]
+	add r0, #0x8c
+	lsl r1, r1, #0x18
+	ldr r0, [r0]
+	lsr r1, r1, #0x18
+	bl ov96_021ECC4C
+	ldr r1, _021EDF38 ; =0x000001D2
+	strh r0, [r7, r1]
+	ldr r1, [sp, #4]
+	ldr r0, [sp]
+	lsl r1, r1, #0x18
+	add r0, #0x9c
+	lsr r1, r1, #0x18
+	str r0, [sp]
+	bl ov96_021EE264
+	add r4, r0, #0
+	mov r0, #0
+	mvn r0, r0
+	cmp r4, r0
+	bne _021EDF1A
+	bl GF_AssertFail
+_021EDF1A:
+	mov r2, #0x1d
+	lsl r2, r2, #4
+	ldrh r0, [r7, r2]
+	mov r1, #0xc
+	bic r0, r1
+	lsl r1, r4, #0x10
+	lsr r1, r1, #0x10
+	lsl r1, r1, #0x1e
+	lsr r1, r1, #0x1c
 	orr r0, r1
-	add r1, sp, #0xc
-	add r2, sp, #0
-	add r3, r6, #0
-	bl VEC_MultAdd
-	add sp, #0x24
-	pop {r3, r4, r5, r6, pc}
-	thumb_func_end ov96_021F27B8
+	strh r0, [r7, r2]
+	add sp, #8
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+_021EDF34: .word 0x000003E7
+_021EDF38: .word 0x000001D2
+	thumb_func_end ov96_021EDE64
+
+

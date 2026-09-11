@@ -512,7 +512,7 @@ Static main
     Object src/field_transition_tasks_2.o
     Object asm/unk_02056D7C.o
     Object src/communication_player_movement.o
-    Object asm/unk_02056EF4.o
+    Object src/remote_player_positions_1.o
     Object src/communication_player_movement_2.o
     Object asm/unk_0205704C.o
     Object src/communication_player_movement_3.o
@@ -2129,7 +2129,7 @@ Overlay OVY_18
     Object src/overlay18_sol_partial_15.o
     Object asm/overlay_18_residual_16.o
     Object src/overlay18_sol_partial_16.o
-    Object asm/overlay_18_residual_17.o
+    Object src/overlay18_scene_helpers_1.o
     Object src/overlay18_sol_partial_17.o
     Object asm/overlay_18_residual_18.o
     Object src/overlay18_sol_partial_18.o
@@ -4747,7 +4747,11 @@ Overlay OVY_96
     Object src/overlay96_exact_bank_40.o
     Object asm/overlay_96_residual_41.o
     Object src/overlay96_exact_bank_41.o
+    Object src/overlay96_field_helpers_1.o
     Object asm/overlay_96_residual_42.o
+    Object src/overlay96_field_helpers_2.o
+    Object asm/overlay_96_residual_42_residual_2.o
+    Object src/overlay96_field_helpers_3.o
     Object src/overlay96_exact_bank_42.o
     Object asm/overlay_96_residual_43.o
     Object src/overlay96_exact_bank_43.o
@@ -4772,6 +4776,17 @@ Overlay OVY_96
     Object asm/overlay_96_residual_53.o
     Object src/overlay96_exact_bank_53.o
     Object asm/overlay_96_residual_54.o
+    Object src/overlay96_task_helpers_1.o
+    Object asm/overlay_96_residual_54_residual_2.o
+    Object src/overlay96_task_helpers_2.o
+    Object asm/overlay_96_residual_54_residual_3.o
+    Object src/overlay96_task_helpers_3.o
+    Object asm/overlay_96_residual_54_residual_4.o
+    Object src/overlay96_task_helpers_4.o
+    Object asm/overlay_96_residual_54_residual_5.o
+    Object src/overlay96_task_helpers_5.o
+    Object asm/overlay_96_residual_54_residual_6.o
+    Object src/overlay96_task_helpers_6.o
     Object src/overlay96_exact_bank_54.o
     Object asm/overlay_96_residual_55.o
     Object src/overlay96_exact_bank_55.o
@@ -5149,6 +5164,7 @@ Overlay OVY_102
     Object asm/overlay_102_residual_39.o
     Object src/overlay102_helpers_39.o
     Object asm/overlay_102_residual_40.o
+    Object src/overlay102_task_helpers_1.o
     Object src/overlay102_helpers_40.o
     Object asm/overlay_102_residual_41.o
 }
@@ -5216,7 +5232,9 @@ Overlay OVY_106
 {
     After main
     Object src/overlay106_cinematic_1.o
+    Object src/overlay106_render_helpers_1.o
     Object asm/overlay_106.o
+    Object src/overlay106_render_helpers_2.o
     Object src/overlay106_cinematic_2.o
     Object asm/overlay_106_residual_2.o
     Object src/overlay106_cinematic_3.o

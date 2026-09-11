@@ -246,46 +246,171 @@
 	.public ov96_021F2FBC
 	.public ov96_021F30A4
 
-	thumb_func_start ov96_021F27B8
-ov96_021F27B8: ; 0x021F27B8
-	push {r3, r4, r5, r6, lr}
-	sub sp, #0x24
+
+	thumb_func_start ov96_021F2E80
+ov96_021F2E80: ; 0x021F2E80
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #8
 	add r5, r1, #0
-	add r1, sp, #0x18
-	add r4, r0, #0
-	add r6, r2, #0
-	bl VEC_Normalize
-	add r0, r5, #0
-	add r1, sp, #0xc
-	bl VEC_Normalize
-	add r0, sp, #0x18
-	add r1, sp, #0xc
-	bl VEC_DotProduct
-	add r5, r0, #0
+	add r6, r0, #0
+	ldr r0, [r5, #0x28]
+	add r4, r3, #0
+	add r7, r2, #0
+	cmp r0, r4
+	bne _021F2EC4
 	add r0, r4, #0
-	bl VEC_Mag
-	add r2, r0, #0
-	add r1, sp, #0
+	mov r1, #3
+	bl _s32_div_f
+	str r0, [sp, #4]
+	add r0, r4, #0
+	mov r1, #3
+	bl _s32_div_f
+	add r2, r1, #0
+	ldr r1, [sp, #4]
+	add r0, r6, #0
+	bl ov96_021E60D8
+	ldrb r0, [r0, #2]
+	cmp r0, #0
+	beq _021F2EC4
+	mov r1, #0
+	str r1, [sp]
+	mov r2, #0x2c
+	ldrsh r2, [r5, r2]
+	ldr r3, [sp, #0x20]
+	add r0, r7, #0
+	bl ov96_021EAED4
+_021F2EC4:
+	add sp, #8
+	pop {r3, r4, r5, r6, r7, pc}
+	thumb_func_end ov96_021F2E80
+
+
+
+
+	thumb_func_start ov96_021F2EC8
+ov96_021F2EC8: ; 0x021F2EC8
+	push {r3, r4, lr}
+	sub sp, #4
+	add r4, r0, #0
+	ldr r0, [r4]
+	ldr r2, _021F2EF8 ; =ov96_0221BC5C
+	add r1, r4, #4
+	bl AddWindow
+	mov r2, #0
+	str r2, [sp]
+	ldr r0, [r4]
+	mov r1, #3
+	mov r3, #1
+	bl BG_FillCharDataRange
+	mov r1, #0x1e
+	ldr r2, [r4, #0x14]
 	mov r0, #0
-	str r0, [r1]
-	str r0, [r1, #4]
-	str r0, [r1, #8]
-	asr r1, r5, #0x1f
-	add r0, r5, #0
-	asr r3, r2, #0x1f
-	bl _ll_mul
-	mov r2, #2
+	lsl r1, r1, #4
+	bl LoadFontPal0
+	add sp, #4
+	pop {r3, r4, pc}
+	nop
+_021F2EF8: .word ov96_0221BC5C
+	thumb_func_end ov96_021F2EC8
+
+
+
+
+	thumb_func_start ov96_021F2EFC
+ov96_021F2EFC: ; 0x021F2EFC
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #0x10
+	add r5, r0, #0
+	add r7, r1, #0
+	add r0, r5, #4
+	mov r1, #0
+	bl FillWindowPixelBuffer
+	ldr r2, _021F2F74 ; =0x00000135
+	ldr r3, [r5, #0x14]
+	mov r0, #1
+	mov r1, #0x1b
+	bl NewMsgDataFromNarc
+	add r4, r0, #0
+	ldr r0, [r5, #0x14]
+	bl MessageFormat_New
+	mov r1, #0
+	str r1, [sp]
+	mov r2, #1
+	str r2, [sp, #4]
+	add r2, r7, #0
+	mov r3, #3
+	add r6, r0, #0
+	bl BufferIntegerAsString
+	ldr r3, [r5, #0x14]
+	add r0, r6, #0
+	add r1, r4, #0
+	mov r2, #0x9e
+	bl ReadMsgData_ExpandPlaceholders
+	add r7, r0, #0
 	mov r3, #0
-	lsl r2, r2, #0xa
-	add r0, r0, r2
-	adc r1, r3
-	lsl r1, r1, #0x14
-	lsr r0, r0, #0xc
-	orr r0, r1
-	add r1, sp, #0xc
-	add r2, sp, #0
-	add r3, r6, #0
-	bl VEC_MultAdd
-	add sp, #0x24
-	pop {r3, r4, r5, r6, pc}
-	thumb_func_end ov96_021F27B8
+	str r3, [sp]
+	mov r0, #0xff
+	str r0, [sp, #4]
+	ldr r0, _021F2F78 ; =0x000F0E00
+	mov r1, #4
+	str r0, [sp, #8]
+	add r0, r5, #4
+	add r2, r7, #0
+	str r3, [sp, #0xc]
+	bl AddTextPrinterParameterizedWithColor
+	add r0, r7, #0
+	bl String_Delete
+	add r0, r6, #0
+	bl MessageFormat_Delete
+	add r0, r4, #0
+	bl DestroyMsgData
+	add r0, r5, #4
+	bl CopyWindowToVram
+	add sp, #0x10
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+_021F2F74: .word 0x00000135
+_021F2F78: .word 0x000F0E00
+	thumb_func_end ov96_021F2EFC
+
+
+
+
+	thumb_func_start ov96_021F2F7C
+ov96_021F2F7C: ; 0x021F2F7C
+	push {lr}
+	sub sp, #0xc
+	add r3, sp, #4
+	str r3, [sp]
+	asr r3, r1, #0xb
+	lsr r3, r3, #0x14
+	add r3, r1, r3
+	asr r1, r3, #0xc
+	asr r3, r2, #0xb
+	lsr r3, r3, #0x14
+	add r3, r2, r3
+	asr r2, r3, #0xc
+	add r3, sp, #8
+	bl ov96_021EB06C
+	ldr r0, [sp, #8]
+	cmp r0, #0x10
+	blt _021F2FAE
+	cmp r0, #0xf0
+	bge _021F2FAE
+	ldr r0, [sp, #4]
+	cmp r0, #0x10
+	blt _021F2FAE
+	cmp r0, #0xb0
+	blt _021F2FB4
+_021F2FAE:
+	add sp, #0xc
+	mov r0, #1
+	pop {pc}
+_021F2FB4:
+	mov r0, #0
+	add sp, #0xc
+	pop {pc}
+	.balign 4, 0
+	thumb_func_end ov96_021F2F7C
+
+

@@ -246,46 +246,80 @@
 	.public ov96_021F2FBC
 	.public ov96_021F30A4
 
-	thumb_func_start ov96_021F27B8
-ov96_021F27B8: ; 0x021F27B8
-	push {r3, r4, r5, r6, lr}
-	sub sp, #0x24
-	add r5, r1, #0
-	add r1, sp, #0x18
+
+	thumb_func_start ov96_021F2D98
+ov96_021F2D98: ; 0x021F2D98
+	push {r3, r4, lr}
+	sub sp, #4
 	add r4, r0, #0
-	add r6, r2, #0
-	bl VEC_Normalize
-	add r0, r5, #0
-	add r1, sp, #0xc
-	bl VEC_Normalize
-	add r0, sp, #0x18
-	add r1, sp, #0xc
-	bl VEC_DotProduct
-	add r5, r0, #0
-	add r0, r4, #0
-	bl VEC_Mag
-	add r2, r0, #0
-	add r1, sp, #0
 	mov r0, #0
-	str r0, [r1]
-	str r0, [r1, #4]
-	str r0, [r1, #8]
-	asr r1, r5, #0x1f
-	add r0, r5, #0
-	asr r3, r2, #0x1f
-	bl _ll_mul
-	mov r2, #2
-	mov r3, #0
-	lsl r2, r2, #0xa
-	add r0, r0, r2
-	adc r1, r3
-	lsl r1, r1, #0x14
-	lsr r0, r0, #0xc
-	orr r0, r1
-	add r1, sp, #0xc
-	add r2, sp, #0
-	add r3, r6, #0
-	bl VEC_MultAdd
-	add sp, #0x24
-	pop {r3, r4, r5, r6, pc}
-	thumb_func_end ov96_021F27B8
+	strb r0, [r4, #3]
+	ldr r0, [r4, #4]
+	cmp r0, #0
+	beq _021F2DC0
+	ldr r0, [r4, #0x30]
+	bl PokeathlonCourse_GetDataCopyArea
+	bl ov96_021E8A20
+	mov r1, #1
+	strb r1, [r0, #8]
+	ldr r0, [r4, #4]
+	bl SysTask_Destroy
+	mov r0, #0
+	str r0, [r4, #4]
+_021F2DC0:
+	ldr r0, [r4, #8]
+	cmp r0, #0
+	beq _021F2DCE
+	bl SysTask_Destroy
+	mov r0, #0
+	str r0, [r4, #8]
+_021F2DCE:
+	ldr r0, [r4, #0xc]
+	cmp r0, #0
+	beq _021F2DDC
+	bl SysTask_Destroy
+	mov r0, #0
+	str r0, [r4, #0xc]
+_021F2DDC:
+	ldr r0, [r4, #0x10]
+	cmp r0, #0
+	beq _021F2DEA
+	bl SysTask_Destroy
+	mov r0, #0
+	str r0, [r4, #0x10]
+_021F2DEA:
+	ldr r0, [r4, #0x14]
+	cmp r0, #0
+	beq _021F2DF8
+	bl SysTask_Destroy
+	mov r0, #0
+	str r0, [r4, #0x14]
+_021F2DF8:
+	mov r1, #2
+	ldr r0, _021F2E28 ; =0x04000018
+	lsl r1, r1, #0x16
+	str r1, [r0]
+	mov r1, #0
+	strb r1, [r4]
+	strb r1, [r4, #1]
+	strb r1, [r4, #2]
+	strh r1, [r4, #0x18]
+	strh r1, [r4, #0x1a]
+	strh r1, [r4, #0x26]
+	strh r1, [r4, #0x2e]
+	strh r1, [r4, #0x24]
+	strh r1, [r4, #0x2c]
+	mov r3, #0xc
+	str r3, [r4, #0x28]
+	mov r2, #4
+	str r2, [sp]
+	add r0, #0x38
+	mov r2, #1
+	bl G2x_SetBlendAlpha_
+	add sp, #4
+	pop {r3, r4, pc}
+	.balign 4, 0
+_021F2E28: .word 0x04000018
+	thumb_func_end ov96_021F2D98
+
+
