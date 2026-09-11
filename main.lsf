@@ -2369,6 +2369,8 @@ Overlay OVY_33
 {
     After OVY_27
     Object asm/overlay_33.o
+    Object src/ov33_wave35_1.o
+    Object asm/overlay_33_residual_2.o
 }
 Overlay OVY_34
 {
@@ -5547,6 +5549,8 @@ Overlay OVY_105
 {
     After main
     Object asm/overlay_105.o
+    Object src/ov105_wave35_1.o
+    Object asm/overlay_105_residual_2.o
 }
 Overlay OVY_106
 {
