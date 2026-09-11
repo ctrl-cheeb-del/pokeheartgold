@@ -552,6 +552,8 @@ Static main
     Object asm/unk_020597A8.o
     Object src/field_application_tasks_5.o
     Object asm/unk_02059820.o
+    Object src/list_menu_render_1.o
+    Object asm/unk_02059820_residual_2.o
     Object src/field_application_tasks_6.o
     Object asm/unk_02059B64.o
     Object src/field_task_launch_1.o
@@ -3382,7 +3384,7 @@ Overlay OVY_69
     Object src/overlay69_helpers_4.o
     Object asm/overlay_69_residual_5.o
     Object src/overlay69_helpers_5.o
-    Object asm/overlay_69_residual_6.o
+    Object src/overlay69_init_1.o
     Object src/overlay69_helpers_6.o
     Object asm/overlay_69_residual_7.o
     Object src/overlay69_helpers_7.o
@@ -4001,7 +4003,7 @@ Overlay OVY_80
     Object src/overlay80_tile_blink_1.o
     Object asm/overlay_80_022384D8.o
     Object src/overlay80_tile_blink_2.o
-    Object asm/frontier_map.o
+    Object src/frontier_map_lifecycle_1.o
     Object src/frontier_map_helpers_1.o
     Object asm/frontier_map_residual_2.o
     Object src/frontier_map_helpers_2.o
@@ -4435,7 +4437,9 @@ Overlay OVY_90
     Object src/overlay90_helpers_8.o
     Object asm/overlay_90_residual_9.o
     Object src/overlay90_helpers_9.o
+    Object src/overlay90_resource_1.o
     Object asm/overlay_90_residual_10.o
+    Object src/overlay90_resource_2.o
     Object src/overlay90_helpers_10.o
     Object asm/overlay_90_residual_11.o
     Object src/overlay90_helpers_11.o

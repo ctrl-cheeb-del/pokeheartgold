@@ -70,6 +70,9 @@
 	.public ov69_021E706C
 	.public ov69_021E758C
 	.public ov69_021E75F8
+	.public functions
+	.public module
+	.public totals
 
 	thumb_func_start ov69_021E6A8C
 ov69_021E6A8C: ; 0x021E6A8C
@@ -159,6 +162,8 @@ _021E6B50: .word 0x0000C080
 _021E6B54: .word 0x0000C324
 _021E6B58: .word 0x0000C070
 	thumb_func_end ov69_021E6A8C
+
+
 
 
 	thumb_func_start ov69_021E6B5C
