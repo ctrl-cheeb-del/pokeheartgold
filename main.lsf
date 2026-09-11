@@ -2953,7 +2953,7 @@ Overlay OVY_49
     Object src/overlay_49_sol_partial_24.o
     Object asm/overlay_49_residual_24.o
     Object src/overlay_49_sol_partial_25.o
-    Object asm/overlay_49_residual_25.o
+    Object src/overlay49_message_bank_1.o
     Object src/overlay_49_sol_partial_26.o
     Object asm/overlay_49_residual_26.o
     Object src/overlay_49_sol_partial_27.o
