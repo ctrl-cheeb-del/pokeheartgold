@@ -5356,6 +5356,30 @@ Overlay OVY_113
 {
     After main
     Object asm/overlay_113.o
+    Object src/unown_report_1.o
+    Object asm/overlay_113_residual_2.o
+    Object src/unown_report_2.o
+    Object asm/overlay_113_residual_3.o
+    Object src/unown_report_3.o
+    Object asm/overlay_113_residual_4.o
+    Object src/unown_report_4.o
+    Object asm/overlay_113_residual_5.o
+    Object src/unown_report_5.o
+    Object asm/overlay_113_residual_6.o
+    Object src/unown_report_6.o
+    Object asm/overlay_113_residual_7.o
+    Object src/unown_report_7.o
+    Object asm/overlay_113_residual_8.o
+    Object src/unown_report_8.o
+    Object asm/overlay_113_residual_9.o
+    Object src/unown_report_9.o
+    Object asm/overlay_113_residual_10.o
+    Object src/unown_report_10.o
+    Object asm/overlay_113_residual_11.o
+    Object src/unown_report_11.o
+    Object asm/overlay_113_residual_12.o
+    Object src/unown_report_12.o
+    Object asm/overlay_113_residual_13.o
 }
 Overlay OVY_114
 {
