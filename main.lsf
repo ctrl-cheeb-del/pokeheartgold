@@ -1760,7 +1760,7 @@ Overlay OVY_4
 Overlay OVY_5
 {
     After OVY_0
-    Object asm/overlay_05.o
+    Object src/overlay05_task_1.o
     Object src/overlay05_helpers_1.o
     Object asm/overlay_05_residual_2.o
     Object src/overlay05_helpers_2.o
