@@ -1433,7 +1433,7 @@ Overlay field
     Object asm/overlay_01_021F72DC_residual_16.o
     Object src/field_object_models.o
     Object src/field_map_object_render_1.o
-    Object asm/overlay_01_021F944C.o
+    Object src/opus_overlay01_anim_1.o
     Object src/field_map_object_render_2.o
     Object asm/overlay_01_021F944C_residual_2.o
     Object src/field_map_object_render_3.o
@@ -2377,7 +2377,9 @@ Overlay OVY_36
 Overlay OVY_37
 {
     After main
+    Object src/opus_overlay37_1.o
     Object asm/overlay_37.o
+    Object src/opus_overlay37_2.o
     Object src/overlay37_helpers_1.o
     Object asm/overlay_37_residual_2.o
     Object src/overlay37_helpers_2.o
@@ -3670,7 +3672,9 @@ Overlay OVY_72
 Overlay OVY_73
 {
     After main
+    Object src/opus_overlay73_1.o
     Object asm/overlay_73.o
+    Object src/opus_overlay73_2.o
     Object src/overlay73_helpers_1.o
     Object asm/overlay_73_residual_2.o
     Object src/overlay73_helpers_2.o
@@ -4116,7 +4120,10 @@ Overlay OVY_81
 Overlay OVY_82
 {
     After OVY_80
+    Object src/opus_overlay82_1.o
     Object asm/overlay_82.o
+    Object src/opus_overlay82_2.o
+    Object asm/overlay_82_opus_residual_2.o
     Object src/overlay82_helpers_1.o
     Object asm/overlay_82_residual_2.o
     Object src/overlay82_helpers_2.o
@@ -4331,7 +4338,7 @@ Overlay OVY_85
 Overlay OVY_86
 {
     After main
-    Object asm/overlay_86.o
+    Object src/opus_overlay86_1.o
     Object src/overlay86_helpers_1.o
     Object asm/overlay_86_residual_2.o
     Object src/overlay86_helpers_2.o
