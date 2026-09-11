@@ -4713,7 +4713,7 @@ Overlay OVY_90
     Object src/overlay90_helpers_11.o
     Object asm/overlay_90_residual_12.o
     Object src/overlay90_helpers_12.o
-    Object asm/overlay_90_residual_13.o
+    Object src/ov90_wave40.o
     Object src/overlay90_helpers_13.o
     Object asm/overlay_90_residual_14.o
     Object src/overlay90_helpers_14.o
@@ -5078,7 +5078,7 @@ Overlay OVY_96
     Object asm/overlay_96_residual_54_residual_6.o
     Object src/overlay96_task_helpers_6.o
     Object src/overlay96_exact_bank_54.o
-    Object asm/overlay_96_residual_55.o
+    Object src/ov96_wave40_a.o
     Object src/overlay96_exact_bank_55.o
     Object asm/overlay_96_residual_56.o
     Object src/overlay96_exact_bank_56.o
@@ -5244,7 +5244,7 @@ Overlay OVY_96
     Object src/ov96_wave38_misc_7.o
     Object asm/overlay_96_residual_109_residual_8.o
     Object src/ov96_wave38_misc_8.o
-    Object asm/overlay_96_residual_109_residual_9.o
+    Object src/ov96_wave40_b.o
     Object src/ov96_wave38_misc_9.o
     Object src/overlay96_exact_bank_109.o
     Object asm/overlay_96_residual_110.o
