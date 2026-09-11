@@ -538,7 +538,7 @@ Static main
     Object src/link_lobby_3.o
     Object asm/unk_0205857C.o
     Object src/link_lobby_4.o
-    Object asm/unk_02058AEC.o
+    Object src/field_object_manager_1.o
     Object src/field_application_tasks.o
     Object asm/unk_02058D4C.o
     Object src/field_application_controller_helpers_1.o
@@ -992,8 +992,8 @@ Static main
     Object src/unk_020971F8.o
     Object src/unk_02097268.o
     Object src/unk_02097720.o
-    Object asm/unk_020977CC.o
-    Object asm/unk_020979A8.o
+    Object src/field_effect_launch_1.o
+    Object src/area_light_tasks_1.o
     Object asm/unk_02097B78.o
     Object asm/unk_02097BE0.o
     Object src/unk_02097D3C.o
