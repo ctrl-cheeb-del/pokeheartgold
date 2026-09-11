@@ -3796,7 +3796,9 @@ Overlay OVY_72
     Object src/overlay72_state_helpers_1.o
     Object asm/overlay_72_residual_2.o
     Object src/overlay72_state_helpers_2.o
+    Object src/ov72_wave41_1.o
     Object asm/overlay_72_residual_2_residual_2.o
+    Object src/ov72_wave41_2.o
     Object src/overlay72_state_helpers_3.o
     Object src/overlay72_helpers_3.o
     Object asm/overlay_72_residual_3.o
@@ -5340,7 +5342,28 @@ Overlay OVY_99
     After main
     Object asm/overlay_99.o
     Object src/overlay99_helpers_1.o
+    Object src/ov99_wave41_1.o
     Object asm/overlay_99_residual_2.o
+    Object src/ov99_wave41_2.o
+    Object asm/overlay_99_residual_2_residual_2.o
+    Object src/ov99_wave41_3.o
+    Object asm/overlay_99_residual_2_residual_3.o
+    Object src/ov99_wave41_4.o
+    Object asm/overlay_99_residual_2_residual_4.o
+    Object src/ov99_wave41_5.o
+    Object asm/overlay_99_residual_2_residual_5.o
+    Object src/ov99_wave41_6.o
+    Object asm/overlay_99_residual_2_residual_6.o
+    Object src/ov99_wave41_7.o
+    Object asm/overlay_99_residual_2_residual_7.o
+    Object src/ov99_wave41_8.o
+    Object asm/overlay_99_residual_2_residual_8.o
+    Object src/ov99_wave41_9.o
+    Object asm/overlay_99_residual_2_residual_9.o
+    Object src/ov99_wave41_10.o
+    Object asm/overlay_99_residual_2_residual_10.o
+    Object src/ov99_wave41_11.o
+    Object asm/overlay_99_residual_2_residual_11.o
     Object src/overlay99_helpers_2.o
     Object asm/overlay_99_residual_3.o
     Object src/overlay99_helpers_3.o

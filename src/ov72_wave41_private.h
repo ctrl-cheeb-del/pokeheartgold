@@ -1,0 +1,61 @@
+#ifndef PRIVATE_H
+#define PRIVATE_H
+#include "global.h"
+void GF_AssertFail(void);
+int WCM_GetPhase(void);
+void ov00_021EC210(void);
+void *OverlayManager_GetData(void *);
+BOOL IsPaletteFadeFinished(void);
+void TextFlags_SetCanTouchSpeedUpPrint(BOOL);
+void FontID_Release(int);
+void Heap_Free(void *);
+void UnloadOVY38(void);
+void UnloadDwcOverlay(void);
+void ov72_02238800(void *);
+void DestroyMsgData(void *);
+void MessageFormat_Delete(void *);
+void ov72_02238160(void *);
+void sub_02034DE0(void);
+void OverlayManager_FreeData(void *);
+void Main_SetVBlankIntrCB(void *, void *);
+void Heap_Destroy(int);
+int ov72_02237D88(int);
+BOOL NintendoWfc_Exit(void *);
+void ov00_021ECB40(void);
+void ov72_022378DC(void);
+BOOL sub_02034DB8(void);
+void ov00_021EC294(void *, void *);
+void SpriteList_RenderAndAnimateSprites(void *);
+extern u32 ov72_0223B92C[];
+extern void ov72_02238778(void);
+extern void ov72_022387A0(void);
+extern u8 ov72_0223B654[];
+extern u8 ov72_0223B658[];
+extern u8 ov72_0223B65C[];
+BOOL NintendoWfc_Main(void *, int *);
+void HBlankInterruptDisable(void);
+void GfGfx_DisableEngineAPlanes(void);
+void GfGfx_DisableEngineBPlanes(void);
+void Heap_Create(int, int, int);
+void LoadDwcOverlay(void);
+void LoadOVY38(void);
+void sub_02039FD8(int);
+void *OverlayManager_CreateAndGetData(void *, int, int);
+void *memset(void *, int, u32);
+void *BgConfig_Alloc(int);
+void SetBothScreensModesAndDisable(void *);
+void *MessageFormat_New_Custom(int, int, int);
+void *NewMsgDataFromNarc(int, int, int, int);
+void SetKeyRepeatTimers(int, int);
+void ov72_02238144(void *, void *);
+void ov72_022387D8(void *);
+void Sound_SetSceneAndPlayBGM(int, int, int);
+void *Heap_Alloc(int, u32);
+void sub_02034D8C(void);
+void FontID_Alloc(int, int);
+typedef struct ScreenBanks {
+    u32 x[4];
+} ScreenBanks;
+extern ScreenBanks ov72_0223B354;
+BOOL NintendoWfc_Init(void *, int *);
+#endif
