@@ -204,6 +204,7 @@
 	.public ov72_0223AF70
 	.public ov72_0223B084
 	.public ov72_0223B2E4
+	.public ov72_02237B54
 
 	thumb_func_start ov72_022378DC
 ov72_022378DC: ; 0x022378DC
@@ -540,27 +541,3 @@ _02237B48: .word _0223B820
 _02237B4C: .word ov72_0223B920
 _02237B50: .word 0x00000A38
 	thumb_func_end ov72_022378DC
-
-
-	thumb_func_start ov72_02237B54
-ov72_02237B54: ; 0x02237B54
-	ldr r1, _02237B70 ; =_0223B820
-	ldr r0, [r1]
-	cmp r0, #1
-	beq _02237B62
-	cmp r0, #0xc
-	beq _02237B66
-	b _02237B6C
-_02237B62:
-	mov r0, #1
-	bx lr
-_02237B66:
-	mov r0, #1
-	str r0, [r1]
-	bx lr
-_02237B6C:
-	mov r0, #0
-	bx lr
-	.balign 4, 0
-_02237B70: .word _0223B820
-	thumb_func_end ov72_02237B54

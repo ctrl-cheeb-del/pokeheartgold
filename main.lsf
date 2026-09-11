@@ -88,7 +88,7 @@ Static main
     Object src/palette_fade_effects_5.o
     Object asm/unk_02011080.o
     Object src/palette_fade_effects_6.o
-    Object asm/unk_02011130.o
+    Object src/unk_02011130.o
     Object src/palette_fade_11130_1.o
     Object asm/unk_02011130_residual_2.o
     Object src/palette_fade_11130_2.o
@@ -407,7 +407,7 @@ Static main
     Object src/network_communication_state_18.o
     Object asm/unk_02039528.o
     Object src/network_communication_state_19.o
-    Object asm/unk_020395B0.o
+    Object src/unk_020395B0.o
     Object src/network_communication_state_20.o
     Object asm/unk_0203981C.o
     Object src/network_communication_state_21.o
@@ -415,7 +415,7 @@ Static main
     Object src/network_communication_state_22.o
     Object asm/unk_02039A00.o
     Object src/network_communication_state_23.o
-    Object asm/unk_02039BA0.o
+    Object src/unk_02039BA0.o
     Object src/network_communication_state_24.o
     Object asm/unk_02039D8C.o
     Object src/network_communication_state_25.o
@@ -501,7 +501,7 @@ Static main
     Object src/catching_show.o
     Object asm/unk_02055BF0_data.o
     Object src/unk_02055BF0.o
-    Object asm/unk_02056680.o
+    Object src/unk_02056680.o
     Object src/field_transition_tasks_1.o
     Object asm/unk_02056680_residual_2.o
     Object src/field_transition_tasks_2.o
@@ -658,7 +658,8 @@ Static main
     Object src/map_object_movement_9.o
     Object asm/unk_data_020FD978.o
     Object src/map_object_movement_commands.o
-    Object asm/unk_02062108.o
+    Object src/unk_02062108_decomp_1.o
+    Object asm/unk_02062108_residual_1.o
     Object src/map_object_movement_commands_2.o
     Object asm/unk_020624CC.o
     Object src/map_object_movement_commands_3.o
@@ -686,7 +687,7 @@ Static main
     Object src/map_object_jump_1.o
     Object asm/unk_020632B0_residual_2.o
     Object src/map_object_behavior.o
-    Object asm/unk_02063A14.o
+    Object src/unk_02063A14.o
     Object src/map_object_behavior_2.o
     Object src/map_object_trainer_behavior.o
     Object src/trainer_turn_sequence.o
@@ -702,7 +703,7 @@ Static main
     Object src/map_object_behavior_3.o
     Object asm/unk_02064468.o
     Object src/map_object_behavior_4.o
-    Object asm/unk_02064518.o
+    Object src/unk_02064518.o
     Object src/map_object_behavior_5.o
     Object asm/unk_02064824.o
     Object src/map_object_behavior_6.o
@@ -821,7 +822,7 @@ Static main
     Object src/battle_transition_application.o
     Object asm/unk_02087A78.o
     Object src/battle_transition_application_2.o
-    Object asm/unk_02087E70.o
+    Object src/unk_02087E70.o
     Object src/summary_graphics_lookup_1.o
     Object asm/unk_02087FD4_residual_1.o
     Object src/unk_0208805C.o
@@ -862,6 +863,7 @@ Static main
     Object asm/unk_0208A3F4_residual_3.o
     Object src/field_ui_8a3f4_4.o
     Object src/summary_screen_helpers_14.o
+    Object src/unk_0208AED4_decomp_1.o
     Object asm/unk_0208AED4.o
     Object src/summary_screen_helpers_15.o
     Object asm/unk_0208B0B0.o
@@ -888,7 +890,7 @@ Static main
     Object asm/unk_0208B1AC_residual_10.o
     Object src/field_ui_8b1ac_10.o
     Object asm/unk_0208B1AC_residual_11.o
-    Object asm/unk_0208C3E4.o
+    Object src/unk_0208C3E4.o
     Object src/field_ui_8c3e4_1.o
     Object asm/unk_0208C3E4_residual_2.o
     Object src/field_ui_8c3e4_2.o
@@ -1273,7 +1275,7 @@ Overlay field
     Object asm/overlay_01_021EDAFC_residual_11.o
     Object src/field/scrcmd_message.o
     Object src/field/draw_map_name.o
-    Object asm/overlay_01_021EFB38.o
+    Object src/overlay_01_021EFB38.o
     Object src/field_overlay_effects_1.o
     Object asm/overlay_01_021EFB38_residual_2.o
     Object src/field_overlay_effects_2.o
@@ -1388,7 +1390,7 @@ Overlay field
     Object src/field_overlay_app_dispatch.o
     Object src/field_friendship_exchange.o
     Object asm/overlay_01_sprite_data.o
-    Object asm/overlay_01_021F72DC.o
+    Object src/overlay_01_021F72DC.o
     Object src/field_map_object_motion_1.o
     Object asm/overlay_01_021F72DC_residual_2.o
     Object src/field_map_object_motion_2.o
@@ -1521,7 +1523,7 @@ Overlay field
     Object src/field/scrcmd_move_tutor.o
     Object src/field/scrcmd_moneybox.o
     Object src/field_follow_effect_1.o
-    Object asm/overlay_01_022031C0.o
+    Object src/overlay_01_022031C0.o
     Object src/field_follow_effect_2.o
     Object asm/overlay_01_022031C0_residual_2.o
     Object src/field_follow_effect_3.o
@@ -1536,7 +1538,7 @@ Overlay field
     Object src/field_effect_audio_task_1.o
     Object asm/overlay_01_022051EC_residual_1.o
     Object src/field_effect_dispatch_1.o
-    Object asm/overlay_01_022053EC.o
+    Object src/overlay_01_022053EC.o
     Object src/field_effect_dispatch_2.o
     Object asm/overlay_01_022053EC_residual_2.o
     Object src/field_effect_dispatch_3.o
@@ -3551,6 +3553,7 @@ Overlay OVY_72
     After OVY_7
     Object src/overlay72_helpers_1.o
     Object asm/overlay_72.o
+    Object src/overlay72_remaining_1.o
     Object src/overlay72_helpers_2.o
     Object asm/overlay_72_residual_2.o
     Object src/overlay72_helpers_3.o
@@ -3778,7 +3781,7 @@ Overlay OVY_80
     Object src/frontier/frontier_script_context.o
     Object asm/overlay_80_0222ACA0.o
     Object src/ov80_2aef8_partial_1.o
-    Object asm/overlay_80_0222AEF8.o
+    Object src/overlay_80_0222AEF8.o
     Object src/ov80_2aef8_partial_2.o
     Object asm/overlay_80_0222AEF8_residual_2.o
     Object src/ov80_2aef8_partial_3.o
@@ -3893,7 +3896,7 @@ Overlay OVY_80
     Object src/overlay_80_022310C4_opus_partial_4.o
     Object asm/overlay_80_022310C4_residual_5.o
     Object src/ov80_31bf8_partial_1.o
-    Object asm/overlay_80_02231BF8.o
+    Object src/overlay_80_02231BF8.o
     Object src/ov80_31bf8_partial_2.o
     Object asm/overlay_80_02231BF8_residual_2.o
     Object src/ov80_31bf8_partial_3.o
@@ -3914,7 +3917,7 @@ Overlay OVY_80
     Object asm/overlay_80_022324C4_residual_8.o
     Object src/frontier/frontier_cmd_arcade.o
     Object asm/overlay_80_022340E8.o
-    Object asm/overlay_80_02235390.o
+    Object src/overlay_80_02235390.o
     Object src/frontier/frontier_script_commands_misc.o
     Object src/frontier/frontier_save_data_helpers.o
     Object src/ov80_35900_partial_1.o
@@ -4602,7 +4605,7 @@ Overlay OVY_98
 {
     After OVY_96
     Object src/overlay98_helpers_1.o
-    Object asm/overlay_98.o
+    Object src/overlay_98_remaining.o
     Object src/overlay98_helpers_2.o
     Object asm/overlay_98_residual_2.o
     Object src/overlay98_helpers_3.o
