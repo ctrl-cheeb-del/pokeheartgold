@@ -2852,92 +2852,86 @@
 	.public ov70_0223E658
 	.public ov70_0223E738
 
-	thumb_func_start ov70_0223E4FC
-ov70_0223E4FC: ; 0x0223E4FC
-	push {r3, r4, r5, r6, r7, lr}
-	add r7, r0, #0
-	mov r4, #0
-	bl AcquireBoxMonLock
-	ldr r5, _0223E534 ; =ov70_02245700
-	str r0, [sp]
-	add r6, r4, #0
-_0223E50C:
-	ldrh r1, [r5]
-	add r0, r7, #0
-	mov r2, #0
-	bl GetBoxMonData
-	add r6, r6, #1
-	add r4, r4, r0
-	add r5, r5, #2
-	cmp r6, #0xa
-	blt _0223E50C
-	ldr r1, [sp]
-	add r0, r7, #0
-	bl ReleaseBoxMonLock
-	cmp r4, #0
-	beq _0223E530
-	mov r0, #1
-	pop {r3, r4, r5, r6, r7, pc}
-_0223E530:
-	mov r0, #0
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_0223E534: .word ov70_02245700
-	thumb_func_end ov70_0223E4FC
 
-
-
-
-	thumb_func_start ov70_0223E538
-ov70_0223E538: ; 0x0223E538
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	bl AcquireBoxMonLock
-	add r7, r0, #0
-	add r0, r5, #0
+	thumb_func_start ov70_0223E690
+ov70_0223E690: ; 0x0223E690
+	push {r4, r5, lr}
+	sub sp, #0xc
+	add r4, r0, #0
+	mov r0, #0x49
+	add r5, r1, #0
+	lsl r0, r0, #2
+	ldr r0, [r5, r0]
 	mov r1, #5
 	mov r2, #0
 	bl GetBoxMonData
-	add r4, r0, #0
-	add r0, r5, #0
-	mov r1, #0x70
+	add r1, sp, #0
+	strh r0, [r1, #6]
+	mov r0, #0x49
+	lsl r0, r0, #2
+	ldr r0, [r5, r0]
+	mov r1, #0x6f
 	mov r2, #0
 	bl GetBoxMonData
-	add r6, r0, #0
+	add r1, r0, #1
+	add r0, sp, #0
+	strb r1, [r0, #8]
+	mov r0, #0x49
+	lsl r0, r0, #2
+	ldr r0, [r5, r0]
+	bl CalcBoxMonLevel
+	add r1, sp, #0
+	strb r0, [r1, #9]
+	add r0, r4, #0
+	ldrh r2, [r1, #6]
+	add r0, #0xec
+	strh r2, [r0]
+	add r0, r4, #0
+	ldrh r1, [r1, #8]
+	add r0, #0xee
+	strh r1, [r0]
+	add r0, r4, #0
+	add r1, r5, #0
+	bl ov70_0223F6E4
+	mov r0, #0x26
+	lsl r0, r0, #4
+	add r2, r5, r0
+	mov r0, #0x4b
+	lsl r0, r0, #2
+	ldr r1, [r5, r0]
+	sub r0, #8
+	mul r0, r1
+	add r0, r2, r0
+	bl Mon_GetBoxMon
+	mov r1, #5
+	mov r2, #0
+	add r5, r0, #0
+	bl GetBoxMonData
+	add r1, sp, #0
+	strh r0, [r1]
 	add r0, r5, #0
-	add r1, r7, #0
-	bl ReleaseBoxMonLock
-	cmp r6, #0
-	ble _0223E592
-	ldr r1, _0223E598 ; =0x000001DF
-	cmp r4, r1
-	bgt _0223E574
-	bge _0223E58A
-	cmp r4, #0xac
-	beq _0223E58E
-	b _0223E592
-_0223E574:
-	add r0, r1, #0
-	add r0, #8
-	cmp r4, r0
-	bgt _0223E584
-	add r1, #8
-	cmp r4, r1
-	beq _0223E58A
-	b _0223E592
-_0223E584:
-	add r1, #0xd
-	cmp r4, r1
-	bne _0223E592
-_0223E58A:
-	mov r0, #1
-	pop {r3, r4, r5, r6, r7, pc}
-_0223E58E:
-	mov r0, #2
-	pop {r3, r4, r5, r6, r7, pc}
-_0223E592:
+	mov r1, #0x6f
+	mov r2, #0
+	bl GetBoxMonData
+	add r0, r0, #1
+	add r1, sp, #0
+	strb r0, [r1, #2]
 	mov r0, #0
-	pop {r3, r4, r5, r6, r7, pc}
-	nop
-_0223E598: .word 0x000001DF
-	thumb_func_end ov70_0223E538
+	strb r0, [r1, #3]
+	strb r0, [r1, #4]
+	add r0, r4, #0
+	ldrh r2, [r1]
+	add r0, #0xf0
+	strh r2, [r0]
+	add r0, r4, #0
+	ldrh r2, [r1, #2]
+	add r0, #0xf2
+	add r4, #0xf4
+	strh r2, [r0]
+	ldrh r0, [r1, #4]
+	strh r0, [r4]
+	add sp, #0xc
+	pop {r4, r5, pc}
+	thumb_func_end ov70_0223E690
+
+

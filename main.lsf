@@ -2992,6 +2992,7 @@ Overlay OVY_49
     Object src/overlay_49_sol_partial_12.o
     Object asm/overlay_49_residual_12.o
     Object src/overlay_49_sol_partial_13.o
+    Object src/overlay49_input_direction_1.o
     Object asm/overlay_49_residual_13.o
     Object src/overlay_49_sol_partial_14.o
     Object asm/overlay_49_residual_14.o
@@ -3215,6 +3216,17 @@ Overlay OVY_57
     Object asm/overlay_57_residual_5.o
     Object src/overlay57_helpers_6.o
     Object asm/overlay_57_residual_6.o
+    Object src/overlay57_vram_helpers_1.o
+    Object asm/overlay_57_residual_6_residual_2.o
+    Object src/overlay57_vram_helpers_2.o
+    Object asm/overlay_57_residual_6_residual_3.o
+    Object src/overlay57_vram_helpers_3.o
+    Object asm/overlay_57_residual_6_residual_4.o
+    Object src/overlay57_vram_helpers_4.o
+    Object asm/overlay_57_residual_6_residual_5.o
+    Object src/overlay57_vram_helpers_5.o
+    Object asm/overlay_57_residual_6_residual_6.o
+    Object src/overlay57_vram_helpers_6.o
     Object src/overlay57_helpers_7.o
     Object asm/overlay_57_residual_7.o
     Object src/overlay57_helpers_8.o
@@ -3520,6 +3532,9 @@ Overlay OVY_70
     Object asm/overlay_70_residual_22.o
     Object src/overlay70_sol_partial_22.o
     Object asm/overlay_70_residual_23.o
+    Object src/overlay70_filter_helpers_1.o
+    Object asm/overlay_70_residual_23_residual_2.o
+    Object src/overlay70_filter_helpers_2.o
     Object src/overlay70_sol_partial_23.o
     Object asm/overlay_70_residual_24.o
     Object src/overlay70_sol_partial_24.o
@@ -4815,7 +4830,12 @@ Overlay OVY_96
     Object asm/overlay_96_residual_6.o
     Object src/overlay96_course_flow_1.o
     Object src/overlay96_exact_bank_6.o
+    Object src/overlay96_compare_helpers_1.o
     Object asm/overlay_96_residual_7.o
+    Object src/overlay96_compare_helpers_2.o
+    Object asm/overlay_96_residual_7_residual_2.o
+    Object src/overlay96_compare_helpers_3.o
+    Object asm/overlay_96_residual_7_residual_3.o
     Object src/overlay96_exact_bank_7.o
     Object asm/overlay_96_residual_8.o
     Object src/overlay96_exact_bank_8.o

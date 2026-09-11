@@ -3427,108 +3427,7 @@
 	.public ov49_02268CCC
 	.public ov49_02268CDC
 	.public ov49_02269090
-
-	thumb_func_start ov49_02259410
-ov49_02259410: ; 0x02259410
-	push {r3, r4, r5, r6, r7, lr}
-	add r7, r0, #0
-	ldr r0, [r7]
-	add r5, r1, #0
-	mov r1, #6
-	bl ov42_02228188
-	add r4, r0, #0
-	ldr r0, [r7]
-	mov r1, #4
-	bl ov42_02228188
-	add r6, r0, #0
-	ldr r0, [r7]
-	mov r1, #5
-	bl ov42_02228188
-	cmp r0, #0
-	bne _022594D2
-	ldr r0, _022594D4 ; =gSystem
-	mov r1, #2
-	ldr r0, [r0, #0x44]
-	add r2, r0, #0
-	tst r2, r1
-	beq _02259444
-	mov r1, #3
-_02259444:
-	mov r2, #0x40
-	tst r2, r0
-	beq _02259468
-	cmp r4, #0
-	bne _0225945A
-	add r0, r5, #0
-	add r2, r4, #0
-	add r3, r6, #0
-	bl ov49_0225927C
-	pop {r3, r4, r5, r6, r7, pc}
-_0225945A:
-	add r0, r5, #0
-	mov r1, #1
-	mov r2, #0
-	add r3, r6, #0
-	bl ov49_0225927C
-	pop {r3, r4, r5, r6, r7, pc}
-_02259468:
-	mov r2, #0x80
-	tst r2, r0
-	beq _0225948C
-	cmp r4, #1
-	bne _0225947E
-	add r0, r5, #0
-	add r2, r4, #0
-	add r3, r6, #0
-	bl ov49_0225927C
-	pop {r3, r4, r5, r6, r7, pc}
-_0225947E:
-	mov r1, #1
-	add r0, r5, #0
-	add r2, r1, #0
-	add r3, r6, #0
-	bl ov49_0225927C
-	pop {r3, r4, r5, r6, r7, pc}
-_0225948C:
-	mov r2, #0x20
-	tst r2, r0
-	beq _022594B0
-	cmp r4, #2
-	bne _022594A2
-	add r0, r5, #0
-	add r2, r4, #0
-	add r3, r6, #0
-	bl ov49_0225927C
-	pop {r3, r4, r5, r6, r7, pc}
-_022594A2:
-	add r0, r5, #0
-	mov r1, #1
-	mov r2, #2
-	add r3, r6, #0
-	bl ov49_0225927C
-	pop {r3, r4, r5, r6, r7, pc}
-_022594B0:
-	mov r2, #0x10
-	tst r0, r2
-	beq _022594D2
-	cmp r4, #3
-	bne _022594C6
-	add r0, r5, #0
-	add r2, r4, #0
-	add r3, r6, #0
-	bl ov49_0225927C
-	pop {r3, r4, r5, r6, r7, pc}
-_022594C6:
-	add r0, r5, #0
-	mov r1, #1
-	mov r2, #3
-	add r3, r6, #0
-	bl ov49_0225927C
-_022594D2:
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_022594D4: .word gSystem
-	thumb_func_end ov49_02259410
+	.public ov49_02259410
 
 
 	thumb_func_start ov49_022594D8
@@ -3654,6 +3553,8 @@ _022595C8: .word ov49_0226965C
 	thumb_func_end ov49_022594D8
 
 
+
+
 	thumb_func_start ov49_022595CC
 ov49_022595CC: ; 0x022595CC
 	push {r4, r5, lr}
@@ -3740,6 +3641,8 @@ _02259672:
 	nop
 _02259678: .word 0x0000064E
 	thumb_func_end ov49_022595CC
+
+
 
 
 	thumb_func_start ov49_0225967C
