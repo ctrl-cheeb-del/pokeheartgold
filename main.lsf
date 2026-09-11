@@ -2815,6 +2815,24 @@ Overlay OVY_47
 {
     After OVY_45
     Object asm/overlay_47.o
+    Object src/overlay47_exact_bank_1.o
+    Object asm/overlay_47_residual_2.o
+    Object src/overlay47_exact_bank_2.o
+    Object asm/overlay_47_residual_3.o
+    Object src/overlay47_exact_bank_3.o
+    Object asm/overlay_47_residual_4.o
+    Object src/overlay47_exact_bank_4.o
+    Object asm/overlay_47_residual_5.o
+    Object src/overlay47_exact_bank_5.o
+    Object asm/overlay_47_residual_6.o
+    Object src/overlay47_exact_bank_6.o
+    Object asm/overlay_47_residual_7.o
+    Object src/overlay47_exact_bank_7.o
+    Object asm/overlay_47_residual_8.o
+    Object src/overlay47_exact_bank_8.o
+    Object asm/overlay_47_residual_9.o
+    Object src/overlay47_exact_bank_9.o
+    Object asm/overlay_47_residual_10.o
 }
 Overlay OVY_48
 {
