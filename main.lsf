@@ -723,7 +723,7 @@ Static main
     Object src/map_object_follow_2.o
     Object asm/unk_020659A8.o
     Object src/map_object_follow_3.o
-    Object asm/unk_020659CC.o
+    Object src/map_follow_state_1.o
     Object src/map_object_follow_4.o
     Object asm/unk_02065DF4.o
     Object src/map_object_follow_5.o
@@ -2443,7 +2443,7 @@ Overlay OVY_39
     Object src/overlay39_helpers_17.o
     Object asm/overlay_39_thumb_residual_17.o
     Object src/overlay39_helpers_18.o
-    Object asm/overlay_39_thumb_residual_18.o
+    Object src/overlay39_text_1.o
     Object src/overlay39_helpers_19.o
     Object asm/overlay_39_thumb_residual_19.o
     Object src/overlay39_helpers_20.o
@@ -2813,7 +2813,7 @@ Overlay OVY_45
 Overlay OVY_46
 {
     After OVY_45
-    Object asm/overlay_46.o
+    Object src/overlay46_state_1.o
     Object src/overlay46_partial_1.o
     Object asm/overlay_46_residual_2.o
     Object src/overlay46_partial_2.o
@@ -3732,7 +3732,7 @@ Overlay OVY_73
     Object src/overlay73_helpers_34.o
     Object asm/overlay_73_residual_35.o
     Object src/overlay73_helpers_35.o
-    Object asm/overlay_73_residual_36.o
+    Object src/overlay73_text_1.o
     Object src/overlay73_helpers_36.o
     Object asm/overlay_73_residual_37.o
     Object src/overlay73_helpers_37.o
@@ -4594,7 +4594,7 @@ Overlay OVY_95
     Object src/overlay95_helpers_1.o
     Object src/overlay95_lifecycle_1.o
     Object src/overlay95_helpers_2.o
-    Object asm/overlay_95_residual_2.o
+    Object src/overlay95_window_1.o
     Object src/overlay95_helpers_3.o
     Object asm/overlay_95_residual_3.o
     Object src/overlay95_helpers_4.o
