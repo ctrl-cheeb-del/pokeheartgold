@@ -1,6 +1,6 @@
 #include "network_communication_state_internal.h"
 
-int sub_02039FFC(void *arg) {
+int sub_02039FFC(int arg) {
     int result;
     LoadDwcOverlay();
     LoadOVY38();

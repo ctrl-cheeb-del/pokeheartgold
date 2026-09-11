@@ -40,7 +40,7 @@ void sub_02039B7C(void);
 BOOL sub_020392A0(void);
 UnkStruct_ov44_0223197C *sub_020396FC(SaveData *saveData, int a1);
 void sub_02039378(void);
-void sub_02039FD8(enum HeapID heapID);
+int sub_02039FD8(enum HeapID heapID);
 void sub_02039E9C(void);
 
 #endif // POKEHEARTGOLD_UNK_02037C94_H

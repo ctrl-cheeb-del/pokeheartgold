@@ -27,7 +27,8 @@ Static main
     Object src/sound_wave.o
     Object src/sound_track.o
     Object src/sound_transition.o
-    Object asm/unk_02004A44.o
+    Object asm/unk_02004A44_data.o
+    Object src/sound_player_volume_1.o
     Object src/sound_gb.o
     Object src/sound_bgm.o
     Object src/sound_se.o
@@ -72,10 +73,11 @@ Static main
     Object asm/unk_0200FA24_residual_2.o
     Object src/palette_fade_state_2.o
     Object src/screen_fade_update.o
-    Object asm/unk_0200FEE4.o
+    Object src/hblank_fade_pair_1.o
     Object src/screen_fade_update_2.o
     Object asm/unk_020100C4.o
     Object src/palette_fade_effects.o
+    Object src/fade_func_01_1.o
     Object asm/unk_0201010C.o
     Object src/palette_fade_effects_2.o
     Object asm/unk_020109D8.o
@@ -423,7 +425,7 @@ Static main
     Object src/network_communication_state_26.o
     Object asm/unk_02039EB4.o
     Object src/network_communication_state_27.o
-    Object asm/unk_02039FD8.o
+    Object src/network_library_init_1.o
     Object src/network_communication_state_28.o
     Object asm/unk_0203A084.o
     Object src/network_communication_state_29.o
@@ -3201,7 +3203,7 @@ Overlay OVY_63
 Overlay OVY_64
 {
     After main
-    Object asm/overlay_64.o
+    Object src/overlay64_showcase_init_1.o
     Object src/overlay64_helpers_1.o
     Object asm/overlay_64_residual_2.o
     Object src/overlay64_helpers_2.o

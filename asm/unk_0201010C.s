@@ -187,25 +187,7 @@ _0210F6B4:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x33, 0x0B, 0x00, 0x00
 
 	.text
-
-	thumb_func_start FadeFunc_01
-FadeFunc_01: ; 0x02010128
-	push {r3, lr}
-	ldr r1, [r0, #0xc]
-	cmp r1, #0
-	bne _02010140
-	mov r1, #0
-	str r1, [r0, #0x28]
-	mov r2, #1
-	str r2, [r0, #0x2c]
-	bl sub_02010B14
-	mov r0, #0
-	pop {r3, pc}
-_02010140:
-	bl sub_02010BB4
-	pop {r3, pc}
-	.balign 4, 0
-	thumb_func_end FadeFunc_01
+	.public FadeFunc_01
 	thumb_func_start FadeFunc_02
 FadeFunc_02: ; 0x02010148
 	push {r4, lr}
