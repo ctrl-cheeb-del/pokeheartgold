@@ -494,176 +494,251 @@
 	.public ov41_0224B8DC
 	.public ov41_0224BBF0
 
-	thumb_func_start ov41_0224989C
-ov41_0224989C: ; 0x0224989C
-	push {r4, r5, r6, r7}
-	mov ip, r0
-	add r7, r1, #0
-	mov r2, #0
-_022498A4:
-	mov r3, #0
-	add r4, r3, #0
-_022498A8:
-	add r1, r2, r4
-	lsr r0, r1, #0x1f
-	lsl r6, r1, #0x1f
-	sub r6, r6, r0
-	mov r5, #0x1f
-	ror r6, r5
-	add r5, r0, r6
-	lsl r6, r5, #2
-	mov r5, #0xf
-	add r0, r1, r0
-	lsl r5, r6
-	asr r1, r0, #1
-	mov r0, ip
-	lsl r5, r5, #0x18
-	ldrsb r0, [r0, r1]
-	lsr r5, r5, #0x18
-	tst r0, r5
-	beq _022498D2
-	add r0, r2, #0
-	pop {r4, r5, r6, r7}
-	bx lr
-_022498D2:
-	add r3, r3, #1
-	add r4, r4, r7
-	cmp r3, #0x50
-	blt _022498A8
-	add r2, r2, #1
-	cmp r2, #0x50
-	blt _022498A4
-	mov r0, #0x50
-	pop {r4, r5, r6, r7}
-	bx lr
-	.balign 4, 0
-	thumb_func_end ov41_0224989C
 
-
-
-
-	thumb_func_start ov41_022498E8
-ov41_022498E8: ; 0x022498E8
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	str r0, [sp]
-	str r1, [sp, #4]
-	add r1, r3, #0
-	mov r0, #0x28
-	strb r0, [r1]
-	strb r0, [r1, #1]
-	strb r0, [r1, #2]
-	strb r0, [r1, #3]
-	mov r6, #0
-_022498FE:
-	mov r2, #0x50
-	sub r2, r2, r6
-	str r2, [sp, #8]
-	lsl r2, r6, #0x18
-	lsr r2, r2, #0x18
-	mov lr, r2
-	ldr r2, [sp, #8]
-	mov r0, #0
-	lsl r2, r2, #0x18
-	lsr r2, r2, #0x18
+	thumb_func_start ov41_0224AA08
+ov41_0224AA08: ; 0x0224AA08
+	push {r4, r5, r6, lr}
+	sub sp, #0x10
+	add r4, r1, #0
+	add r6, r2, #0
+	mov r1, #1
 	add r5, r0, #0
-	mov ip, r2
-_02249916:
-	add r7, r6, r5
-	lsr r3, r7, #0x1f
-	lsl r4, r7, #0x1f
-	sub r4, r4, r3
-	mov r2, #0x1f
-	ror r4, r2
-	add r2, r3, r4
-	lsl r4, r2, #2
-	mov r2, #0xf
-	lsl r2, r4
-	lsl r2, r2, #0x18
-	lsr r4, r2, #0x18
-	add r3, r7, r3
-	ldr r2, [sp]
-	asr r3, r3, #1
-	ldrsb r2, [r2, r3]
-	tst r2, r4
-	beq _02249964
-	ldrb r2, [r1]
-	cmp r2, r6
-	ble _02249944
-	mov r2, lr
-	strb r2, [r1]
-_02249944:
-	ldrb r3, [r1, #1]
-	ldr r2, [sp, #8]
-	cmp r3, r2
-	ble _02249950
-	mov r2, ip
-	strb r2, [r1, #1]
-_02249950:
-	ldrb r2, [r1, #2]
-	cmp r2, r0
-	ble _02249958
-	strb r0, [r1, #2]
-_02249958:
-	mov r2, #0x50
-	sub r3, r2, r0
-	ldrb r2, [r1, #3]
-	cmp r2, r3
-	ble _02249964
-	strb r3, [r1, #3]
-_02249964:
-	ldr r2, [sp, #4]
-	add r0, r0, #1
-	add r5, r5, r2
-	cmp r0, #0x50
-	blt _02249916
-	add r6, r6, #1
-	cmp r6, #0x50
-	blt _022498FE
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	thumb_func_end ov41_022498E8
+	tst r1, r6
+	beq _0224AA22
+	mov r2, #0x52
+	mov r1, #0
+	lsl r2, r2, #2
+	bl memset
+_0224AA22:
+	mov r0, #2
+	tst r0, r6
+	beq _0224AA30
+	ldr r1, [r4]
+	add r0, r5, #0
+	bl ov41_0224ACA4
+_0224AA30:
+	mov r0, #4
+	add r1, r6, #0
+	tst r1, r0
+	beq _0224AA54
+	mov r1, #0x1b
+	str r1, [sp]
+	str r0, [sp, #4]
+	mov r0, #0x1f
+	str r0, [sp, #8]
+	mov r0, #1
+	str r0, [sp, #0xc]
+	add r0, r5, #0
+	ldr r1, [r4]
+	add r0, #0x2c
+	mov r2, #2
+	mov r3, #0x13
+	bl ov41_0224AD0C
+_0224AA54:
+	mov r0, #8
+	tst r0, r6
+	beq _0224AA6C
+	ldr r0, [r4, #0x24]
+	str r0, [sp]
+	add r0, r5, #0
+	ldr r1, [r4, #4]
+	ldr r2, [r4, #8]
+	ldr r3, [r4, #0x10]
+	add r0, #0x38
+	bl ov41_0224AED8
+_0224AA6C:
+	mov r0, #0x10
+	tst r0, r6
+	beq _0224AA8C
+	ldr r0, [r4]
+	str r0, [sp]
+	ldr r0, [r4, #0x20]
+	str r0, [sp, #4]
+	ldr r0, [r4, #0x24]
+	str r0, [sp, #8]
+	add r0, r5, #0
+	ldr r1, [r4, #4]
+	ldr r2, [r4, #8]
+	ldr r3, [r4, #0x1c]
+	add r0, #0xa0
+	bl ov41_0224B118
+_0224AA8C:
+	mov r0, #0x20
+	tst r0, r6
+	beq _0224AB02
+	mov r0, #0x1b
+	str r0, [sp]
+	mov r2, #2
+	str r2, [sp, #4]
+	mov r0, #0x8b
+	str r0, [sp, #8]
+	mov r3, #1
+	str r3, [sp, #0xc]
+	add r0, #0xa9
+	ldr r1, [r4]
+	add r0, r5, r0
+	bl ov41_0224AD0C
+	mov r0, #0x4d
+	lsl r0, r0, #2
+	ldr r0, [r5, r0]
+	mov r1, #0xf
+	bl FillWindowPixelBuffer
+	mov r0, #0
+	str r0, [sp]
+	str r0, [sp, #4]
+	ldr r0, _0224AB3C ; =0x0001020F
+	mov r1, #0x1b
+	str r0, [sp, #8]
+	mov r0, #0xff
+	str r0, [sp, #0xc]
+	add r0, #0x35
+	ldr r0, [r5, r0]
+	ldr r2, [r4, #0x14]
+	mov r3, #6
+	bl ov41_0224AE24
+	mov r0, #0x48
+	str r0, [sp]
+	mov r0, #0
+	str r0, [sp, #4]
+	ldr r0, _0224AB3C ; =0x0001020F
+	mov r1, #0x1b
+	str r0, [sp, #8]
+	mov r0, #0xff
+	str r0, [sp, #0xc]
+	add r0, #0x35
+	ldr r0, [r5, r0]
+	ldr r2, [r4, #0x14]
+	ldr r3, [r4, #0x18]
+	bl ov41_0224AE24
+	mov r0, #0x4d
+	lsl r0, r0, #2
+	mov r2, #1
+	ldr r0, [r5, r0]
+	mov r1, #0
+	add r3, r2, #0
+	bl DrawFrameAndWindow2
+_0224AB02:
+	ldr r0, [r4, #4]
+	str r0, [r5, #0x30]
+	ldr r0, [r4, #8]
+	str r0, [r5, #0x34]
+	ldr r0, [r4]
+	ldr r1, [r4, #0xc]
+	bl ov41_0224ACDC
+	ldr r0, [r4, #0xc]
+	bl Options_GetFrame
+	mov r1, #0x4f
+	lsl r1, r1, #2
+	str r0, [r5, r1]
+	ldr r0, [r4, #0xc]
+	bl Options_GetTextFrameDelay
+	mov r1, #5
+	lsl r1, r1, #6
+	str r0, [r5, r1]
+	add r0, r1, #0
+	sub r0, #8
+	ldr r0, [r5, r0]
+	sub r1, #8
+	orr r0, r6
+	str r0, [r5, r1]
+	add sp, #0x10
+	pop {r4, r5, r6, pc}
+	nop
+_0224AB3C: .word 0x0001020F
+	thumb_func_end ov41_0224AA08
 
 
 
 
-	thumb_func_start ov41_02249978
-ov41_02249978: ; 0x02249978
-	push {r3, r4}
-	ldr r4, [sp, #8]
-	sub r4, r2, r4
-	bmi _02249982
-	b _02249984
-_02249982:
-	mov r4, #0
-_02249984:
-	strb r4, [r0]
-	ldr r4, [sp, #8]
-	add r2, r2, r4
-	cmp r2, #0xbf
-	bgt _02249990
-	b _02249992
-_02249990:
-	mov r2, #0xbf
-_02249992:
-	strb r2, [r0, #1]
-	sub r2, r1, r3
-	bmi _0224999A
-	b _0224999C
-_0224999A:
-	mov r2, #0
-_0224999C:
-	add r1, r1, r3
-	strb r2, [r0, #2]
-	cmp r1, #0xff
-	bgt _022499AA
-	strb r1, [r0, #3]
-	pop {r3, r4}
-	bx lr
-_022499AA:
-	mov r1, #0xff
-	strb r1, [r0, #3]
-	pop {r3, r4}
-	bx lr
-	.balign 4, 0
-	thumb_func_end ov41_02249978
+	thumb_func_start ov41_0224AB40
+ov41_0224AB40: ; 0x0224AB40
+	push {r4, lr}
+	mov r1, #0x4e
+	add r4, r0, #0
+	lsl r1, r1, #2
+	ldr r2, [r4, r1]
+	mov r1, #2
+	tst r1, r2
+	beq _0224AB60
+	bl ov41_0224AD7C
+	mov r1, #0x4e
+	lsl r1, r1, #2
+	ldr r2, [r4, r1]
+	mov r0, #2
+	bic r2, r0
+	str r2, [r4, r1]
+_0224AB60:
+	mov r0, #0x4e
+	lsl r0, r0, #2
+	ldr r1, [r4, r0]
+	mov r0, #4
+	tst r0, r1
+	beq _0224AB7E
+	ldr r0, [r4, #0x2c]
+	bl ov41_0224AD84
+	mov r1, #0x4e
+	lsl r1, r1, #2
+	ldr r2, [r4, r1]
+	mov r0, #4
+	bic r2, r0
+	str r2, [r4, r1]
+_0224AB7E:
+	mov r0, #0x4e
+	lsl r0, r0, #2
+	ldr r1, [r4, r0]
+	mov r0, #8
+	tst r0, r1
+	beq _0224ABA0
+	add r0, r4, #0
+	ldr r1, [r4, #0x34]
+	add r0, #0x38
+	bl ov41_0224AFD4
+	mov r1, #0x4e
+	lsl r1, r1, #2
+	ldr r2, [r4, r1]
+	mov r0, #8
+	bic r2, r0
+	str r2, [r4, r1]
+_0224ABA0:
+	mov r0, #0x4e
+	lsl r0, r0, #2
+	ldr r1, [r4, r0]
+	mov r0, #0x10
+	tst r0, r1
+	beq _0224ABC2
+	add r0, r4, #0
+	ldr r1, [r4, #0x34]
+	add r0, #0xa0
+	bl ov41_0224B21C
+	mov r1, #0x4e
+	lsl r1, r1, #2
+	ldr r2, [r4, r1]
+	mov r0, #0x10
+	bic r2, r0
+	str r2, [r4, r1]
+_0224ABC2:
+	mov r0, #0x4e
+	lsl r0, r0, #2
+	ldr r2, [r4, r0]
+	mov r1, #0x20
+	tst r1, r2
+	beq _0224ABE2
+	sub r0, r0, #4
+	ldr r0, [r4, r0]
+	bl ov41_0224AD84
+	mov r1, #0x4e
+	lsl r1, r1, #2
+	ldr r2, [r4, r1]
+	mov r0, #0x20
+	bic r2, r0
+	str r2, [r4, r1]
+_0224ABE2:
+	mov r2, #0x52
+	add r0, r4, #0
+	mov r1, #0
+	lsl r2, r2, #2
+	bl memset
+	pop {r4, pc}
+	thumb_func_end ov41_0224AB40
+
+

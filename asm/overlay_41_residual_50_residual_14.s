@@ -494,176 +494,259 @@
 	.public ov41_0224B8DC
 	.public ov41_0224BBF0
 
-	thumb_func_start ov41_0224989C
-ov41_0224989C: ; 0x0224989C
-	push {r4, r5, r6, r7}
-	mov ip, r0
-	add r7, r1, #0
-	mov r2, #0
-_022498A4:
+
+	thumb_func_start ov41_0224B32C
+ov41_0224B32C: ; 0x0224B32C
+	push {r4, lr}
+	add r4, r0, #0
+	ldr r2, [r4, #0xc]
+	ldr r0, [r4, #8]
+	lsl r2, r2, #0xc
+	asr r1, r0, #0x1f
+	asr r3, r2, #0x1f
+	bl _ll_mul
+	mov r2, #2
 	mov r3, #0
-	add r4, r3, #0
-_022498A8:
-	add r1, r2, r4
-	lsr r0, r1, #0x1f
-	lsl r6, r1, #0x1f
-	sub r6, r6, r0
-	mov r5, #0x1f
-	ror r6, r5
-	add r5, r0, r6
-	lsl r6, r5, #2
-	mov r5, #0xf
-	add r0, r1, r0
-	lsl r5, r6
-	asr r1, r0, #1
-	mov r0, ip
-	lsl r5, r5, #0x18
-	ldrsb r0, [r0, r1]
-	lsr r5, r5, #0x18
-	tst r0, r5
-	beq _022498D2
-	add r0, r2, #0
-	pop {r4, r5, r6, r7}
-	bx lr
-_022498D2:
-	add r3, r3, #1
-	add r4, r4, r7
-	cmp r3, #0x50
-	blt _022498A8
-	add r2, r2, #1
-	cmp r2, #0x50
-	blt _022498A4
-	mov r0, #0x50
-	pop {r4, r5, r6, r7}
-	bx lr
+	lsl r2, r2, #0xa
+	add r0, r0, r2
+	adc r1, r3
+	lsl r1, r1, #0x14
+	lsr r0, r0, #0xc
+	orr r0, r1
+	ldr r1, [r4, #0x10]
+	lsl r1, r1, #0xc
+	bl FX_Div
+	ldr r1, [r4, #4]
+	add r0, r0, r1
+	str r0, [r4]
+	ldr r0, [r4, #0xc]
+	ldr r1, [r4, #0x10]
+	add r0, r0, #1
+	cmp r0, r1
+	bgt _0224B36C
+	str r0, [r4, #0xc]
+	mov r0, #0
+	pop {r4, pc}
+_0224B36C:
+	str r1, [r4, #0xc]
+	mov r0, #1
+	pop {r4, pc}
 	.balign 4, 0
-	thumb_func_end ov41_0224989C
+	thumb_func_end ov41_0224B32C
 
 
 
 
-	thumb_func_start ov41_022498E8
-ov41_022498E8: ; 0x022498E8
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
+	thumb_func_start ov41_0224B374
+ov41_0224B374: ; 0x0224B374
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #0x18
 	str r0, [sp]
 	str r1, [sp, #4]
-	add r1, r3, #0
-	mov r0, #0x28
-	strb r0, [r1]
-	strb r0, [r1, #1]
-	strb r0, [r1, #2]
-	strb r0, [r1, #3]
-	mov r6, #0
-_022498FE:
-	mov r2, #0x50
-	sub r2, r2, r6
+	mov r1, #0x3a
+	mov r0, #2
+	lsl r1, r1, #0xc
+	lsl r0, r0, #0x14
+	ldr r4, [sp, #4]
+	str r1, [sp, #0x10]
+	add r0, r1, r0
+	str r0, [sp, #0x10]
+	add r0, r4, #0
+	ldr r6, [sp]
+	mov r7, #0
+	mov r5, #0x67
+	str r0, [sp, #8]
+_0224B396:
+	ldr r0, [r6, #0x10]
+	mov r1, #2
+	str r0, [r4, #4]
+	bl Sprite_SetAffineOverwriteMode
+	ldr r2, [sp, #8]
+	str r5, [sp, #0xc]
+	lsl r0, r5, #0xc
+	add r2, #0xc
+	add r3, sp, #0xc
+	str r0, [sp, #0xc]
+	ldmia r3!, {r0, r1}
 	str r2, [sp, #8]
-	lsl r2, r6, #0x18
-	lsr r2, r2, #0x18
-	mov lr, r2
-	ldr r2, [sp, #8]
-	mov r0, #0
-	lsl r2, r2, #0x18
-	lsr r2, r2, #0x18
-	add r5, r0, #0
-	mov ip, r2
-_02249916:
-	add r7, r6, r5
-	lsr r3, r7, #0x1f
-	lsl r4, r7, #0x1f
-	sub r4, r4, r3
-	mov r2, #0x1f
-	ror r4, r2
-	add r2, r3, r4
-	lsl r4, r2, #2
-	mov r2, #0xf
-	lsl r2, r4
-	lsl r2, r2, #0x18
-	lsr r4, r2, #0x18
-	add r3, r7, r3
-	ldr r2, [sp]
-	asr r3, r3, #1
-	ldrsb r2, [r2, r3]
-	tst r2, r4
-	beq _02249964
-	ldrb r2, [r1]
-	cmp r2, r6
-	ble _02249944
-	mov r2, lr
-	strb r2, [r1]
-_02249944:
-	ldrb r3, [r1, #1]
-	ldr r2, [sp, #8]
-	cmp r3, r2
-	ble _02249950
-	mov r2, ip
-	strb r2, [r1, #1]
-_02249950:
-	ldrb r2, [r1, #2]
-	cmp r2, r0
-	ble _02249958
-	strb r0, [r1, #2]
-_02249958:
-	mov r2, #0x50
-	sub r3, r2, r0
-	ldrb r2, [r1, #3]
-	cmp r2, r3
-	ble _02249964
-	strb r3, [r1, #3]
-_02249964:
-	ldr r2, [sp, #4]
-	add r0, r0, #1
-	add r5, r5, r2
-	cmp r0, #0x50
-	blt _02249916
-	add r6, r6, #1
-	cmp r6, #0x50
-	blt _022498FE
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	thumb_func_end ov41_022498E8
-
-
-
-
-	thumb_func_start ov41_02249978
-ov41_02249978: ; 0x02249978
-	push {r3, r4}
-	ldr r4, [sp, #8]
-	sub r4, r2, r4
-	bmi _02249982
-	b _02249984
-_02249982:
-	mov r4, #0
-_02249984:
-	strb r4, [r0]
-	ldr r4, [sp, #8]
-	add r2, r2, r4
-	cmp r2, #0xbf
-	bgt _02249990
-	b _02249992
-_02249990:
-	mov r2, #0xbf
-_02249992:
-	strb r2, [r0, #1]
-	sub r2, r1, r3
-	bmi _0224999A
-	b _0224999C
-_0224999A:
+	stmia r2!, {r0, r1}
+	ldr r0, [r3]
+	add r7, r7, #1
+	str r0, [r2]
+	add r6, r6, #4
+	add r4, r4, #4
+	add r5, #0x18
+	cmp r7, #2
+	blt _0224B396
+	ldr r0, [sp]
+	ldr r1, [r0, #0x1c]
+	mov r0, #0xa
+	sub r0, r0, r1
+	cmp r0, #0
+	ble _0224B3F0
+	lsl r0, r0, #0xc
+	ldr r2, _0224B44C ; =0x00000266
+	asr r1, r0, #0x1f
+	mov r3, #0
+	bl _ll_mul
+	mov r2, #2
+	mov r3, #0
+	lsl r2, r2, #0xa
+	add r4, r0, r2
+	adc r1, r3
+	lsl r0, r1, #0x14
+	lsr r1, r4, #0xc
+	orr r1, r0
+	lsl r0, r2, #1
+	add r4, r1, r0
+	b _0224B3F4
+_0224B3F0:
+	mov r4, #1
+	lsl r4, r4, #0xc
+_0224B3F4:
+	ldr r0, [sp, #4]
+	mov r2, #1
+	add r0, #0x24
+	add r1, r4, #0
+	lsl r2, r2, #0xc
+	mov r3, #0x10
+	bl ov41_0224B31C
+	mov r2, #6
+	asr r1, r4, #0x1f
+	add r0, r4, #0
+	lsl r2, r2, #0xe
+	mov r3, #0
+	bl _ll_mul
+	mov r3, #2
 	mov r2, #0
-_0224999C:
-	add r1, r1, r3
-	strb r2, [r0, #2]
-	cmp r1, #0xff
-	bgt _022499AA
-	strb r1, [r0, #3]
-	pop {r3, r4}
-	bx lr
-_022499AA:
-	mov r1, #0xff
-	strb r1, [r0, #3]
-	pop {r3, r4}
-	bx lr
+	lsl r3, r3, #0xa
+	add r3, r0, r3
+	adc r1, r2
+	lsl r0, r1, #0x14
+	lsr r1, r3, #0xc
+	orr r1, r0
+	mov r0, #6
+	lsl r0, r0, #0xe
+	sub r4, r1, r0
+	ldr r0, [sp, #4]
+	add r1, r4, #0
+	add r0, #0x38
+	mov r3, #0x10
+	bl ov41_0224B31C
+	ldr r0, [sp, #4]
+	add r1, r4, #0
+	add r0, #0x4c
+	mov r2, #0
+	mov r3, #0x10
+	bl ov41_0224B31C
+	ldr r0, [sp, #4]
+	mov r1, #1
+	str r1, [r0]
+	add sp, #0x18
+	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
-	thumb_func_end ov41_02249978
+_0224B44C: .word 0x00000266
+	thumb_func_end ov41_0224B374
+
+
+
+
+	thumb_func_start ov41_0224B450
+ov41_0224B450: ; 0x0224B450
+	push {r4, r5, r6, lr}
+	sub sp, #0x18
+	add r5, r0, #0
+	ldr r0, [r5]
+	cmp r0, #0
+	beq _0224B4E2
+	add r0, r5, #0
+	add r0, #0x24
+	bl ov41_0224B32C
+	add r4, r0, #0
+	add r0, r5, #0
+	add r0, #0x38
+	bl ov41_0224B32C
+	add r0, r5, #0
+	add r0, #0x4c
+	bl ov41_0224B32C
+	ldr r0, [r5, #0x24]
+	add r1, sp, #0xc
+	str r0, [sp, #0xc]
+	ldr r0, [r5, #0x24]
+	str r0, [sp, #0x10]
+	ldr r0, [r5, #0x24]
+	str r0, [sp, #0x14]
+	ldr r0, [r5, #4]
+	bl Sprite_SetAffineScale
+	ldr r0, [r5, #8]
+	add r1, sp, #0xc
+	bl Sprite_SetAffineScale
+	add r6, r5, #0
+	add r6, #0xc
+	add r3, sp, #0
+	ldmia r6!, {r0, r1}
+	add r2, r3, #0
+	stmia r3!, {r0, r1}
+	ldr r0, [r6]
+	str r0, [r3]
+	ldr r1, [sp]
+	ldr r0, [r5, #0x38]
+	sub r0, r1, r0
+	str r0, [sp]
+	ldr r1, [sp, #4]
+	ldr r0, [r5, #0x4c]
+	sub r0, r1, r0
+	str r0, [sp, #4]
+	ldr r0, [r5, #4]
+	add r1, r2, #0
+	bl Sprite_SetMatrix
+	add r6, r5, #0
+	add r6, #0x18
+	add r3, sp, #0
+	ldmia r6!, {r0, r1}
+	add r2, r3, #0
+	stmia r3!, {r0, r1}
+	ldr r0, [r6]
+	str r0, [r3]
+	ldr r1, [sp, #4]
+	ldr r0, [r5, #0x4c]
+	sub r0, r1, r0
+	str r0, [sp, #4]
+	ldr r0, [r5, #8]
+	add r1, r2, #0
+	bl Sprite_SetMatrix
+	cmp r4, #0
+	beq _0224B4E2
+	mov r0, #0
+	str r0, [r5]
+_0224B4E2:
+	add sp, #0x18
+	pop {r4, r5, r6, pc}
+	.balign 4, 0
+	thumb_func_end ov41_0224B450
+
+
+
+
+	thumb_func_start ov41_0224B4E8
+ov41_0224B4E8: ; 0x0224B4E8
+	push {r3, lr}
+	sub sp, #0x10
+	add r3, r1, #0
+	stmia r0!, {r1}
+	add r3, #0x48
+	str r3, [sp]
+	ldr r1, [r1, #0x74]
+	lsl r1, r1, #2
+	add r1, #0x89
+	str r1, [sp, #4]
+	mov r1, #0x10
+	str r1, [sp, #8]
+	add r1, sp, #0
+	str r2, [sp, #0xc]
+	bl ov41_02249CE0
+	add sp, #0x10
+	pop {r3, pc}
+	thumb_func_end ov41_0224B4E8
+
+

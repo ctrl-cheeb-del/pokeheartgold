@@ -494,176 +494,661 @@
 	.public ov41_0224B8DC
 	.public ov41_0224BBF0
 
-	thumb_func_start ov41_0224989C
-ov41_0224989C: ; 0x0224989C
-	push {r4, r5, r6, r7}
-	mov ip, r0
-	add r7, r1, #0
-	mov r2, #0
-_022498A4:
-	mov r3, #0
-	add r4, r3, #0
-_022498A8:
-	add r1, r2, r4
-	lsr r0, r1, #0x1f
-	lsl r6, r1, #0x1f
-	sub r6, r6, r0
-	mov r5, #0x1f
-	ror r6, r5
-	add r5, r0, r6
-	lsl r6, r5, #2
-	mov r5, #0xf
-	add r0, r1, r0
-	lsl r5, r6
-	asr r1, r0, #1
-	mov r0, ip
-	lsl r5, r5, #0x18
-	ldrsb r0, [r0, r1]
-	lsr r5, r5, #0x18
-	tst r0, r5
-	beq _022498D2
-	add r0, r2, #0
-	pop {r4, r5, r6, r7}
-	bx lr
-_022498D2:
-	add r3, r3, #1
-	add r4, r4, r7
-	cmp r3, #0x50
-	blt _022498A8
-	add r2, r2, #1
-	cmp r2, #0x50
-	blt _022498A4
-	mov r0, #0x50
-	pop {r4, r5, r6, r7}
-	bx lr
-	.balign 4, 0
-	thumb_func_end ov41_0224989C
 
-
-
-
-	thumb_func_start ov41_022498E8
-ov41_022498E8: ; 0x022498E8
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	str r0, [sp]
-	str r1, [sp, #4]
-	add r1, r3, #0
-	mov r0, #0x28
-	strb r0, [r1]
-	strb r0, [r1, #1]
-	strb r0, [r1, #2]
-	strb r0, [r1, #3]
-	mov r6, #0
-_022498FE:
-	mov r2, #0x50
-	sub r2, r2, r6
-	str r2, [sp, #8]
-	lsl r2, r6, #0x18
-	lsr r2, r2, #0x18
-	mov lr, r2
-	ldr r2, [sp, #8]
-	mov r0, #0
-	lsl r2, r2, #0x18
-	lsr r2, r2, #0x18
+	thumb_func_start ov41_02249CF8
+ov41_02249CF8: ; 0x02249CF8
+	push {r3, r4, r5, lr}
+	sub sp, #0x18
 	add r5, r0, #0
-	mov ip, r2
-_02249916:
-	add r7, r6, r5
-	lsr r3, r7, #0x1f
-	lsl r4, r7, #0x1f
-	sub r4, r4, r3
-	mov r2, #0x1f
-	ror r4, r2
-	add r2, r3, r4
-	lsl r4, r2, #2
-	mov r2, #0xf
-	lsl r2, r4
-	lsl r2, r2, #0x18
-	lsr r4, r2, #0x18
-	add r3, r7, r3
-	ldr r2, [sp]
-	asr r3, r3, #1
-	ldrsb r2, [r2, r3]
-	tst r2, r4
-	beq _02249964
-	ldrb r2, [r1]
-	cmp r2, r6
-	ble _02249944
-	mov r2, lr
-	strb r2, [r1]
-_02249944:
-	ldrb r3, [r1, #1]
-	ldr r2, [sp, #8]
-	cmp r3, r2
-	ble _02249950
-	mov r2, ip
-	strb r2, [r1, #1]
-_02249950:
-	ldrb r2, [r1, #2]
-	cmp r2, r0
-	ble _02249958
-	strb r0, [r1, #2]
-_02249958:
-	mov r2, #0x50
-	sub r3, r2, r0
-	ldrb r2, [r1, #3]
-	cmp r2, r3
-	ble _02249964
-	strb r3, [r1, #3]
-_02249964:
-	ldr r2, [sp, #4]
-	add r0, r0, #1
-	add r5, r5, r2
-	cmp r0, #0x50
-	blt _02249916
-	add r6, r6, #1
-	cmp r6, #0x50
-	blt _022498FE
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	thumb_func_end ov41_022498E8
-
-
-
-
-	thumb_func_start ov41_02249978
-ov41_02249978: ; 0x02249978
-	push {r3, r4}
-	ldr r4, [sp, #8]
-	sub r4, r2, r4
-	bmi _02249982
-	b _02249984
-_02249982:
-	mov r4, #0
-_02249984:
-	strb r4, [r0]
-	ldr r4, [sp, #8]
-	add r2, r2, r4
-	cmp r2, #0xbf
-	bgt _02249990
-	b _02249992
-_02249990:
-	mov r2, #0xbf
-_02249992:
-	strb r2, [r0, #1]
-	sub r2, r1, r3
-	bmi _0224999A
-	b _0224999C
-_0224999A:
+	ldr r0, [r5, #0xc]
+	add r1, r0, r1
+	str r1, [r5, #0xc]
+	ldr r0, [r5, #8]
+	cmp r1, r0
+	ble _02249D5C
 	mov r2, #0
-_0224999C:
-	add r1, r1, r3
-	strb r2, [r0, #2]
-	cmp r1, #0xff
-	bgt _022499AA
-	strb r1, [r0, #3]
-	pop {r3, r4}
-	bx lr
-_022499AA:
-	mov r1, #0xff
-	strb r1, [r0, #3]
-	pop {r3, r4}
-	bx lr
+	str r2, [r5, #0xc]
+	ldr r0, [r5, #0x10]
+	cmp r0, #0
+	bne _02249D1C
+	ldr r1, [r5, #4]
+	mov r0, #1
+	str r0, [r5, #0x10]
+	b _02249D22
+_02249D1C:
+	ldr r0, [r5]
+	ldr r1, [r0, #8]
+	str r2, [r5, #0x10]
+_02249D22:
+	ldr r0, [r5, #0x14]
+	mov r2, #0
+	str r0, [sp]
+	ldr r0, [r5]
+	add r3, sp, #0x14
+	ldr r0, [r0, #4]
+	bl GfGfxLoader_GetScrnData
+	ldr r3, [r5]
+	add r4, r0, #0
+	ldr r0, [r3, #0x18]
+	str r0, [sp]
+	ldr r0, [r3, #0xc]
+	str r0, [sp, #4]
+	ldr r0, [r3, #0x10]
+	str r0, [sp, #8]
+	ldr r0, [r3, #0x28]
+	str r0, [sp, #0xc]
+	ldr r0, [r3, #0x20]
+	str r0, [sp, #0x10]
+	ldr r0, [r3]
+	ldr r1, [r3, #0x1c]
+	ldr r2, [sp, #0x14]
+	ldr r3, [r3, #0x14]
+	bl ov41_02249F7C
+	add r0, r4, #0
+	bl Heap_Free
+_02249D5C:
+	add sp, #0x18
+	pop {r3, r4, r5, pc}
+	thumb_func_end ov41_02249CF8
+
+
+
+
+	thumb_func_start ov41_02249D60
+ov41_02249D60: ; 0x02249D60
+	push {r3, r4, r5, lr}
+	sub sp, #0x18
+	add r5, r0, #0
+	ldr r1, [r5]
+	ldr r0, [r5, #0x14]
+	mov r2, #0
+	str r0, [sp]
+	ldr r0, [r1, #4]
+	ldr r1, [r1, #8]
+	add r3, sp, #0x14
+	bl GfGfxLoader_GetScrnData
+	ldr r3, [r5]
+	add r4, r0, #0
+	ldr r0, [r3, #0x18]
+	str r0, [sp]
+	ldr r0, [r3, #0xc]
+	str r0, [sp, #4]
+	ldr r0, [r3, #0x10]
+	str r0, [sp, #8]
+	ldr r0, [r3, #0x28]
+	str r0, [sp, #0xc]
+	ldr r0, [r3, #0x20]
+	str r0, [sp, #0x10]
+	ldr r0, [r3]
+	ldr r1, [r3, #0x1c]
+	ldr r2, [sp, #0x14]
+	ldr r3, [r3, #0x14]
+	bl ov41_02249F7C
+	add r0, r4, #0
+	bl Heap_Free
+	mov r1, #0x18
+	mov r0, #0
+_02249DA6:
+	strb r0, [r5]
+	add r5, r5, #1
+	sub r1, r1, #1
+	bne _02249DA6
+	add sp, #0x18
+	pop {r3, r4, r5, pc}
 	.balign 4, 0
-	thumb_func_end ov41_02249978
+	thumb_func_end ov41_02249D60
+
+
+
+
+	thumb_func_start ov41_02249DB4
+ov41_02249DB4: ; 0x02249DB4
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #8
+	add r6, r0, #0
+	add r5, r1, #0
+	str r2, [sp]
+	str r3, [sp, #4]
+	ldr r0, _02249E3C ; =ov41_02249F0C
+	mov r1, #0x4c
+	mov r2, #0
+	mov r3, #0xd
+	bl CreateSysTaskAndEnvironment
+	bl SysTask_GetData
+	add r4, r0, #0
+	str r6, [r4]
+	add r7, r5, #0
+	add r3, r4, #4
+	mov r2, #6
+_02249DDA:
+	ldmia r7!, {r0, r1}
+	stmia r3!, {r0, r1}
+	sub r2, r2, #1
+	bne _02249DDA
+	ldr r0, [sp, #0x24]
+	ldr r1, [sp, #0x20]
+	str r0, [r4, #0x34]
+	ldr r0, [sp]
+	str r1, [r4, #0x38]
+	bl _s32_div_f
+	str r0, [r4, #0x3c]
+	ldr r0, [sp, #4]
+	ldr r1, [sp, #0x20]
+	bl _s32_div_f
+	str r0, [r4, #0x40]
+	ldr r0, [r6]
+	ldr r1, [r6, #0x1c]
+	bl Bg_GetXpos
+	str r0, [r4, #0x44]
+	ldr r0, [r6]
+	ldr r1, [r6, #0x1c]
+	bl Bg_GetYpos
+	str r0, [r4, #0x48]
+	mov r0, #0x80
+	str r0, [r5, #0x28]
+	mov r0, #5
+	str r0, [r5, #0x24]
+	ldr r1, [r5, #0x14]
+	ldr r0, [sp]
+	sub r0, r1, r0
+	str r0, [r5, #0x14]
+	ldr r1, [r5, #0x18]
+	ldr r0, [sp, #4]
+	sub r0, r1, r0
+	str r0, [r5, #0x18]
+	mov r0, #0xe
+	mov r1, #0
+	str r0, [r5, #0x2c]
+	add r0, r5, #0
+	add r2, r1, #0
+	bl ov41_02249E60
+	add sp, #8
+	pop {r3, r4, r5, r6, r7, pc}
+	nop
+_02249E3C: .word ov41_02249F0C
+	thumb_func_end ov41_02249DB4
+
+
+
+
+	thumb_func_start ov41_02249E40
+ov41_02249E40: ; 0x02249E40
+	push {r3, r4}
+	ldr r2, [r0, #8]
+	add r0, #0xc
+	lsr r4, r2, #1
+	mov r3, #0
+	cmp r4, #0
+	ble _02249E5C
+_02249E4E:
+	ldrh r2, [r0]
+	add r3, r3, #1
+	add r2, r2, r1
+	strh r2, [r0]
+	add r0, r0, #2
+	cmp r3, r4
+	blt _02249E4E
+_02249E5C:
+	pop {r3, r4}
+	bx lr
+	thumb_func_end ov41_02249E40
+
+
+
+
+	thumb_func_start ov41_02249E60
+ov41_02249E60: ; 0x02249E60
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #0x28
+	add r5, r0, #0
+	add r4, r1, #0
+	ldr r1, [r5, #0x14]
+	add r6, r2, #0
+	asr r0, r1, #2
+	lsr r0, r0, #0x1d
+	add r0, r1, r0
+	asr r0, r0, #3
+	ldr r1, [r5, #0x18]
+	str r0, [sp, #0x18]
+	asr r0, r1, #2
+	lsr r0, r0, #0x1d
+	add r0, r1, r0
+	asr r0, r0, #3
+	str r0, [sp, #0x14]
+	ldr r0, [r5, #0x28]
+	str r0, [sp]
+	ldr r0, [r5, #0x2c]
+	str r0, [sp, #4]
+	ldr r0, [r5, #4]
+	ldr r1, [r5, #8]
+	ldr r2, [r5]
+	ldr r3, [r5, #0x1c]
+	bl ov41_02249FFC
+	ldr r0, [r5, #0x1c]
+	cmp r0, #4
+	bge _02249EA0
+	mov r2, #0
+	b _02249EA2
+_02249EA0:
+	mov r2, #4
+_02249EA2:
+	ldr r0, [r5, #0x20]
+	lsl r0, r0, #5
+	str r0, [sp]
+	ldr r0, [r5, #0x2c]
+	str r0, [sp, #4]
+	ldr r3, [r5, #0x24]
+	ldr r0, [r5, #4]
+	ldr r1, [r5, #0xc]
+	lsl r3, r3, #5
+	bl ov41_0224A04C
+	ldr r0, [r5, #0x2c]
+	mov r2, #0
+	str r0, [sp]
+	ldr r0, [r5, #4]
+	ldr r1, [r5, #0x10]
+	add r3, sp, #0x24
+	bl GfGfxLoader_GetScrnData
+	ldr r2, [sp, #0x24]
+	str r0, [sp, #0x20]
+	ldrh r0, [r2]
+	lsr r7, r0, #3
+	ldrh r0, [r2, #2]
+	add r3, r7, #0
+	lsr r0, r0, #3
+	str r0, [sp, #0x1c]
+	str r0, [sp]
+	ldr r0, [sp, #0x18]
+	str r0, [sp, #4]
+	ldr r0, [sp, #0x14]
+	str r0, [sp, #8]
+	ldr r0, [r5, #0x28]
+	str r0, [sp, #0xc]
+	ldr r0, [r5, #0x24]
+	str r0, [sp, #0x10]
+	ldr r0, [r5]
+	ldr r1, [r5, #0x1c]
+	bl ov41_02249F7C
+	ldr r0, [sp, #0x20]
+	bl Heap_Free
+	cmp r4, #0
+	beq _02249EFE
+	str r7, [r4]
+_02249EFE:
+	cmp r6, #0
+	beq _02249F06
+	ldr r0, [sp, #0x1c]
+	str r0, [r6]
+_02249F06:
+	add sp, #0x28
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+	thumb_func_end ov41_02249E60
+
+
+
+
+	thumb_func_start ov41_02249F0C
+ov41_02249F0C: ; 0x02249F0C
+	push {r3, r4, r5, lr}
+	add r4, r1, #0
+	add r5, r0, #0
+	ldr r0, [r4, #0x38]
+	sub r0, r0, #1
+	str r0, [r4, #0x38]
+	ldr r1, [r4]
+	bmi _02249F40
+	ldr r0, [r1]
+	ldr r1, [r1, #0x1c]
+	ldr r3, [r4, #0x3c]
+	lsl r1, r1, #0x18
+	lsr r1, r1, #0x18
+	mov r2, #2
+	bl ScheduleSetBgPosText
+	ldr r1, [r4]
+	ldr r3, [r4, #0x40]
+	ldr r0, [r1]
+	ldr r1, [r1, #0x1c]
+	mov r2, #5
+	lsl r1, r1, #0x18
+	lsr r1, r1, #0x18
+	bl ScheduleSetBgPosText
+	pop {r3, r4, r5, pc}
+_02249F40:
+	ldr r0, [r1]
+	ldr r1, [r1, #0x1c]
+	ldr r3, [r4, #0x44]
+	lsl r1, r1, #0x18
+	lsr r1, r1, #0x18
+	mov r2, #0
+	bl ScheduleSetBgPosText
+	ldr r1, [r4]
+	ldr r3, [r4, #0x48]
+	ldr r0, [r1]
+	ldr r1, [r1, #0x1c]
+	mov r2, #3
+	lsl r1, r1, #0x18
+	lsr r1, r1, #0x18
+	bl ScheduleSetBgPosText
+	ldr r0, [r4]
+	add r1, r4, #4
+	bl ov41_02249C7C
+	ldr r1, [r4, #0x34]
+	cmp r1, #0
+	beq _02249F74
+	mov r0, #1
+	str r0, [r1]
+_02249F74:
+	add r0, r5, #0
+	bl DestroySysTaskAndEnvironment
+	pop {r3, r4, r5, pc}
+	thumb_func_end ov41_02249F0C
+
+
+
+
+	thumb_func_start ov41_02249F7C
+ov41_02249F7C: ; 0x02249F7C
+	push {r4, r5, r6, r7, lr}
+	sub sp, #0x1c
+	add r5, r1, #0
+	add r4, r2, #0
+	add r7, r0, #0
+	ldr r1, [sp, #0x3c]
+	add r0, r4, #0
+	add r6, r3, #0
+	bl ov41_02249E40
+	ldr r1, [sp, #0x30]
+	lsl r0, r6, #0x18
+	lsr r0, r0, #0x18
+	lsl r1, r1, #0x18
+	lsr r2, r1, #0x18
+	str r0, [sp]
+	ldr r3, [sp, #0x38]
+	str r2, [sp, #4]
+	add r4, #0xc
+	lsl r3, r3, #0x18
+	str r4, [sp, #8]
+	mov r1, #0
+	str r1, [sp, #0xc]
+	str r1, [sp, #0x10]
+	str r0, [sp, #0x14]
+	str r2, [sp, #0x18]
+	ldr r2, [sp, #0x34]
+	lsl r1, r5, #0x18
+	lsl r2, r2, #0x18
+	add r0, r7, #0
+	lsr r1, r1, #0x18
+	lsr r2, r2, #0x18
+	lsr r3, r3, #0x18
+	bl CopyToBgTilemapRect
+	lsl r0, r6, #0x18
+	lsr r0, r0, #0x18
+	str r0, [sp]
+	ldr r0, [sp, #0x30]
+	ldr r2, [sp, #0x34]
+	lsl r0, r0, #0x18
+	lsr r0, r0, #0x18
+	str r0, [sp, #4]
+	ldr r0, [sp, #0x40]
+	ldr r3, [sp, #0x38]
+	lsl r0, r0, #0x18
+	lsr r0, r0, #0x18
+	lsl r1, r5, #0x18
+	lsl r2, r2, #0x18
+	lsl r3, r3, #0x18
+	str r0, [sp, #8]
+	add r0, r7, #0
+	lsr r1, r1, #0x18
+	lsr r2, r2, #0x18
+	lsr r3, r3, #0x18
+	bl BgTilemapRectChangePalette
+	lsl r1, r5, #0x18
+	add r0, r7, #0
+	lsr r1, r1, #0x18
+	bl ScheduleBgTilemapBufferTransfer
+	add sp, #0x1c
+	pop {r4, r5, r6, r7, pc}
+	thumb_func_end ov41_02249F7C
+
+
+
+
+	thumb_func_start ov41_02249FFC
+ov41_02249FFC: ; 0x02249FFC
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #8
+	add r7, r0, #0
+	str r1, [sp, #4]
+	ldr r0, [sp, #0x24]
+	mov r1, #0x14
+	add r5, r2, #0
+	add r6, r3, #0
+	bl Heap_Alloc
+	add r4, r0, #0
+	add r2, r4, #0
+	mov r1, #0x14
+	mov r0, #0
+_0224A018:
+	strb r0, [r2]
+	add r2, r2, #1
+	sub r1, r1, #1
+	bne _0224A018
+	ldr r0, [sp, #0x24]
+	ldr r1, [sp, #4]
+	str r0, [sp]
+	add r0, r7, #0
+	mov r2, #0
+	add r3, r4, #4
+	bl GfGfxLoader_GetCharData
+	str r0, [r4, #8]
+	str r5, [r4]
+	ldr r0, [sp, #0x20]
+	str r6, [r4, #0xc]
+	str r0, [r4, #0x10]
+	ldr r0, _0224A048 ; =ov41_0224A094
+	add r1, r4, #0
+	mov r2, #0x80
+	bl SysTask_CreateOnVWaitQueue
+	add sp, #8
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+_0224A048: .word ov41_0224A094
+	thumb_func_end ov41_02249FFC
+
+
+
+
+	thumb_func_start ov41_0224A04C
+ov41_0224A04C: ; 0x0224A04C
+	push {r3, r4, r5, r6, r7, lr}
+	add r7, r0, #0
+	str r1, [sp]
+	ldr r0, [sp, #0x1c]
+	mov r1, #0x14
+	add r5, r2, #0
+	add r6, r3, #0
+	bl Heap_Alloc
+	add r4, r0, #0
+	add r2, r4, #0
+	mov r1, #0x14
+	mov r0, #0
+_0224A066:
+	strb r0, [r2]
+	add r2, r2, #1
+	sub r1, r1, #1
+	bne _0224A066
+	ldr r1, [sp]
+	ldr r3, [sp, #0x1c]
+	add r0, r7, #0
+	add r2, r4, #0
+	bl GfGfxLoader_GetPlttData
+	str r0, [r4, #4]
+	str r5, [r4, #8]
+	ldr r0, [sp, #0x18]
+	str r6, [r4, #0xc]
+	str r0, [r4, #0x10]
+	ldr r0, _0224A090 ; =ov41_0224A0D0
+	add r1, r4, #0
+	mov r2, #0x80
+	bl SysTask_CreateOnVWaitQueue
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+_0224A090: .word ov41_0224A0D0
+	thumb_func_end ov41_0224A04C
+
+
+
+
+	thumb_func_start ov41_0224A094
+ov41_0224A094: ; 0x0224A094
+	push {r3, r4, r5, lr}
+	add r4, r1, #0
+	ldr r1, [r4, #4]
+	add r5, r0, #0
+	ldr r0, [r1, #0x14]
+	ldr r1, [r1, #0x10]
+	bl DC_FlushRange
+	ldr r3, [r4, #4]
+	ldr r0, [r4, #0x10]
+	str r0, [sp]
+	ldr r1, [r4, #0xc]
+	ldr r2, [r3, #0x14]
+	lsl r1, r1, #0x18
+	ldr r0, [r4]
+	ldr r3, [r3, #0x10]
+	lsr r1, r1, #0x18
+	bl BG_LoadCharTilesData
+	add r0, r5, #0
+	bl SysTask_Destroy
+	ldr r0, [r4, #8]
+	bl Heap_Free
+	add r0, r4, #0
+	bl Heap_Free
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+	thumb_func_end ov41_0224A094
+
+
+
+
+	thumb_func_start ov41_0224A0D0
+ov41_0224A0D0: ; 0x0224A0D0
+	push {r3, r4, r5, lr}
+	add r4, r1, #0
+	add r5, r0, #0
+	ldr r0, [r4]
+	ldr r1, [r4, #0x10]
+	ldr r0, [r0, #0xc]
+	bl DC_FlushRange
+	ldr r0, [r4, #8]
+	cmp r0, #0
+	bne _0224A0F4
+	ldr r0, [r4]
+	ldr r1, [r4, #0xc]
+	ldr r0, [r0, #0xc]
+	ldr r2, [r4, #0x10]
+	bl GX_LoadBGPltt
+	b _0224A104
+_0224A0F4:
+	cmp r0, #4
+	bne _0224A104
+	ldr r0, [r4]
+	ldr r1, [r4, #0xc]
+	ldr r0, [r0, #0xc]
+	ldr r2, [r4, #0x10]
+	bl GXS_LoadBGPltt
+_0224A104:
+	add r0, r5, #0
+	bl SysTask_Destroy
+	ldr r0, [r4, #4]
+	bl Heap_Free
+	add r0, r4, #0
+	bl Heap_Free
+	pop {r3, r4, r5, pc}
+	thumb_func_end ov41_0224A0D0
+
+
+
+
+	thumb_func_start ov41_0224A118
+ov41_0224A118: ; 0x0224A118
+	push {r3, r4, r5, lr}
+	add r5, r0, #0
+	add r4, r1, #0
+	cmp r5, #0
+	bne _0224A126
+	bl GF_AssertFail
+_0224A126:
+	cmp r4, #0
+	bne _0224A12E
+	bl GF_AssertFail
+_0224A12E:
+	ldr r0, [r4]
+	bl Sprite_CreateAffine
+	str r0, [r5]
+	cmp r0, #0
+	bne _0224A13E
+	bl GF_AssertFail
+_0224A13E:
+	ldr r0, [r4, #0xc]
+	str r0, [r5, #4]
+	ldr r0, [r4, #8]
+	str r0, [r5, #8]
+	ldr r0, [r4, #4]
+	cmp r0, #0
+	beq _0224A150
+	str r0, [r5, #0xc]
+	pop {r3, r4, r5, pc}
+_0224A150:
+	ldr r0, _0224A158 ; =ov41_0224A254
+	str r0, [r5, #0xc]
+	pop {r3, r4, r5, pc}
+	nop
+_0224A158: .word ov41_0224A254
+	thumb_func_end ov41_0224A118
+
+
+
+
+	thumb_func_start ov41_0224A15C
+ov41_0224A15C: ; 0x0224A15C
+	push {r3, r4, r5, lr}
+	sub sp, #0x30
+	add r4, r1, #0
+	add r5, r0, #0
+	bl ov41_0224A118
+	ldr r0, [r4, #0x14]
+	str r0, [sp]
+	ldr r0, [r4, #0x10]
+	str r0, [sp, #4]
+	ldr r0, [r4]
+	ldr r0, [r0]
+	str r0, [sp, #8]
+	ldr r0, [r4, #0x18]
+	str r0, [sp, #0xc]
+	ldr r0, [r5]
+	str r0, [sp, #0x10]
+	ldr r0, [r4, #0x24]
+	str r0, [sp, #0x14]
+	ldr r0, [r4, #0x1c]
+	str r0, [sp, #0x18]
+	ldr r0, [r4, #0x20]
+	str r0, [sp, #0x1c]
+	mov r0, #0
+	str r0, [sp, #0x20]
+	str r0, [sp, #0x24]
+	ldr r0, [r4]
+	ldr r0, [r0, #0x28]
+	str r0, [sp, #0x28]
+	ldr r0, [r4]
+	ldr r0, [r0, #0x2c]
+	str r0, [sp, #0x2c]
+	add r0, sp, #0
+	bl sub_020135D8
+	str r0, [r5, #0x10]
+	add sp, #0x30
+	pop {r3, r4, r5, pc}
+	thumb_func_end ov41_0224A15C
+
+

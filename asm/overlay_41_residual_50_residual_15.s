@@ -494,176 +494,90 @@
 	.public ov41_0224B8DC
 	.public ov41_0224BBF0
 
-	thumb_func_start ov41_0224989C
-ov41_0224989C: ; 0x0224989C
-	push {r4, r5, r6, r7}
-	mov ip, r0
-	add r7, r1, #0
-	mov r2, #0
-_022498A4:
-	mov r3, #0
-	add r4, r3, #0
-_022498A8:
-	add r1, r2, r4
-	lsr r0, r1, #0x1f
-	lsl r6, r1, #0x1f
-	sub r6, r6, r0
-	mov r5, #0x1f
-	ror r6, r5
-	add r5, r0, r6
-	lsl r6, r5, #2
-	mov r5, #0xf
-	add r0, r1, r0
-	lsl r5, r6
-	asr r1, r0, #1
-	mov r0, ip
-	lsl r5, r5, #0x18
-	ldrsb r0, [r0, r1]
-	lsr r5, r5, #0x18
-	tst r0, r5
-	beq _022498D2
-	add r0, r2, #0
-	pop {r4, r5, r6, r7}
-	bx lr
-_022498D2:
-	add r3, r3, #1
-	add r4, r4, r7
-	cmp r3, #0x50
-	blt _022498A8
-	add r2, r2, #1
-	cmp r2, #0x50
-	blt _022498A4
-	mov r0, #0x50
-	pop {r4, r5, r6, r7}
-	bx lr
+
+	thumb_func_start ov41_0224B530
+ov41_0224B530: ; 0x0224B530
+	push {r3, r4, lr}
+	sub sp, #0x6c
+	add r2, r0, #0
+	add r4, r1, #0
+	add r0, sp, #0
+	add r1, r2, #0
+	bl ov41_0224B8DC
+	add r0, sp, #0
+	add r1, r4, #0
+	bl ov41_0224B8F0
+	add r0, sp, #0
+	bl ov41_0224B630
+	add sp, #0x6c
+	pop {r3, r4, pc}
 	.balign 4, 0
-	thumb_func_end ov41_0224989C
+	thumb_func_end ov41_0224B530
 
 
 
 
-	thumb_func_start ov41_022498E8
-ov41_022498E8: ; 0x022498E8
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	str r0, [sp]
-	str r1, [sp, #4]
-	add r1, r3, #0
-	mov r0, #0x28
-	strb r0, [r1]
-	strb r0, [r1, #1]
-	strb r0, [r1, #2]
-	strb r0, [r1, #3]
-	mov r6, #0
-_022498FE:
-	mov r2, #0x50
-	sub r2, r2, r6
-	str r2, [sp, #8]
-	lsl r2, r6, #0x18
-	lsr r2, r2, #0x18
-	mov lr, r2
-	ldr r2, [sp, #8]
-	mov r0, #0
-	lsl r2, r2, #0x18
-	lsr r2, r2, #0x18
-	add r5, r0, #0
-	mov ip, r2
-_02249916:
-	add r7, r6, r5
-	lsr r3, r7, #0x1f
-	lsl r4, r7, #0x1f
-	sub r4, r4, r3
-	mov r2, #0x1f
-	ror r4, r2
-	add r2, r3, r4
-	lsl r4, r2, #2
-	mov r2, #0xf
-	lsl r2, r4
-	lsl r2, r2, #0x18
-	lsr r4, r2, #0x18
-	add r3, r7, r3
-	ldr r2, [sp]
-	asr r3, r3, #1
-	ldrsb r2, [r2, r3]
-	tst r2, r4
-	beq _02249964
-	ldrb r2, [r1]
-	cmp r2, r6
-	ble _02249944
-	mov r2, lr
-	strb r2, [r1]
-_02249944:
-	ldrb r3, [r1, #1]
-	ldr r2, [sp, #8]
-	cmp r3, r2
-	ble _02249950
-	mov r2, ip
-	strb r2, [r1, #1]
-_02249950:
-	ldrb r2, [r1, #2]
-	cmp r2, r0
-	ble _02249958
-	strb r0, [r1, #2]
-_02249958:
-	mov r2, #0x50
-	sub r3, r2, r0
-	ldrb r2, [r1, #3]
-	cmp r2, r3
-	ble _02249964
-	strb r3, [r1, #3]
-_02249964:
-	ldr r2, [sp, #4]
-	add r0, r0, #1
-	add r5, r5, r2
-	cmp r0, #0x50
-	blt _02249916
-	add r6, r6, #1
-	cmp r6, #0x50
-	blt _022498FE
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	thumb_func_end ov41_022498E8
+	thumb_func_start ov41_0224B554
+ov41_0224B554: ; 0x0224B554
+	push {r4, lr}
+	add r4, r0, #0
+	mov r0, #0x26
+	lsl r0, r0, #4
+	ldr r1, [r4, r0]
+	cmp r1, #1
+	bne _0224B56A
+	sub r0, #0x48
+	add r0, r4, r0
+	bl ov41_0224B50C
+_0224B56A:
+	mov r0, #0x99
+	lsl r0, r0, #2
+	ldr r0, [r4, r0]
+	cmp r0, #1
+	bne _0224B57A
+	add r0, r4, #0
+	bl ov41_0224B720
+_0224B57A:
+	pop {r4, pc}
+	thumb_func_end ov41_0224B554
 
 
 
 
-	thumb_func_start ov41_02249978
-ov41_02249978: ; 0x02249978
-	push {r3, r4}
-	ldr r4, [sp, #8]
-	sub r4, r2, r4
-	bmi _02249982
-	b _02249984
-_02249982:
-	mov r4, #0
-_02249984:
-	strb r4, [r0]
-	ldr r4, [sp, #8]
-	add r2, r2, r4
-	cmp r2, #0xbf
-	bgt _02249990
-	b _02249992
-_02249990:
-	mov r2, #0xbf
-_02249992:
-	strb r2, [r0, #1]
-	sub r2, r1, r3
-	bmi _0224999A
-	b _0224999C
-_0224999A:
-	mov r2, #0
-_0224999C:
-	add r1, r1, r3
-	strb r2, [r0, #2]
-	cmp r1, #0xff
-	bgt _022499AA
-	strb r1, [r0, #3]
-	pop {r3, r4}
-	bx lr
-_022499AA:
-	mov r1, #0xff
-	strb r1, [r0, #3]
-	pop {r3, r4}
-	bx lr
+	thumb_func_start ov41_0224B57C
+ov41_0224B57C: ; 0x0224B57C
+	push {r4, lr}
+	mov r1, #0x26
+	add r4, r0, #0
+	lsl r1, r1, #4
+	ldr r1, [r4, r1]
+	cmp r1, #0
+	beq _0224B58E
+	bl ov41_0224B878
+_0224B58E:
+	add r0, r4, #0
+	bl ov41_0224B85C
+	mov r0, #0x63
+	lsl r0, r0, #2
+	ldr r0, [r4, r0]
+	bl ov41_02245ECC
+	mov r0, #0x63
+	mov r1, #0
+	lsl r0, r0, #2
+	str r1, [r4, r0]
+	sub r0, #8
+	add r0, r4, r0
+	bl ov41_022499DC
+	add r0, r4, #0
+	bl ov41_0224B754
+	mov r0, #0x8d
+	lsl r0, r0, #2
+	ldr r0, [r4, r0]
+	bl Heap_Free
+	add r0, r4, #0
+	bl Heap_Free
+	pop {r4, pc}
 	.balign 4, 0
-	thumb_func_end ov41_02249978
+	thumb_func_end ov41_0224B57C
+
+

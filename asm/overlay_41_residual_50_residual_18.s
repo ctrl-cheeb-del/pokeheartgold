@@ -494,176 +494,385 @@
 	.public ov41_0224B8DC
 	.public ov41_0224BBF0
 
-	thumb_func_start ov41_0224989C
-ov41_0224989C: ; 0x0224989C
-	push {r4, r5, r6, r7}
-	mov ip, r0
+
+	thumb_func_start ov41_0224B8F0
+ov41_0224B8F0: ; 0x0224B8F0
+	push {r3, r4, r5, r6, r7, lr}
 	add r7, r1, #0
-	mov r2, #0
-_022498A4:
-	mov r3, #0
-	add r4, r3, #0
-_022498A8:
-	add r1, r2, r4
-	lsr r0, r1, #0x1f
-	lsl r6, r1, #0x1f
-	sub r6, r6, r0
-	mov r5, #0x1f
-	ror r6, r5
-	add r5, r0, r6
-	lsl r6, r5, #2
-	mov r5, #0xf
-	add r0, r1, r0
-	lsl r5, r6
-	asr r1, r0, #1
-	mov r0, ip
-	lsl r5, r5, #0x18
-	ldrsb r0, [r0, r1]
-	lsr r5, r5, #0x18
-	tst r0, r5
-	beq _022498D2
-	add r0, r2, #0
-	pop {r4, r5, r6, r7}
-	bx lr
-_022498D2:
-	add r3, r3, #1
-	add r4, r4, r7
-	cmp r3, #0x50
-	blt _022498A8
-	add r2, r2, #1
-	cmp r2, #0x50
-	blt _022498A4
-	mov r0, #0x50
-	pop {r4, r5, r6, r7}
-	bx lr
-	.balign 4, 0
-	thumb_func_end ov41_0224989C
-
-
-
-
-	thumb_func_start ov41_022498E8
-ov41_022498E8: ; 0x022498E8
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	str r0, [sp]
-	str r1, [sp, #4]
-	add r1, r3, #0
-	mov r0, #0x28
-	strb r0, [r1]
-	strb r0, [r1, #1]
-	strb r0, [r1, #2]
-	strb r0, [r1, #3]
-	mov r6, #0
-_022498FE:
-	mov r2, #0x50
-	sub r2, r2, r6
-	str r2, [sp, #8]
-	lsl r2, r6, #0x18
-	lsr r2, r2, #0x18
-	mov lr, r2
-	ldr r2, [sp, #8]
-	mov r0, #0
-	lsl r2, r2, #0x18
-	lsr r2, r2, #0x18
 	add r5, r0, #0
-	mov ip, r2
-_02249916:
-	add r7, r6, r5
-	lsr r3, r7, #0x1f
-	lsl r4, r7, #0x1f
-	sub r4, r4, r3
-	mov r2, #0x1f
-	ror r4, r2
-	add r2, r3, r4
-	lsl r4, r2, #2
-	mov r2, #0xf
-	lsl r2, r4
-	lsl r2, r2, #0x18
-	lsr r4, r2, #0x18
-	add r3, r7, r3
-	ldr r2, [sp]
-	asr r3, r3, #1
-	ldrsb r2, [r2, r3]
-	tst r2, r4
-	beq _02249964
-	ldrb r2, [r1]
-	cmp r2, r6
-	ble _02249944
-	mov r2, lr
-	strb r2, [r1]
-_02249944:
-	ldrb r3, [r1, #1]
-	ldr r2, [sp, #8]
-	cmp r3, r2
-	ble _02249950
-	mov r2, ip
-	strb r2, [r1, #1]
-_02249950:
-	ldrb r2, [r1, #2]
-	cmp r2, r0
-	ble _02249958
-	strb r0, [r1, #2]
-_02249958:
-	mov r2, #0x50
-	sub r3, r2, r0
-	ldrb r2, [r1, #3]
-	cmp r2, r3
-	ble _02249964
-	strb r3, [r1, #3]
-_02249964:
-	ldr r2, [sp, #4]
-	add r0, r0, #1
-	add r5, r5, r2
-	cmp r0, #0x50
-	blt _02249916
-	add r6, r6, #1
-	cmp r6, #0x50
-	blt _022498FE
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	thumb_func_end ov41_022498E8
-
-
-
-
-	thumb_func_start ov41_02249978
-ov41_02249978: ; 0x02249978
-	push {r3, r4}
-	ldr r4, [sp, #8]
-	sub r4, r2, r4
-	bmi _02249982
-	b _02249984
-_02249982:
+	add r0, r7, #0
+	bl sub_0202BE14
+	add r6, r5, #0
+	str r0, [r5]
 	mov r4, #0
-_02249984:
-	strb r4, [r0]
-	ldr r4, [sp, #8]
-	add r2, r2, r4
-	cmp r2, #0xbf
-	bgt _02249990
-	b _02249992
-_02249990:
-	mov r2, #0xbf
-_02249992:
-	strb r2, [r0, #1]
-	sub r2, r1, r3
-	bmi _0224999A
-	b _0224999C
-_0224999A:
+	str r4, [r5, #0x54]
+	add r6, #0x54
+_0224B906:
+	add r0, r7, #0
+	add r1, r4, #0
+	bl sub_0202BDEC
+	cmp r0, #0
+	beq _0224B928
+	add r0, r7, #0
+	add r1, r4, #0
+	bl sub_0202BE2C
+	ldr r1, [r5, #0x54]
+	lsl r1, r1, #2
+	add r1, r5, r1
+	str r0, [r1, #4]
+	ldr r0, [r6]
+	add r0, r0, #1
+	str r0, [r6]
+_0224B928:
+	add r4, r4, #1
+	cmp r4, #0xa
+	blt _0224B906
+	add r0, r7, #0
+	bl sub_0202BE80
+	str r0, [r5, #0x5c]
+	pop {r3, r4, r5, r6, r7, pc}
+	thumb_func_end ov41_0224B8F0
+
+
+
+
+	thumb_func_start ov41_0224B938
+ov41_0224B938: ; 0x0224B938
+	push {r3, r4, r5, r6, r7, lr}
+	add r4, r1, #0
+	add r7, r3, #0
+	add r5, r0, #0
+	add r6, r2, #0
+	add r0, r4, #0
+	add r1, r7, #0
+	bl ov41_022464AC
+	add r0, r5, #0
+	add r1, r4, #0
+	add r2, r6, #0
+	add r3, r7, #0
+	bl ov41_0224B958
+	pop {r3, r4, r5, r6, r7, pc}
+	thumb_func_end ov41_0224B938
+
+
+
+
+	thumb_func_start ov41_0224B958
+ov41_0224B958: ; 0x0224B958
+	push {r4, r5, r6, r7, lr}
+	sub sp, #0x14
+	str r0, [sp, #4]
+	mov r0, #0
+	str r0, [sp, #0x10]
+	add r0, r2, #0
+	ldr r0, [r0, #0x54]
+	add r4, r1, #0
+	str r2, [sp, #8]
+	str r3, [sp, #0xc]
+	cmp r0, #0
+	ble _0224B9D0
+	add r6, r2, #0
+_0224B972:
+	ldr r0, [r6, #4]
+	bl sub_0202BEFC
+	add r5, r0, #0
+	ldr r0, [r4, #0x10]
+	add r1, r5, #0
+	bl GF2dGfxRawResMan_DoesNotHaveObjWithId
+	cmp r0, #1
+	bne _0224B9BE
+	mov r0, #1
+	str r0, [sp]
+	mov r0, #6
+	ldr r1, [sp, #4]
+	lsl r0, r0, #6
+	ldr r0, [r1, r0]
+	ldr r3, [sp, #0xc]
+	add r1, r5, #1
 	mov r2, #0
-_0224999C:
-	add r1, r1, r3
-	strb r2, [r0, #2]
-	cmp r1, #0xff
-	bgt _022499AA
-	strb r1, [r0, #3]
-	pop {r3, r4}
-	bx lr
-_022499AA:
-	mov r1, #0xff
-	strb r1, [r0, #3]
-	pop {r3, r4}
-	bx lr
+	bl GfGfxLoader_LoadFromOpenNarc
+	add r7, r0, #0
+	ldr r0, [r4, #0x10]
+	add r1, r7, #0
+	add r2, r5, #0
+	bl GF2dGfxRawResMan_AllocObj
+	ldr r1, [r4]
+	lsl r5, r5, #3
+	add r1, r1, r5
+	add r0, r7, #0
+	add r1, r1, #4
+	bl NNS_G2dGetUnpackedCharacterData
+	ldr r0, [sp, #4]
+	ldr r1, [r0]
+	ldr r0, [r4]
+	str r1, [r0, r5]
+_0224B9BE:
+	ldr r0, [sp, #0x10]
+	add r6, r6, #4
+	add r0, r0, #1
+	str r0, [sp, #0x10]
+	ldr r0, [sp, #8]
+	ldr r1, [r0, #0x54]
+	ldr r0, [sp, #0x10]
+	cmp r0, r1
+	blt _0224B972
+_0224B9D0:
+	mov r0, #1
+	str r0, [sp]
+	mov r1, #6
+	ldr r0, [sp, #4]
+	lsl r1, r1, #6
+	ldr r0, [r0, r1]
+	mov r1, #0
+	ldr r3, [sp, #0xc]
+	add r2, r1, #0
+	bl GfGfxLoader_LoadFromOpenNarc
+	add r5, r0, #0
+	ldr r0, [r4, #0x14]
+	add r1, r5, #0
+	mov r2, #0
+	bl GF2dGfxRawResMan_AllocObj
+	ldr r1, [r4, #8]
+	add r0, r5, #0
+	add r1, r1, #4
+	bl NNS_G2dGetUnpackedPaletteData
+	ldr r0, [sp, #4]
+	ldr r1, [r0]
+	ldr r0, [r4, #8]
+	str r1, [r0]
+	ldr r0, [r4, #8]
+	mov r1, #3
+	str r1, [r0, #8]
+	add sp, #0x14
+	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
-	thumb_func_end ov41_02249978
+	thumb_func_end ov41_0224B958
+
+
+
+
+	thumb_func_start AccessoryPortrait_Init
+AccessoryPortrait_Init: ; 0x0224BA10
+	push {r3, r4, r5, lr}
+	sub sp, #0x10
+	mov r2, #2
+	add r4, r0, #0
+	mov r0, #3
+	mov r1, #0xd
+	lsl r2, r2, #0x10
+	bl Heap_Create
+	mov r2, #1
+	mov r0, #3
+	mov r1, #0xe
+	lsl r2, r2, #0x12
+	bl Heap_Create
+	mov r1, #0x1a
+	add r0, r4, #0
+	lsl r1, r1, #4
+	mov r2, #0xd
+	bl OverlayManager_CreateAndGetData
+	mov r2, #0x1a
+	mov r1, #0
+	lsl r2, r2, #4
+	add r5, r0, #0
+	bl memset
+	ldr r0, _0224BAC4 ; =ov41_0224BBF0
+	add r1, r5, #0
+	bl Main_SetVBlankIntrCB
+	bl HBlankInterruptDisable
+	add r0, r4, #0
+	bl OverlayManager_GetArgs
+	add r4, r0, #0
+	ldr r0, [r4]
+	ldr r1, [r4, #4]
+	bl sub_0202B9B8
+	str r0, [r5]
+	ldr r0, [r4, #4]
+	str r0, [r5, #8]
+	ldr r0, [r4, #8]
+	str r0, [r5, #0xc]
+	bl ov41_02246130
+	ldr r0, _0224BAC8 ; =gSystem + 0x60
+	mov r1, #0
+	strb r1, [r0, #9]
+	bl GfGfx_SwapDisplay
+	add r0, r5, #0
+	add r0, #0x14
+	mov r1, #0xe
+	bl ov41_02246670
+	ldr r0, [r5, #0x54]
+	str r0, [sp]
+	mov r0, #0x48
+	str r0, [sp, #4]
+	mov r0, #0x10
+	str r0, [sp, #8]
+	mov r0, #0xe
+	str r0, [sp, #0xc]
+	ldr r1, [r5]
+	add r0, sp, #0
+	bl ov41_0224B530
+	str r0, [r5, #0x10]
+	add r0, r5, #0
+	bl ov41_0224BC04
+	add r0, r5, #0
+	bl ov41_0224BCA4
+	add r0, r5, #0
+	bl ov41_0224BCF0
+	add r0, r5, #0
+	bl ov41_0224BDCC
+	add r0, r5, #0
+	bl ov41_0224BE5C
+	mov r0, #1
+	add sp, #0x10
+	pop {r3, r4, r5, pc}
+	nop
+_0224BAC4: .word ov41_0224BBF0
+_0224BAC8: .word gSystem + 0x60
+	thumb_func_end AccessoryPortrait_Init
+
+
+
+
+	thumb_func_start AccessoryPortrait_Main
+AccessoryPortrait_Main: ; 0x0224BACC
+	push {r4, r5, lr}
+	sub sp, #0xc
+	add r4, r1, #0
+	bl OverlayManager_GetData
+	add r5, r0, #0
+	bl Thunk_G3X_Reset
+	bl NNS_G2dSetupSoftwareSpriteCamera
+	ldr r0, [r5, #0x10]
+	bl ov41_0224B554
+	mov r0, #0
+	add r1, r0, #0
+	bl RequestSwap3DBuffers
+	add r5, #0x14
+	add r0, r5, #0
+	bl ov41_022466C8
+	ldr r1, [r4]
+	cmp r1, #5
+	bhi _0224BB96
+	add r0, r1, r1
+	add r0, pc
+	ldrh r0, [r0, #6]
+	lsl r0, r0, #0x10
+	asr r0, r0, #0x10
+	add pc, r0
+_0224BB08: ; jump table
+	.short _0224BB14 - _0224BB08 - 2 ; case 0
+	.short _0224BB1A - _0224BB08 - 2 ; case 1
+	.short _0224BB38 - _0224BB08 - 2 ; case 2
+	.short _0224BB48 - _0224BB08 - 2 ; case 3
+	.short _0224BB68 - _0224BB08 - 2 ; case 4
+	.short _0224BB88 - _0224BB08 - 2 ; case 5
+_0224BB14:
+	add r0, r1, #1
+	str r0, [r4]
+	b _0224BB96
+_0224BB1A:
+	mov r0, #6
+	str r0, [sp]
+	mov r2, #1
+	str r2, [sp, #4]
+	mov r0, #0xd
+	str r0, [sp, #8]
+	mov r0, #0
+	mov r1, #5
+	add r3, r0, #0
+	bl BeginNormalPaletteFade
+	ldr r0, [r4]
+	add r0, r0, #1
+	str r0, [r4]
+	b _0224BB96
+_0224BB38:
+	bl IsPaletteFadeFinished
+	cmp r0, #0
+	beq _0224BB96
+	ldr r0, [r4]
+	add r0, r0, #1
+	str r0, [r4]
+	b _0224BB96
+_0224BB48:
+	ldr r0, _0224BB9C ; =gSystem
+	ldr r1, [r0, #0x48]
+	mov r0, #3
+	tst r0, r1
+	bne _0224BB5A
+	bl System_GetTouchNew
+	cmp r0, #0
+	beq _0224BB96
+_0224BB5A:
+	ldr r0, _0224BBA0 ; =0x000005DD
+	bl PlaySE
+	ldr r0, [r4]
+	add r0, r0, #1
+	str r0, [r4]
+	b _0224BB96
+_0224BB68:
+	mov r0, #6
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	mov r0, #0xd
+	str r0, [sp, #8]
+	mov r0, #0
+	mov r1, #2
+	add r2, r0, #0
+	add r3, r0, #0
+	bl BeginNormalPaletteFade
+	ldr r0, [r4]
+	add r0, r0, #1
+	str r0, [r4]
+	b _0224BB96
+_0224BB88:
+	bl IsPaletteFadeFinished
+	cmp r0, #0
+	beq _0224BB96
+	add sp, #0xc
+	mov r0, #1
+	pop {r4, r5, pc}
+_0224BB96:
+	mov r0, #0
+	add sp, #0xc
+	pop {r4, r5, pc}
+	.balign 4, 0
+_0224BB9C: .word gSystem
+_0224BBA0: .word 0x000005DD
+	thumb_func_end AccessoryPortrait_Main
+
+
+
+
+	thumb_func_start AccessoryPortrait_Exit
+AccessoryPortrait_Exit: ; 0x0224BBA4
+	push {r3, r4, r5, lr}
+	add r5, r0, #0
+	bl OverlayManager_GetData
+	add r4, r0, #0
+	ldr r0, [r4, #0x10]
+	bl ov41_0224B57C
+	add r0, r4, #0
+	bl ov41_0224BD8C
+	add r0, r4, #0
+	bl ov41_0224BE34
+	add r4, #0x14
+	add r0, r4, #0
+	bl ov41_02246698
+	bl ov41_02246150
+	mov r0, #0
+	add r1, r0, #0
+	bl Main_SetVBlankIntrCB
+	bl HBlankInterruptDisable
+	add r0, r5, #0
+	bl OverlayManager_FreeData
+	mov r0, #0xd
+	bl Heap_Destroy
+	mov r0, #0xe
+	bl Heap_Destroy
+	mov r0, #1
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+	thumb_func_end AccessoryPortrait_Exit
+
+

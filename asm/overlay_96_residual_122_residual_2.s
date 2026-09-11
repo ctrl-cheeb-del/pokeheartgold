@@ -250,218 +250,56 @@
 	.public ov96_02219F20
 	.public ov96_02219F50
 
-	thumb_func_start ov96_02219794
-ov96_02219794: ; 0x02219794
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
+
+	thumb_func_start ov96_022199A8
+ov96_022199A8: ; 0x022199A8
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #0x38
+	ldr r6, _02219A04 ; =ov96_0221D910
+	add r7, r2, #0
+	str r3, [sp]
 	add r5, r0, #0
-	ldr r0, [r5]
-	add r4, r2, #0
-	bl ov96_021E5F24
-	lsl r0, r0, #0x18
-	lsr r7, r0, #0x18
-	add r0, r4, #1
-	mov r1, #3
-	bl _s32_div_f
-	lsl r0, r1, #0x18
-	lsr r6, r0, #0x18
-	add r0, r5, #0
-	add r0, #0xc0
-	ldrb r0, [r0]
-	cmp r0, #0
-	beq _022197C8
-	cmp r0, #1
-	beq _02219856
-	cmp r0, #2
-	bne _022197C6
-	b _0221992A
-_022197C6:
-	b _02219936
-_022197C8:
-	add r0, r5, #0
-	add r0, #0x9c
-	add r1, sp, #8
-	mov r3, #0x1e
-	ldr r0, [r0]
-	add r1, #2
-	add r2, sp, #8
-	lsl r3, r3, #0x10
-	bl ManagedSprite_GetPositionXYWithSubscreenOffset
-	add r0, sp, #4
-	mov r1, #4
-	ldrsh r1, [r0, r1]
-	cmp r1, #0xd8
-	bge _0221981C
-	mov r0, #0x11
-	lsl r0, r0, #4
-	sub r0, r0, r1
-	bpl _022197F0
-	neg r0, r0
-_022197F0:
-	add r2, sp, #4
-	mov r1, #4
-	lsl r0, r0, #0xe
-	ldrsh r3, [r2, r1]
-	asr r0, r0, #0x10
-	add r0, r3, r0
-	strh r0, [r2, #4]
-	ldrsh r0, [r2, r1]
-	cmp r0, #0xd8
-	ble _02219808
-	mov r0, #0xd8
-	strh r0, [r2, #4]
-_02219808:
-	add r4, sp, #4
+	add r4, r1, #0
+	add r3, sp, #4
 	mov r2, #6
-	mov r3, #4
-	ldrsh r2, [r4, r2]
-	ldrsh r3, [r4, r3]
-	add r0, r5, #0
-	mov r1, #0xf
-	bl ov96_02219F20
-	b _0221993A
-_0221981C:
-	mov r2, #0x28
-	add r3, r2, #0
-	strh r2, [r0, #6]
-	sub r3, #0x50
-	strh r3, [r0, #4]
-	add r0, r5, #0
-	mov r1, #0xf
-	bl ov96_02219F20
-	str r4, [sp]
-	add r2, r5, #0
-	add r2, #0x9c
-	ldr r0, [r5]
-	ldr r1, [r5, #4]
-	ldr r2, [r2]
-	add r3, r7, #0
-	bl ov96_02219DA8
-	add r0, r5, #0
-	add r1, r6, #0
-	bl ov96_02219EE0
-	add r0, r5, #0
-	add r0, #0xc0
-	ldrb r0, [r0]
-	add r5, #0xc0
-	add r0, r0, #1
-	strb r0, [r5]
-	b _0221993A
-_02219856:
-	add r0, r5, #0
-	add r0, #0x98
-	add r1, sp, #4
-	mov r3, #0x1e
-	ldr r0, [r0]
-	add r1, #2
-	add r2, sp, #4
-	lsl r3, r3, #0x10
-	bl ManagedSprite_GetPositionXYWithSubscreenOffset
-	add r1, sp, #4
-	mov r0, #0
-	ldrsh r0, [r1, r0]
-	mov r1, #0x88
-	sub r2, r1, r0
-	bpl _02219878
-	neg r2, r2
-_02219878:
-	lsl r1, r2, #1
-	add r2, r2, r1
-	asr r1, r2, #1
-	lsr r1, r1, #0x1e
-	add r1, r2, r1
-	lsl r1, r1, #0xe
-	asr r4, r1, #0x10
-	cmp r0, #0x88
-	bgt _022198D4
-	cmp r4, #0
-	bne _02219890
-	mov r4, #1
-_02219890:
-	add r6, sp, #4
-	mov r3, #0
-	ldrsh r0, [r6, r3]
-	mov r2, #2
-	mov r1, #0xe
-	add r0, r0, r4
-	strh r0, [r6]
-	ldrsh r2, [r6, r2]
-	ldrsh r3, [r6, r3]
-	add r0, r5, #0
-	bl ov96_02219F20
-	add r0, r5, #0
-	add r0, #0x9c
-	add r1, sp, #4
-	mov r3, #0x1e
-	ldr r0, [r0]
-	add r1, #2
-	add r2, sp, #4
-	lsl r3, r3, #0x10
-	bl ManagedSprite_GetPositionXYWithSubscreenOffset
-	mov r3, #0
-	ldrsh r0, [r6, r3]
-	mov r2, #2
-	mov r1, #0xf
-	add r0, r0, r4
-	strh r0, [r6]
-	ldrsh r2, [r6, r2]
-	ldrsh r3, [r6, r3]
-	add r0, r5, #0
-	bl ov96_02219F20
-	b _0221993A
-_022198D4:
-	add r0, r5, #0
-	add r0, #0x98
-	ldr r2, [r0]
-	add r0, r5, #0
-	add r0, #0x9c
-	ldr r1, [r0]
-	add r0, r5, #0
-	add r0, #0x98
-	str r1, [r0]
-	add r0, r5, #0
-	add r0, #0x9c
-	str r2, [r0]
-	add r0, r5, #0
-	add r0, #0xa0
-	ldr r2, [r0]
-	add r0, r5, #0
-	add r0, #0xa4
-	ldr r1, [r0]
-	add r0, r5, #0
-	add r0, #0xa0
-	str r1, [r0]
-	add r0, r5, #0
-	add r0, #0xa4
-	str r2, [r0]
-	add r0, r5, #0
-	mov r1, #0xe
-	mov r2, #0x28
-	mov r3, #0x30
-	bl ov96_02219F20
-	add r0, r5, #0
-	mov r1, #0xf
-	mov r2, #0x28
-	mov r3, #0x88
-	bl ov96_02219F20
-	add r0, r5, #0
-	add r0, #0xc0
-	ldrb r0, [r0]
-	add r5, #0xc0
-	add r0, r0, #1
-	strb r0, [r5]
-	b _0221993A
-_0221992A:
-	mov r0, #0
-	add r5, #0xc0
-	strb r0, [r5]
-	add sp, #0xc
-	mov r0, #1
-	pop {r4, r5, r6, r7, pc}
-_02219936:
+_022199BA:
+	ldmia r6!, {r0, r1}
+	stmia r3!, {r0, r1}
+	sub r2, r2, #1
+	bne _022199BA
+	ldr r0, [r6]
+	cmp r5, #0
+	str r0, [r3]
+	bne _022199CE
 	bl GF_AssertFail
-_0221993A:
-	mov r0, #0
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	thumb_func_end ov96_02219794
+_022199CE:
+	cmp r4, #0
+	bne _022199D6
+	bl GF_AssertFail
+_022199D6:
+	add r1, sp, #4
+	strh r7, [r1]
+	ldr r0, [sp]
+	mov r3, #0x1e
+	strh r0, [r1, #2]
+	add r0, sp, #0x40
+	ldrh r2, [r0, #0x10]
+	lsl r3, r3, #0x10
+	strh r2, [r1, #6]
+	ldrh r0, [r0, #0x14]
+	add r1, r4, #0
+	add r2, sp, #4
+	str r0, [sp, #0xc]
+	add r0, r5, #0
+	bl SpriteSystem_NewSpriteWithYOffset
+	mov r1, #1
+	add r4, r0, #0
+	bl ManagedSprite_SetAnimateFlag
+	add r0, r4, #0
+	add sp, #0x38
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+_02219A04: .word ov96_0221D910
+	thumb_func_end ov96_022199A8
+
+
