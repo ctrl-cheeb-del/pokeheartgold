@@ -5,7 +5,7 @@
 <g font-family="system-ui, sans-serif" fill="#edf2fa">
 <text x="28" y="42" font-size="25" font-weight="700">HeartGold · decompilation</text>
 <text x="1172" y="42" text-anchor="end" font-size="22">30.04% C-only source</text>
-<text x="28" y="71" font-size="14" fill="#b9c7da">Matching US ROM verified · 8b7ddbcc9 · ARM9 + ARM7 · 4,080,780 mapped code bytes</text>
+<text x="28" y="71" font-size="14" fill="#b9c7da">Matching US ROM verified · e7a2d8d5f · ARM9 + ARM7 · 4,080,780 mapped code bytes</text>
 <rect x="28" y="91" width="12" height="12" rx="2" fill="#35b85a"/>
 <text x="47" y="102" font-size="14">C-only source 30.0%</text>
 <rect x="316" y="91" width="12" height="12" rx="2" fill="#e4ad42"/>

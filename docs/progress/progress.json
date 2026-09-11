@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "8b7ddbcc93deae732bac138094902b2bfbb6d226",
+  "commit": "e7a2d8d5fdd775db05af4427ec87b06111104aa8",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
-  "tracked_worktree_dirty": true,
+  "tracked_worktree_dirty": false,
   "map_sha256": {
     "ARM9": "b486827c7ce2569f98e75c74d19740b565fedd887d3deeb8b321270019c1fc87",
     "ARM7": "bf1916e1ae2399401bea90b68b3a76666f2dbd09367bff4a5f14a2651eafe1a8"
