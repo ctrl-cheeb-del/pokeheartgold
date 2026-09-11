@@ -2698,7 +2698,9 @@ Overlay OVY_41
     Object src/overlay41_input_helpers_1.o
     Object asm/overlay_41_residual_50_residual_7_residual_2.o
     Object src/overlay41_input_helpers_2.o
+    Object src/ov41_wave36_1.o
     Object asm/overlay_41_residual_50_residual_7_residual_3.o
+    Object src/ov41_wave36_2.o
     Object src/overlay41_input_helpers_3.o
     Object src/overlay41_accessors_7.o
     Object asm/overlay_41_residual_50_residual_8.o
@@ -2927,7 +2929,10 @@ Overlay OVY_47
     Object src/overlay47_exact_bank_3.o
     Object asm/overlay_47_residual_4.o
     Object src/overlay47_exact_bank_4.o
+    Object src/ov47_wave36_1.o
     Object asm/overlay_47_residual_5.o
+    Object src/ov47_wave36_2.o
+    Object asm/overlay_47_residual_5_residual_2.o
     Object src/overlay47_exact_bank_5.o
     Object src/ov47_wave31_tail_1.o
     Object asm/overlay_47_residual_6.o
@@ -3214,6 +3219,8 @@ Overlay trainer_card_signature
     Object asm/overlay_trainer_card_signature_residual_3.o
     Object src/trainer_card_signature_helpers_3.o
     Object asm/overlay_trainer_card_signature_residual_4.o
+    Object src/ov52_wave36_1.o
+    Object asm/overlay_trainer_card_signature_residual_4_residual_2.o
     Object src/trainer_card_signature_helpers_4.o
     Object asm/overlay_trainer_card_signature_residual_5.o
     Object src/trainer_card_signature_helpers_5.o
@@ -3567,7 +3574,14 @@ Overlay OVY_70
     Object src/overlay70_sol_partial_12.o
     Object asm/overlay_70_residual_13.o
     Object src/overlay70_sol_partial_13.o
+    Object src/ov70_wave36_1.o
     Object asm/overlay_70_residual_14.o
+    Object src/ov70_wave36_2.o
+    Object asm/overlay_70_residual_14_residual_2.o
+    Object src/ov70_wave36_3.o
+    Object asm/overlay_70_residual_14_residual_3.o
+    Object src/ov70_wave36_4.o
+    Object asm/overlay_70_residual_14_residual_4.o
     Object src/overlay70_sol_partial_14.o
     Object asm/overlay_70_residual_15.o
     Object src/overlay70_sol_partial_15.o
@@ -4403,6 +4417,14 @@ Overlay OVY_83
     Object asm/overlay_83_residual_26.o
     Object src/overlay83_sol_partial_26.o
     Object asm/overlay_83_residual_27.o
+    Object src/ov83_wave36_1.o
+    Object asm/overlay_83_residual_27_residual_2.o
+    Object src/ov83_wave36_2.o
+    Object asm/overlay_83_residual_27_residual_3.o
+    Object src/ov83_wave36_3.o
+    Object asm/overlay_83_residual_27_residual_4.o
+    Object src/ov83_wave36_4.o
+    Object asm/overlay_83_residual_27_residual_5.o
     Object src/overlay83_sol_partial_27.o
     Object asm/overlay_83_residual_28.o
     Object src/overlay83_sol_partial_28.o

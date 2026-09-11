@@ -41,14 +41,8 @@
 	.public ov47_02259D58
 	.public ov47_02259DA4
 	.public ov47_02259DCC
-
-	thumb_func_start ov47_02258DC8
-ov47_02258DC8: ; 0x02258DC8
-	ldr r3, _02258DCC ; =ov47_0225912C
-	bx r3
-	.balign 4, 0
-_02258DCC: .word ov47_0225912C
-	thumb_func_end ov47_02258DC8
+	.public ov47_02258DC8
+	.public ov47_0225912C
 
 
 	thumb_func_start ov47_02258DD0
@@ -226,6 +220,8 @@ _02258E7A:
 	.balign 4, 0
 _02258F44: .word ov47_02259E40
 	thumb_func_end ov47_02258DD0
+
+
 
 
 	thumb_func_start ov47_02258F48
@@ -463,102 +459,3 @@ _02259120: .word 0x000005DC
 _02259124: .word 0x0000057D
 _02259128: .word 0x000005E4
 	thumb_func_end ov47_02258F48
-
-
-	thumb_func_start ov47_0225912C
-ov47_0225912C: ; 0x0225912C
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	add r0, #0x2c
-	add r4, r2, #0
-	bl ov47_02259D24
-	add r0, r5, #0
-	bl RemoveWindow
-	ldr r0, [r5, #0x14]
-	bl Sprite_Delete
-	ldr r0, [r5, #0x18]
-	bl SpriteTransfer_DeleteCharTransferTask
-	ldr r0, [r5, #0x1c]
-	bl SpriteTransfer_DeletePlttTransferTask
-	mov r7, #0x13
-	mov r6, #0
-	lsl r7, r7, #4
-_02259156:
-	ldr r0, [r4, r7]
-	ldr r1, [r5, #0x18]
-	bl DestroySingle2DGfxResObj
-	add r6, r6, #1
-	add r5, r5, #4
-	add r4, r4, #4
-	cmp r6, #4
-	blt _02259156
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov47_0225912C
-
-
-	thumb_func_start ov47_0225916C
-ov47_0225916C: ; 0x0225916C
-	push {r3, r4, r5, lr}
-	sub sp, #0x10
-	add r4, r1, #0
-	add r5, r0, #0
-	mov r1, #0
-	bl FillWindowPixelBuffer
-	add r0, r5, #0
-	add r0, #0x2c
-	add r1, r4, #0
-	mov r2, #0
-	bl ov47_02259D58
-	mov r3, #0
-	add r2, r0, #0
-	str r3, [sp]
-	mov r0, #0xff
-	str r0, [sp, #4]
-	ldr r0, _022591F4 ; =0x00010200
-	mov r1, #1
-	str r0, [sp, #8]
-	add r0, r5, #0
-	str r3, [sp, #0xc]
-	bl AddTextPrinterParameterizedWithColor
-	add r0, r5, #0
-	add r0, #0x2c
-	add r1, r4, #0
-	mov r2, #1
-	bl ov47_02259D58
-	add r2, r0, #0
-	mov r0, #0x18
-	str r0, [sp]
-	mov r0, #0xff
-	str r0, [sp, #4]
-	ldr r0, _022591F4 ; =0x00010200
-	mov r3, #0
-	str r0, [sp, #8]
-	add r0, r5, #0
-	mov r1, #1
-	str r3, [sp, #0xc]
-	bl AddTextPrinterParameterizedWithColor
-	add r0, r5, #0
-	add r0, #0x2c
-	add r1, r4, #0
-	mov r2, #2
-	bl ov47_02259D58
-	add r2, r0, #0
-	mov r0, #0x30
-	str r0, [sp]
-	mov r0, #0xff
-	str r0, [sp, #4]
-	ldr r0, _022591F4 ; =0x00010200
-	mov r3, #0
-	str r0, [sp, #8]
-	add r0, r5, #0
-	mov r1, #1
-	str r3, [sp, #0xc]
-	bl AddTextPrinterParameterizedWithColor
-	add r0, r5, #0
-	bl ScheduleWindowCopyToVram
-	add sp, #0x10
-	pop {r3, r4, r5, pc}
-	.balign 4, 0
-_022591F4: .word 0x00010200
-	thumb_func_end ov47_0225916C

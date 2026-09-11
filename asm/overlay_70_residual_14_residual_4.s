@@ -2859,66 +2859,139 @@
 	.public ov70_02239F78
 
 
-	thumb_func_start ov70_02239B00
-ov70_02239B00: ; 0x02239B00
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #8
-	add r7, r0, #0
-	ldr r0, _02239B7C ; =0x00000F58
-	ldrh r1, [r7, #0x36]
-	add r4, r7, r0
-	mov r0, #0xc
-	ldr r2, _02239B80 ; =ov70_0224526C
-	mul r0, r1
-	mov r6, #0
-	add r5, r2, r0
-_02239B16:
-	mov r0, #0x78
-	str r0, [sp]
-	mov r0, #8
+	thumb_func_start ov70_02239FA4
+ov70_02239FA4: ; 0x02239FA4
+	push {r4, r5, r6, lr}
+	sub sp, #0x10
+	add r6, r0, #0
+	ldr r5, [r6, #4]
+	mov r0, #0x64
+	mov r1, #0x3d
+	bl NARC_New
+	mov r1, #0x60
+	str r1, [sp]
+	mov r1, #0x3d
 	mov r2, #0
-	str r0, [sp, #4]
-	add r0, r4, #0
-	mov r1, #0xf
+	str r1, [sp, #4]
+	mov r1, #8
 	add r3, r2, #0
-	bl FillWindowPixelRect
-	mov r0, #0x78
+	add r4, r0, #0
+	bl GfGfxLoader_GXLoadPalFromOpenNarc
+	mov r0, #1
+	lsl r0, r0, #8
 	str r0, [sp]
-	mov r0, #2
+	mov r0, #0x3d
 	str r0, [sp, #4]
 	add r0, r4, #0
-	mov r1, #0xe
-	mov r2, #0
-	mov r3, #8
-	bl FillWindowPixelRect
-	mov r0, #0x78
+	mov r1, #5
+	mov r2, #4
+	mov r3, #0
+	bl GfGfxLoader_GXLoadPalFromOpenNarc
+	mov r1, #0x1a
+	mov r0, #0
+	lsl r1, r1, #4
+	mov r2, #0x3d
+	bl LoadFontPal1
+	ldr r0, [r6]
+	ldr r0, [r0, #0x24]
+	bl Options_GetFrame
+	lsl r0, r0, #0x18
+	lsr r0, r0, #0x18
 	str r0, [sp]
-	mov r0, #6
+	mov r0, #0x3d
 	str r0, [sp, #4]
-	add r0, r4, #0
-	mov r1, #0xd
-	mov r2, #0
-	mov r3, #0xa
-	bl FillWindowPixelRect
+	add r0, r5, #0
+	mov r1, #0
+	mov r2, #1
+	mov r3, #0xe
+	bl LoadUserFrameGfx2
+	mov r1, #0
+	str r1, [sp]
+	mov r0, #0x3d
+	str r0, [sp, #4]
+	add r0, r5, #0
+	mov r2, #0x1f
+	mov r3, #0xb
+	bl LoadUserFrameGfx1
 	mov r0, #0
 	str r0, [sp]
-	mov r1, #0xba
+	mov r0, #0xa
+	lsl r0, r0, #8
+	str r0, [sp, #4]
+	mov r3, #1
+	str r3, [sp, #8]
+	mov r0, #0x3d
+	str r0, [sp, #0xc]
+	add r0, r4, #0
+	mov r1, #0x14
+	add r2, r5, #0
+	bl GfGfxLoader_LoadCharDataFromOpenNarc
+	mov r0, #0
+	str r0, [sp]
+	mov r0, #6
+	lsl r0, r0, #8
+	str r0, [sp, #4]
+	mov r3, #1
+	str r3, [sp, #8]
+	mov r0, #0x3d
+	str r0, [sp, #0xc]
+	add r0, r4, #0
+	mov r1, #0x1c
+	add r2, r5, #0
+	bl GfGfxLoader_LoadScrnDataFromOpenNarc
+	mov r0, #4
+	mov r1, #0x20
+	mov r2, #0x3d
+	bl LoadFontPal1
+	add r0, r6, #0
+	bl ov70_02239CF8
+	add r0, r4, #0
+	bl NARC_Delete
+	add sp, #0x10
+	pop {r4, r5, r6, pc}
+	thumb_func_end ov70_02239FA4
+
+
+
+
+	thumb_func_start ov70_0223A06C
+ov70_0223A06C: ; 0x0223A06C
+	push {r4, lr}
+	sub sp, #0x30
+	mov r2, #0xd6
+	add r4, r0, #0
+	lsl r2, r2, #4
+	add r0, sp, #0
+	add r1, r4, #0
+	add r2, r4, r2
+	mov r3, #1
+	bl ov70_02238B54
+	mov r0, #0xd
+	lsl r0, r0, #0x10
+	str r0, [sp, #8]
+	mov r0, #0x3a
+	lsl r0, r0, #0xc
+	str r0, [sp, #0xc]
+	add r0, sp, #0
+	bl Sprite_CreateAffine
+	mov r1, #0xee
 	lsl r1, r1, #4
-	ldr r1, [r7, r1]
-	ldr r3, [r5]
-	add r0, r4, #0
-	mov r2, #4
-	bl ov70_02239C34
-	add r0, r4, #0
-	bl CopyWindowToVram
-	add r6, r6, #1
-	add r4, #0x10
-	add r5, r5, #4
-	cmp r6, #3
-	blt _02239B16
-	add sp, #8
-	pop {r3, r4, r5, r6, r7, pc}
-	nop
-_02239B7C: .word 0x00000F58
-_02239B80: .word ov70_0224526C
-	thumb_func_end ov70_02239B00
+	str r0, [r4, r1]
+	ldr r0, [r4, r1]
+	mov r1, #1
+	bl Sprite_SetAnimActiveFlag
+	mov r0, #0xee
+	lsl r0, r0, #4
+	ldr r0, [r4, r0]
+	mov r1, #0x25
+	bl Sprite_SetAnimCtrlSeq
+	mov r0, #0xee
+	lsl r0, r0, #4
+	ldr r0, [r4, r0]
+	mov r1, #1
+	bl Sprite_SetPriority
+	bl sub_0203A880
+	add sp, #0x30
+	pop {r4, pc}
+	.balign 4, 0
+	thumb_func_end ov70_0223A06C
