@@ -1,0 +1,3 @@
+#include "ov96_wave34_shuffle_private.h"
+
+void ov96_021E860C(u32 count,u8 kind,u32 high,u8*out){u8 pool5[5];u8 pool25[25];u8 i=0;u8 zero=i;for(;i<3;i++)out[i]=zero;if(kind==10){u8 remain=25;for(i=0;i<25;i++)pool25[i]=i;for(i=0;i<count;i++){u8 at=(u8)((s32)LCRandom()%remain);out[i]=pool25[at];out[i]+=25;remain--;pool25[at]=pool25[remain];}}else{u8 remain=5;u32 base;for(i=0;i<5;i++)pool5[i]=i;i=0;if(i<count){base=kind*5;do{u8 at=(u8)((s32)LCRandom()%remain);out[i]=pool5[at];out[i]+=base;remain--;pool5[at]=pool5[remain];i++;}while(i<count);}}if(high){for(i=0;i<count;i++)out[i]+=50;}for(i=0;i<count;i++)out[i]++;}

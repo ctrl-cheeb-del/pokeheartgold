@@ -3439,486 +3439,346 @@
 	.public ov49_0225C8A8
 	.public ov49_0225CAA8
 
-	thumb_func_start ov49_0225BFF0
-ov49_0225BFF0: ; 0x0225BFF0
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x7c
-	add r5, r0, #0
-	ldr r0, [sp, #0x90]
-	add r4, r1, #0
-	add r6, r3, #0
-	str r2, [sp, #0x2c]
-	cmp r0, #0x1b
-	blo _0225C006
-	bl GF_AssertFail
-_0225C006:
-	ldr r0, [r5, #0x54]
-	cmp r0, #0
-	beq _0225C010
-	bl GF_AssertFail
-_0225C010:
-	ldr r0, [sp, #0x90]
-	mov r1, #3
-	bl _u32_div_f
-	add r7, r0, #0
-	ldr r0, [sp, #0x90]
-	mov r1, #3
-	bl _u32_div_f
-	str r1, [sp, #0x30]
-	lsl r0, r7, #1
-	str r0, [sp, #0x34]
-	mov r1, #0x64
-	str r1, [sp]
-	mov r0, #2
-	str r0, [sp, #4]
-	ldr r2, [sp, #0x34]
-	str r6, [sp, #8]
-	add r1, #0xcc
-	ldr r0, [r4, r1]
-	add r2, r7, r2
-	ldr r1, [sp, #0x2c]
-	add r2, #0x3d
-	mov r3, #0
-	bl AddCharResObjFromOpenNarc
-	str r0, [r5, #0x58]
-	bl SpriteTransfer_CreateCharTransferTask_AllocAtEnd
-	cmp r0, #0
-	bne _0225C052
-	bl GF_AssertFail
-_0225C052:
-	ldr r0, [r5, #0x58]
-	bl sub_0200A740
-	mov r1, #0x64
-	str r1, [sp]
-	mov r0, #2
-	str r0, [sp, #4]
-	mov r0, #3
-	str r0, [sp, #8]
-	str r6, [sp, #0xc]
-	add r1, #0xd0
-	ldr r0, [r4, r1]
-	ldr r1, [sp, #0x2c]
-	mov r2, #0x59
-	mov r3, #0
-	bl AddPlttResObjFromOpenNarc
-	str r0, [r5, #0x5c]
-	bl SpriteTransfer_CreatePlttTransferTask
-	cmp r0, #0
-	bne _0225C082
-	bl GF_AssertFail
-_0225C082:
-	ldr r0, [r5, #0x5c]
-	bl sub_0200A740
-	mov r1, #0x64
-	str r1, [sp]
-	mov r0, #2
-	str r0, [sp, #4]
-	ldr r2, [sp, #0x34]
-	str r6, [sp, #8]
-	add r1, #0xd4
-	ldr r0, [r4, r1]
-	add r2, r7, r2
-	ldr r1, [sp, #0x2c]
-	add r2, #0x3c
-	mov r3, #0
-	bl AddCellOrAnimResObjFromOpenNarc
-	str r0, [r5, #0x60]
-	mov r1, #0x64
-	str r1, [sp]
-	mov r0, #3
-	str r0, [sp, #4]
-	ldr r2, [sp, #0x34]
-	str r6, [sp, #8]
-	add r1, #0xd8
-	ldr r0, [r4, r1]
-	add r2, r7, r2
-	ldr r1, [sp, #0x2c]
-	add r2, #0x3b
-	mov r3, #0
-	bl AddCellOrAnimResObjFromOpenNarc
-	str r0, [r5, #0x64]
-	mov r0, #0
-	add r2, sp, #0x38
-	add r1, r0, #0
-	stmia r2!, {r0, r1}
-	stmia r2!, {r0, r1}
-	stmia r2!, {r0, r1}
-	stmia r2!, {r0, r1}
-	mov r1, #0x64
-	add r2, r1, #0
-	str r1, [sp]
-	sub r2, #0x65
-	str r2, [sp, #4]
-	str r2, [sp, #8]
-	str r0, [sp, #0xc]
-	add r2, r1, #0
-	str r0, [sp, #0x10]
-	add r2, #0xcc
-	ldr r2, [r4, r2]
-	add r3, r1, #0
-	str r2, [sp, #0x14]
-	add r2, r1, #0
-	add r2, #0xd0
-	ldr r2, [r4, r2]
-	str r2, [sp, #0x18]
-	add r2, r1, #0
-	add r2, #0xd4
-	ldr r2, [r4, r2]
-	str r2, [sp, #0x1c]
-	add r2, r1, #0
-	add r2, #0xd8
-	ldr r2, [r4, r2]
-	str r2, [sp, #0x20]
-	str r0, [sp, #0x24]
-	str r0, [sp, #0x28]
-	add r0, sp, #0x58
-	add r2, r1, #0
-	bl CreateSpriteResourcesHeader
-	ldr r0, [r4, #4]
-	str r0, [sp, #0x38]
-	add r0, sp, #0x58
-	str r0, [sp, #0x3c]
-	mov r0, #0x10
-	str r0, [sp, #0x4c]
-	mov r0, #2
-	str r0, [sp, #0x50]
-	mov r0, #0xd
-	lsl r0, r0, #0x10
-	str r0, [sp, #0x40]
-	mov r0, #0x66
-	lsl r0, r0, #0xe
-	str r0, [sp, #0x44]
-	add r0, sp, #0x38
-	str r6, [sp, #0x54]
-	bl Sprite_Create
-	ldr r1, [sp, #0x30]
-	str r0, [r5, #0x54]
-	bl Sprite_SetAnimCtrlSeq
-	ldr r0, [r5, #0x54]
-	ldr r1, [sp, #0x94]
-	bl Sprite_SetDrawFlag
-	add sp, #0x7c
-	pop {r4, r5, r6, r7, pc}
-	thumb_func_end ov49_0225BFF0
 
-
-
-
-	thumb_func_start ov49_0225C148
-ov49_0225C148: ; 0x0225C148
+	thumb_func_start ov49_0225C4CC
+ov49_0225C4CC: ; 0x0225C4CC
 	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	ldr r0, [r5, #0x54]
-	add r4, r1, #0
-	bl Sprite_Delete
-	mov r0, #0
-	str r0, [r5, #0x54]
-	ldr r0, [r5, #0x58]
-	bl SpriteTransfer_DeleteCharTransferTask
-	ldr r0, [r5, #0x5c]
-	bl SpriteTransfer_DeletePlttTransferTask
-	mov r7, #0x13
-	mov r6, #0
-	lsl r7, r7, #4
-_0225C16A:
-	ldr r0, [r4, r7]
-	ldr r1, [r5, #0x58]
-	bl DestroySingle2DGfxResObj
-	add r6, r6, #1
-	add r5, r5, #4
-	add r4, r4, #4
-	cmp r6, #4
-	blt _0225C16A
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov49_0225C148
-
-
-
-
-	thumb_func_start ov49_0225C180
-ov49_0225C180: ; 0x0225C180
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x94
-	add r6, r0, #0
-	ldr r0, [r6, #0x68]
+	sub sp, #0x98
+	add r7, r0, #0
+	ldr r0, [sp, #0xb0]
 	add r5, r1, #0
-	str r3, [sp, #0x2c]
-	ldr r4, [sp, #0xa8]
-	cmp r0, #0
-	beq _0225C196
-	bl GF_AssertFail
-_0225C196:
-	ldr r1, _0225C324 ; =ov49_0226988C
+	str r0, [sp, #0xb0]
+	mov r0, #0xd7
+	add r1, r3, #0
+	str r2, [sp, #0x2c]
+	str r3, [sp, #0x30]
+	bl NARC_New
+	str r0, [sp, #0x50]
+	ldr r0, [sp, #0xb4]
+	bl ov45_0222A99C
+	str r0, [sp, #0x44]
+	ldr r0, [sp, #0xb4]
+	bl ov45_0222A9CC
+	str r0, [sp, #0x4c]
+	ldr r0, _0225C77C ; =ov49_02269774
+	mov r6, #0
+	str r0, [sp, #0x40]
+	ldr r0, _0225C780 ; =ov49_02269704
+	add r4, r7, #0
+	str r0, [sp, #0x3c]
+	ldr r0, _0225C784 ; =ov49_022696FC
+	str r0, [sp, #0x38]
+_0225C506:
+	cmp r6, #2
+	bne _0225C526
+	ldr r0, [sp, #0x4c]
+	cmp r0, #1
+	bne _0225C546
+	add r1, r4, #0
+	add r1, #0xac
 	mov r0, #0
-_0225C19A:
-	ldrh r2, [r1]
-	cmp r4, r2
-	bne _0225C1AA
-	ldrh r2, [r1, #2]
-	str r2, [sp, #0x34]
-	ldrh r2, [r1, #4]
-	str r2, [sp, #0x30]
-	ldrh r7, [r1, #6]
-_0225C1AA:
-	add r0, r0, #1
-	add r1, #8
-	cmp r0, #0x12
-	blo _0225C19A
-	ldr r0, [sp, #0x34]
-	mov r1, #2
-	add r2, sp, #0x7c
-	bl sub_02070D84
-	mov r1, #0x65
-	str r1, [sp]
-	mov r0, #2
-	str r0, [sp, #4]
-	ldr r0, [sp, #0x2c]
-	add r1, #0xcb
-	str r0, [sp, #8]
-	ldr r0, [r5, r1]
-	ldr r1, [sp, #0x7c]
-	ldr r2, [sp, #0x80]
-	mov r3, #0
-	bl AddCharResObjFromNarc
-	str r0, [r6, #0x6c]
-	bl SpriteTransfer_CreateCharTransferTask_AllocAtEnd
+	str r0, [r1]
+	add r1, r4, #0
+	add r1, #0xec
+	str r0, [r1]
+	add r1, r4, #0
+	add r1, #0xfc
+	str r0, [r1]
+	b _0225C5EC
+_0225C526:
+	cmp r6, #3
+	bne _0225C546
+	ldr r0, [sp, #0x4c]
 	cmp r0, #0
-	bne _0225C1E4
-	bl GF_AssertFail
-_0225C1E4:
-	mov r1, #0x65
-	str r1, [sp]
+	bne _0225C546
+	add r1, r4, #0
+	add r1, #0xac
+	mov r0, #0
+	str r0, [r1]
+	add r1, r4, #0
+	add r1, #0xec
+	str r0, [r1]
+	add r1, r4, #0
+	add r1, #0xfc
+	str r0, [r1]
+	b _0225C5EC
+_0225C546:
+	ldr r0, [sp, #0x40]
+	ldrh r0, [r0]
+	cmp r0, #0xd7
+	bne _0225C554
+	ldr r0, [sp, #0x50]
+	str r0, [sp, #0x34]
+	b _0225C558
+_0225C554:
+	ldr r0, [sp, #0x2c]
+	str r0, [sp, #0x34]
+_0225C558:
+	add r0, r6, #0
+	add r0, #0x96
+	str r0, [sp]
 	mov r0, #2
 	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [sp, #0x2c]
-	add r1, #0xcf
-	str r0, [sp, #0xc]
-	ldr r0, [r5, r1]
-	ldr r1, [sp, #0x7c]
-	ldr r2, [sp, #0x84]
+	ldr r0, [sp, #0x40]
+	ldr r2, [sp, #0x40]
+	ldrh r0, [r0, #4]
+	ldr r1, [sp, #0x34]
 	mov r3, #0
-	bl AddPlttResObjFromNarc
-	str r0, [r6, #0x70]
-	bl GF2DGfxResObj_GetPlttDataPtr
-	bl ov49_0225C368
-	ldr r0, [r6, #0x70]
+	str r0, [sp, #8]
+	ldr r0, [sp, #0x30]
+	str r0, [sp, #0xc]
+	mov r0, #0x4d
+	lsl r0, r0, #2
+	ldrh r2, [r2, #2]
+	ldr r0, [r5, r0]
+	bl AddPlttResObjFromOpenNarc
+	add r1, r4, #0
+	add r1, #0xac
+	str r0, [r1]
+	add r0, r4, #0
+	add r0, #0xac
+	ldr r0, [r0]
 	bl SpriteTransfer_CreatePlttTransferTask
 	cmp r0, #0
-	bne _0225C21A
+	bne _0225C596
 	bl GF_AssertFail
-_0225C21A:
-	ldr r0, [r6, #0x70]
+_0225C596:
+	add r0, r4, #0
+	add r0, #0xac
+	ldr r0, [r0]
 	bl sub_0200A740
-	mov r1, #0x65
-	str r1, [sp]
+	add r0, r6, #0
+	add r0, #0x96
+	str r0, [sp]
 	mov r0, #2
 	str r0, [sp, #4]
-	ldr r0, [sp, #0x2c]
-	add r1, #0xd3
+	ldr r0, [sp, #0x30]
+	ldr r2, [sp, #0x3c]
 	str r0, [sp, #8]
-	ldr r0, [r5, r1]
-	ldr r1, [sp, #0x7c]
-	ldr r2, [sp, #0x88]
+	mov r0, #0x4e
+	lsl r0, r0, #2
+	ldrh r2, [r2]
+	ldr r0, [r5, r0]
+	ldr r1, [sp, #0x34]
 	mov r3, #0
-	bl AddCellOrAnimResObjFromNarc
-	str r0, [r6, #0x74]
-	mov r1, #0x65
-	str r1, [sp]
+	bl AddCellOrAnimResObjFromOpenNarc
+	add r1, r4, #0
+	add r1, #0xec
+	str r0, [r1]
+	add r0, r6, #0
+	add r0, #0x96
+	str r0, [sp]
 	mov r0, #3
 	str r0, [sp, #4]
-	ldr r0, [sp, #0x2c]
-	add r1, #0xd7
+	ldr r0, [sp, #0x30]
+	ldr r2, [sp, #0x38]
 	str r0, [sp, #8]
-	ldr r0, [r5, r1]
-	ldr r1, [sp, #0x7c]
-	ldr r2, [sp, #0x8c]
+	mov r0, #0x4f
+	lsl r0, r0, #2
+	ldrh r2, [r2]
+	ldr r0, [r5, r0]
+	ldr r1, [sp, #0x34]
 	mov r3, #0
-	bl AddCellOrAnimResObjFromNarc
-	str r0, [r6, #0x78]
-	mov r0, #0
-	add r2, sp, #0x38
+	bl AddCellOrAnimResObjFromOpenNarc
+	add r1, r4, #0
+	add r1, #0xfc
+	str r0, [r1]
+_0225C5EC:
+	ldr r0, [sp, #0x40]
+	add r6, r6, #1
+	add r0, r0, #6
+	str r0, [sp, #0x40]
+	ldr r0, [sp, #0x3c]
+	add r4, r4, #4
+	add r0, r0, #2
+	str r0, [sp, #0x3c]
+	ldr r0, [sp, #0x38]
+	add r0, r0, #2
+	str r0, [sp, #0x38]
+	cmp r6, #4
+	bge _0225C608
+	b _0225C506
+_0225C608:
+	ldr r0, _0225C788 ; =ov49_0226991C
+	mov r6, #0
+	str r0, [sp, #0x48]
+_0225C60E:
+	ldr r0, [sp, #0xb0]
+	add r1, r6, #0
+	bl ov45_0222A92C
+	add r4, r0, #0
+	ldr r0, [sp, #0xb0]
+	add r1, r6, #0
+	bl ov45_0222A964
 	add r1, r0, #0
-	stmia r2!, {r0, r1}
-	stmia r2!, {r0, r1}
-	stmia r2!, {r0, r1}
-	stmia r2!, {r0, r1}
-	mov r1, #0x65
-	add r2, r1, #0
-	str r1, [sp]
-	sub r2, #0x66
-	str r2, [sp, #4]
-	str r2, [sp, #8]
-	mov r2, #1
-	str r2, [sp, #0xc]
-	mov r2, #3
-	str r2, [sp, #0x10]
-	add r2, r1, #0
-	add r2, #0xcb
-	ldr r2, [r5, r2]
-	add r3, r1, #0
-	str r2, [sp, #0x14]
-	add r2, r1, #0
-	add r2, #0xcf
-	ldr r2, [r5, r2]
-	str r2, [sp, #0x18]
-	add r2, r1, #0
-	add r2, #0xd3
-	ldr r2, [r5, r2]
-	str r2, [sp, #0x1c]
-	add r2, r1, #0
-	add r2, #0xd7
-	ldr r2, [r5, r2]
-	str r2, [sp, #0x20]
+	cmp r4, #0x18
+	bne _0225C632
+	add r1, r7, #0
+	add r1, #0xbc
+	mov r0, #0
+	str r0, [r1]
+	str r0, [r7, #0x7c]
+	b _0225C760
+_0225C632:
+	ldr r2, [sp, #0x44]
+	ldr r3, [sp, #0x4c]
+	add r0, r4, #0
+	bl ov49_0225C828
+	add r4, r0, #0
+	ldrb r0, [r4]
+	cmp r0, #1
+	bne _0225C648
+	ldr r1, [sp, #0x2c]
+	b _0225C64A
+_0225C648:
+	ldr r1, [sp, #0x50]
+_0225C64A:
+	add r0, r6, #0
+	add r0, #0x96
+	str r0, [sp]
+	mov r0, #2
+	str r0, [sp, #4]
+	ldr r0, [sp, #0x30]
+	mov r3, #0
+	str r0, [sp, #8]
+	mov r0, #0x13
+	lsl r0, r0, #4
+	ldrh r2, [r4, #2]
+	ldr r0, [r5, r0]
+	bl AddCharResObjFromOpenNarc
+	add r1, r7, #0
+	add r1, #0xbc
+	str r0, [r1]
+	add r0, r7, #0
+	add r0, #0xbc
+	ldr r0, [r0]
+	bl SpriteTransfer_CreateCharTransferTask_AllocAtEnd
+	cmp r0, #0
+	bne _0225C67E
+	bl GF_AssertFail
+_0225C67E:
+	add r0, r7, #0
+	add r0, #0xbc
+	ldr r0, [r0]
+	bl sub_0200A740
+	ldrb r2, [r4]
+	mov r0, #0
+	mvn r0, r0
+	add r2, #0x96
+	str r2, [sp]
+	str r0, [sp, #4]
+	str r0, [sp, #8]
+	mov r0, #0
+	str r0, [sp, #0xc]
+	str r0, [sp, #0x10]
+	mov r0, #0x13
+	lsl r0, r0, #4
+	ldr r0, [r5, r0]
+	add r1, r6, #0
+	str r0, [sp, #0x14]
+	mov r0, #0x4d
+	lsl r0, r0, #2
+	ldr r0, [r5, r0]
+	add r1, #0x96
+	str r0, [sp, #0x18]
+	mov r0, #0x4e
+	lsl r0, r0, #2
+	ldr r0, [r5, r0]
+	add r3, r2, #0
+	str r0, [sp, #0x1c]
+	mov r0, #0x4f
+	lsl r0, r0, #2
+	ldr r0, [r5, r0]
+	str r0, [sp, #0x20]
+	mov r0, #0
 	str r0, [sp, #0x24]
 	str r0, [sp, #0x28]
-	add r0, sp, #0x58
-	add r2, r1, #0
+	add r0, sp, #0x54
 	bl CreateSpriteResourcesHeader
 	ldr r0, [r5, #4]
-	str r0, [sp, #0x38]
-	add r0, sp, #0x58
-	str r0, [sp, #0x3c]
-	mov r0, #0x20
-	str r0, [sp, #0x4c]
-	mov r0, #2
-	str r0, [sp, #0x50]
-	ldr r0, [sp, #0x2c]
-	str r0, [sp, #0x54]
-	ldr r0, [sp, #0x30]
-	cmp r0, #0
-	beq _0225C2D4
-	lsl r0, r0, #0xc
-	bl _fflt
-	add r1, r0, #0
-	mov r0, #0x3f
-	lsl r0, r0, #0x18
-	bl _fadd
-	b _0225C2E2
-_0225C2D4:
-	lsl r0, r0, #0xc
-	bl _fflt
-	mov r1, #0x3f
-	lsl r1, r1, #0x18
-	bl _fsub
-_0225C2E2:
-	bl _ffix
-	str r0, [sp, #0x40]
-	cmp r7, #0
-	beq _0225C2FE
-	lsl r0, r7, #0xc
-	bl _fflt
-	add r1, r0, #0
-	mov r0, #0x3f
-	lsl r0, r0, #0x18
-	bl _fadd
-	b _0225C30C
-_0225C2FE:
-	lsl r0, r7, #0xc
-	bl _fflt
-	mov r1, #0x3f
-	lsl r1, r1, #0x18
-	bl _fsub
-_0225C30C:
-	bl _ffix
-	mov r1, #1
-	lsl r1, r1, #0x14
-	add r0, r0, r1
-	str r0, [sp, #0x44]
-	add r0, sp, #0x38
-	bl Sprite_Create
-	str r0, [r6, #0x68]
-	add sp, #0x94
-	pop {r4, r5, r6, r7, pc}
-	.balign 4, 0
-_0225C324: .word ov49_0226988C
-	thumb_func_end ov49_0225C180
-
-
-
-
-	thumb_func_start ov49_0225C328
-ov49_0225C328: ; 0x0225C328
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	ldr r0, [r5, #0x68]
-	add r4, r1, #0
-	bl Sprite_GetImageProxy
-	bl ObjCharTransfer_DeleteTaskCopyByProxyPtr
-	ldr r0, [r5, #0x68]
-	bl Sprite_Delete
+	ldr r2, [sp, #0x48]
+	str r0, [sp, #0x78]
+	add r0, sp, #0x54
+	str r0, [sp, #0x7c]
 	mov r0, #0
-	str r0, [r5, #0x68]
-	ldr r0, [r5, #0x6c]
-	bl SpriteTransfer_DeleteCharTransferTask
-	ldr r0, [r5, #0x70]
-	bl SpriteTransfer_DeletePlttTransferTask
-	mov r7, #0x13
-	mov r6, #0
-	lsl r7, r7, #4
-_0225C354:
-	ldr r0, [r4, r7]
-	ldr r1, [r5, #0x6c]
-	bl DestroySingle2DGfxResObj
+	str r0, [sp, #0x8c]
+	mov r0, #2
+	str r0, [sp, #0x90]
+	ldr r0, [sp, #0x30]
+	add r3, sp, #0x80
+	str r0, [sp, #0x94]
+	ldmia r2!, {r0, r1}
+	stmia r3!, {r0, r1}
+	ldr r0, [r2]
+	str r0, [r3]
+	mov r0, #4
+	ldrsh r0, [r4, r0]
+	cmp r0, #0
+	ble _0225C708
+	lsl r0, r0, #0xc
+	bl _fflt
+	add r1, r0, #0
+	mov r0, #0x3f
+	lsl r0, r0, #0x18
+	bl _fadd
+	b _0225C716
+_0225C708:
+	lsl r0, r0, #0xc
+	bl _fflt
+	mov r1, #0x3f
+	lsl r1, r1, #0x18
+	bl _fsub
+_0225C716:
+	bl _ffix
+	ldr r1, [sp, #0x80]
+	add r0, r1, r0
+	str r0, [sp, #0x80]
+	mov r0, #6
+	ldrsh r0, [r4, r0]
+	cmp r0, #0
+	ble _0225C73A
+	lsl r0, r0, #0xc
+	bl _fflt
+	add r1, r0, #0
+	mov r0, #0x3f
+	lsl r0, r0, #0x18
+	bl _fadd
+	b _0225C748
+_0225C73A:
+	lsl r0, r0, #0xc
+	bl _fflt
+	mov r1, #0x3f
+	lsl r1, r1, #0x18
+	bl _fsub
+_0225C748:
+	bl _ffix
+	ldr r1, [sp, #0x84]
+	add r0, r1, r0
+	str r0, [sp, #0x84]
+	add r0, sp, #0x78
+	bl Sprite_Create
+	str r0, [r7, #0x7c]
+	ldrb r1, [r4, #1]
+	bl Sprite_SetPalOffsetRespectVramOffset
+_0225C760:
+	ldr r0, [sp, #0x48]
 	add r6, r6, #1
-	add r5, r5, #4
-	add r4, r4, #4
-	cmp r6, #4
-	blt _0225C354
+	add r0, #0xc
+	add r7, r7, #4
+	str r0, [sp, #0x48]
+	cmp r6, #0xc
+	bge _0225C770
+	b _0225C60E
+_0225C770:
+	ldr r0, [sp, #0x50]
+	bl NARC_Delete
+	add sp, #0x98
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov49_0225C328
+	nop
+_0225C77C: .word ov49_02269774
+_0225C780: .word ov49_02269704
+_0225C784: .word ov49_022696FC
+_0225C788: .word ov49_0226991C
+	thumb_func_end ov49_0225C4CC
 
 
-
-
-	thumb_func_start ov49_0225C368
-ov49_0225C368: ; 0x0225C368
-	push {r4, r5, r6, r7}
-	ldr r1, [r0, #8]
-	ldr r4, [r0, #0xc]
-	lsr r3, r1, #1
-	mov r2, #0
-	cmp r3, #0
-	ble _0225C3BC
-	mov r5, #0xc8
-_0225C378:
-	ldrh r6, [r4]
-	mov r0, #0x1f
-	add r2, r2, #1
-	add r1, r6, #0
-	asr r7, r6, #5
-	and r1, r0
-	and r0, r7
-	asr r7, r6, #0xa
-	mov r6, #0x1f
-	and r6, r7
-	mov r7, #0x1d
-	mul r7, r6
-	mov r6, #0x4c
-	mul r6, r1
-	mov r1, #0x97
-	mul r1, r0
-	add r0, r6, r1
-	add r0, r7, r0
-	asr r6, r0, #8
-	lsl r0, r6, #8
-	add r7, r6, #0
-	asr r1, r0, #8
-	lsl r0, r6, #7
-	mul r7, r5
-	asr r0, r0, #8
-	asr r6, r7, #8
-	lsl r0, r0, #0xa
-	lsl r6, r6, #5
-	orr r0, r6
-	orr r0, r1
-	strh r0, [r4]
-	add r4, r4, #2
-	cmp r2, r3
-	blt _0225C378
-_0225C3BC:
-	pop {r4, r5, r6, r7}
-	bx lr
-	thumb_func_end ov49_0225C368

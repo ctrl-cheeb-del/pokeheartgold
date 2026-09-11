@@ -3072,6 +3072,14 @@ Overlay OVY_49
     Object asm/overlay_49_residual_33.o
     Object src/overlay_49_sol_partial_34.o
     Object asm/overlay_49_residual_34.o
+    Object src/ov49_wave34_windows_1.o
+    Object asm/overlay_49_residual_34_residual_2.o
+    Object src/ov49_wave34_windows_2.o
+    Object asm/overlay_49_residual_34_residual_3.o
+    Object src/ov49_wave34_windows_3.o
+    Object asm/overlay_49_residual_34_residual_4.o
+    Object src/ov49_wave34_windows_4.o
+    Object asm/overlay_49_residual_34_residual_5.o
     Object src/overlay_49_sol_partial_35.o
     Object asm/overlay_49_residual_35.o
     Object src/overlay_49_sol_partial_36.o
@@ -3509,6 +3517,7 @@ Overlay OVY_69
     Object src/overlay69_helpers_1.o
     Object asm/overlay_69_residual_2.o
     Object src/overlay69_helpers_2.o
+    Object src/ov69_wave34_gesture_1.o
     Object asm/overlay_69_residual_3.o
     Object src/overlay69_helpers_3.o
     Object asm/overlay_69_residual_4.o
@@ -3613,6 +3622,8 @@ Overlay OVY_70
     Object asm/overlay_70_residual_31.o
     Object src/overlay70_sol_partial_31.o
     Object asm/overlay_70_residual_32.o
+    Object src/ov70_wave34_tasks_1.o
+    Object asm/overlay_70_residual_32_residual_2.o
     Object src/overlay70_sol_partial_32.o
     Object src/overlay70_gfx_helpers_1.o
     Object src/overlay70_sol_partial_33.o
@@ -4898,7 +4909,9 @@ Overlay OVY_96
     Object src/ov96_wave30_state_1.o
     Object asm/overlay_96_residual_9.o
     Object src/ov96_wave30_state_2.o
+    Object src/ov96_wave34_shuffle_1.o
     Object asm/overlay_96_residual_9_residual_2.o
+    Object src/ov96_wave34_shuffle_2.o
     Object src/ov96_wave30_state_3.o
     Object asm/overlay_96_residual_9_residual_3.o
     Object src/ov96_wave30_state_4.o
@@ -5302,6 +5315,7 @@ Overlay OVY_99
     Object src/overlay99_event_helpers_2.o
     Object asm/overlay_99_residual_9_residual_2.o
     Object src/overlay99_event_helpers_3.o
+    Object src/ov99_wave34_resources_1.o
     Object asm/overlay_99_residual_9_residual_3.o
     Object src/overlay99_event_helpers_4.o
     Object asm/overlay_99_residual_9_residual_4.o
