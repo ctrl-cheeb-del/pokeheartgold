@@ -1762,262 +1762,151 @@
 	.public ov02_0224D868
 	.public ov02_0224D98C
 
-	thumb_func_start ov02_0224D698
-ov02_0224D698: ; 0x0224D698
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	add r7, r0, #0
-	add r0, #0xc8
-	ldr r0, [r0]
-	add r6, r1, #0
-	add r4, r2, #0
-	add r5, r3, #0
-	cmp r0, #0
-	beq _0224D6B0
-	bl GF_AssertFail
-_0224D6B0:
-	add r0, r6, #0
-	add r1, sp, #0
-	bl PlayerAvatar_CopyPositionVector
-	ldr r2, [sp, #4]
-	ldr r3, [sp, #8]
-	ldr r1, [sp]
-	add r0, r7, #0
-	add r2, r2, r4
-	add r3, r3, r5
-	bl Field3dObject_SetPosEx
-	add r0, r7, #0
-	mov r4, #0
-	add r5, r7, #0
-	mov r1, #1
-	add r0, #0xc8
-	str r1, [r0]
-	add r5, #0x78
-	add r6, r4, #0
-_0224D6D8:
-	add r0, r5, #0
-	add r1, r6, #0
-	bl Field3dModelAnimation_FrameSet
-	add r4, r4, #1
-	add r5, #0x14
-	cmp r4, #4
-	blt _0224D6D8
-	add r0, r7, #0
-	mov r1, #1
-	bl Field3dObject_SetActiveFlag
-	ldr r0, _0224D6FC ; =SEQ_SE_DP_UG_023
-	bl PlaySE
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	nop
-_0224D6FC: .word SEQ_SE_DP_UG_023
-	thumb_func_end ov02_0224D698
 
-
-
-
-	thumb_func_start ov02_0224D700
-ov02_0224D700: ; 0x0224D700
-	push {r3, r4, r5, r6, r7, lr}
-	str r0, [sp]
-	add r0, #0xc8
-	ldr r0, [r0]
-	cmp r0, #0
-	beq _0224D73A
-	ldr r5, [sp]
-	mov r4, #1
-	mov r6, #0
-	add r5, #0x78
-	lsl r7, r4, #0xc
-_0224D716:
-	add r0, r5, #0
-	add r1, r7, #0
-	bl Field3dModelAnimation_FrameAdvanceAndCheck
-	add r6, r6, #1
-	and r4, r0
-	add r5, #0x14
-	cmp r6, #4
-	blt _0224D716
-	cmp r4, #1
-	bne _0224D73A
-	ldr r0, [sp]
-	mov r1, #0
-	add r0, #0xc8
-	str r1, [r0]
-	ldr r0, [sp]
-	bl Field3dObject_SetActiveFlag
-_0224D73A:
-	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov02_0224D700
-
-
-
-
-	thumb_func_start ov02_0224D73C
-ov02_0224D73C: ; 0x0224D73C
+	thumb_func_start ov02_0224D880
+ov02_0224D880: ; 0x0224D880
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #8
-	str r1, [sp]
-	str r2, [sp, #4]
+	add r5, r2, #0
+	mov r2, #0xd1
+	str r1, [sp, #4]
+	add r0, r5, #0
 	mov r1, #0
-	mov r2, #0xcc
-	add r7, r0, #0
-	add r5, r3, #0
+	lsl r2, r2, #4
 	bl memset
-	ldr r1, [sp]
-	add r0, r7, #0
-	bl Field3dObject_InitFromModel
-	add r4, r7, #0
+	ldr r0, _0224D90C ; =0x00000CFC
+	mov r1, #4
+	add r0, r5, r0
+	mov r2, #0x20
+	bl HeapExp_FndInitAllocator
+	add r0, r5, #0
+	mov r1, #0x86
+	mov r2, #8
+	mov r3, #4
+	bl Field3dModel_LoadFromFilesystem
+	mov r7, #0xcd
+	mov r4, #0
+	add r6, r5, #0
+	lsl r7, r7, #4
+_0224D8B4:
+	mov r0, #0
+	str r0, [sp]
+	mov r0, #0x86
+	add r1, r4, #4
+	mov r2, #0
+	mov r3, #4
+	bl GfGfxLoader_LoadFromNarc
+	str r0, [r6, r7]
+	add r4, r4, #1
+	add r6, r6, #4
+	cmp r4, #4
+	blt _0224D8B4
+	add r4, r5, #0
+	mov r7, #0xcd
 	mov r6, #0
-	add r4, #0x78
-_0224D75E:
-	ldr r1, [sp]
-	ldr r2, [r5]
-	ldr r3, [sp, #4]
+	add r4, #0x10
+	lsl r7, r7, #4
+_0224D8D8:
+	ldr r2, _0224D90C ; =0x00000CFC
 	add r0, r4, #0
-	bl ov01_021FBE70
-	add r0, r7, #0
-	add r1, r4, #0
-	bl Field3dObject_AddAnimation
+	add r1, r5, #0
+	add r2, r5, r2
+	add r3, r5, r7
+	bl ov02_0224D73C
 	add r6, r6, #1
-	add r5, r5, #4
-	add r4, #0x14
-	cmp r6, #4
-	blt _0224D75E
-	add r0, r7, #0
+	add r4, #0xcc
+	cmp r6, #0x10
+	blt _0224D8D8
+	mov r1, #0xce
+	ldr r0, [sp, #4]
+	lsl r1, r1, #4
+	str r0, [r5, r1]
+	ldr r0, [r5, r1]
+	add r1, #0x10
+	ldr r0, [r0, #0x40]
+	add r1, r5, r1
+	bl PlayerAvatar_CopyPositionVector
+	ldr r0, _0224D910 ; =0x00000D0C
 	mov r1, #0
-	bl Field3dObject_SetActiveFlag
+	str r1, [r5, r0]
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov02_0224D73C
+	.balign 4, 0
+_0224D90C: .word 0x00000CFC
+_0224D910: .word 0x00000D0C
+	thumb_func_end ov02_0224D880
 
 
 
 
-	thumb_func_start ov02_0224D788
-ov02_0224D788: ; 0x0224D788
+	thumb_func_start ov02_0224D914
+ov02_0224D914: ; 0x0224D914
 	push {r3, r4, r5, r6, r7, lr}
-	add r7, r0, #0
-	add r5, r7, #0
-	add r6, r1, #0
-	mov r4, #0
-	add r5, #0x78
-_0224D794:
+	add r5, r2, #0
+	add r4, r5, #0
+	ldr r7, _0224D94C ; =0x00000CFC
+	mov r6, #0
+	add r4, #0x10
+_0224D920:
+	add r0, r4, #0
+	add r1, r5, r7
+	bl ov02_0224D788
+	add r6, r6, #1
+	add r4, #0xcc
+	cmp r6, #0x10
+	blt _0224D920
 	add r0, r5, #0
-	add r1, r6, #0
-	bl Field3dModelAnimation_Unload
+	bl Field3dModel_Unload
+	mov r6, #0xcd
+	mov r4, #0
+	lsl r6, r6, #4
+_0224D93C:
+	ldr r0, [r5, r6]
+	bl Heap_Free
 	add r4, r4, #1
-	add r5, #0x14
+	add r5, r5, #4
 	cmp r4, #4
-	blt _0224D794
-	add r0, r7, #0
-	mov r1, #0
-	mov r2, #0xcc
-	bl memset
+	blt _0224D93C
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov02_0224D788
+	.balign 4, 0
+_0224D94C: .word 0x00000CFC
+	thumb_func_end ov02_0224D914
 
 
 
 
-	thumb_func_start ov02_0224D7B0
-ov02_0224D7B0: ; 0x0224D7B0
-	push {r3, r4, lr}
-	sub sp, #0xc
-	add r4, r0, #0
-	mov r0, #0xce
-	lsl r0, r0, #4
-	ldr r0, [r4, r0]
-	add r1, sp, #0
-	ldr r0, [r0, #0x40]
-	bl PlayerAvatar_CopyPositionVector
-	mov r1, #0xcf
-	lsl r1, r1, #4
-	ldr r2, [sp]
-	ldr r0, [r4, r1]
-	sub r0, r2, r0
-	bne _0224D7F8
-	add r0, r1, #4
-	ldr r2, [sp, #4]
-	ldr r0, [r4, r0]
-	cmp r2, r0
-	bge _0224D7F8
-	add r0, r1, #0
-	add r0, #8
-	ldr r2, [sp, #8]
-	ldr r0, [r4, r0]
-	cmp r2, r0
-	ble _0224D7F8
-	add r0, r1, #0
-	mov r2, #0
-	sub r0, #8
-	str r2, [r4, r0]
-	mov r2, #2
-	lsl r2, r2, #0x10
-	sub r0, r1, #4
-	str r2, [r4, r0]
-	b _0224D806
-_0224D7F8:
-	mov r1, #2
-	ldr r0, _0224D81C ; =0x00000CE8
-	lsl r1, r1, #0x10
-	str r1, [r4, r0]
-	lsr r1, r1, #1
-	add r0, r0, #4
-	str r1, [r4, r0]
-_0224D806:
-	mov r0, #0xcf
-	lsl r0, r0, #4
-	add r3, sp, #0
-	add r2, r4, r0
-	ldmia r3!, {r0, r1}
-	stmia r2!, {r0, r1}
-	ldr r0, [r3]
-	str r0, [r2]
-	add sp, #0xc
-	pop {r3, r4, pc}
-	nop
-_0224D81C: .word 0x00000CE8
-	thumb_func_end ov02_0224D7B0
-
-
-
-
-	thumb_func_start ov02_0224D820
-ov02_0224D820: ; 0x0224D820
+	thumb_func_start ov02_0224D950
+ov02_0224D950: ; 0x0224D950
 	push {r4, lr}
-	add r4, r0, #0
-	bl ov02_0224D7B0
-	mov r2, #0
-	add r1, r4, #0
-_0224D82C:
-	add r0, r1, #0
-	add r0, #0xd8
-	ldr r0, [r0]
+	ldr r1, _0224D988 ; =0x00000D0C
+	add r4, r2, #0
+	ldr r0, [r4, r1]
 	cmp r0, #0
-	bne _0224D858
-	add r1, r4, #0
-	mov r0, #0xcc
-	mov r3, #0xce
-	add r1, #0x10
-	mul r0, r2
-	lsl r3, r3, #4
-	add r0, r1, r0
-	ldr r1, [r4, r3]
-	add r2, r3, #0
-	add r2, #8
-	add r3, #0xc
-	ldr r1, [r1, #0x40]
-	ldr r2, [r4, r2]
-	ldr r3, [r4, r3]
-	bl ov02_0224D698
-	pop {r4, pc}
-_0224D858:
-	add r2, r2, #1
-	add r1, #0xcc
-	cmp r2, #0x10
-	blt _0224D82C
-	bl GF_AssertFail
+	bne _0224D986
+	add r0, r1, #0
+	sub r0, #0x28
+	ldr r0, [r4, r0]
+	sub r2, r0, #1
+	add r0, r1, #0
+	sub r0, #0x28
+	str r2, [r4, r0]
+	add r0, r1, #0
+	sub r0, #0x28
+	ldr r0, [r4, r0]
+	cmp r0, #0
+	bge _0224D980
+	mov r0, #4
+	sub r1, #0x28
+	str r0, [r4, r1]
+	add r0, r4, #0
+	bl ov02_0224D820
+_0224D980:
+	add r0, r4, #0
+	bl ov02_0224D868
+_0224D986:
 	pop {r4, pc}
 	.balign 4, 0
-	thumb_func_end ov02_0224D820
+_0224D988: .word 0x00000D0C
+	thumb_func_end ov02_0224D950
+
+

@@ -25,137 +25,10 @@
 	.public ov113_021E6930
 	.public ov113_021E6988
 	.public ov113_021E69A8
-
-	thumb_func_start ov113_021E5ED0
-ov113_021E5ED0: ; 0x021E5ED0
-	push {r4, lr}
-	add r4, r0, #0
-	cmp r1, #0
-	beq _021E5EE2
-	cmp r1, #1
-	beq _021E5EF4
-	cmp r1, #2
-	beq _021E5F16
-	b _021E5F3C
-_021E5EE2:
-	ldr r0, _021E5F40 ; =0x000005DD
-	bl PlaySE
-	add r0, r4, #0
-	mov r1, #1
-	bl ov113_021E5E64
-	mov r0, #1
-	pop {r4, pc}
-_021E5EF4:
-	ldrb r0, [r4, #0x1a]
-	cmp r0, #0
-	bne _021E5EFE
-	mov r0, #2
-	pop {r4, pc}
-_021E5EFE:
-	sub r0, r0, #1
-	strb r0, [r4, #0x1a]
-	add r4, #0xbc
-	ldr r0, [r4]
-	mov r1, #3
-	bl Sprite_SetAnimCtrlSeq
-	ldr r0, _021E5F44 ; =0x000005DC
-	bl PlaySE
-	mov r0, #3
-	pop {r4, pc}
-_021E5F16:
-	ldrb r0, [r4, #0x1b]
-	ldrb r1, [r4, #0x1a]
-	sub r0, r0, #1
-	cmp r1, r0
-	blt _021E5F24
-	mov r0, #2
-	pop {r4, pc}
-_021E5F24:
-	add r0, r1, #1
-	strb r0, [r4, #0x1a]
-	add r4, #0xc0
-	ldr r0, [r4]
-	mov r1, #6
-	bl Sprite_SetAnimCtrlSeq
-	ldr r0, _021E5F44 ; =0x000005DC
-	bl PlaySE
-	mov r0, #3
-	pop {r4, pc}
-_021E5F3C:
-	mov r0, #2
-	pop {r4, pc}
-	.balign 4, 0
-_021E5F40: .word 0x000005DD
-_021E5F44: .word 0x000005DC
-	thumb_func_end ov113_021E5ED0
-
-
-	thumb_func_start ov113_021E5F48
-ov113_021E5F48: ; 0x021E5F48
-	push {r3, lr}
-	ldr r1, _021E5F8C ; =gSystem
-	ldr r2, [r1, #0x48]
-	ldr r1, _021E5F90 ; =0x00000CF3
-	tst r1, r2
-	beq _021E5F58
-	mov r1, #0
-	str r1, [r0, #0x14]
-_021E5F58:
-	ldr r1, _021E5F8C ; =gSystem
-	ldr r3, [r1, #0x48]
-	mov r1, #2
-	add r2, r3, #0
-	tst r2, r1
-	beq _021E5F6C
-	mov r1, #0
-	bl ov113_021E5ED0
-	pop {r3, pc}
-_021E5F6C:
-	mov r2, #0x40
-	tst r2, r3
-	beq _021E5F7A
-	mov r1, #1
-	bl ov113_021E5ED0
-	pop {r3, pc}
-_021E5F7A:
-	mov r2, #0x80
-	tst r2, r3
-	beq _021E5F86
-	bl ov113_021E5ED0
-	pop {r3, pc}
-_021E5F86:
-	add r0, r1, #0
-	pop {r3, pc}
-	nop
-_021E5F8C: .word gSystem
-_021E5F90: .word 0x00000CF3
-	thumb_func_end ov113_021E5F48
-
-
-	thumb_func_start ov113_021E5F94
-ov113_021E5F94: ; 0x021E5F94
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	ldr r0, _021E5FBC ; =ov113_021E6B82
-	add r4, r1, #0
-	bl TouchscreenHitbox_FindHitboxAtTouchNew
-	add r1, r0, #0
-	mov r0, #0
-	mvn r0, r0
-	cmp r1, r0
-	bne _021E5FAE
-	mov r0, #2
-	pop {r3, r4, r5, pc}
-_021E5FAE:
-	mov r0, #1
-	str r0, [r4]
-	str r0, [r5, #0x14]
-	add r0, r5, #0
-	bl ov113_021E5ED0
-	pop {r3, r4, r5, pc}
-	.balign 4, 0
-_021E5FBC: .word ov113_021E6B82
-	thumb_func_end ov113_021E5F94
+	.public ov113_021E5ED0
+	.public ov113_021E5F48
+	.public ov113_021E5F94
+	.public ov113_021E6238
 
 
 	thumb_func_start ov113_021E5FC0
@@ -249,6 +122,8 @@ _021E5FE6:
 	thumb_func_end ov113_021E5FC0
 
 
+
+
 	thumb_func_start ov113_021E6084
 ov113_021E6084: ; 0x021E6084
 	push {r3, r4, r5, r6, r7, lr}
@@ -340,6 +215,8 @@ _021E612A:
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov113_021E6084
+
+
 
 
 	thumb_func_start ov113_021E613C
@@ -470,37 +347,3 @@ _021E622E:
 	nop
 _021E6234: .word ov113_021E6BD0
 	thumb_func_end ov113_021E613C
-
-
-	thumb_func_start ov113_021E6238
-ov113_021E6238: ; 0x021E6238
-	push {r4, r5, lr}
-	sub sp, #0x1c
-	add r5, r0, #0
-	mov r0, #0x20
-	str r0, [sp]
-	mov r0, #0x18
-	str r0, [sp, #4]
-	ldr r0, [r1, #8]
-	add r4, r2, #0
-	mov r2, #0
-	str r0, [sp, #8]
-	str r2, [sp, #0xc]
-	str r2, [sp, #0x10]
-	ldrb r0, [r1, #0xc]
-	add r3, r2, #0
-	str r0, [sp, #0x14]
-	ldrb r0, [r1, #0xd]
-	lsl r1, r4, #0x18
-	lsr r1, r1, #0x18
-	str r0, [sp, #0x18]
-	ldr r0, [r5, #0x40]
-	bl CopyToBgTilemapRect
-	lsl r1, r4, #0x18
-	ldr r0, [r5, #0x40]
-	lsr r1, r1, #0x18
-	bl ScheduleBgTilemapBufferTransfer
-	add sp, #0x1c
-	pop {r4, r5, pc}
-	thumb_func_end ov113_021E6238
-

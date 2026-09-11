@@ -730,75 +730,41 @@
 	.public ov43_0222AB20
 	.public ov43_0222AB5C
 
-	thumb_func_start ov43_0222A8C0
-ov43_0222A8C0: ; 0x0222A8C0
-	push {r3, r4, r5, r6, lr}
-	sub sp, #0x14
-	add r6, r1, #0
-	mov r1, #0x16
-	add r5, r0, #0
-	mov r0, #0
-	lsl r1, r1, #4
-	add r4, r2, #0
-	bl LoadFontPal1
-	mov r1, #7
-	mov r0, #4
-	lsl r1, r1, #6
-	add r2, r4, #0
-	bl LoadFontPal1
-	ldrb r0, [r6, #0xd]
-	mov r1, #1
-	mov r2, #0x46
-	str r0, [sp]
-	str r4, [sp, #4]
-	ldr r0, [r5]
-	mov r3, #0xc
-	bl LoadUserFrameGfx2
-	add r0, r5, #0
-	add r0, #0x64
-	bl InitWindow
-	mov r0, #0
-	str r0, [sp]
-	mov r0, #0x18
+
+	thumb_func_start ov43_0222A998
+ov43_0222A998: ; 0x0222A998
+	push {r4, r5, r6, r7, lr}
+	sub sp, #0xc
+	str r1, [sp, #8]
+	mov r1, #0x82
+	lsl r1, r1, #2
+	ldr r4, _0222A9D4 ; =ov43_0222F0C0
 	str r0, [sp, #4]
-	mov r0, #3
-	str r0, [sp, #8]
-	mov r0, #0xb
-	str r0, [sp, #0xc]
-	mov r0, #0x64
-	str r0, [sp, #0x10]
-	add r1, r5, #0
+	mov r7, #0
+	add r6, r0, r1
+	add r5, r0, #0
+_0222A9AC:
+	ldr r0, [sp, #8]
 	mov r2, #1
-	ldr r0, [r5]
-	add r1, #0x64
-	add r3, r2, #0
-	bl AddWindowParameterized
-	mov r0, #0x80
-	add r1, r4, #0
-	bl String_New
-	str r0, [r5, #0x74]
-	mov r0, #0x80
-	add r1, r4, #0
-	bl String_New
-	str r0, [r5, #0x78]
-	mov r0, #0x80
-	add r1, r4, #0
-	bl String_New
-	str r0, [r5, #0x7c]
-	mov r0, #0x80
-	add r1, r4, #0
-	bl String_New
-	add r1, r5, #0
-	add r1, #0x80
-	str r0, [r1]
-	add r0, r4, #0
-	mov r1, #0
-	bl TouchscreenListMenuSpawner_Create
-	str r0, [r5, #0x5c]
-	add r0, r4, #0
-	bl YesNoPrompt_Create
-	str r0, [r5, #0x60]
-	add sp, #0x14
-	pop {r3, r4, r5, r6, pc}
+	str r0, [sp]
+	ldr r0, [sp, #4]
+	ldrb r1, [r4]
+	ldr r0, [r0, #0x58]
+	add r3, r6, #0
+	bl GfGfxLoader_GetScrnDataFromOpenNarc
+	mov r1, #2
+	lsl r1, r1, #8
+	str r0, [r5, r1]
+	add r7, r7, #1
+	add r6, r6, #4
+	add r4, r4, #1
+	add r5, r5, #4
+	cmp r7, #2
+	blt _0222A9AC
+	add sp, #0xc
+	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
-	thumb_func_end ov43_0222A8C0
+_0222A9D4: .word ov43_0222F0C0
+	thumb_func_end ov43_0222A998
+
+

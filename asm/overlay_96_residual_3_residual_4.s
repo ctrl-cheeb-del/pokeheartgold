@@ -238,121 +238,64 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-	.public ov96_021E6FFC
-	.public ov96_021E7030
-	.public ov96_021E7080
-	.public ov96_021E70F0
-	.public ov96_021E711C
-	.public ov96_021E7150
-	.public ov96_021E7190
-	.public ov96_021E7268
-	.public ov96_021E7294
-	.public ov96_021E72CC
-	.public ov96_021E7320
-	.public ov96_021E73F8
-	.public ov96_021E74AC
-	.public ov96_021E74E0
-	.public ov96_021E7514
-	.public ov96_021E7544
-	.public ov96_021E7590
+	.public ov96_021E6108
+	.public ov96_021E6138
+	.public ov96_021E6168
+	.public ov96_021E6290
+	.public ov96_021E634C
+	.public ov96_021E6454
+	.public ov96_021E64B8
+	.public ov96_021E6550
+	.public ov96_021E658C
+	.public ov96_021E65A4
+	.public ov96_021E65D8
+	.public ov96_021E661C
 
-	thumb_func_start ov96_021E6F2C
-ov96_021E6F2C: ; 0x021E6F2C
+
+	thumb_func_start ov96_021E64F8
+ov96_021E64F8: ; 0x021E64F8
 	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #8
-	mov r1, #0x1e
-	add r7, r0, #0
-	lsl r1, r1, #4
-	ldr r2, [r7, r1]
-	ldr r2, [r2, #0x10]
-	cmp r2, #0
-	beq _021E6FD0
-	add r1, #0xac
-	add r0, r7, r1
-	bl ov96_021E8A20
+	add r7, r3, #0
+	mov r3, #0xd3
 	add r4, r0, #0
-	add r0, r7, #0
-	bl ov96_021E5F24
-	lsl r0, r0, #2
-	add r2, r7, r0
-	mov r0, #0x5e
-	lsl r0, r0, #4
-	ldrh r1, [r2, r0]
-	add r0, r0, #2
-	strh r1, [r4]
-	ldrh r0, [r2, r0]
-	strh r0, [r4, #2]
-	bl ov96_021E9A14
-	mov r3, #0xa3
-	lsl r3, r3, #2
-	add r1, r7, r3
-	sub r3, r3, #4
-	add r2, r0, #0
-	ldr r3, [r7, r3]
-	mov r0, #0x1d
-	bl ov96_021E87B4
-	str r0, [sp, #4]
-	cmp r0, #0
-	beq _021E6FE6
-	add r0, r7, #0
-	bl ov96_021E5F24
-	cmp r0, #0
-	bne _021E6FE6
-	add r0, r7, #0
-	bl PokeathlonCourse_GetUnkConstant4
-	add r6, r0, #0
-	add r0, r7, #0
-	bl PokeathlonCourse_GetParticipantCount
-	str r0, [sp]
-	cmp r0, #4
-	bge _021E6FE6
-	mov r0, #0x5e
-	lsl r0, r0, #4
-	add r1, r7, r0
-	ldr r0, [sp]
-	lsl r0, r0, #2
-	add r4, r1, r0
-	ldr r0, [sp]
-	add r5, r0, #0
-	mul r5, r6
-_021E6FAC:
-	mov r0, #0xad
-	lsl r0, r0, #2
-	add r0, r7, r0
-	bl ov96_021E8A20
-	add r0, r0, r5
-	add r1, r4, #0
-	add r2, r6, #0
-	bl memcpy
-	ldr r0, [sp]
-	add r4, r4, #4
-	add r0, r0, #1
-	add r5, r5, r6
-	str r0, [sp]
-	cmp r0, #4
-	blt _021E6FAC
-	b _021E6FE6
-_021E6FD0:
-	bl ov96_021E5F24
-	cmp r0, #0
-	bne _021E6FE2
-	add r0, r7, #0
-	bl ov96_021E75E4
-	str r0, [sp, #4]
-	b _021E6FE6
-_021E6FE2:
-	mov r0, #1
-	str r0, [sp, #4]
-_021E6FE6:
-	ldr r0, [sp, #4]
-	cmp r0, #0
-	beq _021E6FF4
-	add r0, r7, #0
-	mov r1, #0x26
-	bl PokeathlonCourse_SetStateField07
-_021E6FF4:
+	lsl r3, r3, #4
+	add r0, r2, #0
+	ldr r2, [r4, r3]
+	cmp r2, #3
+	blo _021E6512
+	bl GF_AssertFail
 	mov r0, #0
-	add sp, #8
+	pop {r3, r4, r5, r6, r7, pc}
+_021E6512:
+	add r3, r3, #4
+	lsl r2, r2, #0x18
+	add r6, r4, r3
+	lsr r3, r2, #0x14
+	mov r2, #1
+	str r2, [r6, r3]
+	add r5, r6, r3
+	mov r3, #0xa1
+	str r1, [r5, #4]
+	lsl r3, r3, #2
+	ldr r2, [sp, #0x18]
+	ldr r3, [r4, r3]
+	add r1, r7, #0
+	bl ov96_021EA7A4
+	str r0, [r5, #8]
+	ldr r0, _021E654C ; =ov96_021E81D8
+	add r1, r5, #0
+	mov r2, #1
+	bl SysTask_CreateOnMainQueue
+	str r0, [r5, #0xc]
+	mov r0, #0xd3
+	lsl r0, r0, #4
+	ldr r1, [r4, r0]
+	add r1, r1, #1
+	str r1, [r4, r0]
+	ldr r0, [r5, #8]
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
-	thumb_func_end ov96_021E6F2C
+_021E654C: .word ov96_021E81D8
+	thumb_func_end ov96_021E64F8
+
+

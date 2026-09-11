@@ -1670,6 +1670,9 @@ Overlay OVY_2
     Object asm/overlay_02_02248728_residual_44.o
     Object src/overlay02_248728_partial_44.o
     Object asm/overlay_02_02248728_residual_45.o
+    Object src/overlay02_traversal_helpers_1.o
+    Object asm/overlay_02_02248728_residual_45_residual_2.o
+    Object src/overlay02_traversal_helpers_2.o
     Object src/overlay02_248728_partial_45.o
     Object asm/overlay_02_02248728_residual_46.o
     Object src/overlay02_248728_partial_46.o
@@ -2479,7 +2482,11 @@ Overlay OVY_40
     Object src/overlay_40_sol_partial_4.o
     Object asm/overlay_40_residual_5.o
     Object src/overlay_40_sol_partial_5.o
+    Object src/overlay40_blend_helpers_1.o
     Object asm/overlay_40_residual_6.o
+    Object src/overlay40_blend_helpers_2.o
+    Object asm/overlay_40_residual_6_residual_2.o
+    Object src/overlay40_blend_helpers_3.o
     Object src/overlay_40_sol_partial_6.o
     Object asm/overlay_40_residual_7.o
     Object src/overlay_40_sol_partial_7.o
@@ -2715,6 +2722,14 @@ Overlay OVY_43
     Object asm/overlay_43_residual_6.o
     Object src/overlay43_partial_6.o
     Object asm/overlay_43_residual_7.o
+    Object src/overlay43_profile_helpers_1.o
+    Object asm/overlay_43_residual_7_residual_2.o
+    Object src/overlay43_profile_helpers_2.o
+    Object asm/overlay_43_residual_7_residual_3.o
+    Object src/overlay43_profile_helpers_3.o
+    Object asm/overlay_43_residual_7_residual_4.o
+    Object src/overlay43_profile_helpers_4.o
+    Object asm/overlay_43_residual_7_residual_5.o
     Object src/overlay43_partial_7.o
     Object asm/overlay_43_residual_8.o
     Object src/overlay43_partial_8.o
@@ -3556,6 +3571,14 @@ Overlay OVY_70
     Object asm/overlay_70_residual_39.o
     Object src/overlay70_sol_partial_39.o
     Object asm/overlay_70_residual_40.o
+    Object src/overlay70_selection_helpers_1.o
+    Object asm/overlay_70_residual_40_residual_2.o
+    Object src/overlay70_selection_helpers_2.o
+    Object asm/overlay_70_residual_40_residual_3.o
+    Object src/overlay70_selection_helpers_3.o
+    Object asm/overlay_70_residual_40_residual_4.o
+    Object src/overlay70_selection_helpers_4.o
+    Object asm/overlay_70_residual_40_residual_5.o
     Object src/overlay70_sol_partial_40.o
     Object asm/overlay_70_residual_41.o
     Object src/overlay70_sol_partial_41.o
@@ -4163,6 +4186,8 @@ Overlay OVY_81
     Object asm/overlay_81_residual_7.o
     Object src/overlay81_partial_7.o
     Object asm/overlay_81_residual_8.o
+    Object src/overlay81_dispatch_helpers_1.o
+    Object asm/overlay_81_residual_8_residual_2.o
     Object src/overlay81_partial_8.o
     Object asm/overlay_81_residual_9.o
     Object src/overlay81_partial_9.o
@@ -4762,7 +4787,15 @@ Overlay OVY_96
     Object src/overlay96_exact_bank_1.o
     Object asm/overlay_96_residual_2.o
     Object src/overlay96_exact_bank_2.o
+    Object src/overlay96_course_init_1.o
     Object asm/overlay_96_residual_3.o
+    Object src/overlay96_course_init_2.o
+    Object asm/overlay_96_residual_3_residual_2.o
+    Object src/overlay96_course_init_3.o
+    Object asm/overlay_96_residual_3_residual_3.o
+    Object src/overlay96_course_init_4.o
+    Object asm/overlay_96_residual_3_residual_4.o
+    Object src/overlay96_course_init_5.o
     Object src/overlay96_exact_bank_3.o
     Object asm/overlay_96_residual_4.o
     Object src/overlay96_exact_bank_4.o
@@ -4780,6 +4813,7 @@ Overlay OVY_96
     Object asm/overlay_96_residual_5_residual_6.o
     Object src/overlay96_exact_bank_5.o
     Object asm/overlay_96_residual_6.o
+    Object src/overlay96_course_flow_1.o
     Object src/overlay96_exact_bank_6.o
     Object asm/overlay_96_residual_7.o
     Object src/overlay96_exact_bank_7.o
@@ -5517,7 +5551,9 @@ Overlay OVY_113
     Object src/unown_report_4.o
     Object asm/overlay_113_residual_5.o
     Object src/unown_report_5.o
+    Object src/unown_report_input_1.o
     Object asm/overlay_113_residual_6.o
+    Object src/unown_report_input_2.o
     Object src/unown_report_6.o
     Object asm/overlay_113_residual_7.o
     Object src/unown_report_7.o

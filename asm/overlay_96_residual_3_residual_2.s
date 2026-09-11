@@ -238,121 +238,102 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-	.public ov96_021E6FFC
-	.public ov96_021E7030
-	.public ov96_021E7080
-	.public ov96_021E70F0
-	.public ov96_021E711C
-	.public ov96_021E7150
-	.public ov96_021E7190
-	.public ov96_021E7268
-	.public ov96_021E7294
-	.public ov96_021E72CC
-	.public ov96_021E7320
-	.public ov96_021E73F8
-	.public ov96_021E74AC
-	.public ov96_021E74E0
-	.public ov96_021E7514
-	.public ov96_021E7544
-	.public ov96_021E7590
+	.public ov96_021E6108
+	.public ov96_021E6138
+	.public ov96_021E6168
+	.public ov96_021E6290
+	.public ov96_021E634C
+	.public ov96_021E6454
+	.public ov96_021E64B8
+	.public ov96_021E6550
+	.public ov96_021E658C
+	.public ov96_021E65A4
+	.public ov96_021E65D8
+	.public ov96_021E661C
 
-	thumb_func_start ov96_021E6F2C
-ov96_021E6F2C: ; 0x021E6F2C
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #8
-	mov r1, #0x1e
+
+	thumb_func_start ov96_021E62AC
+ov96_021E62AC: ; 0x021E62AC
+	push {r4, r5, r6, r7, lr}
+	sub sp, #0x1c
 	add r7, r0, #0
-	lsl r1, r1, #4
-	ldr r2, [r7, r1]
-	ldr r2, [r2, #0x10]
-	cmp r2, #0
-	beq _021E6FD0
-	add r1, #0xac
-	add r0, r7, r1
-	bl ov96_021E8A20
-	add r4, r0, #0
-	add r0, r7, #0
-	bl ov96_021E5F24
+	ldr r0, [sp, #0x30]
+	str r1, [sp, #4]
+	str r0, [sp, #0x30]
+	ldr r0, [sp, #0x34]
+	ldr r1, _021E6340 ; =0x00000728
+	str r0, [sp, #0x34]
+	ldr r0, [sp, #0x38]
+	str r2, [sp, #8]
+	str r0, [sp, #0x38]
+	ldr r0, [sp, #0x34]
+	str r3, [sp, #0xc]
+	strb r0, [r7, r1]
+	ldr r0, [sp, #0x34]
+	mov r4, #0
+	cmp r0, #0
+	bls _021E631E
+_021E62D2:
+	mov r0, #0xa1
 	lsl r0, r0, #2
-	add r2, r7, r0
-	mov r0, #0x5e
-	lsl r0, r0, #4
-	ldrh r1, [r2, r0]
-	add r0, r0, #2
-	strh r1, [r4]
-	ldrh r0, [r2, r0]
-	strh r0, [r4, #2]
-	bl ov96_021E9A14
-	mov r3, #0xa3
-	lsl r3, r3, #2
-	add r1, r7, r3
-	sub r3, r3, #4
-	add r2, r0, #0
-	ldr r3, [r7, r3]
-	mov r0, #0x1d
-	bl ov96_021E87B4
-	str r0, [sp, #4]
-	cmp r0, #0
-	beq _021E6FE6
-	add r0, r7, #0
-	bl ov96_021E5F24
-	cmp r0, #0
-	bne _021E6FE6
-	add r0, r7, #0
-	bl PokeathlonCourse_GetUnkConstant4
-	add r6, r0, #0
-	add r0, r7, #0
-	bl PokeathlonCourse_GetParticipantCount
+	ldr r0, [r7, r0]
+	lsl r6, r4, #2
 	str r0, [sp]
-	cmp r0, #4
-	bge _021E6FE6
-	mov r0, #0x5e
-	lsl r0, r0, #4
-	add r1, r7, r0
-	ldr r0, [sp]
-	lsl r0, r0, #2
-	add r4, r1, r0
-	ldr r0, [sp]
-	add r5, r0, #0
-	mul r5, r6
-_021E6FAC:
-	mov r0, #0xad
-	lsl r0, r0, #2
-	add r0, r7, r0
-	bl ov96_021E8A20
-	add r0, r0, r5
-	add r1, r4, #0
-	add r2, r6, #0
-	bl memcpy
-	ldr r0, [sp]
-	add r4, r4, #4
-	add r0, r0, #1
-	add r5, r5, r6
-	str r0, [sp]
-	cmp r0, #4
-	blt _021E6FAC
-	b _021E6FE6
-_021E6FD0:
-	bl ov96_021E5F24
-	cmp r0, #0
-	bne _021E6FE2
-	add r0, r7, #0
-	bl ov96_021E75E4
-	str r0, [sp, #4]
-	b _021E6FE6
-_021E6FE2:
-	mov r0, #1
-	str r0, [sp, #4]
-_021E6FE6:
-	ldr r0, [sp, #4]
-	cmp r0, #0
-	beq _021E6FF4
-	add r0, r7, #0
-	mov r1, #0x26
-	bl PokeathlonCourse_SetStateField07
-_021E6FF4:
+	ldr r0, [sp, #8]
+	ldr r1, [sp, #0xc]
+	ldr r2, [sp, #0x30]
+	mov r3, #0
+	add r5, r7, r6
+	bl ov96_021EA6E4
+	ldr r1, _021E6344 ; =0x0000071C
+	str r0, [r5, r1]
 	mov r0, #0
-	add sp, #8
-	pop {r3, r4, r5, r6, r7, pc}
+	str r0, [sp, #0x18]
+	ldr r1, [sp, #0x38]
+	ldr r0, [sp, #0x38]
+	ldrh r1, [r1, r6]
+	add r0, r0, r6
+	lsl r1, r1, #0xc
+	str r1, [sp, #0x10]
+	ldrh r1, [r0, #2]
+	ldr r0, [sp, #4]
+	add r0, r0, r1
+	lsl r0, r0, #0xc
+	str r0, [sp, #0x14]
+	ldr r0, _021E6344 ; =0x0000071C
+	add r1, sp, #0x10
+	ldr r0, [r5, r0]
+	bl Sprite_SetMatrix
+	add r0, r4, #1
+	lsl r0, r0, #0x18
+	lsr r4, r0, #0x18
+	ldr r0, [sp, #0x34]
+	cmp r4, r0
+	blo _021E62D2
+_021E631E:
+	cmp r4, #3
+	bhs _021E6336
+	ldr r0, _021E6344 ; =0x0000071C
+	mov r2, #0
+_021E6326:
+	lsl r1, r4, #2
+	add r1, r7, r1
+	str r2, [r1, r0]
+	add r1, r4, #1
+	lsl r1, r1, #0x18
+	lsr r4, r1, #0x18
+	cmp r4, #3
+	blo _021E6326
+_021E6336:
+	ldr r0, _021E6348 ; =0x00000729
+	mov r1, #0
+	strb r1, [r7, r0]
+	add sp, #0x1c
+	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
-	thumb_func_end ov96_021E6F2C
+_021E6340: .word 0x00000728
+_021E6344: .word 0x0000071C
+_021E6348: .word 0x00000729
+	thumb_func_end ov96_021E62AC
+
+

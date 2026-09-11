@@ -4068,115 +4068,80 @@
 	.public ov40_0222DA84
 
 
-	thumb_func_start ov40_0222D910
-ov40_0222D910: ; 0x0222D910
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	mov r0, #0
-	str r0, [r5]
-	add r4, r1, #0
-	mov r0, #0x1f
-	str r0, [r4]
-	ldr r0, [sp, #0x20]
-	add r6, r2, #0
-	add r7, r3, #0
-	cmp r0, #0
-	bne _0222D948
-	ldr r0, [r4]
-	add r1, r6, #0
-	str r0, [sp]
-	ldr r0, _0222D978 ; =0x04000050
-	ldr r3, [r5]
-	add r2, r7, #0
-	bl G2x_SetBlendAlpha_
-	ldr r0, [r4]
-	ldr r1, [sp, #0x18]
-	str r0, [sp]
-	ldr r0, _0222D97C ; =0x04001050
-	ldr r2, [sp, #0x1c]
-	ldr r3, [r5]
-	bl G2x_SetBlendAlpha_
-_0222D948:
-	ldr r0, [sp, #0x20]
-	cmp r0, #1
-	bne _0222D95E
-	ldr r0, [r4]
-	add r1, r6, #0
-	str r0, [sp]
-	ldr r0, _0222D978 ; =0x04000050
-	ldr r3, [r5]
-	add r2, r7, #0
-	bl G2x_SetBlendAlpha_
-_0222D95E:
-	ldr r0, [sp, #0x20]
-	cmp r0, #2
-	bne _0222D974
-	ldr r0, [r4]
-	ldr r1, [sp, #0x18]
-	str r0, [sp]
-	ldr r0, _0222D97C ; =0x04001050
-	ldr r2, [sp, #0x1c]
-	ldr r3, [r5]
-	bl G2x_SetBlendAlpha_
-_0222D974:
-	pop {r3, r4, r5, r6, r7, pc}
-	nop
-_0222D978: .word 0x04000050
-_0222D97C: .word 0x04001050
-	thumb_func_end ov40_0222D910
+	thumb_func_start ov40_0222DA00
+ov40_0222DA00: ; 0x0222DA00
+	push {r4, r5}
+	mov r4, #1
+	cmp r2, #0
+	ldr r2, [r0]
+	bne _0222DA22
+	cmp r2, #8
+	bge _0222DA14
+	add r2, r2, #1
+	str r2, [r0]
+	mov r4, #0
+_0222DA14:
+	ldr r2, [r1]
+	cmp r2, #7
+	ble _0222DA38
+	sub r2, r2, #3
+	str r2, [r1]
+	mov r4, #0
+	b _0222DA38
+_0222DA22:
+	cmp r2, #0
+	ble _0222DA2C
+	sub r2, r2, #1
+	str r2, [r0]
+	mov r4, #0
+_0222DA2C:
+	ldr r2, [r1]
+	cmp r2, #0x1f
+	bge _0222DA38
+	add r2, r2, #3
+	str r2, [r1]
+	mov r4, #0
+_0222DA38:
+	cmp r3, #0
+	bne _0222DA54
+	ldr r2, [r1]
+	ldr r5, [r0]
+	lsl r2, r2, #8
+	orr r5, r2
+	ldr r2, _0222DA7C ; =0x04000052
+	strh r5, [r2]
+	ldr r2, [r1]
+	ldr r5, [r0]
+	lsl r2, r2, #8
+	orr r5, r2
+	ldr r2, _0222DA80 ; =0x04001052
+	strh r5, [r2]
+_0222DA54:
+	cmp r3, #1
+	bne _0222DA64
+	ldr r2, [r1]
+	ldr r5, [r0]
+	lsl r2, r2, #8
+	orr r5, r2
+	ldr r2, _0222DA7C ; =0x04000052
+	strh r5, [r2]
+_0222DA64:
+	cmp r3, #2
+	bne _0222DA76
+	ldr r2, [r0]
+	ldr r0, [r1]
+	add r1, r2, #0
+	lsl r0, r0, #8
+	orr r1, r0
+	ldr r0, _0222DA80 ; =0x04001052
+	strh r1, [r0]
+_0222DA76:
+	add r0, r4, #0
+	pop {r4, r5}
+	bx lr
+	.balign 4, 0
+_0222DA7C: .word 0x04000052
+_0222DA80: .word 0x04001052
+	thumb_func_end ov40_0222DA00
 
 
-
-
-	thumb_func_start ov40_0222D980
-ov40_0222D980: ; 0x0222D980
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	ldr r0, [sp, #0x20]
-	add r4, r1, #0
-	add r6, r2, #0
-	add r7, r3, #0
-	cmp r0, #0
-	bne _0222D9B0
-	ldr r0, [r4]
-	add r1, r6, #0
-	str r0, [sp]
-	ldr r0, _0222D9E0 ; =0x04000050
-	ldr r3, [r5]
-	add r2, r7, #0
-	bl G2x_SetBlendAlpha_
-	ldr r0, [r4]
-	ldr r1, [sp, #0x18]
-	str r0, [sp]
-	ldr r0, _0222D9E4 ; =0x04001050
-	ldr r2, [sp, #0x1c]
-	ldr r3, [r5]
-	bl G2x_SetBlendAlpha_
-_0222D9B0:
-	ldr r0, [sp, #0x20]
-	cmp r0, #1
-	bne _0222D9C6
-	ldr r0, [r4]
-	add r1, r6, #0
-	str r0, [sp]
-	ldr r0, _0222D9E0 ; =0x04000050
-	ldr r3, [r5]
-	add r2, r7, #0
-	bl G2x_SetBlendAlpha_
-_0222D9C6:
-	ldr r0, [sp, #0x20]
-	cmp r0, #2
-	bne _0222D9DC
-	ldr r0, [r4]
-	ldr r1, [sp, #0x18]
-	str r0, [sp]
-	ldr r0, _0222D9E4 ; =0x04001050
-	ldr r2, [sp, #0x1c]
-	ldr r3, [r5]
-	bl G2x_SetBlendAlpha_
-_0222D9DC:
-	pop {r3, r4, r5, r6, r7, pc}
-	nop
-_0222D9E0: .word 0x04000050
-_0222D9E4: .word 0x04001050
-	thumb_func_end ov40_0222D980
