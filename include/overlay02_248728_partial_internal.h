@@ -1,0 +1,98 @@
+#ifndef OVERLAY_02_02248728_PRIVATE_H
+#define OVERLAY_02_02248728_PRIVATE_H
+#include "global.h"
+#define U8(p, o)  (*(u8 *)((u8 *)(p) + (o)))
+#define U16(p, o) (*(u16 *)((u8 *)(p) + (o)))
+#define U32(p, o) (*(u32 *)((u8 *)(p) + (o)))
+#define PTR(p, o) (*(void **)((u8 *)(p) + (o)))
+extern void Heap_Free(void *);
+extern void Field3dObject_Draw(void *);
+extern void Field3dObjectTask_Delete(void *);
+extern void *sub_02068D74(void *);
+extern void Sprite_Delete(void *);
+extern void *NARC_New(u32, u32);
+extern void *SysTask_GetData(void *);
+extern void BgClearTilemapBufferAndCommit(void *, u32);
+extern void MapPropOneShotAnimationManager_PlayAnimation(void *, u32, u32);
+extern void ov02_0224D144(void *, void *);
+extern void Sprite_SetDrawFlag(void *, u32);
+extern void SpriteList_RenderAndAnimateSprites(void *);
+extern void GetPokemonSpriteCharAndPlttNarcIds(u32, u32, u32);
+extern void sub_02014450(u16, u16, void *);
+extern int sub_0205BAD0(void *);
+extern int MetatileBehavior_IsSurfableWater_thunk(void *);
+extern void TaskManager_Call(void *, void *, void *);
+extern void Task_FollowMonInteract(void);
+extern void *Sprite_GetMatrixPtr(void *);
+extern void *PlayerAvatar_GetMapObject(void *);
+extern void MapObject_SetVisible(void *, u32);
+extern void SysTask_Destroy(void *);
+extern void ov02_02249FD4(void *);
+extern void ov02_0224A028(void *);
+extern void ov02_0224A6D0(void *);
+extern void ov02_0224A8D4(void *);
+extern void *sub_02068D98(void *);
+extern void Field3dObjectTaskManager_CreateTask(void *, void *);
+extern void ov02_02253974(void);
+extern void ov02_022539BC(void);
+extern void ov02_022538FC(void);
+extern void ov02_0225398C(void);
+extern void ov02_02253944(void);
+extern void ov02_02253914(void);
+extern void ov02_0225395C(void);
+extern void ov02_022539A4(void);
+extern void ov02_0225392C(void);
+extern void ov02_022539D4(void);
+extern void ov02_022539EC(void);
+extern void ov02_0224DCB0(void *, void *, void *);
+extern u32 FieldSystem_UnkSub108_GetMonMood(void *);
+extern void *Field3dObjectTask_GetData(void *);
+extern BOOL IsPaletteFadeFinished(void);
+extern void ov02_02249EC0(void *);
+extern void ov02_02249CF0(void *);
+extern void ov02_02249F6C(void *);
+extern void ov02_0224A4D0(void *);
+extern void ov02_02249D18(void *);
+extern void Sprite_SetAnimActiveFlag(void *, u32);
+extern void Sprite_SetAnimSpeed(void *, u32);
+extern void ov01_022060B8(void *, u32, u32);
+extern void ov02_0224D1AC(void *);
+extern void ov02_0224D0AC(void *, void *);
+extern void ov02_0224D700(void *);
+extern void ov02_0224DE6C(void *);
+extern void *ov02_0224E0D4(void *, void *);
+extern void ov02_0224E0EC(void);
+extern void *Heap_AllocAtEnd(u32, u32);
+extern void sub_02068B48(void *);
+extern void PlayerAvatar_CopyPositionVector(void *, void *);
+extern void Field3dObject_SetPosEx(void *, s32, s32, s32);
+extern s32 PlayerAvatar_GetXCoord(void *);
+extern s32 PlayerAvatar_GetZCoord(void *);
+extern int ov02_0224E31C(s32, s32);
+extern void *Heap_Alloc(u32, u32);
+extern void ov02_0224ADF0(void *);
+extern void GF_AssertFail(void);
+extern void MapObject_UnpauseMovement(void *);
+extern void *Save_LocalFieldData_Get(void *);
+extern void *LocalFieldData_GetSpecialSpawnWarpPtr(void *);
+extern void sub_02053B04(void *, void *, void *);
+extern void *ov02_0224C660(u32, u32);
+extern void BeginNormalPaletteFade(u32, u32, u32, u32, u32, u32, u32);
+extern void ov02_0224A6A8(void *);
+extern void *SysTask_CreateOnMainQueue(void *, void *, u32);
+extern void ov02_0224B45C(void *);
+extern void ov02_022508D8(void *);
+extern void *SysTask_CreateOnVBlankQueue(void *, void *, u32);
+extern void ov02_02249D5C(void *);
+extern void ov02_02249E58(void *);
+extern void ov02_0224A700(void *);
+extern void sub_020689F8(void *);
+extern void ov02_0224886C(void *);
+extern void ov01_02205D68(void *);
+extern void ov02_0224AB58(void *);
+extern void ov02_0224AC38(void *);
+extern void Sprite_SetAnimCtrlSeq(void *, u32);
+extern void PlaySE(u32);
+extern void ov01_021FCD78(void *);
+extern void ov02_02248DBC(void *);
+#endif

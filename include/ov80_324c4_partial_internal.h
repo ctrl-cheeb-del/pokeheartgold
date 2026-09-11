@@ -1,0 +1,53 @@
+#ifndef PRIVATE_OV80_022324C4_H
+#define PRIVATE_OV80_022324C4_H
+#include "global.h"
+void Heap_Free(void *ptr);
+void MI_CpuFill8(void *dst, u8 value, u32 size);
+void ov80_02232B58(void *ctx, u32 value);
+void ov80_02237E30(void *ctx);
+void DrawFrameAndWindow1(void *window, u32 copy, u32 tile, u32 palette);
+void FillWindowPixelBuffer(void *window, u32 fill);
+extern const u8 ov80_0223BE54[];
+extern const u8 ov80_0223BE60[];
+void ov80_02232838(void *ctx);
+void ov80_02232908(void *ctx);
+void *ov80_02229F04(void *dst, u16 value, u32 heapId, u32 size);
+void ov80_0222A30C(u8 value);
+void *Save_Frontier_GetStatic(void *save);
+u32 sub_0205C174(u32 mode, u8 index);
+u32 sub_0205C268(u32 value);
+void sub_02031108(void *frontier, u32 stat, u32 substat, u32 value);
+u32 sub_0205C1F0(u32 mode);
+s32 FrontierSave_GetStat(void *frontier, u32 stat, u32 substat);
+void sub_02031228(void *frontier, u32 stat, u32 substat, u32 amount);
+void *Save_GameStats_Get(void *save);
+void GameStats_Add(void *stats, u32 stat, u32 amount);
+void *ov80_02237B58(u32 mode, u32 arg);
+u32 ov80_02237D8C(u32 mode);
+void ov80_0222A6B8(void *a0, u16 a1, u16 a2, void *a3, void *a4, void *a5, void *a6, u8 a7);
+BOOL ov80_0222B5C8(void *);
+BOOL ov80_0222B65C(void *);
+BOOL ov80_0222B6C8(void *);
+BOOL ov80_0222B7E4(void *);
+BOOL ov80_0222B8D8(void *, u16);
+BOOL ov80_0222B920(void *, u16);
+BOOL ov80_0222B968(void *);
+u32 sub_0203769C(void);
+s32 ov80_02237B24(u32 mode, u32 arg);
+s32 Party_GetCount(void *party);
+void *Party_GetMonByIndex(void *party, s32 slot);
+u32 GetMonData(void *mon, u32 field, void *dst);
+void ov80_02237D9C(void *party);
+void sub_0200E5D4(void *windows, u32 index);
+void WindowArray_Delete(void *windows, u32 count);
+void *String_New(u32 size, u32 heapId);
+void String_Delete(void *string);
+void *NewMsgDataFromNarc(u32 type, u32 narc, u32 file, u32 heapId);
+void DestroyMsgData(void *msgData);
+void BufferIntegerAsString(void *fmt, u32 field, u32 value, u32 digits, u32 mode, u32 charset);
+void ReadMsgDataIntoString(void *msgData, u32 msgNo, void *string);
+void StringExpandPlaceholders(void *fmt, void *dst, const void *src);
+void AddTextPrinterParameterized(void *window, u32 font, const void *string, u32 x, u32 y, u32 color, u32 speed);
+void BufferPlayersName(void *fmt, u32 field, const void *profile);
+void CopyWindowToVram(void *window);
+#endif

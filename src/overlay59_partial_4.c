@@ -1,0 +1,90 @@
+#include "global.h"
+
+void ov59_02239EF8(void *);
+void ov59_0223A03C(void *);
+void ov59_0223AF7C(void *);
+extern void String_Delete(void *);
+extern void Sprite_SetAnimActiveFlag(void *);
+extern void MenuInputStateMgr_SetState(void *, int);
+extern int ov59_022385AC(void *);
+extern void Pokepic_Delete(void *);
+extern int sub_020154B0(void *);
+extern void sub_02014EBC(void *);
+extern void Heap_Free(void *);
+extern void ov59_02239938(void *);
+extern void ov59_02239A24(void *);
+extern void ov59_0223B804(void *);
+extern void ov59_0223B8E4(void *);
+extern void GfGfx_EngineATogglePlanes(int, BOOL);
+extern void ov59_02238C40(void *, int);
+extern void ClearFrameAndWindow2(void *, int);
+extern void ClearWindowTilemapAndScheduleTransfer(void *);
+extern void ov59_02239C70(void *);
+extern void ov59_022399B4(void *);
+extern void ov59_0223BA44(void *);
+extern void ov59_0223B878(void *);
+extern void sub_02015494(void *, void (*)(void), void *);
+extern void sub_02015528(void *, int);
+extern void ov59_0223C4EC(void);
+extern void ListMenuItems_Delete(void *);
+extern void Sprite_Delete(void *);
+extern void ov59_0223A120(void *, int *);
+extern void ov59_0223A0B8(void *);
+extern void ov59_0223A2D0(void *, int *);
+extern void ov59_0223A268(void *);
+extern void ov59_0223A418(void *, int *);
+extern void ov59_0223A3B0(void *);
+extern void ov59_0223A614(void *, int *);
+extern void ov59_0223A58C(void *);
+extern void ov59_0223B3B0(void *, int *);
+extern void ov59_0223B358(void *);
+extern void ClearWindowTilemapAndCopyToVram(void *);
+extern void RemoveWindow(void *);
+extern void YesNoPrompt_Destroy(void *);
+extern void ov59_0223C350(void *);
+extern void ov59_0223B7D8(void *);
+extern void ov59_0223B6FC(void *);
+extern void ov59_0223B66C(void *);
+extern void ov59_0223B554(void *);
+extern void DrawFrameAndWindow2(void *, int, int, int);
+extern void FillWindowPixelBuffer(void *, int);
+extern void Camera_Delete(void *);
+extern void PokepicManager_Delete(void *);
+extern void GF_3DVramMan_Delete(void *);
+extern void *ov59_0223C53C(void *);
+extern int sub_02015264(int, int, void *);
+extern void sub_0201526C(void *, int, int, int);
+void ov59_022380E4(void *);
+void ov59_0223811C(void *);
+void ov59_0223ABE4(void *);
+void ov59_0223BADC(u8 *);
+void ov59_0223891C(u8 *);
+void ov59_02237F28(u8 *);
+int ov59_02238578(void *);
+void ov59_0223C3AC(u8 *);
+BOOL ov59_0223C3DC(u8 *);
+void ov59_0223C5B0(u8 *);
+void ov59_022399F0(void *);
+void ov59_0223B8B0(void *);
+void ov59_02238C24(u8 *);
+void ov59_02238D74(u8 *);
+void ov59_02239A08(void *);
+void ov59_0223B8C8(void *);
+void ov59_0223C3C0(u8 *);
+void ov59_02239918(u8 *);
+void ov59_02239C70(void *);
+void ov59_0223BA44(void *);
+void ov59_02239F18(void *);
+void ov59_0223A05C(void *);
+void ov59_022398A0(u8 *);
+void ov59_0223AD58(u8 *);
+void ov59_0223BBB0(u8 *);
+void ov59_0223C584(u8 *);
+
+void ov59_02238C24(u8 *p) {
+    if (p[0x18] == 0) {
+        ov59_02238C40(p, 1);
+    } else {
+        ov59_02238C40(p, p[0x19] + 1);
+    }
+}
