@@ -3,58 +3,9 @@
 	.include "global.inc"
 
 	.text
-
-	thumb_func_start GF_InitG2dRenderer
-GF_InitG2dRenderer: ; 0x02025C44
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	add r4, r1, #0
-	bl NNS_G2dInitRenderer
-	add r5, #0x80
-	str r4, [r5]
-	pop {r3, r4, r5, pc}
-	thumb_func_end GF_InitG2dRenderer
-
-	thumb_func_start sub_02025C54
-sub_02025C54: ; 0x02025C54
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	add r4, r1, #0
-	add r6, r2, #0
-	add r7, r3, #0
-	bl NNS_G2dInitRenderSurface
-	add r2, r5, #0
-	ldmia r4!, {r0, r1}
-	stmia r2!, {r0, r1}
-	ldmia r4!, {r0, r1}
-	stmia r2!, {r0, r1}
-	str r6, [r5, #0x28]
-	ldr r0, [sp, #0x18]
-	str r7, [r5, #0x2c]
-	str r0, [r5, #0x34]
-	ldr r0, [sp, #0x1c]
-	str r0, [r5, #0x14]
-	ldr r0, [sp, #0x20]
-	cmp r0, #0
-	beq _02025C84
-	add r1, r5, #0
-	bl NNS_G2dAddRendererTargetSurface
-_02025C84:
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end sub_02025C54
-
-	thumb_func_start GF_SetG2dRendererSurface
-GF_SetG2dRendererSurface: ; 0x02025C88
-	add r3, r0, #0
-	add r2, r1, #0
-	ldmia r2!, {r0, r1}
-	stmia r3!, {r0, r1}
-	ldmia r2!, {r0, r1}
-	stmia r3!, {r0, r1}
-	bx lr
-	.balign 4, 0
-	thumb_func_end GF_SetG2dRendererSurface
+	.public GF_InitG2dRenderer
+	.public GF_SetG2dRendererSurface
+	.public sub_02025C54
 
 	thumb_func_start sub_02025C98
 sub_02025C98: ; 0x02025C98

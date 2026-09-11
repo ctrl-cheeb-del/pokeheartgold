@@ -2,6 +2,7 @@
 	.include "unk_02058AEC.inc"
 	.include "global.inc"
 	.text
+	.public sub_02059D44
 	thumb_func_start sub_02059B64
 sub_02059B64: ; 0x02059B64
 	push {r4, r5, r6, lr}
@@ -228,52 +229,3 @@ _02059D36:
 _02059D3C: .word gSystem
 _02059D40: .word 0x0000066C
 	thumb_func_end sub_02059B64
-	thumb_func_start sub_02059D44
-sub_02059D44: ; 0x02059D44
-	push {r3, r4, r5, r6, r7, lr}
-	str r0, [sp]
-	bl sub_0203769C
-	add r5, r0, #0
-	bl sub_02057ADC
-	add r7, r0, #0
-	add r0, r5, #0
-	bl sub_02057B14
-	add r6, r0, #0
-	mov r4, #0
-	bl sub_02037454
-	cmp r0, #0
-	ble _02059DA6
-_02059D66:
-	cmp r4, r5
-	beq _02059D9C
-	add r0, r4, #0
-	bl sub_02057A34
-	cmp r7, r0
-	bne _02059D9C
-	add r0, r4, #0
-	bl sub_02057A88
-	cmp r6, r0
-	bne _02059D9C
-	ldr r1, _02059DA8 ; =0x000006A8
-	mov r0, #0xb
-	bl Heap_AllocAtEnd
-	add r2, r0, #0
-	str r4, [r2, #0x24]
-	mov r0, #0
-	str r0, [r2, #0x28]
-	ldr r0, [sp]
-	ldr r1, _02059DAC ; =sub_02059B64
-	bl FieldSystem_CreateTask
-	bl sub_0203E2F4
-	pop {r3, r4, r5, r6, r7, pc}
-_02059D9C:
-	add r4, r4, #1
-	bl sub_02037454
-	cmp r4, r0
-	blt _02059D66
-_02059DA6:
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_02059DA8: .word 0x000006A8
-_02059DAC: .word sub_02059B64
-	thumb_func_end sub_02059D44

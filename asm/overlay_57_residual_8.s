@@ -196,6 +196,7 @@
 	.public ov57_0223B948
 	.public ov57_0223BB38
 	.public ov57_0223BB4C
+	.public ov57_0223A034
 
 	thumb_func_start ov57_02239BEC
 ov57_02239BEC: ; 0x02239BEC
@@ -275,6 +276,8 @@ ov57_02239BEC: ; 0x02239BEC
 	thumb_func_end ov57_02239BEC
 
 
+
+
 	thumb_func_start ov57_02239C88
 ov57_02239C88: ; 0x02239C88
 	push {r3, r4, r5, lr}
@@ -325,6 +328,8 @@ ov57_02239C88: ; 0x02239C88
 	thumb_func_end ov57_02239C88
 
 
+
+
 	thumb_func_start ov57_02239CE8
 ov57_02239CE8: ; 0x02239CE8
 	push {r3, r4, r5, lr}
@@ -373,6 +378,8 @@ ov57_02239CE8: ; 0x02239CE8
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	thumb_func_end ov57_02239CE8
+
+
 
 
 	thumb_func_start ov57_02239D48
@@ -535,6 +542,8 @@ _02239EA8: .word 0x000088CF
 _02239EAC: .word 0x00006991
 _02239EB0: .word 0x00006D78
 	thumb_func_end ov57_02239D48
+
+
 
 
 	thumb_func_start ov57_02239EB4
@@ -711,27 +720,3 @@ _0223A028: .word 0x00006D75
 _0223A02C: .word ov57_0223BE48
 _0223A030: .word ov57_0223BE7C
 	thumb_func_end ov57_02239EB4
-
-
-	thumb_func_start ov57_0223A034
-ov57_0223A034: ; 0x0223A034
-	push {r3, r4, r5, r6, r7, lr}
-	ldr r7, _0223A054 ; =0x00000414
-	add r5, r0, #0
-	add r6, r1, #0
-	mov r4, #0
-_0223A03E:
-	ldr r0, [r5, r7]
-	cmp r0, #0
-	beq _0223A04A
-	add r1, r6, #0
-	bl ManagedSprite_SetDrawFlag
-_0223A04A:
-	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #0xd
-	blt _0223A03E
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_0223A054: .word 0x00000414
-	thumb_func_end ov57_0223A034

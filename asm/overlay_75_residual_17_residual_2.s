@@ -133,141 +133,30 @@
 	.public ov75_0224971C
 
 
-	thumb_func_start ov75_02249550
-ov75_02249550: ; 0x02249550
-	push {r3, r4, lr}
-	sub sp, #4
-	add r4, r0, #0
-	ldr r0, [r4, #0x44]
-	bl ov75_02249534
-	cmp r0, #1
-	bne _02249566
-	add sp, #4
-	mov r0, #0
-	pop {r3, r4, pc}
-_02249566:
-	add r0, r4, #0
-	add r0, #0x94
-	ldr r0, [r0]
-	cmp r0, #0
-	beq _02249576
-	cmp r0, #1
-	beq _022495A2
-	b _022495A6
-_02249576:
-	ldr r0, [r4]
-	bl ov75_02246CF8
-	cmp r0, #2
-	bne _02249584
-	mov r2, #0x26
-	b _02249586
-_02249584:
-	mov r2, #0x27
-_02249586:
-	ldr r0, _022495AC ; =0x00000F0F
-	mov r3, #1
-	str r0, [sp]
-	ldr r1, [r4, #0x34]
-	add r0, r4, #0
-	bl ov75_022494CC
-	add r0, r4, #0
-	add r0, #0x94
-	ldr r0, [r0]
-	add r4, #0x94
-	add r0, r0, #1
-	str r0, [r4]
-	b _022495A6
-_022495A2:
-	mov r0, #5
-	str r0, [r4, #8]
-_022495A6:
-	mov r0, #0
-	add sp, #4
-	pop {r3, r4, pc}
-	.balign 4, 0
-_022495AC: .word 0x00000F0F
-	thumb_func_end ov75_02249550
-
-
-
-
-	thumb_func_start ov75_022495B0
-ov75_022495B0: ; 0x022495B0
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x18
-	add r6, r0, #0
-	ldr r0, [r6, #0x44]
-	ldr r4, [r6]
-	bl ov75_02249534
-	cmp r0, #1
-	bne _022495C8
-	add sp, #0x18
-	mov r0, #0
-	pop {r3, r4, r5, r6, r7, pc}
-_022495C8:
-	add r0, r6, #0
-	add r0, #0x94
-	ldr r0, [r0]
-	cmp r0, #0
-	beq _022495D8
-	cmp r0, #1
-	beq _0224963C
-	b _02249640
-_022495D8:
-	add r0, r4, #0
-	bl ov75_02246CE8
+	thumb_func_start ov75_02249684
+ov75_02249684: ; 0x02249684
+	push {r4, r5, r6, lr}
+	sub sp, #0x10
+	add r4, r3, #0
+	ldr r3, [sp, #0x24]
 	add r5, r0, #0
-	ldr r0, [r4, #4]
-	mov r1, #3
-	bl sub_020317BC
-	cmp r5, r0
-	bne _0224961E
-	ldr r0, [r4, #4]
-	bl sub_02031774
-	add r1, sp, #8
-	mov r2, #0x73
-	bl ov75_02249884
-	mov r4, #0
-	add r5, sp, #8
-	mov r7, #2
-_02249600:
-	str r7, [sp]
-	mov r0, #1
-	str r0, [sp, #4]
-	ldr r0, [r6, #0x20]
-	ldr r2, [r5]
-	add r1, r4, #0
-	mov r3, #4
-	bl BufferIntegerAsString
-	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #4
-	blo _02249600
-	mov r2, #0x29
-	b _02249620
-_0224961E:
-	mov r2, #0x28
-_02249620:
-	ldr r0, _02249648 ; =0x00000F0F
+	str r3, [sp]
 	mov r3, #1
-	str r0, [sp]
-	ldr r1, [r6, #0x34]
-	add r0, r6, #0
-	bl ov75_022494CC
-	add r0, r6, #0
-	add r0, #0x94
-	ldr r0, [r0]
-	add r6, #0x94
-	add r0, r0, #1
-	str r0, [r6]
-	b _02249640
-_0224963C:
-	mov r0, #0
-	str r0, [r6, #8]
-_02249640:
-	mov r0, #0
-	add sp, #0x18
-	pop {r3, r4, r5, r6, r7, pc}
-	nop
-_02249648: .word 0x00000F0F
-	thumb_func_end ov75_022495B0
+	str r3, [sp, #4]
+	ldr r3, [sp, #0x20]
+	add r6, r1, #0
+	bl ov75_0224964C
+	add r3, r0, #0
+	str r4, [sp]
+	mov r1, #0
+	ldr r0, [sp, #0x24]
+	str r1, [sp, #4]
+	str r0, [sp, #8]
+	str r1, [sp, #0xc]
+	add r0, r5, #0
+	mov r1, #1
+	add r2, r6, #0
+	bl AddTextPrinterParameterizedWithColor
+	add sp, #0x10
+	pop {r4, r5, r6, pc}
+	thumb_func_end ov75_02249684
