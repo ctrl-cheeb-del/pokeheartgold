@@ -1,4 +1,4 @@
-#include "ov57_wave42_private.h"
+#include "ov57_wave43_private.h"
 
 void ov57_02238134(Ov57Work *work) {
     s32 priority[8];

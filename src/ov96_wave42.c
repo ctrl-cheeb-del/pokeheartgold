@@ -33,6 +33,22 @@ void ov96_021F8448(Work *w) {
     SpriteSystem_InitSprites(P32(w, 0x94), P32(w, 0x98), 2);
     SpriteSystem_InitManagerWithCapacities(P32(w, 0x94), P32(w, 0x98), &counts);
 }
+void ov96_021F84E4(Work *w) {
+    u8 i = 0;
+    void *zero = (void *)i;
+    do {
+        u32 off = i * 4;
+        u8 *slot = (u8 *)w + off;
+        void *s = *(void **)(slot + 0x9c);
+        if (s != NULL) {
+            Sprite_DeleteAndFreeResources(s);
+            *(void **)(slot + 0x9c) = zero;
+        }
+        i++;
+    } while (i < 2);
+    SpriteSystem_FreeResourcesAndManager(P32(w, 0x94), P32(w, 0x98));
+    SpriteSystem_Free(P32(w, 0x94));
+}
 void ov96_021F8528(Work *w) {
     void *sys = P32(w, 0x94);
     void *mgr = P32(w, 0x98);
@@ -53,21 +69,56 @@ void ov96_021F85A0(Work *w) {
     ((u16 *)t)[1] = 112;
     P32(w, 0x9c) = SpriteSystem_NewSprite(P32(w, 0x94), P32(w, 0x98), t);
 }
-void ov96_021F84E4(Work *w) {
-    u8 i = 0;
-    void *zero = (void *)i;
-    do {
-        u32 off = i * 4;
-        u8 *slot = (u8 *)w + off;
-        void *s = *(void **)(slot + 0x9c);
-        if (s != NULL) {
-            Sprite_DeleteAndFreeResources(s);
-            *(void **)(slot + 0x9c) = zero;
+BOOL ov96_021F85F4(void *course) {
+    u8 *heap = PokeathlonCourse_GetHeapAllocPtr4(course);
+    u8 *data = PokeathlonCourse_GetDataCopyArea(course);
+    u8 *a = ov96_021E8A20(data + 0x28);
+    u8 *b = ov96_021E8A20(data + 0xf0);
+    u8 participant = (u8)ov96_021E5F24(course);
+    u8 index = (u8) * (u32 *)(heap + 0xa4);
+    BOOL active = 0;
+    if (participant == 0) {
+        BOOL all = 1;
+        u8 *dst;
+        u8 *src;
+        u32 n;
+        int i;
+        a[1] = index;
+        dst = ov96_021E8A20(data + 0x50);
+        src = ov96_021E8A20(data);
+        n = 0x24;
+        while (n != 0) {
+            *dst++ = *src++;
+            n--;
         }
-        i++;
-    } while (i < 2);
-    SpriteSystem_FreeResourcesAndManager(P32(w, 0x94), P32(w, 0x98));
-    SpriteSystem_Free(P32(w, 0x94));
+        i = 0;
+        if (PokeathlonCourse_GetParticipantCount(course) > 0) {
+            u8 *p = data + 0x50;
+            do {
+                u8 *r = ov96_021E8A20(p);
+                if (r[0] < index || r[1] == 1) {
+                    active = 1;
+                }
+                if (r[2] == 0) {
+                    all = 0;
+                }
+                p += 0x28;
+                i++;
+            } while (i < PokeathlonCourse_GetParticipantCount(course));
+        }
+        if (all) {
+            a[2] = 1;
+        }
+        a[3] = active;
+    }
+    a = ov96_021E8A20(data);
+    a[0] = index;
+    a[1] = (u8)ov96_021EEA80(*(void **)(heap + 0x18));
+    a[2] = (u8) * (u32 *)(heap + 0xa8);
+    if (b[3] != 0 && index >= b[1]) {
+        return TRUE;
+    }
+    return FALSE;
 }
 void *ov96_021F86E8(int heap, void *a, void *b) {
     u8 *w = Heap_Alloc(heap, 0x334);
@@ -131,55 +182,4 @@ void ov96_021F8728(void *arg) {
     }
     SpriteList_Delete(*(void **)(w + 0x17c));
     Heap_Free(w);
-}
-BOOL ov96_021F85F4(void *course) {
-    u8 *heap = PokeathlonCourse_GetHeapAllocPtr4(course);
-    u8 *data = PokeathlonCourse_GetDataCopyArea(course);
-    u8 *a = ov96_021E8A20(data + 0x28);
-    u8 *b = ov96_021E8A20(data + 0xf0);
-    u8 participant = (u8)ov96_021E5F24(course);
-    u8 index = (u8) * (u32 *)(heap + 0xa4);
-    BOOL active = 0;
-    if (participant == 0) {
-        BOOL all = 1;
-        u8 *dst;
-        u8 *src;
-        u32 n;
-        int i;
-        a[1] = index;
-        dst = ov96_021E8A20(data + 0x50);
-        src = ov96_021E8A20(data);
-        n = 0x24;
-        while (n != 0) {
-            *dst++ = *src++;
-            n--;
-        }
-        i = 0;
-        if (PokeathlonCourse_GetParticipantCount(course) > 0) {
-            u8 *p = data + 0x50;
-            do {
-                u8 *r = ov96_021E8A20(p);
-                if (r[0] < index || r[1] == 1) {
-                    active = 1;
-                }
-                if (r[2] == 0) {
-                    all = 0;
-                }
-                p += 0x28;
-                i++;
-            } while (i < PokeathlonCourse_GetParticipantCount(course));
-        }
-        if (all) {
-            a[2] = 1;
-        }
-        a[3] = active;
-    }
-    a = ov96_021E8A20(data);
-    a[0] = index;
-    a[1] = (u8)ov96_021EEA80(*(void **)(heap + 0x18));
-    a[2] = (u8) * (u32 *)(heap + 0xa8);
-    if (b[3] != 0 && index >= b[1]) {
-        return TRUE;
-    }
-    return FALSE;
 }
