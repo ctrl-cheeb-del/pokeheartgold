@@ -4,10 +4,10 @@
 <rect width="1200" height="780" rx="16" fill="#101722"/>
 <g font-family="system-ui, sans-serif" fill="#edf2fa">
 <text x="28" y="42" font-size="25" font-weight="700">HeartGold · decompilation</text>
-<text x="1172" y="42" text-anchor="end" font-size="22">31.84% C-only source</text>
-<text x="28" y="71" font-size="14" fill="#b9c7da">Matching US ROM verified · 1ec528b1d · ARM9 + ARM7 · 4,080,114 mapped code bytes</text>
+<text x="1172" y="42" text-anchor="end" font-size="22">31.86% C-only source</text>
+<text x="28" y="71" font-size="14" fill="#b9c7da">Matching US ROM verified · 6a0caba6a · ARM9 + ARM7 · 4,080,114 mapped code bytes</text>
 <rect x="28" y="91" width="12" height="12" rx="2" fill="#35b85a"/>
-<text x="47" y="102" font-size="14">C-only source 31.8%</text>
+<text x="47" y="102" font-size="14">C-only source 31.9%</text>
 <rect x="316" y="91" width="12" height="12" rx="2" fill="#e4ad42"/>
 <text x="335" y="102" font-size="14">C with assembly 0.4%</text>
 <rect x="604" y="91" width="12" height="12" rx="2" fill="#455268"/>
@@ -15604,16 +15604,28 @@ lib/NitroSDK/asm/mi_dma_gxcommand.s</title></rect>
 1,514 bytes · C-only source
 src/overlay104_scene.c</title></rect>
 <rect x="1097.788" y="679.138" width="17.703" height="14.196" fill="none" stroke="#101722" stroke-width="2"/>
-<rect x="1097.788" y="693.334" width="17.703" height="12.039" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_33 / overlay_33.o
-1,284 bytes · Assembly
+<rect x="1097.788" y="693.334" width="13.070" height="12.039" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_33 / overlay_33.o
+948 bytes · Assembly
 asm/overlay_33.s</title></rect>
+<rect x="1110.858" y="693.334" width="4.632" height="9.173" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_33 / ov33_wave35_1.o
+256 bytes · C-only source
+src/ov33_wave35_1.c</title></rect>
+<rect x="1110.858" y="702.507" width="4.632" height="2.867" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_33 / overlay_33_residual_2.o
+80 bytes · Assembly
+asm/overlay_33_residual_2.s</title></rect>
 <rect x="1097.788" y="693.334" width="17.703" height="12.039" fill="none" stroke="#101722" stroke-width="2"/>
 <rect x="1097.788" y="705.373" width="17.703" height="11.627" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_114 / overlay_114.o
 1,240 bytes · Assembly
 asm/overlay_114.s</title></rect>
 <rect x="1097.788" y="705.373" width="17.703" height="11.627" fill="none" stroke="#101722" stroke-width="2"/>
-<rect x="1115.491" y="679.138" width="10.407" height="19.458" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_105 / overlay_105.o
-1,220 bytes · Assembly
+<rect x="1115.491" y="679.138" width="10.407" height="10.973" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_105 / overlay_105_residual_2.o
+688 bytes · Assembly
+asm/overlay_105_residual_2.s</title></rect>
+<rect x="1115.491" y="690.111" width="6.104" height="8.485" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_105 / ov105_wave35_1.o
+312 bytes · C-only source
+src/ov105_wave35_1.c</title></rect>
+<rect x="1121.594" y="690.111" width="4.304" height="8.485" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_105 / overlay_105.o
+220 bytes · Assembly
 asm/overlay_105.s</title></rect>
 <rect x="1115.491" y="679.138" width="10.407" height="19.458" fill="none" stroke="#101722" stroke-width="2"/>
 <rect x="1125.898" y="679.138" width="10.390" height="19.458" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_25 / overlay_25.o

@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "1ec528b1ded5ab7ca4669f0c299a07109237ec22",
+  "commit": "6a0caba6a38f14225a2a27ba785b3e2052f00256",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": false,
   "map_sha256": {
-    "ARM9": "16944ad6f5ff20284e66c6efc563e4c1f5871d9d183ba90b43155b08b61299b7",
+    "ARM9": "8ebbd92d2f4d66d6d292e819e9ff13c4fdfe502b50c6c7b5fc485d75e8333e1b",
     "ARM7": "bf1916e1ae2399401bea90b68b3a76666f2dbd09367bff4a5f14a2651eafe1a8"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 2753844,
+    "asm": 2753276,
     "mixed": 18270,
-    "c": 1299208,
+    "c": 1299776,
     "unknown": 8792
   },
   "objects": [
@@ -1595,10 +1595,26 @@
     {
       "cpu": "ARM9",
       "module": "OVY_105",
+      "object": "ov105_wave35_1.o",
+      "bytes": 312,
+      "status": "c",
+      "source": "src/ov105_wave35_1.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_105",
       "object": "overlay_105.o",
-      "bytes": 1220,
+      "bytes": 220,
       "status": "asm",
       "source": "asm/overlay_105.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_105",
+      "object": "overlay_105_residual_2.o",
+      "bytes": 688,
+      "status": "asm",
+      "source": "asm/overlay_105_residual_2.s"
     },
     {
       "cpu": "ARM9",
@@ -7579,10 +7595,26 @@
     {
       "cpu": "ARM9",
       "module": "OVY_33",
+      "object": "ov33_wave35_1.o",
+      "bytes": 256,
+      "status": "c",
+      "source": "src/ov33_wave35_1.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_33",
       "object": "overlay_33.o",
-      "bytes": 1284,
+      "bytes": 948,
       "status": "asm",
       "source": "asm/overlay_33.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_33",
+      "object": "overlay_33_residual_2.o",
+      "bytes": 80,
+      "status": "asm",
+      "source": "asm/overlay_33_residual_2.s"
     },
     {
       "cpu": "ARM9",
