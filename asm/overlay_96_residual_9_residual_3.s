@@ -244,63 +244,41 @@
 	.public ov96_021E8770
 
 
-	thumb_func_start ov96_021E8340
-ov96_021E8340: ; 0x021E8340
-	push {r3, lr}
-	cmp r0, #8
-	bhi _021E8382
-	add r0, r0, r0
-	add r0, pc
-	ldrh r0, [r0, #6]
-	lsl r0, r0, #0x10
-	asr r0, r0, #0x10
-	add pc, r0
-_021E8352: ; jump table
-	.short _021E8382 - _021E8352 - 2 ; case 0
-	.short _021E8364 - _021E8352 - 2 ; case 1
-	.short _021E8366 - _021E8352 - 2 ; case 2
-	.short _021E836A - _021E8352 - 2 ; case 3
-	.short _021E836E - _021E8352 - 2 ; case 4
-	.short _021E8372 - _021E8352 - 2 ; case 5
-	.short _021E8376 - _021E8352 - 2 ; case 6
-	.short _021E837A - _021E8352 - 2 ; case 7
-	.short _021E837E - _021E8352 - 2 ; case 8
-_021E8364:
-	b _021E8388
-_021E8366:
-	add r2, r2, #4
-	b _021E8388
-_021E836A:
-	add r2, #8
-	b _021E8388
-_021E836E:
-	add r2, #0xc
-	b _021E8388
-_021E8372:
-	add r2, #0x10
-	b _021E8388
-_021E8376:
-	add r2, #0x14
-	b _021E8388
-_021E837A:
-	add r2, #0x18
-	b _021E8388
-_021E837E:
-	add r2, #0x1c
-	b _021E8388
-_021E8382:
-	bl GF_AssertFail
-	pop {r3, pc}
-_021E8388:
-	ldr r0, [r2]
-	add r1, r0, r1
-	ldr r0, _021E8398 ; =0x0000270F
-	str r1, [r2]
-	cmp r1, r0
-	bls _021E8396
-	str r0, [r2]
-_021E8396:
-	pop {r3, pc}
+	thumb_func_start ov96_021E872C
+ov96_021E872C: ; 0x021E872C
+	push {lr}
+	sub sp, #0x24
+	lsl r0, r0, #0xc
+	str r0, [sp, #0x18]
+	lsl r0, r1, #0xc
+	mov r1, #0
+	str r0, [sp, #0x1c]
+	lsl r0, r2, #0xc
+	str r0, [sp, #0xc]
+	lsl r0, r3, #0xc
+	str r0, [sp, #0x10]
+	str r1, [sp, #0x20]
+	str r1, [sp, #0x14]
+	add r0, sp, #0x18
+	add r1, sp, #0xc
+	add r2, sp, #0
+	bl VEC_Subtract
+	add r0, sp, #0
+	bl VEC_Mag
+	ldr r1, [sp, #0x2c]
+	str r0, [r1]
+	ldr r1, [sp, #0x28]
+	lsl r1, r1, #0xc
+	cmp r0, r1
+	bge _021E8768
+	add sp, #0x24
+	mov r0, #1
+	pop {pc}
+_021E8768:
+	mov r0, #0
+	add sp, #0x24
+	pop {pc}
 	.balign 4, 0
-_021E8398: .word 0x0000270F
-	thumb_func_end ov96_021E8340
+	thumb_func_end ov96_021E872C
+
+

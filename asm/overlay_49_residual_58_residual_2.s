@@ -3435,86 +3435,86 @@
 	.public ov49_0225F374
 
 
-	thumb_func_start ov49_0225F260
-ov49_0225F260: ; 0x0225F260
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x10
-	str r1, [sp]
-	add r7, r0, #0
-	str r2, [sp, #4]
-	add r4, r3, #0
-	ldr r5, [sp, #0x28]
-	bl ov49_0225EF84
-	str r0, [sp, #0xc]
-	ldr r0, [sp]
-	bl ov49_0225A010
-	str r0, [sp, #8]
-	ldr r0, [r4, #8]
-	mov r2, #0
-	cmp r0, #3
-	beq _0225F2F4
-	add r6, r4, #0
-	add r1, r2, #0
-_0225F288:
-	add r3, r1, #0
-_0225F28A:
-	ldrb r0, [r6, r3]
-	cmp r0, #0xff
-	beq _0225F2EA
-	cmp r5, r0
-	bne _0225F2E4
-	mov r0, #0x18
-	add r5, r2, #0
-	mul r5, r0
-	add r6, r4, r5
-	ldr r0, [r6, #8]
+	thumb_func_start ov49_0225F394
+ov49_0225F394: ; 0x0225F394
+	push {r4, lr}
+	add r4, r0, #0
+	ldrb r0, [r4, #5]
 	cmp r0, #0
-	beq _0225F2AA
+	beq _0225F3A8
 	cmp r0, #1
-	beq _0225F2C2
-	add sp, #0x10
-	pop {r3, r4, r5, r6, r7, pc}
-_0225F2AA:
-	add r0, r7, #0
-	bl ov49_0225EF68
-	add r2, r6, #0
-	ldr r0, [sp, #8]
-	ldr r1, [sp, #4]
-	add r2, #0xc
+	beq _0225F3AE
+	cmp r0, #2
+	beq _0225F3C0
+	b _0225F422
+_0225F3A8:
+	mov r0, #0
+	str r0, [r4]
+	b _0225F422
+_0225F3AE:
+	ldrb r0, [r4, #6]
+	sub r0, r0, #1
+	cmp r0, #0
+	ble _0225F3BA
+	strb r0, [r4, #6]
+	b _0225F422
+_0225F3BA:
+	mov r0, #2
+	strb r0, [r4, #5]
+	b _0225F422
+_0225F3C0:
+	mov r0, #4
+	ldrsb r1, [r4, r0]
 	mov r3, #0
-	bl ov49_0225EF98
-	add sp, #0x10
-	pop {r3, r4, r5, r6, r7, pc}
-_0225F2C2:
-	ldr r7, [r6, #0x14]
-	cmp r7, #0
-	beq _0225F2D2
-	ldrb r3, [r3, r6]
-	ldr r0, [sp, #0xc]
-	ldr r1, [sp]
-	ldr r2, [sp, #4]
-	blx r7
-_0225F2D2:
-	add r2, r4, r5
-	ldr r0, [sp, #8]
-	ldr r1, [sp, #4]
-	add r2, #0xc
+	add r1, r1, #1
+	strb r1, [r4, #4]
+	ldrsb r1, [r4, r0]
+	ldr r0, _0225F428 ; =0x00007FFF
+	add r2, r1, #0
+	mul r2, r0
+	asr r0, r2, #1
+	lsr r0, r0, #0x1e
+	add r0, r2, r0
+	lsl r0, r0, #0xe
+	lsr r0, r0, #0x10
+	asr r0, r0, #4
+	lsl r1, r0, #2
+	ldr r0, _0225F42C ; =FX_SinCosTable_
+	mov r2, #6
+	ldrsh r0, [r0, r1]
+	lsl r2, r2, #0xc
+	asr r1, r0, #0x1f
+	bl _ll_mul
+	mov r2, #2
 	mov r3, #0
-	bl ov49_0225EFC4
-	add sp, #0x10
-	pop {r3, r4, r5, r6, r7, pc}
-_0225F2E4:
-	add r3, r3, #1
-	cmp r3, #8
-	blt _0225F28A
-_0225F2EA:
-	add r6, #0x18
-	ldr r0, [r6, #8]
-	add r2, r2, #1
-	cmp r0, #3
-	bne _0225F288
-_0225F2F4:
-	bl GF_AssertFail
-	add sp, #0x10
-	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov49_0225F260
+	lsl r2, r2, #0xa
+	add r2, r0, r2
+	adc r1, r3
+	lsl r0, r1, #0x14
+	lsr r1, r2, #0xc
+	orr r1, r0
+	str r1, [r4]
+	mov r0, #4
+	ldrsb r0, [r4, r0]
+	cmp r0, #4
+	blt _0225F422
+	ldrb r0, [r4, #7]
+	cmp r0, #1
+	bne _0225F420
+	strb r3, [r4, #4]
+	mov r0, #1
+	strb r0, [r4, #5]
+	bl MTRandom
+	mov r1, #3
+	and r0, r1
+	strb r0, [r4, #6]
+	b _0225F422
+_0225F420:
+	strb r3, [r4, #5]
+_0225F422:
+	ldr r0, [r4]
+	pop {r4, pc}
+	nop
+_0225F428: .word 0x00007FFF
+_0225F42C: .word FX_SinCosTable_
+	thumb_func_end ov49_0225F394

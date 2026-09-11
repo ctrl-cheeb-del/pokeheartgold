@@ -238,69 +238,281 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-	.public ov96_021E8324
-	.public ov96_021E839C
-	.public ov96_021E86FC
-	.public ov96_021E8770
+	.public ov96_0220AE28
+	.public ov96_0220B148
+	.public ov96_0220B1B8
+	.public ov96_0220B324
+	.public ov96_0220B354
+	.public ov96_0220B6EC
+	.public ov96_0220B708
+	.public ov96_0220AE40
+	.public ov96_0220AF30
 
 
-	thumb_func_start ov96_021E8340
-ov96_021E8340: ; 0x021E8340
-	push {r3, lr}
-	cmp r0, #8
-	bhi _021E8382
-	add r0, r0, r0
-	add r0, pc
-	ldrh r0, [r0, #6]
-	lsl r0, r0, #0x10
-	asr r0, r0, #0x10
-	add pc, r0
-_021E8352: ; jump table
-	.short _021E8382 - _021E8352 - 2 ; case 0
-	.short _021E8364 - _021E8352 - 2 ; case 1
-	.short _021E8366 - _021E8352 - 2 ; case 2
-	.short _021E836A - _021E8352 - 2 ; case 3
-	.short _021E836E - _021E8352 - 2 ; case 4
-	.short _021E8372 - _021E8352 - 2 ; case 5
-	.short _021E8376 - _021E8352 - 2 ; case 6
-	.short _021E837A - _021E8352 - 2 ; case 7
-	.short _021E837E - _021E8352 - 2 ; case 8
-_021E8364:
-	b _021E8388
-_021E8366:
-	add r2, r2, #4
-	b _021E8388
-_021E836A:
-	add r2, #8
-	b _021E8388
-_021E836E:
-	add r2, #0xc
-	b _021E8388
-_021E8372:
-	add r2, #0x10
-	b _021E8388
-_021E8376:
-	add r2, #0x14
-	b _021E8388
-_021E837A:
-	add r2, #0x18
-	b _021E8388
-_021E837E:
-	add r2, #0x1c
-	b _021E8388
-_021E8382:
-	bl GF_AssertFail
-	pop {r3, pc}
-_021E8388:
-	ldr r0, [r2]
-	add r1, r0, r1
-	ldr r0, _021E8398 ; =0x0000270F
-	str r1, [r2]
-	cmp r1, r0
-	bls _021E8396
-	str r0, [r2]
-_021E8396:
-	pop {r3, pc}
+
+
+	thumb_func_start ov96_0220AF64
+ov96_0220AF64: ; 0x0220AF64
+	push {r3, r4, r5, lr}
+	add r5, r0, #0
+	ldr r1, [r5, #0x10]
+	lsl r0, r1, #0xc
+	lsr r0, r0, #0x18
+	cmp r0, #1
+	bne _0220AFEE
+	lsl r0, r1, #5
+	lsr r0, r0, #0x19
+	lsl r2, r0, #2
+	mov r0, #0xa8
+	sub r4, r0, r2
+	ldr r0, _0220AFF0 ; =0xFFFFF00F
+	and r0, r1
+	lsl r1, r1, #0x14
+	lsr r1, r1, #0x18
+	add r1, #0x14
+	lsl r1, r1, #0x18
+	lsr r1, r1, #0x14
+	add r2, r0, #0
+	orr r2, r1
+	str r2, [r5, #0x10]
+	lsl r2, r2, #0x14
+	ldr r0, [r5]
+	mov r1, #0
+	lsr r2, r2, #0x18
+	bl ManagedSprite_OffsetPositionXY
+	ldr r2, [r5, #0x10]
+	ldr r0, [r5, #4]
+	lsl r2, r2, #0x14
+	mov r1, #0
+	lsr r2, r2, #0x18
+	bl ManagedSprite_OffsetPositionXY
+	add r1, sp, #0
+	ldr r0, [r5, #4]
+	add r1, #2
+	add r2, sp, #0
+	bl ManagedSprite_GetPositionXY
+	add r1, sp, #0
+	ldr r0, [r5]
+	add r1, #2
+	add r2, sp, #0
+	bl ManagedSprite_GetPositionXY
+	add r3, sp, #0
+	mov r2, #0
+	ldrsh r0, [r3, r2]
+	cmp r0, r4
+	blo _0220AFEE
+	strh r4, [r3]
+	mov r1, #2
+	ldrsh r1, [r3, r1]
+	ldrsh r2, [r3, r2]
+	ldr r0, [r5]
+	bl ManagedSprite_SetPositionXY
+	add r0, r5, #0
+	bl ov96_0220B068
+	ldr r1, [r5, #0x10]
+	ldr r0, _0220AFF4 ; =0xFFF00FFF
+	and r1, r0
+	mov r0, #2
+	lsl r0, r0, #0xc
+	orr r0, r1
+	str r0, [r5, #0x10]
+_0220AFEE:
+	pop {r3, r4, r5, pc}
 	.balign 4, 0
-_021E8398: .word 0x0000270F
-	thumb_func_end ov96_021E8340
+_0220AFF0: .word 0xFFFFF00F
+_0220AFF4: .word 0xFFF00FFF
+	thumb_func_end ov96_0220AF64
+
+
+
+
+
+
+
+
+	thumb_func_start ov96_0220AFF8
+ov96_0220AFF8: ; 0x0220AFF8
+	push {r4, lr}
+	add r4, r0, #0
+	bne _0220B002
+	bl GF_AssertFail
+_0220B002:
+	bl MTRandom
+	mov r1, #3
+	bl _u32_div_f
+	lsl r0, r1, #0x18
+	ldr r1, [r4, #0x10]
+	lsr r0, r0, #0x18
+	lsl r1, r1, #0x1c
+	lsr r1, r1, #0x1c
+	cmp r0, r1
+	blo _0220B020
+	add r0, r0, #1
+	lsl r0, r0, #0x18
+	lsr r0, r0, #0x18
+_0220B020:
+	ldr r2, [r4, #0x10]
+	mov r1, #0xf
+	bic r2, r1
+	mov r1, #0xf
+	and r0, r1
+	orr r0, r2
+	str r0, [r4, #0x10]
+	bl MTRandom
+	ldr r1, [r4, #0x10]
+	lsl r1, r1, #0x1c
+	lsr r2, r1, #0x1a
+	ldr r1, _0220B060 ; =ov96_0221CDC8
+	ldrsh r2, [r1, r2]
+	mov r1, #0xf
+	and r0, r1
+	add r0, r2, r0
+	strh r0, [r4, #0xa]
+	bl MTRandom
+	mov r1, #0xc
+	bl _u32_div_f
+	ldr r0, [r4, #0x10]
+	lsl r0, r0, #0x1c
+	lsr r2, r0, #0x1a
+	ldr r0, _0220B064 ; =ov96_0221CDCA
+	ldrsh r0, [r0, r2]
+	add r0, r0, r1
+	strh r0, [r4, #0xc]
+	pop {r4, pc}
+	nop
+_0220B060: .word ov96_0221CDC8
+_0220B064: .word ov96_0221CDCA
+	thumb_func_end ov96_0220AFF8
+
+
+
+
+
+
+
+
+	thumb_func_start ov96_0220B068
+ov96_0220B068: ; 0x0220B068
+	push {r3, r4, r5, lr}
+	add r4, r0, #0
+	bne _0220B072
+	bl GF_AssertFail
+_0220B072:
+	add r1, sp, #0
+	add r0, r4, #0
+	add r1, #2
+	add r2, sp, #0
+	bl ov96_0220B148
+	mov r0, #0xa
+	add r2, sp, #0
+	mov r1, #2
+	ldrsh r3, [r2, r1]
+	ldrsh r0, [r4, r0]
+	add r0, r3, r0
+	strh r0, [r2, #2]
+	mov r3, #0
+	mov r0, #0xc
+	ldrsh r5, [r2, r3]
+	ldrsh r0, [r4, r0]
+	add r0, r5, r0
+	strh r0, [r2]
+	ldrsh r1, [r2, r1]
+	ldrsh r2, [r2, r3]
+	ldr r0, [r4, #4]
+	bl ManagedSprite_SetPositionXY
+	pop {r3, r4, r5, pc}
+	thumb_func_end ov96_0220B068
+
+
+
+
+
+
+
+
+	thumb_func_start ov96_0220B0A4
+ov96_0220B0A4: ; 0x0220B0A4
+	push {r4, r5, r6, lr}
+	sub sp, #0x10
+	add r6, r0, #0
+	add r5, r1, #0
+	mov r0, #0
+	add r1, sp, #4
+	strb r0, [r1]
+	strb r0, [r1, #1]
+	strb r0, [r1, #2]
+	strb r0, [r1, #3]
+	strb r0, [r1, #4]
+	strb r0, [r1, #5]
+	strb r0, [r1, #6]
+	strb r0, [r1, #7]
+	strb r0, [r1, #8]
+	strb r0, [r1, #9]
+	strb r0, [r1, #0xa]
+	strb r0, [r1, #0xb]
+	cmp r5, #3
+	blt _0220B0D0
+	bl GF_AssertFail
+_0220B0D0:
+	ldr r0, _0220B140 ; =ov96_0221DC68
+	lsl r1, r5, #2
+	ldr r4, [r0, r1]
+	ldr r0, _0220B144 ; =ov96_0221CDA0
+	add r1, sp, #0
+	ldrb r0, [r0, r5]
+	add r1, #2
+	add r2, sp, #0
+	sub r0, r0, #1
+	lsl r0, r0, #0x18
+	lsr r5, r0, #0x18
+	ldr r0, [r6, #4]
+	bl ManagedSprite_GetPositionXY
+	mov r0, #0
+	cmp r5, #0
+	ble _0220B11E
+	add r6, sp, #0
+	mov r3, #2
+	ldrsh r2, [r6, r0]
+	ldrsh r3, [r6, r3]
+	add r1, sp, #4
+_0220B0FC:
+	ldrb r6, [r4]
+	add r0, r0, #1
+	add r6, r2, r6
+	strb r6, [r1]
+	ldrb r6, [r4, #1]
+	add r6, r2, r6
+	strb r6, [r1, #1]
+	ldrb r6, [r4, #2]
+	add r6, r3, r6
+	strb r6, [r1, #2]
+	ldrb r6, [r4, #3]
+	add r4, r4, #4
+	add r6, r3, r6
+	strb r6, [r1, #3]
+	add r1, r1, #4
+	cmp r0, r5
+	blt _0220B0FC
+_0220B11E:
+	mov r2, #0xff
+	lsl r1, r5, #2
+	add r0, sp, #4
+	strb r2, [r0, r1]
+	bl TouchscreenHitbox_FindRectAtTouchNew
+	mov r1, #0
+	mvn r1, r1
+	cmp r0, r1
+	beq _0220B138
+	add sp, #0x10
+	mov r0, #1
+	pop {r4, r5, r6, pc}
+_0220B138:
+	mov r0, #0
+	add sp, #0x10
+	pop {r4, r5, r6, pc}
+	nop
+_0220B140: .word ov96_0221DC68
+_0220B144: .word ov96_0221CDA0
+	thumb_func_end ov96_0220B0A4
+
+
