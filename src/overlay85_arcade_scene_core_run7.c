@@ -71,6 +71,7 @@ void ov85_021E9324(ArcScene *work);
 void ov85_021EA0EC(ArcScene *work, int a1, int a2);
 
 void ov85_021E943C(ArcScene *work);
+void ov85_021EA39C(ArcScene *work, int a1);
 int ov85_021E9440(ArcScene *work, int state);
 void ov85_021E9458(ArcScene *work, u32 a1);
 int ov85_021E9468(ArcScene *work, int state);
@@ -95,21 +96,13 @@ int ov85_021EA398(ArcScene *work);
 void ov85_021EA4EC(void *a0, void *a1);
 void ov85_021E8C14(BgConfig *bgConfig);
 
-void ov85_021E943C(ArcScene *work);
-
-void ov85_021E9458(ArcScene *work, u32 a1);
-
-int ov85_021E9440(ArcScene *work, int state);
-
-int ov85_021E9468(ArcScene *work, int state);
-
-int ov85_021E92F8(ArcScene *work, int state);
-
 void ov85_021E8C14(BgConfig *bgConfig);
 
 // ---- batch C: remaining state dispatchers ----
 int ov85_021E948C(ArcScene *work, int state);
 int ov85_021E94BC(ArcScene *work, int state);
+int ov85_021E94EC(ArcScene *work, int state);
+void ov85_021EA39C(ArcScene *work, int a1);
 int ov85_021E96D0(ArcScene *work, int state);
 int ov85_021E97B8(ArcScene *work, int state);
 int ov85_021E9834(ArcScene *work, int state);
@@ -117,10 +110,6 @@ int ov85_021E9900(ArcScene *work, int state);
 int ov85_021E993C(ArcScene *work, int state);
 int ov85_021E9AB0(ArcScene *work, int state);
 int ov85_021E9C50(ArcScene *work, int state);
-
-int ov85_021E948C(ArcScene *work, int state);
-
-int ov85_021E94BC(ArcScene *work, int state);
 
 // ---- batch D ----
 void ov85_021E9288(ArcScene *work);
@@ -130,11 +119,7 @@ void ov85_021E8F58(void);
 void ov85_021E83E0(ArcWork *work);
 void ov85_021E8428(ArcWork *work, ArcMsg *msg);
 
-void ov85_021E9288(ArcScene *work);
-
 void ov85_021E8E00(ArcScene *work);
-
-void ov85_021E8F58(void);
 
 void ov85_021E83E0(ArcWork *work);
 
@@ -149,11 +134,14 @@ void ov85_021E9244(Window *window, String *str, u32 speed);
 
 void *ov85_021E8588(ArcScene *work, u32 member, int atStart);
 
-int ov85_021E92B8(ArcScene *work, int state);
-
 BOOL ov85_021E8834(ArcWork *work);
 
-void ov85_021E9244(Window *window, String *str, u32 speed);
+void ov85_021E8F88(ArcScene *work, NARC *narc);
+
+BOOL ov85_021E9EC0(Window *window, u32 a1, u32 color, ArcScene *scene);
+void ov85_021E9160(ArcScene *work);
+
+void ov85_021E9084(ArcScene *work);
 
 // ================= batch A =================
 void ov85_021E84A4(SysTask *task, void *data);
@@ -218,6 +206,315 @@ BOOL ov85_021EA010(ArcScene *scene);
 BOOL ov85_021E9EC0(Window *window, u32 a1, u32 color, ArcScene *scene);
 
 void ov85_021E9C84(ArcScene *scene, int msg, int a2);
+
+/* ---- run 7: 61 functions, source order == reference address order ---- */
+void ov85_021E8F58(void);
+void ov85_021E8F88(ArcScene *work, NARC *narc);
+void ov85_021E9084(ArcScene *work);
+void ov85_021E9160(ArcScene *work);
+void ov85_021E9244(Window *window, String *str, u32 speed);
+void ov85_021E9288(ArcScene *work);
+int ov85_021E92B8(ArcScene *work, int state);
+int ov85_021E92F8(ArcScene *work, int state);
+void ov85_021E9324(ArcScene *work);
+void ov85_021E943C(ArcScene *work);
+int ov85_021E9440(ArcScene *work, int state);
+void ov85_021E9458(ArcScene *work, u32 a1);
+int ov85_021E9468(ArcScene *work, int state);
+int ov85_021E948C(ArcScene *work, int state);
+int ov85_021E94BC(ArcScene *work, int state);
+int ov85_021E94EC(ArcScene *work, int state);
+int ov85_021E9614(ArcScene *work, int state);
+int ov85_021E962C(ArcScene *scene, int a1);
+int ov85_021E96B0(ArcScene *work, int state);
+int ov85_021E96D0(ArcScene *work, int state);
+int ov85_021E9700(ArcScene *scene, int a1);
+int ov85_021E97B8(ArcScene *work, int state);
+int ov85_021E97E8(ArcScene *work, int state);
+int ov85_021E9814(ArcScene *work, int state);
+int ov85_021E9834(ArcScene *work, int state);
+int ov85_021E9864(ArcScene *scene, int a1);
+int ov85_021E98C4(ArcScene *work, int state);
+int ov85_021E98E0(ArcScene *work, int state);
+int ov85_021E9900(ArcScene *work, int state);
+int ov85_021E993C(ArcScene *work, int state);
+int ov85_021E996C(ArcScene *scene, int a1);
+int ov85_021E9A1C(ArcScene *scene, int a1);
+int ov85_021E9A6C(ArcScene *work, int state);
+int ov85_021E9A90(ArcScene *work, int state);
+int ov85_021E9AB0(ArcScene *work, int state);
+int ov85_021E9AF0(ArcScene *work, int state);
+int ov85_021E9B1C(ArcScene *work, int state);
+int ov85_021E9B40(ArcScene *scene, int a1);
+int ov85_021E9BA0(ArcScene *work, int state);
+int ov85_021E9BDC(ArcScene *scene, int a1);
+int ov85_021E9C50(ArcScene *work, int state);
+void ov85_021E9C84(ArcScene *scene, int msg, int a2);
+void ov85_021E9D9C(ArcScene *scene, int a1, int a2);
+void ov85_021E9E58(u16 *p);
+int ov85_021E9EA4(void);
+BOOL ov85_021E9EC0(Window *window, u32 a1, u32 color, ArcScene *scene);
+void ov85_021E9FCC(ArcScene *work);
+int ov85_021E9FD0(void);
+u32 ov85_021E9FEC(void);
+BOOL ov85_021EA010(ArcScene *scene);
+void ov85_021EA0EC(ArcScene *scene, int a1, int a2);
+BOOL ov85_021EA17C(u32 printerId);
+void ov85_021EA19C(ArcScene *work);
+void ov85_021EA1AC(ArcScene *scene);
+void ov85_021EA2C0(ArcScene *scene, NARC *narc);
+void ov85_021EA324(ArcGfxHolder *a0, ArcGfxHolder *a1, int a2, int a3, int a4);
+void ov85_021EA368(ArcScene *work);
+int ov85_021EA398(ArcScene *work);
+void ov85_021EA39C(ArcScene *scene, int a1);
+int ov85_021EA3F0(ArcScene *scene, int a1);
+void ov85_021EA4EC(void *a0, void *a1);
+
+void ov85_021E8F58(void) {
+    ObjCharTransferTemplate tmpl = ov85_021EA904;
+    ObjCharTransfer_Init(&tmpl);
+    ObjPlttTransfer_Init(0x14, (enum HeapID)0x66);
+    ObjCharTransfer_ClearBuffers();
+    ObjPlttTransfer_Reset();
+}
+
+void ov85_021E8F88(ArcScene *work, NARC *narc) {
+    int i;
+
+    NNS_G2dInitOamManagerModule();
+    OamManager_Create(0, 0x7E, 0, 0x20, 0, 0x7E, 0, 0x20, (enum HeapID)0x66);
+    work->unk_060 = G2dRenderer_Init(0x1E, (G2dRenderer *)work->pad_064, (enum HeapID)0x66);
+    if (work->unk_060 == NULL) {
+        GF_AssertFail();
+    }
+    G2dRenderer_SetSubSurfaceCoords((G2dRenderer *)work->pad_064, 0, 0x100000);
+    for (i = 0; i < 4; i++) {
+        work->unk_18C[i] = Create2DGfxResObjMan(3, (GfGfxResType)i, (enum HeapID)0x66);
+    }
+    work->unk_1BC = AddCharResObjFromOpenNarc((GF_2DGfxResMan *)work->unk_18C[0], narc, 0xC, TRUE, 2, 1, (enum HeapID)0x66);
+    work->unk_1C0 = AddPlttResObjFromOpenNarc((GF_2DGfxResMan *)work->unk_18C[1], narc, 1, FALSE, 2, 1, 0xF, (enum HeapID)0x66);
+    work->unk_1C4 = AddCellOrAnimResObjFromOpenNarc((GF_2DGfxResMan *)work->unk_18C[2], narc, 0xD, TRUE, 2, (GfGfxResType)2, (enum HeapID)0x66);
+    work->unk_1C8 = AddCellOrAnimResObjFromOpenNarc((GF_2DGfxResMan *)work->unk_18C[3], narc, 0xE, TRUE, 2, (GfGfxResType)3, (enum HeapID)0x66);
+    SpriteTransfer_CreateCharTransferTask((SpriteResource *)work->unk_1BC);
+    SpriteTransfer_CreateExtPlttTransferTask((SpriteResource *)work->unk_1C0);
+}
+
+void ov85_021E9084(ArcScene *work) {
+    SpriteTemplate tmpl;
+    int i;
+
+    CreateSpriteResourcesHeader(&work->unk_214, 2, 2, 2, 2, -1, -1, 0, 1, (GF_2DGfxResMan *)work->unk_18C[0], (GF_2DGfxResMan *)work->unk_18C[1], (GF_2DGfxResMan *)work->unk_18C[2], (GF_2DGfxResMan *)work->unk_18C[3], NULL, NULL);
+    tmpl.spriteList = (SpriteList *)work->unk_060;
+    tmpl.header = &work->unk_214;
+    tmpl.position.z = 0;
+    tmpl.scale.x = 0x1000;
+    tmpl.scale.y = 0x1000;
+    tmpl.scale.z = 0x1000;
+    tmpl.rotation = 0;
+    tmpl.drawPriority = 1;
+    tmpl.whichScreen = (NNS_G2D_VRAM_TYPE)1;
+    tmpl.heapID = (enum HeapID)0x66;
+    for (i = 0; i < 5; i++) {
+        tmpl.position.x = ov85_021EA914[i + 1].unk_00 << 12;
+        tmpl.position.y = ov85_021EA914[i + 1].unk_02 << 12;
+        work->unk_23C[i] = Sprite_CreateAffine(&tmpl);
+        Sprite_SetAnimActiveFlag((Sprite *)work->unk_23C[i], 1);
+        Sprite_SetAnimCtrlSeq((Sprite *)work->unk_23C[i], (i - 1) * 2 + 0x1B);
+        Sprite_SetDrawFlag((Sprite *)work->unk_23C[i], 0);
+    }
+    tmpl.position.x = 0x18000;
+    tmpl.position.y = 0x1A0000;
+    GfGfx_EngineATogglePlanes(GX_PLANEMASK_OBJ, GF_PLANE_TOGGLE_ON);
+    GfGfx_EngineBTogglePlanes(GX_PLANEMASK_OBJ, GF_PLANE_TOGGLE_ON);
+}
+
+void ov85_021E9160(ArcScene *work) {
+    AddWindowParameterized((BgConfig *)work->unk_014, &work->unk_308, 5, 0x1A, 0x14, 6, 2, 0xD, 0x1C3);
+    FillWindowPixelBuffer(&work->unk_308, 0);
+    AddWindowParameterized((BgConfig *)work->unk_014, &work->unk_2F8, 0, 2, 0x13, 0x1B, 4, 0xD, 0x28);
+    FillWindowPixelBuffer(&work->unk_2F8, 0xF);
+    AddWindowParameterized((BgConfig *)work->unk_014, &work->unk_318, 0, 3, 1, 0x1A, 2, 0xF, 0x94);
+    ov85_021E9244(&work->unk_318, work->unk_058, 0);
+    AddWindowParameterized((BgConfig *)work->unk_014, &work->unk_2A8, 0, 2, 6, 0x10, 0xB, 0xF, 0xC8);
+    FillWindowPixelBuffer(&work->unk_2A8, 0);
+    ov85_021E9EC0(&work->unk_2A8, 0, 0x10300, work);
+}
+
+void ov85_021E9244(Window *window, String *str, u32 speed) {
+    u32 width = FontID_String_GetWidth(1, str, 0);
+    FillWindowPixelBuffer(window, 0);
+    AddTextPrinterParameterizedWithColor(window, 1, str, (u32)((0xD0 - (int)width) / 2), 1, speed, 0x10400, NULL);
+}
+
+void ov85_021E9288(ArcScene *work) {
+    RemoveWindow(&work->unk_2A8);
+    RemoveWindow(&work->unk_318);
+    RemoveWindow(&work->unk_308);
+    RemoveWindow(&work->unk_2F8);
+}
+
+int ov85_021E92B8(ArcScene *work, int state) {
+    sub_020398D4(0, 1);
+    if (!sub_0203769C()) {
+        if ((int)sub_02037454() >= 2) {
+            ov85_021EA0EC(work, 2, 0);
+        }
+    } else {
+        ov85_021EA0EC(work, 8, 0);
+    }
+    ov85_021E9458(work, 3);
+    return state;
+}
+
+int ov85_021E92F8(ArcScene *work, int state) {
+    ov85_021E9324(work);
+    if (!sub_0203769C()) {
+        if (ov85_021E9EA4() != 1) {
+            ov85_021E9FCC(work);
+        }
+    } else {
+        ov85_021E9FCC(work);
+    }
+    return state;
+}
+
+void ov85_021E9324(ArcScene *work) {
+    u8 a;
+    u8 b;
+    u8 c;
+
+    if (gSystem.newKeys & 1) {
+        if (!sub_0203769C()) {
+            if (((ArcSub10 *)work->unk_010)->unk_2C == (u32)ov85_021E9FD0() && ((ArcSub10 *)work->unk_010)->unk_30 == 0) {
+                a = 1;
+                ov85_021EA0EC(work, 3, 0);
+                ov85_021E9458(work, 0x16);
+                sub_02096D4C(work->unk_010, 7, &a, 1);
+                ov85_021EA39C(work, 0);
+            } else {
+                PlaySE(0x5F2);
+            }
+        }
+    } else if (gSystem.newKeys & 2) {
+        if (sub_0203769C()) {
+            if (((ArcSub10 *)work->unk_010)->unk_28 == 0) {
+                ov85_021EA0EC(work, 4, 0);
+                ov85_021E9458(work, 4);
+            } else {
+                PlaySE(0x5F2);
+            }
+        } else {
+            if (((ArcSub10 *)work->unk_010)->unk_2C == sub_02037454() && ((ArcSub10 *)work->unk_010)->unk_30 == 0) {
+                b = 1;
+                ov85_021EA0EC(work, 4, 0);
+                ov85_021E9458(work, 4);
+                sub_02096D4C(work->unk_010, 7, &b, 1);
+                ov85_021EA39C(work, 0);
+            } else {
+                PlaySE(0x5F2);
+            }
+        }
+    } else {
+        if (work->unk_4A48 == 0 && !sub_0203769C() && ((ArcSub10 *)work->unk_010)->unk_2C == sub_02037454()) {
+            c = 0;
+            sub_02096D4C(work->unk_010, 7, &c, 1);
+        }
+    }
+}
+
+void ov85_021E943C(ArcScene *work) {
+#pragma unused(work)
+}
+
+int ov85_021E9440(ArcScene *work, int state) {
+    ov85_021E9458(work, 2);
+    ov85_021E943C(work);
+    return state;
+}
+
+void ov85_021E9458(ArcScene *work, u32 a1) {
+    work->unk_354 = 30;
+    work->unk_358 = a1;
+}
+
+int ov85_021E9468(ArcScene *work, int state) {
+    if (ov85_021EA17C(work->unk_05C)) {
+        work->unk_354 = work->unk_358;
+    }
+    ov85_021E943C(work);
+    return state;
+}
+
+int ov85_021E948C(ArcScene *work, int state) {
+    u32 v;
+    if (!sub_0203769C()) {
+        v = 0;
+        sub_02096D4C(work->unk_010, 7, &v, 1);
+    }
+    work->unk_354 = 3;
+    ov85_021E943C(work);
+    return state;
+}
+
+int ov85_021E94BC(ArcScene *work, int state) {
+    work->unk_330 = Std_CreateYesNoMenu((BgConfig *)work->unk_014, (const WindowTemplate *)ov85_021EA8D8, 0x1F, 0xB, (enum HeapID)0x66);
+    work->unk_354 = 5;
+    ov85_021E943C(work);
+    return state;
+}
+
+int ov85_021E94EC(ArcScene *work, int state) {
+    u32 v;
+    u8 buf[4];
+    int input;
+
+    if (sub_0203769C()) {
+        if (((ArcSub10 *)work->unk_010)->unk_28) {
+            if (gSystem.newKeys & 0xC3) {
+                PlaySE(0x5F2);
+            }
+            ov85_021E943C(work);
+            return state;
+        }
+    } else {
+        if (((ArcSub10 *)work->unk_010)->unk_30) {
+            if (gSystem.newKeys & 0xC3) {
+                PlaySE(0x5F2);
+            }
+            ov85_021E943C(work);
+            return state;
+        }
+    }
+    if ((u32)ov85_021E9FD0() != sub_02037454()) {
+        ov85_021E943C(work);
+        return state;
+    }
+    input = Handle2dMenuInput_DeleteOnFinish((struct ListMenu2D *)work->unk_330, (enum HeapID)0x66);
+    if (input != -1) {
+        if (input == -2) {
+            if (!sub_0203769C()) {
+                v = 0;
+                sub_02096D4C(work->unk_010, 7, &v, 1);
+                ov85_021EA39C(work, 1);
+            }
+            ov85_021E9458(work, 0);
+        } else if (!sub_0203769C()) {
+            ov85_021E9458(work, 0xB);
+            ov85_021EA0EC(work, 0xE, 0);
+        } else {
+            MI_CpuFill8(buf, 0, 4);
+            buf[2] = 0;
+            buf[0] = (u8)sub_0203769C();
+            work->unk_4A50 = 1;
+            work->unk_4A5C = 0;
+            work->unk_354 = 6;
+            sub_02096D4C(work->unk_010, 2, buf, 4);
+        }
+        work->unk_330 = NULL;
+    }
+    ov85_021E943C(work);
+    return state;
+}
 
 int ov85_021E9614(ArcScene *work, int state) {
     work->unk_4A5C = 0;

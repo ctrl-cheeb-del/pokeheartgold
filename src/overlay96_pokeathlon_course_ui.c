@@ -1,5 +1,66 @@
 #include "overlay96_pokeathlon_course_ui_private.h"
 
+void ov96_02203754(Ov96CourseUiWork *w) {
+    u8 flags[12];
+    VecFx32 diff;
+    int i;
+    int j;
+
+    for (i = 0; i < 12; i++) {
+        flags[i] = 0;
+    }
+    for (i = 0; i < 12; i++) {
+        switch (w->slots[i].unk0C) {
+        case 1:
+        case 2:
+            for (j = 0; j < 12; j++) {
+                if (i == j) {
+                    continue;
+                }
+                switch (w->slots[j].unk0C) {
+                case 1:
+                case 2:
+                    VEC_Subtract(&w->slots[i].pos, &w->slots[j].pos, &diff);
+                    if (VEC_Mag(&diff) < (1 << 14)) {
+                        flags[i] = 1;
+                        flags[j] = 1;
+                    }
+                    break;
+                }
+            }
+            break;
+        }
+    }
+    for (i = 0; i < 12; i++) {
+        if (flags[i]) {
+            w->slots[i].unk0C = 3;
+            w->slots[i].unk46 = 0;
+            w->slots[i].unk44 = 0;
+        }
+    }
+}
+
+void ov96_0220382C(Ov96CourseUiWork *w, PokeathlonCourseData *data) {
+    int i;
+    int idx;
+    Window *window;
+    String *name;
+    u8 base;
+
+    base = (u8)ov96_021E5F24(data);
+    i = 0;
+    idx = base + 1;
+    window = w->windows;
+    for (; i < 3; i++) {
+        name = PlayerProfile_GetPlayerName_NewString(PokeathlonCourse_GetPlayerProfileFromData(data, (u8)(idx % 4)), w->heapId);
+        AddTextPrinterParameterizedWithColor(window, 0, name, 0, 0, 0xFF, 0x000F0E00, NULL);
+        String_Delete(name);
+        CopyWindowToVram(window);
+        idx++;
+        window++;
+    }
+}
+
 void ov96_022038A0(Ov96CourseUiWork *w, u32 v) {
     u8 x = (u8)v;
 

@@ -1,6 +1,7 @@
 #ifndef OV96_POKEATHLON_COURSE_UI_PRIVATE_H
 #define OV96_POKEATHLON_COURSE_UI_PRIVATE_H
 
+#include <nitro/fx/fx_vec.h>
 #include <nitro/mi/memory.h>
 
 #include "global.h"
@@ -57,9 +58,13 @@ typedef struct Ov96CourseSlot {
     void *unk00;
     void *unk04;
     void *unk08;
-    u8 pad0C[0x41 - 0x0C];
+    s32 unk0C;
+    VecFx32 pos;
+    u8 pad1C[0x41 - 0x1C];
     u8 unk41;
-    u8 pad42[6];
+    u8 pad42[2];
+    u16 unk44;
+    u16 unk46;
 } Ov96CourseSlot;
 
 typedef struct Ov96CourseUiWork {
@@ -86,6 +91,8 @@ Ov96AnimRec *ov96_021EB594(void *p);
 void ov96_021EB630(void *p, int v);
 extern const u8 ov96_0221C95C[][12];
 
+void ov96_02203754(Ov96CourseUiWork *w);
+void ov96_0220382C(Ov96CourseUiWork *w, PokeathlonCourseData *data);
 void ov96_022038A0(Ov96CourseUiWork *w, u32 v);
 void ov96_022038D4(PokeathlonCourseData *course);
 s32 ov96_02203924(const void *aa, const void *bb);

@@ -16,9 +16,14 @@
 #include "obj_char_transfer.h"
 #include "obj_pltt_transfer.h"
 #include "pokemon.h"
+#include "sprite.h"
+#include "sprite_transfer.h"
 #include "sys_task_api.h"
 #include "text.h"
 #include "trainer_memo.h"
+#include "unk_02009D48.h"
+#include "unk_0200A090.h"
+#include "unk_0200B150.h"
 #include "unk_0205B3DC.h"
 
 extern void GF_AssertFail(void);
@@ -163,7 +168,11 @@ typedef struct ArcScene {
     u8 pad_19C[0x20];
     void *unk_1BC;
     void *unk_1C0;
-    u8 pad_1C4[0x78];
+    void *unk_1C4;
+    void *unk_1C8;
+    u8 pad_1CC[0x48];
+    SpriteResourcesHeader unk_214;
+    u8 pad_238[0x04];
     void *unk_23C[5];
     u8 pad_250[0x58];
     Window unk_2A8;
@@ -228,7 +237,7 @@ typedef struct ArcSub10 {
     u8 pad_00[0x20];
     u32 unk_20;
     u32 unk_24;
-    u8 pad_28[0x04];
+    u32 unk_28;
     u32 unk_2C;
     u32 unk_30;
     u8 pad_34[0x04];
@@ -274,10 +283,9 @@ extern void PlaySE(u32 seId);
 extern void *OverlayManager_GetData(void *man);
 extern void OverlayManager_FreeData(void *man);
 extern void Main_SetVBlankIntrCB(void (*cb)(void *), void *arg);
-extern void SpriteTransfer_DeleteCharTransferTask(void *p);
-extern void SpriteTransfer_DeletePlttTransferTask(void *p);
 extern void OamManager_Free(void);
 
+extern const ArcPair ov85_021EA914[];
 extern const u8 ov85_021EA8EA[];
 extern const u8 ov85_021EA8EB[];
 
