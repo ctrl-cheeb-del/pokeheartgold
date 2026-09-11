@@ -534,7 +534,7 @@ Static main
     Object asm/unk_CommPlayerManager_ForcePosition.o
     Object src/communication_player_movement_12.o
     Object src/link_lobby.o
-    Object asm/unk_02058034.o
+    Object src/lobby_session_1.o
     Object src/link_lobby_2.o
     Object asm/unk_02058304.o
     Object src/link_lobby_3.o
