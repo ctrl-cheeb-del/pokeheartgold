@@ -238,6 +238,9 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
+	.public absent
+	.public exact
+	.public partial
 
 	thumb_func_start ov96_021E883C
 ov96_021E883C: ; 0x021E883C
@@ -274,6 +277,8 @@ ov96_021E883C: ; 0x021E883C
 _021E887C: .word ov96_021E8884
 _021E8880: .word 0x00001388
 	thumb_func_end ov96_021E883C
+
+
 
 
 	thumb_func_start ov96_021E8884
@@ -344,6 +349,8 @@ _021E88EA:
 	thumb_func_end ov96_021E8884
 
 
+
+
 	thumb_func_start ov96_021E88FC
 ov96_021E88FC: ; 0x021E88FC
 	push {r4, lr}
@@ -357,6 +364,8 @@ ov96_021E88FC: ; 0x021E88FC
 	pop {r4, pc}
 	.balign 4, 0
 	thumb_func_end ov96_021E88FC
+
+
 
 
 	thumb_func_start ov96_021E8914
@@ -423,6 +432,8 @@ _021E897E:
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 	thumb_func_end ov96_021E8914
+
+
 
 
 	thumb_func_start ov96_021E8988

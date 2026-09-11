@@ -3446,7 +3446,7 @@ Overlay OVY_67
     Object src/overlay67_helpers_3.o
     Object asm/overlay_67_residual_3.o
     Object src/overlay67_helpers_4.o
-    Object asm/overlay_67_residual_4.o
+    Object src/ov67_wave32_loader_1.o
     Object src/overlay67_helpers_5.o
     Object asm/overlay_67_residual_5.o
     Object src/overlay67_helpers_6.o
@@ -4905,7 +4905,7 @@ Overlay OVY_96
     Object src/overlay96_exact_bank_9.o
     Object asm/overlay_96_residual_10.o
     Object src/overlay96_exact_bank_10.o
-    Object asm/overlay_96_residual_11.o
+    Object src/ov96_wave32_queue_1.o
     Object src/overlay96_exact_bank_11.o
     Object asm/overlay_96_residual_12.o
     Object src/overlay96_exact_bank_12.o
