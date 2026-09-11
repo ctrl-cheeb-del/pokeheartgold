@@ -225,195 +225,128 @@
 	.public ov99_021E8788
 
 
-	thumb_func_start ov99_021E7D30
-ov99_021E7D30: ; 0x021E7D30
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xd4
-	add r5, r0, #0
-	ldr r0, [r5, #0xc]
-	bl BgConfig_Alloc
-	add r3, sp, #0
-	ldr r4, _021E7D98 ; =ov99_021E9F80
-	str r0, [r5]
-	add r2, r3, #0
-	ldmia r4!, {r0, r1}
-	stmia r3!, {r0, r1}
-	ldmia r4!, {r0, r1}
-	stmia r3!, {r0, r1}
-	add r0, r2, #0
-	bl SetBothScreensModesAndDisable
-	ldr r4, _021E7D9C ; =ov99_021EA0BC
-	add r3, sp, #0x10
-	mov r2, #0x18
-_021E7D58:
-	ldmia r4!, {r0, r1}
-	stmia r3!, {r0, r1}
-	sub r2, r2, #1
-	bne _021E7D58
-	ldr r0, [r4]
-	ldr r4, _021E7DA0 ; =ov99_021EA348
-	str r0, [r3]
-	mov r7, #0
-	add r6, sp, #0x10
-_021E7D6A:
-	ldrb r1, [r4]
-	ldr r0, [r5]
-	add r2, r6, #0
-	mov r3, #0
-	bl InitBgFromTemplate
-	ldrb r1, [r4]
-	ldr r0, [r5]
-	bl BgClearTilemapBufferAndCommit
-	ldrb r0, [r4]
-	ldr r3, [r5, #0xc]
-	mov r1, #0x20
-	mov r2, #0
-	bl BG_ClearCharDataRange
-	add r7, r7, #1
-	add r6, #0x1c
-	add r4, r4, #1
-	cmp r7, #7
-	blt _021E7D6A
-	add sp, #0xd4
-	pop {r4, r5, r6, r7, pc}
-	.balign 4, 0
-_021E7D98: .word ov99_021E9F80
-_021E7D9C: .word ov99_021EA0BC
-_021E7DA0: .word ov99_021EA348
-	thumb_func_end ov99_021E7D30
-
-
-
-
-	thumb_func_start ov99_021E7DA4
-ov99_021E7DA4: ; 0x021E7DA4
-	push {r4, lr}
-	sub sp, #0x10
+	thumb_func_start PokeathlonEventRecord_Main
+PokeathlonEventRecord_Main: ; 0x021E83F4
+	push {r4, r5, lr}
+	sub sp, #0xc
+	add r5, r1, #0
+	bl OverlayManager_GetData
+	ldr r1, [r5]
 	add r4, r0, #0
-	mov r0, #0x40
-	str r0, [sp]
-	ldr r0, [r4, #0xc]
-	mov r2, #0
-	str r0, [sp, #4]
-	ldr r0, [r4, #4]
-	mov r1, #0x2a
-	add r3, r2, #0
-	bl GfGfxLoader_GXLoadPalFromOpenNarc
-	mov r3, #0
-	str r3, [sp]
-	str r3, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2c
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r3, #0
-	str r3, [sp]
-	str r3, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2e
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2c
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #2
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2f
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #2
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
+	cmp r1, #4
+	bhi _021E84CC
+	add r1, r1, r1
+	add r1, pc
+	ldrh r1, [r1, #6]
+	lsl r1, r1, #0x10
+	asr r1, r1, #0x10
+	add pc, r1
+_021E8412: ; jump table
+	.short _021E841C - _021E8412 - 2 ; case 0
+	.short _021E8438 - _021E8412 - 2 ; case 1
+	.short _021E8446 - _021E8412 - 2 ; case 2
+	.short _021E84B8 - _021E8412 - 2 ; case 3
+	.short _021E84C6 - _021E8412 - 2 ; case 4
+_021E841C:
+	mov r0, #6
 	mov r1, #1
-	str r1, [sp]
-	mov r0, #0
-	str r0, [sp, #4]
-	str r1, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x30
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #3
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0x40
 	str r0, [sp]
+	str r1, [sp, #4]
 	ldr r0, [r4, #0xc]
-	mov r1, #0x2b
-	str r0, [sp, #4]
-	ldr r0, [r4, #4]
-	mov r2, #4
-	mov r3, #0
-	bl GfGfxLoader_GXLoadPalFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
+	add r2, r1, #0
 	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2d
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #4
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
 	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
+	add r3, r0, #0
+	bl BeginNormalPaletteFade
 	mov r0, #1
-	str r0, [sp, #8]
+	str r0, [r5]
+	b _021E84D6
+_021E8438:
+	bl IsPaletteFadeFinished
+	cmp r0, #0
+	beq _021E84D6
+	mov r0, #2
+	str r0, [r5]
+	b _021E84D6
+_021E8446:
+	add r1, r4, #0
+	add r1, #0xb4
+	ldr r1, [r1]
+	cmp r1, #0
+	beq _021E8464
+	add r1, r4, #0
+	add r1, #0xb0
+	ldr r2, [r1]
+	mov r1, #1
+	eor r2, r1
+	add r1, r4, #0
+	add r1, #0xb0
+	str r2, [r1]
+	bl ov99_021E8828
+_021E8464:
+	add r0, r4, #0
+	add r0, #0xb8
+	ldr r0, [r0]
+	cmp r0, #0
+	beq _021E8482
+	add r0, r4, #0
+	bl ov99_021E8788
+	add r0, r4, #0
+	bl ov99_021E8C50
+	add r0, r4, #0
+	mov r1, #0
+	add r0, #0xb8
+	str r1, [r0]
+_021E8482:
+	bl ov98_0221EF24
+	cmp r0, #0
+	bne _021E8494
+	add r0, r4, #0
+	bl ov99_021E90F4
+	cmp r0, #0
+	beq _021E84D6
+_021E8494:
+	ldr r0, _021E84E4 ; =0x000005DC
+	bl PlaySE
+	mov r0, #6
+	str r0, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
 	ldr r0, [r4, #0xc]
-	mov r1, #0x31
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #4
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
+	str r0, [sp, #8]
 	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
+	add r1, r0, #0
+	add r2, r0, #0
+	add r3, r0, #0
+	bl BeginNormalPaletteFade
+	mov r0, #3
+	str r0, [r5]
+	b _021E84D6
+_021E84B8:
+	bl IsPaletteFadeFinished
+	cmp r0, #0
+	beq _021E84D6
+	mov r0, #4
+	str r0, [r5]
+	b _021E84D6
+_021E84C6:
+	add sp, #0xc
 	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2d
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #6
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
+	pop {r4, r5, pc}
+_021E84CC:
+	ldr r0, _021E84E8 ; =_021EA5E4
+	cmp r0, #0
+	beq _021E84D6
+	bl GF_AssertFail
+_021E84D6:
+	ldr r0, [r4, #0x14]
+	bl ov98_0221E6CC
 	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x32
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #6
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	add sp, #0x10
-	pop {r4, pc}
-	thumb_func_end ov99_021E7DA4
+	add sp, #0xc
+	pop {r4, r5, pc}
+	nop
+_021E84E4: .word 0x000005DC
+_021E84E8: .word _021EA5E4
+	thumb_func_end PokeathlonEventRecord_Main
+
+

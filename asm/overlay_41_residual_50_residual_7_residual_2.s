@@ -503,167 +503,98 @@
 	.public ov41_0224A8D4
 
 
-	thumb_func_start ov41_0224A27C
-ov41_0224A27C: ; 0x0224A27C
-	push {r3, r4, r5, r6, lr}
-	sub sp, #0x14
-	add r5, r0, #0
+
+
+	thumb_func_start ov41_0224A4EC
+ov41_0224A4EC: ; 0x0224A4EC
+	push {r4, lr}
+	add r4, r0, #0
+	add r0, #0x84
+	ldrh r0, [r0]
+	cmp r0, #0
+	beq _0224A4FC
+	mov r0, #0
+	pop {r4, pc}
+_0224A4FC:
+	add r0, r4, #0
 	add r0, #0x80
-	add r4, r1, #0
-	str r2, [r0]
-	mov r0, #1
-	mov r1, #0xd
-	bl FontSystem_NewInit
-	str r0, [r5, #0x64]
-	add r0, r4, #0
-	bl ov41_0224A7F8
-	mov r0, #0x90
-	str r0, [sp]
-	mov r0, #0x28
-	str r0, [sp, #4]
-	mov r0, #0x20
-	str r0, [sp, #8]
-	add r0, r5, #0
+	ldr r0, [r0]
+	ldr r0, [r0]
+	cmp r0, #1
+	bne _0224A526
+	bl System_GetTouchHeld
+	cmp r0, #0
+	beq _0224A514
+	mov r0, #0
+	pop {r4, pc}
+_0224A514:
+	ldr r0, _0224A548 ; =gSystem
+	ldr r0, [r0, #0x44]
+	cmp r0, #0
+	beq _0224A542
+	add r4, #0x80
+	ldr r0, [r4]
 	mov r1, #0
-	add r2, r4, #0
-	mov r3, #0x30
-	bl ov41_0224A6C4
-	mov r0, #0x28
-	str r0, [sp]
-	mov r0, #0x18
-	str r0, [sp, #4]
-	add r0, r5, #0
-	add r0, #0x6c
-	mov r1, #0
-	mov r2, #0x30
-	mov r3, #0x98
-	bl ov41_0224A7E0
-	mov r0, #0x90
-	str r0, [sp]
-	mov r0, #0x28
-	str r0, [sp, #4]
-	mov r0, #0x20
-	str r0, [sp, #8]
-	add r0, r5, #0
-	add r0, #0x10
+	str r1, [r0]
+	b _0224A542
+_0224A526:
+	ldr r0, _0224A548 ; =gSystem
+	ldr r0, [r0, #0x44]
+	cmp r0, #0
+	beq _0224A532
+	mov r0, #0
+	pop {r4, pc}
+_0224A532:
+	bl System_GetTouchHeld
+	cmp r0, #0
+	beq _0224A542
+	add r4, #0x80
+	ldr r0, [r4]
 	mov r1, #1
-	add r2, r4, #0
-	mov r3, #8
-	bl ov41_0224A6C4
-	mov r0, #0x28
-	str r0, [sp]
-	mov r0, #0x18
-	str r0, [sp, #4]
-	add r0, r5, #0
-	add r0, #0x6c
-	mov r1, #1
-	mov r2, #8
-	mov r3, #0x98
-	bl ov41_0224A7E0
-	mov r0, #0x90
-	str r0, [sp]
-	mov r0, #0x28
-	str r0, [sp, #4]
-	mov r0, #0x2a
-	str r0, [sp, #8]
-	add r0, r5, #0
-	add r0, #0x20
-	mov r1, #2
-	add r2, r4, #0
-	mov r3, #0x60
-	bl ov41_0224A6C4
-	mov r0, #0x28
-	str r0, [sp]
-	mov r0, #0x22
-	str r0, [sp, #4]
-	add r0, r5, #0
-	add r0, #0x6c
-	mov r1, #2
-	mov r2, #0x60
-	mov r3, #0x9c
-	bl ov41_0224A7E0
-	mov r0, #0x90
-	str r0, [sp]
-	mov r0, #0x28
-	str r0, [sp, #4]
-	mov r0, #0x2a
-	str r0, [sp, #8]
-	add r0, r5, #0
-	add r0, #0x30
-	mov r1, #3
-	add r2, r4, #0
-	mov r3, #0x88
-	bl ov41_0224A6C4
-	mov r0, #0x28
-	str r0, [sp]
-	mov r0, #0x22
-	str r0, [sp, #4]
-	add r0, r5, #0
-	add r0, #0x6c
-	mov r1, #3
-	mov r2, #0x88
-	mov r3, #0x9c
-	bl ov41_0224A7E0
-	mov r0, #2
-	mov r1, #0xe
-	bl FontID_Alloc
-	mov r0, #9
-	str r0, [sp]
-	mov r0, #5
-	str r0, [sp, #4]
+	str r1, [r0]
+_0224A542:
+	mov r0, #0
+	pop {r4, pc}
+	nop
+_0224A548: .word gSystem
+	thumb_func_end ov41_0224A4EC
+
+
+
+
+
+
+
+
+	thumb_func_start ov41_0224A54C
+ov41_0224A54C: ; 0x0224A54C
+	push {r4, lr}
+	add r4, r0, #0
+	ldr r0, [r4, #0x68]
+	cmp r0, #0
+	bne _0224A55A
+	bl GF_AssertFail
+_0224A55A:
 	add r0, r4, #0
-	mov r1, #0x1b
-	mov r2, #0xd7
-	mov r3, #0
-	bl ov41_0224A928
-	add r6, r0, #0
-	str r6, [sp]
-	mov r0, #0xb8
-	str r0, [sp, #4]
-	mov r0, #0x90
-	str r0, [sp, #8]
-	mov r0, #0x48
-	str r0, [sp, #0xc]
-	mov r0, #0x2a
-	str r0, [sp, #0x10]
-	add r0, r5, #0
-	ldr r3, [r5, #0x64]
-	add r0, #0x40
-	mov r1, #4
-	add r2, r4, #0
-	bl ov41_0224A734
-	mov r0, #0x48
-	str r0, [sp]
-	mov r0, #0x22
-	str r0, [sp, #4]
-	add r0, r5, #0
-	add r0, #0x6c
-	mov r1, #4
-	mov r2, #0xb8
-	mov r3, #0x9c
-	bl ov41_0224A7E0
-	add r0, r6, #0
-	bl ov41_0224A9B0
-	mov r0, #2
-	bl FontID_Release
-	mov r0, #1
-	str r0, [r5, #0x60]
+	bl ov41_0224A4EC
+	cmp r0, #0
+	bne _0224A57E
 	add r0, r4, #0
-	bl ov41_0224A888
-	add r0, r5, #0
-	add r0, #0x20
-	bl ov41_0224A258
-	mov r0, #0xd
-	str r0, [sp]
-	add r0, r5, #0
-	ldr r2, _0224A3E0 ; =ov41_0224A60C
-	add r0, #0x6c
-	mov r1, #5
-	add r3, r5, #0
-	bl TouchHitboxController_Create
-	str r0, [r5, #0x68]
-	add sp, #0x14
-	pop {r3, r4, r5, r6, pc}
-	.balign 4, 0
-_0224A3E0: .word ov41_0224A60C
-	thumb_func_end ov41_0224A27C
+	add r0, #0x80
+	ldr r0, [r0]
+	ldr r0, [r0]
+	cmp r0, #0
+	bne _0224A578
+	add r0, r4, #0
+	bl ov41_0224A448
+	pop {r4, pc}
+_0224A578:
+	ldr r0, [r4, #0x68]
+	bl TouchHitboxController_IsTriggered
+_0224A57E:
+	pop {r4, pc}
+	thumb_func_end ov41_0224A54C
+
+
+
+

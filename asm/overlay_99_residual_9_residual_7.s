@@ -225,195 +225,42 @@
 	.public ov99_021E8788
 
 
-	thumb_func_start ov99_021E7D30
-ov99_021E7D30: ; 0x021E7D30
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xd4
+	thumb_func_start ov99_021E87D0
+ov99_021E87D0: ; 0x021E87D0
+	push {r4, r5, lr}
+	sub sp, #0xc
 	add r5, r0, #0
+	add r0, #0xb0
+	ldr r0, [r0]
+	cmp r0, #0
+	beq _021E87E2
+	mov r0, #2
+	b _021E87E4
+_021E87E2:
+	mov r0, #1
+_021E87E4:
+	lsl r0, r0, #0x1d
+	lsr r4, r0, #0x18
+	mov r0, #0x20
+	str r0, [sp]
+	str r0, [sp, #4]
 	ldr r0, [r5, #0xc]
-	bl BgConfig_Alloc
-	add r3, sp, #0
-	ldr r4, _021E7D98 ; =ov99_021E9F80
-	str r0, [r5]
-	add r2, r3, #0
-	ldmia r4!, {r0, r1}
-	stmia r3!, {r0, r1}
-	ldmia r4!, {r0, r1}
-	stmia r3!, {r0, r1}
-	add r0, r2, #0
-	bl SetBothScreensModesAndDisable
-	ldr r4, _021E7D9C ; =ov99_021EA0BC
-	add r3, sp, #0x10
-	mov r2, #0x18
-_021E7D58:
-	ldmia r4!, {r0, r1}
-	stmia r3!, {r0, r1}
-	sub r2, r2, #1
-	bne _021E7D58
-	ldr r0, [r4]
-	ldr r4, _021E7DA0 ; =ov99_021EA348
-	str r0, [r3]
-	mov r7, #0
-	add r6, sp, #0x10
-_021E7D6A:
-	ldrb r1, [r4]
-	ldr r0, [r5]
-	add r2, r6, #0
-	mov r3, #0
-	bl InitBgFromTemplate
-	ldrb r1, [r4]
-	ldr r0, [r5]
-	bl BgClearTilemapBufferAndCommit
-	ldrb r0, [r4]
-	ldr r3, [r5, #0xc]
-	mov r1, #0x20
+	mov r1, #0x33
+	str r0, [sp, #8]
+	ldr r0, [r5, #8]
 	mov r2, #0
-	bl BG_ClearCharDataRange
-	add r7, r7, #1
-	add r6, #0x1c
-	add r4, r4, #1
-	cmp r7, #7
-	blt _021E7D6A
-	add sp, #0xd4
-	pop {r4, r5, r6, r7, pc}
-	.balign 4, 0
-_021E7D98: .word ov99_021E9F80
-_021E7D9C: .word ov99_021EA0BC
-_021E7DA0: .word ov99_021EA348
-	thumb_func_end ov99_021E7D30
-
-
-
-
-	thumb_func_start ov99_021E7DA4
-ov99_021E7DA4: ; 0x021E7DA4
-	push {r4, lr}
-	sub sp, #0x10
-	add r4, r0, #0
-	mov r0, #0x40
-	str r0, [sp]
-	ldr r0, [r4, #0xc]
-	mov r2, #0
-	str r0, [sp, #4]
-	ldr r0, [r4, #4]
-	mov r1, #0x2a
-	add r3, r2, #0
-	bl GfGfxLoader_GXLoadPalFromOpenNarc
-	mov r3, #0
-	str r3, [sp]
-	str r3, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2c
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r3, #0
-	str r3, [sp]
-	str r3, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2e
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	mov r0, #0
+	add r3, r4, #0
+	bl GfGfxLoader_GXLoadPalWithSrcOffsetFromOpenNarc
+	mov r0, #0x20
 	str r0, [sp]
 	str r0, [sp, #4]
-	mov r0, #1
+	ldr r0, [r5, #0xc]
+	mov r1, #0x33
 	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2c
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #2
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2f
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #2
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	mov r1, #1
-	str r1, [sp]
-	mov r0, #0
-	str r0, [sp, #4]
-	str r1, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x30
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #3
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0x40
-	str r0, [sp]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2b
-	str r0, [sp, #4]
-	ldr r0, [r4, #4]
+	ldr r0, [r5, #8]
 	mov r2, #4
-	mov r3, #0
-	bl GfGfxLoader_GXLoadPalFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2d
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #4
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x31
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #4
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2d
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #6
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x32
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #6
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	add sp, #0x10
-	pop {r4, pc}
-	thumb_func_end ov99_021E7DA4
+	add r3, r4, #0
+	bl GfGfxLoader_GXLoadPalWithSrcOffsetFromOpenNarc
+	add sp, #0xc
+	pop {r4, r5, pc}
+	thumb_func_end ov99_021E87D0

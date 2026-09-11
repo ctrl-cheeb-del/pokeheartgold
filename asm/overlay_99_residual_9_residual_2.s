@@ -225,195 +225,57 @@
 	.public ov99_021E8788
 
 
-	thumb_func_start ov99_021E7D30
-ov99_021E7D30: ; 0x021E7D30
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xd4
-	add r5, r0, #0
-	ldr r0, [r5, #0xc]
-	bl BgConfig_Alloc
-	add r3, sp, #0
-	ldr r4, _021E7D98 ; =ov99_021E9F80
-	str r0, [r5]
-	add r2, r3, #0
-	ldmia r4!, {r0, r1}
-	stmia r3!, {r0, r1}
-	ldmia r4!, {r0, r1}
-	stmia r3!, {r0, r1}
-	add r0, r2, #0
-	bl SetBothScreensModesAndDisable
-	ldr r4, _021E7D9C ; =ov99_021EA0BC
+	thumb_func_start ov99_021E7EF0
+ov99_021E7EF0: ; 0x021E7EF0
+	push {r3, r4, r5, lr}
+	sub sp, #0x28
+	ldr r5, _021E7F58 ; =ov99_021E9FC4
 	add r3, sp, #0x10
-	mov r2, #0x18
-_021E7D58:
-	ldmia r4!, {r0, r1}
-	stmia r3!, {r0, r1}
-	sub r2, r2, #1
-	bne _021E7D58
-	ldr r0, [r4]
-	ldr r4, _021E7DA0 ; =ov99_021EA348
-	str r0, [r3]
-	mov r7, #0
-	add r6, sp, #0x10
-_021E7D6A:
-	ldrb r1, [r4]
-	ldr r0, [r5]
-	add r2, r6, #0
-	mov r3, #0
-	bl InitBgFromTemplate
-	ldrb r1, [r4]
-	ldr r0, [r5]
-	bl BgClearTilemapBufferAndCommit
-	ldrb r0, [r4]
-	ldr r3, [r5, #0xc]
-	mov r1, #0x20
-	mov r2, #0
-	bl BG_ClearCharDataRange
-	add r7, r7, #1
-	add r6, #0x1c
-	add r4, r4, #1
-	cmp r7, #7
-	blt _021E7D6A
-	add sp, #0xd4
-	pop {r4, r5, r6, r7, pc}
-	.balign 4, 0
-_021E7D98: .word ov99_021E9F80
-_021E7D9C: .word ov99_021EA0BC
-_021E7DA0: .word ov99_021EA348
-	thumb_func_end ov99_021E7D30
-
-
-
-
-	thumb_func_start ov99_021E7DA4
-ov99_021E7DA4: ; 0x021E7DA4
-	push {r4, lr}
-	sub sp, #0x10
 	add r4, r0, #0
-	mov r0, #0x40
+	add r2, r3, #0
+	ldmia r5!, {r0, r1}
+	stmia r3!, {r0, r1}
+	ldmia r5!, {r0, r1}
+	stmia r3!, {r0, r1}
+	ldmia r5!, {r0, r1}
+	stmia r3!, {r0, r1}
+	add r1, r2, #0
+	ldr r0, [r4, #0xc]
+	mov r2, #0x32
+	bl ov98_0221E5E0
+	ldr r1, _021E7F5C ; =0x00000404
+	str r0, [r4, r1]
+	add r0, r4, #0
+	bl ov99_021E7F90
+	add r0, r4, #0
+	bl ov99_021E80D0
+	add r0, r4, #0
+	bl ov99_021E810C
+	add r0, r4, #0
+	bl ov99_021E8198
+	add r0, r4, #0
+	bl ov99_021E724C
+	add r3, r0, #0
+	mov r0, #5
 	str r0, [sp]
-	ldr r0, [r4, #0xc]
-	mov r2, #0
+	mov r0, #8
 	str r0, [sp, #4]
-	ldr r0, [r4, #4]
-	mov r1, #0x2a
-	add r3, r2, #0
-	bl GfGfxLoader_GXLoadPalFromOpenNarc
-	mov r3, #0
-	str r3, [sp]
-	str r3, [sp, #4]
-	mov r0, #1
+	mov r0, #0x98
 	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2c
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r3, #0
-	str r3, [sp]
-	str r3, [sp, #4]
 	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2e
+	ldr r1, _021E7F5C ; =0x00000404
 	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2c
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #2
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2f
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #2
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	mov r1, #1
-	str r1, [sp]
-	mov r0, #0
-	str r0, [sp, #4]
-	str r1, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x30
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #3
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0x40
-	str r0, [sp]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2b
-	str r0, [sp, #4]
-	ldr r0, [r4, #4]
-	mov r2, #4
-	mov r3, #0
-	bl GfGfxLoader_GXLoadPalFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2d
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #4
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x31
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #4
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2d
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #6
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x32
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #6
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	add sp, #0x10
-	pop {r4, pc}
-	thumb_func_end ov99_021E7DA4
+	ldr r0, [r4, r1]
+	add r1, r1, #4
+	ldr r2, _021E7F60 ; =ov99_021E9F60
+	add r1, r4, r1
+	bl ov98_0221E6F0
+	add sp, #0x28
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+_021E7F58: .word ov99_021E9FC4
+_021E7F5C: .word 0x00000404
+_021E7F60: .word ov99_021E9F60
+	thumb_func_end ov99_021E7EF0
+
+

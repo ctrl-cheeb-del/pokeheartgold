@@ -225,195 +225,71 @@
 	.public ov99_021E8788
 
 
-	thumb_func_start ov99_021E7D30
-ov99_021E7D30: ; 0x021E7D30
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xd4
-	add r5, r0, #0
-	ldr r0, [r5, #0xc]
-	bl BgConfig_Alloc
-	add r3, sp, #0
-	ldr r4, _021E7D98 ; =ov99_021E9F80
-	str r0, [r5]
-	add r2, r3, #0
-	ldmia r4!, {r0, r1}
-	stmia r3!, {r0, r1}
-	ldmia r4!, {r0, r1}
-	stmia r3!, {r0, r1}
-	add r0, r2, #0
-	bl SetBothScreensModesAndDisable
-	ldr r4, _021E7D9C ; =ov99_021EA0BC
-	add r3, sp, #0x10
-	mov r2, #0x18
-_021E7D58:
-	ldmia r4!, {r0, r1}
-	stmia r3!, {r0, r1}
-	sub r2, r2, #1
-	bne _021E7D58
-	ldr r0, [r4]
-	ldr r4, _021E7DA0 ; =ov99_021EA348
-	str r0, [r3]
-	mov r7, #0
-	add r6, sp, #0x10
-_021E7D6A:
-	ldrb r1, [r4]
-	ldr r0, [r5]
-	add r2, r6, #0
-	mov r3, #0
-	bl InitBgFromTemplate
-	ldrb r1, [r4]
-	ldr r0, [r5]
-	bl BgClearTilemapBufferAndCommit
-	ldrb r0, [r4]
-	ldr r3, [r5, #0xc]
-	mov r1, #0x20
-	mov r2, #0
-	bl BG_ClearCharDataRange
-	add r7, r7, #1
-	add r6, #0x1c
-	add r4, r4, #1
-	cmp r7, #7
-	blt _021E7D6A
-	add sp, #0xd4
-	pop {r4, r5, r6, r7, pc}
-	.balign 4, 0
-_021E7D98: .word ov99_021E9F80
-_021E7D9C: .word ov99_021EA0BC
-_021E7DA0: .word ov99_021EA348
-	thumb_func_end ov99_021E7D30
-
-
-
-
-	thumb_func_start ov99_021E7DA4
-ov99_021E7DA4: ; 0x021E7DA4
-	push {r4, lr}
-	sub sp, #0x10
+	thumb_func_start PokeathlonEventRecord_Init
+PokeathlonEventRecord_Init: ; 0x021E8304
+	push {r3, r4, r5, lr}
 	add r4, r0, #0
-	mov r0, #0x40
+	ldr r0, _021E839C ; =FS_OVERLAY_ID(OVY_98)
+	mov r1, #2
+	bl HandleLoadOverlay
+	add r0, r4, #0
+	bl OverlayManager_GetArgs
+	add r5, r0, #0
+	bne _021E831E
+	bl GF_AssertFail
+_021E831E:
+	mov r0, #3
+	mov r1, #0x84
+	lsl r2, r0, #0x10
+	bl Heap_Create
+	add r0, r4, #0
+	mov r1, #0xe4
+	mov r2, #0x84
+	bl OverlayManager_CreateAndGetData
+	mov r1, #0
+	mov r2, #0xe4
+	add r4, r0, #0
+	bl MI_CpuFill8
+	mov r0, #0x84
+	str r0, [r4, #0xc]
+	add r0, r4, #0
+	add r1, r5, #0
+	bl ov99_021E93DC
+	bl ov98_0221F090
+	add r0, r4, #0
+	bl ov99_021E8590
+	add r0, r4, #0
+	bl ov99_021E860C
+	ldr r0, _021E83A0 ; =0x0000013A
+	ldr r3, _021E83A4 ; =ov99_021EA45C
 	str r0, [sp]
 	ldr r0, [r4, #0xc]
-	mov r2, #0
-	str r0, [sp, #4]
-	ldr r0, [r4, #4]
-	mov r1, #0x2a
-	add r3, r2, #0
-	bl GfGfxLoader_GXLoadPalFromOpenNarc
-	mov r3, #0
-	str r3, [sp]
-	str r3, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2c
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r3, #0
-	str r3, [sp]
-	str r3, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2e
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
+	ldr r1, [r4, #4]
+	mov r2, #0x13
+	bl ov98_0221EABC
+	str r0, [r4, #0x10]
+	add r0, r4, #0
+	bl ov99_021E88D4
+	add r0, r4, #0
+	bl ov99_021E8788
+	add r0, r4, #0
+	bl ov99_021E8C04
+	add r0, r4, #0
+	bl ov99_021E8818
 	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
+	bl ResetVisibleHardwareWindows
 	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2c
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #2
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
+	bl ResetVisibleHardwareWindows
+	ldr r0, _021E83A8 ; =ov99_021E856C
+	add r1, r4, #0
+	bl Main_SetVBlankIntrCB
 	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2f
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #2
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	mov r1, #1
-	str r1, [sp]
-	mov r0, #0
-	str r0, [sp, #4]
-	str r1, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x30
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #3
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0x40
-	str r0, [sp]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2b
-	str r0, [sp, #4]
-	ldr r0, [r4, #4]
-	mov r2, #4
-	mov r3, #0
-	bl GfGfxLoader_GXLoadPalFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2d
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #4
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x31
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #4
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2d
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #6
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x32
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #6
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	add sp, #0x10
-	pop {r4, pc}
-	thumb_func_end ov99_021E7DA4
+	pop {r3, r4, r5, pc}
+	nop
+_021E839C: .word FS_OVERLAY_ID(OVY_98)
+_021E83A0: .word 0x0000013A
+_021E83A4: .word ov99_021EA45C
+_021E83A8: .word ov99_021E856C
+	thumb_func_end PokeathlonEventRecord_Init
+
+

@@ -225,16 +225,38 @@
 	.public ov99_021E8788
 
 
-	thumb_func_start ov99_021E7D30
-ov99_021E7D30: ; 0x021E7D30
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xd4
+	thumb_func_start ov99_021E856C
+ov99_021E856C: ; 0x021E856C
+	push {r4, lr}
+	add r4, r0, #0
+	bl SpriteSystem_TransferOam
+	ldr r0, [r4, #4]
+	bl DoScheduledBgGpuUpdates
+	ldr r3, _021E8588 ; =0x027E0000
+	ldr r1, _021E858C ; =0x00003FF8
+	mov r0, #1
+	ldr r2, [r3, r1]
+	orr r0, r2
+	str r0, [r3, r1]
+	pop {r4, pc}
+	.balign 4, 0
+_021E8588: .word 0x027E0000
+_021E858C: .word 0x00003FF8
+	thumb_func_end ov99_021E856C
+
+
+
+
+	thumb_func_start ov99_021E8590
+ov99_021E8590: ; 0x021E8590
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #0xb8
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
 	bl BgConfig_Alloc
 	add r3, sp, #0
-	ldr r4, _021E7D98 ; =ov99_021E9F80
-	str r0, [r5]
+	ldr r4, _021E8600 ; =ov99_021EA374
+	str r0, [r5, #4]
 	add r2, r3, #0
 	ldmia r4!, {r0, r1}
 	stmia r3!, {r0, r1}
@@ -242,27 +264,25 @@ ov99_021E7D30: ; 0x021E7D30
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
 	bl SetBothScreensModesAndDisable
-	ldr r4, _021E7D9C ; =ov99_021EA0BC
+	ldr r4, _021E8604 ; =ov99_021EA4F4
 	add r3, sp, #0x10
-	mov r2, #0x18
-_021E7D58:
+	mov r2, #0x15
+_021E85B8:
 	ldmia r4!, {r0, r1}
 	stmia r3!, {r0, r1}
 	sub r2, r2, #1
-	bne _021E7D58
-	ldr r0, [r4]
-	ldr r4, _021E7DA0 ; =ov99_021EA348
-	str r0, [r3]
+	bne _021E85B8
+	ldr r4, _021E8608 ; =ov99_021EA59C
 	mov r7, #0
 	add r6, sp, #0x10
-_021E7D6A:
+_021E85C6:
 	ldrb r1, [r4]
-	ldr r0, [r5]
+	ldr r0, [r5, #4]
 	add r2, r6, #0
 	mov r3, #0
 	bl InitBgFromTemplate
 	ldrb r1, [r4]
-	ldr r0, [r5]
+	ldr r0, [r5, #4]
 	bl BgClearTilemapBufferAndCommit
 	ldrb r0, [r4]
 	ldr r3, [r5, #0xc]
@@ -272,31 +292,34 @@ _021E7D6A:
 	add r7, r7, #1
 	add r6, #0x1c
 	add r4, r4, #1
-	cmp r7, #7
-	blt _021E7D6A
-	add sp, #0xd4
-	pop {r4, r5, r6, r7, pc}
-	.balign 4, 0
-_021E7D98: .word ov99_021E9F80
-_021E7D9C: .word ov99_021EA0BC
-_021E7DA0: .word ov99_021EA348
-	thumb_func_end ov99_021E7D30
+	cmp r7, #6
+	blt _021E85C6
+	ldr r1, [r5, #0xc]
+	mov r0, #0xb1
+	bl NARC_New
+	str r0, [r5, #8]
+	add sp, #0xb8
+	pop {r3, r4, r5, r6, r7, pc}
+	nop
+_021E8600: .word ov99_021EA374
+_021E8604: .word ov99_021EA4F4
+_021E8608: .word ov99_021EA59C
+	thumb_func_end ov99_021E8590
 
 
 
 
-	thumb_func_start ov99_021E7DA4
-ov99_021E7DA4: ; 0x021E7DA4
+	thumb_func_start ov99_021E860C
+ov99_021E860C: ; 0x021E860C
 	push {r4, lr}
 	sub sp, #0x10
-	add r4, r0, #0
-	mov r0, #0x40
-	str r0, [sp]
-	ldr r0, [r4, #0xc]
 	mov r2, #0
+	add r4, r0, #0
+	str r2, [sp]
+	ldr r0, [r4, #0xc]
+	mov r1, #0x33
 	str r0, [sp, #4]
-	ldr r0, [r4, #4]
-	mov r1, #0x2a
+	ldr r0, [r4, #8]
 	add r3, r2, #0
 	bl GfGfxLoader_GXLoadPalFromOpenNarc
 	mov r3, #0
@@ -305,10 +328,10 @@ ov99_021E7DA4: ; 0x021E7DA4
 	mov r0, #1
 	str r0, [sp, #8]
 	ldr r0, [r4, #0xc]
-	mov r1, #0x2c
+	mov r1, #0x34
 	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
+	ldr r0, [r4, #8]
+	ldr r2, [r4, #4]
 	bl GfGfxLoader_LoadCharDataFromOpenNarc
 	mov r3, #0
 	str r3, [sp]
@@ -316,34 +339,10 @@ ov99_021E7DA4: ; 0x021E7DA4
 	mov r0, #1
 	str r0, [sp, #8]
 	ldr r0, [r4, #0xc]
-	mov r1, #0x2e
+	mov r1, #0x35
 	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2c
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #2
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2f
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #2
+	ldr r0, [r4, #8]
+	ldr r2, [r4, #4]
 	bl GfGfxLoader_LoadScrnDataFromOpenNarc
 	mov r1, #1
 	str r1, [sp]
@@ -351,20 +350,19 @@ ov99_021E7DA4: ; 0x021E7DA4
 	str r0, [sp, #4]
 	str r1, [sp, #8]
 	ldr r0, [r4, #0xc]
-	mov r1, #0x30
+	mov r1, #0x37
 	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #3
+	ldr r0, [r4, #8]
+	ldr r2, [r4, #4]
+	mov r3, #2
 	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0x40
-	str r0, [sp]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x2b
-	str r0, [sp, #4]
-	ldr r0, [r4, #4]
-	mov r2, #4
 	mov r3, #0
+	str r3, [sp]
+	ldr r0, [r4, #0xc]
+	mov r1, #0x33
+	str r0, [sp, #4]
+	ldr r0, [r4, #8]
+	mov r2, #4
 	bl GfGfxLoader_GXLoadPalFromOpenNarc
 	mov r0, #0
 	str r0, [sp]
@@ -372,10 +370,10 @@ ov99_021E7DA4: ; 0x021E7DA4
 	mov r0, #1
 	str r0, [sp, #8]
 	ldr r0, [r4, #0xc]
-	mov r1, #0x2d
+	mov r1, #0x34
 	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
+	ldr r0, [r4, #8]
+	ldr r2, [r4, #4]
 	mov r3, #4
 	bl GfGfxLoader_LoadCharDataFromOpenNarc
 	mov r0, #0
@@ -384,36 +382,104 @@ ov99_021E7DA4: ; 0x021E7DA4
 	mov r0, #1
 	str r0, [sp, #8]
 	ldr r0, [r4, #0xc]
-	mov r1, #0x31
+	mov r1, #0x36
 	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
+	ldr r0, [r4, #8]
+	ldr r2, [r4, #4]
 	mov r3, #4
 	bl GfGfxLoader_LoadScrnDataFromOpenNarc
+	mov r1, #1
+	str r1, [sp]
 	mov r0, #0
-	str r0, [sp]
 	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
+	str r1, [sp, #8]
 	ldr r0, [r4, #0xc]
-	mov r1, #0x2d
+	mov r1, #0x37
 	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
+	ldr r0, [r4, #8]
+	ldr r2, [r4, #4]
 	mov r3, #6
 	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r0, [r4, #0xc]
-	mov r1, #0x32
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	ldr r2, [r4]
-	mov r3, #6
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
 	add sp, #0x10
 	pop {r4, pc}
-	thumb_func_end ov99_021E7DA4
+	.balign 4, 0
+	thumb_func_end ov99_021E860C
+
+
+
+
+	thumb_func_start ov99_021E86D4
+ov99_021E86D4: ; 0x021E86D4
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #0x28
+	add r7, r0, #0
+	ldr r0, [sp, #0x44]
+	str r2, [sp, #0xc]
+	str r3, [sp, #0x10]
+	cmp r0, #0
+	beq _021E86E8
+	mov r0, #6
+	b _021E86EA
+_021E86E8:
+	mov r0, #2
+_021E86EA:
+	lsl r0, r0, #0x18
+	lsr r0, r0, #0x18
+	str r0, [sp, #0x1c]
+	mov r0, #6
+	mul r0, r1
+	str r0, [sp, #0x18]
+	mov r0, #0x5a
+	mov r5, #0
+	ldr r1, [sp, #0x40]
+	lsl r0, r0, #2
+	mul r0, r1
+	str r5, [sp, #0x20]
+	str r0, [sp, #0x14]
+_021E8704:
+	ldr r0, [sp, #0x10]
+	mov r4, #0
+	lsl r0, r0, #0x18
+	lsr r6, r0, #0x18
+_021E870C:
+	ldr r0, [sp, #0x18]
+	add r1, r4, #1
+	add r0, r1, r0
+	add r1, r0, r5
+	ldr r0, [sp, #0x14]
+	add r2, sp, #0x24
+	add r1, r0, r1
+	add r0, sp, #0x24
+	strh r1, [r0]
+	str r6, [sp]
+	mov r0, #1
+	str r0, [sp, #4]
+	str r0, [sp, #8]
+	ldr r3, [sp, #0xc]
+	ldr r0, [r7, #4]
+	add r3, r3, r4
+	lsl r3, r3, #0x18
+	ldr r1, [sp, #0x1c]
+	lsr r3, r3, #0x18
+	bl LoadRectToBgTilemapRect
+	add r4, r4, #1
+	cmp r4, #6
+	blt _021E870C
+	ldr r0, [sp, #0x10]
+	add r5, #0x3c
+	add r0, r0, #1
+	str r0, [sp, #0x10]
+	ldr r0, [sp, #0x20]
+	add r0, r0, #1
+	str r0, [sp, #0x20]
+	cmp r0, #6
+	blt _021E8704
+	ldr r0, [r7, #4]
+	ldr r1, [sp, #0x1c]
+	bl BgCommitTilemapBufferToVram
+	add sp, #0x28
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+	thumb_func_end ov99_021E86D4
+
+
