@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "dbdc9b5148c782c5f5297eb49554371b259f02ac",
+  "commit": "8c4d263f41a18e78aa9016758c96cd2612b39f4c",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": false,
   "map_sha256": {
-    "ARM9": "267f4eef82310d9c839c53b50a43c8e8cb0c6056628d6df85e48ede05da76e3d",
+    "ARM9": "a648f3cea8169f867508edcc3e8cc488c12022817c98e4da8ee09ca431562e75",
     "ARM7": "bf1916e1ae2399401bea90b68b3a76666f2dbd09367bff4a5f14a2651eafe1a8"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 2759748,
+    "asm": 2758936,
     "mixed": 18270,
-    "c": 1293340,
+    "c": 1294144,
     "unknown": 8792
   },
   "objects": [
@@ -12307,6 +12307,22 @@
     {
       "cpu": "ARM9",
       "module": "OVY_49",
+      "object": "ov49_wave30_direction_1.o",
+      "bytes": 184,
+      "status": "c",
+      "source": "src/ov49_wave30_direction_1.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_49",
+      "object": "ov49_wave30_direction_2.o",
+      "bytes": 148,
+      "status": "c",
+      "source": "src/ov49_wave30_direction_2.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_49",
       "object": "overlay49_animation_helpers_1.o",
       "bytes": 940,
       "status": "c",
@@ -12900,9 +12916,17 @@
       "cpu": "ARM9",
       "module": "OVY_49",
       "object": "overlay_49_residual_58.o",
-      "bytes": 648,
+      "bytes": 156,
       "status": "asm",
       "source": "asm/overlay_49_residual_58.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_49",
+      "object": "overlay_49_residual_58_residual_2.o",
+      "bytes": 156,
+      "status": "asm",
+      "source": "asm/overlay_49_residual_58_residual_2.s"
     },
     {
       "cpu": "ARM9",
@@ -25307,6 +25331,54 @@
     {
       "cpu": "ARM9",
       "module": "OVY_96",
+      "object": "ov96_wave30_sprite_1.o",
+      "bytes": 148,
+      "status": "c",
+      "source": "src/ov96_wave30_sprite_1.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_96",
+      "object": "ov96_wave30_sprite_2.o",
+      "bytes": 50,
+      "status": "c",
+      "source": "src/ov96_wave30_sprite_2.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_96",
+      "object": "ov96_wave30_state_1.o",
+      "bytes": 28,
+      "status": "c",
+      "source": "src/ov96_wave30_state_1.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_96",
+      "object": "ov96_wave30_state_2.o",
+      "bytes": 136,
+      "status": "c",
+      "source": "src/ov96_wave30_state_2.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_96",
+      "object": "ov96_wave30_state_3.o",
+      "bytes": 48,
+      "status": "c",
+      "source": "src/ov96_wave30_state_3.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_96",
+      "object": "ov96_wave30_state_4.o",
+      "bytes": 62,
+      "status": "c",
+      "source": "src/ov96_wave30_state_4.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_96",
       "object": "overlay96_compare_helpers_1.o",
       "bytes": 40,
       "status": "c",
@@ -28028,7 +28100,7 @@
       "cpu": "ARM9",
       "module": "OVY_96",
       "object": "overlay_96_residual_9.o",
-      "bytes": 1164,
+      "bytes": 92,
       "status": "asm",
       "source": "asm/overlay_96_residual_9.s"
     },
@@ -28076,9 +28148,17 @@
       "cpu": "ARM9",
       "module": "OVY_96",
       "object": "overlay_96_residual_94_residual_2.o",
-      "bytes": 776,
+      "bytes": 92,
       "status": "asm",
       "source": "asm/overlay_96_residual_94_residual_2.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_96",
+      "object": "overlay_96_residual_94_residual_2_residual_2.o",
+      "bytes": 484,
+      "status": "asm",
+      "source": "asm/overlay_96_residual_94_residual_2_residual_2.s"
     },
     {
       "cpu": "ARM9",
@@ -28167,6 +28247,22 @@
       "bytes": 32,
       "status": "asm",
       "source": "asm/overlay_96_residual_99.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_96",
+      "object": "overlay_96_residual_9_residual_2.o",
+      "bytes": 728,
+      "status": "asm",
+      "source": "asm/overlay_96_residual_9_residual_2.s"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_96",
+      "object": "overlay_96_residual_9_residual_3.o",
+      "bytes": 68,
+      "status": "asm",
+      "source": "asm/overlay_96_residual_9_residual_3.s"
     },
     {
       "cpu": "ARM9",
