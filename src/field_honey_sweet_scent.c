@@ -158,7 +158,7 @@ int ov01_021FC2C4(FieldSystem *fieldSystem) {
 
 BOOL ov01_021FC2C8(FieldSystem *fieldSystem) {
     int i;
-    u32 value = ov01_021EB31C(fieldSystem->unk4->weatherManager);
+    u32 value = WeatherManager_GetWeather(fieldSystem->unk4->weatherManager);
     for (i = 0; i < 3; i++) {
         if (value == ov01_02208BC0[i]) {
             return FALSE;

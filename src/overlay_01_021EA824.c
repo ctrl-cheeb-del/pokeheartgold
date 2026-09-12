@@ -55,7 +55,7 @@ void ov01_021EA89C(FogData *fog, u32 arg1, u16 arg2, u32 arg3) {
     reg_G3X_FOG_COLOR = fog->unk10 | (fog->unk14 << 16);
 }
 
-void ov01_021EA8C4(FogData *fog, const u32 *src) {
+void ov01_021EA8C4(FogData *fog, const void *src) {
     MIi_CpuCopy32(src, fog->fogTable, 32);
     G3X_SetFogTable(fog->fogTable);
 }

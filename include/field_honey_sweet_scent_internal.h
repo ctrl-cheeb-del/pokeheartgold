@@ -6,6 +6,7 @@
 
 #include "field/encounter_check.h"
 #include "field/field_3d_object_task.h"
+#include "field/weather_manager.h"
 
 #include "assert.h"
 #include "bg_window.h"
@@ -20,9 +21,6 @@
 
 // Declared in include/summary_screen_helpers_internal.h (not includable here).
 extern void G2x_SetBlendAlpha_(u32 reg, int plane1, int plane2, int eva, int evb);
-
-// Still assembly-only (asm/overlay_01_021EB31C region); no tracked prototype exists.
-extern u32 ov01_021EB31C(void *weatherManager);
 
 // PlayerAvatar accessors live in *_internal.h headers only.
 extern u32 PlayerAvatar_GetXCoord(PlayerAvatar *playerAvatar);

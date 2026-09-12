@@ -1247,44 +1247,7 @@ Overlay field
     Object asm/overlay_01_021EAFD4_residual_2.o
     Object src/field_texture_manager_3.o
     Object asm/overlay_01_021EAFD4_residual_3.o
-    Object src/ov01_21eb1e8_opus_partial_1.o
-    Object asm/overlay_01_021EB1E8.o
-    Object src/ov01_21eb1e8_opus_partial_2.o
-    Object asm/overlay_01_021EB1E8_residual_2.o
-    Object src/ov01_21eb1e8_opus_partial_3.o
-    Object asm/overlay_01_021EB1E8_residual_3.o
-    Object src/ov01_21eb1e8_opus_partial_4.o
-    Object asm/overlay_01_021EB1E8_residual_4.o
-    Object src/ov01_21eb1e8_opus_partial_5.o
-    Object asm/overlay_01_021EB1E8_residual_5.o
-    Object src/ov01_21eb1e8_opus_partial_6.o
-    Object asm/overlay_01_021EB1E8_residual_6.o
-    Object src/ov01_21eb1e8_opus_partial_7.o
-    Object asm/overlay_01_021EB1E8_residual_7.o
-    Object src/ov01_21eb1e8_opus_partial_8.o
-    Object asm/overlay_01_021EB1E8_residual_8.o
-    Object src/ov01_21eb1e8_opus_partial_9.o
-    Object asm/overlay_01_021EB1E8_residual_9.o
-    Object src/ov01_21eb1e8_opus_partial_10.o
-    Object asm/overlay_01_021EB1E8_residual_10.o
-    Object src/ov01_21eb1e8_opus_partial_11.o
-    Object asm/overlay_01_021EB1E8_residual_11.o
-    Object src/ov01_21eb1e8_opus_partial_12.o
-    Object asm/overlay_01_021EB1E8_residual_12.o
-    Object src/ov01_21eb1e8_opus_partial_13.o
-    Object asm/overlay_01_021EB1E8_residual_13.o
-    Object src/ov01_21eb1e8_opus_partial_14.o
-    Object asm/overlay_01_021EB1E8_residual_14.o
-    Object src/ov01_21eb1e8_opus_partial_15.o
-    Object asm/overlay_01_021EB1E8_residual_15.o
-    Object src/ov01_21eb1e8_opus_partial_16.o
-    Object asm/overlay_01_021EB1E8_residual_16.o
-    Object src/ov01_21eb1e8_opus_partial_17.o
-    Object asm/overlay_01_021EB1E8_residual_17.o
-    Object src/ov01_21eb1e8_opus_partial_18.o
-    Object asm/overlay_01_021EB1E8_residual_18.o
-    Object src/ov01_21eb1e8_opus_partial_19.o
-    Object asm/overlay_01_021EB1E8_residual_19.o
+    Object src/field/weather_manager.o
     Object src/field_move_tutor_menu_1.o
     Object asm/overlay_01_021EDAFC.o
     Object src/field_move_tutor_menu_2.o

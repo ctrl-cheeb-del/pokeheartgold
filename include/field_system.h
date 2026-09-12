@@ -13,6 +13,7 @@
 #include "field/overlay_01_021EAFD4.h"
 #include "field/overlay_01_02204004.h"
 #include "field/signpost.h"
+#include "field/weather_manager.h"
 
 #include "bag_cursor.h"
 #include "battle_regulation.h"
@@ -26,7 +27,6 @@
 #include "map_matrix.h"
 #include "menu_input_state.h"
 #include "overlay_01_021EA824.h" // replace with field/fog.h
-#include "overlay_01_021EB1E8.h"
 #include "overlay_01_021F1348.h"
 #include "overlay_manager.h"
 #include "photo_types_def.h"
@@ -97,7 +97,7 @@ typedef struct FieldSystemUnkSub4 {
     u32 unk0;
     Field3dObjectTaskManager *field3dObjectTaskManager;
     FieldDrawMapNameInfo *drawMapNameInfo;
-    void *weatherManager;
+    WeatherManager *weatherManager;
     FieldTextureManager *textureManager;
     u32 unk14;
     UnkStruct_020556FC *unk18;

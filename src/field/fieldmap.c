@@ -21,6 +21,7 @@
 #include "field/overlay_01_021FD1B8.h"
 #include "field/overlay_01_02204004.h"
 #include "field/signpost.h"
+#include "field/weather_manager.h"
 #include "overlay_2/overlay_02_02248728.h"
 
 #include "bg_window.h"
@@ -42,7 +43,6 @@
 #include "obj_pltt_transfer.h"
 #include "overlay_01.h"
 #include "overlay_01_021EA824.h"
-#include "overlay_01_021EB1E8.h" // replace with field/weather_manager
 #include "overlay_01_021F1348.h"
 #include "overlay_01_021F6830.h"
 #include "overlay_01_021F8D80.h"
