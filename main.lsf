@@ -2109,7 +2109,11 @@ Overlay OVY_14
 Overlay OVY_15
 {
     After OVY_14
-    Object asm/overlay_15.o
+    Object asm/overlay_15_prefix.o
+    Object src/overlay15_tm_label_format.o
+    Object asm/overlay_15_tmhm_gap.o
+    Object src/overlay15_hm_marker.o
+    Object asm/overlay_15_suffix.o
 }
 Overlay OVY_16
 {
