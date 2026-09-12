@@ -48,6 +48,8 @@ typedef struct UnkStruct_FieldSysC0_SubC {
     int index;
 } UnkStruct_FieldSysC0_SubC;
 
+typedef UnkStruct_FieldSysC0_SubC Field3dRenderObj;
+
 typedef struct UnkStruct_FieldSysC0 {
     u8 *modelNumToLoadedSlot;
     NNSG3dResFileHeader **resFileHeaders;
@@ -57,6 +59,8 @@ typedef struct UnkStruct_FieldSysC0 {
     int indexMax;
     int objectMax;
 } UnkStruct_FieldSysC0;
+
+typedef UnkStruct_FieldSysC0 Field3dRenderObjManager;
 
 // TimeOfDayVisual?
 typedef struct FieldSystemUnkSub104_Sub8 {

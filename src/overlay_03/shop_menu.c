@@ -153,7 +153,7 @@ BOOL ScrCmd_710(ScriptContext *ctx) {
 
 static void ov03_02256BA8(FieldSystem *fieldSystem, u8 index) {
     u16 modelID = ov03_0225945C[index];
-    UnkStruct_FieldSysC0_SubC *unkC0_SubC = Field3dObjectList_GetRenderObjectByID(fieldSystem->unkC0, modelID);
+    UnkStruct_FieldSysC0_SubC *unkC0_SubC = Field3dObjectList_GetRenderObjectByID(fieldSystem->renderObjManager, modelID);
     if (unkC0_SubC == NULL) {
         GF_AssertFail();
     } else {

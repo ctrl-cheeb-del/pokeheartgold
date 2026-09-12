@@ -70,16 +70,16 @@ BOOL ov01_021F31CC(void *taskManager) {
         }
         if (MetatileBehavior_IsSlideEast(behavior) == TRUE) {
             s->direction = 3;
-            ov04_02256BE4(s->fieldSystem, behavior);
+            ViridianGymmick_HandleTileAction(s->fieldSystem, behavior);
         } else if (MetatileBehavior_IsSlideWest(behavior) == TRUE) {
             s->direction = 2;
-            ov04_02256BE4(s->fieldSystem, behavior);
+            ViridianGymmick_HandleTileAction(s->fieldSystem, behavior);
         } else if (MetatileBehavior_IsSlideNorth(behavior) == TRUE) {
             s->direction = 0;
-            ov04_02256BE4(s->fieldSystem, behavior);
+            ViridianGymmick_HandleTileAction(s->fieldSystem, behavior);
         } else if (MetatileBehavior_IsSlideSouth(behavior) == TRUE) {
             s->direction = 1;
-            ov04_02256BE4(s->fieldSystem, behavior);
+            ViridianGymmick_HandleTileAction(s->fieldSystem, behavior);
         } else if (MetatileBehavior_StopSliding(behavior) == TRUE) {
             s->direction = ov01_021F31A0(s->direction);
             MapObject_ClearFlagsBits(mapObject, 0x80);

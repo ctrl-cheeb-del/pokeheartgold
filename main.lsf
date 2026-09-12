@@ -1720,43 +1720,15 @@ Overlay OVY_3
 Overlay OVY_4
 {
     After OVY_2
-    Object src/overlay04_azalea_init.o
-    Object asm/overlay_04_azalea_ride_residual.o
-    Object src/overlay04_azalea_switch_ride.o
-    Object src/overlay04_helpers_1.o
-    Object asm/overlay_04_residual_2.o
-    Object src/overlay04_helpers_2.o
-    Object asm/overlay_04_residual_3.o
-    Object src/overlay04_helpers_3.o
-    Object asm/overlay_04_residual_4.o
-    Object src/overlay04_helpers_4.o
-    Object asm/overlay_04_residual_5.o
-    Object src/overlay04_helpers_5.o
-    Object asm/overlay_04_residual_6.o
-    Object src/overlay04_helpers_6.o
-    Object asm/overlay_04_residual_7.o
-    Object src/overlay04_helpers_7.o
-    Object asm/overlay_04_residual_8.o
-    Object src/overlay04_helpers_8.o
-    Object asm/overlay_04_residual_9.o
-    Object src/overlay04_helpers_9.o
-    Object asm/overlay_04_residual_10.o
-    Object src/overlay04_helpers_10.o
-    Object asm/overlay_04_residual_11.o
-    Object src/overlay04_helpers_11.o
-    Object asm/overlay_04_residual_12.o
-    Object src/overlay04_helpers_12.o
-    Object asm/overlay_04_residual_13.o
-    Object src/overlay04_helpers_13.o
-    Object asm/overlay_04_residual_14.o
-    Object src/overlay04_helpers_14.o
-    Object asm/overlay_04_residual_15.o
-    Object src/overlay04_helpers_15.o
-    Object asm/overlay_04_residual_16.o
-    Object src/overlay04_helpers_16.o
-    Object asm/overlay_04_residual_17.o
-    Object src/overlay04_helpers_17.o
-    Object asm/overlay_04_residual_18.o
+    Object src/field/gymmick/violet.o
+    Object src/field/gymmick/azalea.o
+    Object src/field/gymmick/ecruteak.o
+    Object src/field/gymmick/blackthorn.o
+    Object src/field/gymmick/cianwood.o
+    Object src/field/gymmick/vermilion.o
+    Object src/field/gymmick/fuchsia.o
+    Object src/field/gymmick/viridian.o
+    Object src/field/gymmick/sinjoh.o
 }
 Overlay OVY_5
 {

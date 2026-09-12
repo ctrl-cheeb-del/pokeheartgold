@@ -11,4 +11,7 @@ void VEC_Normalize(const VecFx32 *pSrc, VecFx32 *pDst);
 void VEC_Fx16Add(const VecFx16 *a, const VecFx16 *b, VecFx16 *ab);
 void VEC_Fx16Normalize(const VecFx16 * pSrc, VecFx16 * pDst);
 
+fx32 VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
+void VEC_MultAdd(fx32 a, const VecFx32 *b, const VecFx32 *c, VecFx32 *aplusbc);
+
 #endif //NITRO_FX_FX_VEC_H_

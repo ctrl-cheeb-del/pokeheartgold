@@ -50,7 +50,7 @@ u32 sub_020549F4(FieldSystem *fieldSystem, VecFx32 *playerPos, u32 x, u32 y, u32
         *(u8 *)a4 = (u8)slope;
     }
     if (slope == 0) {
-        if (Gymmick_CheckCollision(fieldSystem, x, y, playerPos->y, (u32)&ret) == 0) {
+        if (Gymmick_CheckCollision(fieldSystem, x, y, playerPos->y, &ret) == 0) {
             ret = sub_020548C0(fieldSystem, x, y);
             if (!ret && kind == 2) {
                 GetMetatileBehavior(fieldSystem, x, y);
