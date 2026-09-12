@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "game": "heartgold.us",
-  "commit": "73f283208b275b2bb98baf962fd347619b13683e",
+  "commit": "cb927794b858c70010dac8e9be6aed4ef9c1d408",
   "rom_sha1": "4fcded0e2713dc03929845de631d0932ea2b5a37",
   "tracked_worktree_dirty": true,
   "map_sha256": {
-    "ARM9": "38f46c74ffae7ff4985afd5848065c2b9861e276536a8a3f51271bc1616676c8",
-    "ARM7": "d1494f097fee49d9d88df9fdc154f619e33f6782fc3f56cdeca3096f2e6a4160"
+    "ARM9": "786e64364eab8c4e08ddadc76fa5ffd7ff3af5fd880d1415a6af0d0000db8667",
+    "ARM7": "da723ee82183e68f1890b621b659ffd64d6211730a6c077012101590d2405459"
   },
   "metric": "Mapped code-section bytes classified by source language; mixed objects excluded from C-only.",
   "totals": {
-    "asm": 2496252,
+    "asm": 2495984,
     "mixed": 18270,
-    "c": 1555668,
+    "c": 1555936,
     "unknown": 8792
   },
   "objects": [
@@ -2931,6 +2931,14 @@
     {
       "cpu": "ARM9",
       "module": "OVY_12",
+      "object": "battle_02265E28.o",
+      "bytes": 504,
+      "status": "c",
+      "source": "src/battle/battle_02265E28.c"
+    },
+    {
+      "cpu": "ARM9",
+      "module": "OVY_12",
       "object": "battle_command.o",
       "bytes": 46728,
       "status": "c",
@@ -3155,14 +3163,6 @@
     {
       "cpu": "ARM9",
       "module": "OVY_12",
-      "object": "overlay12_2265e28_sol_partial_1.o",
-      "bytes": 236,
-      "status": "c",
-      "source": "src/overlay12_2265e28_sol_partial_1.c"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "OVY_12",
       "object": "overlay12_battle_controller_core.o",
       "bytes": 296,
       "status": "c",
@@ -3343,14 +3343,6 @@
       "bytes": 41720,
       "status": "c",
       "source": "src/battle/overlay_12_0224E4FC.c"
-    },
-    {
-      "cpu": "ARM9",
-      "module": "OVY_12",
-      "object": "overlay_12_02265E28.o",
-      "bytes": 268,
-      "status": "asm",
-      "source": "asm/overlay_12_02265E28.s"
     },
     {
       "cpu": "ARM9",

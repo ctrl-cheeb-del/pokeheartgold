@@ -4,8 +4,8 @@
 <rect width="1200" height="780" rx="16" fill="#101722"/>
 <g font-family="system-ui, sans-serif" fill="#edf2fa">
 <text x="28" y="42" font-size="25" font-weight="700">HeartGold · decompilation</text>
-<text x="1172" y="42" text-anchor="end" font-size="22">38.14% C-only source</text>
-<text x="28" y="71" font-size="14" fill="#b9c7da">Matching US ROM verified · 73f283208 · ARM9 + ARM7 · 4,078,982 mapped code bytes</text>
+<text x="1172" y="42" text-anchor="end" font-size="22">38.15% C-only source</text>
+<text x="28" y="71" font-size="14" fill="#b9c7da">Matching US ROM verified · cb927794b · ARM9 + ARM7 · 4,078,982 mapped code bytes</text>
 <rect x="28" y="91" width="12" height="12" rx="2" fill="#35b85a"/>
 <text x="47" y="102" font-size="14">C-only source 38.1%</text>
 <rect x="316" y="91" width="12" height="12" rx="2" fill="#e4ad42"/>
@@ -4716,214 +4716,211 @@ src/battle/party_gauge.c</title></rect>
 <rect x="353.682" y="503.385" width="11.652" height="24.452" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_6.o
 1,716 bytes · Assembly
 asm/overlay_12_022378C0_residual_6.s</title></rect>
-<rect x="297.180" y="527.837" width="20.624" height="13.203" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_tail.o
+<rect x="297.180" y="527.837" width="20.634" height="13.196" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_tail.o
 1,640 bytes · Assembly
 asm/overlay_12_battle_controller_tail.s</title></rect>
-<rect x="297.180" y="541.040" width="20.624" height="8.743" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_022378C0.o
+<rect x="297.180" y="541.034" width="20.634" height="8.739" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_022378C0.o
 1,086 bytes · C-only source
 src/battle/battle_022378C0.c</title></rect>
-<rect x="317.804" y="527.837" width="12.831" height="12.060" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_4.o
+<rect x="317.814" y="527.837" width="12.838" height="12.054" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_4.o
 932 bytes · Assembly
 asm/overlay_12_battle_controller_residual_4.s</title></rect>
-<rect x="317.804" y="539.897" width="12.831" height="9.886" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_finger.o
+<rect x="317.814" y="539.891" width="12.838" height="9.881" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_finger.o
 764 bytes · C-only source
 src/battle/battle_finger.c</title></rect>
-<rect x="297.180" y="549.783" width="18.245" height="6.370" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_cursor.o
+<rect x="297.180" y="549.772" width="18.234" height="6.374" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_cursor.o
 700 bytes · C-only source
 src/battle/battle_cursor.c</title></rect>
-<rect x="297.180" y="556.153" width="9.123" height="12.012" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_15.o
+<rect x="297.180" y="556.146" width="9.117" height="12.019" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_15.o
 660 bytes · Assembly
 asm/overlay_12_battle_controller_residual_15.s</title></rect>
-<rect x="306.303" y="556.153" width="9.123" height="12.012" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_21.o
+<rect x="306.297" y="556.146" width="9.117" height="12.019" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_21.o
 660 bytes · Assembly
 asm/overlay_12_battle_controller_residual_21.s</title></rect>
-<rect x="315.425" y="549.783" width="15.210" height="6.855" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_10.o
+<rect x="315.415" y="549.772" width="15.237" height="6.843" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_10.o
 628 bytes · Assembly
 asm/overlay_12_battle_controller_residual_10.s</title></rect>
-<rect x="315.425" y="556.638" width="8.008" height="11.527" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_22.o
+<rect x="315.415" y="556.615" width="7.992" height="11.550" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_22.o
 556 bytes · Assembly
 asm/overlay_12_battle_controller_residual_22.s</title></rect>
-<rect x="323.434" y="556.638" width="7.202" height="11.527" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_9.o
+<rect x="323.407" y="556.615" width="7.245" height="11.550" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_02265E28.o
+504 bytes · C-only source
+src/battle/battle_02265E28.c</title></rect>
+<rect x="330.652" y="527.837" width="8.727" height="9.513" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_9.o
 500 bytes · Assembly
 asm/overlay_12_022378C0_residual_9.s</title></rect>
-<rect x="330.636" y="527.837" width="6.959" height="11.356" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_19.o
+<rect x="339.379" y="527.837" width="8.308" height="9.513" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_19.o
 476 bytes · Assembly
 asm/overlay_12_battle_controller_residual_19.s</title></rect>
-<rect x="337.595" y="527.837" width="11.053" height="5.888" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_7.o
+<rect x="330.652" y="537.350" width="6.160" height="10.565" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_7.o
 392 bytes · Assembly
 asm/overlay_12_battle_controller_residual_7.s</title></rect>
-<rect x="337.595" y="533.726" width="11.053" height="5.468" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_3.o
+<rect x="336.813" y="537.350" width="5.720" height="10.565" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_3.o
 364 bytes · Assembly
 asm/overlay_12_battle_controller_residual_3.s</title></rect>
-<rect x="330.636" y="539.193" width="6.103" height="8.923" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_8.o
+<rect x="342.533" y="537.350" width="5.155" height="10.565" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_8.o
 328 bytes · Assembly
 asm/overlay_12_022378C0_residual_8.s</title></rect>
-<rect x="336.739" y="539.193" width="6.029" height="8.923" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_7.o
+<rect x="347.687" y="527.837" width="6.006" height="8.957" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_7.o
 324 bytes · Assembly
 asm/overlay_12_022378C0_residual_7.s</title></rect>
-<rect x="342.768" y="539.193" width="5.880" height="8.923" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_10.o
+<rect x="353.693" y="527.837" width="5.858" height="8.957" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_10.o
 316 bytes · Assembly
 asm/overlay_12_022378C0_residual_10.s</title></rect>
-<rect x="348.648" y="527.837" width="5.721" height="9.055" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_5.o
+<rect x="359.551" y="527.837" width="5.784" height="8.957" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_5.o
 312 bytes · Assembly
 asm/overlay_12_022378C0_residual_5.s</title></rect>
-<rect x="354.369" y="527.837" width="5.501" height="9.055" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_prefix.o
+<rect x="347.687" y="536.794" width="8.928" height="5.579" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_prefix.o
 300 bytes · Assembly
 asm/overlay_12_battle_controller_prefix.s</title></rect>
-<rect x="359.870" y="527.837" width="5.464" height="9.055" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_17.o
+<rect x="347.687" y="542.373" width="8.928" height="5.542" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_17.o
 298 bytes · C-only source
 src/battle_controller_partial_17.c</title></rect>
-<rect x="348.648" y="536.892" width="8.639" height="5.689" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_battle_controller_core.o
+<rect x="356.615" y="536.794" width="8.719" height="5.637" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_battle_controller_core.o
 296 bytes · C-only source
 src/overlay12_battle_controller_core.c</title></rect>
-<rect x="348.648" y="542.581" width="8.639" height="5.535" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_6.o
+<rect x="356.615" y="542.431" width="8.719" height="5.484" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_6.o
 288 bytes · Assembly
 asm/overlay_12_battle_controller_residual_6.s</title></rect>
-<rect x="357.287" y="536.892" width="8.047" height="5.695" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_0226BEC4.o
+<rect x="330.652" y="547.915" width="4.861" height="9.427" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_0226BEC4.o
 276 bytes · C-only source
 src/battle/overlay_12_0226BEC4.c</title></rect>
-<rect x="357.287" y="542.587" width="8.047" height="5.529" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_02265E28.o
-268 bytes · Assembly
-asm/overlay_12_02265E28.s</title></rect>
-<rect x="330.636" y="548.116" width="9.099" height="4.817" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_18.o
+<rect x="335.513" y="547.915" width="4.650" height="9.427" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_18.o
 264 bytes · Assembly
 asm/overlay_12_battle_controller_residual_18.s</title></rect>
-<rect x="330.636" y="552.933" width="9.099" height="4.306" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_2265e28_sol_partial_1.o
-236 bytes · C-only source
-src/overlay12_2265e28_sol_partial_1.c</title></rect>
-<rect x="339.735" y="548.116" width="7.861" height="4.731" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_4.o
+<rect x="340.163" y="547.915" width="7.609" height="4.888" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_4.o
 224 bytes · Assembly
 asm/overlay_12_022378C0_residual_4.s</title></rect>
-<rect x="339.735" y="552.847" width="7.861" height="4.393" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_11.o
+<rect x="340.163" y="552.803" width="7.609" height="4.539" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_11.o
 208 bytes · Assembly
 asm/overlay_12_battle_controller_residual_11.s</title></rect>
-<rect x="330.636" y="557.240" width="7.933" height="4.060" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_02261FD4.o
+<rect x="330.652" y="557.342" width="8.008" height="4.022" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_02261FD4.o
 194 bytes · C-only source
 src/battle/battle_02261FD4.c</title></rect>
-<rect x="330.636" y="561.300" width="4.063" height="6.865" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_2.o
+<rect x="330.652" y="561.364" width="4.101" height="6.801" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_2.o
 168 bytes · C-only source
 src/overlay12_helpers_2.c</title></rect>
-<rect x="334.699" y="561.300" width="3.870" height="6.865" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_5.o
+<rect x="334.754" y="561.364" width="3.906" height="6.801" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_5.o
 160 bytes · Assembly
 asm/overlay_12_battle_controller_residual_5.s</title></rect>
-<rect x="338.569" y="557.240" width="4.661" height="5.628" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_11.o
+<rect x="338.660" y="557.342" width="4.705" height="5.576" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_11.o
 158 bytes · C-only source
 src/battle_controller_partial_11.c</title></rect>
-<rect x="343.230" y="557.240" width="4.366" height="5.628" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_9.o
+<rect x="343.365" y="557.342" width="4.407" height="5.576" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_9.o
 148 bytes · C-only source
 src/battle_controller_partial_9.c</title></rect>
-<rect x="338.569" y="562.868" width="4.514" height="5.297" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_12.o
+<rect x="338.660" y="562.917" width="4.556" height="5.248" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_12.o
 144 bytes · Assembly
 asm/overlay_12_battle_controller_residual_12.s</title></rect>
-<rect x="343.082" y="562.868" width="4.514" height="5.297" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_17.o
+<rect x="343.216" y="562.917" width="4.556" height="5.248" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_17.o
 144 bytes · Assembly
 asm/overlay_12_battle_controller_residual_17.s</title></rect>
-<rect x="347.596" y="548.116" width="4.072" height="5.382" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_3.o
+<rect x="347.772" y="547.915" width="4.032" height="5.436" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_3.o
 132 bytes · Assembly
 asm/overlay_12_022378C0_residual_3.s</title></rect>
-<rect x="351.668" y="548.116" width="4.072" height="5.382" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_8.o
+<rect x="351.804" y="547.915" width="4.032" height="5.436" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_8.o
 132 bytes · Assembly
 asm/overlay_12_battle_controller_residual_8.s</title></rect>
-<rect x="347.596" y="553.498" width="4.241" height="4.933" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_9.o
+<rect x="347.772" y="553.351" width="4.199" height="4.983" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_9.o
 126 bytes · C-only source
 src/overlay12_helpers_9.c</title></rect>
-<rect x="351.837" y="553.498" width="3.904" height="4.933" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_9.o
+<rect x="351.971" y="553.351" width="3.865" height="4.983" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_9.o
 116 bytes · Assembly
 asm/overlay_12_battle_controller_residual_9.s</title></rect>
-<rect x="355.741" y="548.116" width="3.394" height="5.088" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_2.o
+<rect x="355.836" y="547.915" width="3.360" height="5.139" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_2.o
 104 bytes · Assembly
 asm/overlay_12_battle_controller_residual_2.s</title></rect>
-<rect x="359.135" y="548.116" width="3.394" height="5.088" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_20.o
+<rect x="359.196" y="547.915" width="3.360" height="5.139" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_20.o
 104 bytes · Assembly
 asm/overlay_12_battle_controller_residual_20.s</title></rect>
-<rect x="362.528" y="548.116" width="2.806" height="5.088" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_16.o
+<rect x="362.556" y="547.915" width="2.778" height="5.139" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_16.o
 86 bytes · C-only source
 src/battle_controller_partial_16.c</title></rect>
-<rect x="355.741" y="553.204" width="4.892" height="2.647" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_18.o
+<rect x="355.836" y="553.054" width="4.844" height="2.674" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_18.o
 78 bytes · C-only source
 src/battle_controller_partial_18.c</title></rect>
-<rect x="355.741" y="555.851" width="4.892" height="2.579" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_6.o
+<rect x="355.836" y="555.728" width="4.844" height="2.605" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_6.o
 76 bytes · C-only source
 src/overlay12_helpers_6.c</title></rect>
-<rect x="360.633" y="553.204" width="4.702" height="2.684" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_13.o
+<rect x="360.680" y="553.054" width="4.655" height="2.711" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_13.o
 76 bytes · Assembly
 asm/overlay_12_battle_controller_residual_13.s</title></rect>
-<rect x="360.633" y="555.888" width="4.702" height="2.543" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_3.o
+<rect x="360.680" y="555.765" width="4.655" height="2.568" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_3.o
 72 bytes · C-only source
 src/overlay12_helpers_3.c</title></rect>
-<rect x="347.596" y="558.431" width="4.566" height="2.618" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_5.o
+<rect x="347.772" y="558.333" width="4.521" height="2.644" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_5.o
 72 bytes · C-only source
 src/overlay12_helpers_5.c</title></rect>
-<rect x="347.596" y="561.049" width="4.566" height="2.618" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_14.o
+<rect x="347.772" y="560.977" width="4.521" height="2.644" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_14.o
 72 bytes · Assembly
 asm/overlay_12_battle_controller_residual_14.s</title></rect>
-<rect x="352.162" y="558.431" width="4.439" height="2.618" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_7.o
+<rect x="352.293" y="558.333" width="4.395" height="2.644" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_7.o
 70 bytes · C-only source
 src/overlay12_helpers_7.c</title></rect>
-<rect x="352.162" y="561.049" width="4.439" height="2.618" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_8.o
+<rect x="352.293" y="560.977" width="4.395" height="2.644" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_8.o
 70 bytes · C-only source
 src/overlay12_helpers_8.c</title></rect>
-<rect x="347.596" y="563.667" width="2.510" height="4.498" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_4.o
+<rect x="347.772" y="563.622" width="2.485" height="4.544" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_4.o
 68 bytes · C-only source
 src/overlay12_helpers_4.c</title></rect>
-<rect x="350.106" y="563.667" width="2.436" height="4.498" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_20.o
+<rect x="350.257" y="563.622" width="2.412" height="4.544" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_20.o
 66 bytes · C-only source
 src/battle_controller_partial_20.c</title></rect>
-<rect x="352.542" y="563.667" width="4.060" height="2.290" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_10.o
+<rect x="352.669" y="563.622" width="4.020" height="2.313" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_10.o
 56 bytes · C-only source
 src/battle_controller_partial_10.c</title></rect>
-<rect x="352.542" y="565.957" width="4.060" height="2.208" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_1.o
+<rect x="352.669" y="565.935" width="4.020" height="2.230" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_1.o
 54 bytes · C-only source
 src/overlay12_helpers_1.c</title></rect>
-<rect x="356.602" y="558.431" width="3.563" height="2.423" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_15.o
+<rect x="356.688" y="558.333" width="3.528" height="2.447" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_15.o
 52 bytes · C-only source
 src/battle_controller_partial_15.c</title></rect>
-<rect x="356.602" y="560.854" width="3.563" height="2.330" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_10.o
+<rect x="356.688" y="560.781" width="3.528" height="2.353" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay12_helpers_10.o
 50 bytes · C-only source
 src/overlay12_helpers_10.c</title></rect>
-<rect x="360.165" y="558.431" width="3.144" height="2.429" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_21.o
+<rect x="360.216" y="558.333" width="3.113" height="2.454" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_21.o
 46 bytes · C-only source
 src/battle_controller_partial_21.c</title></rect>
-<rect x="360.165" y="560.860" width="3.144" height="2.324" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_16.o
+<rect x="360.216" y="560.787" width="3.113" height="2.347" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_battle_controller_residual_16.o
 44 bytes · Assembly
 asm/overlay_12_battle_controller_residual_16.s</title></rect>
-<rect x="363.309" y="558.431" width="2.026" height="2.622" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_19.o
+<rect x="363.329" y="558.333" width="2.006" height="2.649" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_19.o
 32 bytes · C-only source
 src/battle_controller_partial_19.c</title></rect>
-<rect x="363.309" y="561.053" width="2.026" height="2.131" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_1.o
+<rect x="363.329" y="560.982" width="2.006" height="2.152" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_1.o
 26 bytes · C-only source
 src/battle_controller_partial_1.c</title></rect>
-<rect x="356.602" y="563.184" width="2.167" height="1.993" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_13.o
+<rect x="356.688" y="563.134" width="2.145" height="2.012" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_13.o
 26 bytes · C-only source
 src/battle_controller_partial_13.c</title></rect>
-<rect x="358.768" y="563.184" width="2.167" height="1.993" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_14.o
+<rect x="358.833" y="563.134" width="2.145" height="2.012" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_14.o
 26 bytes · C-only source
 src/battle_controller_partial_14.c</title></rect>
-<rect x="356.602" y="565.176" width="1.444" height="2.989" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_2.o
+<rect x="356.688" y="565.146" width="1.430" height="3.019" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_2.o
 26 bytes · C-only source
 src/battle_controller_partial_2.c</title></rect>
-<rect x="358.046" y="565.176" width="2.889" height="1.494" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_3.o
+<rect x="358.118" y="565.146" width="2.860" height="1.509" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_3.o
 26 bytes · C-only source
 src/battle_controller_partial_3.c</title></rect>
-<rect x="358.046" y="566.671" width="2.889" height="1.494" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_4.o
+<rect x="358.118" y="566.656" width="2.860" height="1.509" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_4.o
 26 bytes · C-only source
 src/battle_controller_partial_4.c</title></rect>
-<rect x="360.935" y="563.184" width="1.467" height="2.943" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_5.o
+<rect x="360.978" y="563.134" width="1.452" height="2.973" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_5.o
 26 bytes · C-only source
 src/battle_controller_partial_5.c</title></rect>
-<rect x="362.401" y="563.184" width="2.933" height="1.472" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_6.o
+<rect x="362.430" y="563.134" width="2.904" height="1.486" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_6.o
 26 bytes · C-only source
 src/battle_controller_partial_6.c</title></rect>
-<rect x="362.401" y="564.656" width="2.933" height="1.472" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_7.o
+<rect x="362.430" y="564.620" width="2.904" height="1.486" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_7.o
 26 bytes · C-only source
 src/battle_controller_partial_7.c</title></rect>
-<rect x="360.935" y="566.127" width="2.118" height="2.038" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_8.o
+<rect x="360.978" y="566.107" width="2.097" height="2.058" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_8.o
 26 bytes · C-only source
 src/battle_controller_partial_8.c</title></rect>
-<rect x="363.053" y="566.127" width="1.955" height="2.038" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_12.o
+<rect x="363.076" y="566.107" width="1.936" height="2.058" fill="#35b85a" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / battle_controller_partial_12.o
 24 bytes · C-only source
 src/battle_controller_partial_12.c</title></rect>
-<rect x="365.009" y="566.127" width="0.326" height="2.038" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_11.o
+<rect x="365.012" y="566.107" width="0.323" height="2.058" fill="#455268" stroke="#101722" stroke-width="0.6"><title>ARM9 / OVY_12 / overlay_12_022378C0_residual_11.o
 4 bytes · Assembly
 asm/overlay_12_022378C0_residual_11.s</title></rect>
 <rect x="143.968" y="407.297" width="221.366" height="160.869" fill="none" stroke="#101722" stroke-width="2"/>

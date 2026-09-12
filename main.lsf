@@ -1832,9 +1832,7 @@ Overlay OVY_12
     Object src/battle_controller_partial_21.o
     Object asm/overlay_12_battle_controller_residual_22.o
     Object src/battle/battle_hp_bar.o
-    Object asm/overlay_12_02265E28.o
-    Object src/overlay12_2265e28_sol_partial_1.o
-    Object asm/overlay_12_02265E28_residual_2.o
+    Object src/battle/battle_02265E28.o
     Object src/battle/battle_input.o
     Object src/battle/party_gauge.o
     Object src/battle/battle_cursor.o
