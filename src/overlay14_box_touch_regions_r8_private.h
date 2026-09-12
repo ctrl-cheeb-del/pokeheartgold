@@ -1,0 +1,10 @@
+#ifndef POKEHEARTGOLD_OVERLAY14_BOX_TOUCH_REGIONS_R8_PRIVATE_H
+#define POKEHEARTGOLD_OVERLAY14_BOX_TOUCH_REGIONS_R8_PRIVATE_H
+#include "global.h"
+extern const u8 _021F7BBC[];
+extern const u8 ov14_021F7BD8[];
+u32 ov14_021E7940(s32, s32, const u8 *);
+u32 ov14_021E7960(s32, s32);
+u32 ov14_021E79AC(s32, s32, const u8 *);
+u32 ov14_021E79D8(s32, s32);
+#endif
