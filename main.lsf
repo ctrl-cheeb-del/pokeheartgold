@@ -1832,47 +1832,7 @@ Overlay OVY_10
 {
     After OVY_6
     Object src/battle/trainer_ai.o
-    Object asm/overlay_10_trainer_ai.o
-    Object src/trainer_ai_conditions_1.o
-    Object src/trainer_ai_partial_1.o
-    Object asm/overlay_10_trainer_ai_residual_2.o
-    Object src/trainer_ai_partial_2.o
-    Object asm/overlay_10_trainer_ai_residual_3.o
-    Object src/trainer_ai_partial_3.o
-    Object asm/overlay_10_trainer_ai_residual_4.o
-    Object src/trainer_ai_partial_4.o
-    Object asm/overlay_10_trainer_ai_residual_5.o
-    Object src/trainer_ai_partial_5.o
-    Object src/trainer_ai_conditions_r6_run1.o
-    Object asm/overlay_10_trainer_ai_residual_6_middle.o
-    Object src/trainer_ai_conditions_r6_run2.o
-    Object src/trainer_ai_partial_6.o
-    Object asm/overlay_10_trainer_ai_residual_7.o
-    Object src/trainer_ai_partial_7.o
-    Object asm/overlay_10_trainer_ai_residual_8.o
-    Object src/trainer_ai_partial_8.o
-    Object src/trainer_ai_state_queries_r9_1.o
-    Object asm/overlay_10_trainer_ai_residual_9_gap_1.o
-    Object src/trainer_ai_state_queries_r9_2.o
-    Object asm/overlay_10_trainer_ai_residual_9_gap_2.o
-    Object src/trainer_ai_state_queries_r9_3.o
-    Object asm/overlay_10_trainer_ai_residual_9_gap_3.o
-    Object src/trainer_ai_state_queries_r9_4.o
-    Object asm/overlay_10_trainer_ai_residual_9_gap_4.o
-    Object src/trainer_ai_state_queries_r9_5.o
-    Object src/trainer_ai_partial_9.o
-    Object asm/overlay_10_trainer_ai_residual_10.o
-    Object src/trainer_ai_partial_10.o
-    Object src/trainer_ai_state_helpers_1.o
-    Object asm/overlay_10_trainer_ai_residual_11.o
-    Object src/trainer_ai_state_helpers_2.o
-    Object src/trainer_ai_partial_11.o
-    Object src/trainer_ai_tail_helpers_r12_1.o
-    Object asm/overlay_10_trainer_ai_residual_12_gap_1.o
-    Object src/trainer_ai_tail_helpers_r12_2.o
-    Object asm/overlay_10_trainer_ai_residual_12_gap_2.o
-    Object src/trainer_ai_tail_helpers_r12_3.o
-    Object asm/overlay_10_trainer_ai_residual_12_tail.o
+    Object asm/trainer_ai_data.o
 }
 Overlay OVY_11
 {

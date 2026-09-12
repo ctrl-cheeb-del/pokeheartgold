@@ -10,4 +10,7 @@ BattleHpBar *OpponentData_GetHpBar(OpponentData *opponentData);
 BattleCursorPosition *ov12_02261280(OpponentData *opponentData);
 void ov12_02261294(OpponentData *opponentData, s32);
 
+int ov12_02258BB4(BattleSystem *battleSystem, BattleContext *ctx, Pokemon *mon, int move);
+int ov12_02258800(BattleSystem *battleSystem, int battler);
+
 #endif
