@@ -1817,7 +1817,9 @@ Overlay OVY_6
 Overlay OVY_7
 {
     After OVY_6
-    Object asm/overlay_07.o
+    Object asm/overlay_07_callback_prefix.o
+    Object src/overlay07_callback_state.o
+    Object asm/overlay_07_callback_suffix.o
 }
 Overlay OVY_8
 {
