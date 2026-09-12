@@ -6047,20 +6047,7 @@ Overlay OVY_96
 Overlay OVY_97
 {
     After OVY_96
-    Object src/overlay97_helpers_1.o
-    Object asm/overlay_97.o
-    Object src/overlay97_helpers_2.o
-    Object asm/overlay_97_residual_2.o
-    Object src/overlay97_helpers_3.o
-    Object asm/overlay_97_residual_3.o
-    Object src/overlay97_helpers_4.o
-    Object asm/overlay_97_residual_4.o
-    Object src/overlay97_helpers_5.o
-    Object asm/overlay_97_residual_5.o
-    Object src/overlay97_helpers_6.o
-    Object asm/overlay_97_residual_6.o
-    Object src/overlay97_helpers_7.o
-    Object src/overlay97_sprite_summary_r7.o
+    Object src/pokeathlon/pokeathlon_box.o
     Object asm/overlay_97_residual_7_tail.o
     Object src/overlay97_helpers_8.o
     Object asm/overlay_97_residual_8.o
