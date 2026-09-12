@@ -32,7 +32,6 @@ void *ov01_021F1740(FieldSystem *fieldSystem, u32 id, const VecFx32 *position);
 void *ov01_021F14B4(FieldSystem *fieldSystem, u32 fileId, int atEnd);
 NNSG3dResTex *ov01_021F1AD4(FieldSystem *fieldSystem, int id);
 
-void *sub_02023F90(void *a0);
 void *sub_02023DA4(void *a0);
 void sub_02023E50(void *a0, const VecFx32 *a1);
 void sub_02026E18(void *a0, void *a1);
@@ -44,7 +43,6 @@ u32 sub_02020910(NNSG3dResTex *tex, int a1);
 u32 sub_020209AC(NNSG3dResTex *tex, int a1);
 void GF_AssertFail(void);
 void PlaySE(u16 seq);
-void NNS_G3dMdlSetMdlFogEnableFlagAll(void *pMdl, int flag);
 
 // The 8-byte module object, allocated by ov01_02203A18 and recovered from the
 // field-effect manager slot 0x12 by ov01_021F1450.

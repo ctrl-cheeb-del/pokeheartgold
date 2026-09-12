@@ -30,7 +30,6 @@ void NNS_G3dMdlSetMdlPolygonModeAll(void *, u32);
 void NNS_G3dMdlSetMdlCullModeAll(void *, u32);
 void NNS_G3dMdlSetMdlPolygonIDAll(void *, u32);
 void NNS_G3dMdlSetMdlAlphaAll(void *, u32);
-void NNS_G3dMdlSetMdlFogEnableFlagAll(void *, u32);
 void NNS_G3dMdlSetMdlDepthTestCondAll(void *, u32);
 void NNS_G3dMdlSetMdl1DotAll(void *, u32);
 void NNS_G3dMdlSetMdlFarClipAll(void *, u32);

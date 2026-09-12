@@ -18,7 +18,7 @@ void sub_02023F1C(BillboardObject *, fx32);
 fx32 sub_02023F30(BillboardObject *);
 void sub_02023F40(BillboardObject *, fx32);
 fx32 sub_02023F70(BillboardObject *);
-NNSG3dResMdl *sub_02023F90(BillboardObject *);
+NNSG3dResMdl *sub_02023F90(void *);
 NNSG3dTexKey sub_02023FA0(BillboardObject *);
 NNSG3dPlttKey sub_02023FB0(BillboardObject *);
 void sub_02023FC0(BillboardObject *);
@@ -156,7 +156,8 @@ fx32 sub_02023F70(BillboardObject *object) {
     return object->unk_B8 - sub_02024394(object, object->unk_B6);
 }
 
-NNSG3dResMdl *sub_02023F90(BillboardObject *object) {
+NNSG3dResMdl *sub_02023F90(void *arg) {
+    BillboardObject *object = arg;
     GF_ASSERT(object != NULL);
     return object->model;
 }

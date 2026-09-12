@@ -36,7 +36,7 @@ void ov01_021FBD38(Field3dModel *model, void *data);
 void ov01_021FBD8C(SysTask *task, void *data);
 void Field3dModel_Unload(Field3dModel *model);
 void ov01_021FBDFC(Field3dModel *model);
-void Field3dModelAnimation_LoadFromFilesystem(Field3DModelAnimation *anim, Field3dModel *model, NarcId narcId, s32 fileId, enum HeapID heapID, NNSFndAllocator *alloc);
+void Field3dModelAnimation_LoadFromFilesystem(Field3DModelAnimation *anim, const Field3dModel *model, NarcId narcId, s32 fileId, enum HeapID heapID, NNSFndAllocator *alloc);
 void ov01_021FBE70(Field3DModelAnimation *anim, Field3dModel *model, void *animRaw, NNSFndAllocator *alloc);
 void Field3dModelAnimation_Unload(Field3DModelAnimation *anim, NNSFndAllocator *alloc);
 BOOL Field3dModelAnimation_FrameAdvanceAndLoop(Field3DModelAnimation *anim, fx32 delta);
@@ -52,7 +52,7 @@ BOOL Field3dObject_GetActiveFlag(Field3dObject *object);
 void Field3dObject_SetPosEx(Field3dObject *object, fx32 x, fx32 y, fx32 z);
 void Field3dObject_SetPos(Field3dObject *object, const VecFx32 *pos);
 void Field3dObject_SetXRotation(Field3dObject *object, u16 angle, int axis);
-void ov01_021FC030(Field3DModelAnimation *anim, Field3dModel *model, void *fileData, NNSFndAllocator *alloc);
+void ov01_021FC030(Field3DModelAnimation *anim, const Field3dModel *model, void *fileData, NNSFndAllocator *alloc);
 
 void ov01_021FB878(void *data, AreaDataTexBlockHeader *tex) {
     Heap_Realloc(data, (u32)tex + tex->endOffset - (u32)data);

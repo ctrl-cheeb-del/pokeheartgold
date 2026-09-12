@@ -12,7 +12,7 @@ int sub_02037454(void);
 BOOL sub_02037474(void);
 void sub_020374E4(void);
 void sub_02037504(void);
-u16 sub_0203769C(void);
+BOOL sub_0203769C(void);
 void sub_020376D4(s32 arg0, SafariZoneAreaSet *areaSet);
 void sub_020376EC(int arg0);
 BOOL sub_02037700();

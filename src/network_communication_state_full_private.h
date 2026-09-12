@@ -65,6 +65,13 @@ DWCFriendData *sub_0202C23C(WiFiList *a0, int a1);
 #include "save_wifi_history.h"
 #include "unk_0202C034.h"
 
+BOOL sub_020373B4(u16 arg0);
+int sub_02037454(void);
+BOOL sub_02037474(void);
+void sub_020374E4(void);
+u16 sub_0203769C(void);
+BOOL sub_02037700(void);
+
 typedef struct {
     u64 x;
     u64 mul;

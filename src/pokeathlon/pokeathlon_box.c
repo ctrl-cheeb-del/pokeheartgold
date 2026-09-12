@@ -27,6 +27,14 @@ void sub_02093440(u32, BgConfig *, PCStorage *, Party *, u32, u32, BOOL, u32, vo
 void sub_02093594(u32);
 s8 sub_0208B85C(void *, u8, u8, u32, s8);
 
+#define pokeathlonBoxObjCharTransferTemplate _0221FC98
+#define pokeathlonBoxGraphicsModes           ov97_0221FCA8
+#define pokeathlonBoxGraphicsBanks           ov97_0221FCCC
+#define pokeathlonBoxBgTemplate3             ov97_0221FD04
+#define pokeathlonBoxBgTemplate1             ov97_0221FD20
+#define pokeathlonBoxBgTemplate2             ov97_0221FD3C
+#define pokeathlonBoxBgTemplate4             ov97_0221FD58
+
 extern const GraphicsBanks pokeathlonBoxGraphicsBanks;
 extern const GraphicsModes pokeathlonBoxGraphicsModes;
 extern const ObjCharTransferTemplate pokeathlonBoxObjCharTransferTemplate;
