@@ -4063,308 +4063,46 @@
 	.public ov40_0224326C
 	.public ov40_022439B8
 
-	thumb_func_start ov40_0223757C
-ov40_0223757C: ; 0x0223757C
+	thumb_func_start ov40_022366CC
+ov40_022366CC: ; 0x022366CC
 	push {r3, r4, r5, lr}
-	sub sp, #0x10
-	add r5, r0, #0
-	mov r0, #0x86
-	lsl r0, r0, #4
-	ldr r4, [r5, r0]
-	sub r0, #0x30
-	ldr r0, [r5, r0]
-	bl SaveArray_PCStorage_Get
-	ldr r0, _0223763C ; =0x0000017A
-	ldrb r1, [r4, r0]
-	cmp r1, #0x10
-	blo _022375A0
-	cmp r1, #0x18
-	bhs _022375A0
-	mov r1, #0
-	strb r1, [r4, r0]
-_022375A0:
-	ldr r0, _0223763C ; =0x0000017A
-	ldrb r1, [r4, r0]
-	cmp r1, #0x28
-	blo _022375AC
-	mov r1, #0
-	strb r1, [r4, r0]
-_022375AC:
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	mov r0, #0x6d
-	str r0, [sp, #0xc]
-	ldr r1, _0223763C ; =0x0000017A
-	ldr r0, [r5, #0x14]
-	ldrb r2, [r4, r1]
-	mov r3, #3
-	lsl r1, r2, #1
-	add r1, r2, r1
-	ldr r2, [r5, #0x24]
-	add r1, #0x8a
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	mov r0, #0x6d
-	str r0, [sp, #0xc]
-	ldr r1, _0223763C ; =0x0000017A
-	ldr r0, [r5, #0x14]
-	ldrb r2, [r4, r1]
-	mov r3, #3
-	lsl r1, r2, #1
-	add r1, r2, r1
-	ldr r2, [r5, #0x24]
-	add r1, #0x8c
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	mov r0, #0x40
-	str r0, [sp, #4]
-	mov r0, #0xc0
-	mov r1, #0xbf
-	str r0, [sp, #8]
-	add r2, r1, #0
-	str r0, [sp, #0xc]
-	add r2, #0xbb
-	ldrb r3, [r4, r2]
-	ldr r0, [r5, #0x28]
-	lsl r2, r3, #1
-	add r2, r3, r2
-	add r2, #0x8b
-	mov r3, #0x6d
-	bl PaletteData_LoadFromNarc
-	add r0, r5, #0
-	bl ov40_02237474
-	add r0, r5, #0
-	bl ov40_02237284
-	mov r1, #0x1b
-	lsl r1, r1, #4
-	ldr r1, [r4, r1]
-	add r0, r5, #0
-	bl ov40_022371E4
-	add r0, r5, #0
-	bl ov40_02237144
-	ldr r1, _02237640 ; =0x0000010E
-	add r0, r5, #0
-	bl ov40_02237030
-	add sp, #0x10
-	pop {r3, r4, r5, pc}
-	nop
-_0223763C: .word 0x0000017A
-_02237640: .word 0x0000010E
-	thumb_func_end ov40_0223757C
-
-
-	thumb_func_start ov40_02237644
-ov40_02237644: ; 0x02237644
-	push {r3, r4, r5, lr}
-	sub sp, #0x10
-	add r5, r0, #0
-	mov r0, #0x86
-	lsl r0, r0, #4
-	ldr r4, [r5, r0]
-	sub r0, #0x30
-	ldr r0, [r5, r0]
-	bl SaveArray_PCStorage_Get
-	ldr r1, _022376F8 ; =0x0000017A
-	ldrb r2, [r4, r1]
-	cmp r2, #0x10
-	blo _02237668
-	cmp r2, #0x18
-	bhs _02237668
-	mov r2, #0
-	strb r2, [r4, r1]
-_02237668:
-	ldr r1, _022376F8 ; =0x0000017A
-	ldrb r1, [r4, r1]
-	cmp r1, #0x18
-	blo _02237684
-	cmp r1, #0x20
-	bhs _02237684
-	sub r1, #0x18
-	bl PCStorage_IsBonusWallpaperUnlocked
-	cmp r0, #0
-	bne _02237684
-	ldr r0, _022376F8 ; =0x0000017A
-	mov r1, #0
-	strb r1, [r4, r0]
-_02237684:
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	mov r0, #0x6d
-	str r0, [sp, #0xc]
-	ldr r1, _022376F8 ; =0x0000017A
-	ldr r0, [r5, #0x14]
-	ldrb r2, [r4, r1]
-	mov r3, #3
-	lsl r1, r2, #1
-	add r1, r2, r1
-	ldr r2, [r5, #0x24]
-	add r1, #0x8a
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	mov r0, #0x6d
-	str r0, [sp, #0xc]
-	ldr r1, _022376F8 ; =0x0000017A
-	ldr r0, [r5, #0x14]
-	ldrb r2, [r4, r1]
-	mov r3, #3
-	lsl r1, r2, #1
-	add r1, r2, r1
-	ldr r2, [r5, #0x24]
-	add r1, #0x8c
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	mov r0, #0x40
-	str r0, [sp, #4]
-	mov r0, #0xc0
-	mov r1, #0xbf
-	str r0, [sp, #8]
-	add r2, r1, #0
-	str r0, [sp, #0xc]
-	add r2, #0xbb
-	ldrb r3, [r4, r2]
-	ldr r0, [r5, #0x28]
-	lsl r2, r3, #1
-	add r2, r3, r2
-	add r2, #0x8b
-	mov r3, #0x6d
-	bl PaletteData_LoadFromNarc
-	add r0, r5, #0
-	bl ov40_02237474
-	add r0, r5, #0
-	bl ov40_02237284
-	add sp, #0x10
-	pop {r3, r4, r5, pc}
-	.balign 4, 0
-_022376F8: .word 0x0000017A
-	thumb_func_end ov40_02237644
-
-
-	thumb_func_start ov40_022376FC
-ov40_022376FC: ; 0x022376FC
-	push {r3, r4, r5, lr}
-	sub sp, #0x10
 	mov r1, #0x86
 	add r5, r0, #0
 	lsl r1, r1, #4
 	ldr r4, [r5, r1]
 	ldr r1, [r5, #8]
 	cmp r1, #0
-	beq _02237718
+	beq _022366E6
 	cmp r1, #1
-	beq _02237792
+	beq _02236752
 	cmp r1, #2
-	beq _022377D6
-	b _02237814
-_02237718:
-	mov r1, #2
-	bl ov40_0222C710
-	add r0, r5, #0
-	mov r1, #1
-	bl ov40_02230964
-	add r0, r5, #0
-	bl ov40_02236EB4
-	add r0, r5, #0
-	bl ov40_0223757C
-	add r0, r5, #0
-	mov r1, #1
-	bl ov40_02237548
-	add r0, r5, #0
-	mov r1, #0
-	bl ov40_022373E4
-	add r0, r5, #0
-	mov r1, #0
-	bl ov40_02230964
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	mov r0, #0x6d
-	str r0, [sp, #0xc]
-	ldr r0, [r5, #0x14]
-	ldr r2, [r5, #0x24]
-	mov r1, #0x3e
-	mov r3, #7
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	mov r0, #0x6d
-	str r0, [sp, #0xc]
-	ldr r0, [r5, #0x14]
-	ldr r2, [r5, #0x24]
-	mov r1, #0x4d
-	mov r3, #7
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	mov r0, #8
-	mov r1, #1
-	bl GfGfx_EngineATogglePlanes
-	mov r0, #8
-	mov r1, #1
-	bl GfGfx_EngineBTogglePlanes
-	ldr r0, [r5, #8]
-	add r0, r0, #1
-	str r0, [r5, #8]
-	b _02237814
-_02237792:
-	mov r1, #0x69
-	lsl r1, r1, #2
-	add r0, r4, r1
-	add r1, r1, #4
-	mov r2, #0
-	add r1, r4, r1
-	add r3, r2, #0
-	bl ov40_0222DA00
-	cmp r0, #0
-	beq _02237814
-	add r0, r5, #0
-	mov r1, #0
-	bl ov40_02237548
-	add r0, r5, #0
-	mov r1, #1
-	bl ov40_022373E4
-	mov r0, #1
-	add r1, r0, #0
-	bl GfGfx_EngineATogglePlanes
-	mov r0, #4
-	mov r1, #1
-	bl GfGfx_EngineATogglePlanes
-	ldr r0, _0223781C ; =0x04000050
-	mov r1, #0
-	strh r1, [r0]
-	ldr r0, [r5, #8]
-	add r0, r0, #1
-	str r0, [r5, #8]
-	b _02237814
-_022377D6:
+	beq _02236782
+	b _022367AC
+_022366E6:
 	mov r0, #0x6b
 	lsl r0, r0, #2
 	add r0, r4, r0
-	mov r1, #0
+	mov r1, #1
 	bl ov40_0222DA84
 	cmp r0, #0
-	beq _022377F8
-	mov r0, #0x33
-	lsl r0, r0, #4
-	ldr r1, [r4, r0]
-	add r0, #0x14
-	str r1, [r4, r0]
-	add r0, r5, #0
-	mov r1, #3
-	bl ov40_0222BF80
-_022377F8:
+	beq _022366FC
+	ldr r0, [r5, #8]
+	add r0, r0, #1
+	str r0, [r5, #8]
+_022366FC:
+	ldr r0, [r5, #0x58]
+	mov r3, #0x6b
+	lsl r0, r0, #0x10
+	lsr r0, r0, #0x10
+	str r0, [sp]
+	lsl r3, r3, #2
+	ldr r3, [r4, r3]
+	ldr r0, [r5, #0x28]
+	lsl r3, r3, #0x18
+	mov r1, #2
+	mov r2, #0xc
+	lsr r3, r3, #0x18
+	bl PaletteData_BlendPalettes
 	ldr r0, [r5, #0x58]
 	mov r3, #0x6b
 	lsl r0, r0, #0x10
@@ -4378,10 +4116,1321 @@ _022377F8:
 	mov r2, #0xc
 	lsr r3, r3, #0x18
 	bl PaletteData_BlendPalettes
-_02237814:
+	ldr r0, [r5, #0x58]
+	mov r3, #0x6b
+	lsl r0, r0, #0x10
+	lsr r0, r0, #0x10
+	str r0, [sp]
+	lsl r3, r3, #2
+	ldr r3, [r4, r3]
+	ldr r0, [r5, #0x28]
+	lsl r3, r3, #0x18
+	mov r1, #1
+	mov r2, #2
+	lsr r3, r3, #0x18
+	bl PaletteData_BlendPalettes
+	b _022367B2
+_02236752:
+	mov r1, #1
+	bl ov40_02230964
+	add r0, r5, #0
+	bl ov40_0222D874
+	add r0, r5, #0
+	mov r1, #0
+	bl ov40_02230964
+	add r0, r5, #0
+	mov r1, #0
+	bl ov40_0222FB90
+	mov r0, #0x6f
+	lsl r0, r0, #4
+	ldr r0, [r5, r0]
+	mov r1, #0
+	bl sub_020879E0
+	ldr r0, [r5, #8]
+	add r0, r0, #1
+	str r0, [r5, #8]
+	b _022367B2
+_02236782:
+	bl ov40_0222FBB4
+	cmp r0, #0
+	beq _022367B2
+	add r0, r5, #0
+	mov r1, #1
+	bl ov40_02230964
+	add r0, r5, #0
+	bl ov40_022364D0
+	add r0, r5, #0
+	mov r1, #0
+	bl ov40_02230964
+	bl ov40_02230738
+	ldr r0, [r5, #8]
+	add r0, r0, #1
+	str r0, [r5, #8]
+	b _022367B2
+_022367AC:
+	mov r1, #2
+	bl ov40_0222BF80
+_022367B2:
+	mov r0, #0
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+	thumb_func_end ov40_022366CC
+
+
+	thumb_func_start ov40_022367B8
+ov40_022367B8: ; 0x022367B8
+	push {r4, r5, lr}
+	sub sp, #0xc
+	mov r1, #0x86
+	add r4, r0, #0
+	lsl r1, r1, #4
+	ldr r5, [r4, r1]
+	ldr r1, [r4, #8]
+	cmp r1, #3
+	bls _022367CC
+	b _022368DC
+_022367CC:
+	add r1, r1, r1
+	add r1, pc
+	ldrh r1, [r1, #6]
+	lsl r1, r1, #0x10
+	asr r1, r1, #0x10
+	add pc, r1
+_022367D8: ; jump table
+	.short _022367E0 - _022367D8 - 2 ; case 0
+	.short _02236822 - _022367D8 - 2 ; case 1
+	.short _0223685A - _022367D8 - 2 ; case 2
+	.short _02236886 - _022367D8 - 2 ; case 3
+_022367E0:
+	mov r2, #8
+	mov r1, #0x69
+	str r2, [sp]
+	mov r3, #0x12
+	str r3, [sp, #4]
+	mov r0, #1
+	lsl r1, r1, #2
+	str r0, [sp, #8]
+	add r0, r5, r1
+	add r1, r1, #4
+	add r1, r5, r1
+	bl ov40_0222D980
+	add r0, r4, #0
+	mov r1, #1
+	bl ov40_02230964
+	add r0, r4, #0
+	bl ov40_02237564
+	add r0, r4, #0
+	bl ov40_02237410
+	add r0, r4, #0
+	bl ov40_022371A0
+	add r0, r4, #0
+	mov r1, #0
+	bl ov40_02230964
+	ldr r0, [r4, #8]
+	add r0, r0, #1
+	str r0, [r4, #8]
+_02236822:
+	mov r1, #0x69
+	lsl r1, r1, #2
+	add r0, r5, r1
+	add r1, r1, #4
+	mov r2, #1
+	add r1, r5, r1
+	add r3, r2, #0
+	bl ov40_0222DA00
+	cmp r0, #0
+	beq _022368DC
+	mov r0, #0x83
+	mov r2, #0x1a
+	lsl r0, r0, #4
+	lsl r2, r2, #4
+	ldr r0, [r4, r0]
+	ldr r1, [r5]
+	ldr r2, [r5, r2]
+	add r3, r5, #4
+	bl ov40_02236578
+	add r0, r5, #0
+	bl ov40_0223655C
+	ldr r0, [r4, #8]
+	add r0, r0, #1
+	str r0, [r4, #8]
+	b _022368DC
+_0223685A:
+	mov r1, #1
+	bl ov40_02230964
+	add r0, r4, #0
+	bl ov40_02237644
+	add r0, r4, #0
+	mov r1, #1
+	bl ov40_02237548
+	add r0, r4, #0
+	mov r1, #0
+	bl ov40_022373E4
+	add r0, r4, #0
+	mov r1, #0
+	bl ov40_02230964
+	ldr r0, [r4, #8]
+	add r0, r0, #1
+	str r0, [r4, #8]
+	b _022368DC
+_02236886:
+	mov r1, #0x69
+	lsl r1, r1, #2
+	add r0, r5, r1
+	add r1, r1, #4
+	add r1, r5, r1
+	mov r2, #0
+	mov r3, #1
+	bl ov40_0222DA00
+	cmp r0, #0
+	beq _022368DC
+	mov r1, #0x1b
+	lsl r1, r1, #4
+	ldr r1, [r5, r1]
+	add r0, r4, #0
+	bl ov40_022371E4
+	add r0, r4, #0
+	bl ov40_02237144
+	ldr r1, _022368E4 ; =0x0000010E
+	add r0, r4, #0
+	bl ov40_02237030
+	add r0, r4, #0
+	mov r1, #0
+	bl ov40_02237548
+	add r0, r4, #0
+	mov r1, #1
+	bl ov40_022373E4
+	mov r0, #1
+	add r1, r0, #0
+	bl GfGfx_EngineATogglePlanes
+	ldr r0, _022368E8 ; =0x04000050
+	mov r1, #0
+	strh r1, [r0]
+	add r0, r4, #0
+	mov r1, #3
+	bl ov40_0222BF80
+_022368DC:
+	mov r0, #0
+	add sp, #0xc
+	pop {r4, r5, pc}
+	nop
+_022368E4: .word 0x0000010E
+_022368E8: .word 0x04000050
+	thumb_func_end ov40_022367B8
+
+
+	thumb_func_start ov40_022368EC
+ov40_022368EC: ; 0x022368EC
+	push {r4, lr}
+	mov r2, #0x86
+	lsl r2, r2, #4
+	ldr r4, [r0, r2]
+	cmp r1, #0
+	bne _02236920
+	mov r0, #0xda
+	lsl r0, r0, #2
+	ldr r0, [r4, r0]
+	mov r1, #1
+	bl ManagedSprite_SetDrawFlag
+	mov r0, #0xdb
+	lsl r0, r0, #2
+	ldr r0, [r4, r0]
+	mov r1, #1
+	bl TextOBJ_SetSpritesDrawFlag
+	mov r0, #0xd3
+	lsl r0, r0, #2
+	ldr r0, [r4, r0]
+	mov r1, #0x20
+	mov r2, #0xe8
+	bl ManagedSprite_SetPositionXY
+	b _02236946
+_02236920:
+	mov r0, #0xda
+	lsl r0, r0, #2
+	ldr r0, [r4, r0]
+	mov r1, #0
+	bl ManagedSprite_SetDrawFlag
+	mov r0, #0xdb
+	lsl r0, r0, #2
+	ldr r0, [r4, r0]
+	mov r1, #0
+	bl TextOBJ_SetSpritesDrawFlag
+	mov r0, #0xd3
+	lsl r0, r0, #2
+	ldr r0, [r4, r0]
+	mov r1, #0x50
+	mov r2, #0xe8
+	bl ManagedSprite_SetPositionXY
+_02236946:
+	mov r0, #0x35
+	lsl r0, r0, #4
+	mov r1, #0x24
+	add r2, r1, #0
+	ldr r0, [r4, r0]
+	sub r2, #0x2c
+	bl sub_020136B4
+	mov r0, #0xdb
+	lsl r0, r0, #2
+	mov r1, #0x24
+	add r2, r1, #0
+	ldr r0, [r4, r0]
+	sub r2, #0x2c
+	bl sub_020136B4
+	pop {r4, pc}
+	thumb_func_end ov40_022368EC
+
+
+	thumb_func_start ov40_02236968
+ov40_02236968: ; 0x02236968
+	push {r3, r4, r5, lr}
+	sub sp, #0x10
+	add r5, r0, #0
+	mov r0, #0x86
+	lsl r0, r0, #4
+	ldr r4, [r5, r0]
+	ldr r0, [r5, #8]
+	cmp r0, #0
+	beq _02236980
+	cmp r0, #1
+	beq _022369F6
+	b _02236A4E
+_02236980:
+	ldr r0, _02236A54 ; =0x000006F4
+	mov r1, #0
+	ldr r0, [r5, r0]
+	bl sub_020879E0
+	mov r0, #0x6b
+	lsl r0, r0, #2
+	add r0, r4, r0
+	mov r1, #1
+	bl ov40_0222DA84
+	mov r1, #0x69
+	lsl r1, r1, #2
+	add r0, r4, r1
+	add r1, r1, #4
+	add r1, r4, r1
+	mov r2, #1
+	mov r3, #2
+	bl ov40_0222DA00
+	cmp r0, #0
+	beq _022369D8
+	mov r0, #0
+	str r0, [sp]
+	str r0, [sp, #4]
+	str r0, [sp, #8]
+	mov r0, #0x6d
+	str r0, [sp, #0xc]
+	ldr r0, [r5, #0x14]
+	ldr r2, [r5, #0x24]
+	mov r1, #0x4f
+	mov r3, #7
+	bl GfGfxLoader_LoadScrnDataFromOpenNarc
+	add r0, r5, #0
+	bl ov40_02236F38
+	add r0, r5, #0
+	mov r1, #1
+	bl ov40_022368EC
+	ldr r0, [r5, #8]
+	add r0, r0, #1
+	str r0, [r5, #8]
+_022369D8:
+	ldr r0, [r5, #0x58]
+	mov r3, #0x6b
+	lsl r0, r0, #0x10
+	lsr r0, r0, #0x10
+	str r0, [sp]
+	lsl r3, r3, #2
+	ldr r3, [r4, r3]
+	ldr r0, [r5, #0x28]
+	lsl r3, r3, #0x18
+	mov r1, #3
+	mov r2, #0xc
+	lsr r3, r3, #0x18
+	bl PaletteData_BlendPalettes
+	b _02236A4E
+_022369F6:
+	mov r0, #0x6b
+	lsl r0, r0, #2
+	add r0, r4, r0
+	mov r1, #0
+	bl ov40_0222DA84
+	mov r1, #0x69
+	lsl r1, r1, #2
+	add r0, r4, r1
+	add r1, r1, #4
+	add r1, r4, r1
+	mov r2, #0
+	mov r3, #2
+	bl ov40_0222DA00
+	cmp r0, #0
+	beq _02236A32
+	mov r0, #4
+	mov r1, #1
+	bl GfGfx_EngineBTogglePlanes
+	add r0, r5, #0
+	mov r1, #6
+	bl ov40_0222BF80
+	mov r1, #0x11
+	add r0, r5, #0
+	lsl r1, r1, #4
+	bl ov40_02237030
+_02236A32:
+	ldr r0, [r5, #0x58]
+	mov r3, #0x6b
+	lsl r0, r0, #0x10
+	lsr r0, r0, #0x10
+	str r0, [sp]
+	lsl r3, r3, #2
+	ldr r3, [r4, r3]
+	ldr r0, [r5, #0x28]
+	lsl r3, r3, #0x18
+	mov r1, #3
+	mov r2, #0xc
+	lsr r3, r3, #0x18
+	bl PaletteData_BlendPalettes
+_02236A4E:
+	mov r0, #0
+	add sp, #0x10
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+_02236A54: .word 0x000006F4
+	thumb_func_end ov40_02236968
+
+
+	thumb_func_start ov40_02236A58
+ov40_02236A58: ; 0x02236A58
+	push {r3, lr}
+	mov r1, #0x86
+	lsl r1, r1, #4
+	ldr r1, [r0, r1]
+	mov r0, #0xcd
+	lsl r0, r0, #2
+	ldr r0, [r1, r0]
+	bl TouchHitboxController_IsTriggered
+	mov r0, #0
+	pop {r3, pc}
+	.balign 4, 0
+	thumb_func_end ov40_02236A58
+
+
+	thumb_func_start ov40_02236A70
+ov40_02236A70: ; 0x02236A70
+	push {r3, r4, r5, lr}
+	sub sp, #0x10
+	mov r1, #0x86
+	add r4, r0, #0
+	lsl r1, r1, #4
+	ldr r5, [r4, r1]
+	bl ov40_0223D5CC
+	cmp r0, #0
+	bne _02236A8A
+	add sp, #0x10
+	mov r0, #0
+	pop {r3, r4, r5, pc}
+_02236A8A:
+	ldr r0, [r4, #8]
+	cmp r0, #7
+	bls _02236A92
+	b _02236C48
+_02236A92:
+	add r1, r0, r0
+	add r1, pc
+	ldrh r1, [r1, #6]
+	lsl r1, r1, #0x10
+	asr r1, r1, #0x10
+	add pc, r1
+_02236A9E: ; jump table
+	.short _02236AAE - _02236A9E - 2 ; case 0
+	.short _02236ACC - _02236A9E - 2 ; case 1
+	.short _02236B18 - _02236A9E - 2 ; case 2
+	.short _02236B5E - _02236A9E - 2 ; case 3
+	.short _02236B62 - _02236A9E - 2 ; case 4
+	.short _02236BA4 - _02236A9E - 2 ; case 5
+	.short _02236BCE - _02236A9E - 2 ; case 6
+	.short _02236C26 - _02236A9E - 2 ; case 7
+_02236AAE:
+	add r0, r4, #0
+	bl ov40_02236FE0
+	ldr r0, _02236C58 ; =0x000006F4
+	mov r1, #0
+	ldr r0, [r4, r0]
+	bl sub_020879E0
+	mov r0, #4
+	mov r1, #0
+	bl GfGfx_EngineBTogglePlanes
+	ldr r0, [r4, #8]
+	add r0, r0, #1
+	str r0, [r4, #8]
+_02236ACC:
+	mov r2, #8
+	mov r1, #0x69
+	str r2, [sp]
+	mov r3, #0x12
+	str r3, [sp, #4]
+	mov r0, #1
+	lsl r1, r1, #2
+	str r0, [sp, #8]
+	add r0, r5, r1
+	add r1, r1, #4
+	add r1, r5, r1
+	bl ov40_0222D980
+	add r0, r4, #0
+	bl ov40_02237564
+	add r0, r4, #0
+	mov r1, #1
+	bl ov40_02230964
+	add r0, r4, #0
+	bl ov40_02237410
+	add r0, r4, #0
+	mov r1, #0
+	bl ov40_02230964
+	add r0, r4, #0
+	bl ov40_022371A0
+	mov r0, #4
+	mov r1, #0
+	bl GfGfx_EngineATogglePlanes
+	ldr r0, [r4, #8]
+	add r0, r0, #1
+	str r0, [r4, #8]
+	b _02236C50
+_02236B18:
+	mov r0, #0x6b
+	lsl r0, r0, #2
+	add r0, r5, r0
+	mov r1, #1
+	bl ov40_0222DA84
+	mov r1, #0x69
+	lsl r1, r1, #2
+	add r0, r5, r1
+	add r1, r1, #4
+	add r1, r5, r1
+	mov r2, #1
+	mov r3, #0
+	bl ov40_0222DA00
+	cmp r0, #0
+	beq _02236B40
+	ldr r0, [r4, #8]
+	add r0, r0, #1
+	str r0, [r4, #8]
+_02236B40:
+	ldr r0, [r4, #0x58]
+	mov r3, #0x6b
+	lsl r0, r0, #0x10
+	lsr r0, r0, #0x10
+	str r0, [sp]
+	lsl r3, r3, #2
+	ldr r3, [r5, r3]
+	ldr r0, [r4, #0x28]
+	lsl r3, r3, #0x18
+	mov r1, #3
+	mov r2, #0xc
+	lsr r3, r3, #0x18
+	bl PaletteData_BlendPalettes
+	b _02236C50
+_02236B5E:
+	add r0, r0, #1
+	str r0, [r4, #8]
+_02236B62:
+	mov r1, #0x6f
+	lsl r1, r1, #4
+	ldr r1, [r4, r1]
+	add r0, r4, #0
+	mov r2, #0x80
+	mov r3, #0x60
+	bl ov40_0223077C
+	mov r0, #0x6f
+	lsl r0, r0, #4
+	ldr r0, [r4, r0]
+	mov r1, #1
+	bl sub_020879E0
+	mov r0, #0x6f
+	lsl r0, r0, #4
+	mov r1, #0x18
+	ldr r0, [r4, r0]
+	add r2, r1, #0
+	bl sub_02087A08
+	mov r1, #0x12
+	add r0, r4, #0
+	lsl r1, r1, #4
+	bl ov40_0222DED0
+	ldr r0, _02236C5C ; =0x0000057D
+	bl PlaySE
+	ldr r0, [r4, #8]
+	add r0, r0, #1
+	str r0, [r4, #8]
+	b _02236C50
+_02236BA4:
+	add r0, r4, #0
+	bl ov40_0223D540
+	mov r1, #0x1a
+	lsl r1, r1, #4
+	ldr r1, [r5, r1]
+	mov r2, #0xe
+	str r1, [sp]
+	lsl r2, r2, #6
+	ldr r1, [r5, r2]
+	add r2, r2, #4
+	ldr r2, [r5, r2]
+	ldr r3, [r5]
+	bl ov39_02227420
+	cmp r0, #1
+	bne _02236C50
+	ldr r0, [r4, #8]
+	add r0, r0, #1
+	str r0, [r4, #8]
+	b _02236C50
+_02236BCE:
+	add r0, r4, #0
+	bl ov40_0222DFB0
+	add r0, r4, #0
+	bl ov40_0223D540
+	add r1, sp, #0xc
+	bl ov39_02227D44
+	cmp r0, #1
+	ldr r0, _02236C5C ; =0x0000057D
+	bne _02236C02
+	mov r1, #0
+	bl StopSE
+	ldr r3, [sp, #0xc]
+	add r0, r4, #0
+	ldr r2, [r3, #0xc]
+	ldr r3, [r3, #4]
+	mov r1, #2
+	bl ov40_02230CDC
+	ldr r0, [r4, #8]
+	add r0, r0, #1
+	str r0, [r4, #8]
+	b _02236C50
+_02236C02:
+	mov r1, #0
+	bl StopSE
+	add r0, r4, #0
+	mov r1, #0x25 ; SCORE_EVENT_UPLOADED_PC_BOX_RECORDS
+	bl ov40_0222FB28
+	add r0, r4, #0
+	mov r1, #1
+	bl ov40_0222DD8C
+	ldr r0, _02236C60 ; =0x00000577
+	bl PlaySE
+	ldr r0, [r4, #8]
+	add r0, r0, #1
+	str r0, [r4, #8]
+	b _02236C50
+_02236C26:
+	mov r0, #0x6f
+	lsl r0, r0, #4
+	ldr r0, [r4, r0]
+	mov r1, #0
+	bl sub_020879E0
+	mov r0, #0x6f
+	lsl r0, r0, #4
+	mov r1, #0
+	ldr r0, [r4, r0]
+	add r2, r1, #0
+	bl sub_02087A08
+	ldr r0, [r4, #8]
+	add r0, r0, #1
+	str r0, [r4, #8]
+	b _02236C50
+_02236C48:
+	add r0, r4, #0
+	mov r1, #0xa
+	bl ov40_0222BF80
+_02236C50:
 	mov r0, #0
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	nop
-_0223781C: .word 0x04000050
-	thumb_func_end ov40_022376FC
+_02236C58: .word 0x000006F4
+_02236C5C: .word 0x0000057D
+_02236C60: .word 0x00000577
+	thumb_func_end ov40_02236A70
+
+
+	thumb_func_start ov40_02236C64
+ov40_02236C64: ; 0x02236C64
+	push {r3, r4, r5, lr}
+	sub sp, #0x10
+	add r5, r0, #0
+	mov r0, #0x86
+	lsl r0, r0, #4
+	ldr r4, [r5, r0]
+	ldr r0, [r5, #8]
+	cmp r0, #0
+	beq _02236C80
+	cmp r0, #1
+	beq _02236C9E
+	cmp r0, #2
+	beq _02236D04
+	b _02236D52
+_02236C80:
+	ldr r0, _02236D58 ; =0x000006F4
+	mov r1, #0
+	ldr r0, [r5, r0]
+	bl sub_020879E0
+	add r0, r5, #0
+	bl ov40_02236FE0
+	mov r0, #4
+	mov r1, #0
+	bl GfGfx_EngineBTogglePlanes
+	ldr r0, [r5, #8]
+	add r0, r0, #1
+	str r0, [r5, #8]
+_02236C9E:
+	mov r0, #0x6b
+	lsl r0, r0, #2
+	add r0, r4, r0
+	mov r1, #1
+	bl ov40_0222DA84
+	mov r1, #0x69
+	lsl r1, r1, #2
+	add r0, r4, r1
+	add r1, r1, #4
+	add r1, r4, r1
+	mov r2, #1
+	mov r3, #2
+	bl ov40_0222DA00
+	cmp r0, #0
+	beq _02236CE6
+	add r0, r5, #0
+	mov r1, #0
+	bl ov40_022368EC
+	mov r0, #0
+	str r0, [sp]
+	str r0, [sp, #4]
+	str r0, [sp, #8]
+	mov r0, #0x6d
+	str r0, [sp, #0xc]
+	ldr r0, [r5, #0x14]
+	ldr r2, [r5, #0x24]
+	mov r1, #0x4d
+	mov r3, #7
+	bl GfGfxLoader_LoadScrnDataFromOpenNarc
+	ldr r0, [r5, #8]
+	add r0, r0, #1
+	str r0, [r5, #8]
+_02236CE6:
+	ldr r0, [r5, #0x58]
+	mov r3, #0x6b
+	lsl r0, r0, #0x10
+	lsr r0, r0, #0x10
+	str r0, [sp]
+	lsl r3, r3, #2
+	ldr r3, [r4, r3]
+	ldr r0, [r5, #0x28]
+	lsl r3, r3, #0x18
+	mov r1, #3
+	mov r2, #0xc
+	lsr r3, r3, #0x18
+	bl PaletteData_BlendPalettes
+	b _02236D52
+_02236D04:
+	mov r0, #0x6b
+	lsl r0, r0, #2
+	add r0, r4, r0
+	mov r1, #0
+	bl ov40_0222DA84
+	mov r1, #0x69
+	lsl r1, r1, #2
+	add r0, r4, r1
+	add r1, r1, #4
+	add r1, r4, r1
+	mov r2, #0
+	mov r3, #2
+	bl ov40_0222DA00
+	cmp r0, #0
+	beq _02236D36
+	ldr r1, _02236D5C ; =0x0000010E
+	add r0, r5, #0
+	bl ov40_02237030
+	add r0, r5, #0
+	mov r1, #3
+	bl ov40_0222BF80
+_02236D36:
+	ldr r0, [r5, #0x58]
+	mov r3, #0x6b
+	lsl r0, r0, #0x10
+	lsr r0, r0, #0x10
+	str r0, [sp]
+	lsl r3, r3, #2
+	ldr r3, [r4, r3]
+	ldr r0, [r5, #0x28]
+	lsl r3, r3, #0x18
+	mov r1, #3
+	mov r2, #0xc
+	lsr r3, r3, #0x18
+	bl PaletteData_BlendPalettes
+_02236D52:
+	mov r0, #0
+	add sp, #0x10
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+_02236D58: .word 0x000006F4
+_02236D5C: .word 0x0000010E
+	thumb_func_end ov40_02236C64
+
+
+	thumb_func_start ov40_02236D60
+ov40_02236D60: ; 0x02236D60
+	push {r4, r5, lr}
+	sub sp, #0xc
+	mov r1, #0x86
+	add r5, r0, #0
+	lsl r1, r1, #4
+	ldr r4, [r5, r1]
+	ldr r1, [r5, #8]
+	cmp r1, #0
+	beq _02236D7C
+	cmp r1, #1
+	beq _02236DC6
+	cmp r1, #2
+	beq _02236E0C
+	b _02236E12
+_02236D7C:
+	mov r2, #8
+	mov r1, #0x69
+	str r2, [sp]
+	mov r3, #0x12
+	str r3, [sp, #4]
+	mov r0, #1
+	lsl r1, r1, #2
+	str r0, [sp, #8]
+	add r0, r4, r1
+	add r1, r1, #4
+	add r1, r4, r1
+	bl ov40_0222D980
+	add r0, r5, #0
+	mov r1, #1
+	bl ov40_02230964
+	add r0, r5, #0
+	bl ov40_02237564
+	add r0, r5, #0
+	bl ov40_02237410
+	add r0, r5, #0
+	bl ov40_022371A0
+	add r0, r5, #0
+	mov r1, #0
+	bl ov40_02230964
+	mov r0, #4
+	mov r1, #0
+	bl GfGfx_EngineATogglePlanes
+	ldr r0, [r5, #8]
+	add r0, r0, #1
+	str r0, [r5, #8]
+_02236DC6:
+	mov r0, #0x6b
+	lsl r0, r0, #2
+	add r0, r4, r0
+	mov r1, #1
+	bl ov40_0222DA84
+	mov r1, #0x69
+	lsl r1, r1, #2
+	add r0, r4, r1
+	add r1, r1, #4
+	add r1, r4, r1
+	mov r2, #1
+	mov r3, #0
+	bl ov40_0222DA00
+	cmp r0, #0
+	beq _02236DEE
+	ldr r0, [r5, #8]
+	add r0, r0, #1
+	str r0, [r5, #8]
+_02236DEE:
+	ldr r0, [r5, #0x58]
+	mov r3, #0x6b
+	lsl r0, r0, #0x10
+	lsr r0, r0, #0x10
+	str r0, [sp]
+	lsl r3, r3, #2
+	ldr r3, [r4, r3]
+	ldr r0, [r5, #0x28]
+	lsl r3, r3, #0x18
+	mov r1, #3
+	mov r2, #0xc
+	lsr r3, r3, #0x18
+	bl PaletteData_BlendPalettes
+	b _02236E12
+_02236E0C:
+	mov r1, #0xa
+	bl ov40_0222BF80
+_02236E12:
+	mov r0, #0
+	add sp, #0xc
+	pop {r4, r5, pc}
+	thumb_func_end ov40_02236D60
+
+
+	thumb_func_start ov40_02236E18
+ov40_02236E18: ; 0x02236E18
+	push {r4, r5, lr}
+	sub sp, #0xc
+	mov r1, #0x86
+	add r5, r0, #0
+	lsl r1, r1, #4
+	ldr r4, [r5, r1]
+	ldr r1, [r5, #8]
+	cmp r1, #0
+	beq _02236E34
+	cmp r1, #1
+	beq _02236E60
+	cmp r1, #2
+	beq _02236EA6
+	b _02236EAC
+_02236E34:
+	bl ov40_02236FE0
+	mov r2, #8
+	mov r1, #0x69
+	str r2, [sp]
+	mov r3, #0x12
+	str r3, [sp, #4]
+	mov r0, #1
+	lsl r1, r1, #2
+	str r0, [sp, #8]
+	add r0, r4, r1
+	add r1, r1, #4
+	add r1, r4, r1
+	bl ov40_0222D980
+	mov r0, #4
+	mov r1, #0
+	bl GfGfx_EngineATogglePlanes
+	ldr r0, [r5, #8]
+	add r0, r0, #1
+	str r0, [r5, #8]
+_02236E60:
+	mov r0, #0x6b
+	lsl r0, r0, #2
+	add r0, r4, r0
+	mov r1, #1
+	bl ov40_0222DA84
+	mov r1, #0x69
+	lsl r1, r1, #2
+	add r0, r4, r1
+	add r1, r1, #4
+	add r1, r4, r1
+	mov r2, #1
+	mov r3, #0
+	bl ov40_0222DA00
+	cmp r0, #0
+	beq _02236E88
+	ldr r0, [r5, #8]
+	add r0, r0, #1
+	str r0, [r5, #8]
+_02236E88:
+	ldr r0, [r5, #0x58]
+	mov r3, #0x6b
+	lsl r0, r0, #0x10
+	lsr r0, r0, #0x10
+	str r0, [sp]
+	lsl r3, r3, #2
+	ldr r3, [r4, r3]
+	ldr r0, [r5, #0x28]
+	lsl r3, r3, #0x18
+	mov r1, #3
+	mov r2, #0xc
+	lsr r3, r3, #0x18
+	bl PaletteData_BlendPalettes
+	b _02236EAC
+_02236EA6:
+	mov r1, #0xd
+	bl ov40_0222BF80
+_02236EAC:
+	mov r0, #0
+	add sp, #0xc
+	pop {r4, r5, pc}
+	.balign 4, 0
+	thumb_func_end ov40_02236E18
+
+
+	thumb_func_start ov40_02236EB4
+ov40_02236EB4: ; 0x02236EB4
+	push {r4, r5, r6, r7, lr}
+	sub sp, #0x1c
+	str r0, [sp, #0x14]
+	mov r0, #0
+	str r0, [sp, #0x18]
+	mov r1, #0x86
+	ldr r6, _02236F2C ; =0x00000101
+	ldr r0, [sp, #0x14]
+	lsl r1, r1, #4
+	ldr r1, [r0, r1]
+	add r0, r6, #0
+	add r0, #0xb3
+	ldr r5, _02236F30 ; =ov40_022452B4
+	ldr r7, _02236F34 ; =ov40_02245290
+	add r4, r1, r0
+_02236ED2:
+	add r0, r4, #0
+	bl InitWindow
+	ldrb r0, [r5, #1]
+	add r1, r4, #0
+	mov r2, #2
+	str r0, [sp]
+	ldrb r0, [r5, #2]
+	str r0, [sp, #4]
+	ldrb r0, [r5, #3]
+	str r0, [sp, #8]
+	mov r0, #0xe
+	str r0, [sp, #0xc]
+	lsl r0, r6, #0x10
+	lsr r0, r0, #0x10
+	str r0, [sp, #0x10]
+	ldr r0, [sp, #0x14]
+	ldrb r3, [r5]
+	ldr r0, [r0, #0x24]
+	bl AddWindowParameterized
+	ldr r1, [r7]
+	add r0, r4, #0
+	lsl r1, r1, #0x18
+	lsr r1, r1, #0x18
+	bl FillWindowPixelBuffer
+	add r0, r4, #0
+	bl ScheduleWindowCopyToVram
+	ldrb r1, [r5, #2]
+	ldrb r0, [r5, #3]
+	add r4, #0x10
+	add r5, r5, #4
+	mul r0, r1
+	add r6, r6, r0
+	ldr r0, [sp, #0x18]
+	add r7, r7, #4
+	add r0, r0, #1
+	str r0, [sp, #0x18]
+	cmp r0, #3
+	blt _02236ED2
+	add sp, #0x1c
+	pop {r4, r5, r6, r7, pc}
+	nop
+_02236F2C: .word 0x00000101
+_02236F30: .word ov40_022452B4
+_02236F34: .word ov40_02245290
+	thumb_func_end ov40_02236EB4
+
+
+	thumb_func_start ov40_02236F38
+ov40_02236F38: ; 0x02236F38
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #0x20
+	mov r1, #0x86
+	lsl r1, r1, #4
+	str r0, [sp, #0x14]
+	ldr r1, [r0, r1]
+	mov r0, #0x8d
+	lsl r0, r0, #2
+	ldr r5, _02236FD8 ; =ov40_022452DC
+	mov r6, #1
+	mov r7, #0
+	add r4, r1, r0
+_02236F50:
+	add r0, r4, #0
+	bl InitWindow
+	ldrb r0, [r5, #1]
+	add r1, r4, #0
+	mov r2, #6
+	str r0, [sp]
+	ldrb r0, [r5, #2]
+	str r0, [sp, #4]
+	ldrb r0, [r5, #3]
+	str r0, [sp, #8]
+	mov r0, #0xe
+	str r0, [sp, #0xc]
+	lsl r0, r6, #0x10
+	lsr r0, r0, #0x10
+	str r0, [sp, #0x10]
+	ldr r0, [sp, #0x14]
+	ldrb r3, [r5]
+	ldr r0, [r0, #0x24]
+	bl AddWindowParameterized
+	ldr r0, [sp, #0x14]
+	add r1, r7, #0
+	ldr r0, [r0, #0x48]
+	add r1, #0x3c
+	bl NewString_ReadMsgData
+	str r0, [sp, #0x18]
+	ldr r1, [sp, #0x18]
+	add r0, r4, #0
+	bl ov40_022306C0
+	str r0, [sp, #0x1c]
+	add r0, r4, #0
+	mov r1, #0
+	bl FillWindowPixelBuffer
+	mov r0, #0
+	str r0, [sp]
+	mov r0, #0xff
+	str r0, [sp, #4]
+	ldr r0, _02236FDC ; =0x000F0D00
+	ldr r2, [sp, #0x18]
+	str r0, [sp, #8]
+	mov r0, #0
+	str r0, [sp, #0xc]
+	ldr r3, [sp, #0x1c]
+	add r0, r4, #0
+	mov r1, #0
+	bl AddTextPrinterParameterizedWithColor
+	add r0, r4, #0
+	bl ScheduleWindowCopyToVram
+	ldr r0, [sp, #0x18]
+	bl String_Delete
+	ldrb r1, [r5, #2]
+	ldrb r0, [r5, #3]
+	add r7, r7, #1
+	add r4, #0x10
+	mul r0, r1
+	add r6, r6, r0
+	add r5, r5, #4
+	cmp r7, #6
+	blo _02236F50
+	add sp, #0x20
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+_02236FD8: .word ov40_022452DC
+_02236FDC: .word 0x000F0D00
+	thumb_func_end ov40_02236F38
+
+
+	thumb_func_start ov40_02236FE0
+ov40_02236FE0: ; 0x02236FE0
+	push {r3, r4, r5, lr}
+	mov r1, #0x86
+	lsl r1, r1, #4
+	ldr r1, [r0, r1]
+	mov r0, #0x8d
+	lsl r0, r0, #2
+	mov r4, #0
+	add r5, r1, r0
+_02236FF0:
+	add r0, r5, #0
+	bl ClearWindowTilemapAndCopyToVram
+	add r0, r5, #0
+	bl RemoveWindow
+	add r4, r4, #1
+	add r5, #0x10
+	cmp r4, #6
+	blo _02236FF0
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+	thumb_func_end ov40_02236FE0
+
+
+	thumb_func_start ov40_02237008
+ov40_02237008: ; 0x02237008
+	push {r3, r4, r5, lr}
+	mov r1, #0x86
+	lsl r1, r1, #4
+	ldr r1, [r0, r1]
+	mov r0, #0x6d
+	lsl r0, r0, #2
+	mov r4, #0
+	add r5, r1, r0
+_02237018:
+	add r0, r5, #0
+	bl ClearWindowTilemapAndCopyToVram
+	add r0, r5, #0
+	bl RemoveWindow
+	add r4, r4, #1
+	add r5, #0x10
+	cmp r4, #3
+	blt _02237018
+	pop {r3, r4, r5, pc}
+	.balign 4, 0
+	thumb_func_end ov40_02237008
+
+
+	thumb_func_start ov40_02237030
+ov40_02237030: ; 0x02237030
+	push {r4, r5, r6, lr}
+	sub sp, #0x10
+	mov r2, #0x86
+	lsl r2, r2, #4
+	ldr r5, [r0, r2]
+	mov r6, #0x75
+	ldr r0, [r0, #0x48]
+	lsl r6, r6, #2
+	bl NewString_ReadMsgData
+	add r4, r0, #0
+	add r0, r5, r6
+	mov r1, #0xcc
+	bl FillWindowPixelBuffer
+	mov r1, #0
+	str r1, [sp]
+	mov r0, #0xff
+	str r0, [sp, #4]
+	ldr r0, _02237078 ; =0x000F0D00
+	add r2, r4, #0
+	str r0, [sp, #8]
+	add r0, r5, r6
+	add r3, r1, #0
+	str r1, [sp, #0xc]
+	bl AddTextPrinterParameterizedWithColor
+	add r0, r5, r6
+	bl ScheduleWindowCopyToVram
+	add r0, r4, #0
+	bl String_Delete
+	add sp, #0x10
+	pop {r4, r5, r6, pc}
+	nop
+_02237078: .word 0x000F0D00
+	thumb_func_end ov40_02237030
+
+
+	thumb_func_start ov40_0223707C
+ov40_0223707C: ; 0x0223707C
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #0x18
+	add r5, r0, #0
+	mov r0, #0x86
+	lsl r0, r0, #4
+	ldr r4, [r5, r0]
+	mov r1, #0xe
+	lsl r1, r1, #6
+	ldr r1, [r4, r1]
+	ldr r0, [r5, #0x48]
+	add r1, #0x1c
+	bl NewString_ReadMsgData
+	str r0, [sp, #0x10]
+	mov r0, #0xff
+	mov r1, #0x6d
+	bl String_New
+	add r6, r0, #0
+	mov r0, #0xff
+	mov r1, #0x6d
+	bl String_New
+	add r7, r0, #0
+	mov r0, #0x6d
+	bl ov40_0222DAB0
+	ldr r1, _0223713C ; =0x000004D4
+	str r0, [sp, #0x14]
+	ldr r1, [r5, r1]
+	add r0, r6, #0
+	lsl r1, r1, #2
+	add r2, r4, r1
+	mov r1, #0xe3
+	lsl r1, r1, #2
+	ldr r1, [r2, r1]
+	bl CopyU16ArrayToString
+	add r0, r5, #0
+	add r1, r6, #0
+	bl ov40_02230DCC
+	mov r0, #1
+	str r0, [sp]
+	mov r0, #2
+	str r0, [sp, #4]
+	mov r1, #0
+	ldr r0, [sp, #0x14]
+	add r2, r6, #0
+	add r3, r1, #0
+	bl BufferString
+	ldr r0, [sp, #0x14]
+	ldr r2, [sp, #0x10]
+	add r1, r7, #0
+	bl StringExpandPlaceholders
+	mov r0, #0x75
+	lsl r0, r0, #2
+	add r0, r4, r0
+	mov r1, #0xcc
+	bl FillWindowPixelBuffer
+	mov r1, #0
+	str r1, [sp]
+	mov r0, #0xff
+	str r0, [sp, #4]
+	ldr r0, _02237140 ; =0x000F0D00
+	add r2, r7, #0
+	str r0, [sp, #8]
+	mov r0, #0x75
+	lsl r0, r0, #2
+	add r0, r4, r0
+	add r3, r1, #0
+	str r1, [sp, #0xc]
+	bl AddTextPrinterParameterizedWithColor
+	mov r0, #0x75
+	lsl r0, r0, #2
+	add r0, r4, r0
+	bl ScheduleWindowCopyToVram
+	ldr r0, [sp, #0x10]
+	bl String_Delete
+	add r0, r6, #0
+	bl String_Delete
+	add r0, r7, #0
+	bl String_Delete
+	ldr r0, [sp, #0x14]
+	bl MessageFormat_Delete
+	add sp, #0x18
+	pop {r3, r4, r5, r6, r7, pc}
+	.balign 4, 0
+_0223713C: .word 0x000004D4
+_02237140: .word 0x000F0D00
+	thumb_func_end ov40_0223707C
+
+
+	thumb_func_start ov40_02237144
+ov40_02237144: ; 0x02237144
+	push {r4, r5, r6, lr}
+	sub sp, #0x10
+	mov r1, #0x86
+	lsl r1, r1, #4
+	ldr r5, [r0, r1]
+	mov r6, #0x71
+	mov r0, #0xff
+	mov r1, #0x6d
+	lsl r6, r6, #2
+	bl String_New
+	add r1, r5, #4
+	add r4, r0, #0
+	bl CopyU16ArrayToString
+	add r0, r5, r6
+	mov r1, #0
+	bl FillWindowPixelBuffer
+	add r0, r5, r6
+	add r1, r4, #0
+	bl ov40_022306C0
+	add r3, r0, #0
+	mov r0, #4
+	str r0, [sp]
+	mov r0, #0xff
+	str r0, [sp, #4]
+	ldr r0, _0223719C ; =0x000F0100
+	mov r1, #0
+	str r0, [sp, #8]
+	add r0, r5, r6
+	add r2, r4, #0
+	str r1, [sp, #0xc]
+	bl AddTextPrinterParameterizedWithColor
+	add r0, r5, r6
+	bl ScheduleWindowCopyToVram
+	add r0, r4, #0
+	bl String_Delete
+	add sp, #0x10
+	pop {r4, r5, r6, pc}
+	.balign 4, 0
+_0223719C: .word 0x000F0100
+	thumb_func_end ov40_02237144
+
+
+	thumb_func_start ov40_022371A0
+ov40_022371A0: ; 0x022371A0
+	push {r4, r5, r6, lr}
+	mov r1, #0x86
+	lsl r1, r1, #4
+	ldr r1, [r0, r1]
+	mov r0, #0x6d
+	lsl r0, r0, #2
+	ldr r5, _022371D0 ; =ov40_02245290
+	mov r6, #0
+	add r4, r1, r0
+_022371B2:
+	ldr r1, [r5]
+	add r0, r4, #0
+	lsl r1, r1, #0x18
+	lsr r1, r1, #0x18
+	bl FillWindowPixelBuffer
+	add r0, r4, #0
+	bl ScheduleWindowCopyToVram
+	add r6, r6, #1
+	add r4, #0x10
+	add r5, r5, #4
+	cmp r6, #2
+	blt _022371B2
+	pop {r4, r5, r6, pc}
+	.balign 4, 0
+_022371D0: .word ov40_02245290
+	thumb_func_end ov40_022371A0

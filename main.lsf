@@ -2133,7 +2133,24 @@ Overlay OVY_18
     Object src/application/pokedex/ov18_021E5AA0.o
     Object src/application/pokedex/ov18_021E5C40.o
     Object src/application/pokedex/ov18_021E8BF4.o
-    Object asm/overlay_18.o
+    Object src/sol_r9_ov18_run01.o
+    Object asm/sol_r9_ov18_gap01.o
+    Object src/sol_r9_ov18_run01b.o
+    Object asm/sol_r9_ov18_gap02.o
+    Object src/sol_r9_ov18_run02.o
+    Object asm/sol_r9_ov18_gap03.o
+    Object src/sol_r9_ov18_run03.o
+    Object asm/sol_r9_ov18_gap04.o
+    Object src/sol_r9_ov18_run03b.o
+    Object asm/sol_r9_ov18_gap05.o
+    Object src/sol_r9_ov18_run04.o
+    Object asm/sol_r9_ov18_gap06.o
+    Object src/sol_r9_ov18_run04b.o
+    Object asm/sol_r9_ov18_gap07.o
+    Object src/sol_r9_ov18_run05.o
+    Object asm/sol_r9_ov18_gap08.o
+    Object src/sol_r9_ov18_run06.o
+    Object asm/sol_r9_ov18_gap09.o
     Object src/overlay18_sol_partial_1.o
     Object asm/overlay_18_residual_2.o
     Object src/overlay18_sol_partial_2.o
@@ -2149,7 +2166,20 @@ Overlay OVY_18
     Object src/overlay18_sol_partial_7.o
     Object asm/overlay_18_residual_8.o
     Object src/overlay18_sol_partial_8.o
-    Object asm/overlay_18_residual_9.o
+    Object asm/overlay_18_pokedex_area_ui_asm_01.o
+    Object src/overlay18_pokedex_area_ui_run1.o
+    Object asm/overlay_18_pokedex_area_ui_asm_02.o
+    Object src/overlay18_pokedex_area_ui_run2.o
+    Object asm/overlay_18_pokedex_area_ui_asm_03.o
+    Object src/overlay18_pokedex_area_ui_run3.o
+    Object asm/overlay_18_pokedex_area_ui_asm_04.o
+    Object src/overlay18_pokedex_area_ui_run4.o
+    Object asm/overlay_18_pokedex_area_ui_asm_05.o
+    Object src/overlay18_pokedex_area_ui_run5.o
+    Object asm/overlay_18_pokedex_area_ui_asm_06.o
+    Object src/overlay18_pokedex_area_ui_run6.o
+    Object asm/overlay_18_pokedex_area_ui_asm_07.o
+    Object src/overlay18_pokedex_area_ui_run7.o
     Object src/overlay18_sol_partial_9.o
     Object asm/overlay_18_residual_10.o
     Object src/overlay18_sol_partial_10.o
@@ -2561,19 +2591,85 @@ Overlay OVY_40
     Object src/overlay_40_sol_partial_25.o
     Object asm/overlay_40_residual_26.o
     Object src/overlay_40_sol_partial_26.o
-    Object asm/overlay_40_residual_27.o
+    Object asm/overlay_40_residual_27_unmatched_1.o
+    Object src/overlay40_pc_box_grid_run1.o
+    Object asm/overlay_40_residual_27_unmatched_2.o
+    Object src/overlay40_pc_box_grid_run2.o
+    Object asm/overlay_40_residual_27_unmatched_3.o
+    Object src/overlay40_pc_box_grid_run3.o
+    Object asm/overlay_40_residual_27_unmatched_4.o
+    Object src/overlay40_pc_box_grid_run4.o
+    Object asm/overlay_40_residual_27_unmatched_5.o
+    Object src/overlay40_pc_box_grid_run5.o
+    Object asm/overlay_40_residual_27_unmatched_6.o
+    Object src/overlay40_pc_box_grid_run6.o
+    Object asm/overlay_40_residual_27_unmatched_7.o
+    Object src/overlay40_pc_box_grid_run7.o
+    Object asm/overlay_40_residual_27_unmatched_8.o
+    Object src/overlay40_pc_box_grid_run8.o
+    Object asm/overlay_40_residual_27_unmatched_9.o
+    Object src/overlay40_pc_box_grid_run9.o
+    Object asm/overlay_40_residual_27_unmatched_10.o
+    Object src/overlay40_pc_box_grid_run10.o
+    Object asm/overlay_40_residual_27_unmatched_11.o
+    Object src/overlay40_pc_box_grid_run11.o
+    Object asm/overlay_40_residual_27_unmatched_12.o
+    Object src/overlay40_pc_box_grid_run12.o
+    Object asm/overlay_40_residual_27_unmatched_13.o
+    Object src/overlay40_pc_box_grid_run13.o
+    Object asm/overlay_40_residual_27_unmatched_14.o
+    Object src/overlay40_pc_box_grid_run14.o
+    Object asm/overlay_40_residual_27_unmatched_15.o
+    Object src/overlay40_pc_box_grid_run15.o
+    Object asm/overlay_40_residual_27_unmatched_16.o
+    Object src/overlay40_pc_box_grid_run16.o
+    Object asm/overlay_40_residual_27_unmatched_17.o
+    Object src/overlay40_pc_box_grid_run17.o
+    Object asm/overlay_40_residual_27_unmatched_18.o
+    Object src/overlay40_pc_box_grid_run18.o
+    Object asm/overlay_40_residual_27_unmatched_19.o
+    Object src/overlay40_pc_box_grid_run19.o
+    Object asm/overlay_40_residual_27_unmatched_20.o
+    Object src/overlay40_pc_box_grid_run20.o
     Object src/overlay_40_sol_partial_27.o
     Object asm/overlay_40_residual_28.o
     Object src/overlay_40_sol_partial_28.o
-    Object asm/overlay_40_residual_29.o
+    Object asm/overlay_40_residual_29_unmatched_1.o
+    Object src/overlay40_pc_box_summary_29.o
+    Object asm/overlay_40_residual_29_unmatched_2.o
     Object src/overlay_40_sol_partial_29.o
     Object asm/overlay_40_residual_30.o
     Object src/overlay_40_sol_partial_30.o
     Object asm/overlay_40_residual_31.o
+    Object src/overlay40_residual31_run1.o
+    Object asm/overlay_40_residual_31_residual_2.o
+    Object src/overlay40_residual31_run2.o
+    Object asm/overlay_40_residual_31_residual_3.o
+    Object src/overlay40_residual31_run3.o
+    Object asm/overlay_40_residual_31_residual_4.o
+    Object src/overlay40_residual31_run4.o
+    Object asm/overlay_40_residual_31_residual_5.o
+    Object src/overlay40_residual31_run5.o
+    Object asm/overlay_40_residual_31_residual_6.o
     Object src/overlay_40_sol_partial_31.o
     Object asm/overlay_40_residual_32.o
     Object src/overlay_40_sol_partial_32.o
-    Object asm/overlay_40_residual_33.o
+    Object asm/ov40_r33_a01.o
+    Object src/ov40_r33_c01.o
+    Object asm/ov40_r33_a02.o
+    Object src/ov40_r33_c02.o
+    Object asm/ov40_r33_a03.o
+    Object src/ov40_r33_c03.o
+    Object asm/ov40_r33_a04.o
+    Object src/ov40_r33_c04.o
+    Object asm/ov40_r33_a05.o
+    Object src/ov40_r33_c05.o
+    Object asm/ov40_r33_a06.o
+    Object src/ov40_r33_c06.o
+    Object asm/ov40_r33_a07.o
+    Object src/ov40_r33_c07.o
+    Object asm/ov40_r33_a08.o
+    Object src/ov40_r33_c08.o
     Object src/overlay_40_sol_partial_33.o
     Object asm/overlay_40_residual_34.o
     Object src/overlay_40_sol_partial_34.o
@@ -2593,7 +2689,17 @@ Overlay OVY_40
     Object src/overlay_40_sol_partial_39.o
     Object asm/overlay_40_residual_40.o
     Object src/overlay_40_sol_partial_40.o
-    Object asm/overlay_40_residual_41.o
+    Object src/overlay40_pc_box_wallpaper_run1.o
+    Object asm/overlay_40_residual_41_unmatched_1.o
+    Object src/overlay40_pc_box_wallpaper_run2.o
+    Object asm/overlay_40_residual_41_unmatched_2.o
+    Object src/overlay40_pc_box_wallpaper_run3.o
+    Object asm/overlay_40_residual_41_unmatched_3.o
+    Object src/overlay40_pc_box_wallpaper_run4.o
+    Object asm/overlay_40_residual_41_unmatched_4.o
+    Object src/overlay40_pc_box_wallpaper_run5.o
+    Object asm/overlay_40_residual_41_unmatched_5.o
+    Object src/overlay40_pc_box_wallpaper_run6.o
 }
 Overlay OVY_41
 {
@@ -3174,9 +3280,21 @@ Overlay OVY_49
     Object src/ov49_wave30_direction_2.o
     Object asm/overlay_49_residual_58_residual_2.o
     Object src/overlay_49_sol_partial_59.o
-    Object asm/overlay_49_residual_59.o
+    Object asm/overlay_49_residual_59_unmatched_1.o
+    Object src/overlay49_battle_hud_panels_run1.o
+    Object asm/overlay_49_residual_59_unmatched_2.o
+    Object src/overlay49_battle_hud_panels_run2.o
+    Object asm/overlay_49_residual_59_unmatched_3.o
+    Object src/overlay49_battle_hud_panels_run3.o
+    Object asm/overlay_49_residual_59_unmatched_4.o
+    Object src/overlay49_battle_hud_panels_run4.o
     Object src/overlay_49_sol_partial_60.o
-    Object asm/overlay_49_residual_60.o
+    Object asm/overlay_49_sol_r9_60_asm_00_6154c.o
+    Object src/overlay_49_sol_r9_60_run_01_618c0.o
+    Object asm/overlay_49_sol_r9_60_asm_01_61930.o
+    Object src/overlay_49_sol_r9_60_run_02_61fc0.o
+    Object asm/overlay_49_sol_r9_60_asm_02_62028.o
+    Object src/overlay_49_sol_r9_60_run_03_62ac4.o
     Object src/overlay_49_sol_partial_61.o
     Object asm/overlay_49_residual_61.o
     Object src/overlay_49_sol_partial_62.o
@@ -3232,7 +3350,31 @@ Overlay trainer_card
 Overlay trainer_card_main
 {
     After trainer_card
-    Object asm/overlay_trainer_card_main.o
+    Object asm/trainer_card_main_00_trainercardmainapp_init.o
+    Object src/trainer_card_main_01_ov51_021e60d4.o
+    Object asm/trainer_card_main_02_ov51_021e60f4.o
+    Object src/trainer_card_main_03_ov51_021e6200.o
+    Object asm/trainer_card_main_04_ov51_021e6238.o
+    Object src/trainer_card_main_05_ov51_021e69ec.o
+    Object asm/trainer_card_main_06_ov51_021e6aac.o
+    Object src/trainer_card_main_07_ov51_021e6b88.o
+    Object asm/trainer_card_main_08_ov51_021e6c00.o
+    Object src/trainer_card_main_09_ov51_021e6ccc.o
+    Object asm/trainer_card_main_10_ov51_021e6cf0.o
+    Object src/trainer_card_main_11_ov51_021e6da8.o
+    Object asm/trainer_card_main_12_ov51_021e6e60.o
+    Object src/trainer_card_main_13_ov51_021e71d0.o
+    Object asm/trainer_card_main_14_ov51_021e7208.o
+    Object src/trainer_card_main_15_ov51_021e74d4.o
+    Object asm/trainer_card_main_16_ov51_021e757c.o
+    Object src/trainer_card_main_17_ov51_021e7664.o
+    Object asm/trainer_card_main_18_ov51_021e76a4.o
+    Object src/trainer_card_main_19_ov51_021e77a0.o
+    Object asm/trainer_card_main_20_ov51_021e7804.o
+    Object src/trainer_card_main_21_ov51_021e786c.o
+    Object asm/trainer_card_main_22_ov51_021e78f8.o
+    Object src/trainer_card_main_23_ov51_021e7d44.o
+    Object asm/trainer_card_main_24_owned_data.o
 }
 Overlay trainer_card_signature
 {
@@ -3661,7 +3803,9 @@ Overlay OVY_70
     Object src/overlay70_ui_helpers_9.o
     Object asm/overlay_70_residual_26_residual_9.o
     Object src/overlay70_sol_partial_26.o
-    Object asm/overlay_70_residual_27.o
+    Object src/overlay70_pokegear_radio_ui_run1.o
+    Object asm/overlay_70_residual_27_unmatched_1.o
+    Object src/overlay70_pokegear_radio_ui_run2.o
     Object src/overlay70_sol_partial_27.o
     Object src/overlay70_state_helpers_1.o
     Object src/overlay70_sol_partial_28.o
@@ -4730,7 +4874,23 @@ Overlay OVY_89
     Object src/overlay89_partial_9.o
     Object asm/overlay_89_residual_10.o
     Object src/overlay89_partial_10.o
-    Object asm/overlay_89_residual_11.o
+    Object asm/overlay89_r11_residual_00.o
+    Object src/overlay89_r11_c_b148.o
+    Object asm/overlay89_r11_residual_01.o
+    Object src/overlay89_r11_c_b298.o
+    Object asm/overlay89_r11_residual_02.o
+    Object src/overlay89_r11_c_b450.o
+    Object asm/overlay89_r11_residual_03.o
+    Object src/overlay89_r11_c_b604.o
+    Object asm/overlay89_r11_residual_04.o
+    Object src/overlay89_r11_c_b810.o
+    Object asm/overlay89_r11_residual_05.o
+    Object src/overlay89_r11_c_b900.o
+    Object asm/overlay89_r11_residual_06.o
+    Object src/overlay89_r11_c_b978.o
+    Object asm/overlay89_r11_residual_07.o
+    Object src/overlay89_r11_c_be68.o
+    Object asm/overlay89_r11_residual_08.o
     Object src/overlay89_partial_11.o
     Object asm/overlay_89_residual_12.o
     Object src/overlay89_partial_12.o
@@ -5116,7 +5276,17 @@ Overlay OVY_96
     Object src/overlay96_exact_bank_51.o
     Object asm/overlay_96_residual_52.o
     Object src/overlay96_exact_bank_52.o
-    Object asm/overlay_96_residual_53.o
+    Object src/overlay96_pokeathlon_shop_ui_run1.o
+    Object asm/overlay_96_residual_53_unmatched_1.o
+    Object src/overlay96_pokeathlon_shop_ui_run2.o
+    Object asm/overlay_96_residual_53_unmatched_2.o
+    Object src/overlay96_pokeathlon_shop_ui_run3.o
+    Object asm/overlay_96_residual_53_unmatched_3.o
+    Object src/overlay96_pokeathlon_shop_ui_run4.o
+    Object asm/overlay_96_residual_53_unmatched_4.o
+    Object src/overlay96_pokeathlon_shop_ui_run5.o
+    Object asm/overlay_96_residual_53_unmatched_5.o
+    Object src/overlay96_pokeathlon_shop_ui_run6.o
     Object src/overlay96_exact_bank_53.o
     Object asm/overlay_96_residual_54.o
     Object src/overlay96_task_helpers_1.o
@@ -5176,7 +5346,18 @@ Overlay OVY_96
     Object src/overlay96_exact_bank_69.o
     Object asm/overlay_96_residual_70.o
     Object src/overlay96_exact_bank_70.o
-    Object asm/overlay_96_residual_71.o
+    Object asm/overlay_96_residual_71_unmatched_1.o
+    Object src/overlay96_pokeathlon_medal_grid_run1.o
+    Object asm/overlay_96_residual_71_unmatched_2.o
+    Object src/overlay96_pokeathlon_medal_grid_run2.o
+    Object asm/overlay_96_residual_71_unmatched_3.o
+    Object src/overlay96_pokeathlon_medal_grid_run3.o
+    Object asm/overlay_96_residual_71_unmatched_4.o
+    Object src/overlay96_pokeathlon_medal_grid_run4.o
+    Object asm/overlay_96_residual_71_unmatched_5.o
+    Object src/overlay96_pokeathlon_medal_grid_run5.o
+    Object asm/overlay_96_residual_71_unmatched_6.o
+    Object src/overlay96_pokeathlon_medal_grid_run6.o
     Object src/overlay96_exact_bank_71.o
     Object asm/overlay_96_residual_72.o
     Object src/overlay96_exact_bank_72.o
@@ -5291,7 +5472,9 @@ Overlay OVY_96
     Object src/overlay96_exact_bank_106.o
     Object asm/overlay_96_residual_107.o
     Object src/overlay96_exact_bank_107.o
-    Object asm/overlay_96_residual_108.o
+    Object src/overlay96_course_setup_head_108.o
+    Object asm/overlay_96_residual_108_middle.o
+    Object src/overlay96_course_setup_tail_108.o
     Object src/overlay96_exact_bank_108.o
     Object asm/overlay_96_residual_109.o
     Object src/ov96_wave38_misc_1.o
@@ -5329,7 +5512,19 @@ Overlay OVY_96
     Object asm/overlay_96_residual_115_residual_3.o
     Object src/overlay96_object_3.o
     Object src/overlay96_exact_bank_115.o
-    Object asm/overlay_96_residual_116.o
+    Object src/sol_r9_ov96_exact_01_02215fa8.o
+    Object asm/sol_r9_ov96_residual_02_02215fc8.o
+    Object src/sol_r9_ov96_exact_03_02216200.o
+    Object asm/sol_r9_ov96_residual_04_02216234.o
+    Object src/sol_r9_ov96_exact_05_02216390.o
+    Object asm/sol_r9_ov96_residual_06_022163ac.o
+    Object src/sol_r9_ov96_exact_07_022165fc.o
+    Object asm/sol_r9_ov96_residual_08_0221663c.o
+    Object src/sol_r9_ov96_exact_09_02216c00.o
+    Object asm/sol_r9_ov96_residual_10_02216c38.o
+    Object src/sol_r9_ov96_exact_11_022177d8.o
+    Object asm/sol_r9_ov96_residual_12_02217820.o
+    Object src/sol_r9_ov96_exact_13_02217868.o
     Object src/overlay96_exact_bank_116.o
     Object asm/overlay_96_residual_117.o
     Object src/overlay96_exact_bank_117.o

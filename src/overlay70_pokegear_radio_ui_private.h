@@ -1,0 +1,174 @@
+#ifndef OV70_POKEGEAR_RADIO_UI_PRIVATE_H
+#define OV70_POKEGEAR_RADIO_UI_PRIVATE_H
+
+#include "global.h"
+
+typedef struct Ov70Sub {
+    void *unk00;
+    u8 pad04[0x18 - 0x04];
+    void *unk18;
+    u8 pad1c[0x20 - 0x1c];
+    void *unk20;
+    void *unk24;
+    void *unk28;
+} Ov70Sub;
+
+typedef struct Ov70Gm {
+    u32 gm[4];
+} Ov70Gm;
+
+typedef struct Ov70Bt {
+    u32 bt[7];
+} Ov70Bt;
+
+typedef struct Ov70Work {
+    Ov70Sub *unk00;
+    void *bgConfig;
+    u8 pad08[0x18 - 0x08];
+    u32 unk18;
+    u32 unk1c;
+    u32 unk20;
+    u32 unk24;
+    u32 unk28;
+    u32 state2c;
+    u8 pad30[0x36 - 0x30];
+    u16 value36;
+    u8 pad38[0x3c - 0x38];
+    s32 value3c;
+    u8 pad40[0x120 - 0x40];
+    u16 unk120;
+    u8 pad122[0x12c - 0x122];
+    u32 unk12c;
+    u8 pad130[0x13c - 0x130];
+    u8 unk13c[0x25d - 0x13c];
+    s8 unk25d;
+    u8 pad25e[0xa5c - 0x25e];
+    u8 unkA5C[0xb9c - 0xa5c];
+    void *unkB9C;
+    void *ptrBA0;
+    u8 padBA4[0xbbc - 0xba4];
+    void *strBBC;
+    u8 padBC0[0xf18 - 0xbc0];
+    u8 windowF18[0x11dc - 0xf18];
+    u16 unk11DC;
+    u8 pad11DE[0x11fc - 0x11de];
+    u32 unk11FC;
+    u8 pad1200[0x1604 - 0x1200];
+    u32 timer1604;
+} Ov70Work;
+
+extern int (*const ov70_02246658[])(Ov70Work *);
+extern const Ov70Gm ov70_02245C60;
+extern const Ov70Bt ov70_02245C70;
+extern const Ov70Bt ov70_02245C8C;
+extern const Ov70Bt ov70_02245CA8;
+extern const Ov70Bt ov70_02245CC4;
+extern const Ov70Bt ov70_02245CE0;
+extern const u8 gGameLanguage;
+
+void GF_AssertFail(void);
+void BeginNormalPaletteFade(int, int, int, int, int, int, int);
+void SetBothScreensModesAndDisable(const void *);
+void InitBgFromTemplate(void *, int, const void *, int);
+void BgClearTilemapBufferAndCommit(void *, int);
+void FreeBgTilemapBuffer(void *, int);
+void BG_ClearCharDataRange(int, int, int, int);
+void GfGfx_EngineATogglePlanes(int, int);
+void GfGfx_EngineBTogglePlanes(int, int);
+void ToggleBgLayer(int, int);
+void GfGfxLoader_GXLoadPal(int, int, int, int, int, int);
+void LoadFontPal1(int, int, int);
+int Options_GetFrame(void *);
+void LoadUserFrameGfx2(void *, int, int, int, u8, int);
+void LoadUserFrameGfx1(void *, int, int, int, int, int);
+void AddWindowParameterized(void *, void *, int, int, int, int, int, int, int);
+void FillWindowPixelBuffer(void *, int);
+void RemoveWindow(void *);
+void *String_New(int, int);
+void String_Delete(void *);
+
+void GameStats_Inc(void *, int);
+void GameStats_AddScore(void *, int);
+void *Save_Pokewalker_Get(void *);
+void Pokewalker_UnlockCourse(void *, int);
+u32 GetMonData(void *, int, void *);
+void *Mon_GetBoxMon(void *);
+void *AllocMonZeroed(int);
+void Heap_Free(void *);
+void BufferBoxMonNickname(void *, int, void *);
+void Pokemon_RemoveCapsule(void *);
+void ShowCommunicationError(int, int);
+void sub_0203A930(void);
+void sub_020399EC(void);
+void sub_02039AD8(int);
+void *sub_0202DBA0(void *);
+int sub_0202DB54(void *);
+void sub_0202DB64(void *, void *);
+void sub_0202DB5C(void *, int);
+
+void ov70_02237F64(void *);
+int ov70_02237F38(void);
+int ov70_02237F58(void);
+void ov70_02237FB4(void *);
+void ov70_02238008(void *);
+void ov70_02238058(void *);
+void ov70_022380A8(void *);
+void ov70_022380EC(Ov70Work *);
+void ov70_02238208(u32, void *, void *);
+void ov70_0223826C(Ov70Work *);
+void ov70_02238D84(Ov70Work *, int, int);
+void ov70_02238E44(Ov70Work *);
+void ov70_02238E50(Ov70Work *, int, int);
+void ov70_02238E58(Ov70Work *);
+void ov70_02238F64(Ov70Work *);
+void ov70_02238F80(Ov70Work *);
+void ov70_02239C6C(Ov70Work *);
+void ov70_02239CF8(Ov70Work *);
+void ov70_022409C0(Ov70Work *, int);
+void ov70_02240A7C(Ov70Work *, void *, void *, int);
+void ov70_02240B9C(Ov70Work *, void *, int);
+void ov70_02240CE4(void *, void *);
+void ov70_02240D44(Ov70Work *, int, int);
+int ov70_02240D00(Ov70Work *, void *);
+int ov70_02240D54(Ov70Work *);
+void ov70_02241234(Ov70Work *);
+void ov70_02241358(Ov70Work *);
+void ov70_02241380(Ov70Work *);
+void ov70_02244FA4(Ov70Work *, void *, int, int, int);
+void ov70_02245124(Ov70Work *);
+
+int ov70_0223F96C(Ov70Work *work);
+void ov70_0223F9B4(Ov70Work *work);
+int ov70_0223F9D4(Ov70Work *work);
+void ov70_0223FA08(void *bgConfig);
+void ov70_0223FB34(void *bgConfig);
+void ov70_0223FB60(Ov70Work *work);
+void ov70_0223FBF4(Ov70Work *work);
+void ov70_0223FC30(Ov70Work *work);
+void ov70_0223FC40(Ov70Work *work);
+void ov70_0223FC58(Ov70Work *work);
+int ov70_0223FC68(Ov70Work *work);
+int ov70_0223FD64(Ov70Work *work);
+int ov70_0223FD98(Ov70Work *work);
+int ov70_0223FE40(Ov70Work *work);
+int ov70_0223FE60(Ov70Work *work);
+int ov70_0223FEE4(Ov70Work *work);
+int ov70_0223FF10(Ov70Work *work);
+int ov70_0223FFCC(Ov70Work *work);
+int ov70_0223FFE8(Ov70Work *work);
+int ov70_0224006C(Ov70Work *work);
+int ov70_022400BC(Ov70Work *work);
+int ov70_02240180(Ov70Work *work);
+int ov70_0224019C(Ov70Work *work);
+int ov70_02240220(Ov70Work *work);
+int ov70_02240240(Ov70Work *work);
+int ov70_022403FC(Ov70Work *work);
+int ov70_02240410(Ov70Work *work);
+int ov70_02240430(Ov70Work *work);
+void ov70_022404D4(Ov70Work *work);
+void ov70_02240500(Ov70Work *work, void *mon);
+int ov70_02240540(Ov70Work *work);
+int ov70_02240598(Ov70Work *work);
+int ov70_022405B4(Ov70Work *work);
+
+#endif
