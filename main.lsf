@@ -378,65 +378,7 @@ Static main
     Object src/communication_manager_13.o
     Object src/link_synchronization.o
     Object asm/unk_020379A0.o
-    Object src/network_communication_state.o
-    Object asm/unk_02037C94.o
-    Object src/network_communication_state_2.o
-    Object asm/unk_02037E4C.o
-    Object src/network_communication_state_3.o
-    Object asm/unk_02037EC8.o
-    Object src/network_communication_state_4.o
-    Object asm/unk_02037FF0.o
-    Object src/network_communication_state_5.o
-    Object asm/unk_020384B4.o
-    Object src/network_communication_state_6.o
-    Object asm/unk_02038550.o
-    Object src/network_communication_state_7.o
-    Object asm/unk_020386AC.o
-    Object src/network_communication_state_8.o
-    Object asm/unk_02038804.o
-    Object src/network_communication_state_9.o
-    Object asm/unk_020388E0.o
-    Object src/network_communication_state_10.o
-    Object src/network_state_handshake_1.o
-    Object asm/unk_02038A10_residual_1.o
-    Object src/network_state_handshake_2.o
-    Object src/network_communication_state_11.o
-    Object asm/unk_02038C3C.o
-    Object src/network_communication_state_12.o
-    Object asm/unk_02038D90.o
-    Object src/network_communication_state_13.o
-    Object src/field_state_dispatch_1.o
-    Object src/network_communication_state_14.o
-    Object asm/unk_020390C4.o
-    Object src/network_communication_state_15.o
-    Object asm/unk_02039378.o
-    Object src/network_communication_state_16.o
-    Object asm/unk_020393C8.o
-    Object src/network_communication_state_17.o
-    Object asm/unk_020394A0.o
-    Object src/network_communication_state_18.o
-    Object asm/unk_02039528.o
-    Object src/network_communication_state_19.o
-    Object src/unk_020395B0.o
-    Object src/network_communication_state_20.o
-    Object asm/unk_0203981C.o
-    Object src/network_communication_state_21.o
-    Object asm/unk_02039918.o
-    Object src/network_communication_state_22.o
-    Object asm/unk_02039A00.o
-    Object src/network_communication_state_23.o
-    Object src/unk_02039BA0.o
-    Object src/network_communication_state_24.o
-    Object asm/unk_02039D8C.o
-    Object src/network_communication_state_25.o
-    Object asm/unk_02039DE4.o
-    Object src/network_communication_state_26.o
-    Object asm/unk_02039EB4.o
-    Object src/network_communication_state_27.o
-    Object src/network_library_init_1.o
-    Object src/network_communication_state_28.o
-    Object src/friend_roster_update.o
-    Object src/network_communication_state_29.o
+    Object src/network_communication_state_full.o
     Object src/wireless_status_icon.o
     Object asm/unk_0203A3B0.o
     Object src/wireless_status_icon_2.o
