@@ -228,7 +228,8 @@ Static main
     Object src/unk_02026E30.o
     Object src/unk_02026E84.o
     Object src/gf_3d_vramman.o
-    Object asm/unk_02027010.o
+    Object asm/system_card_data.o
+    Object src/system_card.o
     Object src/save_arrays.o
     Object src/save.o
     Object src/sav_system_info.o
@@ -512,7 +513,7 @@ Static main
     Object src/unk_02055BF0.o
     Object src/unk_02056680.o
     Object src/field_transition_tasks_1.o
-    Object asm/unk_02056680_residual_2.o
+    Object src/field_transition_camera_fixups.o
     Object src/field_transition_tasks_2.o
     Object asm/unk_02056D7C.o
     Object src/communication_player_movement.o
@@ -1678,7 +1679,9 @@ Overlay OVY_2
     Object src/overlay02_248728_partial_35.o
     Object src/overlay02_field_transition_r36.o
     Object src/overlay02_248728_partial_36.o
-    Object asm/overlay_02_02248728_residual_37.o
+    Object asm/overlay_02_primo_prefix.o
+    Object src/overlay02_primo_password.o
+    Object asm/overlay_02_primo_suffix.o
     Object src/overlay02_248728_partial_37.o
     Object asm/overlay_02_02248728_residual_38.o
     Object src/overlay02_248728_partial_38.o
