@@ -26,6 +26,7 @@ void ObjCharTransfer_InitEx(void *, int, u32);
 void *NARC_New(int, int);
 void NARC_Delete(void *);
 void *AddCharResObjFromOpenNarc(void *, void *, int, int, int, int, int);
+void *AddPlttResObjFromOpenNarc(void *, void *, int, int, int, int, int, int);
 void *AddPlttResObjFromNarc(void *, int, int, int, int, int, int, int);
 void *AddCellOrAnimResObjFromOpenNarc(void *, void *, int, int, int, int, int);
 #endif

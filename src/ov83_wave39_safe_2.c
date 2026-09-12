@@ -30,3 +30,12 @@ void ov83_02247314(void *p) {
     PTR(p, 0x158) = AddCellOrAnimResObjFromOpenNarc(PTR(p, 0x138), n, sub_0207CAA8(), 0, 1, 3, 0x6b);
     NARC_Delete(n);
 }
+
+void ov83_022473BC(void *p) {
+    void *n = NARC_New(8, 0x6b);
+    PTR(p, 0x15c) = AddCharResObjFromOpenNarc(PTR(p, 0x12c), n, 0x4c, 0, 2, 2, 0x6b);
+    PTR(p, 0x160) = AddPlttResObjFromOpenNarc(PTR(p, 0x130), n, 0x4b, 0, 2, 2, 1, 0x6b);
+    PTR(p, 0x164) = AddCellOrAnimResObjFromOpenNarc(PTR(p, 0x134), n, 0x4d, 0, 2, 2, 0x6b);
+    PTR(p, 0x168) = AddCellOrAnimResObjFromOpenNarc(PTR(p, 0x138), n, 0x4e, 0, 2, 3, 0x6b);
+    NARC_Delete(n);
+}

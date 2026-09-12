@@ -238,162 +238,9 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-
-	thumb_func_start ov96_021EC490
-ov96_021EC490: ; 0x021EC490
-	push {r3, r4, lr}
-	sub sp, #0x4c
-	ldr r3, _021EC510 ; =ov96_0221AF88
-	add r4, r0, #0
-	ldmia r3!, {r0, r1}
-	add r2, sp, #0x34
-	stmia r2!, {r0, r1}
-	ldmia r3!, {r0, r1}
-	stmia r2!, {r0, r1}
-	ldmia r3!, {r0, r1}
-	stmia r2!, {r0, r1}
-	ldr r3, _021EC514 ; =ov96_0221B010
-	add r2, sp, #0x14
-	ldmia r3!, {r0, r1}
-	stmia r2!, {r0, r1}
-	ldmia r3!, {r0, r1}
-	stmia r2!, {r0, r1}
-	ldmia r3!, {r0, r1}
-	stmia r2!, {r0, r1}
-	ldmia r3!, {r0, r1}
-	stmia r2!, {r0, r1}
-	ldr r3, _021EC518 ; =ov96_0221AF74
-	add r2, sp, #0
-	ldmia r3!, {r0, r1}
-	stmia r2!, {r0, r1}
-	ldmia r3!, {r0, r1}
-	stmia r2!, {r0, r1}
-	ldr r0, [r3]
-	str r0, [r2]
-	mov r0, #0x80
-	str r0, [sp]
-	ldr r0, [r4]
-	bl SpriteSystem_Alloc
-	str r0, [r4, #0x18]
-	bl SpriteManager_New
-	str r0, [r4, #0x1c]
-	ldr r0, [r4, #0x18]
-	add r1, sp, #0x14
-	add r2, sp, #0
-	mov r3, #0x20
-	bl SpriteSystem_Init
-	ldr r0, [r4, #0x18]
-	ldr r1, [r4, #0x1c]
-	mov r2, #0x80
-	bl SpriteSystem_InitSprites
-	ldr r0, [r4, #0x18]
-	ldr r1, [r4, #0x1c]
-	add r2, sp, #0x34
-	bl SpriteSystem_InitManagerWithCapacities
-	ldr r0, [r4, #0x18]
-	bl SpriteSystem_GetRenderer
-	mov r2, #0x83
-	mov r1, #0
-	lsl r2, r2, #0xe
-	bl G2dRenderer_SetSubSurfaceCoords
-	add sp, #0x4c
-	pop {r3, r4, pc}
-	.balign 4, 0
-_021EC510: .word ov96_0221AF88
-_021EC514: .word ov96_0221B010
-_021EC518: .word ov96_0221AF74
-	thumb_func_end ov96_021EC490
-
-
-	thumb_func_start ov96_021EC51C
-ov96_021EC51C: ; 0x021EC51C
-	push {r3, r4, r5, r6, r7, lr}
-	mov r4, #0
-	add r6, r0, #0
-	add r7, r4, #0
-_021EC524:
-	lsl r0, r4, #2
-	add r5, r6, r0
-	ldr r0, [r5, #0x20]
-	cmp r0, #0
-	beq _021EC534
-	bl Sprite_DeleteAndFreeResources
-	str r7, [r5, #0x20]
-_021EC534:
-	add r0, r4, #1
-	lsl r0, r0, #0x18
-	lsr r4, r0, #0x18
-	cmp r4, #0x1a
-	blo _021EC524
-	ldr r0, [r6, #0x18]
-	ldr r1, [r6, #0x1c]
-	bl SpriteSystem_FreeResourcesAndManager
-	ldr r0, [r6, #0x18]
-	bl SpriteSystem_Free
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov96_021EC51C
-
-
-	thumb_func_start ov96_021EC550
-ov96_021EC550: ; 0x021EC550
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x34
-	mov r4, #0
-	add r7, r0, #0
-	add r2, sp, #0
-	add r0, r4, #0
-	add r1, r4, #0
-	stmia r2!, {r0, r1}
-	stmia r2!, {r0, r1}
-	stmia r2!, {r0, r1}
-	stmia r2!, {r0, r1}
-	stmia r2!, {r0, r1}
-	stmia r2!, {r0, r1}
-	str r0, [r2]
-	mov r5, #0x20
-	add r6, r7, #0
-_021EC570:
-	add r0, r4, #0
-	add r0, #0x64
-	str r0, [sp, #0x14]
-	str r0, [sp, #0x18]
-	mov r0, #0x64
-	str r0, [sp, #0x1c]
-	str r0, [sp, #0x20]
-	mov r0, #2
-	str r0, [sp, #0x10]
-	mov r0, #1
-	mov r1, #0x88
-	str r0, [sp, #0x2c]
-	str r0, [sp, #8]
-	add r0, sp, #0
-	strh r5, [r0]
-	strh r1, [r0, #2]
-	cmp r4, #4
-	bne _021EC59C
-	mov r1, #0x80
-	strh r1, [r0]
-	mov r1, #0x70
-	strh r1, [r0, #2]
-_021EC59C:
-	mov r3, #0x83
-	ldr r0, [r7, #0x18]
-	ldr r1, [r7, #0x1c]
-	add r2, sp, #0
-	lsl r3, r3, #0xe
-	bl SpriteSystem_NewSpriteWithYOffset
-	mov r1, #1
-	str r0, [r6, #0x20]
-	bl ManagedSprite_SetAnimateFlag
-	add r4, r4, #1
-	add r5, #0x40
-	add r6, r6, #4
-	cmp r4, #5
-	blt _021EC570
-	add sp, #0x34
-	pop {r4, r5, r6, r7, pc}
-	thumb_func_end ov96_021EC550
+	.public ov96_021EC490
+	.public ov96_021EC51C
+	.public ov96_021EC550
 
 
 	thumb_func_start ov96_021EC5C0
@@ -501,6 +348,8 @@ _021EC642:
 	thumb_func_end ov96_021EC5C0
 
 
+
+
 	thumb_func_start ov96_021EC68C
 ov96_021EC68C: ; 0x021EC68C
 	push {r3, r4, r5, r6, r7, lr}
@@ -566,6 +415,8 @@ _021EC6AE:
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 	thumb_func_end ov96_021EC68C
+
+
 
 
 	thumb_func_start ov96_021EC70C
@@ -636,6 +487,8 @@ _021EC760:
 	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
 	thumb_func_end ov96_021EC70C
+
+
 
 
 	thumb_func_start ov96_021EC790
@@ -711,6 +564,8 @@ _021EC7B8:
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 	thumb_func_end ov96_021EC790
+
+
 
 
 	thumb_func_start ov96_021EC82C
@@ -941,6 +796,8 @@ _021EC83C:
 	thumb_func_end ov96_021EC82C
 
 
+
+
 	thumb_func_start ov96_021ECA18
 ov96_021ECA18: ; 0x021ECA18
 	push {r4, r5, r6, r7, lr}
@@ -988,6 +845,8 @@ _021ECA24:
 	thumb_func_end ov96_021ECA18
 
 
+
+
 	thumb_func_start ov96_021ECA70
 ov96_021ECA70: ; 0x021ECA70
 	push {r3, r4, r5, r6, r7, lr}
@@ -1028,6 +887,8 @@ _021ECA84:
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 	thumb_func_end ov96_021ECA70
+
+
 
 
 	thumb_func_start ov96_021ECAC4
@@ -1086,6 +947,8 @@ _021ECB2C:
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 	thumb_func_end ov96_021ECAC4
+
+
 
 
 	thumb_func_start ov96_021ECB38
@@ -1156,6 +1019,8 @@ _021ECBA6:
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov96_021ECB38
+
+
 
 
 	thumb_func_start ov96_021ECBB8
