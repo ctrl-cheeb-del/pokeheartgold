@@ -174,4 +174,3 @@ ov67_021E61A0: ; 0x021E61A0
 	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
 	thumb_func_end ov67_021E61A0
-

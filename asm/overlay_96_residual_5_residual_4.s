@@ -316,5 +316,3 @@ _021E6CB0:
 	.balign 4, 0
 _021E6CB4: .word 0x000003D1
 	thumb_func_end ov96_021E6C40
-
-

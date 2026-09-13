@@ -281,5 +281,3 @@ ov96_02215EB0: ; 0x02215EB0
 	pop {r4, pc}
 	.balign 4, 0
 	thumb_func_end ov96_02215EB0
-
-

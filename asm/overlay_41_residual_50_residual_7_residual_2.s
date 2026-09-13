@@ -594,7 +594,3 @@ _0224A578:
 _0224A57E:
 	pop {r4, pc}
 	thumb_func_end ov41_0224A54C
-
-
-
-

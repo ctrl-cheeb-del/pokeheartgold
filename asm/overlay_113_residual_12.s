@@ -222,4 +222,3 @@ _021E6924: .word ov113_021E6BA4
 _021E6928: .word ov113_021E6B74
 _021E692C: .word ov113_021E6BB8
 	thumb_func_end ov113_021E677C
-

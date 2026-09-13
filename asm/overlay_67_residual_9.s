@@ -260,4 +260,3 @@ ov67_021E6B6C: ; 0x021E6B6C
 	nop
 _021E6BB4: .word 0x00000494
 	thumb_func_end ov67_021E6B6C
-

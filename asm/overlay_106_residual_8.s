@@ -110,48 +110,7 @@
 	.public ov106_021E6D1C
 	.public ov106_021E6D48
 	.public ov106_021E6D6C
-
-	thumb_func_start ov106_021E66B0
-ov106_021E66B0: ; 0x021E66B0
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	add r6, r1, #0
-	add r7, r2, #0
-	cmp r5, #0
-	ble _021E66C2
-	ldr r1, _021E66F4 ; =NATIONAL_DEX_COUNT
-	cmp r5, r1
-	ble _021E66C6
-_021E66C2:
-	mov r4, #MMODEL_BABYGIRL1
-	b _021E66EE
-_021E66C6:
-	bl SpeciesToOverworldModelIndexOffset
-	ldr r1, _021E66F8 ; =MMODEL_FOLLOWER_MON_BULBASAUR
-	add r4, r0, r1
-	add r0, r5, #0
-	bl OverworldModelLookupHasFemaleForm
-	cmp r0, #0
-	beq _021E66E0
-	cmp r7, #1
-	bne _021E66EE
-	add r4, r4, #1
-	b _021E66EE
-_021E66E0:
-	add r0, r5, #0
-	bl OverworldModelLookupFormCount
-	cmp r6, r0
-	ble _021E66EC
-	mov r6, #0
-_021E66EC:
-	add r4, r4, r6
-_021E66EE:
-	add r0, r4, #0
-	pop {r3, r4, r5, r6, r7, pc}
-	nop
-_021E66F4: .word NATIONAL_DEX_COUNT
-_021E66F8: .word MMODEL_FOLLOWER_MON_BULBASAUR
-	thumb_func_end ov106_021E66B0
+	.public ov106_021E66B0
 
 
 	thumb_func_start ov106_021E66FC
@@ -280,6 +239,8 @@ _021E67FA:
 _021E680C: .word 0x00000418
 _021E6810: .word 0x000001ED
 	thumb_func_end ov106_021E66FC
+
+
 
 
 	thumb_func_start ov106_021E6814

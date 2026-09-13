@@ -323,5 +323,3 @@ _022390E8: .word ov57_0223BDB4
 _022390EC: .word ov57_0223BD88
 _022390F0: .word ov57_0223BD9C
 	thumb_func_end ov57_02239058
-
-

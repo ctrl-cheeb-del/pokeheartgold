@@ -2945,5 +2945,3 @@ _0223F0A8: .word 0x00000B84
 _0223F0AC: .word 0x00000B87
 _0223F0B0: .word 0x00001058
 	thumb_func_end ov70_0223F008
-
-

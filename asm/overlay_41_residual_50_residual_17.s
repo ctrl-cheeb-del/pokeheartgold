@@ -552,5 +552,3 @@ ov41_0224B888: ; 0x0224B888
 	nop
 _0224B8D8: .word 0x00007FFF
 	thumb_func_end ov41_0224B888
-
-

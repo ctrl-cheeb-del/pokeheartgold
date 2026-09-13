@@ -4062,6 +4062,8 @@
 	.public ov40_0224320C
 	.public ov40_0224326C
 	.public ov40_022439B8
+	.public ov40_02237B7C
+	.public ov40_02237BD4
 
 	thumb_func_start ov40_02237AC0
 ov40_02237AC0: ; 0x02237AC0
@@ -4151,107 +4153,3 @@ _02237B70: .word ov40_02245268
 _02237B74: .word ov40_02245274
 _02237B78: .word 0x000F0D00
 	thumb_func_end ov40_02237AC0
-
-
-	thumb_func_start ov40_02237B7C
-ov40_02237B7C: ; 0x02237B7C
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x10
-	add r5, r0, #0
-	mov r0, #0x86
-	lsl r0, r0, #4
-	mov r6, #0x8d
-	add r7, r1, #0
-	ldr r4, [r5, r0]
-	lsl r6, r6, #2
-	add r0, r4, r6
-	mov r1, #0
-	bl FillWindowPixelBuffer
-	ldr r0, [r5, #0x48]
-	add r1, r7, #0
-	bl NewString_ReadMsgData
-	add r5, r0, #0
-	add r0, r4, r6
-	add r1, r5, #0
-	bl ov40_022306C0
-	mov r1, #0
-	add r3, r0, #0
-	str r1, [sp]
-	mov r0, #0xff
-	str r0, [sp, #4]
-	ldr r0, _02237BD0 ; =0x000F0D00
-	add r2, r5, #0
-	str r0, [sp, #8]
-	add r0, r4, r6
-	str r1, [sp, #0xc]
-	bl AddTextPrinterParameterizedWithColor
-	add r0, r5, #0
-	bl String_Delete
-	add r0, r4, r6
-	bl ScheduleWindowCopyToVram
-	add sp, #0x10
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_02237BD0: .word 0x000F0D00
-	thumb_func_end ov40_02237B7C
-
-
-	thumb_func_start ov40_02237BD4
-ov40_02237BD4: ; 0x02237BD4
-	push {r3, r4, r5, r6, lr}
-	sub sp, #0x14
-	add r5, r0, #0
-	mov r0, #0x86
-	lsl r0, r0, #4
-	mov r6, #0x8d
-	ldr r4, [r5, r0]
-	lsl r6, r6, #2
-	add r0, r4, r6
-	bl InitWindow
-	mov r2, #6
-	str r2, [sp]
-	mov r0, #8
-	str r0, [sp, #4]
-	mov r0, #4
-	str r0, [sp, #8]
-	mov r0, #0xe
-	str r0, [sp, #0xc]
-	mov r0, #1
-	str r0, [sp, #0x10]
-	ldr r0, [r5, #0x24]
-	add r1, r4, r6
-	mov r3, #0xc
-	bl AddWindowParameterized
-	add r0, r4, r6
-	mov r1, #0
-	bl FillWindowPixelBuffer
-	ldr r0, [r5, #0x48]
-	mov r1, #0x22
-	bl NewString_ReadMsgData
-	add r5, r0, #0
-	mov r0, #0
-	add r1, r5, #0
-	add r2, r0, #0
-	bl FontID_String_GetWidthMultiline
-	mov r1, #0x40
-	sub r0, r1, r0
-	mov r1, #0
-	lsr r3, r0, #1
-	str r1, [sp]
-	mov r0, #0xff
-	str r0, [sp, #4]
-	ldr r0, _02237C50 ; =0x000F0D00
-	add r2, r5, #0
-	str r0, [sp, #8]
-	add r0, r4, r6
-	str r1, [sp, #0xc]
-	bl AddTextPrinterParameterizedWithColor
-	add r0, r4, r6
-	bl ScheduleWindowCopyToVram
-	add r0, r5, #0
-	bl String_Delete
-	add sp, #0x14
-	pop {r3, r4, r5, r6, pc}
-	.balign 4, 0
-_02237C50: .word 0x000F0D00
-	thumb_func_end ov40_02237BD4

@@ -341,5 +341,3 @@ _021E6DEC: .word 0x00004A1C
 _021E6DF0: .word gSystem
 _021E6DF4: .word 0x000005F2
 	thumb_func_end ov73_021E6D54
-
-

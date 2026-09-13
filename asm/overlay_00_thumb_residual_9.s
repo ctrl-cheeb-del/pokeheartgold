@@ -687,6 +687,7 @@
 	.public ov00_021E7A1C
 	.public ov00_021E7ACC
 	.public ov00_021E7AE0
+	.public ov00_021E6D60
 
 	thumb_func_start ov00_021E6CE8
 ov00_021E6CE8: ; 0x021E6CE8
@@ -748,12 +749,3 @@ _021E6D54: .word 0x00001064
 _021E6D58: .word 0x00001044
 _021E6D5C: .word 0x0000106C
 	thumb_func_end ov00_021E6CE8
-
-
-	thumb_func_start ov00_021E6D60
-ov00_021E6D60: ; 0x021E6D60
-	ldr r3, _021E6D64 ; =ov00_021EFE78
-	bx r3
-	.balign 4, 0
-_021E6D64: .word ov00_021EFE78
-	thumb_func_end ov00_021E6D60

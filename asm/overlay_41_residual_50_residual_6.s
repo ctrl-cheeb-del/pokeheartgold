@@ -551,5 +551,3 @@ _0224A228:
 	nop
 _0224A234: .word 0x0000067C
 	thumb_func_end ov41_0224A1EC
-
-

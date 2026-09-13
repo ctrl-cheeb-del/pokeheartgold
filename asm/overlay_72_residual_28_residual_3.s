@@ -253,5 +253,3 @@ ov72_0223AED0: ; 0x0223AED0
 	.balign 4, 0
 _0223AF18: .word 0x00001358
 	thumb_func_end ov72_0223AED0
-
-

@@ -336,5 +336,3 @@ _021F305A:
 	nop
 _021F30A0: .word ov96_021F2FBC
 	thumb_func_end ov96_021F2FEC
-
-

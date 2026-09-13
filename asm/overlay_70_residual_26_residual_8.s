@@ -2980,5 +2980,3 @@ _0223F898:
 _0223F8A0: .word ov70_02245A4C
 _0223F8A4: .word ov70_022459F4
 	thumb_func_end ov70_0223F864
-
-

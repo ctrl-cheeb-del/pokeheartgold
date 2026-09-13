@@ -125,28 +125,7 @@
 	.public ov75_022494A4
 	.public ov75_02249758
 	.public ov75_0224976C
-
-	thumb_func_start ov75_0224874C
-ov75_0224874C: ; 0x0224874C
-	push {r3, r4, lr}
-	sub sp, #4
-	ldr r1, _02248770 ; =0x00000F0F
-	add r4, r0, #0
-	str r1, [sp]
-	ldr r1, [r4, #0x30]
-	mov r2, #0x1b
-	mov r3, #1
-	bl ov75_022494CC
-	add r0, r4, #0
-	mov r1, #0x23
-	mov r2, #0x1d
-	bl ov75_02247854
-	mov r0, #0
-	add sp, #4
-	pop {r3, r4, pc}
-	.balign 4, 0
-_02248770: .word 0x00000F0F
-	thumb_func_end ov75_0224874C
+	.public ov75_0224874C
 
 
 	thumb_func_start ov75_02248774
@@ -217,6 +196,8 @@ _022487F6:
 	.balign 4, 0
 _022487FC: .word 0x00000F0F
 	thumb_func_end ov75_02248774
+
+
 
 
 	thumb_func_start ov75_02248800

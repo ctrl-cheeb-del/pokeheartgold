@@ -164,4 +164,3 @@ ov113_021E650C: ; 0x021E650C
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	thumb_func_end ov113_021E650C
-

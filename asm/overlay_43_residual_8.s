@@ -724,6 +724,10 @@
 	.public ov43_0222DB84
 	.public ov43_0222DD88
 	.public ov43_0222DE10
+	.public ov43_0222ACDC
+	.public ov43_0222AD00
+	.public ov43_0222AD20
+	.public ov43_0222AD40
 
 	thumb_func_start ov43_0222AC28
 ov43_0222AC28: ; 0x0222AC28
@@ -809,96 +813,3 @@ _0222ACD0: .word ov43_0222F14C
 _0222ACD4: .word ov43_0222F160
 _0222ACD8: .word ov43_0222F1AC
 	thumb_func_end ov43_0222AC28
-
-
-	thumb_func_start ov43_0222ACDC
-ov43_0222ACDC: ; 0x0222ACDC
-	push {r4, r5, r6, lr}
-	add r5, r0, #0
-	mov r0, #0x7f
-	lsl r0, r0, #2
-	ldr r0, [r5, r0]
-	bl Sprite_Delete
-	mov r6, #0x7d
-	mov r4, #0
-	lsl r6, r6, #2
-_0222ACF0:
-	ldr r0, [r5, r6]
-	bl Sprite_Delete
-	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #2
-	blt _0222ACF0
-	pop {r4, r5, r6, pc}
-	thumb_func_end ov43_0222ACDC
-
-
-	thumb_func_start ov43_0222AD00
-ov43_0222AD00: ; 0x0222AD00
-	push {r3, r4, r5, r6, r7, lr}
-	mov r7, #0x7d
-	add r5, r0, #0
-	add r6, r1, #0
-	mov r4, #0
-	lsl r7, r7, #2
-_0222AD0C:
-	ldr r0, [r5, r7]
-	add r1, r6, #0
-	bl Sprite_SetDrawFlag
-	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #2
-	blt _0222AD0C
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov43_0222AD00
-
-
-	thumb_func_start ov43_0222AD20
-ov43_0222AD20: ; 0x0222AD20
-	push {r3, r4, r5, r6, r7, lr}
-	mov r7, #0x7d
-	add r5, r0, #0
-	add r6, r1, #0
-	mov r4, #0
-	lsl r7, r7, #2
-_0222AD2C:
-	ldr r0, [r5, r7]
-	add r1, r6, #0
-	bl Sprite_SetAnimActiveFlag
-	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #2
-	blt _0222AD2C
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov43_0222AD20
-
-
-	thumb_func_start ov43_0222AD40
-ov43_0222AD40: ; 0x0222AD40
-	push {r3, r4, r5, r6, r7, lr}
-	add r7, r2, #0
-	lsl r2, r1, #0x19
-	lsr r6, r2, #0x18
-	cmp r1, #2
-	blo _0222AD52
-	sub r1, r1, #2
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x18
-_0222AD52:
-	mov r2, #0x7d
-	lsl r2, r2, #2
-	lsl r4, r1, #2
-	add r5, r0, r2
-	ldr r0, [r5, r4]
-	mov r1, #1
-	bl Sprite_SetAnimActiveFlag
-	add r1, r6, #5
-	ldr r0, [r5, r4]
-	add r1, r1, r7
-	bl Sprite_SetAnimCtrlSeq
-	ldr r0, [r5, r4]
-	bl Sprite_ResetAnimCtrlState
-	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov43_0222AD40

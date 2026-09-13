@@ -400,6 +400,7 @@
 	.public ov102_021EC54C
 	.public ov102_021EC568
 	.public ov102_021EC584
+	.public ov102_021EB170
 
 	thumb_func_start ov102_021EAFF0
 ov102_021EAFF0: ; 0x021EAFF0
@@ -477,6 +478,8 @@ _021EB084: .word 0x000001E2
 	thumb_func_end ov102_021EAFF0
 
 
+
+
 	thumb_func_start ov102_021EB088
 ov102_021EB088: ; 0x021EB088
 	push {r3, lr}
@@ -507,6 +510,8 @@ _021EB0B8:
 	bl Sprite_SetAnimCtrlSeq
 	pop {r3, pc}
 	thumb_func_end ov102_021EB088
+
+
 
 
 	thumb_func_start ov102_021EB0C0
@@ -567,6 +572,8 @@ _021EB12C: .word 0x000001EE
 	thumb_func_end ov102_021EB0C0
 
 
+
+
 	thumb_func_start ov102_021EB130
 ov102_021EB130: ; 0x021EB130
 	push {r3, r4, r5, lr}
@@ -603,32 +610,3 @@ _021EB156:
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
 	thumb_func_end ov102_021EB130
-
-
-	thumb_func_start ov102_021EB170
-ov102_021EB170: ; 0x021EB170
-	push {r3, r4, r5, lr}
-	sub sp, #8
-	add r5, r0, #0
-	mov r0, #0xe
-	str r0, [sp]
-	mov r0, #0x20
-	str r0, [sp, #4]
-	add r0, r5, #0
-	mov r2, #0
-	add r4, r1, #0
-	add r0, #0x4c
-	mov r1, #9
-	add r3, r2, #0
-	bl FillWindowPixelRect
-	add r0, r5, #0
-	add r0, #0x80
-	add r5, #0x4c
-	ldr r0, [r0]
-	add r1, r5, #0
-	mov r2, #0
-	lsl r3, r4, #4
-	bl ListMenuUpdateCursorObj
-	add sp, #8
-	pop {r3, r4, r5, pc}
-	thumb_func_end ov102_021EB170

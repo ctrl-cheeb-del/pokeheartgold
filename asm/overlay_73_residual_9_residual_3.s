@@ -329,5 +329,3 @@ _021E6F88:
 _021E6FA4: .word 0x00004A38
 _021E6FA8: .word 0x00004A2C
 	thumb_func_end ov73_021E6F1C
-
-

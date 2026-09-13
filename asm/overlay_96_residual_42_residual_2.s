@@ -457,5 +457,3 @@ _021EDF1A:
 _021EDF34: .word 0x000003E7
 _021EDF38: .word 0x000001D2
 	thumb_func_end ov96_021EDE64
-
-

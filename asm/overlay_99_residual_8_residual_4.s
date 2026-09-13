@@ -412,5 +412,3 @@ _021E7AAC: .word ov99_021EA250
 _021E7AB0: .word ov99_021E9FA0
 _021E7AB4: .word ov99_021EA03C
 	thumb_func_end ov99_021E7A78
-
-

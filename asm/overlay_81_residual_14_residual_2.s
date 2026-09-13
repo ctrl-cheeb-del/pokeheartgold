@@ -1108,5 +1108,3 @@ _02241CE2:
 _02241CE4: .word 0x00000464
 _02241CE8: .word 0x0000047C
 	thumb_func_end ov81_02241CA0
-
-

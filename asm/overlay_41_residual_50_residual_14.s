@@ -748,5 +748,3 @@ ov41_0224B4E8: ; 0x0224B4E8
 	add sp, #0x10
 	pop {r3, pc}
 	thumb_func_end ov41_0224B4E8
-
-

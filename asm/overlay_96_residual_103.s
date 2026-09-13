@@ -238,28 +238,8 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-
-	thumb_func_start ov96_0220FF68
-ov96_0220FF68: ; 0x0220FF68
-	ldr r3, _0220FF84 ; =ov96_0221CF1C
-	mov r2, #0
-_0220FF6C:
-	ldr r1, [r3]
-	cmp r1, r0
-	bhi _0220FF76
-	add r0, r2, #0
-	bx lr
-_0220FF76:
-	add r2, r2, #1
-	add r3, r3, #4
-	cmp r2, #4
-	blt _0220FF6C
-	mov r0, #0
-	mvn r0, r0
-	bx lr
-	.balign 4, 0
-_0220FF84: .word ov96_0221CF1C
-	thumb_func_end ov96_0220FF68
+	.public ov96_0220FF68
+	.public ov96_022101D0
 
 
 	thumb_func_start ov96_0220FF88
@@ -358,6 +338,8 @@ _0221002C: .word 0xFFFFF0FF
 	thumb_func_end ov96_0220FF88
 
 
+
+
 	thumb_func_start ov96_02210030
 ov96_02210030: ; 0x02210030
 	push {r3, r4, r5, r6, r7, lr}
@@ -399,6 +381,8 @@ _02210064:
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 	thumb_func_end ov96_02210030
+
+
 
 
 	thumb_func_start ov96_0221007C
@@ -502,6 +486,8 @@ _022100C0:
 	thumb_func_end ov96_0221007C
 
 
+
+
 	thumb_func_start ov96_0221013C
 ov96_0221013C: ; 0x0221013C
 	push {r3, r4, r5, r6, r7, lr}
@@ -574,52 +560,3 @@ _022101B0:
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov96_0221013C
-
-
-	thumb_func_start ov96_022101D0
-ov96_022101D0: ; 0x022101D0
-	push {r3, r4, r5, r6, r7, lr}
-	add r6, r0, #0
-	mov r4, #0
-	add r5, r6, #0
-_022101D8:
-	ldr r0, [r5, #0x3c]
-	cmp r0, #0
-	bne _022101E2
-	bl GF_AssertFail
-_022101E2:
-	ldr r0, [r5, #0x3c]
-	bl Sprite_DeleteAndFreeResources
-	ldr r0, [r5, #0x44]
-	cmp r0, #0
-	beq _022101F2
-	bl SysTask_Destroy
-_022101F2:
-	add r4, r4, #1
-	add r5, #0x1c
-	cmp r4, #0xc
-	blt _022101D8
-	mov r7, #0
-	add r6, r6, #4
-_022101FE:
-	mov r4, #0
-	add r5, r6, #0
-_02210202:
-	ldr r0, [r5]
-	bl Sprite_DeleteAndFreeResources
-	ldr r0, [r5, #8]
-	bl Sprite_DeleteAndFreeResources
-	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #2
-	blt _02210202
-	ldr r0, [r6, #0x10]
-	bl Sprite_DeleteAndFreeResources
-	ldr r0, [r6, #0x14]
-	bl Sprite_DeleteAndFreeResources
-	add r7, r7, #1
-	add r6, #0x1c
-	cmp r7, #2
-	blt _022101FE
-	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov96_022101D0

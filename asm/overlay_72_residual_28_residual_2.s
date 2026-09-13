@@ -271,5 +271,3 @@ _0223AE14: .word 0x00000E04
 _0223AE18: .word 0x00000E08
 _0223AE1C: .word 0x00000E0C
 	thumb_func_end ov72_0223AD94
-
-

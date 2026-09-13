@@ -321,5 +321,3 @@ _021F2DF8:
 	.balign 4, 0
 _021F2E28: .word 0x04000018
 	thumb_func_end ov96_021F2D98
-
-

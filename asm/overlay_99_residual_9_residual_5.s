@@ -348,5 +348,3 @@ _021E84D6:
 _021E84E4: .word 0x000005DC
 _021E84E8: .word _021EA5E4
 	thumb_func_end PokeathlonEventRecord_Main
-
-

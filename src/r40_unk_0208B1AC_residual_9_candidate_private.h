@@ -1,0 +1,4 @@
+#ifndef POKEHEARTGOLD_R40_UNK_0208B1AC_R9_PRIVATE_H
+#define POKEHEARTGOLD_R40_UNK_0208B1AC_R9_PRIVATE_H
+#include "field_ui_8b1ac_internal.h"
+#endif

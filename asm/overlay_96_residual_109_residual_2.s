@@ -365,5 +365,3 @@ ov96_022134D4: ; 0x022134D4
 	pop {r4, r5, pc}
 	.balign 4, 0
 	thumb_func_end ov96_022134D4
-
-

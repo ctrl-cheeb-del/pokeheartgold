@@ -4062,6 +4062,7 @@
 	.public ov40_0224320C
 	.public ov40_0224326C
 	.public ov40_022439B8
+	.public ov40_02230CDC
 
 	thumb_func_start ov40_022309DC
 ov40_022309DC: ; 0x022309DC
@@ -4545,40 +4546,3 @@ _02230CD2:
 	ldr r0, [r5, r0]
 	pop {r4, r5, r6, pc}
 	thumb_func_end ov40_022309DC
-
-
-	thumb_func_start ov40_02230CDC
-ov40_02230CDC: ; 0x02230CDC
-	push {r3, r4, r5, r6, r7, lr}
-	add r4, r0, #0
-	ldr r5, [r4, #4]
-	ldr r7, _02230D1C ; =0x00000504
-	str r5, [r4, r7]
-	ldr r6, [r4, #8]
-	add r5, r7, #4
-	str r6, [r4, r5]
-	ldr r5, [r4, #0x10]
-	ldr r6, [r5]
-	add r5, r7, #0
-	add r5, #8
-	str r6, [r4, r5]
-	add r5, r7, #0
-	mov r6, #0
-	add r5, #0x10
-	str r6, [r4, r5]
-	add r7, #0x14
-	str r6, [r4, r7]
-	bl ov40_022309DC
-	mov r1, #0x51
-	lsl r1, r1, #4
-	str r0, [r4, r1]
-	mov r0, #1
-	add r1, #0xc
-	str r0, [r4, r1]
-	ldr r0, [r4, #0x10]
-	mov r1, #0x12
-	str r1, [r0]
-	pop {r3, r4, r5, r6, r7, pc}
-	nop
-_02230D1C: .word 0x00000504
-	thumb_func_end ov40_02230CDC

@@ -2907,5 +2907,3 @@ _0223F276:
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
 	thumb_func_end ov70_0223F244
-
-

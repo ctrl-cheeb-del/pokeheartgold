@@ -4062,6 +4062,7 @@
 	.public ov40_0224320C
 	.public ov40_0224326C
 	.public ov40_022439B8
+	.public ov40_022443B4
 
 
 	thumb_func_start ov40_022442F0
@@ -4150,105 +4151,3 @@ _022443A8: .word 0x0000011A
 _022443AC: .word 0x000008A4
 _022443B0: .word 0x000F0D0C
 	thumb_func_end ov40_022442F0
-
-
-
-
-	thumb_func_start ov40_022443B4
-ov40_022443B4: ; 0x022443B4
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x14
-	add r5, r0, #0
-	mov r0, #0x86
-	lsl r0, r0, #4
-	ldr r4, [r5, r0]
-	add r6, r4, #0
-	add r6, #0x10
-	add r0, r6, #0
-	bl InitWindow
-	mov r2, #6
-	str r2, [sp]
-	mov r0, #0xa
-	str r0, [sp, #4]
-	mov r0, #2
-	str r0, [sp, #8]
-	mov r0, #0xe
-	str r0, [sp, #0xc]
-	mov r0, #1
-	str r0, [sp, #0x10]
-	ldr r0, [r5, #0x24]
-	add r1, r6, #0
-	mov r3, #4
-	bl AddWindowParameterized
-	add r0, r6, #0
-	mov r1, #0
-	bl FillWindowPixelBuffer
-	ldr r0, [r5, #0x48]
-	mov r1, #0x82
-	bl NewString_ReadMsgData
-	add r7, r0, #0
-	add r0, r6, #0
-	add r1, r7, #0
-	bl ov40_022306C0
-	mov r1, #0
-	add r3, r0, #0
-	str r1, [sp]
-	mov r0, #0xff
-	str r0, [sp, #4]
-	ldr r0, _02244490 ; =0x000F0D00
-	add r2, r7, #0
-	str r0, [sp, #8]
-	add r0, r6, #0
-	str r1, [sp, #0xc]
-	bl AddTextPrinterParameterizedWithColor
-	add r0, r7, #0
-	bl String_Delete
-	add r0, r6, #0
-	bl ScheduleWindowCopyToVram
-	add r4, #0x20
-	add r0, r4, #0
-	bl InitWindow
-	mov r2, #6
-	str r2, [sp]
-	mov r0, #0xa
-	str r0, [sp, #4]
-	mov r0, #2
-	str r0, [sp, #8]
-	mov r0, #0xe
-	str r0, [sp, #0xc]
-	mov r0, #0x15
-	str r0, [sp, #0x10]
-	ldr r0, [r5, #0x24]
-	add r1, r4, #0
-	mov r3, #0x12
-	bl AddWindowParameterized
-	add r0, r4, #0
-	mov r1, #0
-	bl FillWindowPixelBuffer
-	ldr r0, [r5, #0x48]
-	mov r1, #0x83
-	bl NewString_ReadMsgData
-	add r5, r0, #0
-	add r0, r4, #0
-	add r1, r5, #0
-	bl ov40_022306C0
-	mov r1, #0
-	add r3, r0, #0
-	str r1, [sp]
-	mov r0, #0xff
-	str r0, [sp, #4]
-	ldr r0, _02244490 ; =0x000F0D00
-	add r2, r5, #0
-	str r0, [sp, #8]
-	add r0, r4, #0
-	str r1, [sp, #0xc]
-	bl AddTextPrinterParameterizedWithColor
-	add r0, r5, #0
-	bl String_Delete
-	add r0, r4, #0
-	bl ScheduleWindowCopyToVram
-	add sp, #0x14
-	pop {r4, r5, r6, r7, pc}
-	nop
-_02244490: .word 0x000F0D00
-	thumb_func_end ov40_022443B4

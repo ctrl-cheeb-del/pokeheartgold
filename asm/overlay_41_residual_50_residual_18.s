@@ -874,5 +874,3 @@ AccessoryPortrait_Exit: ; 0x0224BBA4
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
 	thumb_func_end AccessoryPortrait_Exit
-
-

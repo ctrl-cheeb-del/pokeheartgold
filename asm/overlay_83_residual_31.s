@@ -1722,6 +1722,7 @@
 	.public ov83_02247CC4
 	.public ov83_02247CE8
 	.public ov83_02247CF0
+	.public ov83_0224517C
 
 	thumb_func_start ov83_022450A8
 ov83_022450A8: ; 0x022450A8
@@ -1775,6 +1776,8 @@ _02245100: .word 0x00000564
 	thumb_func_end ov83_022450A8
 
 
+
+
 	thumb_func_start ov83_02245104
 ov83_02245104: ; 0x02245104
 	push {r3, r4, r5, r6, r7, lr}
@@ -1812,6 +1815,8 @@ _02245148: .word 0x00000566
 	thumb_func_end ov83_02245104
 
 
+
+
 	thumb_func_start ov83_0224514C
 ov83_0224514C: ; 0x0224514C
 	push {r4, r5, r6, lr}
@@ -1840,85 +1845,3 @@ _02245176:
 	.balign 4, 0
 _02245178: .word 0x000005B7
 	thumb_func_end ov83_0224514C
-
-
-	thumb_func_start ov83_0224517C
-ov83_0224517C: ; 0x0224517C
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	ldr r0, _022451B0 ; =0x00000564
-	add r4, r2, #0
-	strh r1, [r5, r0]
-	add r0, r0, #2
-	strh r4, [r5, r0]
-	bl sub_0203769C
-	cmp r0, #0
-	bne _0224519A
-	ldrb r0, [r5, #0x11]
-	cmp r0, #0xff
-	bne _0224519A
-	strb r4, [r5, #0x11]
-_0224519A:
-	ldrb r1, [r5, #0x11]
-	ldr r0, _022451B4 ; =0x00000568
-	strh r1, [r5, r0]
-	ldrb r2, [r5, #0x12]
-	add r1, r0, #4
-	add r0, r0, #6
-	strh r2, [r5, r1]
-	ldrb r1, [r5, #0x13]
-	strh r1, [r5, r0]
-	pop {r3, r4, r5, pc}
-	nop
-_022451B0: .word 0x00000564
-_022451B4: .word 0x00000568
-	thumb_func_end ov83_0224517C
-
-
-	thumb_func_start ov83_022451B8
-ov83_022451B8: ; 0x022451B8
-	push {r4, r5, r6, lr}
-	add r4, r3, #0
-	add r6, r0, #0
-	ldrb r0, [r4, #0x17]
-	add r5, r2, #0
-	add r0, r0, #1
-	strb r0, [r4, #0x17]
-	bl sub_0203769C
-	cmp r6, r0
-	beq _02245208
-	ldrh r1, [r5, #2]
-	ldr r0, _0224520C ; =0x000005B5
-	strb r1, [r4, r0]
-	bl sub_0203769C
-	cmp r0, #0
-	bne _022451FC
-	ldrb r0, [r4, #0x11]
-	cmp r0, #0xff
-	ldr r0, _0224520C ; =0x000005B5
-	beq _022451EA
-	mov r1, #0
-	strb r1, [r4, r0]
-	pop {r4, r5, r6, pc}
-_022451EA:
-	ldrb r1, [r4, r0]
-	ldrb r0, [r4, #0x15]
-	add r0, r1, r0
-	strb r0, [r4, #0x11]
-	ldrh r0, [r5, #8]
-	strb r0, [r4, #0x12]
-	ldrh r0, [r5, #0xa]
-	strb r0, [r4, #0x13]
-	pop {r4, r5, r6, pc}
-_022451FC:
-	ldrh r0, [r5, #4]
-	strb r0, [r4, #0x11]
-	ldrh r0, [r5, #8]
-	strb r0, [r4, #0x12]
-	ldrh r0, [r5, #0xa]
-	strb r0, [r4, #0x13]
-_02245208:
-	pop {r4, r5, r6, pc}
-	nop
-_0224520C: .word 0x000005B5
-	thumb_func_end ov83_022451B8

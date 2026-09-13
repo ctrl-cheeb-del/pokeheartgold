@@ -50,4 +50,3 @@ _021E62C0:
 _021E62D8: .word 0x027E0000
 _021E62DC: .word 0x00003FF8
 	thumb_func_end ov113_021E62B0
-

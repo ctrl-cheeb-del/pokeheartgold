@@ -373,5 +373,3 @@ _021E6DDC: .word 0x0000072A
 _021E6DE0: .word 0x00000472
 _021E6DE4: .word 0x00000471
 	thumb_func_end ov96_021E6D54
-
-

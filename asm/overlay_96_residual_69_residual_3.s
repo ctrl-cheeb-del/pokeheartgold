@@ -387,5 +387,3 @@ ov96_021F8CFC: ; 0x021F8CFC
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end ov96_021F8CFC
-
-

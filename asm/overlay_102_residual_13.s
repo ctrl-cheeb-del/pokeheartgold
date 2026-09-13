@@ -400,27 +400,7 @@
 	.public ov102_021EC54C
 	.public ov102_021EC568
 	.public ov102_021EC584
-
-	thumb_func_start ov102_021E93E0
-ov102_021E93E0: ; 0x021E93E0
-	push {r4, lr}
-	add r4, r1, #0
-	ldr r0, [r4, #0x20]
-	bl DoScheduledBgGpuUpdates
-	ldr r0, [r4, #0x24]
-	bl SpriteList_RenderAndAnimateSprites
-	bl OamManager_ApplyAndResetBuffers
-	ldr r3, _021E9404 ; =0x027E0000
-	ldr r1, _021E9408 ; =0x00003FF8
-	mov r0, #1
-	ldr r2, [r3, r1]
-	orr r0, r2
-	str r0, [r3, r1]
-	pop {r4, pc}
-	nop
-_021E9404: .word 0x027E0000
-_021E9408: .word 0x00003FF8
-	thumb_func_end ov102_021E93E0
+	.public ov102_021E93E0
 
 
 	thumb_func_start ov102_021E940C

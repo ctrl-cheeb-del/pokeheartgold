@@ -204,31 +204,7 @@
 	.public ov72_0223AF70
 	.public ov72_0223B084
 	.public ov72_0223B2E4
-
-	thumb_func_start ov72_0223AC00
-ov72_0223AC00: ; 0x0223AC00
-	push {r3, r4, lr}
-	sub sp, #0xc
-	add r4, r0, #0
-	mov r0, #4
-	str r0, [sp]
-	mov r1, #1
-	str r1, [sp, #4]
-	mov r1, #0x43
-	str r1, [sp, #8]
-	mov r1, #0
-	add r2, r1, #0
-	add r3, r1, #0
-	bl BeginNormalPaletteFade
-	ldr r0, _0223AC28 ; =0x00001312
-	mov r1, #8
-	strb r1, [r4, r0]
-	mov r0, #0
-	add sp, #0xc
-	pop {r3, r4, pc}
-	.balign 4, 0
-_0223AC28: .word 0x00001312
-	thumb_func_end ov72_0223AC00
+	.public ov72_0223AC00
 
 
 	thumb_func_start ov72_0223AC2C

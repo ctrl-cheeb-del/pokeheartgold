@@ -598,5 +598,3 @@ _021F2A98:
 	mov r0, #1
 	bx lr
 	thumb_func_end ov96_021F2A84
-
-

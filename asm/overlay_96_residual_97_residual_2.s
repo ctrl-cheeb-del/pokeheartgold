@@ -316,5 +316,3 @@ _0220CCB0: .word ov96_0221CE48
 _0220CCB4: .word ov96_0221CE14
 _0220CCB8: .word ov96_0221CE24
 	thumb_func_end ov96_0220CC38
-
-

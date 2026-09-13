@@ -571,7 +571,3 @@ ov41_0224AFF8: ; 0x0224AFF8
 	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
 	thumb_func_end ov41_0224AFF8
-
-
-
-

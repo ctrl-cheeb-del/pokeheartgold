@@ -443,5 +443,3 @@ _021E7378:
 	nop
 _021E737C: .word 0x00000C9C
 	thumb_func_end ov85_021E7350
-
-

@@ -327,5 +327,3 @@ ov96_021F9134: ; 0x021F9134
 	nop
 _021F91C8: .word 0x00010200
 	thumb_func_end ov96_021F9134
-
-

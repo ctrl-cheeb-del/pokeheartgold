@@ -55,4 +55,3 @@ _021E6728:
 	.balign 4, 0
 _021E6750: .word ov113_021E6C90
 	thumb_func_end ov113_021E671C
-

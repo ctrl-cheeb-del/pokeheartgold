@@ -3250,5 +3250,3 @@ _021F330C:
 _021F334C: .word ov14_021F808C
 _021F3350: .word 0x000040B2
 	thumb_func_end ov14_021F32E0
-
-

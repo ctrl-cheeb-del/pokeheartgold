@@ -1917,5 +1917,3 @@ _022141EC: .word 0x000007B8
 _022141F0: .word 0x000007BC
 _022141F4: .word 0x000007C4
 	thumb_func_end ov96_022141B0
-
-

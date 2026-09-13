@@ -173,4 +173,3 @@ _021E6D0A:
 	nop
 _021E6D1C: .word 0x000004A8
 	thumb_func_end ov67_021E6C60
-

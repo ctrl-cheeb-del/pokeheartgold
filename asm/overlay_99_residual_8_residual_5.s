@@ -426,5 +426,3 @@ _021E7C4E:
 _021E7C50: .word ov99_021E9F54
 _021E7C54: .word gSystem
 	thumb_func_end ov99_021E7BC8
-
-

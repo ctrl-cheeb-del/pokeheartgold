@@ -611,5 +611,3 @@ _021EE540:
 	nop
 _021EE548: .word 0xEFFFFFFF
 	thumb_func_end ov96_021EE440
-
-

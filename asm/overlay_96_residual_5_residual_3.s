@@ -359,5 +359,3 @@ _021E6BB6:
 	nop
 _021E6BBC: .word 0x000003D1
 	thumb_func_end ov96_021E6AE8
-
-

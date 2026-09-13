@@ -291,5 +291,3 @@ _021E83A0: .word 0x0000013A
 _021E83A4: .word ov99_021EA45C
 _021E83A8: .word ov99_021E856C
 	thumb_func_end PokeathlonEventRecord_Init
-
-

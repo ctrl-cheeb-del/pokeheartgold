@@ -2934,5 +2934,3 @@ _02243E6E:
 	mvn r0, r0
 	pop {r3, r4, r5, pc}
 	thumb_func_end ov70_02243DDC
-
-

@@ -4143,5 +4143,3 @@ _0222DA76:
 _0222DA7C: .word 0x04000052
 _0222DA80: .word 0x04001052
 	thumb_func_end ov40_0222DA00
-
-

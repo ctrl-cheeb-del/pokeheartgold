@@ -199,5 +199,3 @@ _021E7340: .word 0x04000540
 _021E7344: .word 0xBFFF0000
 _021E7348: .word 0x04000008
 	thumb_func_end ov68_021E7288
-
-

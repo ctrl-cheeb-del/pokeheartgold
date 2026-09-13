@@ -151,6 +151,7 @@
 	.public ov48_0225B0E0
 	.public ov48_0225B108
 	.public ov48_0225B13C
+	.public ov48_0225A57C
 
 	thumb_func_start ov48_0225A4C0
 ov48_0225A4C0: ; 0x0225A4C0
@@ -245,96 +246,3 @@ _0225A570:
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov48_0225A4C0
-
-
-	thumb_func_start ov48_0225A57C
-ov48_0225A57C: ; 0x0225A57C
-	push {r3, r4, lr}
-	sub sp, #0x1c
-	add r0, #0x98
-	ldr r0, [r0]
-	add r4, r2, #0
-	mov r2, #0x20
-	str r2, [sp]
-	mov r2, #1
-	str r2, [sp, #4]
-	add r2, r0, #0
-	add r2, #0xc
-	str r2, [sp, #8]
-	mov r2, #0
-	lsl r1, r1, #0x18
-	str r2, [sp, #0xc]
-	lsr r3, r1, #0x18
-	str r3, [sp, #0x10]
-	ldrh r1, [r0]
-	lsl r1, r1, #0x15
-	lsr r1, r1, #0x18
-	str r1, [sp, #0x14]
-	ldrh r0, [r0, #2]
-	mov r1, #6
-	lsl r0, r0, #0x15
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x18]
-	ldr r0, [r4]
-	bl CopyToBgTilemapRect
-	ldr r0, [r4]
-	mov r1, #6
-	bl ScheduleBgTilemapBufferTransfer
-	add sp, #0x1c
-	pop {r3, r4, pc}
-	.balign 4, 0
-	thumb_func_end ov48_0225A57C
-
-
-	thumb_func_start ov48_0225A5C4
-ov48_0225A5C4: ; 0x0225A5C4
-	push {r4, r5, r6, lr}
-	ldr r1, _0225A624 ; =0x04001000
-	ldr r2, _0225A628 ; =0xFFFF1FFF
-	ldr r3, [r1]
-	add r5, r1, #0
-	and r3, r2
-	mov r2, #6
-	lsl r2, r2, #0xc
-	orr r2, r3
-	str r2, [r1]
-	add r5, #0x4a
-	ldrh r6, [r5]
-	mov r3, #0x3f
-	mov r2, #0x1f
-	bic r6, r3
-	orr r2, r6
-	strh r2, [r5]
-	add r1, #0x48
-	ldrh r5, [r1]
-	mov r2, #0xf
-	add r4, r0, #0
-	bic r5, r3
-	add r3, r5, #0
-	orr r3, r2
-	strh r3, [r1]
-	ldrh r5, [r1]
-	ldr r3, _0225A62C ; =0xFFFFC0FF
-	lsl r2, r2, #8
-	and r3, r5
-	orr r2, r3
-	strh r2, [r1]
-	mov r1, #0
-	add r2, r1, #0
-	bl ov48_0225A650
-	mov r1, #0
-	add r0, r4, #0
-	add r2, r1, #0
-	bl ov48_0225A668
-	ldr r0, _0225A630 ; =ov48_0225A680
-	add r1, r4, #0
-	mov r2, #0
-	bl SysTask_CreateOnVWaitQueue
-	str r0, [r4, #0xc]
-	pop {r4, r5, r6, pc}
-	nop
-_0225A624: .word 0x04001000
-_0225A628: .word 0xFFFF1FFF
-_0225A62C: .word 0xFFFFC0FF
-_0225A630: .word ov48_0225A680
-	thumb_func_end ov48_0225A5C4

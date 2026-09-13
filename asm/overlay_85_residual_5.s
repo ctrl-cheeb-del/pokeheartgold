@@ -368,6 +368,8 @@
 	.public ov85_021E834C
 	.public ov85_021E8358
 	.public ov85_021E83C0
+	.public ov85_021E5EB4
+	.public ov85_021E5EE8
 
 	thumb_func_start ov85_021E5DAC
 ov85_021E5DAC: ; 0x021E5DAC
@@ -433,6 +435,8 @@ _021E5DFE:
 _021E5E28: .word ov85_021EA788
 _021E5E2C: .word 0x00000483
 	thumb_func_end ov85_021E5DAC
+
+
 
 
 	thumb_func_start ov85_021E5E30
@@ -502,63 +506,3 @@ _021E5EA8:
 	nop
 _021E5EB0: .word ov85_021EA7C4
 	thumb_func_end ov85_021E5E30
-
-
-	thumb_func_start ov85_021E5EB4
-ov85_021E5EB4: ; 0x021E5EB4
-	push {r3, r4, r5, r6}
-	mov r1, #0x19
-	mov r3, #0
-	lsl r1, r1, #4
-	add r6, r0, r1
-	ldr r5, [r0, #0x30]
-	add r4, r3, #0
-	sub r1, #0x48
-_021E5EC4:
-	ldr r2, [r6, r1]
-	cmp r2, #1
-	bne _021E5ECC
-	add r4, r4, #1
-_021E5ECC:
-	add r3, r3, #1
-	add r6, #0xb0
-	cmp r3, r5
-	blt _021E5EC4
-	cmp r4, r5
-	bne _021E5EE2
-	mov r1, #0x13
-	str r1, [r0]
-	mov r0, #1
-	pop {r3, r4, r5, r6}
-	bx lr
-_021E5EE2:
-	mov r0, #0
-	pop {r3, r4, r5, r6}
-	bx lr
-	thumb_func_end ov85_021E5EB4
-
-
-	thumb_func_start ov85_021E5EE8
-ov85_021E5EE8: ; 0x021E5EE8
-	push {r4, lr}
-	add r4, r0, #0
-	ldr r0, [r4, #0xc]
-	add r0, r0, #1
-	str r0, [r4, #0xc]
-	cmp r0, #0x1e
-	ble _021E5F0C
-	mov r0, #0
-	str r0, [r4, #0xc]
-	bl sub_0203769C
-	cmp r0, #0
-	bne _021E5F08
-	mov r0, #0x14
-	str r0, [r4]
-	b _021E5F0C
-_021E5F08:
-	mov r0, #0x15
-	str r0, [r4]
-_021E5F0C:
-	mov r0, #0
-	pop {r4, pc}
-	thumb_func_end ov85_021E5EE8

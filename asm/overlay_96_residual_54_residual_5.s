@@ -412,5 +412,3 @@ _021F2FB4:
 	pop {pc}
 	.balign 4, 0
 	thumb_func_end ov96_021F2F7C
-
-

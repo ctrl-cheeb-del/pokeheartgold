@@ -70,4 +70,3 @@ ov113_021E6680: ; 0x021E6680
 	str r0, [r4, #0x5c]
 	pop {r4, pc}
 	thumb_func_end ov113_021E6680
-

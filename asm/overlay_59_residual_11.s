@@ -1003,6 +1003,8 @@
 	.public ov59_0223C3AC
 	.public ov59_0223C3DC
 	.public ov59_0223C5B0
+	.public ov59_0223BA44
+	.public ov59_0223BA64
 
 	thumb_func_start ov59_0223B8E4
 ov59_0223B8E4: ; 0x0223B8E4
@@ -1168,81 +1170,3 @@ _0223BA38: .word ov59_0223C99C
 _0223BA3C: .word ov59_0223CB08
 _0223BA40: .word ov59_0223CB30
 	thumb_func_end ov59_0223B8E4
-
-
-	thumb_func_start ov59_0223BA44
-ov59_0223BA44: ; 0x0223BA44
-	push {r4, r5, r6, lr}
-	mov r6, #0x26
-	add r5, r0, #0
-	mov r4, #0
-	lsl r6, r6, #4
-_0223BA4E:
-	ldr r0, [r5, r6]
-	cmp r0, #0
-	beq _0223BA58
-	bl Sprite_Delete
-_0223BA58:
-	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #0x22
-	blt _0223BA4E
-	pop {r4, r5, r6, pc}
-	.balign 4, 0
-	thumb_func_end ov59_0223BA44
-
-
-	thumb_func_start ov59_0223BA64
-ov59_0223BA64: ; 0x0223BA64
-	push {r4, r5, r6, lr}
-	add r4, r2, #0
-	add r5, r0, #0
-	str r4, [r5]
-	add r6, r1, #0
-	strb r3, [r5, #8]
-	add r0, r4, #0
-	mov r1, #5
-	mov r2, #0
-	bl GetMonData
-	strh r0, [r5, #4]
-	add r0, r4, #0
-	mov r1, #0x6f
-	mov r2, #0
-	bl GetMonData
-	strb r0, [r5, #7]
-	add r0, r4, #0
-	mov r1, #0xa1
-	mov r2, #0
-	bl GetMonData
-	strb r0, [r5, #6]
-	add r0, r4, #0
-	mov r1, #0x70
-	mov r2, #0
-	bl GetMonData
-	add r1, r0, #0
-	ldrh r0, [r5, #4]
-	mov r2, #0x1c
-	bl GetMonBaseStat_HandleAlternateForm
-	mov r1, #1
-	eor r0, r1
-	strb r0, [r5, #9]
-	ldr r1, [sp, #0x10]
-	mov r0, #0xc
-	bl String_New
-	str r0, [r5, #0xc]
-	ldr r2, [r5, #0xc]
-	add r0, r4, #0
-	mov r1, #0x77
-	bl GetMonData
-	add r1, r5, #0
-	ldr r0, [r5]
-	add r1, #0x1e
-	bl CalcMonPokeathlonPerformance
-	add r1, r5, #0
-	ldrb r2, [r5, #8]
-	add r0, r6, #0
-	add r1, #0x10
-	bl Party_GetMonAprijuiceModifiers
-	pop {r4, r5, r6, pc}
-	.balign 4, 0
-	thumb_func_end ov59_0223BA64

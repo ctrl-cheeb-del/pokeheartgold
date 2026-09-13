@@ -557,5 +557,3 @@ _021E7B72:
 	.balign 4, 0
 _021E7B88: .word ov85_021E7B8C
 	thumb_func_end ov85_021E7B40
-
-

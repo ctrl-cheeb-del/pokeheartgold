@@ -3148,5 +3148,3 @@ _021E801A:
 	pop {r4, pc}
 	.balign 4, 0
 	thumb_func_end ov14_021E7FEC
-
-

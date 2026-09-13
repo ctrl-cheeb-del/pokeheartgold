@@ -2,6 +2,7 @@
 	.include "unk_02056D7C.inc"
 	.include "global.inc"
 	.text
+	.public sub_02057E08
 	thumb_func_start sub_02057D74
 sub_02057D74: ; 0x02057D74
 	push {r3, r4, r5, r6, r7, lr}

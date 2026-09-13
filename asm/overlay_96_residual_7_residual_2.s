@@ -290,5 +290,3 @@ _021E7CF0:
 	bx lr
 	.balign 4, 0
 	thumb_func_end ov96_021E7CC8
-
-

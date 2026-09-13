@@ -473,5 +473,3 @@ _0220D32A:
 	nop
 _0220D338: .word 0xFC03FFFF
 	thumb_func_end ov96_0220D2AC
-
-

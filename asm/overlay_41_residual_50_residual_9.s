@@ -526,5 +526,3 @@ ov41_0224A9BC: ; 0x0224A9BC
 	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
 	thumb_func_end ov41_0224A9BC
-
-

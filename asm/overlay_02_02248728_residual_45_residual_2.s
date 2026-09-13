@@ -1908,5 +1908,3 @@ _0224D986:
 	.balign 4, 0
 _0224D988: .word 0x00000D0C
 	thumb_func_end ov02_0224D950
-
-

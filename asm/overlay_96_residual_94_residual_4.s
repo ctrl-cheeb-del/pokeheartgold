@@ -413,5 +413,3 @@ _0220B320:
 	mov r0, #0
 	pop {r4, pc}
 	thumb_func_end ov96_0220B2D4
-
-

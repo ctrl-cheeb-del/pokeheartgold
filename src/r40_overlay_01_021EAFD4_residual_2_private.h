@@ -1,0 +1,4 @@
+#ifndef SOL_R40_NIGHT_OV01_EAFD4_R2_PRIVATE_H
+#define SOL_R40_NIGHT_OV01_EAFD4_R2_PRIVATE_H
+#include "field_texture_manager_internal.h"
+#endif

@@ -332,5 +332,3 @@ ov96_021F8DF4: ; 0x021F8DF4
 	nop
 _021F8E90: .word 0x00010200
 	thumb_func_end ov96_021F8DF4
-
-

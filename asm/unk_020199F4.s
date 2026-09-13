@@ -3,6 +3,7 @@
 	.include "global.inc"
 
 	.text
+	.public sub_02019A60
 	thumb_func_start sub_020199F4
 sub_020199F4: ; 0x020199F4
 	push {r3, r4, r5, r6, r7, lr}

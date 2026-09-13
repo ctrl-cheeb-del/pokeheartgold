@@ -538,4 +538,3 @@ _0222B3A4: .word 0x00000702
 _0222B3A8: .word 0x000003D2
 _0222B3AC: .word 0x000003DA
 	thumb_func_end ov80_0222B334
-

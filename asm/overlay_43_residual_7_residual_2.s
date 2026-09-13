@@ -766,5 +766,3 @@ _0222A9AC:
 	.balign 4, 0
 _0222A9D4: .word ov43_0222F0C0
 	thumb_func_end ov43_0222A998
-
-

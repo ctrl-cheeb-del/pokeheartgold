@@ -277,5 +277,3 @@ _021E7F58: .word ov99_021E9FC4
 _021E7F5C: .word 0x00000404
 _021E7F60: .word ov99_021E9F60
 	thumb_func_end ov99_021E7EF0
-
-

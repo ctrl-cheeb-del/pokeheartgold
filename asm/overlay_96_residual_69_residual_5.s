@@ -430,5 +430,3 @@ _021F908C:
 	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
 	thumb_func_end ov96_021F8F94
-
-

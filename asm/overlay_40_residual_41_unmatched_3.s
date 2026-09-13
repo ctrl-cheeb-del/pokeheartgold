@@ -4062,47 +4062,7 @@
 	.public ov40_0224320C
 	.public ov40_0224326C
 	.public ov40_022439B8
-
-
-	thumb_func_start ov40_02244060
-ov40_02244060: ; 0x02244060
-	push {r4, r5, r6, r7}
-	mov r1, #0x81
-	lsl r1, r1, #2
-	ldr r1, [r0, r1]
-	mov r3, #0
-	cmp r1, #0
-	ble _0224409A
-	mov r6, #0x85
-	lsl r6, r6, #2
-	add r4, r0, #0
-	add r1, r3, #0
-	mov r2, #1
-	sub r7, r6, #4
-_0224407A:
-	ldr r5, [r0, r7]
-	cmp r3, r5
-	blt _0224408A
-	ldr r5, [r0, r6]
-	cmp r3, r5
-	bge _0224408A
-	str r2, [r4, #8]
-	b _0224408C
-_0224408A:
-	str r1, [r4, #8]
-_0224408C:
-	mov r5, #0x81
-	lsl r5, r5, #2
-	ldr r5, [r0, r5]
-	add r3, r3, #1
-	add r4, #0x1c
-	cmp r3, r5
-	blt _0224407A
-_0224409A:
-	pop {r4, r5, r6, r7}
-	bx lr
-	.balign 4, 0
-	thumb_func_end ov40_02244060
+	.public ov40_02244060
 
 
 
@@ -4293,6 +4253,10 @@ _022441F2:
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 	thumb_func_end ov40_022440A0
+
+
+
+
 
 
 

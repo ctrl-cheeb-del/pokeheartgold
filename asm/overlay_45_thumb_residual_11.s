@@ -589,29 +589,9 @@
 	.public ov45_022309C4
 	.public ov45_02230A58
 	.public ov45_02230AC0
-
-	thumb_func_start ov45_0222AA5C
-ov45_0222AA5C: ; 0x0222AA5C
-	push {r4, lr}
-	add r4, r0, #0
-	ldrh r0, [r4, #0x3a]
-	bl ov45_0222CD04
-	ldr r1, _0222AA80 ; =0x0000FFFF
-	cmp r0, r1
-	bne _0222AA7C
-	add r0, r4, #0
-	bl ov45_0222A9CC
-	cmp r0, #0
-	bne _0222AA7A
-	mov r0, #3
-	pop {r4, pc}
-_0222AA7A:
-	mov r0, #6
-_0222AA7C:
-	pop {r4, pc}
-	nop
-_0222AA80: .word 0x0000FFFF
-	thumb_func_end ov45_0222AA5C
+	.public ov45_0222AA5C
+	.public ov45_0222AAC8
+	.public ov45_0222AADC
 
 
 	thumb_func_start ov45_0222AA84
@@ -638,6 +618,8 @@ _0222AAA4:
 	thumb_func_end ov45_0222AA84
 
 
+
+
 	thumb_func_start ov45_0222AAA8
 ov45_0222AAA8: ; 0x0222AAA8
 	push {r4, lr}
@@ -657,69 +639,3 @@ _0222AAC0:
 	pop {r4, pc}
 	.balign 4, 0
 	thumb_func_end ov45_0222AAA8
-
-
-	thumb_func_start ov45_0222AAC8
-ov45_0222AAC8: ; 0x0222AAC8
-	add r0, #0x41
-	ldrb r0, [r0]
-	cmp r0, #0xff
-	bne _0222AAD4
-	mov r0, #0
-	bx lr
-_0222AAD4:
-	cmp r0, #0x1b
-	blo _0222AADA
-	mov r0, #0
-_0222AADA:
-	bx lr
-	thumb_func_end ov45_0222AAC8
-
-
-	thumb_func_start ov45_0222AADC
-ov45_0222AADC: ; 0x0222AADC
-	add r0, #0x41
-	ldrb r0, [r0]
-	cmp r0, #0xff
-	beq _0222AAE8
-	mov r0, #1
-	bx lr
-_0222AAE8:
-	mov r0, #0
-	bx lr
-	thumb_func_end ov45_0222AADC
-
-
-	thumb_func_start ov45_0222AAEC
-ov45_0222AAEC: ; 0x0222AAEC
-	push {r3, r4, r5, lr}
-	add r5, r1, #0
-	add r4, r0, #0
-	cmp r5, #2
-	blo _0222AAFA
-	bl GF_AssertFail
-_0222AAFA:
-	lsl r0, r5, #1
-	add r0, r4, r0
-	add r0, #0x88
-	ldrh r0, [r0]
-	cmp r0, #0x12
-	blo _0222AB08
-	mov r0, #0
-_0222AB08:
-	pop {r3, r4, r5, pc}
-	.balign 4, 0
-	thumb_func_end ov45_0222AAEC
-
-
-	thumb_func_start ov45_0222AB0C
-ov45_0222AB0C: ; 0x0222AB0C
-	add r2, r0, #0
-	add r2, #0x8c
-	add r0, #0x90
-	ldr r2, [r2]
-	ldr r0, [r0]
-	str r2, [r1]
-	str r0, [r1, #4]
-	bx lr
-	thumb_func_end ov45_0222AB0C

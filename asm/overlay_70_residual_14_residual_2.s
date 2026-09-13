@@ -3109,5 +3109,3 @@ _02239E5C: .word 0x00001118
 _02239E60: .word 0x0000022F
 _02239E64: .word 0x000010E8
 	thumb_func_end ov70_02239D8C
-
-

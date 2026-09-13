@@ -378,5 +378,3 @@ _02238D74: .word ov57_0223BECC
 _02238D78: .word ov57_0223BD7C
 _02238D7C: .word 0x0000040C
 	thumb_func_end ov57_02238C30
-
-

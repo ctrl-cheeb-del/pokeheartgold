@@ -654,5 +654,3 @@ ov41_02249C7C: ; 0x02249C7C
 	nop
 _02249CC0: .word ov41_02249E60
 	thumb_func_end ov41_02249C7C
-
-

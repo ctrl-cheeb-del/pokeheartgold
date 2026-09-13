@@ -458,98 +458,10 @@
 	.public ov41_02249780
 	.public ov41_022497A0
 	.public ov41_02249888
-
-	thumb_func_start ov41_022486F8
-ov41_022486F8: ; 0x022486F8
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	mov r7, #0
-_022486FE:
-	ldr r0, [r5, #0x10]
-	mov r6, #0
-	cmp r0, #0
-	ble _0224871A
-	add r4, r6, #0
-_02248708:
-	ldr r0, [r5, #0xc]
-	add r0, r0, r4
-	bl ov41_02249A70
-	ldr r0, [r5, #0x10]
-	add r6, r6, #1
-	add r4, #0x10
-	cmp r6, r0
-	blt _02248708
-_0224871A:
-	add r7, r7, #1
-	add r5, #0xc
-	cmp r7, #3
-	blt _022486FE
-	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov41_022486F8
-
-
-	thumb_func_start ov41_02248724
-ov41_02248724: ; 0x02248724
-	push {r4, r5, r6, lr}
-	mov r5, #0
-	mvn r5, r5
-	bl ov41_02248A94
-	add r6, r0, #0
-	ldr r4, [r6, #8]
-	cmp r4, r6
-	beq _0224874C
-_02248736:
-	ldr r0, [r4, #4]
-	cmp r0, #2
-	bhi _02248744
-	ldr r0, [r4]
-	add r1, r5, #0
-	bl ov41_02246014
-_02248744:
-	ldr r4, [r4, #8]
-	sub r5, r5, #1
-	cmp r4, r6
-	bne _02248736
-_0224874C:
-	pop {r4, r5, r6, pc}
-	.balign 4, 0
-	thumb_func_end ov41_02248724
-
-
-	thumb_func_start ov41_02248750
-ov41_02248750: ; 0x02248750
-	push {r3, r4, r5, r6, lr}
-	sub sp, #4
-	add r5, r0, #0
-	add r6, r1, #0
-	ldr r1, [r5, #0x3c]
-	add r4, r2, #0
-	cmp r1, #0
-	bne _02248788
-	ldr r1, [r5]
-	mov r2, #0xc
-	mul r2, r1
-	str r4, [sp]
-	add r2, r5, r2
-	ldr r2, [r2, #0x14]
-	add r3, r6, #0
-	bl ov41_02248B84
-	mov r0, #0xc
-	mul r0, r6
-	str r6, [r5]
-	add r0, r5, r0
-	str r4, [r0, #0x14]
-	add r0, r5, #0
-	bl ov41_02248724
-	add sp, #4
-	mov r0, #1
-	pop {r3, r4, r5, r6, pc}
-_02248788:
-	mov r0, #0
-	add sp, #4
-	pop {r3, r4, r5, r6, pc}
-	.balign 4, 0
-	thumb_func_end ov41_02248750
+	.public ov41_022486F8
+	.public ov41_02248724
+	.public ov41_02248750
+	.public ov41_022487F8
 
 
 	thumb_func_start ov41_02248790
@@ -608,25 +520,3 @@ _022487F2:
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end ov41_02248790
-
-
-	thumb_func_start ov41_022487F8
-ov41_022487F8: ; 0x022487F8
-	push {r4, r5, r6, lr}
-	add r4, r1, #0
-	mov r1, #0
-	add r5, r0, #0
-	add r6, r2, #0
-	bl ov41_02248A18
-	mov r0, #0xc
-	mul r0, r4
-	str r4, [r5]
-	add r0, r5, r0
-	str r6, [r0, #0x14]
-	add r0, r5, #0
-	mov r1, #1
-	bl ov41_02248A18
-	add r0, r5, #0
-	bl ov41_02248724
-	pop {r4, r5, r6, pc}
-	thumb_func_end ov41_022487F8

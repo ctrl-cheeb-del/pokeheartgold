@@ -2907,5 +2907,3 @@ _02243FC8: .word ov70_02245E84
 _02243FCC: .word ov70_02245F5C
 _02243FD0: .word ov70_02245F58
 	thumb_func_end ov70_02243F7C
-
-

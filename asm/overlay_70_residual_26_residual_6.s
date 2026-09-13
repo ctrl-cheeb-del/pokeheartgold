@@ -2959,5 +2959,3 @@ _0223F368:
 	.balign 4, 0
 _0223F36C: .word ov70_02245910
 	thumb_func_end ov70_0223F324
-
-

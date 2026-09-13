@@ -3071,6 +3071,7 @@
 	.public ov14_021F6A34
 	.public ov14_021F6B10
 	.public ov14_021F6B7C
+	.public ov14_021F69F0
 
 	thumb_func_start ov14_021F685C
 ov14_021F685C: ; 0x021F685C
@@ -3133,6 +3134,8 @@ _021F68B2:
 	thumb_func_end ov14_021F685C
 
 
+
+
 	thumb_func_start ov14_021F68C0
 ov14_021F68C0: ; 0x021F68C0
 	push {r4, r5, r6, lr}
@@ -3193,6 +3196,8 @@ _021F6918:
 	.balign 4, 0
 _021F6924: .word 0x000088C8
 	thumb_func_end ov14_021F68C0
+
+
 
 
 	thumb_func_start ov14_021F6928
@@ -3302,24 +3307,3 @@ _021F6996:
 _021F69E8: .word 0x000088C8
 _021F69EC: .word 0x0001020F
 	thumb_func_end ov14_021F6928
-
-
-	thumb_func_start ov14_021F69F0
-ov14_021F69F0: ; 0x021F69F0
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	ldr r0, [r5, #0x34]
-	lsl r4, r1, #4
-	add r0, #0x30
-	ldr r1, _021F6A10 ; =0x0000038E
-	add r0, r0, r4
-	mov r2, #0xa
-	bl sub_0200E948
-	ldr r0, [r5, #0x34]
-	add r0, #0x30
-	add r0, r0, r4
-	bl ScheduleWindowCopyToVram
-	pop {r3, r4, r5, pc}
-	.balign 4, 0
-_021F6A10: .word 0x0000038E
-	thumb_func_end ov14_021F69F0

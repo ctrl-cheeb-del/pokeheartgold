@@ -458,6 +458,9 @@
 	.public ov41_02249780
 	.public ov41_022497A0
 	.public ov41_02249888
+	.public ov41_02248A6C
+	.public ov41_02248A94
+	.public ov41_02248ABC
 
 	thumb_func_start ov41_02248A28
 ov41_02248A28: ; 0x02248A28
@@ -496,75 +499,3 @@ _02248A68:
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 	thumb_func_end ov41_02248A28
-
-
-	thumb_func_start ov41_02248A6C
-ov41_02248A6C: ; 0x02248A6C
-	push {r4, lr}
-	add r4, r0, #0
-	ldr r0, [r4]
-	bl Heap_Free
-	mov r0, #0
-	str r0, [r4]
-	strb r0, [r4]
-	strb r0, [r4, #1]
-	strb r0, [r4, #2]
-	strb r0, [r4, #3]
-	strb r0, [r4, #4]
-	strb r0, [r4, #5]
-	strb r0, [r4, #6]
-	strb r0, [r4, #7]
-	strb r0, [r4, #8]
-	strb r0, [r4, #9]
-	strb r0, [r4, #0xa]
-	strb r0, [r4, #0xb]
-	pop {r4, pc}
-	thumb_func_end ov41_02248A6C
-
-
-	thumb_func_start ov41_02248A94
-ov41_02248A94: ; 0x02248A94
-	push {r3}
-	sub sp, #0xc
-	ldr r2, [r0]
-	mov r1, #0xc
-	mul r1, r2
-	add r3, r0, r1
-	add r3, #0xc
-	ldmia r3!, {r0, r1}
-	add r2, sp, #0
-	stmia r2!, {r0, r1}
-	ldr r0, [r3]
-	str r0, [r2]
-	ldr r0, [sp, #8]
-	ldr r1, [sp]
-	lsl r0, r0, #4
-	add r0, r1, r0
-	add sp, #0xc
-	pop {r3}
-	bx lr
-	.balign 4, 0
-	thumb_func_end ov41_02248A94
-
-
-	thumb_func_start ov41_02248ABC
-ov41_02248ABC: ; 0x02248ABC
-	push {r4}
-	sub sp, #0xc
-	mov r3, #0xc
-	mul r3, r1
-	add r4, r0, r3
-	add r4, #0xc
-	ldmia r4!, {r0, r1}
-	add r3, sp, #0
-	stmia r3!, {r0, r1}
-	ldr r0, [r4]
-	str r0, [r3]
-	ldr r1, [sp]
-	lsl r0, r2, #4
-	add r0, r1, r0
-	add sp, #0xc
-	pop {r4}
-	bx lr
-	.balign 4, 0
-	thumb_func_end ov41_02248ABC

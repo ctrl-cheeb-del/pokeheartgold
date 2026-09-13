@@ -148,72 +148,9 @@
 	.public ov01_021FA804
 	.public ov01_021FA8F8
 	.public ov01_021FA930
-
-	thumb_func_start ov01_021F9C78
-ov01_021F9C78: ; 0x021F9C78
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	add r7, r1, #0
-	bl ov01_021FA204
-	add r6, r0, #0
-	add r0, r5, #0
-	bl ov01_021FA21C
-	lsl r4, r0, #2
-	add r0, r5, #0
-	bl ov01_021FA224
-	add r3, r0, #0
-	add r0, r6, r4
-	add r1, r7, #0
-	mov r2, #0xff
-	bl ov01_021F9AB4
-	cmp r0, #0
-	bne _021F9CA6
-	bl GF_AssertFail
-_021F9CA6:
-	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov01_021F9C78
-
-
-	thumb_func_start ov01_021F9CA8
-ov01_021F9CA8: ; 0x021F9CA8
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	add r7, r1, #0
-	bl ov01_021FA204
-	add r6, r0, #0
-	add r0, r5, #0
-	bl ov01_021FA21C
-	lsl r4, r0, #2
-	add r0, r5, #0
-	bl ov01_021FA224
-	add r2, r0, #0
-	add r0, r6, r4
-	add r1, r7, #0
-	bl ov01_021F9AD0
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov01_021F9CA8
-
-
-	thumb_func_start ov01_021F9CD0
-ov01_021F9CD0: ; 0x021F9CD0
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	add r7, r1, #0
-	bl ov01_021FA204
-	add r6, r0, #0
-	add r0, r5, #0
-	bl ov01_021FA21C
-	lsl r4, r0, #2
-	add r0, r5, #0
-	bl ov01_021FA224
-	add r3, r0, #0
-	add r0, r6, r4
-	add r1, r7, #0
-	mov r2, #0xff
-	bl ov01_021F9AE4
-	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov01_021F9CD0
+	.public ov01_021F9C78
+	.public ov01_021F9CA8
+	.public ov01_021F9CD0
 
 
 	thumb_func_start ov01_021F9CF8

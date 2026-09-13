@@ -579,5 +579,3 @@ _0224B58E:
 	pop {r4, pc}
 	.balign 4, 0
 	thumb_func_end ov41_0224B57C
-
-

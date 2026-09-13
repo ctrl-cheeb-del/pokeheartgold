@@ -3154,5 +3154,3 @@ _021F2E6C: .word 0x00000458
 _021F2E70: .word 0x00004076
 _021F2E74: .word 0x00004058
 	thumb_func_end ov14_021F2DE8
-
-

@@ -334,4 +334,3 @@ _021E5E78: .word ov67_021E6DFC
 _021E5E7C: .word ov67_021E6DC4
 _021E5E80: .word ov67_021E6DE0
 	thumb_func_end ov67_021E5DA0
-

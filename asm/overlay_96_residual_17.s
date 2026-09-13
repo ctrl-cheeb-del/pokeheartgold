@@ -238,132 +238,12 @@
 	.public ov96_0221A690
 	.public ov96_0221A69C
 	.public ov96_0221A720
-
-	thumb_func_start ov96_021E92E0
-ov96_021E92E0: ; 0x021E92E0
-	push {r3, r4, r5, r6, r7, lr}
-	mov r1, #0x85
-	lsl r1, r1, #2
-	add r5, r0, #0
-	bl Heap_Alloc
-	mov r2, #0x85
-	mov r1, #0
-	lsl r2, r2, #2
-	str r0, [sp]
-	bl MI_CpuFill8
-	ldr r4, [sp]
-	mov r6, #0
-	mov r7, #0x25
-_021E92FE:
-	add r0, r7, #0
-	add r1, r5, #0
-	bl String_New
-	str r0, [r4, #0x34]
-	mov r0, #0xb
-	add r1, r5, #0
-	bl String_New
-	str r0, [r4, #0x38]
-	add r6, r6, #1
-	add r4, #0x18
-	cmp r6, #0xc
-	blt _021E92FE
-	ldr r0, [sp]
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov96_021E92E0
-
-
-	thumb_func_start ov96_021E9320
-ov96_021E9320: ; 0x021E9320
-	push {r4, r5, r6, lr}
-	add r6, r0, #0
-	mov r4, #0
-	add r5, r6, #0
-_021E9328:
-	ldr r0, [r5, #0x34]
-	bl String_Delete
-	ldr r0, [r5, #0x38]
-	bl String_Delete
-	add r4, r4, #1
-	add r5, #0x18
-	cmp r4, #0xc
-	blt _021E9328
-	add r0, r6, #0
-	bl Heap_Free
-	pop {r4, r5, r6, pc}
-	thumb_func_end ov96_021E9320
-
-
-	thumb_func_start ov96_021E9344
-ov96_021E9344: ; 0x021E9344
-	push {r4, lr}
-	add r4, r0, #0
-	ldr r0, [r4, #8]
-	cmp r0, #4
-	blt _021E9352
-	bl GF_AssertFail
-_021E9352:
-	ldr r1, [r4, #8]
-	ldr r0, [r4]
-	cmp r1, r0
-	blt _021E935E
-	bl GF_AssertFail
-_021E935E:
-	ldr r1, [r4, #8]
-	add r0, r1, #1
-	str r0, [r4, #8]
-	mov r0, #0x18
-	add r4, #0x24
-	mul r0, r1
-	add r0, r4, r0
-	pop {r4, pc}
-	.balign 4, 0
-	thumb_func_end ov96_021E9344
-
-
-	thumb_func_start ov96_021E9370
-ov96_021E9370: ; 0x021E9370
-	push {r3, r4, r5, lr}
-	add r4, r1, #0
-	add r5, r0, #0
-	cmp r4, #4
-	blo _021E937E
-	bl GF_AssertFail
-_021E937E:
-	ldr r0, [r5]
-	cmp r4, r0
-	blt _021E9388
-	bl GF_AssertFail
-_021E9388:
-	mov r0, #0x18
-	add r5, #0x24
-	mul r0, r4
-	add r0, r5, r0
-	pop {r3, r4, r5, pc}
-	.balign 4, 0
-	thumb_func_end ov96_021E9370
-
-
-	thumb_func_start ov96_021E9394
-ov96_021E9394: ; 0x021E9394
-	mov r3, #0
-	str r3, [r0]
-	str r3, [r0, #4]
-	str r3, [r0, #8]
-	str r3, [r0, #0xc]
-	mov r1, #0x51
-	str r3, [r0, #0x10]
-	add r2, r3, #0
-	lsl r1, r1, #2
-_021E93A6:
-	add r3, r3, #1
-	str r2, [r0, r1]
-	add r0, r0, #4
-	cmp r3, #0xc
-	blt _021E93A6
-	bx lr
-	.balign 4, 0
-	thumb_func_end ov96_021E9394
+	.public ov96_021E92E0
+	.public ov96_021E9320
+	.public ov96_021E9344
+	.public ov96_021E9370
+	.public ov96_021E9394
+	.public ov96_021E94EC
 
 
 	thumb_func_start ov96_021E93B4
@@ -543,26 +423,3 @@ _021E94E8:
 	add sp, #0xa4
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end ov96_021E93B4
-
-
-	thumb_func_start ov96_021E94EC
-ov96_021E94EC: ; 0x021E94EC
-	push {r3, r4, r5, lr}
-	add r4, r1, #0
-	add r5, r0, #0
-	cmp r4, #4
-	blo _021E94FA
-	bl GF_AssertFail
-_021E94FA:
-	ldr r0, [r5]
-	cmp r4, r0
-	blt _021E9504
-	bl GF_AssertFail
-_021E9504:
-	lsl r0, r4, #2
-	add r1, r5, r0
-	mov r0, #0x51
-	lsl r0, r0, #2
-	ldr r0, [r1, r0]
-	pop {r3, r4, r5, pc}
-	thumb_func_end ov96_021E94EC

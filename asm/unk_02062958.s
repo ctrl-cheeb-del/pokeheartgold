@@ -12,60 +12,7 @@
 	.include "unk_02062108.inc"
 	.include "global.inc"
 	.text
-	thumb_func_start sub_02062958
-sub_02062958: ; 0x02062958
-	push {r3, r4, r5, r6, r7, lr}
-	add r4, r1, #0
-	mov r1, #0x10
-	add r5, r0, #0
-	add r6, r2, #0
-	add r7, r3, #0
-	bl sub_0205F3C0
-	strb r4, [r0, #0xc]
-	str r6, [r0]
-	strb r7, [r0, #0xd]
-	add r2, sp, #8
-	ldrh r1, [r2, #0x10]
-	strb r1, [r0, #0xe]
-	mov r1, #0x14
-	ldrsh r1, [r2, r1]
-	cmp r6, #0
-	strb r1, [r0, #0xf]
-	ldrh r1, [r2, #0x18]
-	strh r1, [r0, #8]
-	bne _0206298A
-	add r0, r5, #0
-	bl sub_02060F78
-	b _02062992
-_0206298A:
-	add r0, r5, #0
-	add r1, r4, #0
-	bl sub_02060F24
-_02062992:
-	ldr r1, _020629C4 ; =0x00010004
-	add r0, r5, #0
-	bl MapObject_SetFlagsBits
-	add r0, r5, #0
-	add r1, r4, #0
-	bl MapObject_SetOrQueueFacing
-	add r1, sp, #8
-	ldrh r1, [r1, #0x10]
-	add r0, r5, #0
-	bl sub_0205F328
-	add r0, r5, #0
-	bl MapObject_IncrementMovementStep
-	add r0, r5, #0
-	bl MapObject_CheckVisible
-	cmp r0, #0
-	bne _020629C2
-	ldr r0, _020629C8 ; =SEQ_SE_DP_DANSA
-	bl PlaySE
-_020629C2:
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_020629C4: .word 0x00010004
-_020629C8: .word SEQ_SE_DP_DANSA
-	thumb_func_end sub_02062958
+	.public sub_02062958
 	thumb_func_start MapObjectMovementCmd092_Step1
 MapObjectMovementCmd092_Step1: ; 0x020629CC
 	push {r3, r4, r5, lr}

@@ -514,5 +514,3 @@ _0220B138:
 _0220B140: .word ov96_0221DC68
 _0220B144: .word ov96_0221CDA0
 	thumb_func_end ov96_0220B0A4
-
-

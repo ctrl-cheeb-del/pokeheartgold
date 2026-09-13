@@ -267,5 +267,3 @@ _021FC17E:
 	nop
 _021FC184: .word 0x00000618
 	thumb_func_end ov96_021FC164
-
-

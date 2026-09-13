@@ -571,7 +571,3 @@ _02249DDA:
 	nop
 _02249E3C: .word ov41_02249F0C
 	thumb_func_end ov41_02249DB4
-
-
-
-

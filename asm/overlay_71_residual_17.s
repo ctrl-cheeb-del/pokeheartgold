@@ -953,6 +953,8 @@
 	.public ov71_0224B990
 	.public ov71_0224BA48
 	.public ov71_0224BAA0
+	.public ov71_022482EC
+	.public ov71_02248358
 
 	thumb_func_start ov71_0224820C
 ov71_0224820C: ; 0x0224820C
@@ -1069,99 +1071,3 @@ _022482E2:
 _022482E4: .word 0xFFFFC000
 _022482E8: .word 0x000005E6
 	thumb_func_end ov71_0224820C
-
-
-	thumb_func_start ov71_022482EC
-ov71_022482EC: ; 0x022482EC
-	push {r3, r4, r5, lr}
-	mov r1, #0x5b
-	add r5, r0, #0
-	mov r0, #0x39
-	lsl r1, r1, #2
-	bl Heap_Alloc
-	add r4, r0, #0
-	beq _0224834E
-	str r5, [r4]
-	mov r0, #0
-	str r0, [r4, #4]
-	add r0, r5, #0
-	bl ov71_02247384
-	add r1, r4, #0
-	add r1, #0xc0
-	str r0, [r1]
-	add r0, r4, #0
-	mov r1, #0
-	add r0, #0xd4
-	str r1, [r0]
-	add r0, r4, #0
-	add r0, #0xc4
-	str r1, [r0]
-	add r0, r4, #0
-	add r0, #0xcc
-	str r1, [r0]
-	mov r0, #0x16
-	lsl r0, r0, #4
-	str r1, [r4, r0]
-	add r0, r0, #4
-	str r1, [r4, r0]
-	bl MTRandom
-	add r1, r4, #0
-	add r1, #0xbc
-	str r0, [r1]
-	add r0, r4, #0
-	mov r2, #0
-	add r0, #0xd0
-	str r2, [r0]
-	mov r0, #0x5a
-	lsl r0, r0, #2
-	str r2, [r4, r0]
-	ldr r0, _02248354 ; =ov71_02248B60
-	add r1, r4, #0
-	bl SysTask_CreateOnVWaitQueue
-_0224834E:
-	add r0, r4, #0
-	pop {r3, r4, r5, pc}
-	nop
-_02248354: .word ov71_02248B60
-	thumb_func_end ov71_022482EC
-
-
-	thumb_func_start ov71_02248358
-ov71_02248358: ; 0x02248358
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	bl OS_DisableInterrupts
-	add r4, r0, #0
-	cmp r5, #0
-	beq _022483A4
-	add r0, r5, #0
-	bl ov71_0224889C
-	add r0, r5, #0
-	bl ov71_022489F8
-	add r0, r5, #0
-	bl ov71_02248B24
-	mov r0, #0x16
-	lsl r0, r0, #4
-	ldr r0, [r5, r0]
-	cmp r0, #0
-	beq _02248386
-	bl SysTask_Destroy
-_02248386:
-	mov r0, #0x59
-	lsl r0, r0, #2
-	ldr r0, [r5, r0]
-	cmp r0, #0
-	beq _02248394
-	bl ov71_02248E04
-_02248394:
-	add r0, r5, #0
-	add r0, #0xbc
-	ldr r0, [r0]
-	bl SetMTRNGSeed
-	add r0, r5, #0
-	bl Heap_Free
-_022483A4:
-	add r0, r4, #0
-	bl OS_RestoreInterrupts
-	pop {r3, r4, r5, pc}
-	thumb_func_end ov71_02248358

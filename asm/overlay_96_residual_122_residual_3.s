@@ -430,5 +430,3 @@ _02219D48:
 	nop
 _02219DA4: .word 0x00002712
 	thumb_func_end ov96_02219C30
-
-

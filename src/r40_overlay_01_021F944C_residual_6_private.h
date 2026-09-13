@@ -1,0 +1,7 @@
+#ifndef SOL_R40_NIGHT_OVERLAY01_21F944C_RESIDUAL6_PRIVATE_H
+#define SOL_R40_NIGHT_OVERLAY01_21F944C_RESIDUAL6_PRIVATE_H
+#include "global.h"
+void ov01_021F9DD0(void *, u32);
+int ov01_021F9E04(void *, u32);
+BOOL ov01_021F9E9C(void *, u32);
+#endif

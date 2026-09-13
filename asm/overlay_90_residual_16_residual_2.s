@@ -365,5 +365,3 @@ _0225A0C6:
 _0225A100: .word 0x0000FF01
 _0225A104: .word ov90_0225A1B8
 	thumb_func_end ov90_0225A088
-
-

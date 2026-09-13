@@ -625,5 +625,3 @@ _02249B5C:
 	add sp, #8
 	pop {r4, r5, r6, pc}
 	thumb_func_end ov41_02249B44
-
-

@@ -2933,5 +2933,3 @@ ov70_0223E690: ; 0x0223E690
 	add sp, #0xc
 	pop {r4, r5, pc}
 	thumb_func_end ov70_0223E690
-
-

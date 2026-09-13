@@ -410,5 +410,3 @@ ov96_021EE908: ; 0x021EE908
 	pop {r3, r4, pc}
 	.balign 4, 0
 	thumb_func_end ov96_021EE908
-
-

@@ -151,6 +151,8 @@
 	.public ov48_0225B0E0
 	.public ov48_0225B108
 	.public ov48_0225B13C
+	.public ov48_02259650
+	.public ov48_02259688
 
 	thumb_func_start ov48_022594F0
 ov48_022594F0: ; 0x022594F0
@@ -309,102 +311,3 @@ _02259644: .word ov48_0225B2A4
 _02259648: .word ov48_0225B1B0
 _0225964C: .word 0x000072CA
 	thumb_func_end ov48_022594F0
-
-
-	thumb_func_start ov48_02259650
-ov48_02259650: ; 0x02259650
-	push {r4, r5, r6, lr}
-	ldr r5, _02259680 ; =ov48_0225B1B0
-	add r6, r0, #0
-	mov r4, #0
-_02259658:
-	ldr r1, [r5]
-	ldr r0, [r6]
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x18
-	bl FreeBgTilemapBuffer
-	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #5
-	blt _02259658
-	ldr r0, [r6]
-	bl Heap_Free
-	ldr r0, _02259684 ; =gSystem + 0x60
-	mov r1, #0
-	strb r1, [r0, #9]
-	bl GfGfx_SwapDisplay
-	pop {r4, r5, r6, pc}
-	nop
-_02259680: .word ov48_0225B1B0
-_02259684: .word gSystem + 0x60
-	thumb_func_end ov48_02259650
-
-
-	thumb_func_start ov48_02259688
-ov48_02259688: ; 0x02259688
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x14
-	add r5, r0, #0
-	add r6, r1, #0
-	bl NNS_G2dInitOamManagerModule
-	mov r0, #0
-	str r0, [sp]
-	mov r1, #0x7e
-	str r1, [sp, #4]
-	str r0, [sp, #8]
-	mov r3, #0x1f
-	str r3, [sp, #0xc]
-	add r2, r0, #0
-	str r6, [sp, #0x10]
-	bl OamManager_Create
-	mov r1, #0x10
-	ldr r0, _02259720 ; =ov48_0225B1A0
-	add r2, r1, #0
-	bl ObjCharTransfer_InitEx
-	mov r0, #0x20
-	add r1, r6, #0
-	bl ObjPlttTransfer_Init
-	bl ObjCharTransfer_ClearBuffers
-	bl ObjPlttTransfer_Reset
-	mov r0, #1
-	mov r1, #0x10
-	bl G2dRenderer_SetObjCharTransferReservedRegion
-	mov r0, #1
-	bl G2dRenderer_SetPlttTransferReservedRegion
-	add r1, r5, #0
-	mov r0, #0x20
-	add r1, #8
-	add r2, r6, #0
-	bl G2dRenderer_Init
-	str r0, [r5, #4]
-	add r0, r5, #0
-	mov r2, #1
-	add r0, #8
-	mov r1, #0
-	lsl r2, r2, #0x14
-	bl G2dRenderer_SetSubSurfaceCoords
-	mov r7, #0x13
-	mov r4, #0
-	lsl r7, r7, #4
-_022596F4:
-	mov r0, #0x20
-	add r1, r4, #0
-	add r2, r6, #0
-	bl Create2DGfxResObjMan
-	str r0, [r5, r7]
-	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #4
-	blt _022596F4
-	bl sub_0203A880
-	mov r0, #0x10
-	mov r1, #1
-	bl GfGfx_EngineATogglePlanes
-	mov r0, #0x10
-	mov r1, #1
-	bl GfGfx_EngineBTogglePlanes
-	add sp, #0x14
-	pop {r4, r5, r6, r7, pc}
-	.balign 4, 0
-_02259720: .word ov48_0225B1A0
-	thumb_func_end ov48_02259688

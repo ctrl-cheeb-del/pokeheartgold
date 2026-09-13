@@ -3071,26 +3071,8 @@
 	.public ov14_021F6A34
 	.public ov14_021F6B10
 	.public ov14_021F6B7C
-
-	thumb_func_start ov14_021F6314
-ov14_021F6314: ; 0x021F6314
-	push {r4, lr}
-	add r4, r0, #0
-	mov r0, #0x2f
-	mov r2, #0x1f
-	ldr r3, [r4, #0x34]
-	lsl r0, r0, #4
-	lsl r2, r2, #4
-	ldr r0, [r3, r0]
-	mov r1, #0xb
-	add r2, r3, r2
-	bl ov14_021F6208
-	add r0, r4, #0
-	mov r1, #0
-	bl ov14_021F5ED4
-	pop {r4, pc}
-	.balign 4, 0
-	thumb_func_end ov14_021F6314
+	.public ov14_021F6314
+	.public ov14_021F638C
 
 
 	thumb_func_start ov14_021F6338
@@ -3134,20 +3116,3 @@ ov14_021F6338: ; 0x021F6338
 	.balign 4, 0
 _021F6388: .word 0x00090A0D
 	thumb_func_end ov14_021F6338
-
-
-	thumb_func_start ov14_021F638C
-ov14_021F638C: ; 0x021F638C
-	push {r4, lr}
-	add r4, r0, #0
-	mov r1, #0x22
-	mov r2, #0x48
-	mov r3, #0
-	bl ov14_021F6338
-	add r0, r4, #0
-	mov r1, #0x23
-	mov r2, #0x49
-	mov r3, #0
-	bl ov14_021F6338
-	pop {r4, pc}
-	thumb_func_end ov14_021F638C

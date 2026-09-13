@@ -4062,6 +4062,7 @@
 	.public ov40_0224320C
 	.public ov40_0224326C
 	.public ov40_022439B8
+	.public ov40_02243F88
 
 
 	thumb_func_start ov40_02243EEC
@@ -4108,6 +4109,10 @@ ov40_02243EEC: ; 0x02243EEC
 
 
 
+
+
+
+
 	thumb_func_start ov40_02243F38
 ov40_02243F38: ; 0x02243F38
 	push {r4, lr}
@@ -4150,106 +4155,3 @@ ov40_02243F38: ; 0x02243F38
 	bl ManagedSprite_SetPositionXY
 	pop {r4, pc}
 	thumb_func_end ov40_02243F38
-
-
-
-
-	thumb_func_start ov40_02243F88
-ov40_02243F88: ; 0x02243F88
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	mov r0, #0x65
-	lsl r0, r0, #2
-	ldr r0, [r5, r0]
-	bl ManagedSprite_TickFrame
-	mov r0, #0x1b
-	lsl r0, r0, #4
-	ldr r0, [r5, r0]
-	bl ManagedSprite_TickFrame
-	mov r0, #0x73
-	lsl r0, r0, #2
-	ldr r0, [r5, r0]
-	bl ManagedSprite_TickFrame
-	add r4, r5, #0
-	mov r7, #0x65
-	mov r6, #1
-	add r4, #0x1c
-	lsl r7, r7, #2
-_02243FB4:
-	ldr r0, [r4, r7]
-	bl ManagedSprite_GetActiveAnim
-	cmp r0, #3
-	bne _02244008
-	mov r0, #0x65
-	lsl r0, r0, #2
-	ldr r0, [r4, r0]
-	bl ManagedSprite_IsAnimated
-	cmp r0, #0
-	bne _0224404A
-	mov r0, #0x65
-	mov r1, #0x62
-	lsl r0, r0, #2
-	lsl r1, r1, #2
-	ldr r0, [r4, r0]
-	ldr r1, [r4, r1]
-	bl ManagedSprite_SetAnim
-	mov r0, #0xa6
-	lsl r0, r0, #2
-	ldr r0, [r5, r0]
-	cmp r0, #1
-	bne _02243FF2
-	add r0, r5, #0
-	mov r1, #1
-	mov r2, #0
-	bl ov40_02243E80
-	b _02243FFC
-_02243FF2:
-	mov r1, #1
-	add r0, r5, #0
-	add r2, r1, #0
-	bl ov40_02243E80
-_02243FFC:
-	add r0, r5, #0
-	mov r1, #2
-	mov r2, #0
-	bl ov40_02243E80
-	b _0224404A
-_02244008:
-	mov r1, #0x62
-	lsl r1, r1, #2
-	ldr r1, [r4, r1]
-	cmp r0, r1
-	beq _0224401C
-	mov r0, #0x65
-	lsl r0, r0, #2
-	ldr r0, [r4, r0]
-	bl ManagedSprite_SetAnim
-_0224401C:
-	mov r0, #0x73
-	lsl r0, r0, #2
-	ldr r0, [r5, r0]
-	bl ManagedSprite_GetActiveAnim
-	cmp r0, #3
-	beq _0224404A
-	mov r0, #0xa6
-	lsl r0, r0, #2
-	ldr r0, [r5, r0]
-	cmp r0, #1
-	bne _02244040
-	add r0, r5, #0
-	mov r1, #1
-	mov r2, #0
-	bl ov40_02243E80
-	b _0224404A
-_02244040:
-	mov r1, #1
-	add r0, r5, #0
-	add r2, r1, #0
-	bl ov40_02243E80
-_0224404A:
-	add r6, r6, #1
-	add r4, #0x1c
-	cmp r6, #3
-	blt _02243FB4
-	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end ov40_02243F88

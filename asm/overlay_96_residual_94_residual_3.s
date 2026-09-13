@@ -297,5 +297,3 @@ _0220B184:
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov96_0220B178
-
-

@@ -478,5 +478,3 @@ _0220B6AE:
 _0220B6E4: .word ov96_0221E5A4
 _0220B6E8: .word 0xFC03FFFF
 	thumb_func_end ov96_0220B634
-
-

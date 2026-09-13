@@ -113,4 +113,3 @@ _021E5C58:
 	pop {r3, r4, pc}
 	.balign 4, 0
 	thumb_func_end ov113_021E5C0C
-

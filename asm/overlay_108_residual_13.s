@@ -110,98 +110,10 @@
 	.public ov108_021E853C
 	.public ov108_021E8674
 	.public ov108_021E8718
-
-	thumb_func_start ov108_021E78F4
-ov108_021E78F4: ; 0x021E78F4
-	push {r3, r4, r5, r6, r7, lr}
-	add r7, r2, #0
-	add r5, r0, #0
-	add r4, r1, #0
-	mov r6, #0
-	cmp r7, #6
-	blo _021E790C
-	mov r0, #0xe0
-	str r0, [sp]
-	mov r2, #0xb4
-	mov r6, #1
-	b _021E7984
-_021E790C:
-	cmp r4, #1
-	beq _021E795E
-	add r0, r7, #0
-	mov r1, #3
-	bl _s32_div_f
-	mov r0, #0x48
-	mul r0, r1
-	add r0, #0x38
-	lsl r0, r0, #0x10
-	asr r0, r0, #0x10
-	str r0, [sp]
-	add r0, r7, #0
-	mov r1, #3
-	bl _s32_div_f
-	mov r1, #0x48
-	mul r1, r0
-	add r1, #0x38
-	lsl r0, r1, #0x10
-	asr r2, r0, #0x10
-	cmp r4, #2
-	bne _021E7942
-	add r2, #0xc0
-	lsl r0, r2, #0x10
-	asr r2, r0, #0x10
-	b _021E7984
-_021E7942:
-	cmp r4, #3
-	bne _021E794A
-	mov r6, #2
-	b _021E7984
-_021E794A:
-	cmp r4, #0
-	bne _021E7984
-	ldr r0, _021E79A4 ; =0x000184E2
-	ldrb r0, [r5, r0]
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x1b
-	cmp r0, #2
-	bne _021E7984
-	mov r6, #3
-	b _021E7984
-_021E795E:
-	add r0, r7, #0
-	mov r1, #3
-	bl _s32_div_f
-	mov r0, #0x50
-	mul r0, r1
-	add r0, #0x30
-	lsl r0, r0, #0x10
-	asr r0, r0, #0x10
-	str r0, [sp]
-	add r0, r7, #0
-	mov r1, #3
-	bl _s32_div_f
-	mov r1, #0x48
-	mul r1, r0
-	add r1, #0x38
-	lsl r0, r1, #0x10
-	asr r2, r0, #0x10
-_021E7984:
-	lsl r0, r4, #2
-	add r1, r5, r0
-	mov r0, #0xd5
-	lsl r0, r0, #2
-	ldr r0, [r1, r0]
-	ldr r1, [sp]
-	bl Sprite_SetPositionXY
-	add r0, r5, #0
-	add r1, r4, #0
-	add r2, r6, #0
-	mov r3, #1
-	bl ov108_021E78C0
-	pop {r3, r4, r5, r6, r7, pc}
-	nop
-_021E79A4: .word 0x000184E2
-	thumb_func_end ov108_021E78F4
+	.public ov108_021E78F4
+	.public ov108_021E7ADC
+	.public ov108_021E7B74
+	.public ov108_021E7BB4
 
 
 	thumb_func_start ov108_021E79A8
@@ -353,7 +265,6 @@ _021E7AD4: .word 0x000004D4
 _021E7AD8: .word 0x000184E2
 	thumb_func_end ov108_021E79A8
 
-
 	thumb_func_start ov108_021E7ADC
 ov108_021E7ADC: ; 0x021E7ADC
 	push {r3, r4, r5, r6, r7, lr}
@@ -432,77 +343,3 @@ _021E7B1A:
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 	thumb_func_end ov108_021E7ADC
-
-
-	thumb_func_start ov108_021E7B74
-ov108_021E7B74: ; 0x021E7B74
-	push {r4, r5, r6, lr}
-	sub sp, #8
-	add r5, r0, #0
-	ldr r0, [r5]
-	add r3, #0x12
-	add r4, r2, #0
-	str r0, [sp]
-	add r0, r1, #0
-	add r1, r3, #0
-	mov r2, #0
-	add r3, sp, #4
-	bl GfGfxLoader_GetCharDataFromOpenNarc
-	add r6, r0, #0
-	lsl r0, r4, #6
-	add r0, r0, #1
-	str r0, [sp]
-	mov r0, #0xd
-	ldr r2, [sp, #4]
-	lsl r0, r0, #6
-	mov r3, #1
-	ldr r0, [r5, r0]
-	ldr r2, [r2, #0x14]
-	mov r1, #5
-	lsl r3, r3, #0xc
-	bl BG_LoadCharTilesData
-	add r0, r6, #0
-	bl Heap_Free
-	add sp, #8
-	pop {r4, r5, r6, pc}
-	thumb_func_end ov108_021E7B74
-
-
-	thumb_func_start ov108_021E7BB4
-ov108_021E7BB4: ; 0x021E7BB4
-	push {r3, r4, r5, r6, r7, lr}
-	add r6, r0, #0
-	add r4, r1, #0
-	ldr r1, [r6]
-	mov r0, #0xa6
-	add r5, r2, #0
-	bl NARC_New
-	add r7, r0, #0
-	cmp r4, #6
-	blo _021E7BE6
-	mov r4, #0
-	add r5, r6, #0
-_021E7BCE:
-	ldrb r3, [r5, #0x1c]
-	lsl r2, r4, #0x18
-	add r0, r6, #0
-	add r1, r7, #0
-	lsr r2, r2, #0x18
-	bl ov108_021E7B74
-	add r4, r4, #1
-	add r5, #0x7a
-	cmp r4, #6
-	blt _021E7BCE
-	b _021E7BF2
-_021E7BE6:
-	add r0, r6, #0
-	add r1, r7, #0
-	add r2, r4, #0
-	add r3, r5, #0
-	bl ov108_021E7B74
-_021E7BF2:
-	add r0, r7, #0
-	bl NARC_Delete
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov108_021E7BB4

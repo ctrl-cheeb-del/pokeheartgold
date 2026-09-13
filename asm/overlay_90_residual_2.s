@@ -189,22 +189,7 @@
 	.public ov90_0225C1B8
 	.public ov90_0225C1C8
 	.public ov90_0225C1D4
-
-	thumb_func_start ov90_0225888C
-ov90_0225888C: ; 0x0225888C
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	ldrb r0, [r5, #8]
-	add r4, r1, #0
-	cmp r4, r0
-	blo _0225889C
-	bl GF_AssertFail
-_0225889C:
-	add r0, r5, r4
-	ldrb r0, [r0, #4]
-	pop {r3, r4, r5, pc}
-	.balign 4, 0
-	thumb_func_end ov90_0225888C
+	.public ov90_0225888C
 
 
 	thumb_func_start ov90_022588A4
@@ -232,6 +217,8 @@ _022588C6:
 	ldrb r0, [r0, #8]
 	pop {r3, pc}
 	thumb_func_end ov90_022588A4
+
+
 
 
 	thumb_func_start ov90_022588CC

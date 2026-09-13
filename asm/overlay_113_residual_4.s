@@ -102,4 +102,3 @@ _021E5CF2:
 	add sp, #0xc
 	pop {r3, r4, pc}
 	thumb_func_end ov113_021E5C68
-

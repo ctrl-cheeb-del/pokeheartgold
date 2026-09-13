@@ -788,5 +788,3 @@ _0222AA22:
 	.balign 4, 0
 _0222AA6C: .word 0x000F0200
 	thumb_func_end ov43_0222A9F4
-
-

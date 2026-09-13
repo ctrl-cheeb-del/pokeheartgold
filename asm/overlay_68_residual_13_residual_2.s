@@ -199,5 +199,3 @@ ov68_021E71C4: ; 0x021E71C4
 _021E721C: .word ov68_021E7BEC
 _021E7220: .word 0x000005C1
 	thumb_func_end ov68_021E71C4
-
-

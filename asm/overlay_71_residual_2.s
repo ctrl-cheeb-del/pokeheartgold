@@ -953,44 +953,7 @@
 	.public ov71_0224B990
 	.public ov71_0224BA48
 	.public ov71_0224BAA0
-
-	thumb_func_start TradeSequence_Exit
-TradeSequence_Exit: ; 0x02246B58
-	push {r4, r5, r6, lr}
-	add r5, r0, #0
-	bl OS_DisableInterrupts
-	add r6, r0, #0
-	add r0, r5, #0
-	bl OverlayManager_GetData
-	add r4, r0, #0
-	mov r0, #0x51
-	lsl r0, r0, #2
-	ldr r0, [r4, r0]
-	bl SysTask_Destroy
-	bl sub_0203A914
-	ldr r0, [r4, #0xc]
-	bl MessageFormat_Delete
-	ldr r0, [r4, #0x10]
-	bl DestroyMsgData
-	ldr r0, [r4, #0x14]
-	bl String_Delete
-	ldr r0, [r4, #8]
-	bl Heap_Free
-	ldr r0, [r4, #0x18]
-	bl SpriteList_Delete
-	bl OamManager_Free
-	add r0, r5, #0
-	bl OverlayManager_FreeData
-	mov r0, #0x38
-	bl Heap_Destroy
-	mov r0, #0x39
-	bl Heap_Destroy
-	add r0, r6, #0
-	bl OS_RestoreInterrupts
-	mov r0, #1
-	pop {r4, r5, r6, pc}
-	.balign 4, 0
-	thumb_func_end TradeSequence_Exit
+	.public TradeSequence_Exit
 
 
 	thumb_func_start TradeSequence_Main
@@ -1069,6 +1032,8 @@ _02246C44: .word ov71_0224BBF4
 	thumb_func_end TradeSequence_Main
 
 
+
+
 	thumb_func_start ov71_02246C48
 ov71_02246C48: ; 0x02246C48
 	push {r3, lr}
@@ -1086,6 +1051,8 @@ ov71_02246C48: ; 0x02246C48
 _02246C64: .word 0x027E0000
 _02246C68: .word 0x00003FF8
 	thumb_func_end ov71_02246C48
+
+
 
 
 	thumb_func_start ov71_02246C6C

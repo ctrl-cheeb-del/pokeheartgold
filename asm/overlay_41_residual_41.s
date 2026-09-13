@@ -458,6 +458,9 @@
 	.public ov41_02249780
 	.public ov41_022497A0
 	.public ov41_02249888
+	.public ov41_02248E10
+	.public ov41_02248E28
+	.public ov41_02248E44
 
 	thumb_func_start ov41_02248DC8
 ov41_02248DC8: ; 0x02248DC8
@@ -497,76 +500,3 @@ _02248E0C:
 	add sp, #8
 	pop {r4, pc}
 	thumb_func_end ov41_02248DC8
-
-
-	thumb_func_start ov41_02248E10
-ov41_02248E10: ; 0x02248E10
-	push {r3, r4, r5, lr}
-	add r4, r1, #0
-	add r5, r0, #0
-	bl _s32_div_f
-	sub r0, r4, r1
-	add r0, r5, r0
-	add r1, r4, #0
-	bl _s32_div_f
-	pop {r3, r4, r5, pc}
-	.balign 4, 0
-	thumb_func_end ov41_02248E10
-
-
-	thumb_func_start ov41_02248E28
-ov41_02248E28: ; 0x02248E28
-	add r3, r0, #0
-	mov r2, #0x1c
-	mov r1, #0
-_02248E2E:
-	strb r1, [r3]
-	add r3, r3, #1
-	sub r2, r2, #1
-	bne _02248E2E
-	ldr r1, _02248E40 ; =ov41_02248E80
-	str r1, [r0, #4]
-	str r1, [r0, #8]
-	str r1, [r0, #0xc]
-	bx lr
-	.balign 4, 0
-_02248E40: .word ov41_02248E80
-	thumb_func_end ov41_02248E28
-
-
-	thumb_func_start ov41_02248E44
-ov41_02248E44: ; 0x02248E44
-	push {r4, lr}
-	ldr r1, _02248E7C ; =gSystem + 0x40
-	add r4, r0, #0
-	ldrh r2, [r1, #0x24]
-	cmp r2, #0
-	beq _02248E56
-	ldr r1, [r4, #4]
-	blx r1
-	b _02248E6C
-_02248E56:
-	ldrh r1, [r1, #0x26]
-	cmp r1, #0
-	beq _02248E62
-	ldr r1, [r4, #0xc]
-	blx r1
-	b _02248E6C
-_02248E62:
-	ldrb r1, [r4, #0x18]
-	cmp r1, #0
-	beq _02248E6C
-	ldr r1, [r4, #8]
-	blx r1
-_02248E6C:
-	ldr r0, _02248E7C ; =gSystem + 0x40
-	ldrh r1, [r0, #0x20]
-	strh r1, [r4, #0x14]
-	ldrh r1, [r0, #0x22]
-	strh r1, [r4, #0x16]
-	ldrh r0, [r0, #0x26]
-	strb r0, [r4, #0x18]
-	pop {r4, pc}
-	.balign 4, 0
-_02248E7C: .word gSystem + 0x40
-	thumb_func_end ov41_02248E44

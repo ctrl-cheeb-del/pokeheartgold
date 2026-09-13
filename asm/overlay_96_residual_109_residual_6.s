@@ -331,5 +331,3 @@ _0221452E:
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end ov96_022144C0
-
-

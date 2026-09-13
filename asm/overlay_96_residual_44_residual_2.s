@@ -374,5 +374,3 @@ _021EECE6:
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov96_021EECB8
-
-

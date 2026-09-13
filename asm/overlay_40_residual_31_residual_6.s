@@ -4062,6 +4062,7 @@
 	.public ov40_0224320C
 	.public ov40_0224326C
 	.public ov40_022439B8
+	.public ov40_02238D5C
 
 	thumb_func_start ov40_02238838
 ov40_02238838: ; 0x02238838
@@ -4303,6 +4304,8 @@ _02238A4C: .word 0x00002E0C
 	thumb_func_end ov40_02238838
 
 
+
+
 	thumb_func_start ov40_02238A50
 ov40_02238A50: ; 0x02238A50
 	push {r3, r4, r5, lr}
@@ -4461,6 +4464,8 @@ _02238BA4: .word 0x0000049C
 _02238BA8: .word 0x000004D4
 _02238BAC: .word 0x00002ED8
 	thumb_func_end ov40_02238A50
+
+
 
 
 	thumb_func_start ov40_02238BB0
@@ -4654,161 +4659,3 @@ _02238D50: .word 0x0000049C
 _02238D54: .word 0x00002E0C
 _02238D58: .word 0x000004D8
 	thumb_func_end ov40_02238BB0
-
-
-	thumb_func_start ov40_02238D5C
-ov40_02238D5C: ; 0x02238D5C
-	push {r3, r4, r5, r6, r7, lr}
-	mov r1, #0x86
-	add r5, r0, #0
-	lsl r1, r1, #4
-	ldr r7, [r5, r1]
-	ldr r1, [r5, #8]
-	cmp r1, #0
-	beq _02238D72
-	cmp r1, #1
-	beq _02238DC8
-	b _02238E1E
-_02238D72:
-	mov r1, #1
-	bl ov40_02230964
-	add r0, r5, #0
-	bl ov40_02237008
-	add r0, r5, #0
-	bl ov40_02236534
-	ldr r0, _02238EB4 ; =0x000006F4
-	mov r1, #0
-	ldr r0, [r5, r0]
-	bl sub_020878B0
-	ldr r0, _02238EB4 ; =0x000006F4
-	mov r1, #0
-	ldr r0, [r5, r0]
-	bl sub_020879E0
-	mov r0, #0x6f
-	lsl r0, r0, #4
-	ldr r0, [r5, r0]
-	mov r1, #1
-	bl sub_020878B0
-	mov r0, #0x6f
-	lsl r0, r0, #4
-	ldr r0, [r5, r0]
-	mov r1, #0
-	bl sub_020879E0
-	add r0, r5, #0
-	mov r1, #0
-	bl ov40_02230964
-	add r0, r5, #0
-	mov r1, #1
-	bl ov40_0222FB90
-	ldr r0, [r5, #8]
-	add r0, r0, #1
-	str r0, [r5, #8]
-	b _02238EB0
-_02238DC8:
-	bl ov40_0222FBB4
-	cmp r0, #0
-	beq _02238EB0
-	mov r6, #0
-	add r4, r7, #0
-_02238DD4:
-	mov r0, #0x33
-	lsl r0, r0, #4
-	ldr r0, [r4, r0]
-	bl TouchHitboxController_Destroy
-	add r6, r6, #1
-	add r4, r4, #4
-	cmp r6, #5
-	blt _02238DD4
-	mov r0, #0x6b
-	lsl r0, r0, #2
-	add r0, r7, r0
-	bl ov40_0222DAA8
-	add r0, r5, #0
-	bl ov40_0222D88C
-	ldr r0, [r5, #0x24]
-	mov r1, #2
-	bl BgClearTilemapBufferAndCommit
-	ldr r0, [r5, #0x24]
-	mov r1, #6
-	bl BgClearTilemapBufferAndCommit
-	ldr r0, [r5, #0x24]
-	mov r1, #3
-	bl BgClearTilemapBufferAndCommit
-	ldr r0, [r5, #0x24]
-	mov r1, #7
-	bl BgClearTilemapBufferAndCommit
-	ldr r0, [r5, #8]
-	add r0, r0, #1
-	str r0, [r5, #8]
-	b _02238EB0
-_02238E1E:
-	mov r0, #0x6b
-	lsl r0, r0, #2
-	add r0, r7, r0
-	mov r1, #0
-	bl ov40_0222DA84
-	cmp r0, #0
-	beq _02238E78
-	add r0, r5, #0
-	bl ov40_0222DD08
-	mov r0, #0x6b
-	lsl r0, r0, #2
-	add r0, r7, r0
-	bl ov40_0222DAA8
-	ldr r0, [r5, #0x58]
-	mov r1, #2
-	lsl r0, r0, #0x10
-	lsr r0, r0, #0x10
-	str r0, [sp]
-	ldr r0, [r5, #0x28]
-	mov r2, #0xc
-	mov r3, #0x10
-	bl PaletteData_BlendPalettes
-	mov r1, #1
-	ldr r3, [r5, #0x10]
-	add r0, r5, #0
-	add r2, r1, #0
-	bl ov40_0222BF64
-	add r0, r5, #0
-	mov r1, #5
-	bl ov40_0222BF80
-	mov r0, #0xe1
-	lsl r0, r0, #2
-	ldr r0, [r7, r0]
-	bl sub_020314BC
-	add r0, r7, #0
-	bl Heap_Free
-	b _02238EB0
-_02238E78:
-	ldr r0, [r5, #0x58]
-	mov r3, #0x6b
-	lsl r0, r0, #0x10
-	lsr r0, r0, #0x10
-	str r0, [sp]
-	lsl r3, r3, #2
-	ldr r3, [r7, r3]
-	ldr r0, [r5, #0x28]
-	lsl r3, r3, #0x18
-	mov r1, #1
-	mov r2, #2
-	lsr r3, r3, #0x18
-	bl PaletteData_BlendPalettes
-	ldr r0, [r5, #0x58]
-	mov r3, #0x6b
-	lsl r0, r0, #0x10
-	lsr r0, r0, #0x10
-	str r0, [sp]
-	lsl r3, r3, #2
-	ldr r3, [r7, r3]
-	ldr r0, [r5, #0x28]
-	lsl r3, r3, #0x18
-	mov r1, #3
-	mov r2, #0xc
-	lsr r3, r3, #0x18
-	bl PaletteData_BlendPalettes
-_02238EB0:
-	mov r0, #0
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_02238EB4: .word 0x000006F4
-	thumb_func_end ov40_02238D5C

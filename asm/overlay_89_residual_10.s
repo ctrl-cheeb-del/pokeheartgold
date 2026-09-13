@@ -859,6 +859,7 @@
 	.public ov89_0225B078
 	.public ov89_0225C818
 	.public ov89_0225C91C
+	.public ov89_0225AFFC
 
 	thumb_func_start ov89_0225AFC0
 ov89_0225AFC0: ; 0x0225AFC0
@@ -894,70 +895,3 @@ _0225AFDE:
 	.balign 4, 0
 _0225AFF8: .word 0xFF00FFFF
 	thumb_func_end ov89_0225AFC0
-
-
-	thumb_func_start ov89_0225AFFC
-ov89_0225AFFC: ; 0x0225AFFC
-	push {r3, lr}
-	ldr r0, [r0, #4]
-	bl GetNatureFromPersonality
-	ldr r1, _0225B00C ; =ov89_0225CE34
-	ldrb r0, [r1, r0]
-	pop {r3, pc}
-	nop
-_0225B00C: .word ov89_0225CE34
-	thumb_func_end ov89_0225AFFC
-
-
-	thumb_func_start ov89_0225B010
-ov89_0225B010: ; 0x0225B010
-	push {r4, r5, r6, lr}
-	add r5, r1, #0
-	add r6, r0, #0
-	add r0, r5, #0
-	add r0, #0x94
-	ldr r0, [r0]
-	add r4, r5, #0
-	add r2, r0, #1
-	add r0, r5, #0
-	add r0, #0x94
-	str r2, [r0]
-	add r0, r5, #0
-	add r0, #0x94
-	ldr r0, [r0]
-	add r4, #0x94
-	cmp r0, #2
-	bne _0225B058
-	add r0, r5, #0
-	add r0, #0x1c
-	add r2, r4, #4
-	mov r3, #0
-	bl ov89_0225ADA4
-	add r0, r5, #0
-	add r0, #0x1c
-	mov r1, #1
-	bl sub_020182A0
-	mov r1, #9
-	lsl r1, r1, #6
-	ldr r2, [r5, r1]
-	mov r0, #0xf
-	bic r2, r0
-	mov r0, #1
-	orr r0, r2
-	str r0, [r5, r1]
-_0225B058:
-	ldr r0, [r4]
-	cmp r0, #0x28
-	ble _0225B074
-	add r0, r6, #0
-	add r1, r5, #0
-	bl ov89_0225AED0
-	add r0, r5, #0
-	bl ov89_0225AFFC
-	add r1, r0, #0
-	add r0, r5, #0
-	bl ov89_0225AFC0
-_0225B074:
-	mov r0, #0
-	pop {r4, r5, r6, pc}
-	thumb_func_end ov89_0225B010

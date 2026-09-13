@@ -151,6 +151,8 @@
 	.public ov48_0225B0E0
 	.public ov48_0225B108
 	.public ov48_0225B13C
+	.public ov48_0225A768
+	.public ov48_0225A790
 
 	thumb_func_start ov48_0225A680
 ov48_0225A680: ; 0x0225A680
@@ -202,6 +204,8 @@ _0225A6D0:
 _0225A6D4: .word 0x04001040
 _0225A6D8: .word 0x04001042
 	thumb_func_end ov48_0225A680
+
+
 
 
 	thumb_func_start ov48_0225A6DC
@@ -273,105 +277,3 @@ _0225A6F0:
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end ov48_0225A6DC
-
-
-	thumb_func_start ov48_0225A768
-ov48_0225A768: ; 0x0225A768
-	push {r4, r5, r6, lr}
-	add r6, r0, #0
-	mov r0, #0x5a
-	lsl r0, r0, #2
-	mov r4, #0
-	add r5, r6, r0
-_0225A774:
-	add r0, r5, #0
-	bl RemoveWindow
-	add r4, r4, #1
-	add r5, #0x10
-	cmp r4, #3
-	blt _0225A774
-	mov r0, #0x66
-	lsl r0, r0, #2
-	add r0, r6, r0
-	bl RemoveWindow
-	pop {r4, r5, r6, pc}
-	.balign 4, 0
-	thumb_func_end ov48_0225A768
-
-
-	thumb_func_start ov48_0225A790
-ov48_0225A790: ; 0x0225A790
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x14
-	add r4, r1, #0
-	add r5, r0, #0
-	add r6, r2, #0
-	add r7, r3, #0
-	cmp r4, #3
-	blo _0225A7A4
-	bl GF_AssertFail
-_0225A7A4:
-	mov r0, #0x5a
-	lsl r0, r0, #2
-	add r5, r5, r0
-	lsl r4, r4, #4
-	add r0, r5, r4
-	mov r1, #0
-	bl FillWindowPixelBuffer
-	ldr r0, [r6]
-	bl ov48_0225B038
-	str r0, [sp, #0x10]
-	add r0, r7, #0
-	mov r1, #2
-	bl ov48_0225B0C4
-	mov r3, #0
-	add r2, r0, #0
-	str r3, [sp]
-	mov r0, #0xff
-	str r0, [sp, #4]
-	ldr r0, [sp, #0x10]
-	lsl r1, r0, #2
-	ldr r0, _0225A82C ; =ov48_0225B1D8
-	ldr r0, [r0, r1]
-	mov r1, #1
-	str r0, [sp, #8]
-	str r3, [sp, #0xc]
-	add r0, r5, r4
-	bl AddTextPrinterParameterizedWithColor
-	ldr r1, [r6, #4]
-	add r0, r7, #0
-	bl ov48_0225B0E0
-	add r2, r0, #0
-	mov r0, #0x10
-	str r0, [sp]
-	mov r0, #0xff
-	str r0, [sp, #4]
-	ldr r0, _0225A830 ; =0x00010200
-	mov r3, #0
-	str r0, [sp, #8]
-	str r3, [sp, #0xc]
-	add r0, r5, r4
-	mov r1, #1
-	bl AddTextPrinterParameterizedWithColor
-	ldr r1, [r6, #4]
-	ldr r2, [r6, #8]
-	add r0, r7, #0
-	bl ov48_0225B108
-	add r2, r0, #0
-	mov r0, #0x20
-	str r0, [sp]
-	mov r0, #0xff
-	str r0, [sp, #4]
-	ldr r0, _0225A830 ; =0x00010200
-	mov r3, #0
-	str r0, [sp, #8]
-	add r0, r5, r4
-	mov r1, #1
-	str r3, [sp, #0xc]
-	bl AddTextPrinterParameterizedWithColor
-	add sp, #0x14
-	pop {r4, r5, r6, r7, pc}
-	.balign 4, 0
-_0225A82C: .word ov48_0225B1D8
-_0225A830: .word 0x00010200
-	thumb_func_end ov48_0225A790

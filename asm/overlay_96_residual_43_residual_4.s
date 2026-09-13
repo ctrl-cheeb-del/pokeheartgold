@@ -330,5 +330,3 @@ _021EE7FC: .word 0xFF00FFFF
 _021EE800: .word 0x00000135
 _021EE804: .word 0x00000137
 	thumb_func_end ov96_021EE75C
-
-

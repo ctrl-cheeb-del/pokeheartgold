@@ -556,5 +556,3 @@ _021F2D5E:
 _021F2D60: .word 0x01FF0000
 _021F2D64: .word 0x04000018
 	thumb_func_end ov96_021F2CD0
-
-

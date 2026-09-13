@@ -381,5 +381,3 @@ ov96_021EE700: ; 0x021EE700
 	nop
 _021EE73C: .word 0x00010200
 	thumb_func_end ov96_021EE700
-
-

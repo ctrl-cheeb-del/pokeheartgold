@@ -209,4 +209,3 @@ _0225FCF6:
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 	thumb_func_end ov120_0225FBC4
-

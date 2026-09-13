@@ -597,4 +597,3 @@ _0222A31E:
 _0222A32C: .word ov80_0223B628
 _0222A330: .word ov80_0223B62A
 	thumb_func_end ov80_0222A30C
-

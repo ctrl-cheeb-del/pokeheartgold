@@ -213,6 +213,7 @@
 	.public ov99_021E945C
 	.public ov99_021E94FC
 	.public ov99_021E9508
+	.public ov99_021E94CC
 
 	thumb_func_start ov99_021E9464
 ov99_021E9464: ; 0x021E9464
@@ -267,30 +268,3 @@ _021E9488:
 _021E94C4: .word 0xFFFFFE00
 _021E94C8: .word 0xFFFFC1FF
 	thumb_func_end ov99_021E9464
-
-
-	thumb_func_start ov99_021E94CC
-ov99_021E94CC: ; 0x021E94CC
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	add r6, r1, #0
-	add r4, r2, #0
-	add r7, r3, #0
-	cmp r5, #0
-	bne _021E94DE
-	bl GF_AssertFail
-_021E94DE:
-	cmp r4, #5
-	blo _021E94E6
-	bl GF_AssertFail
-_021E94E6:
-	lsl r1, r6, #0x18
-	add r0, r5, #0
-	lsr r1, r1, #0x18
-	add r2, r7, #0
-	bl ov99_021E9430
-	add r1, r4, #0
-	bl ov98_0221F01C
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov99_021E94CC

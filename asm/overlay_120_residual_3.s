@@ -248,4 +248,3 @@ _0225F8A4: .word ov120_0225F8B0
 _0225F8A8: .word ov120_0225F90C
 _0225F8AC: .word ov120_0225F970
 	thumb_func_end ov120_0225F714
-

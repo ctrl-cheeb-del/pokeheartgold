@@ -1836,5 +1836,3 @@ ov83_0224484C: ; 0x0224484C
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 	thumb_func_end ov83_0224484C
-
-

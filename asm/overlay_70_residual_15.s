@@ -2846,6 +2846,7 @@
 	.public ov70_02244834
 	.public ov70_02244944
 	.public ov70_02245124
+	.public ov70_0223A1E4
 
 	thumb_func_start ov70_0223A0D4
 ov70_0223A0D4: ; 0x0223A0D4
@@ -2945,6 +2946,8 @@ _0223A19C: .word ov70_022453B8
 	thumb_func_end ov70_0223A0D4
 
 
+
+
 	thumb_func_start ov70_0223A1A0
 ov70_0223A1A0: ; 0x0223A1A0
 	push {r3, r4, r5, lr}
@@ -2975,65 +2978,3 @@ _0223A1D8: .word 0x00000F18
 _0223A1DC: .word 0x00000F58
 _0223A1E0: .word 0x00001058
 	thumb_func_end ov70_0223A1A0
-
-
-	thumb_func_start ov70_0223A1E4
-ov70_0223A1E4: ; 0x0223A1E4
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	mov r0, #0xb4
-	mov r1, #0x3d
-	bl String_New
-	ldr r1, _0223A220 ; =0x00000BBC
-	str r0, [r5, r1]
-	sub r1, #0x1c
-	ldr r0, [r5, r1]
-	mov r1, #0x27
-	bl NewString_ReadMsgData
-	mov r1, #0x2f
-	lsl r1, r1, #6
-	str r0, [r5, r1]
-	mov r4, #0
-	mov r7, #0x14
-	add r6, r1, #4
-_0223A20A:
-	add r0, r7, #0
-	mov r1, #0x3d
-	bl String_New
-	str r0, [r5, r6]
-	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #0xa
-	blt _0223A20A
-	pop {r3, r4, r5, r6, r7, pc}
-	nop
-_0223A220: .word 0x00000BBC
-	thumb_func_end ov70_0223A1E4
-
-
-	thumb_func_start ov70_0223A224
-ov70_0223A224: ; 0x0223A224
-	push {r3, r4, r5, r6, r7, lr}
-	add r7, r0, #0
-	ldr r6, _0223A250 ; =0x00000BC4
-	mov r4, #0
-	add r5, r7, #0
-_0223A22E:
-	ldr r0, [r5, r6]
-	bl String_Delete
-	add r4, r4, #1
-	add r5, r5, #4
-	cmp r4, #0xa
-	blt _0223A22E
-	ldr r0, _0223A254 ; =0x00000BBC
-	ldr r0, [r7, r0]
-	bl String_Delete
-	mov r0, #0x2f
-	lsl r0, r0, #6
-	ldr r0, [r7, r0]
-	bl String_Delete
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_0223A250: .word 0x00000BC4
-_0223A254: .word 0x00000BBC
-	thumb_func_end ov70_0223A224

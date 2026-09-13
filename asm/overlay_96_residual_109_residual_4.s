@@ -493,5 +493,3 @@ ov96_022143DC: ; 0x022143DC
 	nop
 _022143F8: .word ov96_022143FC
 	thumb_func_end ov96_022143DC
-
-

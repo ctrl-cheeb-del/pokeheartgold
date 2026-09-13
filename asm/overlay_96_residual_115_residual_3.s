@@ -315,5 +315,3 @@ _02215F58:
 	str r0, [r5, r4]
 	pop {r4, r5, r6, pc}
 	thumb_func_end ov96_02215F2C
-
-

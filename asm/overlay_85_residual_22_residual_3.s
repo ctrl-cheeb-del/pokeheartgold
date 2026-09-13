@@ -556,5 +556,3 @@ _021E7A02:
 _021E7A18: .word ov85_021EA7C4
 _021E7A1C: .word 0x0000FFFF
 	thumb_func_end ov85_021E7958
-
-

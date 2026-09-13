@@ -309,5 +309,3 @@ _021E78E4: .word 0x0000013A
 _021E78E8: .word ov99_021E9FDC
 _021E78EC: .word ov99_021E7A54
 	thumb_func_end PokeathlonMedals_Init
-
-

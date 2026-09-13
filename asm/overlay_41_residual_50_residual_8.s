@@ -557,5 +557,3 @@ _0224A940:
 	.balign 4, 0
 _0224A9AC: .word 0x00010203
 	thumb_func_end ov41_0224A928
-
-

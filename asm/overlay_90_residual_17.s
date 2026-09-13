@@ -189,44 +189,9 @@
 	.public ov90_0225C1B8
 	.public ov90_0225C1C8
 	.public ov90_0225C1D4
-
-	thumb_func_start ov90_0225A1B8
-ov90_0225A1B8: ; 0x0225A1B8
-	push {r4, r5, r6, lr}
-	add r5, r0, #0
-	ldr r0, _0225A1FC ; =0x04000006
-	ldrh r4, [r0]
-	cmp r4, #0xc0
-	bge _0225A1F8
-	mov r0, #0xc1
-	lsl r0, r0, #2
-	ldr r0, [r5, r0]
-	bl sub_02014A60
-	add r6, r0, #0
-	ldr r0, _0225A200 ; =0x04000004
-	ldrh r1, [r0]
-	mov r0, #2
-	tst r0, r1
-	beq _0225A1F8
-	lsl r4, r4, #1
-	ldr r0, [r5]
-	mov r1, #0
-	ldrsh r3, [r6, r4]
-	ldr r0, [r0]
-	add r2, r1, #0
-	bl BgSetPosTextAndCommit
-	ldr r0, [r5]
-	ldrsh r3, [r6, r4]
-	ldr r0, [r0]
-	mov r1, #1
-	mov r2, #0
-	bl BgSetPosTextAndCommit
-_0225A1F8:
-	pop {r4, r5, r6, pc}
-	nop
-_0225A1FC: .word 0x04000006
-_0225A200: .word 0x04000004
-	thumb_func_end ov90_0225A1B8
+	.public ov90_0225A1B8
+	.public ov90_0225A28C
+	.public ov90_0225A2B0
 
 
 	thumb_func_start ov90_0225A204
@@ -275,6 +240,8 @@ _0225A252:
 	thumb_func_end ov90_0225A204
 
 
+
+
 	thumb_func_start ov90_0225A258
 ov90_0225A258: ; 0x0225A258
 	push {r3, r4, r5, r6}
@@ -308,93 +275,3 @@ _0225A286:
 	pop {r3, r4, r5, r6}
 	bx lr
 	thumb_func_end ov90_0225A258
-
-
-	thumb_func_start ov90_0225A28C
-ov90_0225A28C: ; 0x0225A28C
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	mov r1, #3
-	bl _u32_div_f
-	add r4, r1, #0
-	add r0, r5, #0
-	mov r1, #3
-	bl _u32_div_f
-	add r1, r4, #1
-	cmp r1, #3
-	bhs _0225A2A8
-	add r4, r1, #0
-_0225A2A8:
-	lsl r1, r0, #1
-	add r0, r0, r1
-	add r0, r0, r4
-	pop {r3, r4, r5, pc}
-	thumb_func_end ov90_0225A28C
-
-
-	thumb_func_start ov90_0225A2B0
-ov90_0225A2B0: ; 0x0225A2B0
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x14
-	add r5, r0, #0
-	mov r0, #0xb
-	str r0, [sp]
-	mov r0, #0x14
-	str r0, [sp, #4]
-	mov r0, #0xa
-	str r0, [sp, #8]
-	mov r0, #8
-	str r0, [sp, #0xc]
-	ldr r0, _0225A33C ; =0x00000201
-	add r4, r1, #0
-	str r0, [sp, #0x10]
-	add r7, r2, #0
-	add r6, r3, #0
-	ldr r0, [r4]
-	add r1, r5, #0
-	mov r2, #1
-	mov r3, #6
-	bl AddWindowParameterized
-	add r0, r5, #0
-	mov r1, #0
-	bl FillWindowPixelBuffer
-	ldr r1, [sp, #0x2c]
-	mov r0, #0x80
-	bl String_New
-	str r0, [r5, #0x14]
-	add r0, r7, #0
-	add r1, r6, #0
-	bl ov90_0225927C
-	ldr r1, [r5, #0x14]
-	add r0, r7, #0
-	mov r2, #0x10
-	bl ov90_0225928C
-	mov r0, #1
-	mov r1, #0
-	str r6, [r5, #0x10]
-	bl GfGfx_EngineATogglePlanes
-	mov r3, #0
-	str r3, [sp]
-	str r3, [sp, #4]
-	ldr r0, [sp, #0x2c]
-	str r3, [sp, #8]
-	str r0, [sp, #0xc]
-	ldr r0, [sp, #0x28]
-	ldr r2, [r4]
-	mov r1, #7
-	bl GfGfxLoader_LoadCharDataFromOpenNarc
-	mov r3, #0
-	str r3, [sp]
-	str r3, [sp, #4]
-	ldr r0, [sp, #0x2c]
-	str r3, [sp, #8]
-	str r0, [sp, #0xc]
-	ldr r0, [sp, #0x28]
-	ldr r2, [r4]
-	mov r1, #0xa
-	bl GfGfxLoader_LoadScrnDataFromOpenNarc
-	add sp, #0x14
-	pop {r4, r5, r6, r7, pc}
-	nop
-_0225A33C: .word 0x00000201
-	thumb_func_end ov90_0225A2B0

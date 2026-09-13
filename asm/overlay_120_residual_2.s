@@ -533,4 +533,3 @@ _0225F69C:
 _0225F6A4: .word ov120_02260314
 _0225F6A8: .word ov120_022602E4
 	thumb_func_end ov120_0225F4DC
-

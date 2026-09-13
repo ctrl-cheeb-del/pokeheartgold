@@ -111,4 +111,3 @@ ov120_0225FD2C: ; 0x0225FD2C
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 	thumb_func_end ov120_0225FD2C
-

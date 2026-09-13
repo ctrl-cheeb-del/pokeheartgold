@@ -70,46 +70,8 @@
 	.public ov69_021E706C
 	.public ov69_021E758C
 	.public ov69_021E75F8
-
-	thumb_func_start ov69_021E60F8
-ov69_021E60F8: ; 0x021E60F8
-	push {r4, lr}
-	sub sp, #0x28
-	ldr r4, _021E6114 ; =ov69_021E77B8
-	add r3, sp, #0
-	mov r2, #5
-_021E6102:
-	ldmia r4!, {r0, r1}
-	stmia r3!, {r0, r1}
-	sub r2, r2, #1
-	bne _021E6102
-	add r0, sp, #0
-	bl GfGfx_SetBanks
-	add sp, #0x28
-	pop {r4, pc}
-	.balign 4, 0
-_021E6114: .word ov69_021E77B8
-	thumb_func_end ov69_021E60F8
-
-
-	thumb_func_start ov69_021E6118
-ov69_021E6118: ; 0x021E6118
-	push {r4, lr}
-	sub sp, #0x10
-	ldr r4, _021E6134 ; =ov69_021E7688
-	add r3, sp, #0
-	add r2, r3, #0
-	ldmia r4!, {r0, r1}
-	stmia r3!, {r0, r1}
-	ldmia r4!, {r0, r1}
-	stmia r3!, {r0, r1}
-	add r0, r2, #0
-	bl SetBothScreensModesAndDisable
-	add sp, #0x10
-	pop {r4, pc}
-	.balign 4, 0
-_021E6134: .word ov69_021E7688
-	thumb_func_end ov69_021E6118
+	.public ov69_021E60F8
+	.public ov69_021E6118
 
 
 	thumb_func_start ov69_021E6138
@@ -242,6 +204,8 @@ _021E6232:
 	thumb_func_end ov69_021E6138
 
 
+
+
 	thumb_func_start ov69_021E623C
 ov69_021E623C: ; 0x021E623C
 	push {r3, r4, r5, r6, r7, lr}
@@ -302,6 +266,8 @@ _021E6280:
 	nop
 _021E62AC: .word ov69_021E7770
 	thumb_func_end ov69_021E623C
+
+
 
 
 	thumb_func_start ov69_021E62B0

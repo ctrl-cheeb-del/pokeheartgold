@@ -1722,40 +1722,9 @@
 	.public ov83_02247CC4
 	.public ov83_02247CE8
 	.public ov83_02247CF0
-
-	thumb_func_start ov83_02247B7C
-ov83_02247B7C: ; 0x02247B7C
-	push {r4, r5, lr}
-	sub sp, #0xc
-	add r4, r0, #0
-	mov r0, #1
-	str r0, [sp]
-	mov r0, #0
-	str r0, [sp, #4]
-	mov r0, #0x6b
-	str r0, [sp, #8]
-	ldr r0, _02247BB8 ; =ov83_022485C8
-	ldr r1, _02247BBC ; =ov83_02248610
-	ldr r2, _02247BC0 ; =ov83_02248520
-	add r3, r4, #0
-	bl GridInputHandler_Create
-	add r5, r0, #0
-	add r0, r4, #0
-	mov r1, #0x40
-	mov r2, #0x34
-	mov r3, #3
-	bl ov83_02242AC0
-	add r0, r4, #0
-	mov r1, #0
-	bl ov83_02242AE0
-	add r0, r5, #0
-	add sp, #0xc
-	pop {r4, r5, pc}
-	nop
-_02247BB8: .word ov83_022485C8
-_02247BBC: .word ov83_02248610
-_02247BC0: .word ov83_02248520
-	thumb_func_end ov83_02247B7C
+	.public ov83_02247B7C
+	.public ov83_02247C58
+	.public ov83_02247C88
 
 
 	thumb_func_start ov83_02247BC4
@@ -1839,53 +1808,3 @@ _02247C4C: .word gSystem
 _02247C50: .word ov83_0224858C
 _02247C54: .word ov83_022484F4
 	thumb_func_end ov83_02247BC4
-
-
-	thumb_func_start ov83_02247C58
-ov83_02247C58: ; 0x02247C58
-	push {r4, r5, r6, lr}
-	add r4, r1, #0
-	ldr r1, _02247C7C ; =ov83_02248610
-	lsl r3, r4, #3
-	ldr r2, _02247C80 ; =ov83_02248611
-	ldrb r1, [r1, r3]
-	ldrb r2, [r2, r3]
-	ldr r3, _02247C84 ; =ov83_02248570
-	lsl r6, r4, #2
-	ldr r3, [r3, r6]
-	add r5, r0, #0
-	bl ov83_02242AC0
-	add r0, r5, #0
-	add r1, r4, #0
-	bl ov83_02242AE0
-	pop {r4, r5, r6, pc}
-	.balign 4, 0
-_02247C7C: .word ov83_02248610
-_02247C80: .word ov83_02248611
-_02247C84: .word ov83_02248570
-	thumb_func_end ov83_02247C58
-
-
-	thumb_func_start ov83_02247C88
-ov83_02247C88: ; 0x02247C88
-	push {r4, r5, r6, lr}
-	add r4, r1, #0
-	ldr r1, _02247CAC ; =ov83_02248610
-	lsl r3, r4, #3
-	ldr r2, _02247CB0 ; =ov83_02248611
-	ldrb r1, [r1, r3]
-	ldrb r2, [r2, r3]
-	ldr r3, _02247CB4 ; =ov83_02248570
-	lsl r6, r4, #2
-	ldr r3, [r3, r6]
-	add r5, r0, #0
-	bl ov83_02242AC0
-	add r0, r5, #0
-	add r1, r4, #0
-	bl ov83_02242AE0
-	pop {r4, r5, r6, pc}
-	.balign 4, 0
-_02247CAC: .word ov83_02248610
-_02247CB0: .word ov83_02248611
-_02247CB4: .word ov83_02248570
-	thumb_func_end ov83_02247C88

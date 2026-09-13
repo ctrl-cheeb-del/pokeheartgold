@@ -1,0 +1,4 @@
+#ifndef POKEHEARTGOLD_UNK_020642C4_PRIVATE_H
+#define POKEHEARTGOLD_UNK_020642C4_PRIVATE_H
+#include "map_object_trainer_behavior_internal.h"
+#endif

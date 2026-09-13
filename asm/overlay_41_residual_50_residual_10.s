@@ -740,5 +740,3 @@ _0224ABE2:
 	bl memset
 	pop {r4, pc}
 	thumb_func_end ov41_0224AB40
-
-

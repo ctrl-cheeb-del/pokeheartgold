@@ -151,6 +151,8 @@
 	.public ov48_0225B0E0
 	.public ov48_0225B108
 	.public ov48_0225B13C
+	.public ov48_0225AC34
+	.public ov48_0225ACAC
 
 	thumb_func_start ov48_0225AA5C
 ov48_0225AA5C: ; 0x0225AA5C
@@ -194,6 +196,8 @@ _0225AAA8:
 	add sp, #0x1c
 	pop {r3, r4, pc}
 	thumb_func_end ov48_0225AA5C
+
+
 
 
 	thumb_func_start ov48_0225AAAC
@@ -381,141 +385,3 @@ _0225ABA0:
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 	thumb_func_end ov48_0225AAAC
-
-
-	thumb_func_start ov48_0225AC34
-ov48_0225AC34: ; 0x0225AC34
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0xc
-	str r0, [sp]
-	str r1, [sp, #4]
-	ldr r0, _0225ACA8 ; =0x000005D8
-	mov r1, #0
-	bl StopSE
-	mov r0, #0
-	ldr r7, [sp]
-	str r0, [sp, #8]
-_0225AC4A:
-	ldr r0, [sp]
-	ldr r0, [r0, #0x3c]
-	bl Sprite_Delete
-	ldr r0, [r7, #0x6c]
-	bl SpriteTransfer_DeleteCharTransferTask
-	ldr r0, [sp, #8]
-	cmp r0, #0
-	bne _0225AC72
-	ldr r0, [r7, #0x70]
-	bl SpriteTransfer_DeletePlttTransferTask
-	mov r0, #0x4d
-	ldr r1, [sp, #4]
-	lsl r0, r0, #2
-	ldr r0, [r1, r0]
-	ldr r1, [r7, #0x70]
-	bl DestroySingle2DGfxResObj
-_0225AC72:
-	ldr r5, [sp, #4]
-	mov r4, #0
-	add r6, r7, #0
-_0225AC78:
-	cmp r4, #1
-	beq _0225AC88
-	mov r0, #0x13
-	lsl r0, r0, #4
-	ldr r0, [r5, r0]
-	ldr r1, [r6, #0x6c]
-	bl DestroySingle2DGfxResObj
-_0225AC88:
-	add r4, r4, #1
-	add r6, r6, #4
-	add r5, r5, #4
-	cmp r4, #4
-	blt _0225AC78
-	ldr r0, [sp]
-	add r7, #0x10
-	add r0, r0, #4
-	str r0, [sp]
-	ldr r0, [sp, #8]
-	add r0, r0, #1
-	str r0, [sp, #8]
-	cmp r0, #0xc
-	blt _0225AC4A
-	add sp, #0xc
-	pop {r4, r5, r6, r7, pc}
-	.balign 4, 0
-_0225ACA8: .word 0x000005D8
-	thumb_func_end ov48_0225AC34
-
-
-	thumb_func_start ov48_0225ACAC
-ov48_0225ACAC: ; 0x0225ACAC
-	add r1, r0, #0
-	add r2, r0, #0
-	mov r3, #0
-	add r1, #0x34
-	strb r3, [r1]
-	add r2, #0x34
-	strb r3, [r2, #1]
-	strb r3, [r2, #2]
-	add r1, r0, #0
-	strb r3, [r2, #3]
-	add r2, r0, #0
-	add r1, #0x38
-	strb r3, [r1]
-	add r2, #0x38
-	strb r3, [r2, #1]
-	strb r3, [r2, #2]
-	strb r3, [r2, #3]
-	mov r1, #2
-	strh r1, [r0, #0x30]
-	mov r1, #0x80
-	strh r1, [r0, #0x32]
-	bx lr
-	thumb_func_end ov48_0225ACAC
-
-
-	thumb_func_start ov48_0225ACD8
-ov48_0225ACD8: ; 0x0225ACD8
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	add r4, r1, #0
-	add r0, r5, r4
-	add r6, r5, #0
-	str r3, [sp]
-	mov r1, #1
-	add r0, #0x34
-	strb r1, [r0]
-	add r6, #0x38
-	add r0, r2, #0
-	bl ov48_0225B050
-	strb r0, [r6, r4]
-	lsl r7, r4, #4
-	ldrb r2, [r6, r4]
-	mov r1, #0x30
-	ldr r3, _0225AD34 ; =ov48_0225B330
-	mul r1, r2
-	add r1, r3, r1
-	add r0, r5, r7
-	add r1, r1, r7
-	bl ov48_0225AE3C
-	ldr r0, [sp]
-	cmp r0, #0x18
-	bhs _0225AD30
-	bl ov48_0225B050
-	ldrb r1, [r6, r4]
-	cmp r0, r1
-	bne _0225AD30
-	cmp r4, #2
-	bhs _0225AD30
-	add r0, r4, #1
-	lsl r0, r0, #4
-	add r0, r5, r0
-	mov r1, #1
-	bl ov48_0225AE5C
-	add r0, r5, r7
-	mov r1, #1
-	bl ov48_0225AE58
-_0225AD30:
-	pop {r3, r4, r5, r6, r7, pc}
-	nop
-_0225AD34: .word ov48_0225B330
-	thumb_func_end ov48_0225ACD8
