@@ -70,124 +70,8 @@
 	.public ov69_021E706C
 	.public ov69_021E758C
 	.public ov69_021E75F8
-
-	thumb_func_start ov69_021E70A8
-ov69_021E70A8: ; 0x021E70A8
-	push {r4, r5, lr}
-	sub sp, #0x24
-	add r4, r1, #0
-	ldr r1, [r4, #4]
-	ldr r3, _021E711C ; =FX_SinCosTable_
-	lsl r1, r1, #0x10
-	lsr r1, r1, #0x10
-	asr r1, r1, #4
-	lsl r2, r1, #1
-	lsl r1, r2, #1
-	add r2, r2, #1
-	lsl r2, r2, #1
-	ldrsh r1, [r3, r1]
-	ldrsh r2, [r3, r2]
-	add r5, r0, #0
-	bl MTX_RotY33_
-	ldr r0, [r4]
-	ldr r3, _021E711C ; =FX_SinCosTable_
-	lsl r0, r0, #0x10
-	lsr r0, r0, #0x10
-	asr r0, r0, #4
-	lsl r2, r0, #1
-	lsl r1, r2, #1
-	add r2, r2, #1
-	lsl r2, r2, #1
-	ldrsh r1, [r3, r1]
-	ldrsh r2, [r3, r2]
-	add r0, sp, #0
-	bl MTX_RotX33_
-	add r0, r5, #0
-	add r1, sp, #0
-	add r2, r5, #0
-	bl MTX_Concat33
-	ldr r0, [r4, #8]
-	ldr r3, _021E711C ; =FX_SinCosTable_
-	lsl r0, r0, #0x10
-	lsr r0, r0, #0x10
-	asr r0, r0, #4
-	lsl r2, r0, #1
-	lsl r1, r2, #1
-	add r2, r2, #1
-	lsl r2, r2, #1
-	ldrsh r1, [r3, r1]
-	ldrsh r2, [r3, r2]
-	add r0, sp, #0
-	bl MTX_RotZ33_
-	add r0, r5, #0
-	add r1, sp, #0
-	add r2, r5, #0
-	bl MTX_Concat33
-	add sp, #0x24
-	pop {r4, r5, pc}
-	nop
-_021E711C: .word FX_SinCosTable_
-	thumb_func_end ov69_021E70A8
-
-
-	thumb_func_start ov69_021E7120
-ov69_021E7120: ; 0x021E7120
-	push {r4, r5, lr}
-	sub sp, #0x24
-	add r4, r1, #0
-	ldr r1, [r4]
-	ldr r3, _021E7194 ; =FX_SinCosTable_
-	lsl r1, r1, #0x10
-	lsr r1, r1, #0x10
-	asr r1, r1, #4
-	lsl r2, r1, #1
-	lsl r1, r2, #1
-	add r2, r2, #1
-	lsl r2, r2, #1
-	ldrsh r1, [r3, r1]
-	ldrsh r2, [r3, r2]
-	add r5, r0, #0
-	bl MTX_RotY33_
-	ldr r0, [r4, #4]
-	ldr r3, _021E7194 ; =FX_SinCosTable_
-	neg r0, r0
-	lsl r0, r0, #0x10
-	lsr r0, r0, #0x10
-	asr r0, r0, #4
-	lsl r2, r0, #1
-	lsl r1, r2, #1
-	add r2, r2, #1
-	lsl r2, r2, #1
-	ldrsh r1, [r3, r1]
-	ldrsh r2, [r3, r2]
-	add r0, sp, #0
-	bl MTX_RotX33_
-	add r0, r5, #0
-	add r1, sp, #0
-	add r2, r5, #0
-	bl MTX_Concat33
-	ldr r0, [r4, #8]
-	ldr r3, _021E7194 ; =FX_SinCosTable_
-	lsl r0, r0, #0x10
-	lsr r0, r0, #0x10
-	asr r0, r0, #4
-	lsl r2, r0, #1
-	add r1, r2, #1
-	lsl r1, r1, #1
-	lsl r2, r2, #1
-	ldrsh r1, [r3, r1]
-	ldrsh r2, [r3, r2]
-	add r0, sp, #0
-	bl MTX_RotZ33_
-	add r0, r5, #0
-	add r1, sp, #0
-	add r2, r5, #0
-	bl MTX_Concat33
-	add sp, #0x24
-	pop {r4, r5, pc}
-	.balign 4, 0
-_021E7194: .word FX_SinCosTable_
-	thumb_func_end ov69_021E7120
+	.public ov69_021E70A8
+	.public ov69_021E7120
 
 
 	thumb_func_start ov69_021E7198
@@ -457,6 +341,8 @@ _021E7378: .word 0xFFFFC200
 	thumb_func_end ov69_021E7198
 
 
+
+
 	thumb_func_start ov69_021E737C
 ov69_021E737C: ; 0x021E737C
 	push {r3, r4, r5, lr}
@@ -531,6 +417,8 @@ _021E73F4:
 _021E7400: .word 0x0000C2DC
 _021E7404: .word 0x0000C2E8
 	thumb_func_end ov69_021E737C
+
+
 
 
 	thumb_func_start ov69_021E7408
@@ -664,6 +552,8 @@ _021E7514: .word ov69_021E774C
 _021E7518: .word 0x0000C0E0
 _021E751C: .word 0x0000C2D0
 	thumb_func_end ov69_021E7408
+
+
 
 
 	thumb_func_start ov69_021E7520

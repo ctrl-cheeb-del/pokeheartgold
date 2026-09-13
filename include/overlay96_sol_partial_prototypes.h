@@ -143,7 +143,7 @@ BOOL ov96_021F8360(u8 *p);
 void ov96_021FE538(int a, int b, u8 *p);
 void ov96_02206368(int a, int b, u8 *p);
 void ov96_02207400(const int *a, const int *b, int *out);
-u8 ov96_0220AD34(u8 *p);
+u32 ov96_0220AD34(u8 *p);
 u16 ov96_0220AD4C(u8 *p);
 BOOL ov96_0220B744(u8 *p);
 u32 ov96_0220B774(u8 *p);
