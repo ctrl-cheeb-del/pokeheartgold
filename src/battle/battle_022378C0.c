@@ -244,3 +244,84 @@ void ov12_02237CC4(BattleSystem *battleSystem) {
     FreeBgTilemapBuffer(battleSystem->bgConfig, GF_BG_LYR_MAIN_3);
     BattleSystem_SetHpBarDisabled(battleSystem);
 }
+
+#include "constants/battle.h"
+
+#include "battle/battle_022378C0.h"
+#include "battle/battle_022378C0_tail_private.h"
+#include "battle/battle_controller_player.h"
+#include "battle/battle_system.h"
+#include "battle/overlay_12_0224E4FC.h"
+
+#include "gf_gfx_loader.h"
+#include "gf_gfx_planes.h"
+#include "palette.h"
+#include "render_window.h"
+#include "unk_0200FA24.h"
+
+BOOL ov12_02238358(OverlayManager *man);
+void ov12_022387AC(BattleSystem *battleSystem, BgConfig *bgConfig);
+void ov12_022389B8(BattleSystem *battleSystem);
+
+void ov12_02237D00(BattleSystem *battleSystem) {
+    u32 frame;
+    BattleBgTemplateSet templates;
+
+    battleSystem->unk240F_0 = 1;
+
+    templates = ov12_0226C120;
+
+    InitBgFromTemplate(battleSystem->bgConfig, GF_BG_LYR_MAIN_1, &templates.templates[0], 0);
+    BgClearTilemapBufferAndCommit(battleSystem->bgConfig, GF_BG_LYR_MAIN_1);
+    InitBgFromTemplate(battleSystem->bgConfig, GF_BG_LYR_MAIN_2, &templates.templates[1], 0);
+    BgClearTilemapBufferAndCommit(battleSystem->bgConfig, GF_BG_LYR_MAIN_2);
+    InitBgFromTemplate(battleSystem->bgConfig, GF_BG_LYR_MAIN_3, &templates.templates[2], 0);
+    BgClearTilemapBufferAndCommit(battleSystem->bgConfig, GF_BG_LYR_MAIN_3);
+
+    G2_SetBG0Priority(1);
+    GfGfx_EngineATogglePlanes(GX_PLANEMASK_BG0, GF_PLANE_TOGGLE_ON);
+
+    frame = BattleSystem_GetFrame(battleSystem);
+    sub_0200EB80(battleSystem->bgConfig, GF_BG_LYR_MAIN_1, 1, 10, frame, HEAP_ID_BATTLE);
+
+    GfGfxLoader_LoadCharData(NARC_a_0_0_7, battleSystem->backgroundId + 3, battleSystem->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, TRUE, HEAP_ID_BATTLE);
+    PaletteData_LoadNarc(battleSystem->palette, NARC_a_0_0_7, battleSystem->backgroundId * 3 + 0xB0 + ov12_0223B52C(battleSystem), HEAP_ID_BATTLE, (PaletteBufferId)0, 0, 0);
+    PaletteData_LoadNarc(battleSystem->palette, NARC_a_0_3_8, sub_0200E640(frame), HEAP_ID_BATTLE, (PaletteBufferId)0, 0x20, 0xA0);
+    PaletteData_LoadNarc(battleSystem->palette, NARC_graphic_font, 8, HEAP_ID_BATTLE, (PaletteBufferId)0, 0x20, 0xB0);
+    GfGfxLoader_LoadScrnData(NARC_a_0_0_7, 2, battleSystem->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, TRUE, HEAP_ID_BATTLE);
+
+    GX_SetVisibleWnd(GX_WNDMASK_NONE);
+    GXS_SetVisibleWnd(GX_WNDMASK_NONE);
+    G2_SetWnd0InsidePlane(GX_WND_PLANEMASK_NONE, FALSE);
+    G2_SetWndOutsidePlane(GX_WND_PLANEMASK_NONE, FALSE);
+
+    GfGfx_BothDispOn();
+    GfGfx_EngineATogglePlanes(GX_PLANEMASK_OBJ, GF_PLANE_TOGGLE_ON);
+    GfGfx_EngineBTogglePlanes(GX_PLANEMASK_OBJ, GF_PLANE_TOGGLE_ON);
+
+    Main_SetVBlankIntrCB(ov12_02239730, battleSystem);
+
+    battleSystem->unk240F_1 = 1;
+
+    AddWindowParameterized(battleSystem->bgConfig, battleSystem->window, GF_BG_LYR_MAIN_1, 2, 19, 27, 4, 11, 31);
+    FillWindowPixelBuffer(battleSystem->window, 0xFF);
+    DrawFrameAndWindow2(battleSystem->window, FALSE, 1, 10);
+
+    ov12_0223A620(battleSystem);
+}
+
+void ov12_02237ED0(BattleSystem *battleSystem, int a1) {
+    if (battleSystem->unk2445 == a1) {
+        GF_AssertFail();
+    }
+
+    battleSystem->unk2445 = a1;
+
+    if (a1 == 0) {
+        UnloadOverlayByID(FS_OVERLAY_ID(OVY_10));
+        HandleLoadOverlay(FS_OVERLAY_ID(OVY_7), OVY_LOAD_ASYNC);
+    } else {
+        UnloadOverlayByID(FS_OVERLAY_ID(OVY_7));
+        HandleLoadOverlay(FS_OVERLAY_ID(OVY_10), OVY_LOAD_ASYNC);
+    }
+}

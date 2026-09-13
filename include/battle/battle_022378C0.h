@@ -32,5 +32,7 @@ void ov12_0223A620(BattleSystem *battleSystem);
 void ov12_02238A30(BgConfig *config);
 void ov12_02238A64(BattleSystem *battleSystem);
 void ov12_02237ED0(BattleSystem *battleSystem, int a1);
+void ov12_022387AC(BattleSystem *battleSystem, BgConfig *bgConfig);
+void ov12_022389B8(BattleSystem *battleSystem);
 
 #endif
