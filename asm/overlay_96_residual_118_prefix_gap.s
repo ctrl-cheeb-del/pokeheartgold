@@ -239,44 +239,8 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_02217DC8
-ov96_02217DC8: ; 0x02217DC8
-	push {r4, lr}
-	add r4, r0, #0
-	cmp r1, #3
-	bhi _02217E00
-	add r1, r1, r1
-	add r1, pc
-	ldrh r1, [r1, #6]
-	lsl r1, r1, #0x10
-	asr r1, r1, #0x10
-	add pc, r1
-_02217DDC: ; jump table
-	.short _02217E04 - _02217DDC - 2 ; case 0
-	.short _02217DE4 - _02217DDC - 2 ; case 1
-	.short _02217DEC - _02217DDC - 2 ; case 2
-	.short _02217DFA - _02217DDC - 2 ; case 3
-_02217DE4:
-	mov r1, #1
-	bl ov96_02218578
-	pop {r4, pc}
-_02217DEC:
-	mov r1, #7
-	bl ov96_02218578
-	mov r0, #1
-	add r4, #0x59
-	strb r0, [r4]
-	pop {r4, pc}
-_02217DFA:
-	bl ov96_02218FFC
-	pop {r4, pc}
-_02217E00:
-	bl GF_AssertFail
-_02217E04:
-	pop {r4, pc}
-	.balign 4, 0
-	thumb_func_end ov96_02217DC8
-
+	.extern ov96_02217DC8
+	.type ov96_02217DC8, @function
 
 	thumb_func_start ov96_02217E08
 ov96_02217E08: ; 0x02217E08

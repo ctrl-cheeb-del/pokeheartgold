@@ -241,61 +241,6 @@
 	.public ov96_0221A69C
 	.public ov96_0221A720
 
-	thumb_func_start ov96_021FD46C
-ov96_021FD46C: ; 0x021FD46C
-	push {r4, r5, r6, lr}
-	add r4, r1, #0
-	add r6, r0, #0
-	bl PokeathlonCourse_GetHeapAllocPtr4
-	add r5, r0, #0
-	ldrb r0, [r4]
-	cmp r0, #0
-	bne _021FD48E
-	bl IsPaletteFadeFinished
-	cmp r0, #0
-	beq _021FD48A
-	mov r0, #1
-	strb r0, [r4]
-_021FD48A:
-	mov r0, #0
-	pop {r4, r5, r6, pc}
-_021FD48E:
-	add r0, r6, #0
-	bl ov96_021E5F24
-	cmp r0, #0
-	beq _021FD49C
-	mov r0, #1
-	pop {r4, r5, r6, pc}
-_021FD49C:
-	mov r4, #0
-	add r5, #0x30
-_021FD4A0:
-	ldr r2, [r5, #0x7c]
-	lsl r1, r4, #0x18
-	asr r3, r2, #0xb
-	lsr r3, r3, #0x14
-	add r3, r2, r3
-	asr r2, r3, #0xc
-	add r3, r5, #0
-	add r3, #0x9c
-	ldrb r3, [r3]
-	add r0, r6, #0
-	lsr r1, r1, #0x18
-	lsl r3, r3, #0xa
-	add r2, r2, r3
-	lsl r2, r2, #0x10
-	lsr r2, r2, #0x10
-	bl PokeathlonCourse_SetField5E0_AtIndex
-	add r4, r4, #1
-	add r5, #0xd4
-	cmp r4, #4
-	blt _021FD4A0
-	mov r0, #1
-	pop {r4, r5, r6, pc}
-	.balign 4, 0
-	thumb_func_end ov96_021FD46C
-
-
 	thumb_func_start ov96_021FD4D0
 ov96_021FD4D0: ; 0x021FD4D0
 	push {r3, r4, r5, r6, r7, lr}
