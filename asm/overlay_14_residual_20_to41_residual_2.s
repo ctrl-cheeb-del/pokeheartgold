@@ -2395,7 +2395,6 @@
 	.public ov14_021E99F0
 	.public ov14_021E9A24
 	.public ov14_021E9C88
-	.public ov14_021E9F20
 	.public ov14_021EA068
 	.public ov14_021EA0B8
 	.public ov14_021EA130
@@ -2982,6 +2981,10 @@
 	.include "overlay_14.inc"
 	.include "global.inc"
 
+	.public ManagedSprite_GetPositionXY
+	.public ManagedSprite_SetPositionXY
+	.public System_GetTouchHeldCoords
+	.public sub_02019978
 	.text
 	.extern _021E965A
 	.extern _021E9672
@@ -3908,174 +3911,3 @@ _021E9F14: .word ov14_021F7C08
 _021E9F18: .word 0x00004094
 _021E9F1C: .word 0x000040C4
 	thumb_func_end ov14_021E9C88
-
-
-
-
-	thumb_func_start ov14_021E9F20
-ov14_021E9F20: ; 0x021E9F20
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	ldr r1, [r5, #0x34]
-	mov r0, #0x2f
-	lsl r0, r0, #4
-	ldr r4, [r1, #0xc]
-	ldr r0, [r1, r0]
-	mov r1, #0xf
-	bl sub_02019978
-	ldr r1, [r4, #4]
-	lsr r2, r1, #2
-	bne _021E9F98
-	mov r0, #0x32
-	ldr r1, [r5, #0x34]
-	lsl r0, r0, #4
-	ldr r0, [r1, r0]
-	ldrb r1, [r4]
-	ldrb r2, [r4, #1]
-	bl ManagedSprite_SetPositionXY
-	ldr r0, [r5, #0x34]
-	ldr r1, _021EA060 ; =0x0000044B
-	ldrb r1, [r0, r1]
-	cmp r1, #1
-	bne _021E9F94
-	ldr r1, [r5]
-	ldr r1, [r1, #8]
-	cmp r1, #3
-	bne _021E9F72
-	ldrb r2, [r4, #1]
-	mov r1, #0xca
-	lsl r1, r1, #2
-	ldr r0, [r0, r1]
-	add r2, #8
-	lsl r2, r2, #0x10
-	ldrb r1, [r4]
-	asr r2, r2, #0x10
-	bl ManagedSprite_SetPositionXY
-	b _021E9F94
-_021E9F72:
-	add r5, #0x21
-	ldrb r1, [r5]
-	add r2, r0, r1
-	ldr r1, _021EA064 ; =0x00004094
-	ldrb r1, [r2, r1]
-	ldrb r2, [r4, #1]
-	lsl r1, r1, #2
-	add r1, r0, r1
-	mov r0, #0xbf
-	lsl r0, r0, #2
-	ldr r0, [r1, r0]
-	add r2, r2, #4
-	lsl r2, r2, #0x10
-	ldrb r1, [r4]
-	asr r2, r2, #0x10
-	bl ManagedSprite_SetPositionXY
-_021E9F94:
-	mov r0, #0
-	pop {r3, r4, r5, pc}
-_021E9F98:
-	mov r0, #3
-	and r1, r0
-	sub r0, r2, #1
-	lsl r0, r0, #2
-	orr r0, r1
-	str r0, [r4, #4]
-	mov r0, #0x32
-	ldr r1, [r5, #0x34]
-	lsl r0, r0, #4
-	ldr r0, [r1, r0]
-	add r1, sp, #0
-	add r1, #2
-	add r2, sp, #0
-	bl ManagedSprite_GetPositionXY
-	ldr r0, [r4, #4]
-	add r1, sp, #0
-	lsl r0, r0, #0x1f
-	lsr r0, r0, #0x1f
-	bne _021E9FCA
-	mov r0, #2
-	ldrsh r2, [r1, r0]
-	ldrb r0, [r4, #2]
-	add r0, r2, r0
-	b _021E9FD2
-_021E9FCA:
-	mov r0, #2
-	ldrsh r2, [r1, r0]
-	ldrb r0, [r4, #2]
-	sub r0, r2, r0
-_021E9FD2:
-	strh r0, [r1, #2]
-	ldr r0, [r4, #4]
-	add r1, sp, #0
-	lsl r0, r0, #0x1e
-	lsr r0, r0, #0x1f
-	bne _021E9FE8
-	mov r0, #0
-	ldrsh r2, [r1, r0]
-	ldrb r0, [r4, #3]
-	add r0, r2, r0
-	b _021E9FF0
-_021E9FE8:
-	mov r0, #0
-	ldrsh r2, [r1, r0]
-	ldrb r0, [r4, #3]
-	sub r0, r2, r0
-_021E9FF0:
-	strh r0, [r1]
-	mov r0, #0x32
-	ldr r1, [r5, #0x34]
-	lsl r0, r0, #4
-	ldr r0, [r1, r0]
-	add r3, sp, #0
-	mov r1, #2
-	mov r2, #0
-	ldrsh r1, [r3, r1]
-	ldrsh r2, [r3, r2]
-	bl ManagedSprite_SetPositionXY
-	ldr r0, [r5, #0x34]
-	ldr r1, _021EA060 ; =0x0000044B
-	ldrb r1, [r0, r1]
-	cmp r1, #1
-	bne _021EA05C
-	ldr r1, [r5]
-	add r3, sp, #0
-	ldr r1, [r1, #8]
-	cmp r1, #3
-	bne _021EA036
-	mov r2, #0
-	mov r1, #0xca
-	ldrsh r2, [r3, r2]
-	lsl r1, r1, #2
-	ldr r0, [r0, r1]
-	mov r1, #2
-	add r2, #8
-	lsl r2, r2, #0x10
-	ldrsh r1, [r3, r1]
-	asr r2, r2, #0x10
-	bl ManagedSprite_SetPositionXY
-	b _021EA05C
-_021EA036:
-	add r5, #0x21
-	ldrb r1, [r5]
-	add r2, r0, r1
-	ldr r1, _021EA064 ; =0x00004094
-	ldrb r1, [r2, r1]
-	mov r2, #0
-	ldrsh r2, [r3, r2]
-	lsl r1, r1, #2
-	add r1, r0, r1
-	mov r0, #0xbf
-	lsl r0, r0, #2
-	ldr r0, [r1, r0]
-	mov r1, #2
-	add r2, r2, #4
-	lsl r2, r2, #0x10
-	ldrsh r1, [r3, r1]
-	asr r2, r2, #0x10
-	bl ManagedSprite_SetPositionXY
-_021EA05C:
-	mov r0, #1
-	pop {r3, r4, r5, pc}
-	.balign 4, 0
-_021EA060: .word 0x0000044B
-_021EA064: .word 0x00004094
-	thumb_func_end ov14_021E9F20

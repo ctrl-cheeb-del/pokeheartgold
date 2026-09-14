@@ -389,6 +389,22 @@
 	.include "overlay_01_021F4704.inc"
 	.include "global.inc"
 
+	.public AreaDataManager_GetMapTexture
+	.public MapPropManager_LoadFromNARC
+	.public MapPropManager_LoadFromSafariZone
+	.public PlayerProfile_GetTrainerGender
+	.public SafariZone_GetAreaSet
+	.public SafariZone_GetLinkLeaderGender
+	.public Save_PlayerData_GetProfile
+	.public Save_SafariZone_Get
+	.public _s32_div_f
+	.public ov01_021EA3B0
+	.public ov01_021FB270
+	.public ov01_021FB308
+	.public ov01_02204678
+	.public ov01_02204698
+	.public sub_0202F620
+	.public sub_02054E20
 	.text
 	.public MapLoadManager_ForgetTrackedTarget
 	.public MapLoadManager_FreeNARCAndLoadedMapBuffers
@@ -680,191 +696,3 @@ _021F4D04: .word 0x00000854
 _021F4D08: .word 0x00000864
 _021F4D0C: .word 0x00000868
 	thumb_func_end ov01_021F4C6C
-
-
-	thumb_func_start ov01_021F4D10
-ov01_021F4D10: ; 0x021F4D10
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x20
-	ldr r5, [sp, #0x40]
-	lsl r4, r0, #2
-	add r0, r5, r4
-	ldr r0, [r0, #0x18]
-	ldr r6, [sp, #0x3c]
-	str r0, [sp]
-	ldr r0, [sp, #0x38]
-	str r1, [sp, #0xc]
-	mul r0, r3
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r3, [r5, r4]
-	add r0, sp, #0x10
-	add r1, r6, #0
-	bl ov01_021F4A50
-	add r7, r0, #0
-	ldr r0, _021F4D80 ; =0x0000FFFF
-	cmp r7, r0
-	beq _021F4D7C
-	ldr r1, [r5, r4]
-	add r0, r6, #0
-	bl ov01_021F4AAC
-	ldr r1, [r5, r4]
-	ldr r2, [sp, #0x10]
-	add r0, r6, #0
-	bl ov01_021F4AE4
-	mov r0, #1
-	lsl r0, r0, #8
-	ldr r3, [r5, r4]
-	ldr r2, _021F4D84 ; =0x00000868
-	ldr r0, [r6, r0]
-	ldr r2, [r3, r2]
-	add r3, r6, #0
-	add r3, #0xf4
-	ldr r1, [sp, #0x1c]
-	ldr r3, [r3]
-	bl MapPropManager_LoadFromNARC
-	str r5, [sp]
-	str r7, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r1, [r5, r4]
-	ldr r3, [sp, #0xc]
-	add r0, r6, #0
-	add r2, sp, #0x10
-	bl ov01_021F4BE8
-_021F4D7C:
-	add sp, #0x20
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_021F4D80: .word 0x0000FFFF
-_021F4D84: .word 0x00000868
-	thumb_func_end ov01_021F4D10
-
-
-	thumb_func_start ov01_021F4D88
-ov01_021F4D88: ; 0x021F4D88
-	push {r3, r4, r5, r6, r7, lr}
-	sub sp, #0x1fc
-	sub sp, #0x1fc
-	sub sp, #0x1fc
-	sub sp, #0x1fc
-	sub sp, #0x30
-	str r1, [sp, #0xc]
-	ldr r1, _021F4E10 ; =0x00000828
-	lsl r6, r0, #2
-	add r1, sp
-	ldr r4, [r1, #0x18]
-	ldr r5, [r1, #0x14]
-	add r0, r4, r6
-	ldr r0, [r0, #0x18]
-	str r0, [sp]
-	ldr r0, [r1, #0x10]
-	add r1, r5, #0
-	mul r0, r3
-	str r0, [sp, #4]
-	mov r0, #0
-	str r0, [sp, #8]
-	ldr r3, [r4, r6]
-	add r0, sp, #0x10
-	bl ov01_021F4A50
-	add r7, r0, #0
-	ldr r0, _021F4E14 ; =0x0000FFFF
-	cmp r7, r0
-	beq _021F4E04
-	ldr r1, [r4, r6]
-	add r0, r5, #0
-	bl ov01_021F4AAC
-	mov r1, #1
-	lsl r1, r1, #8
-	ldr r0, [r5, r1]
-	lsl r1, r1, #3
-	add r2, sp, #0x20
-	bl NARC_ReadFile
-	mov r0, #1
-	lsl r0, r0, #8
-	ldr r3, [r4, r6]
-	ldr r2, _021F4E18 ; =0x00000868
-	ldr r0, [r5, r0]
-	ldr r2, [r3, r2]
-	add r3, r5, #0
-	add r3, #0xf4
-	ldr r1, [sp, #0x1c]
-	ldr r3, [r3]
-	bl MapPropManager_LoadFromNARC
-	str r4, [sp]
-	str r7, [sp, #4]
-	mov r0, #0
-	str r0, [sp, #8]
-	ldr r1, [r4, r6]
-	ldr r3, [sp, #0xc]
-	add r0, r5, #0
-	add r2, sp, #0x10
-	bl ov01_021F4BE8
-_021F4E04:
-	add sp, #0x1fc
-	add sp, #0x1fc
-	add sp, #0x1fc
-	add sp, #0x1fc
-	add sp, #0x30
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_021F4E10: .word 0x00000828
-_021F4E14: .word 0x0000FFFF
-_021F4E18: .word 0x00000868
-	thumb_func_end ov01_021F4D88
-
-
-	thumb_func_start ov01_021F4E1C
-ov01_021F4E1C: ; 0x021F4E1C
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x24
-	ldr r5, [sp, #0x40]
-	lsl r4, r0, #2
-	add r7, r5, #0
-	add r7, #0x18
-	ldr r0, [r7, r4]
-	ldr r6, [sp, #0x3c]
-	str r0, [sp]
-	ldr r0, [sp, #0x38]
-	str r1, [sp, #0xc]
-	mul r0, r3
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r3, [r5, r4]
-	add r0, sp, #0x14
-	add r1, r6, #0
-	bl ov01_021F4A50
-	ldr r1, _021F4E84 ; =0x0000FFFF
-	str r0, [sp, #0x10]
-	cmp r0, r1
-	beq _021F4E80
-	ldr r1, [r5, r4]
-	add r0, r6, #0
-	bl ov01_021F4AAC
-	ldr r1, [r5, r4]
-	ldr r2, [sp, #0x14]
-	add r0, r6, #0
-	bl ov01_021F4AE4
-	ldr r1, [r5, r4]
-	ldr r3, [r7, r4]
-	add r0, r6, #0
-	add r2, sp, #0x14
-	bl ov01_021F4B1C
-	ldr r0, [sp, #0x10]
-	str r5, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	ldr r1, [r5, r4]
-	ldr r3, [sp, #0xc]
-	add r0, r6, #0
-	add r2, sp, #0x14
-	bl ov01_021F4BE8
-_021F4E80:
-	add sp, #0x24
-	pop {r4, r5, r6, r7, pc}
-	.balign 4, 0
-_021F4E84: .word 0x0000FFFF
-	thumb_func_end ov01_021F4E1C

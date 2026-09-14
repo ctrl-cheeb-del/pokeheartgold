@@ -270,6 +270,34 @@
 	.include "overlay_80_0222BDF4.inc"
 	.include "global.inc"
 
+	.public DC_FlushRange
+	.public GF_AssertFail
+	.public GX_LoadOBJ
+	.public GetMonData
+	.public GetPokemonSpriteCharAndPlttNarcIds
+	.public Heap_Alloc
+	.public Heap_Free
+	.public MI_CpuFill8
+	.public ManagedSprite_TickFrame
+	.public NARC_Delete
+	.public NARC_New
+	.public ObjPlttTransfer_GetPaletteVramOffset
+	.public PaletteData_BlendPalette
+	.public PaletteData_LoadNarc
+	.public SpriteSystem_LoadAnimResObjFromOpenNarc
+	.public SpriteSystem_LoadCellResObjFromOpenNarc
+	.public SpriteSystem_LoadCharResObjFromOpenNarc
+	.public SpriteSystem_LoadPaletteBufferFromOpenNarc
+	.public SpriteSystem_NewSprite
+	.public Sprite_GetImageProxy
+	.public Sprite_GetPaletteProxy
+	.public SysTask_Destroy
+	.public ov42_02228188
+	.public ov42_022282DC
+	.public ov42_022282E8
+	.public ov42_02229200
+	.public ov42_022299C0
+	.public sub_02014494
 	.text
 	.public FrontierScript_ReadVar
 	.public FrontierScript_ReadVarPtr
@@ -756,173 +784,3 @@ _0222F1C6:
 	.balign 4, 0
 _0222F1CC: .word 0x0000C350
 	thumb_func_end ov80_0222F030
-
-
-	thumb_func_start ov80_0222F1D0
-ov80_0222F1D0: ; 0x0222F1D0
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	ldr r0, _0222F20C ; =0x0000C350
-	add r6, r1, #0
-	add r4, r5, #0
-	sub r0, r6, r0
-	add r4, #0x80
-	lsl r7, r0, #2
-	ldr r0, [r4, r7]
-	bl Sprite_DeleteAndFreeResources
-	mov r0, #0
-	str r0, [r4, r7]
-	ldr r0, [r5, #0x38]
-	add r1, r6, #0
-	bl SpriteManager_UnloadCharObjById
-	ldr r0, [r5, #0x38]
-	add r1, r6, #0
-	bl SpriteManager_UnloadPlttObjById
-	ldr r0, [r5, #0x38]
-	add r1, r6, #0
-	bl SpriteManager_UnloadCellObjById
-	ldr r0, [r5, #0x38]
-	add r1, r6, #0
-	bl SpriteManager_UnloadAnimObjById
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_0222F20C: .word 0x0000C350
-	thumb_func_end ov80_0222F1D0
-
-
-	thumb_func_start ov80_0222F210
-ov80_0222F210: ; 0x0222F210
-	push {r4, lr}
-	sub sp, #0x18
-	add r4, r0, #0
-	bl sub_02074490
-	mov r1, #0x14
-	str r1, [sp]
-	str r0, [sp, #4]
-	mov r0, #0
-	str r0, [sp, #8]
-	mov r0, #3
-	str r0, [sp, #0xc]
-	mov r0, #1
-	str r0, [sp, #0x10]
-	mov r0, #0x7d
-	lsl r0, r0, #4
-	str r0, [sp, #0x14]
-	ldr r0, [r4, #4]
-	ldr r2, [r4, #0x34]
-	ldr r3, [r4, #0x38]
-	mov r1, #2
-	bl SpriteSystem_LoadPaletteBuffer
-	bl sub_02074498
-	add r3, r0, #0
-	mov r0, #0
-	str r0, [sp]
-	mov r0, #0x7d
-	lsl r0, r0, #4
-	str r0, [sp, #4]
-	ldr r0, [r4, #0x34]
-	ldr r1, [r4, #0x38]
-	mov r2, #0x14
-	bl SpriteSystem_LoadCellResObj
-	bl sub_020744A4
-	add r3, r0, #0
-	mov r0, #0
-	str r0, [sp]
-	mov r0, #0x7d
-	lsl r0, r0, #4
-	str r0, [sp, #4]
-	ldr r0, [r4, #0x34]
-	ldr r1, [r4, #0x38]
-	mov r2, #0x14
-	bl SpriteSystem_LoadAnimResObj
-	add sp, #0x18
-	pop {r4, pc}
-	.balign 4, 0
-	thumb_func_end ov80_0222F210
-
-
-	thumb_func_start ov80_0222F278
-ov80_0222F278: ; 0x0222F278
-	push {r4, lr}
-	add r4, r0, #0
-	mov r1, #0x7d
-	ldr r0, [r4, #0x38]
-	lsl r1, r1, #4
-	bl SpriteManager_UnloadCellObjById
-	mov r1, #0x7d
-	ldr r0, [r4, #0x38]
-	lsl r1, r1, #4
-	bl SpriteManager_UnloadAnimObjById
-	mov r1, #0x7d
-	ldr r0, [r4, #0x38]
-	lsl r1, r1, #4
-	bl SpriteManager_UnloadPlttObjById
-	pop {r4, pc}
-	thumb_func_end ov80_0222F278
-
-
-	thumb_func_start ov80_0222F29C
-ov80_0222F29C: ; 0x0222F29C
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x44
-	add r4, r2, #0
-	add r5, r0, #0
-	add r7, r1, #0
-	str r3, [sp, #0xc]
-	cmp r4, #8
-	blt _0222F2B0
-	bl GF_AssertFail
-_0222F2B0:
-	add r0, r7, #0
-	bl Pokemon_GetIconNaix
-	add r3, r0, #0
-	mov r0, #0
-	str r0, [sp]
-	mov r0, #1
-	str r0, [sp, #4]
-	mov r0, #0x7d
-	lsl r0, r0, #4
-	add r0, r4, r0
-	str r0, [sp, #8]
-	ldr r0, [r5, #0x34]
-	ldr r1, [r5, #0x38]
-	mov r2, #0x14
-	bl SpriteSystem_LoadCharResObjAtEndWithHardwareMappingType
-	ldr r6, _0222F320 ; =ov80_0223BD80
-	add r3, sp, #0x10
-	mov r2, #6
-_0222F2D8:
-	ldmia r6!, {r0, r1}
-	stmia r3!, {r0, r1}
-	sub r2, r2, #1
-	bne _0222F2D8
-	ldr r0, [r6]
-	add r1, sp, #0x10
-	str r0, [r3]
-	ldr r0, [sp, #0x24]
-	add r2, sp, #0x10
-	add r0, r0, r4
-	str r0, [sp, #0x24]
-	ldr r0, [sp, #0xc]
-	strh r0, [r1]
-	ldr r0, [sp, #0x58]
-	strh r0, [r1, #2]
-	mov r0, #0xc8
-	str r0, [sp, #0x18]
-	ldr r0, [r5, #0x34]
-	ldr r1, [r5, #0x38]
-	bl SpriteSystem_NewSprite
-	add r4, r0, #0
-	add r0, r7, #0
-	bl Pokemon_GetIconPalette
-	add r1, r0, #0
-	ldr r0, [r4]
-	bl Sprite_SetPalOffsetRespectVramOffset
-	add r0, r4, #0
-	bl ManagedSprite_TickFrame
-	add r0, r4, #0
-	add sp, #0x44
-	pop {r4, r5, r6, r7, pc}
-	nop
-_0222F320: .word ov80_0223BD80
-	thumb_func_end ov80_0222F29C
