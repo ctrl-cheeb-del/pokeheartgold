@@ -54,6 +54,7 @@
 	.public ov97_0221FC54
 
 
+	.if 0
 	thumb_func_start ov97_0221F5F8
 ov97_0221F5F8: ; 0x0221F5F8
 	push {r4, r5, r6, r7, lr}
@@ -226,6 +227,7 @@ _0221F748:
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end ov97_0221F5F8
+	.endif
 
 
 	thumb_func_start ov97_0221F74C

@@ -50,6 +50,9 @@
 	.extern PokeathlonCourse_SetStateTransitionType
 	.extern PokeathlonCourse_SetVBlankIntrCB
 	.extern PokeathlonCourse_GetGraphicsSystem
+	.extern ov96_02216770
+	.extern ov96_02216934
+	.extern ov96_02216A54
 	.public ov96_021E60C0
 	.public ov96_021E6104
 	.public ov96_021E6670
@@ -240,226 +243,183 @@
 	.public ov96_0221A720
 
 
-	thumb_func_start ov96_02208448
-ov96_02208448: ; 0x02208448
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x24
-	mov r5, #0x67
-	add r4, r0, #0
-	lsl r5, r5, #2
-	add r6, r1, #0
-	ldr r1, [r4, r5]
-	cmp r1, #3
-	bhi _022084B4
-	add r1, r1, r1
-	add r1, pc
-	ldrh r1, [r1, #6]
-	lsl r1, r1, #0x10
-	asr r1, r1, #0x10
-	add pc, r1
-_02208466: ; jump table
-	.short _0220846E - _02208466 - 2 ; case 0
-	.short _022084D6 - _02208466 - 2 ; case 1
-	.short _02208500 - _02208466 - 2 ; case 2
-	.short _02208576 - _02208466 - 2 ; case 3
-_0220846E:
-	add r0, r5, #4
-	ldrh r0, [r4, r0]
-	lsl r0, r0, #2
-	add r1, r4, r0
-	add r0, r5, #0
-	sub r0, #0x6c
-	ldr r0, [r1, r0]
-	bl ov96_021EB594
-	add r6, r0, #0
-	add r3, sp, #0x18
-	ldmia r6!, {r0, r1}
-	add r2, r3, #0
-	stmia r3!, {r0, r1}
-	ldr r0, [r6]
-	str r0, [r3]
-	mov r0, #2
-	ldr r1, [sp, #0x1c]
-	lsl r0, r0, #0x10
-	add r0, r1, r0
-	str r0, [sp, #0x1c]
-	add r0, r5, #4
-	ldrh r1, [r4, r0]
-	sub r0, #0x70
-	lsl r1, r1, #2
-	add r1, r4, r1
-	ldr r0, [r1, r0]
-	add r1, r2, #0
-	bl ov96_021EB588
-	mov r0, #0xe7
-	ldr r1, [sp, #0x1c]
-	lsl r0, r0, #0xe
-	cmp r1, r0
-	bge _022084B6
-_022084B4:
-	b _02208600
-_022084B6:
-	mov r0, #0xa5
-	lsl r0, r0, #0xe
-	str r0, [sp, #0x1c]
-	add r0, r5, #4
-	ldrh r1, [r4, r0]
-	sub r0, #0x70
-	lsl r1, r1, #2
-	add r1, r4, r1
-	ldr r0, [r1, r0]
-	add r1, sp, #0x18
-	bl ov96_021EB588
-	ldr r0, [r4, r5]
-	add r0, r0, #1
-	str r0, [r4, r5]
-	b _02208600
-_022084D6:
-	add r1, r5, #4
-	ldrh r1, [r4, r1]
-	add r2, r6, #0
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x18
-	bl ov96_022082BC
-	add r3, r5, #4
-	ldrh r0, [r4, r3]
-	add r0, r0, #1
-	lsr r2, r0, #0x1f
-	lsl r1, r0, #0x1f
-	sub r1, r1, r2
-	mov r0, #0x1f
-	ror r1, r0
-	add r0, r2, r1
-	strh r0, [r4, r3]
-	ldr r0, [r4, r5]
-	add r0, r0, #1
-	str r0, [r4, r5]
-	b _02208600
-_02208500:
-	add r0, r5, #4
-	ldrh r0, [r4, r0]
-	lsl r0, r0, #2
-	add r1, r4, r0
-	add r0, r5, #0
-	sub r0, #0x6c
-	ldr r0, [r1, r0]
-	bl ov96_021EB594
-	add r6, r0, #0
-	add r3, sp, #0xc
-	ldmia r6!, {r0, r1}
-	add r2, r3, #0
-	stmia r3!, {r0, r1}
-	ldr r0, [r6]
-	str r0, [r3]
-	mov r0, #2
-	ldr r1, [sp, #0x10]
-	lsl r0, r0, #0x10
-	add r0, r1, r0
-	str r0, [sp, #0x10]
-	add r0, r5, #4
-	ldrh r1, [r4, r0]
-	sub r0, #0x70
-	lsl r1, r1, #2
-	add r1, r4, r1
-	ldr r0, [r1, r0]
-	add r1, r2, #0
-	bl ov96_021EB588
-	mov r0, #0xd1
-	ldr r1, [sp, #0x10]
-	lsl r0, r0, #0xe
-	cmp r1, r0
-	blt _02208600
-	str r0, [sp, #0x10]
-	add r0, r5, #4
-	ldrh r1, [r4, r0]
-	sub r0, #0x70
-	lsl r1, r1, #2
-	add r1, r4, r1
-	ldr r0, [r1, r0]
-	add r1, sp, #0xc
-	bl ov96_021EB588
-	add r3, r5, #4
-	ldrh r0, [r4, r3]
-	add r0, r0, #1
-	lsr r2, r0, #0x1f
-	lsl r1, r0, #0x1f
-	sub r1, r1, r2
-	mov r0, #0x1f
-	ror r1, r0
-	add r0, r2, r1
-	strh r0, [r4, r3]
-	ldr r0, [r4, r5]
-	add r0, r0, #1
-	str r0, [r4, r5]
-	b _02208600
-_02208576:
-	add r0, r5, #4
-	ldrh r0, [r4, r0]
-	lsl r0, r0, #2
-	add r1, r4, r0
-	add r0, r5, #0
-	sub r0, #0x6c
-	ldr r0, [r1, r0]
-	bl ov96_021EB594
-	add r3, r0, #0
-	add r2, sp, #0
-	ldmia r3!, {r0, r1}
-	add r7, r2, #0
-	stmia r2!, {r0, r1}
-	ldr r0, [r3]
-	str r0, [r2]
-	mov r0, #2
-	ldr r1, [sp, #4]
-	lsl r0, r0, #0x10
-	add r0, r1, r0
-	str r0, [sp, #4]
-	add r0, r5, #4
-	ldrh r1, [r4, r0]
-	sub r0, #0x70
-	lsl r1, r1, #2
-	add r1, r4, r1
-	ldr r0, [r1, r0]
-	add r1, r7, #0
-	bl ov96_021EB588
-	mov r0, #0xbb
-	ldr r1, [sp, #4]
-	lsl r0, r0, #0xe
-	cmp r1, r0
-	blt _02208600
-	str r0, [sp, #4]
-	add r0, r5, #4
-	ldrh r1, [r4, r0]
-	sub r0, #0x70
-	lsl r1, r1, #2
-	add r1, r4, r1
-	ldr r0, [r1, r0]
-	add r1, r7, #0
-	bl ov96_021EB588
-	add r3, r5, #4
-	ldrh r0, [r4, r3]
-	add r0, r0, #1
-	lsr r2, r0, #0x1f
-	lsl r1, r0, #0x1f
-	sub r1, r1, r2
-	mov r0, #0x1f
-	ror r1, r0
-	add r0, r2, r1
-	strh r0, [r4, r3]
-	add r0, r6, #2
-	mov r1, #3
-	bl _s32_div_f
-	lsl r1, r1, #0x18
-	add r0, r4, #0
-	lsr r1, r1, #0x18
-	bl ov96_022088AC
+
+
+	thumb_func_start ov96_02216AA4
+ov96_02216AA4: ; 0x02216AA4
+	push {r3, r4, r5, r6, r7, lr}
+	sub sp, #0x28
+	add r5, r0, #0
 	mov r0, #0
-	str r0, [r4, r5]
-	add sp, #0x24
+	str r0, [sp, #0x18]
+	add r0, r3, #0
+	add r7, r1, #0
+	str r2, [sp, #0xc]
+	str r3, [sp, #0x10]
+	ldr r4, [sp, #0x40]
+	bl PokeathlonCourse_GetDataCopyArea
+	add r6, r0, #0
+	ldrb r1, [r5]
+	add r0, sp, #0x24
+	strh r1, [r0]
+	ldrb r1, [r5, #1]
+	strh r1, [r0, #2]
+	ldr r0, [sp, #0x10]
+	bl PokeathlonCourse_GetParticipantCount
+	cmp r0, r4
+	bhi _02216AE6
 	mov r0, #1
-	pop {r4, r5, r6, r7, pc}
-_02208600:
+	str r0, [sp, #0x1c]
+	mov r0, #0x28
+	add r6, #0x50
+	mul r0, r4
+	add r0, r6, r0
+	bl ov96_021E8A20
+	str r0, [sp, #0x20]
+	b _02216AF2
+_02216AE6:
 	mov r0, #0
-	add sp, #0x24
-	pop {r4, r5, r6, r7, pc}
-	.balign 4, 0
-	thumb_func_end ov96_02208448
+	str r0, [sp, #0x1c]
+	add r0, r6, #0
+	bl ov96_021E8A20
+	str r0, [sp, #0x20]
+_02216AF2:
+	ldr r0, [sp, #0x10]
+	bl ov96_021E5F24
+	cmp r0, #0
+	bne _02216B00
+	mov r0, #1
+	b _02216B02
+_02216B00:
+	mov r0, #0
+_02216B02:
+	cmp r0, #0
+	beq _02216B12
+	ldr r0, [sp, #0x1c]
+	cmp r0, #0
+	beq _02216B12
+	mov r0, #1
+	str r0, [sp, #0x14]
+	b _02216B16
+_02216B12:
+	mov r0, #0
+	str r0, [sp, #0x14]
+_02216B16:
+	ldr r0, [sp, #0x10]
+	bl ov96_021E5F24
+	cmp r4, r0
+	bne _02216B24
+	mov r6, #1
+	b _02216B26
+_02216B24:
+	mov r6, #0
+_02216B26:
+	ldr r0, [sp, #0x14]
+	add r1, r7, #0
+	add r3, r0, #0
+	ldrb r0, [r5, #5]
+	add r1, #0xe4
+	ldr r1, [r1]
+	lsl r0, r0, #0x19
+	lsl r1, r1, #0x12
+	lsr r0, r0, #0x1e
+	lsr r1, r1, #0x1e
+	orr r3, r6
+	cmp r0, r1
+	beq _02216B70
+	add r0, r7, #0
+	add r0, #0xe4
+	ldr r1, [r0]
+	ldr r0, _02216BF8 ; =0xFFFFF0FF
+	and r1, r0
+	add r0, r7, #0
+	add r0, #0xe4
+	str r1, [r0]
+	add r0, r7, #0
+	add r0, #0xe4
+	ldr r1, [r0]
+	ldr r0, _02216BFC ; =0xFFFFCFFF
+	and r0, r1
+	ldrb r1, [r5, #5]
+	lsl r1, r1, #0x19
+	lsr r1, r1, #0x1e
+	lsl r1, r1, #0x1e
+	lsr r1, r1, #0x12
+	orr r1, r0
+	add r0, r7, #0
+	add r0, #0xe4
+	str r1, [r0]
+	mov r0, #1
+	str r0, [sp, #0x18]
+_02216B70:
+	add r0, r7, #0
+	add r0, #0xe4
+	ldr r0, [r0]
+	lsl r0, r0, #0x12
+	lsr r0, r0, #0x1e
+	beq _02216BD0
+	cmp r0, #1
+	beq _02216B88
+	cmp r0, #2
+	beq _02216BB8
+	add sp, #0x28
+	pop {r3, r4, r5, r6, r7, pc}
+_02216B88:
+	ldr r0, [sp, #0x18]
+	cmp r0, #0
+	beq _02216B9E
+	ldrb r2, [r5, #4]
+	ldr r0, [sp, #0xc]
+	add r1, r4, #0
+	lsl r2, r2, #0x18
+	lsr r2, r2, #0x1e
+	mov r3, #1
+	bl ov96_0221996C
+_02216B9E:
+	ldr r0, [sp, #0x20]
+	ldr r2, [sp, #0xc]
+	str r0, [sp]
+	ldr r0, [sp, #0x14]
+	add r1, sp, #0x24
+	str r0, [sp, #4]
+	add r0, r7, #0
+	add r3, r4, #0
+	str r6, [sp, #8]
+	bl ov96_02216770
+	add sp, #0x28
+	pop {r3, r4, r5, r6, r7, pc}
+_02216BB8:
+	ldr r0, [sp, #0x20]
+	ldr r2, [sp, #0xc]
+	str r0, [sp]
+	str r3, [sp, #4]
+	add r0, r7, #0
+	add r1, sp, #0x24
+	add r3, r4, #0
+	str r6, [sp, #8]
+	bl ov96_02216934
+	add sp, #0x28
+	pop {r3, r4, r5, r6, r7, pc}
+_02216BD0:
+	ldr r0, [sp, #0x18]
+	cmp r0, #0
+	beq _02216BF2
+	ldr r2, [sp, #0x20]
+	str r6, [sp]
+	add r0, r7, #0
+	add r1, sp, #0x24
+	bl ov96_02216A54
+	ldrb r2, [r5, #4]
+	ldr r0, [sp, #0xc]
+	add r1, r4, #0
+	lsl r2, r2, #0x18
+	lsr r2, r2, #0x1e
+	mov r3, #0
+	bl ov96_0221996C
+_02216BF2:
+	add sp, #0x28
+	pop {r3, r4, r5, r6, r7, pc}
+	nop
+_02216BF8: .word 0xFFFFF0FF
+_02216BFC: .word 0xFFFFCFFF
+	thumb_func_end ov96_02216AA4
