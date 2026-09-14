@@ -1,6 +1,7 @@
 #ifndef OV95_RESIDUAL_3_PRIVATE_H
 #define OV95_RESIDUAL_3_PRIVATE_H
 #include "global.h"
+
 #include "camera.h"
 
 extern u32 GfGfxLoader_LoadCharData(int, int, void *, int, int, int, int, int);

@@ -1760,61 +1760,6 @@
 	.public ov02_0224FC74
 	.public ov02_022508B4
 
-	thumb_func_start ov02_0224CA58
-ov02_0224CA58: ; 0x0224CA58
-	push {r4, r5, r6, r7}
-	add r3, r0, #0
-	add r0, r2, #0
-	sub r0, r0, #1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	cmp r2, #0
-	beq _0224CAB4
-	add r6, r3, r1
-	sub r7, r1, #1
-_0224CA6C:
-	sub r1, r6, #1
-	ldrb r2, [r1]
-	mov r1, #1
-	add r5, r7, #0
-	and r1, r2
-	lsl r1, r1, #0x18
-	lsr r4, r1, #0x18
-	cmp r7, #0
-	ble _0224CA9A
-_0224CA7E:
-	ldrb r1, [r3, r5]
-	add r2, r3, r5
-	sub r2, r2, #1
-	asr r1, r1, #1
-	strb r1, [r3, r5]
-	ldrb r2, [r2]
-	ldrb r1, [r3, r5]
-	lsl r2, r2, #0x1f
-	lsr r2, r2, #0x18
-	orr r1, r2
-	strb r1, [r3, r5]
-	sub r5, r5, #1
-	cmp r5, #0
-	bgt _0224CA7E
-_0224CA9A:
-	ldrb r1, [r3, r5]
-	asr r1, r1, #1
-	strb r1, [r3, r5]
-	ldrb r2, [r3, r5]
-	lsl r1, r4, #7
-	orr r1, r2
-	strb r1, [r3, r5]
-	add r1, r0, #0
-	sub r0, r0, #1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	cmp r1, #0
-	bne _0224CA6C
-_0224CAB4:
-	pop {r4, r5, r6, r7}
-	bx lr
-	thumb_func_end ov02_0224CA58
 
 
 	thumb_func_start ov02_0224CAB8

@@ -1,0 +1,8 @@
+#ifndef POKEHEARTGOLD_OVERLAY14_BOX_INPUT_STATE_TAIL_PRIVATE_H
+#define POKEHEARTGOLD_OVERLAY14_BOX_INPUT_STATE_TAIL_PRIVATE_H
+
+#include "overlay14_box_input_state_private.h"
+
+u32 ov14_021ECF58(void *);
+
+#endif

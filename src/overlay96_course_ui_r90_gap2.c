@@ -83,3 +83,72 @@ void ov96_02207F18(Ov96R90Work *work, void *sprites, void *resources) {
         Sprite_SetAnimCtrlSeq(work->digitSprites[i], ov96_0221CBC8[i]);
     }
 }
+
+void ov96_022080F4(Ov96R90Work *work, const Ov96R90Mon *mons) {
+    NARC *volatile narc;
+    volatile int x;
+    Ov96R90Work *volatile choiceWork;
+    u32 iconNarc;
+    int i;
+    u8 *rawBase;
+    Ov96R90Graphic **graphic;
+    Ov96R90Work *participantWork;
+    Ov96R90Work *actionWork;
+    VecFx32 position;
+    struct {
+        u32 species;
+        u32 form;
+    } current;
+
+    narc = NARC_New(NARC_poketool_icongra_poke_icon, work->heapId);
+    iconNarc = sub_02074490();
+    GfGfxLoader_GXLoadPal(NARC_poketool_icongra_poke_icon, iconNarc, GF_PAL_LOCATION_SUB_OBJ, GF_PAL_SLOT_6_OFFSET, 0x60, work->heapId);
+    rawBase = (u8 *)work;
+    i = 0;
+    graphic = work->graphics;
+    for (; i < 12; i++) {
+        *(void **)(rawBase + 0x9C) = Heap_AllocAtEnd(work->heapId, 0x1000);
+        current.form = (u8)mons->form;
+        current.species = mons->species;
+        NARC_ReadWholeMember(narc, GetMonIconNaixEx(current.species, FALSE, current.form), *(void **)(rawBase + 0x9C));
+        NNS_G2dGetUnpackedBGCharacterData(*(void **)(rawBase + 0x9C), (NNSG2dCharacterData **)graphic);
+        work->palette[i] = GetMonIconPaletteEx(current.species, current.form, FALSE) + 6;
+        rawBase += 4;
+        mons++;
+        graphic++;
+    }
+    NARC_Delete(narc);
+
+    i = 0;
+    participantWork = work;
+    x = 0x70;
+    choiceWork = work;
+    actionWork = work;
+    for (; i < 4; i++) {
+        ov96_0220831C(work, (u8)i, 0);
+        ov96_021EB52C(participantWork->participant[0].sprite38, 1, 1);
+        ov96_021EB52C(participantWork->participant[0].sprite40, 1, 1);
+        position.z = 0;
+        position.x = x << FX32_SHIFT;
+        position.y = 0x350000;
+        ov96_021EB588(participantWork->participant[0].sprite38, &position);
+        ov96_021EB588(participantWork->participant[0].sprite40, &position);
+        ov96_021EB588(participantWork->participant[0].sprite3C, &position);
+        {
+            int j;
+            Ov96R90Work *choiceCursor = choiceWork;
+            for (j = 0; j < 2; j++) {
+                ov96_021EB588(choiceCursor->choiceSprites[0][0], &position);
+                choiceCursor = (Ov96R90Work *)((u8 *)choiceCursor + 4);
+            }
+        }
+        position.y -= 0x20000;
+        ov96_021EB588(actionWork->actionSprites[0][0], &position);
+        ov96_021EB588(actionWork->actionSprites[0][1], &position);
+        ov96_021EB588(actionWork->actionSprites[0][2], &position);
+        participantWork = (Ov96R90Work *)((u8 *)participantWork + 0x1C);
+        x += 0x28;
+        actionWork = (Ov96R90Work *)((u8 *)actionWork + 0x10);
+        choiceWork = (Ov96R90Work *)((u8 *)choiceWork + 8);
+    }
+}
