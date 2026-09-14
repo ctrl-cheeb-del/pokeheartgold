@@ -142,6 +142,7 @@ void ov49_02262DF8(void *p, u32 a, u32 b);
 void ov49_02262E04(void *p, u32 a, u32 b);
 void ov49_02264F10(void *p);
 void ov49_02264F1C(void *p);
+void ov49_02264F24(void *event, void *object);
 void ov49_02264F60(void *p);
 void ov49_0226526C(void *p);
 u16 ov49_022652E0(void *p);

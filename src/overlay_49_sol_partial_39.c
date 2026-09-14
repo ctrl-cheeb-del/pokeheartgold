@@ -58,3 +58,32 @@ void ov49_0225CF94(void *p) {
     sub_020182A0((u8 *)p + 4, 0);
     U8_AT(p, 0) = 0;
 }
+
+typedef struct Ov49Residual39Work {
+    u8 pad00[0x9C];
+    VecFx32 first;
+    VecFx32 second;
+} Ov49Residual39Work;
+
+extern void sub_020182A8(void *, fx32, fx32, fx32);
+extern void sub_020182B0(void *, void *, void *, void *);
+
+void ov49_0225CFA8(Ov49Residual39Work *work, const VecFx32 *value) {
+    work->first = *value;
+    sub_020182A8((u8 *)work + 4,
+        work->first.x + work->second.x,
+        work->first.y + work->second.y,
+        work->first.z + work->second.z);
+}
+
+void ov49_0225CFEC(Ov49Residual39Work *work, const VecFx32 *value) {
+    work->second = *value;
+    sub_020182A8((u8 *)work + 4,
+        work->first.x + work->second.x,
+        work->first.y + work->second.y,
+        work->first.z + work->second.z);
+}
+
+void ov49_0225D030(void *work, void *parts) {
+    sub_020182B0((u8 *)work + 4, parts, (u8 *)parts + 4, (u8 *)parts + 8);
+}

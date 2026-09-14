@@ -1,0 +1,8 @@
+#ifndef TO47_OVERLAY49_FIELD_PACK_R57_PRIVATE_H
+#define TO47_OVERLAY49_FIELD_PACK_R57_PRIVATE_H
+
+#include "global.h"
+
+void ov49_0225F190(u32 *p, u32 arg1, u32 arg2, u32 arg3, u32 arg4);
+
+#endif // TO47_OVERLAY49_FIELD_PACK_R57_PRIVATE_H

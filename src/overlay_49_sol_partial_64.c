@@ -5,6 +5,7 @@
 #define U8_AT(p, n)  (*(u8 *)((u8 *)(p) + (n)))
 #define U16_AT(p, n) (*(u16 *)((u8 *)(p) + (n)))
 #define U32_AT(p, n) (*(u32 *)((u8 *)(p) + (n)))
+#define S16_AT(p, n) (*(s16 *)((u8 *)(p) + (n)))
 
 extern u32 ov42_02227FA4(void *);
 extern u32 ov42_02229A8C(void *);
@@ -53,6 +54,9 @@ extern void ov49_0225BF80(void *);
 extern void ov49_0225CAA8(void *);
 extern void Camera_UnsetStaticPtr(void *);
 extern void Camera_Delete(void *);
+extern void ov49_0225A08C(void *, void *);
+extern void ov49_0225A334(void *, u8, u32);
+extern void *ov49_02264C04(void *, u8, u32);
 
 void ov49_02264F10(void *p) {
     U16_AT(p, 0xE) = 0;
@@ -62,4 +66,14 @@ void ov49_02264F10(void *p) {
 void ov49_02264F1C(void *p) {
     U16_AT(p, 0xE) = 0;
     U8_AT(p, 0xD) = 0;
+}
+
+void ov49_02264F24(void *event, void *object) {
+    void *value;
+
+    if (U8_AT(event, 0xD) == 1 && S16_AT(event, 0xE) == 0x1C2) {
+        ov49_0225A334(object, U8_AT(event, 3), 0);
+        value = ov49_02264C04(object, U8_AT(event, 3), 0x2AB);
+        ov49_0225A08C(object, value);
+    }
 }

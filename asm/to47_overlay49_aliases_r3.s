@@ -1,0 +1,35 @@
+	.include "asm/macros.inc"
+
+	.public _022589EA
+	.public _022589F2
+	.public _02258A18
+	.public _02258A1A
+	.public _02258A34
+	.public _02258A3E
+	.public _02258A4C
+	.public _02258A54
+	.public _02258A5E
+	.public _02258A6C
+	.public _02258A74
+	.public _02258A7E
+	.public _02258A8C
+	.public _02258A94
+	.public _02258A9E
+	.public _02258AAC
+
+	.set _022589EA, 0x022589EA
+	.set _022589F2, 0x022589F2
+	.set _02258A18, 0x02258A18
+	.set _02258A1A, 0x02258A1A
+	.set _02258A34, 0x02258A34
+	.set _02258A3E, 0x02258A3E
+	.set _02258A4C, 0x02258A4C
+	.set _02258A54, 0x02258A54
+	.set _02258A5E, 0x02258A5E
+	.set _02258A6C, 0x02258A6C
+	.set _02258A74, 0x02258A74
+	.set _02258A7E, 0x02258A7E
+	.set _02258A8C, 0x02258A8C
+	.set _02258A94, 0x02258A94
+	.set _02258A9E, 0x02258A9E
+	.set _02258AAC, 0x02258AAC

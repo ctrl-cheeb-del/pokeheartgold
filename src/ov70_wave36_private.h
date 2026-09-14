@@ -26,5 +26,5 @@ extern void String_Delete(void *);
 extern void ov70_0223A0C4(R14Work *);extern void ov70_0223A224(R14Work *);extern void ov70_0223A1A0(R14Work *);extern void ov70_02239F78(void *);extern void ov70_02238E58(R14Work *);
 extern void ov70_022392BC(void *);extern void FreeBgTilemapBuffer(void *,int);
 extern int (*ov70_022464A8[])(R14Work *);
-int ov70_02239990(R14Work *);int ov70_022399D8(R14Work *);int ov70_02239AAC(R14Work *);int ov70_02239ACC(R14Work *);int ov70_02239A10(R14Work *);void ov70_02239B84(R14Work *,u32,u32);void ov70_02239BDC(R14Work *,u32,u32);void ov70_02239C34(void *,void *,u32,u32);int ov70_02239E68(R14Work *);BOOL ov70_02239E7C(R14Work *);void ov70_02239F78(void *);
+int ov70_02239990(R14Work *);int ov70_022399D8(R14Work *);int ov70_02239AAC(R14Work *);int ov70_02239ACC(R14Work *);int ov70_02239A10(R14Work *);void ov70_02239B84(R14Work *,u32,u32);void ov70_02239BDC(R14Work *,u32,u32);void ov70_02239C34(void *,void *,u32,u32,u32);int ov70_02239E68(R14Work *);BOOL ov70_02239E7C(R14Work *);void ov70_02239F78(void *);
 #endif
