@@ -412,7 +412,7 @@ BOOL PokeathlonCourseOpening_Introduce(PokeathlonCourseData *course, u8 *state) 
             }
             break;
         case OPENING_STATE_TEAM_LINE:
-            if (*(int *)PokeathlonCourse_GetParticipantData(course, ceremony->team) > 0) {
+            if (PokeathlonCourse_GetParticipantData(course, ceremony->team)->npcTeam > 0) {
                 PokeathlonCourseMessageBox_PrintNpcLine(ceremony->messageBox, PokeathlonCourseCeremony_GetIntroMsgId(course, ceremony->team));
             } else {
                 msgId = PokeathlonCourseCeremony_GetIntroMsgId(course, ceremony->team);
@@ -1134,7 +1134,7 @@ static void PokeathlonCourseCeremony_LoadTrainerSprites(PokeathlonCourseData *co
         } else if (i < count) {
             PokeathlonCourse_LoadTeamTrainerPic(sprites, course, i, 0);
         } else {
-            u8 npcTeam = *(u32 *)PokeathlonCourse_GetParticipantData(course, i);
+            u8 npcTeam = PokeathlonCourse_GetParticipantData(course, i)->npcTeam;
             int fileId = PokeathlonCourse_GetNpcTrainerPicFileId(PokeathlonCourse_GetNpcTeamSpriteId(npcTeam));
             PokeathlonCourse_LoadTrainerPic(cursor->trainerSprites[0], fileId, 0, ceremony->heapId);
         }
@@ -1147,7 +1147,7 @@ static void PokeathlonCourseCeremony_SetTrainerPose(ManagedSprite **sprites, Pok
     BOOL isNpc;
     int frame;
 
-    isNpc = *(int *)PokeathlonCourse_GetParticipantData(course, team) > 0;
+    isNpc = PokeathlonCourse_GetParticipantData(course, team)->npcTeam > 0;
     switch (pose) {
     case TRAINER_POSE_STANDING:
         frame = 0;
@@ -1160,7 +1160,7 @@ static void PokeathlonCourseCeremony_SetTrainerPose(ManagedSprite **sprites, Pok
         break;
     }
     if (isNpc) {
-        u8 npcTeam = *(u32 *)PokeathlonCourse_GetParticipantData(course, team);
+        u8 npcTeam = PokeathlonCourse_GetParticipantData(course, team)->npcTeam;
         int fileId = PokeathlonCourse_GetNpcTrainerPicFileId(PokeathlonCourse_GetNpcTeamSpriteId(npcTeam));
         PokeathlonCourse_LoadTrainerPic(sprites[team], fileId, (u8)frame, heapId);
     } else {
@@ -1537,7 +1537,7 @@ static BOOL PokeathlonCourseCeremony_Init(PokeathlonCourseData *course) {
         }
         break;
     case CEREMONY_INIT_START:
-        PokeathlonCourse_SetVBlankIntrCB((PokeathlonCourseData *)ceremony->bgConfig);
+        PokeathlonCourse_SetVBlankIntrCB(ceremony->bgConfig);
         PokeathlonCourse_SetEventDrawEnabled(course, TRUE);
         for (i = 0; i < POKEATHLON_MONS; i++) {
             int team;
@@ -1599,7 +1599,7 @@ static BOOL PokeathlonCourseCeremony_Exit(PokeathlonCourseData *course) {
 // Puts the nickname of the team's member-th Pokemon into placeholder field.
 static void PokeathlonCourseCeremony_BufferMonName(PokeathlonCourseData *course, int team, int member, int field) {
     PokeathlonCourseCeremony *ceremony = PokeathlonCourse_GetWork(course);
-    PokeathlonCourseMon *mons = (PokeathlonCourseMon *)PokeathlonCourse_GetParticipantMons(course, team);
+    PokeathlonCourseMon *mons = PokeathlonCourse_GetParticipantMons(course, team);
     String *string = String_New(11, ceremony->heapId);
     CopyU16ArrayToString(string, mons[member].nickname);
     BufferString(PokeathlonCourseMessageBox_GetMsgFormat(ceremony->messageBox), field, string, 2, 1, 0);
@@ -1789,7 +1789,7 @@ static u32 PokeathlonCourseCeremony_CalcChallengeBonus(PokeathlonCourseData *cou
     s32 bonus = 75;
     s32 i;
     narc = NARC_New(NARC_poketool_personal_performance, PokeathlonCourse_GetHeapID(course));
-    mon = (PokeathlonCourseMon *)PokeathlonCourse_GetParticipantMons(course, team);
+    mon = PokeathlonCourse_GetParticipantMons(course, team);
     for (i = 0; i < POKEATHLON_TEAM_SIZE; i++, mon++) {
         NARC_ReadWholeMember(narc, PokeathlonCourse_GetPerformanceFileId(mon->species, mon->form), &performance);
         bonus -= performance.stats[0] + 1;
@@ -2164,7 +2164,7 @@ static void PokeathlonCourseCeremony_ChooseLinkIntro(PokeathlonCourseCeremonyInt
 
 typedef struct NpcIntroLocals {
     volatile int team;
-    PokeathlonParticipantData *volatile participant;
+    PokeathlonCourseParticipant *volatile participant;
 } NpcIntroLocals;
 
 // NPC team: its own line (msg 311); the cheer from its Pokemon's performance.
@@ -2185,7 +2185,7 @@ static void PokeathlonCourseCeremony_ChooseNpcIntro(PokeathlonCourseCeremonyIntr
     } else if (cheer < 0) {
         cheer = 0;
     }
-    intro->msgId = PokeathlonCourse_GetNpcTeamMsgId(course, (u8) * (u32 *)locals.participant);
+    intro->msgId = PokeathlonCourse_GetNpcTeamMsgId(course, (u8)locals.participant->npcTeam);
     intro->value = 0;
     intro->cheer = cheer;
 }

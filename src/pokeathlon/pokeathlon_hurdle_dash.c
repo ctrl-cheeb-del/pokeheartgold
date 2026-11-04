@@ -205,7 +205,7 @@ BOOL PokeathlonHurdleDash_Init(PokeathlonCourseData *course) {
         layoutToSend = PokeathlonHurdleDashTrack_GetLayoutToSend(hurdleDash->track);
         layout = PokeathlonHurdleDashTrack_GetLayout(hurdleDash->track);
         layoutSize = PokeathlonHurdleDashTrack_GetLayoutSize(hurdleDash->track);
-        PokeathlonCourse_SetEventDataTransfer(course, (u32)layoutToSend, (u32)layout, layoutSize);
+        PokeathlonCourse_SetEventDataTransfer(course, layoutToSend, layout, layoutSize);
         PokeathlonCourse_SetHudPlanes(course, GX_PLANEMASK_BG3);
         charTransfer.maxTasks = 107;
         charTransfer.sizeMain = 0x40000;
@@ -296,7 +296,7 @@ BOOL PokeathlonHurdleDash_Init(PokeathlonCourseData *course) {
             i = 0;
             out = mons;
             for (; i < POKEATHLON_PARTICIPANTS; i++) {
-                PokeathlonCourseMon *mon = (PokeathlonCourseMon *)PokeathlonCourse_GetParticipantMons(course, i);
+                PokeathlonCourseMon *mon = PokeathlonCourse_GetParticipantMons(course, i);
                 for (j = 0; j < POKEATHLON_TEAM_SIZE; j++) {
                     out->species = mon->species;
                     out->form = mon->form;
@@ -321,7 +321,7 @@ BOOL PokeathlonHurdleDash_Init(PokeathlonCourseData *course) {
         break;
     case HURDLE_DASH_INIT_WAIT_MONS:
         if (PokeathlonCourseMonObjects_IsLoaded(hurdleDash->monSpriteManager)) {
-            PokeathlonCourse_SetVBlankIntrCB((PokeathlonCourseData *)hurdleDash->bgConfig); // takes the BgConfig
+            PokeathlonCourse_SetVBlankIntrCB(hurdleDash->bgConfig);
             PokeathlonHurdleDash_LoadBgTiles(hurdleDash->bgConfig, hurdleDash->heapId);
             PokeathlonCourse_AdvanceEventInitState(course);
         }

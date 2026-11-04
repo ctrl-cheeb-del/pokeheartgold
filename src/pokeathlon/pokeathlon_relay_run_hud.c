@@ -49,7 +49,7 @@ PokeathlonRelayRunHud *PokeathlonRelayRunHud_New(enum HeapID heapId, BgConfig *b
     for (i = 0; i < POKEATHLON_TEAM_SIZE; i++) {
         hud->names[i] = String_New(11, heapId);
     }
-    mon = (PokeathlonCourseMon *)PokeathlonCourse_GetParticipantMons(course, PokeathlonCourse_GetNetId(course));
+    mon = PokeathlonCourse_GetParticipantMons(course, PokeathlonCourse_GetNetId(course));
     {
         int member;
         for (member = 0; member < POKEATHLON_TEAM_SIZE; member++) {

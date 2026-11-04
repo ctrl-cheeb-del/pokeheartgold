@@ -332,7 +332,7 @@ void PokeathlonCourseCmd_RecvMonCounters(int netId, int size, void *data, void *
     u8 i;
     PokeathlonCourse_GetDataCopyArea(course);
     if (!PokeathlonCourse_GetNetId(course)) {
-        dst = (u32 *)PokeathlonCourse_GetFieldData_AtIndex(course, (u8)netId);
+        dst = PokeathlonCourse_GetFieldData_AtIndex(course, (u8)netId);
         for (i = 0; i < POKEATHLON_TEAM_SIZE; i++) {
             dst[i * 8 + 0] += src[i * 8 + 0];
             dst[i * 8 + 1] += src[i * 8 + 1];
@@ -407,7 +407,7 @@ u32 PokeathlonCourseCmd_JuiceRecordSize(void) {
 }
 
 void *PokeathlonCourseCmd_GetEventDataBuffer(int netId, void *context) {
-    return (void *)PokeathlonCourse_GetEventRecvBuffer(context);
+    return PokeathlonCourse_GetEventRecvBuffer(context);
 }
 
 void *PokeathlonCourseCmd_GetRecordBuffer(int netId, void *context) {

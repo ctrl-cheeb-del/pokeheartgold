@@ -114,7 +114,7 @@ void PokeathlonResults_InitPlates(PokeathlonResultsAnnouncementPlates *plates, i
 // Shows the next free plate at (x, y) for a ranking entry.
 PokeathlonResultsAnnouncementPlate *PokeathlonResults_ShowPlate(PokeathlonResultsAnnouncementPlates *plates, int x, int y, PokeathlonCourseScore *score) {
     PokeathlonResultsAnnouncementPlate *plate;
-    PokeathlonParticipantData *participant;
+    PokeathlonCourseParticipant *participant;
     BOOL isNpc;
     int index;
 
@@ -122,7 +122,7 @@ PokeathlonResultsAnnouncementPlate *PokeathlonResults_ShowPlate(PokeathlonResult
     plate = &plates->plates[index];
     GF_ASSERT(!plate->active);
     participant = PokeathlonCourse_GetParticipantData(plates->course, score->participant);
-    isNpc = *(s32 *)participant > 0; // first word: the NPC team
+    isNpc = participant->npcTeam > 0;
     plate->x = x;
     plate->y = y;
     plate->participant = score->participant;
@@ -132,7 +132,7 @@ PokeathlonResultsAnnouncementPlate *PokeathlonResults_ShowPlate(PokeathlonResult
     plates->firstPlace = plate->rank == 0;
     GF_ASSERT((s32)plate->participant < POKEATHLON_PARTICIPANTS);
     if (isNpc) {
-        u32 picture = PokeathlonCourse_GetNpcTrainerPicFileId(PokeathlonCourse_GetNpcTeamSpriteId((u8) * (s32 *)participant));
+        u32 picture = PokeathlonCourse_GetNpcTrainerPicFileId(PokeathlonCourse_GetNpcTeamSpriteId((u8)participant->npcTeam));
         PokeathlonCourse_LoadTrainerPicIntoSprite(plate->sprites[3], picture, 11, plates->heapId);
     } else {
         PokeathlonCourse_LoadPlayerTrainerPic(plate->sprites[3], plates->course, (u8)plate->participant, 27);

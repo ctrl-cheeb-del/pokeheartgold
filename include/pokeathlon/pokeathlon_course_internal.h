@@ -20,7 +20,7 @@
 // Course participants
 
 // One Pokemon of a participant's team.
-typedef struct PokeathlonCourseMon {
+struct PokeathlonCourseMon {
     u16 species;
     u16 form;
     u32 personality;
@@ -30,15 +30,15 @@ typedef struct PokeathlonCourseMon {
     u8 isShiny;
     u8 gender;
     u16 nickname[POKEMON_NAME_LENGTH + 1];
-} PokeathlonCourseMon;
+};
 
-// A course participant. PokeathlonCourseData stores four of them as PokeathlonParticipantData.
-typedef struct PokeathlonCourseParticipant {
-    u32 npcTeam; // NARC a/2/5/8 entry + 1 of an NPC team, 0 for a player
+// A course participant.
+struct PokeathlonCourseParticipant {
+    s32 npcTeam; // NARC a/2/5/8 entry + 1 of an NPC team, 0 for a player
     PokeathlonCourseMon mons[POKEATHLON_TEAM_SIZE];
-} PokeathlonCourseParticipant;
+};
 
-// Score list (PokeathlonCourseData.graphicsSystem): the per-event result rows and the course point totals
+// Score list (PokeathlonCourseData.scores): the per-event result rows and the course point totals
 
 #define POKEATHLON_COURSE_SCORE_ENTRY_MAX  12
 #define POKEATHLON_COURSE_EVENT_POINTS_MAX 10
@@ -302,6 +302,14 @@ typedef struct PokeathlonCourseEventResult {
 
 typedef void (*PokeathlonCourseFinishFunc)(PokeathlonCourseData *course);
 
+// Data the host sends to the other players before an event (PokeathlonCourse_SetEventDataTransfer).
+typedef struct PokeathlonCourseEventData {
+    void *toSend;
+    void *recvBuffer;
+    u32 size;
+    BOOL pending;
+} PokeathlonCourseEventData;
+
 // A link packet of the event that is running; the data copy area holds 7 of them.
 typedef struct PokeathlonCoursePacket {
     u8 data[0x24];
@@ -309,7 +317,7 @@ typedef struct PokeathlonCoursePacket {
     u8 unk25[3];
 } PokeathlonCoursePacket;
 
-// Callbacks of the event that is running (PokeathlonCourseData.state points to the event's table).
+// Callbacks of the event that is running (PokeathlonCourseData.event).
 typedef struct PokeathlonCourseEvent {
     BOOL (*init)(PokeathlonCourseData *course);
     void (*draw)(PokeathlonCourseData *course, u32 param);
@@ -320,8 +328,8 @@ typedef struct PokeathlonCourseEvent {
 
 #define POKEATHLON_MON_COUNTER_MAX 9999 // the cap of the counters of a Pokemon and of the instructions
 
-// The course results (its first 4 PokeathlonFieldData are the counters).
-typedef struct PokeathlonCourseResults {
+// The course results (PokeathlonCourse_GetFieldData).
+struct PokeathlonCourseResults {
     u32 counters[POKEATHLON_PARTICIPANTS][POKEATHLON_TEAM_SIZE][8]; // per participant and Pokemon
     u32 bonuses;
     u32 instructions;
@@ -335,9 +343,10 @@ typedef struct PokeathlonCourseResults {
     u16 unkBits4 : 12;
     u16 totalPoints;
     PokeathlonStatistics record; // the player's saved record
-} PokeathlonCourseResults;
+};
 
-typedef struct PokeathlonCourseLayout {
+// The course (overlay data of PokeathlonCourse_Init .. PokeathlonCourse_Exit).
+struct PokeathlonCourseData {
     u32 padding_00[4];
     u8 padding_10[0x14C];
     u8 padding_15C;
@@ -347,7 +356,7 @@ typedef struct PokeathlonCourseLayout {
     u8 eventIds[POKEATHLON_LINK_ROUNDS]; // event of each round, as sent to the other players
     u8 unk1EC;
     u8 eventInitState;
-    u8 participantCount;
+    u8 participantCount; // Number of active participants (1-4)
     u8 receivedCount;
     u32 round;
     BOOL eventDrawEnabled;
@@ -359,7 +368,7 @@ typedef struct PokeathlonCourseLayout {
     enum HeapID heapId;
     PokeathlonCourseLink *link;
     PokeathlonCoursePacket packets[7]; // the data copy area
-    u32 eventDataTransfer[4];
+    PokeathlonCourseEventData eventData;
     PokeathlonCourseState courseState;
     PokeathlonStateInfo stateInfo;
     PokeathlonStateInfo eventStateInfo;
@@ -382,7 +391,7 @@ typedef struct PokeathlonCourseLayout {
     Sprite *startSprites[3];
     u8 startSpriteCount;
     u8 startState;
-    u8 rounds;
+    u8 rounds; // 3 solo, 4 link
     u8 timeUpSeconds;
     PokeathlonCourseResults results;
     PokeathlonStatistics records[POKEATHLON_PARTICIPANTS]; // every player's saved record
@@ -396,7 +405,7 @@ typedef struct PokeathlonCourseLayout {
     ApricornRecord *juiceRecord;
     ApricornRecord *playerJuiceRecords;
     PokeathlonCourseFinishFunc finishCallback;
-} PokeathlonCourseLayout;
+};
 
 // Saved records (parts of PokeathlonSave)
 

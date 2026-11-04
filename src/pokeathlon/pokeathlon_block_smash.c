@@ -529,7 +529,7 @@ BOOL PokeathlonBlockSmash_Init(PokeathlonCourseData *course) {
         }
         PokeathlonBlockSmash_PrintInitialText(work);
         PokeathlonBlockSmash_CreateTeamRows(course);
-        PokeathlonCourse_SetVBlankIntrCB((PokeathlonCourseData *)work->bgConfig);
+        PokeathlonCourse_SetVBlankIntrCB(work->bgConfig);
         WirelessStatusIcon_CreateOnScreenIfConnected(1);
         PokeathlonCourse_SetEventDrawEnabled(course, TRUE);
         GfGfx_EngineATogglePlanes(GX_PLANEMASK_OBJ, GF_PLANE_TOGGLE_ON);
@@ -785,7 +785,7 @@ static void PokeathlonBlockSmash_InitText(PokeathlonCourseData *course) {
         FillWindowPixelBuffer(&work->windows[i], 0);
         ClearWindowTilemap(&work->windows[i]);
     }
-    mons = (PokeathlonCourseMon *)PokeathlonCourse_GetParticipantMons(course, PokeathlonCourse_GetNetId(course));
+    mons = PokeathlonCourse_GetParticipantMons(course, PokeathlonCourse_GetNetId(course));
     for (i = 0; i < POKEATHLON_TEAM_SIZE; i++) {
         work->names[i] = String_New(POKEMON_NAME_LENGTH + 1, work->heapId);
         CopyU16ArrayToString(work->names[i], mons[i].nickname);

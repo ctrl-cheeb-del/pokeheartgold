@@ -238,7 +238,7 @@ BOOL PokeathlonRingDrop_Init(PokeathlonCourseData *course) {
         PokeathlonRingDrop_InitMons(ringDrop, course);
         PokeathlonRingDropUi_Init(ringDrop->ui);
         PokeathlonRingDropDisplay_Init(&ringDrop->display, ringDrop->spriteSystem, ringDrop->spriteManager, ringDrop->ui, ringDrop->monObjects, ringDrop->heapId);
-        PokeathlonCourse_SetVBlankIntrCB((PokeathlonCourseData *)ringDrop->bgConfig);
+        PokeathlonCourse_SetVBlankIntrCB(ringDrop->bgConfig);
         PokeathlonScreenShake_Init(&ringDrop->shake, ringDrop->bgConfig, ringDrop->spriteSystem);
         PokeathlonCourse_SetEventDrawEnabled(course, TRUE);
         if (PokeathlonCourse_GetNetId(course) == 0) {

@@ -432,7 +432,7 @@ BOOL PokeathlonSnowThrow_Init(PokeathlonCourseData *course) {
         } else {
             PokeathlonSnowThrowViewAnims anims = sSnowThrowViewAnims;
 
-            PokeathlonCourse_SetVBlankIntrCB((PokeathlonCourseData *)work->bgConfig);
+            PokeathlonCourse_SetVBlankIntrCB(work->bgConfig);
             PokeathlonCourse_SetEventDrawEnabled(course, TRUE);
             own = PokeathlonCourse_GetNetId(course);
             for (k = 0; k < POKEATHLON_MONS - POKEATHLON_TEAM_SIZE; k++) {

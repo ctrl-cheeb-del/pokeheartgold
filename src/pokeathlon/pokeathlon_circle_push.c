@@ -503,7 +503,7 @@ BOOL PokeathlonCirclePush_Init(PokeathlonCourseData *course) {
             break;
         }
         own = PokeathlonCourse_GetNetId(course);
-        PokeathlonCourse_SetVBlankIntrCB((PokeathlonCourseData *)circlePush->bgConfig);
+        PokeathlonCourse_SetVBlankIntrCB(circlePush->bgConfig);
         PokeathlonCourse_SetEventDrawEnabled(course, TRUE);
         ReadWholeNarcMemberByIdPair(collision, NARC_a_1_7_0, 11);
         for (i = 0; i < POKEATHLON_MONS; i++) {

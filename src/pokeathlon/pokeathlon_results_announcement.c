@@ -308,7 +308,7 @@ BOOL PokeathlonResults_Init(PokeathlonCourseData *course) {
         PokeathlonCourse_AdvanceEventInitState(course);
         break;
     case RESULTS_INIT_LOAD_GRAPHICS:
-        PokeathlonCourse_SetVBlankIntrCB((PokeathlonCourseData *)announcement->bgConfig);
+        PokeathlonCourse_SetVBlankIntrCB(announcement->bgConfig);
         PokeathlonResults_InitBgs(announcement->bgConfig, announcement->heapId);
         PokeathlonEventBanner_AddWindows(announcement->banner, announcement->bgConfig);
         PokeathlonResults_LoadBgGfx(announcement);

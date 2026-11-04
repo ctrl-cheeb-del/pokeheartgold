@@ -92,7 +92,7 @@ BOOL PokeathlonPennantCapture_Init(PokeathlonCourseData *course) {
         PokeathlonPennantCapture *data = PokeathlonCourse_AllocWork(course, sizeof(PokeathlonPennantCapture));
         MI_CpuFill8(data, 0, sizeof(PokeathlonPennantCapture));
         data->bgConfig = BgConfig_Alloc(HEAP_ID_139);
-        PokeathlonCourse_SetEventDataTransfer(course, (u32)&data->layoutChoice, (u32)&data->layoutFileId, sizeof(data->layoutFileId));
+        PokeathlonCourse_SetEventDataTransfer(course, &data->layoutChoice, &data->layoutFileId, sizeof(data->layoutFileId));
         PokeathlonCourse_SetHudPlanes(course, GX_PLANEMASK_BG3);
         charTransfer.maxTasks = 202;
         charTransfer.sizeMain = 0x40000;
@@ -166,7 +166,7 @@ BOOL PokeathlonPennantCapture_Init(PokeathlonCourseData *course) {
             break;
         }
         own = PokeathlonCourse_GetNetId(course);
-        PokeathlonCourse_SetVBlankIntrCB((PokeathlonCourseData *)work->bgConfig);
+        PokeathlonCourse_SetVBlankIntrCB(work->bgConfig);
         PokeathlonCourse_SetEventDrawEnabled(course, TRUE);
         ReadWholeNarcMemberByIdPair(collisions, NARC_a_1_7_0, 14);
         s32 i;

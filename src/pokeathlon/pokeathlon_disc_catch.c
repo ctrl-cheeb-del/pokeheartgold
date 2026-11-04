@@ -827,7 +827,7 @@ BOOL PokeathlonDiscCatch_Init(PokeathlonCourseData *course) {
         work->cpu = PokeathlonDiscCatchCpu_New(course, work->heapId);
         PokeathlonCourse_InitMarkers(course);
         PokeathlonDiscCatchShake_Init(&work->shake, work->bgConfig, work->spriteSystem);
-        PokeathlonCourse_SetVBlankIntrCB((PokeathlonCourseData *)work->bgConfig);
+        PokeathlonCourse_SetVBlankIntrCB(work->bgConfig);
         PokeathlonCourse_SetEventDrawEnabled(course, TRUE);
         PokeathlonDiscCatch_InitMons(work);
         if (PokeathlonCourse_GetNetId(course) == 0) {
