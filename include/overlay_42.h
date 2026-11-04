@@ -46,15 +46,8 @@ typedef struct Field2DBgLayer {
     u16 tileY;
 } Field2DBgLayer;
 
-typedef struct Field2DMoveQueueEntry {
-    u16 unk0;
-    u16 unk2;
-    u16 unk4;
-    u16 unk6;
-} Field2DMoveQueueEntry;
-
 typedef struct Field2DMoveQueue {
-    Field2DMoveQueueEntry *entries;
+    Field2DMove *entries;
     u32 capacity;
     u16 head;
     u16 tail;
@@ -360,8 +353,8 @@ u8 Field2DBgLayer_GetScreenBlockLayout(u8 width, u8 height);
 void *Field2DBgLayer_GetScreenBlock(void *buffer, u8 blockX, u8 blockY, u8 layout, u8 width, u8 height, Field2DPoint *blockSize);
 Field2DMoveQueue *Field2DMoveQueue_New(s32 maxEntries, enum HeapID heapID);
 void Field2DMoveQueue_Free(Field2DMoveQueue *queue);
-void Field2DMoveQueue_Push(Field2DMoveQueue *queue, Field2DMoveQueueEntry *entry);
-s32 Field2DMoveQueue_Pop(Field2DMoveQueue *queue, Field2DMoveQueueEntry *entry);
+void Field2DMoveQueue_Push(Field2DMoveQueue *queue, Field2DMove *entry);
+s32 Field2DMoveQueue_Pop(Field2DMoveQueue *queue, Field2DMove *entry);
 Field2DCommandQueue *Field2DCommandQueue_New(s32 maxEntries, enum HeapID heapID);
 void Field2DCommandQueue_Free(Field2DCommandQueue *queue);
 void Field2DCommandQueue_Push(Field2DCommandQueue *queue, Field2DCommand *command);

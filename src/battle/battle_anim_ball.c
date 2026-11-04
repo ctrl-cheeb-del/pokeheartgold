@@ -50,14 +50,6 @@ static void *BattleAnimEmitter_GetEmitterParam(void);
 static int BattleAnimEmitter_GetEmitterCount(int resourceId);
 static void BattleAnimUtil_LoadMonIntoPic(BattleAnimBattlerPicParams *params, int target, BOOL oppositeFacing, enum HeapID heapId);
 
-#define BALL_ROTATION(data)     ((BattleAnimValueMotion *)&(data)->throwMotions[0]) // value motion of the rotation
-#define BALL_ARC_MOTION(data)   ((void *)&(data)->throwMotions[20])                 // linear part of the throw arc
-#define BALL_ARC_MOTION2(data)  ((void *)&(data)->throwMotions[56])                 // height part of the throw arc
-#define BALL_X(data)            (*(s16 *)&(data)->throwCoords[0])                   // sprite position at the mode start
-#define BALL_Y(data)            (*(s16 *)&(data)->throwCoords[2])
-#define BALL_TARGET_X(data)     (*(s16 *)&(data)->throwCoords[4]) // end of the throw arc
-#define BALL_TARGET_Y(data)     (*(s16 *)&(data)->throwCoords[6])
-#define BALL_ARC_DURATION(data) (*(int *)&(data)->throwCoords[8])
 
 struct BallSealEffect {
     enum HeapID heapId;
@@ -774,10 +766,10 @@ BOOL BallThrow_CaptureStateOpenDone(BallThrow *data) {
 
 BOOL BallThrow_CaptureStateDeflect(BallThrow *data) {
     if (data->stateFrames == 0) {
-        ManagedSprite_GetPositionXY(data->managedSprite, &BALL_X(data), &BALL_Y(data));
-        BALL_TARGET_X(data) = 60;
-        BALL_TARGET_Y(data) = 180;
-        BALL_ARC_DURATION(data) = 10;
+        ManagedSprite_GetPositionXY(data->managedSprite, &data->x, &data->y);
+        data->targetX = 60;
+        data->targetY = 180;
+        data->arcDuration = 10;
         data->arcHeight = 12;
         data->stateFrames++;
     } else if (!BallThrow_RunThrowArc(data)) {
@@ -836,12 +828,12 @@ BOOL BallThrow_CaptureStateDrop(BallThrow *data) {
         if (data->stateFrames >= 1) {
             s16 x, y;
             ManagedSprite_GetPositionXY(data->managedSprite, &x, &y);
-            BattleAnimUtil_InitLinearMotion(BALL_ARC_MOTION(data), x, x, y, y + 32, 10);
+            BattleAnimUtil_InitLinearMotion(&data->arcMotion, x, x, y, y + 32, 10);
             data->step++;
         }
         break;
     case 1:
-        if (!BattleAnimUtil_UpdateLinearMotionSprite(BALL_ARC_MOTION(data), data->managedSprite)) {
+        if (!BattleAnimUtil_UpdateLinearMotionSprite(&data->arcMotion, data->managedSprite)) {
             data->step++;
             BallThrow_GoToCaptureState(data, BALL_CAPTURE_STATE_BOUNCE);
         }
@@ -1060,7 +1052,7 @@ BOOL BallThrow_RunCaptureState(BallThrow *data) {
 BOOL BallThrow_RunThrowArc(BallThrow *data) {
     switch (data->step) {
     case 0:
-        BattleAnimUtil_InitLinearSinMotion(BALL_ARC_MOTION(data), BALL_ARC_MOTION2(data), BALL_X(data), BALL_TARGET_X(data), BALL_Y(data), BALL_TARGET_Y(data), BALL_ARC_DURATION(data), data->arcHeight << FX32_SHIFT);
+        BattleAnimUtil_InitLinearSinMotion(&data->arcMotion, &data->arcHeightMotion, data->x, data->targetX, data->y, data->targetY, data->arcDuration, data->arcHeight << FX32_SHIFT);
         data->modeFrames = 0;
         data->step++;
         data->paletteFlash = NULL;
@@ -1071,16 +1063,16 @@ BOOL BallThrow_RunThrowArc(BallThrow *data) {
     case 1:
         if (BallThrow_IsSpinningKind(data->params.kind) == TRUE) {
             ManagedSprite_OffsetAffineZRotation(data->managedSprite, 2 << 12);
-            if (data->modeFrames > BALL_ARC_DURATION(data) / 2 + 10) {
+            if (data->modeFrames > data->arcDuration / 2 + 10) {
                 ManagedSprite_OffsetAffineZRotation(data->managedSprite, 2 << 12);
             }
-            if (BallThrow_IsFlashingKind(data->params.kind) == TRUE && data->modeFrames == BALL_ARC_DURATION(data) / 2 + 10) {
+            if (BallThrow_IsFlashingKind(data->params.kind) == TRUE && data->modeFrames == data->arcDuration / 2 + 10) {
                 data->paletteFlash = BattleAnimUtil_StartPaletteBlend(data->params.paletteData, data->params.heapID, PLTTBUF_MAIN_OBJ, ManagedSprite_GetPaletteOverrideOffset(data->managedSprite) << 4, 16, -2, 2, 0, 14, 0xFFFF, 1002);
             }
         }
         data->modeFrames++;
-        if (data->params.kind < 6 || data->params.kind > 8 || data->modeFrames <= BALL_ARC_DURATION(data) / 2 || data->modeFrames >= BALL_ARC_DURATION(data) / 2 + 5) {
-            if (!BattleAnimUtil_UpdateLinearSinMotionSprite(BALL_ARC_MOTION(data), BALL_ARC_MOTION2(data), data->managedSprite)) {
+        if (data->params.kind < 6 || data->params.kind > 8 || data->modeFrames <= data->arcDuration / 2 || data->modeFrames >= data->arcDuration / 2 + 5) {
+            if (!BattleAnimUtil_UpdateLinearSinMotionSprite(&data->arcMotion, &data->arcHeightMotion, data->managedSprite)) {
                 BallThrow_SetRotation(data, 0);
                 data->step++;
             }
@@ -1135,7 +1127,7 @@ BOOL BallThrow_RunThrowArc(BallThrow *data) {
 BOOL BallThrow_ThrowArcAndOpen(BallThrow *data) {
     switch (data->step) {
     case 0:
-        BattleAnimUtil_InitLinearSinMotion(BALL_ARC_MOTION(data), BALL_ARC_MOTION2(data), BALL_X(data), BALL_TARGET_X(data), BALL_Y(data), BALL_TARGET_Y(data), BALL_ARC_DURATION(data), data->arcHeight << FX32_SHIFT);
+        BattleAnimUtil_InitLinearSinMotion(&data->arcMotion, &data->arcHeightMotion, data->x, data->targetX, data->y, data->targetY, data->arcDuration, data->arcHeight << FX32_SHIFT);
         data->modeFrames = 0;
         data->step++;
         data->paletteFlash = NULL;
@@ -1146,16 +1138,16 @@ BOOL BallThrow_ThrowArcAndOpen(BallThrow *data) {
     case 1:
         if (BallThrow_IsSpinningKind(data->params.kind) == TRUE) {
             ManagedSprite_OffsetAffineZRotation(data->managedSprite, 2 << 12);
-            if (data->modeFrames > BALL_ARC_DURATION(data) / 2 + 10) {
+            if (data->modeFrames > data->arcDuration / 2 + 10) {
                 ManagedSprite_OffsetAffineZRotation(data->managedSprite, 2 << 12);
             }
-            if (BallThrow_IsFlashingKind(data->params.kind) == TRUE && data->modeFrames == BALL_ARC_DURATION(data) / 2 + 10) {
+            if (BallThrow_IsFlashingKind(data->params.kind) == TRUE && data->modeFrames == data->arcDuration / 2 + 10) {
                 data->paletteFlash = BattleAnimUtil_StartPaletteBlend(data->params.paletteData, data->params.heapID, PLTTBUF_MAIN_OBJ, ManagedSprite_GetPaletteOverrideOffset(data->managedSprite) << 4, 16, -2, 2, 0, 14, 0xFFFF, 1002);
             }
         }
         data->modeFrames++;
-        if (data->params.kind < 6 || data->params.kind > 8 || data->modeFrames <= BALL_ARC_DURATION(data) / 2 || data->modeFrames >= BALL_ARC_DURATION(data) / 2 + 5) {
-            if (!BattleAnimUtil_UpdateLinearSinMotionSprite(BALL_ARC_MOTION(data), BALL_ARC_MOTION2(data), data->managedSprite)) {
+        if (data->params.kind < 6 || data->params.kind > 8 || data->modeFrames <= data->arcDuration / 2 || data->modeFrames >= data->arcDuration / 2 + 5) {
+            if (!BattleAnimUtil_UpdateLinearSinMotionSprite(&data->arcMotion, &data->arcHeightMotion, data->managedSprite)) {
                 BallThrow_SetRotation(data, 0);
                 data->step++;
             }
@@ -1275,16 +1267,16 @@ BOOL BallThrow_Wobble(BallThrow *data) {
     switch (data->step) {
     case 0:
         if (data->wobbleDir == 0) {
-            BattleAnimUtil_InitValueMotion(BALL_ROTATION(data), -0x1FFF, 0x1FFF, 10);
+            BattleAnimUtil_InitValueMotion(&data->rotation, -0x1FFF, 0x1FFF, 10);
         } else {
-            BattleAnimUtil_InitValueMotion(BALL_ROTATION(data), 0x1FFF, -0x1FFF, 10);
+            BattleAnimUtil_InitValueMotion(&data->rotation, 0x1FFF, -0x1FFF, 10);
         }
         data->wobbleDir ^= 1;
         data->step++;
         break;
     case 1:
-        ManagedSprite_SetAffineZRotation(data->managedSprite, BALL_ROTATION(data)->value);
-        if (!BattleAnimUtil_UpdateValueMotion(BALL_ROTATION(data))) {
+        ManagedSprite_SetAffineZRotation(data->managedSprite, data->rotation.value);
+        if (!BattleAnimUtil_UpdateValueMotion(&data->rotation)) {
             if (data->stateFrames >= 1) {
                 data->step++;
             } else {
@@ -1309,8 +1301,8 @@ BOOL BallThrow_TrackPosition(BallThrow *data) {
     }
     if (data->managedSprite != NULL) {
         ManagedSprite_GetPositionXY(data->managedSprite, &x, &y);
-        BALL_X(data) = x;
-        BALL_Y(data) = y;
+        data->x = x;
+        data->y = y;
     }
     return TRUE;
 }
@@ -1407,7 +1399,7 @@ void BallThrow_SetMode(BallThrow *data, int mode) {
     data->stateFrames = 0;
     data->wobbleDir = 0;
     data->modeRunning = TRUE;
-    ManagedSprite_GetPositionXY(data->managedSprite, &BALL_X(data), &BALL_Y(data));
+    ManagedSprite_GetPositionXY(data->managedSprite, &data->x, &data->y);
 }
 
 s32 BallThrow_GetMode(BallThrow *data) {
@@ -1416,7 +1408,7 @@ s32 BallThrow_GetMode(BallThrow *data) {
 }
 
 static void BallThrow_InitThrowTarget(BallThrow *data) {
-    ManagedSprite_GetPositionXY(data->managedSprite, &BALL_X(data), &BALL_Y(data));
+    ManagedSprite_GetPositionXY(data->managedSprite, &data->x, &data->y);
     switch (data->params.kind) {
     case 0:
     case 1:
@@ -1424,80 +1416,80 @@ static void BallThrow_InitThrowTarget(BallThrow *data) {
     case 3:
     case 4:
     case 5:
-        ManagedSprite_GetPositionXY(data->managedSprite, &BALL_TARGET_X(data), &BALL_TARGET_Y(data));
+        ManagedSprite_GetPositionXY(data->managedSprite, &data->targetX, &data->targetY);
         data->arcHeight = 0;
-        BALL_ARC_DURATION(data) = 12;
+        data->arcDuration = 12;
         return;
     case 6:
-        BattleAnimUtil_LookupScreenPos(0, 0, &BALL_TARGET_X(data), &BALL_TARGET_Y(data));
+        BattleAnimUtil_LookupScreenPos(0, 0, &data->targetX, &data->targetY);
         data->arcHeight = 48;
-        BALL_TARGET_Y(data) = BALL_TARGET_Y(data) + 32;
+        data->targetY = data->targetY + 32;
         break;
     case 7:
-        ManagedSprite_GetPositionXY(data->managedSprite, &BALL_X(data), &BALL_Y(data));
-        BattleAnimUtil_LookupScreenPos(1, 4, &BALL_TARGET_X(data), &BALL_TARGET_Y(data));
+        ManagedSprite_GetPositionXY(data->managedSprite, &data->x, &data->y);
+        BattleAnimUtil_LookupScreenPos(1, 4, &data->targetX, &data->targetY);
         data->arcHeight = 48;
-        BALL_TARGET_Y(data) = BALL_TARGET_Y(data) + 32;
+        data->targetY = data->targetY + 32;
         break;
     case 8:
-        BattleAnimUtil_LookupScreenPos(1, 2, &BALL_TARGET_X(data), &BALL_TARGET_Y(data));
+        BattleAnimUtil_LookupScreenPos(1, 2, &data->targetX, &data->targetY);
         data->arcHeight = 48;
-        BALL_TARGET_Y(data) = BALL_TARGET_Y(data) + 32;
+        data->targetY = data->targetY + 32;
         break;
     case 9:
-        BattleAnimUtil_LookupScreenPos(0, 1, &BALL_TARGET_X(data), &BALL_TARGET_Y(data));
+        BattleAnimUtil_LookupScreenPos(0, 1, &data->targetX, &data->targetY);
         data->arcHeight = 48;
-        BALL_TARGET_Y(data) = BALL_TARGET_Y(data) + 32;
+        data->targetY = data->targetY + 32;
         break;
     case 10:
-        BattleAnimUtil_LookupScreenPos(1, 3, &BALL_TARGET_X(data), &BALL_TARGET_Y(data));
+        BattleAnimUtil_LookupScreenPos(1, 3, &data->targetX, &data->targetY);
         data->arcHeight = 48;
-        BALL_TARGET_Y(data) = BALL_TARGET_Y(data) + 32;
+        data->targetY = data->targetY + 32;
         break;
     case 11:
-        BattleAnimUtil_LookupScreenPos(1, 5, &BALL_TARGET_X(data), &BALL_TARGET_Y(data));
+        BattleAnimUtil_LookupScreenPos(1, 5, &data->targetX, &data->targetY);
         data->arcHeight = 48;
-        BALL_TARGET_Y(data) = BALL_TARGET_Y(data) + 32;
+        data->targetY = data->targetY + 32;
         break;
     case 12:
-        BattleAnimUtil_LookupScreenPos(0, 1, &BALL_TARGET_X(data), &BALL_TARGET_Y(data));
+        BattleAnimUtil_LookupScreenPos(0, 1, &data->targetX, &data->targetY);
         data->arcHeight = 16;
-        BALL_TARGET_Y(data) = BALL_TARGET_Y(data) + 16;
-        BALL_ARC_DURATION(data) = 12;
+        data->targetY = data->targetY + 16;
+        data->arcDuration = 12;
         return;
     case 13:
-        BattleAnimUtil_LookupScreenPos(0, 1, &BALL_TARGET_X(data), &BALL_TARGET_Y(data));
+        BattleAnimUtil_LookupScreenPos(0, 1, &data->targetX, &data->targetY);
         data->arcHeight = 32;
-        BALL_TARGET_X(data) = BALL_TARGET_X(data) - 20;
-        BALL_TARGET_Y(data) = BALL_TARGET_Y(data) + 38;
-        BALL_ARC_DURATION(data) = 16;
+        data->targetX = data->targetX - 20;
+        data->targetY = data->targetY + 38;
+        data->arcDuration = 16;
         return;
     case 14:
-        BALL_TARGET_X(data) = 128;
-        BALL_TARGET_Y(data) = 64;
+        data->targetX = 128;
+        data->targetY = 64;
         data->arcHeight = 32;
-        BALL_TARGET_Y(data) = BALL_TARGET_Y(data) + 32;
+        data->targetY = data->targetY + 32;
         break;
     case 15:
-        BattleAnimUtil_LookupScreenPos(0, 1, &BALL_TARGET_X(data), &BALL_TARGET_Y(data));
+        BattleAnimUtil_LookupScreenPos(0, 1, &data->targetX, &data->targetY);
         data->arcHeight = 64;
-        BALL_TARGET_Y(data) = BALL_TARGET_Y(data) + 8;
-        BALL_ARC_DURATION(data) = 16;
+        data->targetY = data->targetY + 8;
+        data->arcDuration = 16;
         return;
     case 16:
-        BattleAnimUtil_LookupScreenPos(1, 3, &BALL_TARGET_X(data), &BALL_TARGET_Y(data));
+        BattleAnimUtil_LookupScreenPos(1, 3, &data->targetX, &data->targetY);
         data->arcHeight = 64;
-        BALL_TARGET_Y(data) = BALL_TARGET_Y(data) + 8;
-        BALL_ARC_DURATION(data) = 16;
+        data->targetY = data->targetY + 8;
+        data->arcDuration = 16;
         return;
     case 17:
-        BattleAnimUtil_LookupScreenPos(1, 5, &BALL_TARGET_X(data), &BALL_TARGET_Y(data));
+        BattleAnimUtil_LookupScreenPos(1, 5, &data->targetX, &data->targetY);
         data->arcHeight = 64;
-        BALL_TARGET_Y(data) = BALL_TARGET_Y(data) + 8;
-        BALL_ARC_DURATION(data) = 16;
+        data->targetY = data->targetY + 8;
+        data->arcDuration = 16;
         return;
     }
-    BALL_ARC_DURATION(data) = 20;
+    data->arcDuration = 20;
 }
 
 static void BallThrow_GetStartPosition(BallThrow *data, s16 *x, s16 *y) {

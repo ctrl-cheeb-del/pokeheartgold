@@ -590,9 +590,9 @@ Field2DMoveQueue *Field2DMoveQueue_New(s32 maxEntries, enum HeapID heapID) {
     GF_ASSERT(queue);
     s32 capacity = maxEntries + 1;
     queue->capacity = capacity;
-    Field2DMoveQueueEntry *entries = Heap_Alloc(heapID, capacity * sizeof(Field2DMoveQueueEntry));
+    Field2DMove *entries = Heap_Alloc(heapID, capacity * sizeof(Field2DMove));
     queue->entries = entries;
-    memset(entries, 0, queue->capacity * sizeof(Field2DMoveQueueEntry));
+    memset(entries, 0, queue->capacity * sizeof(Field2DMove));
     queue->head = 0;
     queue->tail = 0;
     return queue;
@@ -603,8 +603,8 @@ void Field2DMoveQueue_Free(Field2DMoveQueue *queue) {
     Heap_Free(queue);
 }
 
-void Field2DMoveQueue_Push(Field2DMoveQueue *queue, Field2DMoveQueueEntry *entry) {
-    Field2DMoveQueueEntry dropped;
+void Field2DMoveQueue_Push(Field2DMoveQueue *queue, Field2DMove *entry) {
+    Field2DMove dropped;
     if (queue->head == ((queue->tail + 1) % queue->capacity)) {
         Field2DMoveQueue_Pop(queue, &dropped);
     }
@@ -612,7 +612,7 @@ void Field2DMoveQueue_Push(Field2DMoveQueue *queue, Field2DMoveQueueEntry *entry
     queue->tail = (queue->tail + 1) % queue->capacity;
 }
 
-s32 Field2DMoveQueue_Pop(Field2DMoveQueue *queue, Field2DMoveQueueEntry *entry) {
+s32 Field2DMoveQueue_Pop(Field2DMoveQueue *queue, Field2DMove *entry) {
     if (queue->tail == queue->head) {
         return 0;
     }

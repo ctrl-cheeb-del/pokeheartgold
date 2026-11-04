@@ -476,6 +476,17 @@ typedef struct BattleHpBar {
 
 typedef struct BallThrow BallThrow;
 
+typedef struct BattleCursorPosition {
+    s8 commandX;
+    s8 commandY;
+    s8 moveX;
+    s8 moveY;
+    s8 targetX;
+    s8 targetY;
+    s8 monTargetType;
+    u8 unk_07[1];
+} BattleCursorPosition;
+
 typedef struct OpponentData {
     u32 inputTasks[6];
     ManagedSprite *managedSprite;
@@ -483,8 +494,7 @@ typedef struct OpponentData {
     Pokepic *pokepic;
     u32 *unk24;
     BattleHpBar hpBar;
-    void *cursorPosition;
-    u8 unk84[0x4];
+    BattleCursorPosition cursorPosition;
     BallThrow *ballData;
     u8 unk8C[0x108];
     u8 battlerId;
@@ -679,8 +689,6 @@ typedef struct BattleItem {
     u8 monIndex;
 } BattleItem;
 
-typedef struct BattleCursorPosition BattleCursorPosition;
-
 typedef struct BallThrowParams {
     s32 kind;
     enum HeapID heapID;
@@ -702,34 +710,5 @@ typedef struct PokedexEntryPopupArgs {
     BOOL natDexEnabled;
     enum HeapID heapID;
 } PokedexEntryPopupArgs;
-
-struct BallThrow { // TODO: Give a better name.
-    int ballAnim;
-    int ballAnimStarted;
-    int step;
-    int stateFrames;
-    int wobbleDir;
-    int captureState;
-    int shakeCount;
-    int modeRunning;
-    u8 fadeAlphaA;
-    u8 fadeAlphaB;
-    s8 randomDir;
-    u8 unk23;
-    BOOL animateSprite;
-    int opened;
-    SpriteManager *spriteManager;
-    ManagedSprite *managedSprite;
-    u8 throwMotions[0x5C];
-    BallThrowParams params;
-    u8 throwCoords[0xC];
-    int modeFrames;
-    int arcHeight;
-    SysTask *task;
-    struct BallBurstEffect *burstEffect;
-    struct BattleAnimPaletteBlend *paletteFlash;
-    struct BattleAnimBattlerSprites *battlerSprites;
-    int startDelay;
-}; // Size: 0xe0
 
 #endif

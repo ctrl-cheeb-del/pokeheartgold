@@ -2,6 +2,7 @@
 #define POKEHEARTGOLD_FRONTIER_LINK_LOBBY_H
 
 #include "field_types_def.h"
+#include "frontier_save_access.h"
 #include "save.h"
 
 struct PartyMenuArgs;
@@ -42,14 +43,6 @@ typedef struct FrontierLinkLobby {
     struct PokemonSummaryArgs *summaryArgs;
     u16 *resultVar; // script variable that receives the app result
 } FrontierLinkLobby;
-
-// FrontierLinkLobby.facility: the facility of the link challenge
-#define LINK_LOBBY_FACILITY_TOWER        1
-#define LINK_LOBBY_FACILITY_FACTORY_LV50 2
-#define LINK_LOBBY_FACILITY_FACTORY_OPEN 3
-#define LINK_LOBBY_FACILITY_CASTLE       4
-#define LINK_LOBBY_FACILITY_HALL         5
-#define LINK_LOBBY_FACILITY_ARCADE       6
 
 // FrontierLinkLobby_Send
 #define LINK_LOBBY_SEND_FACILITY 0

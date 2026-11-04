@@ -1,14 +1,13 @@
 #include "global.h"
 
 #include "frontier/frontier_map.h"
+#include "frontier/frontier_script_ui.h"
 
 static BOOL FrontierMapMovement_LookAround(FrontierWork *frontier, FrontierMapObject *object);
 
 // Scripted movements of frontier map objects, run every frame for the objects that have one.
 
 typedef BOOL (*FrontierMapMovementFunc)(FrontierWork *frontier, FrontierMapObject *object);
-
-void FrontierScript_GetMovementStep(Field2DMoveQueueEntry *command, Field2DObject *object, u16 id, s32 direction);
 
 void FrontierMap_SetObjectMovement(FrontierWork *frontier, u32 id, u32 type, const s16 *params, s32 count) {
     FrontierMapObject *object = FrontierMap_FindObject(frontier, id);
@@ -50,7 +49,7 @@ void FrontierMap_RunObjectMovements(FrontierWork *frontier) {
 static BOOL FrontierMapMovement_LookAround(FrontierWork *frontier, FrontierMapObject *object) {
     FrontierMapObjectMovement *movement = &object->movement;
     FrontierMap *map = Frontier_GetMap(frontier);
-    Field2DMoveQueueEntry command;
+    Field2DMove command;
     int nextState;
 
     if (movement->data[2] > 0) {

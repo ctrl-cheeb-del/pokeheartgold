@@ -153,7 +153,7 @@ BOOL FrtCmd_LinkLobbyAction(FrontierScriptContext *ctx) {
         *result = lobby->partnerSpecies[0];
         break;
     case 2:
-        if (arg == LINK_LOBBY_FACILITY_TOWER) {
+        if (arg == FRONTIER_FACILITY_TOWER) {
             *result = 0;
             if (lobby->species[0] == lobby->partnerSpecies[0] || lobby->species[0] == lobby->partnerSpecies[1]) {
                 *result = *result + 1;
@@ -161,13 +161,13 @@ BOOL FrtCmd_LinkLobbyAction(FrontierScriptContext *ctx) {
             if (lobby->species[1] == lobby->partnerSpecies[0] || lobby->species[1] == lobby->partnerSpecies[1]) {
                 *result = *result + 2;
             }
-        } else if (arg == LINK_LOBBY_FACILITY_HALL) {
+        } else if (arg == FRONTIER_FACILITY_HALL) {
             if (lobby->species[0] == lobby->partnerSpecies[0]) {
                 *result = 0;
             } else {
                 *result = 1;
             }
-        } else if (arg == LINK_LOBBY_FACILITY_CASTLE || arg == LINK_LOBBY_FACILITY_ARCADE) {
+        } else if (arg == FRONTIER_FACILITY_CASTLE || arg == FRONTIER_FACILITY_ARCADE) {
             *result = 0;
             if (lobby->species[0] == lobby->partnerSpecies[0] || lobby->species[0] == lobby->partnerSpecies[1]) {
                 *result = *result + 1;
@@ -224,17 +224,17 @@ BOOL FrtCmd_LinkLobbyAction(FrontierScriptContext *ctx) {
         if (*result == 0) {
             stat = FrontierLinkLobby_GetWinStreakStat(lobby->facility);
             FrontierSave_SetStat(Save_Frontier_GetStatic(lobby->saveData), stat, FrontierStat_GetFriendIndex(stat), 0);
-            if (lobby->facility == LINK_LOBBY_FACILITY_TOWER) {
+            if (lobby->facility == FRONTIER_FACILITY_TOWER) {
                 FrontierData_TowerRoundAction(Save_FrontierData_Get(lobby->saveData), TOWER_MODE_6, FRONTIER_DATA_RESET);
             }
-            if (lobby->facility == LINK_LOBBY_FACILITY_CASTLE) {
+            if (lobby->facility == FRONTIER_FACILITY_CASTLE) {
                 FrontierSave_SetStat(Save_Frontier_GetStatic(lobby->saveData), 0x88, FrontierStat_GetFriendIndex(0x88), 0);
                 FrontierSave_SetStat(Save_Frontier_GetStatic(lobby->saveData), 0x89, FrontierStat_GetFriendIndex(0x89), 0);
             }
-            if (lobby->facility == LINK_LOBBY_FACILITY_FACTORY_LV50) {
+            if (lobby->facility == FRONTIER_FACILITY_FACTORY_LV50) {
                 FrontierSave_SetStat(Save_Frontier_GetStatic(lobby->saveData), BattleFactory_GetTradeCountStat(0, FRONTIER_CHALLENGE_LINK_MULTI), FrontierStat_GetFriendIndex(BattleFactory_GetTradeCountStat(0, FRONTIER_CHALLENGE_LINK_MULTI)), 0);
             }
-            if (lobby->facility == LINK_LOBBY_FACILITY_FACTORY_OPEN) {
+            if (lobby->facility == FRONTIER_FACILITY_FACTORY_OPEN) {
                 FrontierSave_SetStat(Save_Frontier_GetStatic(lobby->saveData), BattleFactory_GetTradeCountStat(1, FRONTIER_CHALLENGE_LINK_MULTI), FrontierStat_GetFriendIndex(BattleFactory_GetTradeCountStat(1, FRONTIER_CHALLENGE_LINK_MULTI)), 0);
             }
         } else {

@@ -95,13 +95,13 @@ static void FrontierLinkLobby_LaunchPartyMenu(void *frontierWork, FrontierLinkLo
     lobby->partyMenuArgs->mailbox = Save_Mailbox_Get(lobby->saveData);
     lobby->partyMenuArgs->options = Save_PlayerData_GetOptionsAddr(lobby->saveData);
     lobby->partyMenuArgs->panelLayout = 0;
-    if (lobby->facility == LINK_LOBBY_FACILITY_TOWER) {
+    if (lobby->facility == FRONTIER_FACILITY_TOWER) {
         lobby->partyMenuArgs->context = PARTY_MENU_CONTEXT_17;
-    } else if (lobby->facility == LINK_LOBBY_FACILITY_HALL) {
+    } else if (lobby->facility == FRONTIER_FACILITY_HALL) {
         lobby->partyMenuArgs->context = PARTY_MENU_CONTEXT_BATTLE_HALL;
-    } else if (lobby->facility == LINK_LOBBY_FACILITY_CASTLE) {
+    } else if (lobby->facility == FRONTIER_FACILITY_CASTLE) {
         lobby->partyMenuArgs->context = PARTY_MENU_CONTEXT_23;
-    } else if (lobby->facility == LINK_LOBBY_FACILITY_ARCADE) {
+    } else if (lobby->facility == FRONTIER_FACILITY_ARCADE) {
         lobby->partyMenuArgs->context = PARTY_MENU_CONTEXT_23;
     } else {
         GF_ASSERT(FALSE);
@@ -111,19 +111,19 @@ static void FrontierLinkLobby_LaunchPartyMenu(void *frontierWork, FrontierLinkLo
     for (i = 0; i < NELEMS(lobby->selectedOrder); i++) {
         lobby->partyMenuArgs->selectedOrder[i] = lobby->selectedOrder[i];
     }
-    if (lobby->facility == LINK_LOBBY_FACILITY_TOWER) {
+    if (lobby->facility == FRONTIER_FACILITY_TOWER) {
         lobby->partyMenuArgs->minMonsToSelect = 2;
         lobby->partyMenuArgs->maxMonsToSelect = 2;
         lobby->partyMenuArgs->maxLevel = MAX_LEVEL;
-    } else if (lobby->facility == LINK_LOBBY_FACILITY_HALL) {
+    } else if (lobby->facility == FRONTIER_FACILITY_HALL) {
         lobby->partyMenuArgs->minMonsToSelect = 1;
         lobby->partyMenuArgs->maxMonsToSelect = 1;
         lobby->partyMenuArgs->maxLevel = 30;
-    } else if (lobby->facility == LINK_LOBBY_FACILITY_CASTLE) {
+    } else if (lobby->facility == FRONTIER_FACILITY_CASTLE) {
         lobby->partyMenuArgs->minMonsToSelect = 2;
         lobby->partyMenuArgs->maxMonsToSelect = 2;
         lobby->partyMenuArgs->maxLevel = MAX_LEVEL;
-    } else if (lobby->facility == LINK_LOBBY_FACILITY_ARCADE) {
+    } else if (lobby->facility == FRONTIER_FACILITY_ARCADE) {
         lobby->partyMenuArgs->minMonsToSelect = 2;
         lobby->partyMenuArgs->maxMonsToSelect = 2;
         lobby->partyMenuArgs->maxLevel = MAX_LEVEL;

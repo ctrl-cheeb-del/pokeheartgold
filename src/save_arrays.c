@@ -170,7 +170,7 @@ const struct SaveChunkHeader gSaveChunkHeaders[] = {
      (SAVEINITFN)Save_Chatot_Init,
      },
     {
-     SAVE_UNK_19,
+     SAVE_FRONTIER,
      0,
      (SAVESIZEFN)Save_Frontier_sizeof,
      (SAVEINITFN)Save_Frontier_Init,

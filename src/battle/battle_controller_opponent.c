@@ -6468,11 +6468,11 @@ BattleHpBar *OpponentData_GetHpBar(OpponentData *opponentData) {
 }
 
 BattleCursorPosition *OpponentData_GetCursorPosition(OpponentData *opponentData) {
-    return (BattleCursorPosition *)&opponentData->cursorPosition;
+    return &opponentData->cursorPosition;
 }
 
 static void OpponentData_ResetCursorPosition(OpponentData *opponentData) {
-    MI_CpuFill8(&opponentData->cursorPosition, 0, 8);
+    MI_CpuFill8(&opponentData->cursorPosition, 0, sizeof(BattleCursorPosition));
 }
 
 void OpponentData_SetSpriteDrawFlag(OpponentData *opponentData, s32 drawFlag) {

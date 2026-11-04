@@ -35,14 +35,6 @@
 #include "system.h"
 #include "touchscreen.h"
 
-// Facilities, as passed in FrontierRecordsAppArgs.facility
-#define FRONTIER_RECORDS_TOWER        1
-#define FRONTIER_RECORDS_FACTORY_LV50 2
-#define FRONTIER_RECORDS_FACTORY_OPEN 3
-#define FRONTIER_RECORDS_CASTLE       4
-#define FRONTIER_RECORDS_HALL         5
-#define FRONTIER_RECORDS_ARCADE       6
-
 // Main loop states
 #define RECORDS_STATE_FADE_IN  0
 #define RECORDS_STATE_RUN      1
@@ -708,20 +700,20 @@ static u32 FrontierRecordsApp_GetWindowSet(u32 facility) {
     u32 set = 0;
 
     switch (facility) {
-    case FRONTIER_RECORDS_FACTORY_LV50:
-    case FRONTIER_RECORDS_FACTORY_OPEN:
+    case FRONTIER_FACILITY_FACTORY_LV50:
+    case FRONTIER_FACILITY_FACTORY_OPEN:
         set = 0;
         break;
-    case FRONTIER_RECORDS_HALL:
+    case FRONTIER_FACILITY_HALL:
         set = 1;
         break;
-    case FRONTIER_RECORDS_CASTLE:
+    case FRONTIER_FACILITY_CASTLE:
         set = 2;
         break;
-    case FRONTIER_RECORDS_ARCADE:
+    case FRONTIER_FACILITY_ARCADE:
         set = 3;
         break;
-    case FRONTIER_RECORDS_TOWER:
+    case FRONTIER_FACILITY_TOWER:
         set = 4;
         break;
     }
@@ -778,21 +770,21 @@ static void FrontierRecordsApp_PrintFormattedMessage(FrontierRecordsApp *app, u3
 
 static void FrontierRecordsApp_PrintRecords(FrontierRecordsApp *app) {
     switch (app->facility) {
-    case FRONTIER_RECORDS_FACTORY_LV50:
-    case FRONTIER_RECORDS_FACTORY_OPEN:
+    case FRONTIER_FACILITY_FACTORY_LV50:
+    case FRONTIER_FACILITY_FACTORY_OPEN:
         FrontierRecordsApp_PrintFactoryLevel50Records(app);
         FrontierRecordsApp_PrintFactoryOpenLevelRecords(app);
         break;
-    case FRONTIER_RECORDS_HALL:
+    case FRONTIER_FACILITY_HALL:
         FrontierRecordsApp_PrintHallRecords(app);
         break;
-    case FRONTIER_RECORDS_CASTLE:
+    case FRONTIER_FACILITY_CASTLE:
         FrontierRecordsApp_PrintCastleRecords(app);
         break;
-    case FRONTIER_RECORDS_ARCADE:
+    case FRONTIER_FACILITY_ARCADE:
         FrontierRecordsApp_PrintArcadeRecords(app);
         break;
-    case FRONTIER_RECORDS_TOWER:
+    case FRONTIER_FACILITY_TOWER:
         if (app->mode <= TOWER_MODE_DOUBLE) {
             FrontierRecordsApp_PrintTowerRecords(app);
         } else {
@@ -1245,7 +1237,7 @@ static void FrontierRecordsApp_StartReturnButtonFlash(FrontierRecordsApp *app) {
 }
 
 static BOOL FrontierRecordsApp_IsHall(FrontierRecordsApp *app) {
-    return app->facility == FRONTIER_RECORDS_HALL;
+    return app->facility == FRONTIER_FACILITY_HALL;
 }
 
 static void FrontierRecordsApp_InitHallPicker(FrontierRecordsApp *app) {

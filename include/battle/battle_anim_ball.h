@@ -5,6 +5,7 @@
 // particles, a generic particle emitter manager and the battler pic graphic swap helpers.
 
 #include "battle/battle.h"
+#include "battle/battle_anim_util.h"
 
 // Input of BallSealEffect_New: the particles shown when a Pokemon comes out of its ball
 typedef struct BallSealEffectTemplate {
@@ -34,6 +35,41 @@ typedef struct BallSealEffect BallSealEffect;
 typedef struct BallBurstEffect BallBurstEffect;
 typedef struct BattleAnimEmitter BattleAnimEmitter;
 typedef struct BattleAnimEmitterManager BattleAnimEmitterManager;
+
+struct BallThrow { // TODO: Give a better name.
+    int ballAnim;
+    int ballAnimStarted;
+    int step;
+    int stateFrames;
+    int wobbleDir;
+    int captureState;
+    int shakeCount;
+    int modeRunning;
+    u8 fadeAlphaA;
+    u8 fadeAlphaB;
+    s8 randomDir;
+    u8 unk23;
+    BOOL animateSprite;
+    int opened;
+    SpriteManager *spriteManager;
+    ManagedSprite *managedSprite;
+    BattleAnimValueMotion rotation;
+    BattleAnimLinearMotion arcMotion;
+    BattleAnimSinMotion arcHeightMotion;
+    BallThrowParams params;
+    s16 x; // sprite position at the mode start
+    s16 y;
+    s16 targetX; // end of the throw arc
+    s16 targetY;
+    int arcDuration;
+    int modeFrames;
+    int arcHeight;
+    SysTask *task;
+    struct BallBurstEffect *burstEffect;
+    struct BattleAnimPaletteBlend *paletteFlash;
+    struct BattleAnimBattlerSprites *battlerSprites;
+    int startDelay;
+}; // Size: 0xe0
 
 typedef BOOL (*BallThrowFunc)(BallThrow *data);
 

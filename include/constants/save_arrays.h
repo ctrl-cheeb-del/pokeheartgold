@@ -22,7 +22,7 @@
 #define SAVE_GAMESTATS                     16
 #define SAVE_SEAL_CASE                     17
 #define SAVE_CHATOT                        18
-#define SAVE_UNK_19                        19
+#define SAVE_FRONTIER                      19
 #define SAVE_SPECIAL_RIBBONS               20
 #define SAVE_ROAMER                        21
 #define SAVE_GTS                        22

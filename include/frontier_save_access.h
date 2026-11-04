@@ -18,6 +18,15 @@ enum FrontierChallengeType {
     FRONTIER_CHALLENGE_LINK_MULTI,
 };
 
+// The facilities, as the frontier records app (FrontierRecordsAppArgs.facility) and the link lobby
+// (FrontierLinkLobby.facility) number them
+#define FRONTIER_FACILITY_TOWER        1
+#define FRONTIER_FACILITY_FACTORY_LV50 2
+#define FRONTIER_FACILITY_FACTORY_OPEN 3
+#define FRONTIER_FACILITY_CASTLE       4
+#define FRONTIER_FACILITY_HALL         5
+#define FRONTIER_FACILITY_ARCADE       6
+
 // The field ids of the challenge records and the facility flags (*_GetField / *_SetField).
 enum FactoryChallengeField {
     FACTORY_CHALLENGE_LEVEL_MODE,

@@ -259,17 +259,17 @@ static void FrontierMapTileBlink_DestroyTask(FrontierMapTileBlinkTask *blinkTask
 
 u32 FrontierLinkLobby_GetWinStreakStat(u32 value) {
     switch (value) {
-    case 2:
+    case FRONTIER_FACILITY_FACTORY_LV50:
         return 0x73;
-    case 3:
+    case FRONTIER_FACILITY_FACTORY_OPEN:
         return 0x77;
-    case 4:
+    case FRONTIER_FACILITY_CASTLE:
         return 0x87;
-    case 5:
+    case FRONTIER_FACILITY_HALL:
         return 0x7B;
-    case 6:
+    case FRONTIER_FACILITY_ARCADE:
         return 0x8F;
-    case 1:
+    case FRONTIER_FACILITY_TOWER:
         return 0x71;
     default:
         return value;
@@ -278,17 +278,17 @@ u32 FrontierLinkLobby_GetWinStreakStat(u32 value) {
 
 u32 FrontierLinkLobby_GetStreakActiveStat(u32 value) {
     switch (value) {
-    case 2:
+    case FRONTIER_FACILITY_FACTORY_LV50:
         return 0x66;
-    case 3:
+    case FRONTIER_FACILITY_FACTORY_OPEN:
         return 0x68;
-    case 4:
+    case FRONTIER_FACILITY_CASTLE:
         return 0x6C;
-    case 5:
+    case FRONTIER_FACILITY_HALL:
         return 0x6A;
-    case 6:
+    case FRONTIER_FACILITY_ARCADE:
         return 0x6E;
-    case 1:
+    case FRONTIER_FACILITY_TOWER:
         return 0x64;
     default:
         return value;
@@ -542,7 +542,7 @@ static void FrontierMap_ProcessEvents(FrontierMap *map) {
     Field2DCommand event;
     Field2DMove command;
 
-    while (Field2DMoveQueue_Pop(map->moveQueue, (Field2DMoveQueueEntry *)&command) == 1) {
+    while (Field2DMoveQueue_Pop(map->moveQueue, &command) == 1) {
         Field2DObjectManager_StartMove(map->objectManager, &command);
     }
     while (Field2DCommandQueue_Pop(map->commandQueue, &event) == 1) {
