@@ -356,5 +356,5 @@ void FieldMove_FadeOutToWhite(void) {
 }
 
 void FieldMove_SetPlayerVisible(FieldSystem *fieldSystem, BOOL visible) {
-    MapObject_SetVisible(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar), visible);
+    MapObject_SetInvisible(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar), visible);
 }

@@ -109,7 +109,7 @@ static BOOL ShallowWaterRippleEffect_Init(FieldEffect *effect, void *state) {
     work->mapId = MapObject_GetMapID(work->args.mapObject);
     FieldEffect_SetPosition(effect, &position);
     work->billboard = FieldEffectManager_CreateBillboardFromRecord(work->args.manager, SHALLOW_WATER_RIPPLE_RECORD, &position);
-    if (MapObject_TestFlagsBits(work->args.mapObject, MAPOBJECTFLAG_VISIBLE) == TRUE) {
+    if (MapObject_TestFlagsBits(work->args.mapObject, MAPOBJECTFLAG_INVISIBLE) == TRUE) {
         BillboardObject_SetVisible(work->billboard, FALSE);
     }
     return TRUE;
@@ -134,7 +134,7 @@ static void ShallowWaterRippleEffect_Update(FieldEffect *effect, void *state) {
         FieldEffectManager_DestroyEffect(effect);
         return;
     }
-    if (MapObject_TestFlagsBits(mapObject, MAPOBJECTFLAG_VISIBLE) == TRUE) {
+    if (MapObject_TestFlagsBits(mapObject, MAPOBJECTFLAG_INVISIBLE) == TRUE) {
         BillboardObject_SetVisible(work->billboard, FALSE);
     } else {
         BillboardObject_SetVisible(work->billboard, TRUE);

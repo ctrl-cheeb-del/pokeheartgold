@@ -1294,7 +1294,7 @@ static void BillboardObject_SetSequenceKeepAlignedFrameTo8(BillboardObject *bill
 
 static void MapObject_UpdateBillboardVisibility(LocalMapObject *object, BillboardObject *billboard) {
     int visible = TRUE;
-    if (MapObject_TestFlagsBits(object, MAPOBJECTFLAG_VISIBLE) == TRUE) {
+    if (MapObject_TestFlagsBits(object, MAPOBJECTFLAG_INVISIBLE) == TRUE) {
         visible = FALSE;
     }
     if (MapObject_TestFlagsBits(object, MAPOBJECTFLAG_UNK12) == TRUE && !MapObject_TestFlagsBits(object, MAPOBJECTFLAG_UNK13)) {

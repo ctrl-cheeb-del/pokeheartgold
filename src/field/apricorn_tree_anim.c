@@ -175,7 +175,7 @@ static BOOL Task_AnimApricornTree(TaskManager *taskman) {
         if (--env->expelTimer > 0) {
             break;
         }
-        MapObject_ClearFlagsBits(env->apricorn, MAPOBJECTFLAG_VISIBLE);
+        MapObject_ClearFlagsBits(env->apricorn, MAPOBJECTFLAG_INVISIBLE);
         env->jumpTimer = 0;
         PlaySE(SEQ_SE_GS_FW255E);
         env->state = 9;
@@ -207,7 +207,7 @@ static LocalMapObject *CreateJumpingApricornObj(MapObjectManager *taskman, u32 s
     MapObject_SetFlagsBits(obj, (MapObjectFlagBits)(MAPOBJECTFLAG_UNK13 | MAPOBJECTFLAG_KEEP));
     MapObject_ClearFlagsBits(obj, (MapObjectFlagBits)(MAPOBJECTFLAG_UNK8 | MAPOBJECTFLAG_UNK7));
     MapObject_SetFlag29(obj, TRUE);
-    MapObject_SetFlagsBits(obj, MAPOBJECTFLAG_VISIBLE);
+    MapObject_SetFlagsBits(obj, MAPOBJECTFLAG_INVISIBLE);
     return obj;
 }
 

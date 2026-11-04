@@ -125,7 +125,7 @@ typedef enum MapObjectFlagBits {
     MAPOBJECTFLAG_MOVEMENT_PAUSED = (1 << 6),
     MAPOBJECTFLAG_UNK7 = (1 << 7),
     MAPOBJECTFLAG_UNK8 = (1 << 8),
-    MAPOBJECTFLAG_VISIBLE = (1 << 9),
+    MAPOBJECTFLAG_INVISIBLE = (1 << 9),
     MAPOBJECTFLAG_KEEP = (1 << 10),
     MAPOBJECTFLAG_UNK11 = (1 << 11),
     MAPOBJECTFLAG_UNK12 = (1 << 12),
@@ -165,7 +165,7 @@ typedef struct ObjectEventGraphicsInfo {
     u16 mapModelId;
     u16 effectFlagsIdx : 5; // Unknown actual size
     u16 drawCallbacksIdx : 5;
-    u16 unk4_10 : 6; // Unknown actual size
+    u16 billboardInfoIdx : 6; // Unknown actual size
 } ObjectEventGraphicsInfo;
 
 MapObjectManager *MapObjectManager_Init(FieldSystem *fieldSystem, u32 objectCount, u32 priority);
@@ -281,8 +281,8 @@ BOOL MapObject_CheckSingleMovement(LocalMapObject *object);
 void MapObject_SetStartMovement(LocalMapObject *object);
 void MapObject_ClearEndMovement(LocalMapObject *object);
 BOOL MapObject_CheckFlag14(LocalMapObject *object);
-BOOL MapObject_CheckVisible(LocalMapObject *object);
-void MapObject_SetVisible(LocalMapObject *object, BOOL set);
+BOOL MapObject_CheckInvisible(LocalMapObject *object);
+void MapObject_SetInvisible(LocalMapObject *object, BOOL invisible);
 void MapObject_ClearFlag18(LocalMapObject *object, BOOL clear);
 BOOL MapObject_CheckFlag19Disabled(LocalMapObject *object);
 void MapObject_SetFlag19(LocalMapObject *object, BOOL set);

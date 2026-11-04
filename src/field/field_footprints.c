@@ -218,7 +218,7 @@ static BOOL Footprints_Spawn(LocalMapObject *mapObject, u32 kind) {
     priority = MapObject_GetPriorityPlusValue(mapObject, 2);
     manager = FieldEffectManager_GetFromMapObject(mapObject);
     footprints = FieldEffectManager_GetRendererData(manager, FIELD_EFFECT_RENDERER_FOOTPRINTS);
-    if (MapObject_TestFlagsBits(mapObject, MAPOBJECTFLAG_VISIBLE) == TRUE) {
+    if (MapObject_TestFlagsBits(mapObject, MAPOBJECTFLAG_INVISIBLE) == TRUE) {
         return FALSE;
     }
 

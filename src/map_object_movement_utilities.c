@@ -78,7 +78,7 @@ BOOL MapObject_IsTileOccupied(LocalMapObject *self, int x, int y, int z) {
                     return TRUE;
                 }
             }
-            if (MapObject_GetID(object) == obj_partner_poke && FollowMonObject_IsLarge(object) != 0 && !MapObject_CheckVisible(object)) {
+            if (MapObject_GetID(object) == obj_partner_poke && FollowMonObject_IsLarge(object) != 0 && !MapObject_CheckInvisible(object)) {
                 MapObject_GetPreviousCoordsBehind(object, &objectX, &objectZ);
                 if (objectX == x && objectZ == z) {
                     int delta = MapObject_GetYCoord(object) - y;

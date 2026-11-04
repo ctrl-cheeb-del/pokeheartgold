@@ -253,7 +253,7 @@ static void MapObject_SpawnTallGrassStanding(LocalMapObject *object, u8 behavior
     u32 nextBehavior;
 
     if (MetatileBehavior_IsTallGrass(behavior) == TRUE) {
-        if (id != obj_partner_poke || MapObject_TestFlagsBits(object, MAPOBJECTFLAG_VISIBLE) != TRUE) {
+        if (id != obj_partner_poke || MapObject_TestFlagsBits(object, MAPOBJECTFLAG_INVISIBLE) != TRUE) {
             TallGrass_Spawn(object, FALSE);
         } else {
             return;
@@ -287,7 +287,7 @@ static void MapObject_SpawnTallGrassOnStep(LocalMapObject *object, u8 behavior, 
     u32 nextBehavior;
 
     if (MetatileBehavior_IsTallGrass(behavior) == TRUE) {
-        if (id != obj_partner_poke || MapObject_TestFlagsBits(object, MAPOBJECTFLAG_VISIBLE) != TRUE) {
+        if (id != obj_partner_poke || MapObject_TestFlagsBits(object, MAPOBJECTFLAG_INVISIBLE) != TRUE) {
             TallGrass_Spawn(object, TRUE);
         } else {
             return;
@@ -436,7 +436,7 @@ static void MapObject_SpawnGroundDust(LocalMapObject *object, u8 behavior, u8 pr
         || MetatileBehavior_IsIce(behavior) == TRUE
         || MetatileBehavior_IsMud(behavior) == TRUE
         || MapObject_CheckSnowBehavior(object, behavior) == TRUE
-        || MapObject_CheckVisible(object)) {
+        || MapObject_CheckInvisible(object)) {
         return;
     }
     GroundDust_Spawn(object);
@@ -444,14 +444,14 @@ static void MapObject_SpawnGroundDust(LocalMapObject *object, u8 behavior, u8 pr
 
 static void MapObject_SpawnVeryTallGrassStanding(LocalMapObject *object, u8 behavior, u8 prevBehavior, const MapObjectEffectFlags *flags) {
     u32 id = MapObject_GetID(object);
-    if (MetatileBehavior_IsVeryTallGrass(behavior) == TRUE && (id != obj_partner_poke || MapObject_TestFlagsBits(object, MAPOBJECTFLAG_VISIBLE) != TRUE)) {
+    if (MetatileBehavior_IsVeryTallGrass(behavior) == TRUE && (id != obj_partner_poke || MapObject_TestFlagsBits(object, MAPOBJECTFLAG_INVISIBLE) != TRUE)) {
         VeryTallGrass_Spawn(object, FALSE);
     }
 }
 
 static void MapObject_SpawnVeryTallGrassOnStep(LocalMapObject *object, u8 behavior, u8 prevBehavior, const MapObjectEffectFlags *flags) {
     u32 id = MapObject_GetID(object);
-    if (MetatileBehavior_IsVeryTallGrass(behavior) == TRUE && (id != obj_partner_poke || MapObject_TestFlagsBits(object, MAPOBJECTFLAG_VISIBLE) != TRUE)) {
+    if (MetatileBehavior_IsVeryTallGrass(behavior) == TRUE && (id != obj_partner_poke || MapObject_TestFlagsBits(object, MAPOBJECTFLAG_INVISIBLE) != TRUE)) {
         VeryTallGrass_Spawn(object, TRUE);
     }
 }

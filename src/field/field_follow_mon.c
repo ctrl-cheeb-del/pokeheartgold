@@ -334,7 +334,7 @@ void FollowMon_MoveToPlayer(FieldSystem *fieldSystem, u8 direction) {
 }
 
 BOOL FollowMon_CheckVisibleFlag(FieldSystem *fieldSystem) {
-    return MapObject_CheckVisible(FollowMon_GetMapObject(fieldSystem));
+    return MapObject_CheckInvisible(FollowMon_GetMapObject(fieldSystem));
 }
 
 void FollowMon_SetNoBallEffect(FieldSystem *fieldSystem) {

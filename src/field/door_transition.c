@@ -250,7 +250,7 @@ BOOL DoorTransition_WalkIntoDoor(FieldSystem *fieldSystem, FieldTransitionWork *
         break;
     }
     case WALK_INTO_DOOR_STATE_END:
-        MapObject_SetVisible(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar), TRUE);
+        MapObject_SetInvisible(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar), TRUE);
         return TRUE;
     case WALK_INTO_DOOR_STATE_CAMERA_PAN: {
         Camera_SetPerspectiveClippingPlane(FX32_CONST(150), FX32_CONST(1110), fieldSystem->camera);
@@ -346,7 +346,7 @@ BOOL DoorTransition_WalkOutOfDoor(FieldSystem *fieldSystem, FieldTransitionWork 
     }
     case WALK_OUT_OF_DOOR_STATE_WAIT_OPEN:
         if (MapPropOneShotAnimationManager_IsAnimationLoopFinished(fieldSystem->mapPropOneShotAnimationManager, DOOR_ANIM_TAG)) {
-            MapObject_SetVisible(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar), FALSE);
+            MapObject_SetInvisible(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar), FALSE);
             work->state++;
         }
         break;
@@ -770,17 +770,17 @@ BOOL Task_WalkOutOfDoorAfterWarp(TaskManager *taskman) {
             }
         }
         if (PlayerAvatar_GetFacingDirection(fieldSystem->playerAvatar) == DIR_SOUTH) {
-            MapObject_SetVisible(playerObj, TRUE);
+            MapObject_SetInvisible(playerObj, TRUE);
             work->state = ARRIVE_STATE_STEP_OUT;
         } else {
-            MapObject_SetVisible(playerObj, FALSE);
+            MapObject_SetInvisible(playerObj, FALSE);
             work->state = ARRIVE_STATE_WAIT_FADE;
         }
         break;
     }
     case ARRIVE_STATE_STEP_OUT: {
         LocalMapObject *obj = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
-        MapObject_SetVisible(obj, FALSE);
+        MapObject_SetInvisible(obj, FALSE);
         MapObject_SetHeldMovement(obj, MOVEMENT_STEP_DOWN);
         work->state++;
         break;
@@ -806,7 +806,7 @@ BOOL Task_WalkOutOfDoorAfterWarp(TaskManager *taskman) {
         break;
     case ARRIVE_STATE_WAIT_DOOR_OPEN:
         if (MapPropOneShotAnimationManager_IsAnimationLoopFinished(fieldSystem->mapPropOneShotAnimationManager, DOOR_ANIM_TAG)) {
-            MapObject_SetVisible(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar), FALSE);
+            MapObject_SetInvisible(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar), FALSE);
             work->state = ARRIVE_STATE_STEP_OUT_OF_DOOR;
         }
         break;
@@ -837,13 +837,13 @@ BOOL Task_WalkOutOfDoorAfterWarp(TaskManager *taskman) {
     return FALSE;
 }
 
-// Stairs: hides the player (MapObject_SetVisible(TRUE) sets the hidden flag) and fades to white while zooming in.
+// Stairs: hides the player and fades to white while zooming in.
 BOOL Task_StairsFadeToWhite(TaskManager *taskman) {
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskman);
     DoorTransitionTaskWork *work = TaskManager_GetEnvironment(taskman);
     switch (work->state) {
     case STAIRS_FADE_STATE_START:
-        MapObject_SetVisible(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar), TRUE);
+        MapObject_SetInvisible(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar), TRUE);
         work->adjustCamera = FALSE;
         work->cameraStep = 0;
         PlaySE(SEQ_SE_DP_KAIDAN2);
@@ -903,10 +903,10 @@ BOOL Task_ArriveWithDirectionalFade(TaskManager *taskman) {
         obj = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
         direction = PlayerAvatar_GetFacingDirection(fieldSystem->playerAvatar);
         if (direction == DIR_SOUTH) {
-            MapObject_SetVisible(obj, TRUE);
+            MapObject_SetInvisible(obj, TRUE);
             work->state = ARRIVE_STATE_STEP_OUT;
         } else {
-            MapObject_SetVisible(obj, FALSE);
+            MapObject_SetInvisible(obj, FALSE);
             work->state = ARRIVE_STATE_WAIT_FADE;
         }
         work->adjustCamera = FALSE;
@@ -935,7 +935,7 @@ BOOL Task_ArriveWithDirectionalFade(TaskManager *taskman) {
         break;
     case ARRIVE_STATE_STEP_OUT:
         obj = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
-        MapObject_SetVisible(obj, FALSE);
+        MapObject_SetInvisible(obj, FALSE);
         MapObject_SetHeldMovement(obj, MOVEMENT_STEP_DOWN);
         work->state++;
         break;
@@ -969,17 +969,17 @@ BOOL Task_ArriveWithFade(TaskManager *taskman) {
     case ARRIVE_STATE_INIT:
         obj = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
         if ((u8)PlayerAvatar_GetFacingDirection(fieldSystem->playerAvatar) == DIR_SOUTH) {
-            MapObject_SetVisible(obj, TRUE);
+            MapObject_SetInvisible(obj, TRUE);
             *state = ARRIVE_STATE_STEP_OUT;
         } else {
-            MapObject_SetVisible(obj, FALSE);
+            MapObject_SetInvisible(obj, FALSE);
             *state = ARRIVE_STATE_WAIT_FADE;
         }
         NewFieldFadeEnvironment(taskman, FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_IN, FADE_TYPE_BRIGHTNESS_IN, 0, 6, 1, HEAP_ID_FIELD2);
         break;
     case ARRIVE_STATE_STEP_OUT:
         obj = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
-        MapObject_SetVisible(obj, FALSE);
+        MapObject_SetInvisible(obj, FALSE);
         MapObject_SetHeldMovement(obj, MOVEMENT_STEP_DOWN);
         (*state)++;
         break;

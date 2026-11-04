@@ -3169,7 +3169,7 @@ static void BattleAnimScriptCmd_PlayCry(BattleAnimSystem *system) {
 }
 
 static void BattleAnimScriptCmd_WaitForCry(BattleAnimSystem *system) {
-    if (!IsCryFinished()) {
+    if (!IsCryPlaying()) {
         u32 arg;
         system->scriptPtr++;
         arg = *system->scriptPtr;

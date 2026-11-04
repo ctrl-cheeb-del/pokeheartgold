@@ -5795,7 +5795,7 @@ static void Task_PlayFaintAnimation(SysTask *task, void *data) {
         PlayCryDelayedHandleChatot(BattleSystem_GetChatotVoice(work->battleSystem, work->battlerId), 5, work->species, work->form, value, 127, work->isTransformed, HEAP_ID_BATTLE, 0);
         work->state++;
     case FAINT_STATE_WAIT_CRY:
-        if (!IsCryFinished()) {
+        if (!IsCryPlaying()) {
             work->state++;
         }
         break;

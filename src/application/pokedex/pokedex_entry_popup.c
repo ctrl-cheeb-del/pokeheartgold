@@ -288,7 +288,7 @@ static void PokedexEntryPopup_Task(SysTask *task, void *data) {
         popup->state = POKEDEX_ENTRY_POPUP_STATE_WAIT_CRY;
         break;
     case POKEDEX_ENTRY_POPUP_STATE_WAIT_CRY:
-        if (!IsCryFinished()) {
+        if (!IsCryPlaying()) {
             popup->done = 1;
             popup->state = POKEDEX_ENTRY_POPUP_STATE_DONE;
         }

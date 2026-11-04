@@ -265,7 +265,7 @@ static void UnionRoomObjects_UpdateMapObjects(UnionRoomObjects *objects, MapObje
                 cursor->slots[0].state = UNION_ROOM_SLOT_LEFT;
                 cursor->slots[0].request = UNION_ROOM_SLOT_REQUEST_NONE;
                 cursor->slots[0].isWandering = 0;
-                MapObject_SetVisible(object, TRUE);
+                MapObject_SetInvisible(object, TRUE);
                 MapObject_ClearFlag18(object, FALSE);
             }
             break;
@@ -317,7 +317,7 @@ static void UnionRoomSlot_Appear(UnionRoomSlot *slot, LocalMapObject *object, u3
         MapObject_SetPositionFromXYZAndDirection(object, initialX, initialY, initialZ, TRUE);
         MapObject_SetFacingDirectionDirect(object, TRUE);
         MapObject_SetHeldMovement(object, 0x44);
-        MapObject_SetVisible(object, FALSE);
+        MapObject_SetInvisible(object, FALSE);
         MapObject_ClearFlag18(object, TRUE);
         slot->state = UNION_ROOM_SLOT_APPEARING;
         if (slot->friendship != 0) {
@@ -355,7 +355,7 @@ static void UnionRoomObjects_ShowRange(MapObjectManager *mapObjectManager, int f
     for (; first < last; first++) {
         object = MapObjectManager_GetFirstActiveObjectByID(mapObjectManager, first);
         GF_ASSERT(object != NULL);
-        MapObject_SetVisible(object, TRUE);
+        MapObject_SetInvisible(object, TRUE);
         MapObject_ClearFlag18(object, FALSE);
         MapObject_SetFlag19(object, TRUE);
     }
@@ -377,7 +377,7 @@ void UnionRoomObjects_RestoreAfterScript(MapObjectManager *mapObjectManager, Uni
                     MapObject_ChangeSprite(object, slot->sprite);
                     MapObject_SetFacingDirectionDirect(object, TRUE);
                     MapObject_SetHeldMovement(object, 0x44);
-                    MapObject_SetVisible(object, FALSE);
+                    MapObject_SetInvisible(object, FALSE);
                     MapObject_ClearFlag18(object, TRUE);
                     slot->state = UNION_ROOM_SLOT_APPEARING;
                     if (slot->friendship != 0) {

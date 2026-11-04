@@ -107,7 +107,7 @@ BOOL UnusedBillboardEffect_Init(FieldEffect *effect, UnusedBillboardEffect *work
     position.z += 0xD << 12;
     FieldEffect_SetPosition(effect, &position);
     work->billboard = FieldEffectManager_CreateBillboardFromRecord(work->args.manager, UNUSED_BILLBOARD_RECORD, &position);
-    if (MapObject_TestFlagsBits(work->args.mapObject, MAPOBJECTFLAG_VISIBLE) == TRUE) {
+    if (MapObject_TestFlagsBits(work->args.mapObject, MAPOBJECTFLAG_INVISIBLE) == TRUE) {
         BillboardObject_SetVisible(work->billboard, FALSE);
     }
     if (FieldEffect_GetParam(effect) == 0) {
@@ -134,7 +134,7 @@ void UnusedBillboardEffect_Update(FieldEffect *effect, UnusedBillboardEffect *wo
         FieldEffectManager_DestroyEffect(effect);
         return;
     }
-    if (MapObject_TestFlagsBits(mapObject, MAPOBJECTFLAG_VISIBLE) == TRUE) {
+    if (MapObject_TestFlagsBits(mapObject, MAPOBJECTFLAG_INVISIBLE) == TRUE) {
         BillboardObject_SetVisible(work->billboard, FALSE);
     } else {
         BillboardObject_SetVisible(work->billboard, TRUE);

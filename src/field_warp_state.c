@@ -208,7 +208,7 @@ BOOL FieldTask_Fly(TaskManager *task) {
         break;
     }
     case FLY_TASK_WAIT_CRY:
-        if (!IsCryFinished()) {
+        if (!IsCryPlaying()) {
             env->state++;
         }
         break;

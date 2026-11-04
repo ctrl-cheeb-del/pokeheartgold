@@ -287,7 +287,7 @@ static void LegendaryBirdObject_AnimateFlap(LocalMapObject *object, BillboardObj
 static void LegendaryBirdObject_UpdateVisibility(LocalMapObject *object, BillboardObject *billboard) {
     int visible = TRUE;
 
-    if (MapObject_TestFlagsBits(object, MAPOBJECTFLAG_VISIBLE) == TRUE) {
+    if (MapObject_TestFlagsBits(object, MAPOBJECTFLAG_INVISIBLE) == TRUE) {
         visible = FALSE;
     }
     if (MapObject_TestFlagsBits(object, MAPOBJECTFLAG_UNK12) == TRUE && !MapObject_TestFlagsBits(object, MAPOBJECTFLAG_UNK13)) {
@@ -425,7 +425,7 @@ void MapObject_SetFacingAndUpdateDraw(LocalMapObject *object, u32 direction) {
 }
 
 void CameraFocusObject_Init(LocalMapObject *object) {
-    MapObject_SetVisible(object, TRUE);
+    MapObject_SetInvisible(object, TRUE);
     MapObject_SetFlagsBits(object, MAPOBJECTFLAG_UNK20);
 }
 

@@ -156,7 +156,7 @@ static BOOL VeryTallGrassEffect_Init(FieldEffect *effect, void *state) {
     position.z += 0x12 << 12;
     FieldEffect_SetPosition(effect, &position);
     work->billboard = FieldEffectManager_CreateBillboardFromRecord(work->args.manager, VERY_TALL_GRASS_RECORD, &position);
-    if (MapObject_TestFlagsBits(work->args.mapObject, MAPOBJECTFLAG_VISIBLE) == TRUE) {
+    if (MapObject_TestFlagsBits(work->args.mapObject, MAPOBJECTFLAG_INVISIBLE) == TRUE) {
         BillboardObject_SetVisible(work->billboard, FALSE);
     }
     if (!FieldEffect_GetParam(effect)) {
@@ -182,7 +182,7 @@ static void VeryTallGrassEffect_Update(FieldEffect *effect, void *state) {
         FieldEffectManager_DestroyEffect(effect);
         return;
     }
-    if (MapObject_TestFlagsBits(mapObject, MAPOBJECTFLAG_VISIBLE) == TRUE) {
+    if (MapObject_TestFlagsBits(mapObject, MAPOBJECTFLAG_INVISIBLE) == TRUE) {
         BillboardObject_SetVisible(work->billboard, FALSE);
     } else {
         BillboardObject_SetVisible(work->billboard, TRUE);

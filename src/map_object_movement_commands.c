@@ -683,7 +683,7 @@ static void MapObject_StartJumpMovement(LocalMapObject *object, s8 direction, in
     MapObject_SetOrQueueFacing(object, direction);
     MapObject_SetAnimation(object, animation);
     MapObject_IncrementMovementStep(object);
-    if (!MapObject_CheckVisible(object)) {
+    if (!MapObject_CheckInvisible(object)) {
         PlaySE(SEQ_SE_DP_DANSA);
     }
 }
@@ -734,7 +734,7 @@ BOOL MapObjectMovementCmd092_Step1(LocalMapObject *object) {
     MapObject_CallDrawUpdate(object);
     MapObject_SetAnimation(object, MAP_OBJECT_ANIM_STAND);
     MapObject_IncrementMovementStep(object);
-    if (!MapObject_CheckVisible(object)) {
+    if (!MapObject_CheckInvisible(object)) {
         PlaySE(SEQ_SE_DP_SUTYA2);
     }
     return TRUE;
@@ -940,13 +940,13 @@ BOOL MapObjectMovementCmd068_Step1(LocalMapObject *object) {
 }
 
 BOOL MapObjectMovementCmd069_Step0(LocalMapObject *object) {
-    MapObject_SetFlagsBits(object, MAPOBJECTFLAG_VISIBLE);
+    MapObject_SetFlagsBits(object, MAPOBJECTFLAG_INVISIBLE);
     MapObject_IncrementMovementStep(object);
     return TRUE;
 }
 
 BOOL MapObjectMovementCmd070_Step0(LocalMapObject *object) {
-    MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_VISIBLE);
+    MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_INVISIBLE);
     MapObject_IncrementMovementStep(object);
     return TRUE;
 }
@@ -1214,7 +1214,7 @@ static void MapObject_StartJumpByOffsetMovement(LocalMapObject *object, int dx, 
     MapObject_SetOrQueueFacing(object, direction);
     MapObject_SetAnimation(object, animation);
     MapObject_IncrementMovementStep(object);
-    if (!MapObject_CheckVisible(object)) {
+    if (!MapObject_CheckInvisible(object)) {
         PlaySE(SEQ_SE_DP_DANSA);
     }
 }
@@ -1285,7 +1285,7 @@ BOOL MapObjectMovementCmd108_Step1(LocalMapObject *object) {
     MapObject_CallDrawUpdate(object);
     MapObject_SetAnimation(object, MAP_OBJECT_ANIM_STAND);
     MapObject_IncrementMovementStep(object);
-    if (!MapObject_CheckVisible(object)) {
+    if (!MapObject_CheckInvisible(object)) {
         PlaySE(SEQ_SE_DP_SUTYA2);
     }
     Heap_Free(work->data);

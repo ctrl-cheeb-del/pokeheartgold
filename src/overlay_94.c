@@ -108,7 +108,7 @@ BOOL PartyMenu_AnimateIconFormChange(PartyMenu *partyMenu) {
         work->state++;
         break;
     case 8:
-        if (IsCryFinished() == FALSE) {
+        if (IsCryPlaying() == FALSE) {
             work->state++;
         }
         break;

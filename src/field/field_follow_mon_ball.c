@@ -386,7 +386,7 @@ static void FollowMonBallEffect_UpdateRecallWhite(FieldEffect *effect, void *sta
         if (work->timer >= FOLLOW_MON_BALL_SHRINK_FRAMES) {
             ++work->state;
             Field3dObject_SetActiveFlag(&work->args.ball->ball, TRUE);
-            MapObject_SetVisible(owner, TRUE);
+            MapObject_SetInvisible(owner, TRUE);
             work->timer = 0;
             return;
         }

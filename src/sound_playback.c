@@ -355,7 +355,7 @@ void StopCry(int fadeFrames) {
     ClearQueuedCries();
 }
 
-BOOL IsCryFinished(void) {
+BOOL IsCryPlaying(void) {
     u8 *firstActive = GF_SdatGetAttrPtr(SOUND_ATTR_WAVE_OUT_14_ALLOCATED);
     u8 *secondActive = GF_SdatGetAttrPtr(SOUND_ATTR_WAVE_OUT_15_ALLOCATED);
     GF_SdatGetAttrPtr(SOUND_ATTR_REVERSED_CRY_STARTED);
@@ -560,7 +560,7 @@ static void CryStopTask(SysTask *task, void *arg) {
         GF_SndHandleMoveVolume(SND_HANDLE_CHORUS, 0, data->frames);
     }
     data->frames--;
-    if (!IsCryFinished()) {
+    if (!IsCryPlaying()) {
         data->frames = 0;
     }
     if (data->frames <= 0) {

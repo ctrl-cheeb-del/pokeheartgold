@@ -74,7 +74,7 @@ void PuddleSplash_Spawn(LocalMapObject *mapObject, int x, int y, int z) {
     PuddleSplashEffectArgs args;
     VecFx32 position;
 
-    if (MapObject_TestFlagsBits(mapObject, MAPOBJECTFLAG_VISIBLE) == TRUE) {
+    if (MapObject_TestFlagsBits(mapObject, MAPOBJECTFLAG_INVISIBLE) == TRUE) {
         return;
     }
     args.manager = FieldEffectManager_GetFromMapObject(mapObject);

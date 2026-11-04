@@ -333,7 +333,7 @@ BOOL Task_FieldDig(TaskManager *taskManager) {
     case WARP_TASK_STATE_RUN_STEPS:
         do {
             if (env->withFollowMon) {
-                if (IsCryFinished()) {
+                if (IsCryPlaying()) {
                     result = FIELD_MOVE_STEP_WAIT;
                 } else {
                     result = gDigWithFollowMonSteps[env->state](taskManager, fieldSystem, env);
@@ -422,7 +422,7 @@ BOOL Task_FieldTeleport(TaskManager *taskManager) {
         enum FieldMoveStepResult result;
         do {
             if (env->withFollowMon) {
-                if (IsCryFinished()) {
+                if (IsCryPlaying()) {
                     result = FIELD_MOVE_STEP_WAIT;
                 } else {
                     result = gTeleportWithFollowMonSteps[env->state](taskManager, fieldSystem, env);

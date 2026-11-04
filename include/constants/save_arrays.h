@@ -28,7 +28,7 @@
 #define SAVE_GTS                        22
 #define SAVE_UNK_23                        23
 #define SAVE_RANKINGS                      24
-#define SAVE_UNK_25                        25
+#define SAVE_FRIEND_ROSTER                 25
 #define SAVE_WIFI_HISTORY                  26
 #define SAVE_MYSTERY_GIFT                  27
 #define SAVE_UNK_28                        28

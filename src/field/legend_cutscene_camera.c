@@ -721,7 +721,7 @@ static BOOL Task_BirdFinalApproach(TaskManager *taskman) {
         pos.y += taskData->yDelta;
         MapObject_SetPositionVector(mapObject, &pos);
     }
-        MapObject_SetVisible(mapObject, FALSE);
+        MapObject_SetInvisible(mapObject, FALSE);
         taskData->delayTimer = 0;
         taskData->betweenFlapsDelayTimer = 0;
         ++(*pState);

@@ -1784,7 +1784,7 @@ BOOL FollowMon_IsActive(FieldSystem *fieldSystem) {
 
 BOOL FollowMon_IsVisible(FieldSystem *fieldSystem) {
     if (FollowMon_IsActive(fieldSystem)) {
-        if (!MapObject_CheckVisible(fieldSystem->followMon.mapObject)) {
+        if (!MapObject_CheckInvisible(fieldSystem->followMon.mapObject)) {
             return TRUE;
         } else {
             return FALSE;
@@ -1827,7 +1827,7 @@ BOOL FollowMon_GetPermissionBySpeciesAndMap(int species, u32 mapNo) {
 }
 
 void FollowMon_SetVisibleFlag(LocalMapObject *mapObject, BOOL enableBit) {
-    MapObject_SetVisible(mapObject, enableBit);
+    MapObject_SetInvisible(mapObject, enableBit);
     MapObject_SetFlag19(mapObject, enableBit);
 }
 

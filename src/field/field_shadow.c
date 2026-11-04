@@ -285,7 +285,7 @@ static void FieldShadowEffect_Update(FieldEffect *effect, void *state) {
         return;
     }
     work->hidden = FALSE;
-    if (MapObject_TestFlagsBits(object, (MapObjectFlagBits)(MAPOBJECTFLAG_UNK20 | MAPOBJECTFLAG_VISIBLE)) == TRUE) {
+    if (MapObject_TestFlagsBits(object, (MapObjectFlagBits)(MAPOBJECTFLAG_UNK20 | MAPOBJECTFLAG_INVISIBLE)) == TRUE) {
         work->hidden = TRUE;
         return;
     }
@@ -384,7 +384,7 @@ static void FieldShadowEffect_UpdateFriendShadow(FieldEffect *effect, void *stat
         return;
     }
     work->hidden = FALSE;
-    if (MapObject_TestFlagsBits(object, (MapObjectFlagBits)(MAPOBJECTFLAG_UNK20 | MAPOBJECTFLAG_VISIBLE)) == TRUE) {
+    if (MapObject_TestFlagsBits(object, (MapObjectFlagBits)(MAPOBJECTFLAG_UNK20 | MAPOBJECTFLAG_INVISIBLE)) == TRUE) {
         work->hidden = TRUE;
         return;
     }

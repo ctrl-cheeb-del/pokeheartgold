@@ -513,7 +513,7 @@ static void MapObjectManager_SetupRestoredObject(MapObjectManager *manager, Loca
 
 static void MapObject_ResetFlagsForRestore(LocalMapObject *object) {
     MapObject_SetFlagsBits(object, (MapObjectFlagBits)(MAPOBJECTFLAG_START_MOVEMENT | MAPOBJECTFLAG_ACTIVE));
-    MapObject_ClearFlagsBits(object, (MapObjectFlagBits)(MAPOBJECTFLAG_IGNORE_HEIGHTS | MAPOBJECTFLAG_UNK22 | MAPOBJECTFLAG_UNK21 | MAPOBJECTFLAG_UNK19 | MAPOBJECTFLAG_UNK18 | MAPOBJECTFLAG_UNK17 | MAPOBJECTFLAG_UNK16 | MAPOBJECTFLAG_UNK14 | MAPOBJECTFLAG_VISIBLE | MAPOBJECTFLAG_MOVEMENT_PAUSED | MAPOBJECTFLAG_END_MOVEMENT));
+    MapObject_ClearFlagsBits(object, (MapObjectFlagBits)(MAPOBJECTFLAG_IGNORE_HEIGHTS | MAPOBJECTFLAG_UNK22 | MAPOBJECTFLAG_UNK21 | MAPOBJECTFLAG_UNK19 | MAPOBJECTFLAG_UNK18 | MAPOBJECTFLAG_UNK17 | MAPOBJECTFLAG_UNK16 | MAPOBJECTFLAG_UNK14 | MAPOBJECTFLAG_INVISIBLE | MAPOBJECTFLAG_MOVEMENT_PAUSED | MAPOBJECTFLAG_END_MOVEMENT));
     MapObject_ClearFlags15_20_24_26(object);
 }
 
@@ -1468,15 +1468,15 @@ BOOL MapObject_CheckFlag14(LocalMapObject *object) {
     return MapObject_TestFlagsBits(object, MAPOBJECTFLAG_UNK14);
 }
 
-BOOL MapObject_CheckVisible(LocalMapObject *object) {
-    return MapObject_TestFlagsBits(object, MAPOBJECTFLAG_VISIBLE);
+BOOL MapObject_CheckInvisible(LocalMapObject *object) {
+    return MapObject_TestFlagsBits(object, MAPOBJECTFLAG_INVISIBLE);
 }
 
-void MapObject_SetVisible(LocalMapObject *object, BOOL set) {
-    if (set == TRUE) {
-        MapObject_SetFlagsBits(object, MAPOBJECTFLAG_VISIBLE);
+void MapObject_SetInvisible(LocalMapObject *object, BOOL invisible) {
+    if (invisible == TRUE) {
+        MapObject_SetFlagsBits(object, MAPOBJECTFLAG_INVISIBLE);
     } else {
-        MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_VISIBLE);
+        MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_INVISIBLE);
     }
 }
 

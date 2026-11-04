@@ -896,7 +896,7 @@ void *FlyLanding_AllocZeroed(enum HeapID heapID, u32 size) {
 
 void FieldMoveCutIn_SetPlayerVisible(FieldMoveCutIn *cutIn, BOOL visible) {
     MapObject_UnpauseMovement(cutIn->playerObject);
-    MapObject_SetVisible(cutIn->playerObject, visible);
+    MapObject_SetInvisible(cutIn->playerObject, visible);
 }
 
 BOOL TrainerClipEffect_Init(FieldEffect *effect, TrainerClip *clip) {
@@ -1009,7 +1009,7 @@ static void FieldMoveCutIn_UnloadModel(FieldMoveCutIn *cutIn) {
 }
 
 BOOL FieldMoveCutIn_StepShowOtherObject(FieldMoveCutIn *cutIn) {
-    MapObject_SetVisible(cutIn->otherObject, TRUE);
+    MapObject_SetInvisible(cutIn->otherObject, TRUE);
     MapObject_CallDrawUpdate(cutIn->otherObject);
     FieldMoveCutIn_CreateModelEffect(cutIn);
     cutIn->state++;

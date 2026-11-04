@@ -294,7 +294,7 @@ static BOOL Task_BlinkMapObject(TaskManager *taskManager) {
 
     TaskManager_GetFieldSystem(taskManager);
     environment = TaskManager_GetEnvironment(taskManager);
-    MapObject_SetVisible(environment->object, environment->visible);
+    MapObject_SetInvisible(environment->object, environment->visible);
     if (environment->counter++ >= environment->interval) {
         environment->visible ^= 1;
         environment->counter = 0;

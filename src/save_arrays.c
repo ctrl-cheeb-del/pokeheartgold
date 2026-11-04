@@ -206,7 +206,7 @@ const struct SaveChunkHeader gSaveChunkHeaders[] = {
      (SAVEINITFN)Save_Rankings_Init,
      },
     {
-     SAVE_UNK_25,
+     SAVE_FRIEND_ROSTER,
      0,
      (SAVESIZEFN)Save_FriendRoster_sizeof,
      (SAVEINITFN)Save_FriendRoster_Init,

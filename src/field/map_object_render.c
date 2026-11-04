@@ -1036,12 +1036,12 @@ static void *FldObjSys_ReadMModelFromNarc(MapObjectRender *render, u32 memberIdx
     return ReadMModelFromNarcInternal(render->manager, memberIdx, atStart);
 }
 
-// gObjectEventGraphicsInfos is MAP_OBJECT_GFX_ID_INVALID-terminated; unk4_10 indexes gSpriteBillboardInfos
+// gObjectEventGraphicsInfos is MAP_OBJECT_GFX_ID_INVALID-terminated.
 static const SpriteBillboardInfo *SpriteId_GetBillboardInfo(u32 spriteId) {
     const ObjectEventGraphicsInfo *entry = gObjectEventGraphicsInfos;
     do {
         if (entry->spriteId == spriteId) {
-            u32 index = entry->unk4_10;
+            u32 index = entry->billboardInfoIdx;
             if (index == 0xFF) {
                 GF_ASSERT(index != 0xFF);
                 return &gSpriteBillboardInfos[0];
@@ -1138,7 +1138,7 @@ int MapObject_UpdateBillboardPosition(LocalMapObject *object, BillboardObject *b
 
 void MapObject_SetBillboardVisibleFromFlags(LocalMapObject *object, BillboardObject *billboard) {
     BOOL visible = TRUE;
-    if (MapObject_TestFlagsBits(object, MAPOBJECTFLAG_VISIBLE) == TRUE) {
+    if (MapObject_TestFlagsBits(object, MAPOBJECTFLAG_INVISIBLE) == TRUE) {
         visible = FALSE;
     }
     if (MapObject_TestFlagsBits(object, MAPOBJECTFLAG_UNK12) == TRUE && !MapObject_TestFlagsBits(object, MAPOBJECTFLAG_UNK13)) {

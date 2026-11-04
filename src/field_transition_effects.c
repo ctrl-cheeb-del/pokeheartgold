@@ -548,7 +548,7 @@ BOOL FieldTransition_EnterWithDirectionalFade(TaskManager *man) {
     case 0:
         obj = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
         if (MetatileBehavior_IsDoor(GetMetatileBehavior(fieldSystem, PlayerAvatar_GetXCoord(fieldSystem->playerAvatar), PlayerAvatar_GetZCoord(fieldSystem->playerAvatar)))) {
-            MapObject_SetVisible(obj, TRUE);
+            MapObject_SetInvisible(obj, TRUE);
             fenv->transitionState = 1;
             break;
         }
@@ -564,7 +564,7 @@ BOOL FieldTransition_EnterWithDirectionalFade(TaskManager *man) {
         FieldTransitionWork *unk = fenv->transitionWork;
         if (DoorTransition_WalkOutOfDoor(fieldSystem, unk)) {
             DoorTransition_Free(unk);
-            MapObject_SetVisible(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar), FALSE);
+            MapObject_SetInvisible(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar), FALSE);
             return TRUE;
         }
         break;
@@ -582,7 +582,7 @@ BOOL FieldTransition_EnterWithFade(TaskManager *man) {
     case 0: {
         LocalMapObject *mapObj = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
         if (MetatileBehavior_IsDoor(GetMetatileBehavior(fieldSystem, PlayerAvatar_GetXCoord(fieldSystem->playerAvatar), PlayerAvatar_GetZCoord(fieldSystem->playerAvatar)))) {
-            MapObject_SetVisible(mapObj, TRUE);
+            MapObject_SetInvisible(mapObj, TRUE);
             fenv->transitionState = 1;
             TaskManager_Jump(man, FieldTransition_EnterWithDirectionalFade, fenv);
             break;

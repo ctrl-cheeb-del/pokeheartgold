@@ -238,7 +238,7 @@ static void ReflectionEffect_Draw(FieldEffect *effect, void *state) {
     if (facing.y != 0) {
         hidden = TRUE;
     }
-    if (MapObject_CheckVisible(mapObject) == TRUE) {
+    if (MapObject_CheckInvisible(mapObject) == TRUE) {
         hidden = TRUE;
     }
     if (hidden) {
@@ -464,7 +464,7 @@ static void FollowerReflectionEffect_Draw(FieldEffect *effect, void *state) {
     if (!work->hasBillboard) {
         return;
     }
-    if (MapObject_CheckVisible(mapObject) == TRUE) {
+    if (MapObject_CheckInvisible(mapObject) == TRUE) {
         BillboardObject_SetVisible(work->billboard, FALSE);
     } else {
         BillboardObject_SetVisible(work->billboard, TRUE);

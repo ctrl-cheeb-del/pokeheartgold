@@ -246,7 +246,7 @@ static BOOL HatchEggApp_RunEggScene(HatchEggApp *app) {
         }
         break;
     case HATCH_EGG_SCENE_WAIT_CRY:
-        if (IsCryFinished()) {
+        if (IsCryPlaying()) {
             break;
         }
         PlayFanfare(SEQ_ME_SHINKAOME);
@@ -359,7 +359,7 @@ static BOOL HatchEggApp_RunManaphyEggScene(HatchEggApp *app) {
         GF_ASSERT(FALSE);
         break;
     case HATCH_EGG_SCENE_WAIT_CRY:
-        if (IsCryFinished()) {
+        if (IsCryPlaying()) {
             break;
         }
         PlayFanfare(SEQ_ME_SHINKAOME);

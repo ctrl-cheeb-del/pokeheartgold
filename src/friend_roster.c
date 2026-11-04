@@ -330,11 +330,11 @@ FriendRoster *Save_FriendRoster_Get(SaveData *saveData) {
 }
 
 void Save_FriendRoster_LoadFromSave(SaveData *saveData) {
-    FriendRoster *data = SaveArray_Get(saveData, SAVE_UNK_25);
+    FriendRoster *data = SaveArray_Get(saveData, SAVE_FRIEND_ROSTER);
     MI_CpuCopy8(data, &sFriendRoster, sizeof(FriendRoster));
 }
 
 void Save_FriendRoster_StoreToSave(SaveData *saveData) {
-    FriendRoster *data = SaveArray_Get(saveData, SAVE_UNK_25);
+    FriendRoster *data = SaveArray_Get(saveData, SAVE_FRIEND_ROSTER);
     MI_CpuCopy8(&sFriendRoster, data, sizeof(FriendRoster));
 }

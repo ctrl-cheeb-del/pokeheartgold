@@ -638,7 +638,7 @@ static BOOL Task_Surf(TaskManager *taskManager) {
         break;
     }
     case SURF_STATE_WAIT_CRY:
-        if (!IsCryFinished()) {
+        if (!IsCryPlaying()) {
             FollowMon_StartHideForFieldMove(taskManager);
             work->state = SURF_STATE_CREATE_MOUNT;
         }
@@ -895,7 +895,7 @@ static enum FieldMoveTaskStepResult RockClimb_PlayFollowMonCry(RockClimbWork *wo
 }
 
 static enum FieldMoveTaskStepResult RockClimb_WaitFollowMonCry(RockClimbWork *work, TaskManager *taskManager) {
-    if (IsCryFinished()) {
+    if (IsCryPlaying()) {
         return FIELD_MOVE_TASK_STEP_WAIT;
     }
     FollowMon_StartHideForFieldMove(taskManager);

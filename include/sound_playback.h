@@ -9,7 +9,7 @@ BOOL PlaySE(u16 sndseq);
 void StopBGM(u16 sndseq, int fadeFrames);
 BOOL PlaySEWithFieldBank(u16 sndseq);
 void StopSEByHandle(int, int);
-BOOL IsCryFinished(void);
+BOOL IsCryPlaying(void);
 void StopCry(int);
 BOOL PlaySE_SetPitch(u16 seqNo, int pitch);
 BOOL IsSEPlaying(u16 sndseq);

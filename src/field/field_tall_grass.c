@@ -205,7 +205,7 @@ BOOL TallGrassEffect_Init(FieldEffect *effect, TallGrassEffect *work) {
     position.z = position.z + FX32_CONST(18);
     FieldEffect_SetPosition(effect, &position);
     work->billboard = FieldEffectManager_CreateBillboardFromRecord(work->args.manager, TALL_GRASS_RECORD, &position);
-    if (MapObject_TestFlagsBits(work->args.mapObject, MAPOBJECTFLAG_VISIBLE) == TRUE) {
+    if (MapObject_TestFlagsBits(work->args.mapObject, MAPOBJECTFLAG_INVISIBLE) == TRUE) {
         BillboardObject_SetVisible(work->billboard, FALSE);
     }
     if (!FieldEffect_GetParam(effect)) {
@@ -230,7 +230,7 @@ void TallGrassEffect_Update(FieldEffect *effect, TallGrassEffect *work) {
         FieldEffectManager_DestroyEffect(effect);
         return;
     }
-    if (MapObject_TestFlagsBits(mapObject, MAPOBJECTFLAG_VISIBLE) == TRUE) {
+    if (MapObject_TestFlagsBits(mapObject, MAPOBJECTFLAG_INVISIBLE) == TRUE) {
         BillboardObject_SetVisible(work->billboard, FALSE);
     } else {
         BillboardObject_SetVisible(work->billboard, TRUE);

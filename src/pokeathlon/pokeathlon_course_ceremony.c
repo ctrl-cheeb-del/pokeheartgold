@@ -833,7 +833,7 @@ static void PokeathlonCourseCeremony_CryTask(SysTask *task, void *data) {
         }
         break;
     case CRY_STATE_WAIT_CRY:
-        if (!PokeathlonCourseMonObject_IsAnimated(object) && !IsCryFinished()) {
+        if (!PokeathlonCourseMonObject_IsAnimated(object) && !IsCryPlaying()) {
             PokeathlonCourseMonObject_SetAnimState(object, 1);
             PokeathlonCourseMonObject_SetAnim(object, 0);
             *cry->active = FALSE;

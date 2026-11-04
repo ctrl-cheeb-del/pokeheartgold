@@ -125,7 +125,7 @@ BOOL ScrCmd_WaitCry(ScriptContext *ctx) {
 }
 
 BOOL ScrNative_WaitCry(ScriptContext *ctx) {
-    if (!IsCryFinished()) {
+    if (!IsCryPlaying()) {
         return TRUE;
     } else {
         return FALSE;

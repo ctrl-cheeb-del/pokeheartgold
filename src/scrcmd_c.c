@@ -1442,7 +1442,7 @@ BOOL ScrCmd_CreateCameraTarget(ScriptContext *ctx) {
     VecFx32 *pos;
     *p_cameraObj = MapObject_Create(ctx->fieldSystem->mapObjectManager, x, y, 0, SPRITE_CAMERA_FOCUS, 0, ctx->fieldSystem->location->mapId);
     MapObject_UpdateHeight(*p_cameraObj);
-    MapObject_SetVisible(*p_cameraObj, TRUE);
+    MapObject_SetInvisible(*p_cameraObj, TRUE);
     MapObject_ClearFlag18(*p_cameraObj, FALSE);
     pos = MapObject_GetPositionVector(*p_cameraObj);
     MapLoadManager_TrackTarget(pos, ctx->fieldSystem->mapLoadManager);
@@ -1466,7 +1466,7 @@ BOOL ScrCmd_CreateCameraFocusObject(ScriptContext *ctx) {
     LocalMapObject **p_cameraObj = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_CAMERA_TARGET);
     *p_cameraObj = MapObject_Create(ctx->fieldSystem->mapObjectManager, x, y, 0, SPRITE_CAMERA_FOCUS, 0, ctx->fieldSystem->location->mapId);
     MapObject_UpdateHeight(*p_cameraObj);
-    MapObject_SetVisible(*p_cameraObj, TRUE);
+    MapObject_SetInvisible(*p_cameraObj, TRUE);
     MapObject_ClearFlag18(*p_cameraObj, FALSE);
     return FALSE;
 }
@@ -3214,7 +3214,7 @@ BOOL ScrCmd_MakeObjectInvisible(ScriptContext *ctx) {
     u16 objId = ScriptGetVar(ctx);
     LocalMapObject *object = MapObjectManager_GetFirstActiveObjectByID(fieldSystem->mapObjectManager, objId);
     GF_ASSERT(object != NULL);
-    MapObject_SetVisible(object, FALSE);
+    MapObject_SetInvisible(object, FALSE);
     return FALSE;
 }
 
@@ -3223,7 +3223,7 @@ BOOL ScrCmd_MakeObjectVisible(ScriptContext *ctx) {
     u16 objId = ScriptGetVar(ctx);
     LocalMapObject *object = MapObjectManager_GetFirstActiveObjectByID(fieldSystem->mapObjectManager, objId);
     GF_ASSERT(object != NULL);
-    MapObject_SetVisible(object, TRUE);
+    MapObject_SetInvisible(object, TRUE);
     return FALSE;
 }
 

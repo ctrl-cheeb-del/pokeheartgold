@@ -764,7 +764,7 @@ static void EvolutionScene_Run(EvolutionTaskData *data) {
         }
         break;
     case EVO_STATE_WAIT_CRY:
-        if (!TextPrinterCheckActive(data->printerId) && !IsCryFinished() && PokepicAnimManager_GetAnimState(data->pokepicAnimManager, 0) == TRUE && !Pokepic_IsAnimFinished(data->oldPokepic)) {
+        if (!TextPrinterCheckActive(data->printerId) && !IsCryPlaying() && PokepicAnimManager_GetAnimState(data->pokepicAnimManager, 0) == TRUE && !Pokepic_IsAnimFinished(data->oldPokepic)) {
             PaletteBlink_SetState(data->paletteBlink, 1);
             PlayBGMDirect(SEQ_GS_SHINKA);
             data->timer = 20;
@@ -849,7 +849,7 @@ static void EvolutionScene_Run(EvolutionTaskData *data) {
         }
         break;
     case EVO_STATE_EVOLVE:
-        if (!IsCryFinished() && PokepicAnimManager_GetAnimState(data->pokepicAnimManager, 0) == TRUE && !Pokepic_IsAnimFinished(data->newPokepic)) {
+        if (!IsCryPlaying() && PokepicAnimManager_GetAnimState(data->pokepicAnimManager, 0) == TRUE && !Pokepic_IsAnimFinished(data->newPokepic)) {
             SetMonData(data->mon, MON_DATA_SPECIES, &data->newSpecies);
             UpdateMonAbility(data->mon);
             CalcMonLevelAndStats(data->mon);
@@ -1104,7 +1104,7 @@ static void EvolutionScene_Run(EvolutionTaskData *data) {
         }
         break;
     case EVO_STATE_CANCEL_WAIT_CRY:
-        if (!IsCryFinished() && PokepicAnimManager_GetAnimState(data->pokepicAnimManager, 0) == TRUE && !Pokepic_IsAnimFinished(data->oldPokepic)) {
+        if (!IsCryPlaying() && PokepicAnimManager_GetAnimState(data->pokepicAnimManager, 0) == TRUE && !Pokepic_IsAnimFinished(data->oldPokepic)) {
             BufferBoxMonNickname(data->msgFormat, 0, Mon_GetBoxMon(data->mon));
             data->printerId = EvolutionScene_PrintMessage(data, msg_0197_00919); // Huh? <mon> stopped evolving!
             data->timer = 20;
