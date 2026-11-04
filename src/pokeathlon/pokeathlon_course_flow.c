@@ -76,7 +76,7 @@ static void PokeathlonCourse_SetMonMedals(PokeathlonCourseData *course, u32 meda
 static BOOL PokeathlonCourse_HasAllCourseRecords(PokeathlonSave *pokeathlon);
 static BOOL PokeathlonCourse_HasAllMedalsOfAMon(PokeathlonCourseData *course);
 static BOOL PokeathlonCourse_BeatsAllEventTargets(PokeathlonCourseData *course);
-static void PokeathlonCourse_ChooseEvents(PokeathlonCourseArgsLayout *args, u32 rounds, u8 *eventIds);
+static void PokeathlonCourse_ChooseEvents(PokeathlonCourseArgs *args, u32 rounds, u8 *eventIds);
 static void PokeathlonCourse_MarkerTask(SysTask *task, void *data);
 static void PokeathlonCourse_AddToCounter(u32 counter, u32 amount, u32 *counters);
 static BOOL PokeathlonCourse_IsNewRecord(PokeathlonCourseData *course);
@@ -458,7 +458,7 @@ BOOL PokeathlonCourse_State_RunEventOverlay(PokeathlonCourseData *course) {
     PokeathlonCourseLayout *layout = (PokeathlonCourseLayout *)course;
     if (OverlayManager_Run(layout->subOverlay)) {
         OverlayManager *manager = layout->subOverlay;
-        PokeathlonCourseArgsLayout *args;
+        PokeathlonCourseArgs *args;
         OverlayManager_Delete(manager);
         args = layout->args;
         if (args->mode == POKEATHLON_COURSE_MODE_SOLO) {
@@ -1188,7 +1188,7 @@ static void PokeathlonCourse_SaveSoloEventRecords(PokeathlonCourseData *course, 
         for (u8 j = 0; j < POKEATHLON_RECORD_RANKS; j++) {
             top[j].score = record->top[j].score;
             for (u8 k = 0; k < POKEATHLON_TEAM_SIZE; k++) {
-                top[j].mons[k] = record->top[j].mons[k];
+                top[j].mons[k] = record->top[j].team.mons[k];
             }
         }
         entry.score = layout->results.eventScores[(u8)PokeathlonCourse_GetNetId(course)][i];
@@ -1230,7 +1230,7 @@ static void PokeathlonCourse_SaveLinkEventRecords(PokeathlonCourseData *course, 
         for (j = 0; j < POKEATHLON_RECORD_RANKS; j++) {
             top[j].score = record->top[j].score;
             for (k = 0; k < POKEATHLON_TEAM_SIZE; k++) {
-                top[j].mons[k] = record->top[j].mons[k];
+                top[j].mons[k] = record->top[j].team.mons[k];
             }
             CopyRankEntryTrainer(&top[j], record, j);
         }
@@ -1297,7 +1297,7 @@ static void PokeathlonCourse_CopySoloRanking(PokeathlonCourseData *course, Pokea
     for (i = 0; i < POKEATHLON_RECORD_RANKS; i++) {
         record->top[i].score = top[i].score;
         for (j = 0; j < POKEATHLON_TEAM_SIZE; j++) {
-            record->top[i].mons[j] = top[i].mons[j];
+            record->top[i].team.mons[j] = top[i].mons[j];
         }
     }
 }
@@ -1308,7 +1308,7 @@ static void PokeathlonCourse_CopyLinkRanking(PokeathlonCourseData *course, Pokea
     for (; i < POKEATHLON_RECORD_RANKS; i++) {
         record->top[i].score = top[i].score;
         for (j = 0; j < POKEATHLON_TEAM_SIZE; j++) {
-            record->top[i].mons[j] = top[i].mons[j];
+            record->top[i].team.mons[j] = top[i].mons[j];
         }
         record->trainers[i].trainerId = top[i].trainerId;
         {
@@ -1517,7 +1517,7 @@ static BOOL PokeathlonCourse_BeatsAllEventTargets(PokeathlonCourseData *course) 
 }
 
 // The events of the course's rounds (course 10 picks one of 10 sets at random).
-static void PokeathlonCourse_ChooseEvents(PokeathlonCourseArgsLayout *args, u32 rounds, u8 *eventIds) {
+static void PokeathlonCourse_ChooseEvents(PokeathlonCourseArgs *args, u32 rounds, u8 *eventIds) {
     u8 courseId;
     BOOL valid = FALSE;
     eventIds[0] = 10;
@@ -1665,7 +1665,7 @@ static BOOL PokeathlonCourse_IsNewRecord(PokeathlonCourseData *course) {
     PokeathlonCourseLayout *layout = (PokeathlonCourseLayout *)course;
     PokeathlonSave *pokeathlon = Save_Pokeathlon_Get(layout->args->saveData);
     u32 event;
-    Pokeathlon_CourseEntry *record;
+    PokeathlonEventRecordEntry *record;
     u16 value;
     if (layout->recordScore == POKEATHLON_NO_RECORD) {
         GF_ASSERT(FALSE);

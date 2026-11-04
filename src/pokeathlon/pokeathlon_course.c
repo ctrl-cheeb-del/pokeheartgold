@@ -115,9 +115,9 @@ BOOL PokeathlonCourse_Main(OverlayManager *manager, int *state) {
 
         // Handle exit flag
         if (courseState->exitFlag != 0) {
-            PokeathlonCourseArgs *args = (PokeathlonCourseArgs *)courseState->argsPtr;
-            args->modeBytes[2] = args->modeBytes[3];
-            args->modeBytes[1] = 0;
+            PokeathlonStateInfo *stateInfo = courseState->argsPtr;
+            stateInfo->stateIndex = stateInfo->nextStateIndex;
+            stateInfo->stateArgsBase = 0;
             courseState->exitFlag = 0;
         }
 

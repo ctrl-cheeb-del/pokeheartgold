@@ -100,8 +100,8 @@ BOOL PokeathlonUtil_ReachesEventThreshold(u32 direction, u32 column, u16 value) 
     return value >= limit;
 }
 
-u16 PokeathlonUtil_GetRecordScore(const void *records, u32 index) {
-    return *(const u16 *)((const u8 *)records + index * 8);
+u16 PokeathlonUtil_GetRecordScore(const PokeathlonEventRecordEntry *records, u32 index) {
+    return records[index].score;
 }
 
 u32 PokeathlonUtil_CountSpeciesWithAllMedals(const u8 *data) {

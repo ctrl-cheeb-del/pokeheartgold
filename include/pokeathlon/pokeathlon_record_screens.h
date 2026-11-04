@@ -136,15 +136,6 @@ void PokeathlonMedals_OnTouch(PokeathlonMedals *work, int newTarget, int prevTar
 
 // Event record app
 
-typedef struct PokeathlonEventRecordTeam {
-    u16 mons[POKEATHLON_TEAM_SIZE]; // bits 0-9: species, bits 10-14: form
-} PokeathlonEventRecordTeam;
-
-typedef struct PokeathlonEventRecordEntry {
-    u16 score;
-    PokeathlonEventRecordTeam team;
-} PokeathlonEventRecordEntry;
-
 // Same layout as the start of Pokeathlon_RecordsSolo / Pokeathlon_RecordsLink.
 typedef struct PokeathlonEventRecords {
     PokeathlonEventRecordEntry entries[5];

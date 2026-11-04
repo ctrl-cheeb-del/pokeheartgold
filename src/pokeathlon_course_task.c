@@ -14,20 +14,9 @@ enum {
     COURSE_TASK_STATE_FINISH,
 };
 
-typedef struct PokeathlonCourseTaskArgs {
-    SaveData *saveData;
-    u32 mode;
-    u16 points;
-    u16 totalPoints;
-    u8 course;
-    u8 rank;
-    u8 shouldFreeHeap;
-    u8 isSupreme;
-} PokeathlonCourseTaskArgs;
-
 typedef struct PokeathlonCourseTaskEnv {
     u32 state;
-    PokeathlonCourseTaskArgs *args;
+    PokeathlonCourseArgs *args;
     u32 mode;
     u16 course;
     u16 isSupreme;
@@ -57,12 +46,12 @@ static BOOL Task_PokeathlonCourse(TaskManager *taskman) {
     PokeathlonCourseTaskEnv *work = TaskManager_GetEnvironment(taskman);
     switch (work->state) {
     case COURSE_TASK_STATE_LAUNCH_APP:
-        work->args = Heap_AllocAtEnd(HEAP_ID_FIELD2, sizeof(PokeathlonCourseTaskArgs));
+        work->args = Heap_AllocAtEnd(HEAP_ID_FIELD2, sizeof(PokeathlonCourseArgs));
         work->args->mode = (work->mode != 0);
         work->args->saveData = FieldSystem_GetSaveData(fieldSystem);
         work->args->course = work->course;
         work->args->isSupreme = work->isSupreme;
-        PokeathlonCourse_LaunchApp(fieldSystem, (PokeathlonCourseArgs *)work->args);
+        PokeathlonCourse_LaunchApp(fieldSystem, work->args);
         FieldSystem_ResumeProcesses();
         work->state = COURSE_TASK_STATE_WAIT_APP;
         break;

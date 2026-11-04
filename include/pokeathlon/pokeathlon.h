@@ -41,17 +41,14 @@ typedef struct PokeathlonFieldData {
 
 // Pokeathlon course arguments structure
 typedef struct PokeathlonCourseArgs {
-    SaveData *saveData; // 0x000 - Save data pointer
-    union {
-        u32 mode;        // 0x004 - Mode flag (1 = special mode) - accessed as u32
-        u8 modeBytes[4]; // 0x004-0x007 - Individual byte access: [0]=0x4, [1]=0x5, [2]=0x6, [3]=0x7
-    };
-    u8 field_8;        // 0x008
-    u8 field_9;        // 0x009
-    u8 filler_A[4];    // 0x00A
-    u8 shouldFreeHeap; // 0x00E - Flag: if 0, free heap allocations in Exit
-    u8 isSupreme;        // 0x00F
-    // ... more fields to be discovered
+    SaveData *saveData;
+    u32 mode;          // 1 = link
+    u16 points;        // athlete points won (out)
+    u16 totalPoints;   // course total (out)
+    u8 course;         // 0..4 solo courses, 5..10 link courses (10 = random events)
+    u8 rank;           // (out)
+    u8 shouldFreeHeap; // Flag: if 0, free heap allocations in Exit
+    u8 isSupreme;      // harder NPC teams
 } PokeathlonCourseArgs;
 
 // Main state machine states

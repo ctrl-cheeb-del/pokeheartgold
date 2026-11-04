@@ -294,17 +294,6 @@ typedef struct PokeathlonCourseMarkers {
     PokeathlonCourseMarker markers[3];
 } PokeathlonCourseMarkers;
 
-typedef struct PokeathlonCourseArgsLayout {
-    SaveData *saveData;
-    u32 mode;        // 1 = link
-    u16 points;      // athlete points won (out)
-    u16 totalPoints; // course total (out)
-    u8 course;       // 0..4 solo courses, 5..10 link courses (10 = random events)
-    u8 rank;         // (out)
-    u8 shouldFreeHeap;
-    u8 isSupreme; // harder NPC teams
-} PokeathlonCourseArgsLayout;
-
 // A player's result of the event that is running (exchanged with link commands 0x1D / 0x1E).
 typedef struct PokeathlonCourseEventResult {
     u16 score;
@@ -362,7 +351,7 @@ typedef struct PokeathlonCourseLayout {
     u8 receivedCount;
     u32 round;
     BOOL eventDrawEnabled;
-    PokeathlonCourseArgsLayout *args;
+    PokeathlonCourseArgs *args;
     BOOL boxCancelled;
     PokeathlonCourseParticipant localParticipant;
     u32 boxCourseId;
@@ -442,14 +431,9 @@ typedef struct PokeathlonCourseRankEntry {
     u8 padding[3];
 } PokeathlonCourseRankEntry;
 
-typedef struct PokeathlonCourseEventRecordRow {
-    u16 score;
-    u16 mons[POKEATHLON_TEAM_SIZE];
-} PokeathlonCourseEventRecordRow;
-
 // Top 5 of a solo event (Pokeathlon_RecordsSolo).
 typedef struct PokeathlonCourseEventRecord {
-    PokeathlonCourseEventRecordRow top[POKEATHLON_RECORD_RANKS];
+    PokeathlonEventRecordEntry top[POKEATHLON_RECORD_RANKS];
     u32 timesPlayed;
 } PokeathlonCourseEventRecord;
 
@@ -462,7 +446,7 @@ typedef struct PokeathlonCourseTrainerRecord {
 
 // Top 5 of a link event (Pokeathlon_RecordsLink).
 typedef struct PokeathlonCourseLinkEventRecord {
-    PokeathlonCourseEventRecordRow top[POKEATHLON_RECORD_RANKS];
+    PokeathlonEventRecordEntry top[POKEATHLON_RECORD_RANKS];
     u32 timesPlayed;
     PokeathlonCourseTrainerRecord trainers[POKEATHLON_RECORD_RANKS];
 } PokeathlonCourseLinkEventRecord;

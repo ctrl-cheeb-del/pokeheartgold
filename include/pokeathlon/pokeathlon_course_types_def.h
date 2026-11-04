@@ -154,7 +154,7 @@ struct PokeathlonCourseSpritePoolTemplate {
     u8 resCounts[POKEATHLON_RES_TYPES];
 };
 
-// PokeathlonCourse_GetMode, PokeathlonCourseArgsLayout.mode
+// PokeathlonCourse_GetMode, PokeathlonCourseArgs.mode
 enum PokeathlonCourseMode {
     POKEATHLON_COURSE_MODE_SOLO,
     POKEATHLON_COURSE_MODE_LINK,

@@ -26,18 +26,22 @@ typedef struct PokeathlonStatistics {
     u32 fanCount;
 } PokeathlonStatistics; // size: 0x74
 
-typedef struct Pokeathlon_CourseEntry {
+typedef struct PokeathlonEventRecordTeam {
+    u16 mons[3]; // bits 0-9: species, bits 10-14: form
+} PokeathlonEventRecordTeam;
+
+typedef struct PokeathlonEventRecordEntry {
     u16 score;
-    u8 mons[6];
-} Pokeathlon_CourseEntry; // size: 0x8
+    PokeathlonEventRecordTeam team;
+} PokeathlonEventRecordEntry; // size: 0x8
 
 typedef struct Pokeathlon_RecordsSolo {
-    Pokeathlon_CourseEntry entries[5];
+    PokeathlonEventRecordEntry entries[5];
     u8 timesPlayed[0x4];
 } Pokeathlon_RecordsSolo; // size: 0x2C
 
 typedef struct Pokeathlon_RecordsLink {
-    Pokeathlon_CourseEntry entries[5];
+    PokeathlonEventRecordEntry entries[5];
     u8 unk_28[0x7C];
 } Pokeathlon_RecordsLink; // size: 0xA4
 
