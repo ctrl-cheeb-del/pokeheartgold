@@ -37,21 +37,6 @@ typedef struct PokewalkerSelectMonInfo {
     u8 level;
 } PokewalkerSelectMonInfo;
 
-// PokewalkerApp seen from selectMonState: the PC box selection (mode 7) and the chosen Pokemon's
-// species, nickname, form and gender (PokewalkerApp strollMonSpecies .. strollMonGender).
-typedef struct PokewalkerSelectMonWork {
-    int state;
-    BoxMonSelector *boxSelector;
-    struct PokewalkerBoxDisplay *boxDisplay;
-    BoxMonSelectorResult selection;
-    u32 cancelled;
-    u16 species;
-    u16 nickname[POKEMON_NAME_LENGTH + 1];
-    u8 form;
-    u8 isShiny;
-    u8 gender;
-} PokewalkerSelectMonWork;
-
 // Arguments of the Pokewalker event log app (mode 8): PokewalkerApp eventLogSaveData / eventLogRecords.
 typedef struct PokewalkerEventLogArgs {
     SaveData *saveData;

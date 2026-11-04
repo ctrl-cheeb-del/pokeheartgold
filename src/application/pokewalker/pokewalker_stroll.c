@@ -57,8 +57,8 @@ enum PokewalkerAppState PokewalkerApp_WaitKeyToSave_Exit(PokewalkerApp *app) {
 
 enum PokewalkerAppState PokewalkerApp_StartStroll_Enter(PokewalkerApp *app) {
     PCStorage *pcStorage = SaveArray_PCStorage_Get(app->saveData);
-    int box = app->strollMonSelection.page;
-    int slot = app->strollMonSelection.slot;
+    int box = app->selectMon.selection.page;
+    int slot = app->selectMon.selection.slot;
     ((void (*)(POKEWALKER *, int, int))Pokewalker_SetStrollState)(app->pokewalker, 2, box);
     ((void (*)(POKEWALKER *, int))Pokewalker_SetCourse)(app->pokewalker, app->courseId);
     Pokewalker_SetBoxMon(app->pokewalker, PCStorage_GetMonByIndexPair(pcStorage, box, slot));

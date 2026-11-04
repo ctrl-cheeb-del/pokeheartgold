@@ -4,8 +4,8 @@
 
 #include "constants/save_arrays.h"
 
-int Save_Gts_Get(SaveData *save) {
-    return (int)SaveArray_Get(save, SAVE_GTS);
+GtsSave *Save_Gts_Get(SaveData *save) {
+    return SaveArray_Get(save, SAVE_GTS);
 }
 u32 Save_Gts_sizeof(void) {
     return sizeof(GtsSave);

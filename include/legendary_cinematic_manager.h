@@ -6,10 +6,6 @@
 #include "overlay_manager.h"
 #include "save.h"
 
-typedef struct ModelAttributesStorage {
-    int unk0[0x12];
-} ModelAttributesStorage;
-
 typedef struct LegendaryCinematicArgs {
     SaveData *saveData;
     ModelAttributes modelAttributes;

@@ -95,7 +95,7 @@ int PokewalkerApp_MainMenu_Start(PokewalkerApp *app) {
     switch (walkerState.strollState) {
     case 0:
         app->nextMode = POKEWALKER_APP_MODE_LINK;
-        app->strollMonSpecies = SPECIES_NONE;
+        app->selectMon.species = SPECIES_NONE;
         app->linkAction = POKEWALKER_LINK_GO_FOR_STROLL;
         PokewalkerApp_RemoveWindowBank(app, 3);
         PokewalkerApp_AddWindowBank(app, 1);
@@ -104,7 +104,7 @@ int PokewalkerApp_MainMenu_Start(PokewalkerApp *app) {
         Pokewalker_SetStrollState(app->pokewalker, 0, 0);
         return MAIN_MENU_PRINT_WELCOME;
     case 1:
-        app->strollMonSpecies = SPECIES_NONE;
+        app->selectMon.species = SPECIES_NONE;
         app->linkAction = POKEWALKER_LINK_GO_FOR_STROLL;
         PokewalkerApp_RemoveWindowBank(app, 3);
         PokewalkerApp_AddWindowBank(app, 7);
@@ -214,7 +214,7 @@ int PokewalkerApp_MainMenu_HandleTopMenu(PokewalkerApp *app) {
             return MAIN_MENU_END;
         case 1:
             app->nextMode = POKEWALKER_APP_MODE_LINK;
-            app->strollMonSpecies = SPECIES_NONE;
+            app->selectMon.species = SPECIES_NONE;
             app->linkAction = POKEWALKER_LINK_GO_FOR_STROLL;
             PokewalkerApp_RemoveWindowBank(app, 3);
             PokewalkerApp_AddWindowBank(app, 1);
@@ -224,7 +224,7 @@ int PokewalkerApp_MainMenu_HandleTopMenu(PokewalkerApp *app) {
             return MAIN_MENU_PRINT_WELCOME;
         case 2:
             Pokewalker_SetStrollState(app->pokewalker, 1, 1);
-            app->strollMonSpecies = SPECIES_NONE;
+            app->selectMon.species = SPECIES_NONE;
             app->linkAction = POKEWALKER_LINK_GO_FOR_STROLL;
             PokewalkerApp_RemoveWindowBank(app, 3);
             PokewalkerApp_AddWindowBank(app, 7);

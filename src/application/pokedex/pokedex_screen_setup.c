@@ -1066,7 +1066,7 @@ u16 *PokedexApp_BuildListNumberTilemap(PokedexAppData *pokedexApp, u32 firstInde
             if (entryIndex >= listLength) {
                 break;
             }
-            if (pokedexApp->listEntries[entryIndex].caughtState == 2) {
+            if (pokedexApp->listEntries[entryIndex].caughtState == POKEDEXAPP_ENTRY_CAUGHT) {
                 ret[160 * i + 36 + 5 * j] = 0x1002;
                 PokedexApp_3DigitNumToTiles(&ret[160 * i + 37 + 5 * j], entryIndex + 1, 3);
             } else {
@@ -1090,7 +1090,7 @@ u16 *PokedexApp_BuildSearchResultNumberTilemap(PokedexAppData *pokedexApp, u32 f
                 continue;
             }
             u32 dexNo = Pokedex_ConvertToCurrentDexNo(pokedexApp->dexMode, pokedexApp->listEntries[entryIndex].species);
-            if (pokedexApp->listEntries[entryIndex].caughtState == 2) {
+            if (pokedexApp->listEntries[entryIndex].caughtState == POKEDEXAPP_ENTRY_CAUGHT) {
                 ret[160 * i + 36 + 5 * j] = 0x1002;
                 PokedexApp_3DigitNumToTiles(&ret[160 * i + 37 + 5 * j], dexNo, 3);
             } else {

@@ -65,6 +65,8 @@ DWCFriendData *FriendRoster_GetDwcFriendData(WiFiList *data, int index);
 #include "save_wifi_history.h"
 #include "wifi_club_app.h"
 
+struct WiFiPlazaPlayer;
+
 BOOL Comm_IsNetIdConnected(u16 slot);
 int Comm_CountConnected(void);
 BOOL Comm_IsActive(void);
@@ -114,7 +116,7 @@ int WifiConnection_FinishDisconnect(void);
 int DWC_GetLastErrorEx(s32 *code, s32 *category);
 void DWC_ClearError(void);
 s32 WifiConnection_UpdateLogin(void);
-int WiFiPlazaLobbyClient_Initialize(int value);
+BOOL WiFiPlazaLobbyClient_Initialize(const struct WiFiPlazaPlayer *player);
 void WifiConnection_Init(SaveData *saveData, int heapId, int heapSize, int maxPlayers);
 void WifiConnection_SetErrorCallback(void (*func)(u32));
 int WiFiPlazaLobbyClient_IsMatchActive(int index);
@@ -249,7 +251,7 @@ BOOL CommState_CheckDwcError(void);
 void CommState_WifiLogin(void);
 void CommState_WifiClubStart(void);
 WifiClubStatusData *CommState_StartWifiClub(SaveData *saveData, u32 dataSize);
-void CommState_StartWifiPlaza(SaveData *saveData, s32 profileId);
+void CommState_StartWifiPlaza(SaveData *saveData, const struct WiFiPlazaPlayer *player);
 void CommState_LeaveWifiPlaza(void);
 u8 CommState_HasPlazaLobbyStarted(void);
 BOOL CommState_HasPlazaLobbyFailed(void);

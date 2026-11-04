@@ -12,7 +12,7 @@ typedef struct GtsSave {
     u32 tradeDate;
 } GtsSave;
 
-int Save_Gts_Get(SaveData *saveData);
+GtsSave *Save_Gts_Get(SaveData *saveData);
 u32 Save_Gts_sizeof(void);
 void Save_Gts_Init(GtsSave *);
 u16 GtsSave_HasStoredMon(GtsSave *);

@@ -245,7 +245,7 @@ int PokewalkerApp_LinkSave_End(PokewalkerApp *app) {
     return LINK_SAVE_DONE;
 }
 
-#define SELECT_MON_WORK(app, member) ((u8 *)(app) + 0x1D764 + offsetof(PokewalkerSelectMonWork, member))
+#define SELECT_MON_WORK(app, member) ((u8 *)(app) + offsetof(PokewalkerApp, selectMon) + offsetof(PokewalkerSelectMonWork, member))
 
 enum PokewalkerAppState PokewalkerApp_SelectMon_Enter(PokewalkerApp *app) {
     PCStorage *storage;
@@ -263,13 +263,13 @@ enum PokewalkerAppState PokewalkerApp_SelectMon_Enter(PokewalkerApp *app) {
         *(PokewalkerBoxDisplay **)SELECT_MON_WORK(app, boxDisplay) = PokewalkerBoxDisplay_New(HEAP_ID_154);
         PokewalkerApp_SelectMon_SetGraphicsModes(app->bgConfig);
         PokewalkerApp_SelectMon_InitObjTransfer();
-        PokewalkerApp_SelectMon_InitOam((PokewalkerSelectMonWork *)&app->selectMonState);
-        app->selectMonState = 0;
+        PokewalkerApp_SelectMon_InitOam(&app->selectMon);
+        app->selectMon.state = 0;
         storage = SaveArray_PCStorage_Get(app->saveData);
         party = SaveArray_Party_Get(app->saveData);
         BoxMonSelector_Init(*(BoxMonSelector **)SELECT_MON_WORK(app, boxSelector), app->bgConfig, storage, party, 0, 0, TRUE, 0, PokewalkerApp_SelectMon_GetBoxMonIcon, PokewalkerApp_SelectMon_GetBoxName, (BoxMonSelectorResult *)SELECT_MON_WORK(app, selection), PokewalkerApp_SelectMon_ShowMonInfo, app);
         PokewalkerBoxDisplay_Init(*(PokewalkerBoxDisplay **)SELECT_MON_WORK(app, boxDisplay), app->bgConfig);
-        Main_SetVBlankIntrCB(PokewalkerApp_SelectMon_VBlankCB, &app->selectMonState);
+        Main_SetVBlankIntrCB(PokewalkerApp_SelectMon_VBlankCB, &app->selectMon);
         *(int *)SELECT_MON_WORK(app, state) = 0;
         return POKEWALKER_APP_STATE_UPDATE;
     }
@@ -279,7 +279,7 @@ enum PokewalkerAppState PokewalkerApp_SelectMon_Enter(PokewalkerApp *app) {
 #undef SELECT_MON_WORK
 
 enum PokewalkerAppState PokewalkerApp_SelectMon_Update(PokewalkerApp *app) {
-    PokewalkerSelectMonWork *work = (PokewalkerSelectMonWork *)&app->selectMonState;
+    PokewalkerSelectMonWork *work = &app->selectMon;
 
     switch (work->state) {
     case 0:
@@ -323,16 +323,16 @@ enum PokewalkerAppState PokewalkerApp_SelectMon_Update(PokewalkerApp *app) {
 }
 
 enum PokewalkerAppState PokewalkerApp_SelectMon_Exit(PokewalkerApp *app) {
-    app->selectMonState = 0;
+    app->selectMon.state = 0;
     Main_SetVBlankIntrCB(NULL, NULL);
-    BoxMonSelector_Delete(app->boxSelector);
-    PokewalkerBoxDisplay_Free(app->boxDisplay);
+    BoxMonSelector_Delete(app->selectMon.boxSelector);
+    PokewalkerBoxDisplay_Free(app->selectMon.boxDisplay);
     OamManager_Free();
     ObjCharTransfer_Destroy();
     ObjPlttTransfer_Destroy();
     Heap_Free(app->bgConfig);
     PokewalkerApp_Setup(app);
-    app->nextMode = app->selectMonCancelled == TRUE ? POKEWALKER_APP_MODE_MAIN_MENU : POKEWALKER_APP_MODE_LINK;
+    app->nextMode = app->selectMon.cancelled == TRUE ? POKEWALKER_APP_MODE_MAIN_MENU : POKEWALKER_APP_MODE_LINK;
     return POKEWALKER_APP_STATE_ENTER;
 }
 
@@ -458,7 +458,7 @@ static void PokewalkerApp_SelectMon_StoreSelection(PokewalkerSelectMonWork *work
 
 static void PokewalkerApp_SelectMon_ShowMonInfo(int box, int slot, void *arg) {
     PokewalkerApp *app = arg;
-    PokewalkerSelectMonWork *work = (PokewalkerSelectMonWork *)&app->selectMonState;
+    PokewalkerSelectMonWork *work = &app->selectMon;
     PokewalkerSelectMonInfo info;
 
     if (box != -1 && slot != -1) {

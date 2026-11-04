@@ -217,6 +217,12 @@ typedef union PokedexSeqState {
     u8 padding[16];
 } PokedexSeqState;
 
+// PokedexListEntry.caughtState
+enum {
+    POKEDEXAPP_ENTRY_SEEN = 1,
+    POKEDEXAPP_ENTRY_CAUGHT = 2,
+};
+
 typedef struct PokedexSearchResults {
     u16 entries[NATIONAL_DEX_COUNT][2];
     u16 count;

@@ -53,7 +53,7 @@ typedef struct CommStateWork {
     u8 errorKind;
     u8 unk5E;
     u8 unkEF;
-    s32 plazaProfileId;
+    const struct WiFiPlazaPlayer *plazaPlayer;
     u8 plazaLobbyStarted;
 } CommStateWork;
 
@@ -1356,7 +1356,7 @@ static void CommState_WifiLogin(void) {
     sCommState->timer--;
     if (loginState == WIFI_CONNECTION_RESULT_LOGGED_IN) {
         if (sCommState->linkMode == COMM_TYPE_WIFI_PLAZA) {
-            if (WiFiPlazaLobbyClient_Initialize(sCommState->plazaProfileId) == 1) {
+            if (WiFiPlazaLobbyClient_Initialize(sCommState->plazaPlayer) == TRUE) {
                 sCommState->plazaLobbyStarted = 1;
                 CommState_SetState(CommState_PlazaWaitLobby, sCommState->timer);
             } else {
@@ -1403,14 +1403,14 @@ WifiClubStatusData *CommState_StartWifiClub(SaveData *saveData, u32 dataSize) {
     return sCommState->wifiClubData;
 }
 
-void CommState_StartWifiPlaza(SaveData *saveData, s32 profileId) {
+void CommState_StartWifiPlaza(SaveData *saveData, const struct WiFiPlazaPlayer *player) {
     Save_PlayerData_GetProfile(saveData);
     if (!Comm_IsActive()) {
         Sys_SetSoftResetDisableFlag(1);
         Heap_CreateAtEnd(HEAP_ID_3, HEAP_ID_15, 28800);
         CommState_Init(saveData, 33);
         sCommState->wifiClubData = NULL;
-        sCommState->plazaProfileId = profileId;
+        sCommState->plazaPlayer = player;
         sCommState->plazaLobbyStarted = 0;
         sCommState->beaconId = 0;
         sCommState->saveData = saveData;

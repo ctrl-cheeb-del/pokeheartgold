@@ -81,7 +81,7 @@ typedef struct WiFiPlazaConnectWork {
     WiFiPlazaConnectPaletteCycle paletteCycle;
 } WiFiPlazaConnectWork;
 
-extern void CommState_StartWifiPlaza(SaveData *saveData, s32 profileId);
+extern void CommState_StartWifiPlaza(SaveData *saveData, const WiFiPlazaPlayer *player);
 extern void CommState_LeaveWifiPlaza(void);
 extern int CommState_HasPlazaLobbyStarted(void);
 extern BOOL CommState_HasPlazaLobbyFailed(void);
@@ -267,7 +267,7 @@ BOOL WiFiPlazaConnect_Main(OverlayManager *man, int *state) {
         break;
     }
     case WIFI_PLAZA_CONNECT_CONNECT:
-        CommState_StartWifiPlaza(work->saveData, (s32)WiFiPlazaWork_GetMyPlayer(args->work));
+        CommState_StartWifiPlaza(work->saveData, WiFiPlazaWork_GetMyPlayer(args->work));
         WiFiPlazaConnect_PrintMessage(&work->statusBox, msg_0800_00023);
         WiFiPlazaConnect_StartWaitingIcon(&work->statusBox);
         (*state)++;

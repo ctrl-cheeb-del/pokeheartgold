@@ -138,10 +138,10 @@ void PokedexApp_StoreSearchResults(PokedexSearchResults *result, const Pokedex *
     for (i = 0; i < count; i++) {
         result->entries[i][0] = src[i];
         if (Pokedex_CheckMonCaughtFlag(pokedex, src[i])) {
-            result->entries[i][1] = 2;
+            result->entries[i][1] = POKEDEXAPP_ENTRY_CAUGHT;
             result->caughtCount++;
         } else {
-            result->entries[i][1] = 1;
+            result->entries[i][1] = POKEDEXAPP_ENTRY_SEEN;
         }
     }
 }

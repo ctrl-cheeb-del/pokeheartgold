@@ -25,5 +25,5 @@ void *gPokeathlonRingDropStates[] = {
 
 // u8 gPokeathlonCirclePushContacts[0x900]; // Non-matching yet if moved here (not sure why)
 
-u8 gPokeathlonLampJumpTrampolineRed[4];
+int gPokeathlonLampJumpTrampolineRed;
 u8 gPokeathlonBlockSmashFramesSinceHit[0x1c];

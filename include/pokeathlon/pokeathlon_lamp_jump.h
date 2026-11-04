@@ -172,5 +172,6 @@ void PokeathlonLampJump_FreeCpuPlayers(PokeathlonLampJumpCpuPlayers *cpu);
 int PokeathlonLampJump_UpdateCpuPlayers(PokeathlonCourseData *course, PokeathlonLampJumpCpuPlayers *cpu);
 
 extern u8 gPokeathlonLampJumpSoundPlayers[]; // sound player of each Pokemon
+extern int gPokeathlonLampJumpTrampolineRed; // red of the next trampoline vertex
 
 #endif // POKEHEARTGOLD_POKEATHLON_POKEATHLON_LAMP_JUMP_H

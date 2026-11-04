@@ -839,7 +839,7 @@ void WiFiPlazaLobbyClient_Free(void);
 int WiFiPlazaLobbyClient_Update(void);
 u32 WiFiPlazaLobbyClient_GetLastError(void);
 u32 WiFiPlazaLobbyClient_ToErrorCode(u32 error);
-void WiFiPlazaLobbyClient_Initialize(int value);
+BOOL WiFiPlazaLobbyClient_Initialize(const WiFiPlazaPlayer *player);
 BOOL WiFiPlazaLobbyClient_IsInLobby(void);
 void WiFiPlazaLobbyClient_Shutdown(void);
 BOOL WiFiPlazaLobbyClient_IsDisconnected(void);

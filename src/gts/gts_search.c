@@ -572,9 +572,9 @@ static BOOL GtsSearch_IsDateRecent(GtsApp *app, int which) {
     s32 days;
 
     if (which == 1) {
-        packed = GtsSave_GetTradeDate((void *)app->args->gtsSave);
+        packed = GtsSave_GetTradeDate(app->args->gtsSave);
     } else {
-        packed = GtsSave_GetDepositDate((void *)app->args->gtsSave);
+        packed = GtsSave_GetDepositDate(app->args->gtsSave);
     }
     saved.year = (packed >> 24) & 0xFF;
     saved.month = (packed >> 16) & 0xFF;

@@ -125,7 +125,7 @@ typedef struct NamingScreenData {
 } NamingScreenData;
 
 typedef struct GtsArgs {
-    int gtsSave;
+    struct GtsSave *gtsSave;
     SysInfo *sysInfo;
     Party *party;
     PCStorage *pcStorage;

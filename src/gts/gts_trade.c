@@ -39,7 +39,7 @@ enum GtsAppState GtsTrade_Init(GtsApp *app, int state) {
         break;
     case 10:
         app->tradeAnim.trade_boxmon = Mon_GetBoxMon(&app->record.mon);
-        GtsSave_GetStoredMon((void *)app->args->gtsSave, app->depositedMon);
+        GtsSave_GetStoredMon(app->args->gtsSave, app->depositedMon);
         app->tradeAnim.my_boxmon = Mon_GetBoxMon(app->depositedMon);
         app->partnerProfile = GtsTrade_CreatePartnerProfile(&app->record);
         app->tradeAnim.trade_profile = app->partnerProfile;
@@ -47,7 +47,7 @@ enum GtsAppState GtsTrade_Init(GtsApp *app, int state) {
         app->tradeAnim.is_ingame = 1;
         break;
     case 9:
-        GtsSave_GetStoredMon((void *)app->args->gtsSave, app->depositedMon);
+        GtsSave_GetStoredMon(app->args->gtsSave, app->depositedMon);
         app->tradeAnim.my_boxmon = Mon_GetBoxMon(app->depositedMon);
         app->tradeAnim.trade_boxmon = Mon_GetBoxMon(&app->searchResults[app->selectedResult].mon);
         app->partnerProfile = GtsTrade_CreatePartnerProfile(&app->searchResults[app->selectedResult]);
@@ -94,7 +94,7 @@ enum GtsAppState GtsTrade_Main(GtsApp *app, int state) {
         } else if (kind == 8 || kind == 10) {
             mon = GtsTrade_GetReceivedMon(app, kind);
             deposited = AllocMonZeroed(HEAP_ID_61);
-            GtsSave_GetStoredMon((void *)app->args->gtsSave, deposited);
+            GtsSave_GetStoredMon(app->args->gtsSave, deposited);
             if (GetMonData(mon, MON_DATA_SPECIES, NULL) != GetMonData(deposited, MON_DATA_SPECIES, NULL) || GetMonData(mon, MON_DATA_PERSONALITY, NULL) != GetMonData(deposited, MON_DATA_PERSONALITY, NULL)) {
                 species = GetMonEvolution(NULL, mon, EVOCTX_TRADE, GetMonData(mon, MON_DATA_HELD_ITEM, NULL), &methodAfterCheck);
                 if (species != SPECIES_NONE) {

@@ -159,6 +159,20 @@ typedef struct PokewalkerAppMotion {
     s16 time;
 } PokewalkerAppMotion;
 
+// The PC box selection (mode 7) and the Pokemon chosen to go on a stroll.
+typedef struct PokewalkerSelectMonWork {
+    int state;
+    BoxMonSelector *boxSelector;
+    struct PokewalkerBoxDisplay *boxDisplay;
+    BoxMonSelectorResult selection;
+    u32 cancelled;
+    u16 species;
+    u16 nickname[POKEMON_NAME_LENGTH + 1];
+    u8 form;
+    u8 isShiny;
+    u8 gender;
+} PokewalkerSelectMonWork;
+
 // Work of the Pokewalker connection app (main menu option).
 typedef struct PokewalkerApp {
     enum PokewalkerAppMode mode; // index into the mode table (enter/update/exit functions)
@@ -195,17 +209,7 @@ typedef struct PokewalkerApp {
     u32 walkerWatts;
     u16 linkProgress; // highest transfer progress while connected
     u8 unk_1D762[2];
-    int selectMonState; // PC box selection (mode 7)
-    BoxMonSelector *boxSelector;
-    struct PokewalkerBoxDisplay *boxDisplay;
-    BoxMonSelectorResult strollMonSelection;
-    u32 selectMonCancelled;
-    u16 strollMonSpecies;
-    u8 unk_1D77E[0x16];
-    u8 strollMonForm;
-    u8 unk_1D795;
-    u8 strollMonGender;
-    u8 unk_1D797;
+    PokewalkerSelectMonWork selectMon;
     int courseId;
     PokepicTemplate monPicTemplate;
     u8 monSpriteBuffer[0xC80]; // 80x80 4bpp

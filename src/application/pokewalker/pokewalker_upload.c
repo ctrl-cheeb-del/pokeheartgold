@@ -265,7 +265,7 @@ void PokewalkerApp_BuildStrollData(PokewalkerStrollData *data, PokewalkerApp *ap
         AddWindowParameterized(app->bgConfig, &windows[i], GF_BG_LYR_MAIN_1, 0, 0, gStrollTextWindowWidths[i], 2, 0, 0);
         FillWindowPixelBuffer(&windows[i], 0);
     }
-    data->mon.species = app->strollMonSpecies;
+    data->mon.species = app->selectMon.species;
     AcquireBoxMonLock(app->strollMon);
     for (j = 0, p = &data->mon.species; j < MAX_MON_MOVES; j++, p++) {
         p[2] = GetBoxMonData(app->strollMon, MON_DATA_MOVE1 + j, NULL);
@@ -311,9 +311,9 @@ void PokewalkerApp_BuildStrollData(PokewalkerStrollData *data, PokewalkerApp *ap
     file = GfGfxLoader_LoadFromNarc(NARC_a_2_4_8, PokewalkerApp_GetBoxMonIconFile(app->strollMon), TRUE, HEAP_ID_154, TRUE);
     MI_CpuCopy8(file, data->monIcon, 0x180);
     Heap_Free(file);
-    GF_ASSERT(app->strollMonSpecies != SPECIES_NONE);
-    file = GfGfxLoader_LoadFromNarc(NARC_a_2_5_6, PokewalkerApp_GetPictureFile(app->strollMonSpecies, app->strollMonGender, app->strollMonForm), TRUE, HEAP_ID_154, TRUE);
-    if (app->strollMonSpecies == SPECIES_SPINDA) {
+    GF_ASSERT(app->selectMon.species != SPECIES_NONE);
+    file = GfGfxLoader_LoadFromNarc(NARC_a_2_5_6, PokewalkerApp_GetPictureFile(app->selectMon.species, app->selectMon.gender, app->selectMon.form), TRUE, HEAP_ID_154, TRUE);
+    if (app->selectMon.species == SPECIES_SPINDA) {
         PokewalkerApp_DrawSpindaSpotsOnPicture(file, sSpindaSpotMask, GetBoxMonData(app->strollMon, MON_DATA_PERSONALITY, NULL));
     }
     MI_CpuCopy8(file, data->monPicture, 0x600);

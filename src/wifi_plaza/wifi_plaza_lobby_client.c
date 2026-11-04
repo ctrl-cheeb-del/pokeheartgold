@@ -11,7 +11,7 @@
 #include "save_wifi_history.h"
 #include "wifi_connection.h"
 
-static void WiFiPlazaLobbyClient_InitializeEx(int value, int mode);
+static BOOL WiFiPlazaLobbyClient_InitializeEx(const WiFiPlazaPlayer *player, int mode);
 static void WiFiPlazaLobbyClient_ClearErrors(void);
 static BOOL WiFiPlazaLobbyClient_AddOwnLocation(WiFiPlazaLobbyClient *client);
 static void WiFiPlazaLobbyClient_AllocPlayerData(WiFiPlazaLobbyClient *client, u32 size, enum HeapID heapID);
@@ -140,11 +140,11 @@ u32 WiFiPlazaLobbyClient_ToErrorCode(u32 error) {
     return PPW_LobbyToErrorCode(error);
 }
 
-void WiFiPlazaLobbyClient_Initialize(int value) {
-    WiFiPlazaLobbyClient_InitializeEx(value, 0);
+BOOL WiFiPlazaLobbyClient_Initialize(const WiFiPlazaPlayer *player) {
+    return WiFiPlazaLobbyClient_InitializeEx(player, 0);
 }
 
-static void WiFiPlazaLobbyClient_InitializeEx(int value, int mode) {
+static BOOL WiFiPlazaLobbyClient_InitializeEx(const WiFiPlazaPlayer *player, int mode) {
     PPWLobbyCallbacks callbacks;
     void *userData;
     GF_ASSERT(gWiFiPlazaLobbyClient != NULL);
@@ -166,8 +166,8 @@ static void WiFiPlazaLobbyClient_InitializeEx(int value, int mode) {
     callbacks.onSurveySubmitted = WiFiPlazaLobbyClient_OnSurveySubmitted;
     callbacks.onExcessFlood = WiFiPlazaLobbyClient_OnExcessFlood;
     userData = FriendRoster_GetUserData(gWiFiPlazaLobbyClient->friendRoster);
-    gWiFiPlazaLobbyClient->initResult = PPW_LobbyInitializeAsync("pokemonplatds", "IIup73", mode, &callbacks, userData, (const void *)value, gWiFiPlazaLobbyClient->playerDataSize);
-    WiFiPlazaLobbyClient_CheckResult(gWiFiPlazaLobbyClient->initResult);
+    gWiFiPlazaLobbyClient->initResult = PPW_LobbyInitializeAsync("pokemonplatds", "IIup73", mode, &callbacks, userData, player, gWiFiPlazaLobbyClient->playerDataSize);
+    return WiFiPlazaLobbyClient_CheckResult(gWiFiPlazaLobbyClient->initResult);
 }
 
 BOOL WiFiPlazaLobbyClient_IsInLobby(void) {

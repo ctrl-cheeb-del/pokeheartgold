@@ -85,7 +85,7 @@ int PokewalkerApp_Link_Start(PokewalkerApp *app) {
         return 19;
     } else if (app->linkAction == POKEWALKER_LINK_SEND_MON_BACK) {
         return 43;
-    } else if (app->strollMonSpecies) {
+    } else if (app->selectMon.species) {
         return 5;
     }
     FillBgTilemapRect(app->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, 0, 32, 24, TILEMAP_FILL_KEEP_PAL);
@@ -352,7 +352,7 @@ int PokewalkerApp_Link_EndCourseMenu(PokewalkerApp *app) {
         PokewalkerApp_RemoveWindowBank(app, 3);
         PokewalkerApp_AddWindowBank(app, 1);
         PokewalkerApp_AddWindowBank(app, 0);
-        app->strollMonSpecies = SPECIES_NONE;
+        app->selectMon.species = SPECIES_NONE;
         PokewalkerApp_HideCursor(app);
         FillBgTilemapRect(app->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, 16, 32, 8, TILEMAP_FILL_KEEP_PAL);
         return 0;

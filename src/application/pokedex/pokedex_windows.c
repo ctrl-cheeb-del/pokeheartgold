@@ -373,12 +373,12 @@ void PokedexApp_DrawSpeciesName(PokedexAppData *pokedexApp, u32 species, u32 win
     }
 }
 
-// The category only shows for caught species (list entry state 2).
+// The category only shows for caught species.
 void PokedexApp_DrawCategory(PokedexAppData *pokedexApp, u32 species, u32 entry, u32 windowId) {
     FillWindowPixelBuffer(&pokedexApp->windows[windowId], 0);
     if (species != SPECIES_NONE) {
         String *string;
-        if (pokedexApp->listEntries[entry].caughtState == 2) {
+        if (pokedexApp->listEntries[entry].caughtState == POKEDEXAPP_ENTRY_CAUGHT) {
             string = PokedexApp_GetCategoryString(species, 2, HEAP_ID_POKEDEX_APP);
         } else {
             string = PokedexApp_GetCategoryString(SPECIES_NONE, 2, HEAP_ID_POKEDEX_APP);
@@ -420,7 +420,7 @@ void PokedexApp_DrawListEntryDetails(PokedexAppData *pokedexApp, u32 species, u3
 }
 
 void PokedexApp_DrawFlavorText(PokedexAppData *pokedexApp, u32 species, u32 entry, u32 windowId) {
-    if (pokedexApp->listEntries[entry].caughtState == 2) {
+    if (pokedexApp->listEntries[entry].caughtState == POKEDEXAPP_ENTRY_CAUGHT) {
         String *string;
         u32 x;
 
@@ -449,12 +449,12 @@ void PokedexApp_DrawWeightLabel(PokedexAppData *pokedexApp, u32 windowId) {
     ScheduleWindowCopyToVram(&pokedexApp->windows[windowId]);
 }
 
-// The height text of species (state 2: caught; else the SPECIES_NONE placeholder).
+// The height text of species (caught: the species, else the SPECIES_NONE placeholder).
 void PokedexApp_PrintHeight(PokedexAppData *pokedexApp, u32 species, u32 state, u32 windowId, u32 x, u32 y, u32 color, u32 align) {
     MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, GetDexHeightMsgBank(), HEAP_ID_POKEDEX_APP);
     String *string;
 
-    if (state == 2) {
+    if (state == POKEDEXAPP_ENTRY_CAUGHT) {
         string = NewString_ReadMsgData(msgData, species);
     } else {
         string = NewString_ReadMsgData(msgData, SPECIES_NONE);
@@ -474,7 +474,7 @@ void PokedexApp_PrintWeight(PokedexAppData *pokedexApp, u32 species, u32 state, 
     MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, GetDexWeightMsgBank(), HEAP_ID_POKEDEX_APP);
     String *string;
 
-    if (state == 2) {
+    if (state == POKEDEXAPP_ENTRY_CAUGHT) {
         string = NewString_ReadMsgData(msgData, species);
     } else {
         string = NewString_ReadMsgData(msgData, SPECIES_NONE);
@@ -531,7 +531,7 @@ void PokedexApp_DrawForeignCategory(PokedexAppData *pokedexApp, u32 species, u32
     String *string;
 
     FillWindowPixelBuffer(&pokedexApp->windows[windowId], 0);
-    if (pokedexApp->listEntries[entry].caughtState == 2) {
+    if (pokedexApp->listEntries[entry].caughtState == POKEDEXAPP_ENTRY_CAUGHT) {
         string = PokedexApp_GetCategoryString(species, pokedexApp->language, HEAP_ID_POKEDEX_APP);
     } else {
         string = PokedexApp_GetCategoryString(SPECIES_NONE, pokedexApp->language, HEAP_ID_POKEDEX_APP);

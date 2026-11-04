@@ -258,7 +258,7 @@ void PokedexApp_SetListIcon(PokedexAppData *pokedexApp, int entry, int sprite) {
         }
         PokedexApp_SetMonIcon(pokedexApp, species, form, sprite);
         ManagedSprite_SetDrawFlag(sprites[sprite], TRUE);
-        if (pokedexApp->listEntries[entry].caughtState == 1) {
+        if (pokedexApp->listEntries[entry].caughtState == POKEDEXAPP_ENTRY_SEEN) {
             PokedexApp_SetSpriteTranslucent(pokedexApp, sprite, TRUE);
         } else {
             PokedexApp_SetSpriteTranslucent(pokedexApp, sprite, FALSE);
@@ -466,7 +466,7 @@ void PokedexApp_CreateFootprintSprite(PokedexAppData *pokedexApp, int index) {
 void PokedexApp_UpdateFootprintSprite(PokedexAppData *pokedexApp, u32 species, int entry, int sprite) {
     void *graphics;
 
-    if (pokedexApp->language != GAME_LANGUAGE || species == SPECIES_NONE || pokedexApp->listEntries[entry].caughtState == 1
+    if (pokedexApp->language != GAME_LANGUAGE || species == SPECIES_NONE || pokedexApp->listEntries[entry].caughtState == POKEDEXAPP_ENTRY_SEEN
         || (species == SPECIES_GIRATINA && Pokedex_GetSeenFormByIdx(pokedexApp->args->pokedex, species, 0) == 1)) {
         ManagedSprite_SetDrawFlag(pokedexApp->sprites[sprite], FALSE);
     } else {
@@ -521,7 +521,7 @@ void PokedexApp_UpdateTypeIcons(PokedexAppData *pokedexApp, u32 species, int ent
     u16 type1;
     u16 type2;
 
-    if (pokedexApp->language != GAME_LANGUAGE || species == SPECIES_NONE || pokedexApp->listEntries[entry].caughtState == 1) {
+    if (pokedexApp->language != GAME_LANGUAGE || species == SPECIES_NONE || pokedexApp->listEntries[entry].caughtState == POKEDEXAPP_ENTRY_SEEN) {
         index *= 4;
         ManagedSprite_SetDrawFlag(*(ManagedSprite **)((u8 *)pokedexApp->sprites + index), FALSE);
         ManagedSprite_SetDrawFlag(*(ManagedSprite **)((u8 *)&pokedexApp->sprites[1] + index), FALSE);
@@ -986,7 +986,7 @@ void PokedexApp_SyncListScrollbarToPage(PokedexAppData *pokedexApp, int sprite, 
 
 // the Poke Ball mark of a caught entry
 void PokedexApp_UpdateCaughtMarkSprite(PokedexAppData *pokedexApp, int entry, int sprite) {
-    if (pokedexApp->listEntries[entry].caughtState == 2) {
+    if (pokedexApp->listEntries[entry].caughtState == POKEDEXAPP_ENTRY_CAUGHT) {
         ManagedSprite_SetDrawFlag(pokedexApp->sprites[sprite], TRUE);
     } else {
         ManagedSprite_SetDrawFlag(pokedexApp->sprites[sprite], FALSE);
