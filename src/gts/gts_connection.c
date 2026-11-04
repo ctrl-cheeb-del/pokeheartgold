@@ -14,6 +14,7 @@
 #include "msgdata/msg/msg_0800.h"
 
 #include "bg_window.h"
+#include "comm_state_internal.h"
 #include "font.h"
 #include "friend_roster.h"
 #include "gf_gfx_loader.h"
@@ -86,10 +87,6 @@ static int Gts_GetAlignedX(Window *window, String *string, int x, int align, u32
 static void Gts_PrintAlignedFont1(Window *window, String *string, int x, int y, int align, u32 color);
 static void GtsConnection_PrintError(GtsApp *app, int msgId);
 static void GtsConnection_PrintErrorCode(GtsApp *app, int msgId, int errorCode);
-
-void CommState_InitWfcSession(SaveData *saveData);
-void CommState_FreeWfcSession(void);
-void CommState_ShowRestartErrorAndHalt(void);
 
 enum GtsAppState GtsConnection_AskConnect(GtsApp *app);
 enum GtsAppState GtsConnection_HandleConnectPrompt(GtsApp *app);

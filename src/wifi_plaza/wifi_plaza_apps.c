@@ -11,6 +11,7 @@
 #include "wifi_plaza/wifi_plaza_visitor_profiles.h"
 
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "location_gmm_dat.h"
 #include "overlay_manager.h"
 #include "poke_overlay.h"
@@ -111,8 +112,6 @@ static void WiFiPlazaApps_StartSurvey(WiFiPlazaApps *apps, void **args);
 static BOOL WiFiPlazaApps_EndSurvey(WiFiPlazaApps *apps, void **args);
 
 // The entries of the app tables (and their helpers).
-
-BOOL CommState_HasPlazaLobbyFailed(void);
 
 static const OverlayManagerTemplate sWiFiPlazaFootprintStampBoard0OverlayTemplate = {
     .init = FootprintStamp_Init,

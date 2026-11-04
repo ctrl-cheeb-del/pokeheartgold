@@ -27,6 +27,7 @@
 #include "communication_core.h"
 #include "link_synchronization.h"
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "wireless_status_icon.h"
 #include "wifi_club_comm.h"
 #include "vram_transfer_manager.h"
@@ -731,7 +732,7 @@ void WifiClubGameEntry_CheckConnectionLost(WifiClubGameEntry *gameEntry, WifiClu
         if ((u8)(gameEntry->state + 229) <= 2) {
             return;
         }
-        if ((CommState_GetWifiMatchStatus() <= 2) && (WifiClubGameEntry_CountMembers(gameEntry) <= 1) && (WifiClubGameEntry_IsAnyoneConnected(gameEntry) == 0)) {
+        if ((CommState_GetWifiMatchStatus() <= WIFI_MATCH_STATUS_OTHER) && (WifiClubGameEntry_CountMembers(gameEntry) <= 1) && (WifiClubGameEntry_IsAnyoneConnected(gameEntry) == 0)) {
             return;
         }
     } else if ((gameEntry->state == 15) || (gameEntry->state == 16) || (gameEntry->state == 17) || ((u8)(gameEntry->state + 250) <= 1)) {
@@ -745,7 +746,7 @@ void WifiClubGameEntry_CheckConnectionLost(WifiClubGameEntry *gameEntry, WifiClu
     } else {
         memberMissing = 0;
     }
-    if ((CommState_GetWifiMatchStatus() >= 3) || (CommState_HasWifiFailed() != 0) || (CommState_WasWifiDisconnected() != 0) || (Comm_IsNetIdConnected(0) == 0) || (WifiClubGameEntry_IsAnyoneConnected(gameEntry) == 0) || (memberMissing == 1) || (timedOut == 1) || (memberDisconnected == 1)) {
+    if ((CommState_GetWifiMatchStatus() >= WIFI_MATCH_STATUS_TIMED_OUT) || (CommState_HasWifiFailed() != 0) || (CommState_WasWifiDisconnected() != 0) || (Comm_IsNetIdConnected(0) == 0) || (WifiClubGameEntry_IsAnyoneConnected(gameEntry) == 0) || (memberMissing == 1) || (timedOut == 1) || (memberDisconnected == 1)) {
         if (gameEntry->isLeader != 0) {
             gameEntry->state = 27;
             return;
@@ -755,7 +756,7 @@ void WifiClubGameEntry_CheckConnectionLost(WifiClubGameEntry *gameEntry, WifiClu
 }
 
 void WifiClubGameEntry_CheckMatchFailed(WifiClubGameEntry *gameEntry) {
-    if ((CommState_GetWifiMatchStatus() > 3) || (CommState_WasWifiDisconnected() != 0) || (CommState_HasWifiFailed() != 0)) {
+    if ((CommState_GetWifiMatchStatus() > WIFI_MATCH_STATUS_TIMED_OUT) || (CommState_WasWifiDisconnected() != 0) || (CommState_HasWifiFailed() != 0)) {
         gameEntry->state = 15;
     }
 }
@@ -1471,14 +1472,14 @@ s32 Wifi_PromptMemberDropped(WifiClubGameEntry *gameEntry, WifiClubGameEntryArgs
     gameEntry->state = 29;
     WifiClubGameEntry_ReleaseAllMembers(gameEntry);
     WifiClubGameEntry_SetPlayingStatus(gameEntry, args);
-    if ((u32)(CommState_GetWifiMatchStatus() - 4) <= 1U) {
+    if ((u32)(CommState_GetWifiMatchStatus() - WIFI_MATCH_STATUS_DISCONNECTED) <= 1U) {
         DWC_ProcessFriendsMatch();
     }
     return 0;
 }
 
 s32 WifiClubGameEntry_Leader_EndAfterMemberDropped(WifiClubGameEntry *gameEntry, WifiClubGameEntryArgs *args, enum HeapID heapID) {
-    if ((u32)(CommState_GetWifiMatchStatus() - 4) <= 1) {
+    if ((u32)(CommState_GetWifiMatchStatus() - WIFI_MATCH_STATUS_DISCONNECTED) <= 1) {
         DWC_ProcessFriendsMatch();
     }
     if (WifiClubGameEntry_IsMessageFinished(&gameEntry->screen) == 0) {
@@ -1882,7 +1883,7 @@ s32 WifiClubGameEntry_Member_ApplyAgain(WifiClubGameEntry *gameEntry, WifiClubGa
 
 s32 WifiClubGameEntry_Member_WaitReconnected(WifiClubGameEntry *gameEntry, WifiClubGameEntryArgs *args, enum HeapID heapID) {
     WifiClubGameEntry_CheckMatchFailed(gameEntry);
-    if (CommState_GetWifiMatchStatus() == 1 && Comm_IsNetIdConnected(0) == 1) {
+    if (CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_CONNECTED && Comm_IsNetIdConnected(0) == 1) {
         Comm_SetWifiContinuousSend(0);
         WifiClubGameEntry_HideWaitingIcon(gameEntry, args, heapID);
         BeginNormalPaletteFade(FADE_MAIN_ONLY, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, RGB_BLACK, 6, 1, heapID);

@@ -9,6 +9,7 @@
 
 #include "assert.h"
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "comm_wireless.h"
 #include "communication_core.h"
 #include "communication_player_state.h"
@@ -80,7 +81,6 @@ typedef struct DrawingSessionButtonSprite {
     u16 anim;
 } DrawingSessionButtonSprite;
 
-extern void CommState_SetMaxEntries(int count);
 extern void DrawingSessionLink_RegisterCommands(DrawingSessionWork *work);
 
 static void DrawingSession_VBlankCB(void *bgConfig);

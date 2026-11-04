@@ -10,6 +10,7 @@
 #include "msgdata/msg/msg_0012.h"
 
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "communication_core.h"
 #include "communication_player_state.h"
 #include "error_handling.h"
@@ -35,8 +36,6 @@
 #include "wifi_connection.h"
 #include "wireless_status_icon.h"
 #include "wobbuffet_pop_internal.h"
-
-void CommState_FrameDummy(enum HeapID heapId, BgConfig *bgConfig);
 
 static BOOL WobbuffetPop_Init(OverlayManager *man, int *state);
 static BOOL WobbuffetPop_Main(OverlayManager *man, int *state);

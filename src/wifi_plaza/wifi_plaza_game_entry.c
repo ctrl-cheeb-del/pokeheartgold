@@ -8,17 +8,13 @@
 #include "msgdata/msg/msg_0777.h"
 
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "communication_core.h"
 #include "communication_player_state.h"
 #include "font.h"
 #include "link_synchronization.h"
 #include "sound_playback.h"
 #include "system.h"
-
-void CommState_StartPlazaMatch(u8 slot);
-void CommState_EndPlazaMatch(void);
-s32 CommState_GetPlazaMatchStatus(void);
-void CommState_SetPlazaLinkMode(void);
 
 enum WiFiPlazaRegisterStep {
     WIFI_PLAZA_REGISTER_INIT,
@@ -188,13 +184,13 @@ BOOL WiFiPlazaGameEntry_Register(WiFiPlazaPlayerState *state, WiFiPlazaRoomWork 
                 case WIFI_PLAZA_REGISTER_TIME_UP:
                     linkError = CommState_GetWifiMatchStatus();
                     switch (linkError) {
-                    case 0:
-                    case 1:
+                    case WIFI_MATCH_STATUS_LOBBY:
+                    case WIFI_MATCH_STATUS_CONNECTED:
                         break;
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
+                    case WIFI_MATCH_STATUS_OTHER:
+                    case WIFI_MATCH_STATUS_TIMED_OUT:
+                    case WIFI_MATCH_STATUS_DISCONNECTED:
+                    case WIFI_MATCH_STATUS_CANCELLED:
                         param->result = WIFI_PLAZA_GAME_ENTRY_LINK_ERROR;
                         WiFiPlazaPlayerState_SetStep(savedState, WIFI_PLAZA_REGISTER_END_LINK);
                         break;
@@ -370,8 +366,8 @@ BOOL WiFiPlazaGameEntry_Register(WiFiPlazaPlayerState *state, WiFiPlazaRoomWork 
         members2 = WiFiPlazaLobbyClient_GetMatchPlayerCount(param->slot);
         linkError2 = CommState_GetWifiMatchStatus();
         switch (linkError2) {
-        case 3:
-        case 4:
+        case WIFI_MATCH_STATUS_TIMED_OUT:
+        case WIFI_MATCH_STATUS_DISCONNECTED:
             param->result = WIFI_PLAZA_GAME_ENTRY_LINK_ERROR;
             WiFiPlazaPlayerState_SetStep(savedState, WIFI_PLAZA_REGISTER_END_LINK);
             break;

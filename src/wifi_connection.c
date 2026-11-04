@@ -11,6 +11,7 @@
 #include "nnsys/fnd_internal.h"
 
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "communication_command.h"
 #include "communication_core_internal.h"
 #include "friend_roster.h"
@@ -88,8 +89,6 @@ struct WifiConnection {
 static WifiConnection *sWifiConnection;
 
 extern int sprintf(char *dest, const char *format, ...);
-
-extern void CommState_SetWifiError(int, u32, int);
 
 extern int DWC_IsSendableReliable(u8);
 extern u32 DWC_SendReliableBitmap(u32, void *, u32);

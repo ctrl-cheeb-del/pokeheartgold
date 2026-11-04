@@ -7,6 +7,7 @@
 
 #include "assert.h"
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "comm_wireless.h"
 #include "communication_core.h"
 #include "communication_player_state.h"
@@ -25,8 +26,6 @@
 
 // Union Room talk: the link commands of the talk menu, the script messages for what a player is doing, the activity
 // and chat message broadcast in the player's beacon, and the language greeting learned from a foreign player.
-
-void CommState_SetLinkMode13RequestMode0(void);
 
 static int UnionRoom_GetGroupOfMemberSlot(int slot);
 static int UnionRoom_GetPlayerActivityMsg(struct UnionRoom *unionRoom, int slot);

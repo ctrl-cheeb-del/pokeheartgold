@@ -11,6 +11,7 @@
 
 #include "assert.h"
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "communication_command.h"
 #include "communication_core.h"
 #include "communication_player_state.h"
@@ -39,7 +40,6 @@
 #include "vram_transfer_manager.h"
 #include "wireless_status_icon.h"
 
-void CommState_EndPlazaMatch(void);
 int Comm_FindFriendSlot(SaveData *saveData, void *friendData, u32 *index);
 
 enum PlazaGameKind {
@@ -483,7 +483,7 @@ BOOL PlazaGameRoster_CheckConnectionLost(PlazaGameRoster *roster) {
         if (CommState_WasWifiDisconnected() == 1) {
             result = TRUE;
         }
-        if (CommState_GetWifiMatchStatus() >= 2) {
+        if (CommState_GetWifiMatchStatus() >= WIFI_MATCH_STATUS_OTHER) {
             result = TRUE;
         }
         if (result == TRUE) {

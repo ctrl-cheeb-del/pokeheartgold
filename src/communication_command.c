@@ -3,6 +3,7 @@
 #include "global.h"
 
 #include "constants/comm_type.h"
+#include "comm_state_internal.h"
 #include "link_synchronization_internal.h"
 
 #include "assert.h"
@@ -40,14 +41,9 @@ static void CommCmd_RecvShutdown(int netId, int size, void *data, void *context)
 static void CommCmd_RecvNotReady(int netId, int size, void *data, void *context);
 
 void Comm_RecvShutdown(int netId, int size, void *data, void *context);
-void CommState_RecvJoinRequest(int netId, int size, void *data, void *context);
-void CommState_RecvJoinReply(int netId, int size, void *data, void *context);
-u32 CommState_GetJoinMessageSize(void);
 void Comm_RecvTransferModeRequest(int netId, int size, void *data, void *context);
 void Comm_RecvTransferModeChange(int netId, int size, void *data, void *context);
 void Comm_RecvTransferModeAck(int netId, int size, void *data, void *context);
-u32 CommState_GetSyncPacketSize(void);
-void CommState_RecvWifiDisconnect(int netId, int size, void *data, void *context);
 
 static const CommCommand sCommBaseCommands[COMM_BASE_COMMAND_COUNT] = {
     { NULL,                           CommCmd_GetSize0,             NULL },

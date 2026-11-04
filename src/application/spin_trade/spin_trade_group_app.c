@@ -8,6 +8,7 @@
 
 #include "bg_window.h"
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "communication_core.h"
 #include "communication_player_state.h"
 #include "filesystem.h"
@@ -251,11 +252,6 @@ static int SpinTradeGroup_GetTextSpeed(SpinTradeGroupApp *app);
 static void SpinTradeGroup_SetMaxConnections(SpinTradeGroupApp *app, int extraEntries);
 static int SpinTradeGroup_CheckMembers(SpinTradeGroupApp *app, int extraEntries);
 static void SpinTradeGroup_SaveDummy(SaveData *saveData, u8 *buffer);
-
-void CommState_SetSpinTradeLinkMode(void);
-void CommState_SetMaxEntries(int count);
-void Comm_InitSyncedSave(s32 *state);
-BOOL Comm_SyncedSave(SaveData *saveData, int unused, s32 *state);
 
 BOOL SpinTradeGroupApp_Init(OverlayManager *manager, int *state);
 BOOL SpinTradeGroupApp_Main(OverlayManager *man, int *state);

@@ -12,6 +12,7 @@
 
 #include "bg_window.h"
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "comm_wireless.h"
 #include "communication_core.h"
 #include "communication_player_state.h"
@@ -1947,7 +1948,7 @@ s32 WifiClub_State_Connecting(WifiClubApp *app, s32 mainState) {
             WifiClub_CollectOnlineFriends(app);
             app->state = WifiClub_FadeOutToEnterRoom();
         }
-    } else if ((CommState_HasWifiFailed() != 0) || (CommState_GetWifiMatchStatus() == 3)) {
+    } else if ((CommState_HasWifiFailed() != 0) || (CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_TIMED_OUT)) {
         WifiClub_HandleWifiError(app);
     }
     return mainState;
@@ -1970,7 +1971,7 @@ s32 WifiClub_State_PrepareSave(WifiClubApp *app, s32 mainState) {
             WifiClub_CollectOnlineFriends(app);
             app->state = WifiClub_FadeOutToEnterRoom();
         }
-    } else if ((CommState_HasWifiFailed() != 0) || (CommState_GetWifiMatchStatus() == 3)) {
+    } else if ((CommState_HasWifiFailed() != 0) || (CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_TIMED_OUT)) {
         WifiClub_HandleWifiError(app);
     }
     return mainState;
@@ -1994,7 +1995,7 @@ s32 WifiClub_State_WriteSave(WifiClubApp *app, s32 mainState) {
             WifiClub_CollectOnlineFriends(app);
             app->state = WifiClub_FadeOutToEnterRoom();
         }
-    } else if ((CommState_HasWifiFailed() != 0) || (CommState_GetWifiMatchStatus() == 3)) {
+    } else if ((CommState_HasWifiFailed() != 0) || (CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_TIMED_OUT)) {
         WifiClub_HandleWifiError(app);
     }
     return mainState;
@@ -2007,9 +2008,9 @@ s32 WifiClub_State_WaitThenReenterRoom(WifiClubApp *app, s32 mainState) {
     }
     if (CommState_IsWifiInLobby()) {
         app->state = WifiClub_FadeOutToEnterRoom();
-    } else if ((CommState_HasWifiFailed() != 0) || (CommState_GetWifiMatchStatus() == 3)) {
+    } else if ((CommState_HasWifiFailed() != 0) || (CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_TIMED_OUT)) {
         WifiClub_HandleWifiError(app);
-    } else if ((CommState_GetWifiMatchStatus() >= 4) || (CommState_WasWifiDisconnected() != 0) || (Comm_IsNetIdConnected(0) == 0)) {
+    } else if ((CommState_GetWifiMatchStatus() >= WIFI_MATCH_STATUS_DISCONNECTED) || (CommState_WasWifiDisconnected() != 0) || (Comm_IsNetIdConnected(0) == 0)) {
         CommState_LeaveWifiMatch();
         app->state = WifiClub_FadeOutToEnterRoom();
     }
@@ -2165,7 +2166,7 @@ s32 WifiClub_State_EnterRoom(WifiClubApp *app, s32 mainState) {
 }
 
 s32 WifiClub_IsMatchConnected(WifiClubApp *app) {
-    if (CommState_GetWifiMatchStatus() == 1) {
+    if (CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_CONNECTED) {
         return 1;
     }
     return 0;
@@ -2254,7 +2255,7 @@ s32 WifiClub_State_Room(WifiClubApp *app, s32 mainState) {
         WifiClub_HandleWifiError(app);
         return mainState;
     }
-    if (CommState_GetWifiMatchStatus() == 4) {
+    if (CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_DISCONNECTED) {
         WifiClub_BufferFriendName(app, WifiConnection_GetTargetFriendIndex());
         WifiClub_PrintMessage(app, msg_0778_00018, 0);
         app->state = WIFI_CLUB_STATE_MESSAGE_THEN_RETURN_TO_ROOM;
@@ -2381,15 +2382,15 @@ s32 WifiClub_State_WaitVoiceChatPartner(WifiClubApp *app, s32 mainState) {
     app->matchTimer -= 1;
     if (app->matchTimer < 0) {
         app->state = WIFI_CLUB_STATE_MATCH_TIMEOUT;
-    } else if (CommState_GetWifiMatchStatus() == 5) {
+    } else if (CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_CANCELLED) {
         WifiClub_BufferFriendName(app, WifiConnection_GetTargetFriendIndex());
         WifiClub_PrintMessage(app, msg_0778_00015, 0);
         app->state = WIFI_CLUB_STATE_MESSAGE_THEN_LEAVE_MATCH;
-    } else if (CommState_GetWifiMatchStatus() == 3) {
+    } else if (CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_TIMED_OUT) {
         WifiClub_BufferFriendName(app, WifiConnection_GetTargetFriendIndex());
         WifiClub_PrintMessage(app, msg_0778_00018, 0);
         app->state = WIFI_CLUB_STATE_MESSAGE_THEN_LEAVE_MATCH;
-    } else if ((CommState_GetWifiMatchStatus() == 4) || (CommState_WasWifiDisconnected() != 0)) {
+    } else if ((CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_DISCONNECTED) || (CommState_WasWifiDisconnected() != 0)) {
         WifiClub_BufferFriendName(app, WifiConnection_GetTargetFriendIndex());
         WifiClub_PrintMessage(app, msg_0778_00019, 0);
         app->state = WIFI_CLUB_STATE_MESSAGE_THEN_LEAVE_MATCH;
@@ -2403,7 +2404,7 @@ s32 WifiClub_State_WaitVoiceChatPartner(WifiClubApp *app, s32 mainState) {
         WifiClub_BufferFriendName(app, WifiConnection_GetTargetFriendIndex());
         WifiClub_PrintMessage(app, msg_0778_00016, 0);
         app->state = WIFI_CLUB_STATE_MESSAGE_THEN_LEAVE_MATCH;
-    } else if (CommState_GetWifiMatchStatus() == 1) {
+    } else if (CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_CONNECTED) {
         WifiClub_CloseMessage(app);
         WifiClub_SetStatusAndSend(app, WIFI_CLUB_STATUS_VOICE_CHAT);
         app->state = WIFI_CLUB_STATE_VOICE_CHAT;
@@ -2460,15 +2461,15 @@ s32 WifiClub_State_VoiceChat(WifiClubApp *app, s32 mainState) {
     int partnerStatus = WifiClub_GetPlayerStatus(app, WifiClub_GetFriendStatusData(app, WifiConnection_GetTargetFriendIndex()));
     WifiClub_UpdateRoomPlayers(app, HEAP_ID_53);
     WifiClub_RedrawRosterIfNeeded(app);
-    if (CommState_GetWifiMatchStatus() == 5) {
+    if (CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_CANCELLED) {
         WifiClub_BufferFriendName(app, WifiConnection_GetTargetFriendIndex());
         WifiClub_PrintMessage(app, msg_0778_00015, 0);
         app->state = WIFI_CLUB_STATE_MESSAGE_THEN_LEAVE_MATCH;
-    } else if (CommState_GetWifiMatchStatus() == 3) {
+    } else if (CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_TIMED_OUT) {
         WifiClub_BufferFriendName(app, WifiConnection_GetTargetFriendIndex());
         WifiClub_PrintMessage(app, msg_0778_00018, 0);
         app->state = WIFI_CLUB_STATE_MESSAGE_THEN_LEAVE_MATCH;
-    } else if ((CommState_GetWifiMatchStatus() == 4) || (CommState_WasWifiDisconnected() != 0)) {
+    } else if ((CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_DISCONNECTED) || (CommState_WasWifiDisconnected() != 0)) {
         WifiClub_BufferFriendName(app, WifiConnection_GetTargetFriendIndex());
         WifiClub_PrintMessage(app, msg_0778_00019, 0);
         app->state = WIFI_CLUB_STATE_MESSAGE_THEN_LEAVE_MATCH;
@@ -2512,7 +2513,7 @@ s32 WifiClub_State_EndVoiceChatPrompt(WifiClubApp *app, s32 mainState) {
     if (((reg_GX_POWCNT & REG_GX_POWCNT_DSEL_MASK) >> REG_GX_POWCNT_DSEL_SHIFT) == GX_DISP_SELECT_MAIN_SUB) {
         s32 menuResult = Handle2dMenuInput_DeleteOnFinish(app->yesNoMenu, HEAP_ID_53);
         if (menuResult == LIST_NOTHING_CHOSEN) {
-            if ((CommState_GetWifiMatchStatus() >= 4) || (CommState_WasWifiDisconnected() != 0) || (Comm_IsNetIdConnected(0) == 0)) {
+            if ((CommState_GetWifiMatchStatus() >= WIFI_MATCH_STATUS_DISCONNECTED) || (CommState_WasWifiDisconnected() != 0) || (Comm_IsNetIdConnected(0) == 0)) {
                 WifiClub_CloseMessage(app);
                 WifiClub_SetStatusAndSend(app, WIFI_CLUB_STATUS_IN_ROOM);
                 Clear2dMenuWindowAndDelete(app->yesNoMenu, HEAP_ID_53);
@@ -2554,7 +2555,7 @@ s32 WifiClub_State_EndVoiceChatPrompt(WifiClubApp *app, s32 mainState) {
             YesNoPrompt_Destroy(app->yesNoPrompt);
             app->state = WIFI_CLUB_STATE_VOICE_CHAT;
         } else {
-            if ((CommState_GetWifiMatchStatus() >= 4) || (CommState_WasWifiDisconnected() != 0) || (Comm_IsNetIdConnected(0) == 0)) {
+            if ((CommState_GetWifiMatchStatus() >= WIFI_MATCH_STATUS_DISCONNECTED) || (CommState_WasWifiDisconnected() != 0) || (Comm_IsNetIdConnected(0) == 0)) {
                 WifiClub_CloseMessage(app);
                 WifiClub_SetStatusAndSend(app, WIFI_CLUB_STATUS_IN_ROOM);
                 YesNoPrompt_Destroy(app->yesNoPrompt);
@@ -3339,21 +3340,21 @@ s32 WifiClub_State_WaitMatchAccepted(WifiClubApp *app, s32 mainState) {
     app->matchTimer -= 1;
     if (app->matchTimer < 0) {
         app->state = WIFI_CLUB_STATE_MATCH_TIMEOUT;
-    } else if (CommState_GetWifiMatchStatus() == 3) {
+    } else if (CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_TIMED_OUT) {
         WifiClub_BufferFriendName(app, WifiConnection_GetTargetFriendIndex());
         WifiClub_PrintMessage(app, msg_0778_00018, 0);
         app->state = WIFI_CLUB_STATE_MESSAGE_THEN_LEAVE_MATCH;
-    } else if (CommState_GetWifiMatchStatus() == 5) {
+    } else if (CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_CANCELLED) {
         WifiClub_BufferFriendName(app, WifiConnection_GetTargetFriendIndex());
         WifiClub_PrintMessage(app, msg_0778_00015, 0);
         app->state = WIFI_CLUB_STATE_MESSAGE_THEN_LEAVE_MATCH;
-    } else if ((CommState_GetWifiMatchStatus() == 4) || (CommState_WasWifiDisconnected() != 0)) {
+    } else if ((CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_DISCONNECTED) || (CommState_WasWifiDisconnected() != 0)) {
         WifiClub_BufferFriendName(app, WifiConnection_GetTargetFriendIndex());
         WifiClub_PrintMessage(app, msg_0778_00018, 0);
         app->state = WIFI_CLUB_STATE_MESSAGE_THEN_LEAVE_MATCH;
     } else if (CommState_HasWifiFailed()) {
         WifiClub_HandleWifiError(app);
-    } else if (CommState_GetWifiMatchStatus() == 1) {
+    } else if (CommState_GetWifiMatchStatus() == WIFI_MATCH_STATUS_CONNECTED) {
         u32 ownStatus = WifiClub_GetPlayerStatus(app, &app->clubData->own);
         if (!WifiClub_IsGroupActivityStatus(ownStatus)) {
             app->state = WIFI_CLUB_STATE_SYNC_START;
@@ -3464,7 +3465,7 @@ s32 WifiClub_State_Contacted(WifiClubApp *app, s32 mainState) {
 }
 
 s32 WifiClub_CheckMatchLost(WifiClubApp *app) {
-    if (CommState_GetWifiMatchStatus() >= 3) {
+    if (CommState_GetWifiMatchStatus() >= WIFI_MATCH_STATUS_TIMED_OUT) {
         WifiClub_BufferFriendName(app, app->contactFriend);
         WifiClub_PrintMessage(app, msg_0778_00018, 0);
         app->state = WIFI_CLUB_STATE_MESSAGE_THEN_LEAVE_MATCH;
@@ -3488,7 +3489,7 @@ s32 WifiClub_CheckMatchLost(WifiClubApp *app) {
 }
 
 s32 WifiClub_State_SyncStart(WifiClubApp *app, s32 mainState) {
-    if ((CommState_GetWifiMatchStatus() >= 4) || (CommState_WasWifiDisconnected() != 0) || (Comm_IsNetIdConnected(0) == 0)) {
+    if ((CommState_GetWifiMatchStatus() >= WIFI_MATCH_STATUS_DISCONNECTED) || (CommState_WasWifiDisconnected() != 0) || (Comm_IsNetIdConnected(0) == 0)) {
         if (app->isRematch != 0) {
             WifiClub_PrintMessage(app, msg_0778_00101, 0);
         } else {
@@ -3762,7 +3763,7 @@ s32 WifiClub_State_RematchPrompt(WifiClubApp *app, s32 mainState) {
     if (TextPrinterCheckActive(app->textPrinterId)) {
         return mainState;
     }
-    if ((CommState_IsWifiJoiningLobby() != 0) || (CommState_WasWifiDisconnected() != 0) || (CommState_GetWifiMatchStatus() >= 3)) {
+    if ((CommState_IsWifiJoiningLobby() != 0) || (CommState_WasWifiDisconnected() != 0) || (CommState_GetWifiMatchStatus() >= WIFI_MATCH_STATUS_TIMED_OUT)) {
         if (((reg_GX_POWCNT & REG_GX_POWCNT_DSEL_MASK) >> REG_GX_POWCNT_DSEL_SHIFT) == GX_DISP_SELECT_MAIN_SUB) {
             Clear2dMenuWindowAndDelete(app->yesNoMenu, HEAP_ID_53);
         } else {
@@ -3890,7 +3891,7 @@ s32 WifiClub_State_VoiceChatModePrompt(WifiClubApp *app, s32 mainState) {
         }
         WifiClub_HandleWifiError(app);
     } else {
-        if (CommState_GetWifiMatchStatus() >= 3) {
+        if (CommState_GetWifiMatchStatus() >= WIFI_MATCH_STATUS_TIMED_OUT) {
             if (((reg_GX_POWCNT & REG_GX_POWCNT_DSEL_MASK) >> REG_GX_POWCNT_DSEL_SHIFT) == GX_DISP_SELECT_MAIN_SUB) {
                 Clear2dMenuWindowAndDelete(app->yesNoMenu, HEAP_ID_53);
             } else {

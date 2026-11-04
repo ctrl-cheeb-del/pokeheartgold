@@ -32,6 +32,7 @@
 #include "battle_link_comm.h"
 #include "battle_record.h"
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "comm_wireless.h"
 #include "communication_core.h"
 #include "filesystem_files_def.h"
@@ -87,8 +88,6 @@ static void Battle_CreateWirelessStatusIcon(void);
 FS_EXTERN_OVERLAY(OVY_5);
 FS_EXTERN_OVERLAY(OVY_6);
 FS_EXTERN_OVERLAY(OVY_18);
-
-void CommState_FrameDummy(enum HeapID heapID, BgConfig *bgConfig);
 
 const BattleBgTemplateSet gBattleReinitBgTemplates = {
     .templates = {

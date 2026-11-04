@@ -4,6 +4,8 @@
 #include <stddef.h>
 #include <string.h>
 
+#include "comm_state.h"
+#include "comm_state_internal.h"
 #include "communication_command.h"
 #include "global.h"
 
@@ -146,10 +148,6 @@ static void Wireless_OnInitialized(void *arg);
 static void Wireless_OnLifeTimeSet(void *arg);
 static void Wireless_ForceReset(void);
 static void Wireless_OnEntrySet(void *arg);
-
-int CommState_GetLinkMode(void);
-int CommState_ReportsErrors(void);
-void CommState_SetError(int);
 
 static WirelessManager sWirelessManager;
 

@@ -4,6 +4,7 @@
 #include "comm_state_private.h"
 // clang-format on
 
+#include "comm_state_internal.h"
 #include "comm_wireless.h"
 #include "communication_command.h"
 #include "communication_error.h"
@@ -211,7 +212,7 @@ void CommState_StartChildSession(SaveData *saveData, s8 linkMode, s8 beaconId, L
     }
 }
 
-void CommState_ConnectToSlot(s8 slot) {
+void CommState_ConnectToSlot(int slot) {
     sCommState->slot = slot;
     CommState_SetState(CommState_ChildConnecting, 0);
 }
@@ -893,7 +894,7 @@ u32 CommState_GetJoinMessageSize(void) {
     return 6;
 }
 
-void CommState_SetMaxEntries(s8 maxEntries) {
+void CommState_SetMaxEntries(int maxEntries) {
     if (sCommState) {
         sCommState->maxEntries = maxEntries;
         Wireless_SetMaxEntries(maxEntries);
@@ -1100,32 +1101,32 @@ s32 CommState_StartWifiMatch(s32 friendIndex) {
     return 1;
 }
 
-s32 CommState_GetWifiMatchStatus(void) {
+enum WifiMatchStatus CommState_GetWifiMatchStatus(void) {
     if (sCommState->stateFunc == CommState_WifiLobby) {
-        return 0;
+        return WIFI_MATCH_STATUS_LOBBY;
     }
     if (sCommState->stateFunc == CommState_WifiConnected) {
-        return 1;
+        return WIFI_MATCH_STATUS_CONNECTED;
     }
     if (sCommState->stateFunc == &CommState_WifiTimedOut) {
-        return 3;
+        return WIFI_MATCH_STATUS_TIMED_OUT;
     }
     if (sCommState->stateFunc == CommState_WifiDisconnected) {
-        return 4;
+        return WIFI_MATCH_STATUS_DISCONNECTED;
     }
     if (sCommState->stateFunc == CommState_WifiCancelled) {
-        return 5;
+        return WIFI_MATCH_STATUS_CANCELLED;
     }
     if (sCommState->stateFunc == CommState_PlazaMatching) {
-        return 0;
+        return WIFI_MATCH_STATUS_LOBBY;
     }
     if (sCommState->stateFunc == CommState_PlazaMatchConnected) {
-        return 1;
+        return WIFI_MATCH_STATUS_CONNECTED;
     }
     if (sCommState->stateFunc == CommState_PlazaTimedOut) {
-        return 3;
+        return WIFI_MATCH_STATUS_TIMED_OUT;
     }
-    return 2;
+    return WIFI_MATCH_STATUS_OTHER;
 }
 
 static void CommState_WifiJoinLobby(void) {

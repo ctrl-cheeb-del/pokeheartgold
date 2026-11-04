@@ -11,6 +11,7 @@
 
 #include "assert.h"
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "font.h"
 #include "gf_gfx_loader.h"
 #include "gf_gfx_planes.h"
@@ -33,8 +34,6 @@
 #include "type_icon_resources.h"
 #include "vram_transfer_manager.h"
 #include "wireless_status_icon.h"
-
-BOOL CommState_HasPlazaLobbyFailed(void);
 
 enum WiFiPlazaRoomState {
     WIFI_PLAZA_ROOM_FADE_IN,

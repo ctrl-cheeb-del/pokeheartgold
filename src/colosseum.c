@@ -9,6 +9,7 @@
 #include "bag.h"
 #include "colosseum_internal.h"
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "communication_core.h"
 #include "communication_player_state.h"
 #include "dialog_box.h"
@@ -41,7 +42,6 @@ enum ColosseumTrainerCardState {
     COLOSSEUM_CARD_STATE_FINISH,
 };
 
-void CommState_SetSelectedOrder(u8 *selectedOrder);
 void CommPlayerManager_ResyncLocalPlayer(void);
 void CommPlayerManager_FaceRoomCenter(void);
 void CommPlayerManager_ResumeField(void);

@@ -6,6 +6,7 @@
 #include "application/main_menu/mystery_gift_app_internal.h"
 
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "comm_wireless.h"
 #include "heap.h"
 #include "network_overlay_loader.h"
@@ -50,8 +51,6 @@ int DWC_NdGetFileListAsync(void *fileList, int start, int count);
 int DWC_NdGetFileAsync(void *fileInfo, void *buffer, int size);
 int DWC_NdCancelAsync(void);
 int DWC_NdGetProgress(u32 *received, u32 *total);
-void CommState_InitMysteryGiftWfcSession(SaveData *saveData);
-void CommState_FreeMysteryGiftWfcSession(void);
 
 extern MysteryGiftWfcStatus gMysteryGiftWfcStatus;
 extern const char gStr_IPGE[];

@@ -17,6 +17,7 @@
 #include "brightness.h"
 #include "char_tiles.h"
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "communication_core.h"
 #include "communication_player_state.h"
 #include "field_bgm.h"
@@ -90,11 +91,6 @@
 
 void WirelessTrade_RegisterCommands(FieldSystem *fieldSystem);
 void WirelessTrade_SetWork(FieldSystem *fieldSystem, WirelessTradeSelectMon *work);
-
-void CommState_FrameDummy(enum HeapID heapID, BgConfig *bgConfig);
-void Comm_InitSyncedSave(s32 *state);
-BOOL Comm_SyncedSave(SaveData *saveData, s32 unused, s32 *state);
-void Comm_StoreFriendFromPlayer(SaveData *saveData, s32 netId, s32 slot, enum HeapID heapID, u32 mode);
 
 static void WirelessTradeSelectMon_LoadMonIconGfx(NNSG2dCharacterData *charData, u32 species, u32 form, u32 isEgg, u32 slot, Sprite *sprite);
 static void WirelessTradeSelectMon_PrintPlayerNames(WirelessTradeSelectMon *work);

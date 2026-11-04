@@ -4,6 +4,7 @@
 
 #include "dwc/dwc_main_internal.h"
 
+#include "comm_state_internal.h"
 #include "comm_wireless.h"
 #include "communication_command.h"
 #include "communication_core_internal.h"
@@ -20,8 +21,6 @@
 
 int CommState_GetLinkMode(void);
 void CommState_SetErrorWatch(BOOL watchMembers, BOOL reportErrors);
-void CommState_CheckLinkError(int unused);
-void CommState_Main(void);
 void LinkSync_Free(void);
 void LinkSync_Update(void);
 

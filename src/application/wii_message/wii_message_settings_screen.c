@@ -16,6 +16,7 @@
 #include "msgdata/msg/msg_0800.h"
 
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "font.h"
 #include "gf_gfx_loader.h"
 #include "oam_manager.h"
@@ -159,10 +160,6 @@ typedef struct WiiMessageSettingsSubBgTemplates {
     BgTemplate bg0;
     BgTemplate bg1;
 } WiiMessageSettingsSubBgTemplates;
-
-void CommState_InitWiiMessageWfcSession(SaveData *saveData);
-void CommState_FreeWiiMessageWfcSession(void);
-void CommState_ShowRestartErrorAndHalt(void);
 
 enum WiiMessageSettingsScreenMainState {
     WII_MESSAGE_SETTINGS_SCREEN_MAIN_WAIT_FADE_IN,

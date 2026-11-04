@@ -5,6 +5,7 @@
 #include "application/main_menu/mystery_gift_app.h"
 #include "application/main_menu/mystery_gift_app_internal.h"
 
+#include "comm_state_internal.h"
 #include "comm_wireless.h"
 #include "communication_command.h"
 #include "communication_player_state.h"
@@ -39,12 +40,7 @@ extern u16 Comm_GetLocalNetId(void);
 extern int Comm_IsNetIdConnected(u16 slot);
 extern BOOL Comm_IsActive(void);
 extern void CommRandom_Init(void *seed);
-extern void CommState_ConnectToSlot(int slot);
-extern int CommState_IsLinked(void);
-extern void CommState_RequestShutdown(void);
 extern int Comm_SendParentCommandNoCopy(int command, void *data, int size);
-extern void CommState_StartMysteryGiftParent(SaveData *saveData, s8 linkMode);
-extern void CommState_StartMysteryGiftChild(SaveData *saveData, s8 linkMode);
 
 static const CommCommand sMysteryGiftCommCommands[2] = {
     {

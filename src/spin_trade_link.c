@@ -3,6 +3,7 @@
 #include "global.h"
 
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "communication_command.h"
 #include "communication_core.h"
 #include "communication_player_state.h"
@@ -18,7 +19,6 @@ typedef struct SpinTradeJoinRequest {
 } SpinTradeJoinRequest;
 
 u32 MATH_CountPopulation(u32 value);
-void CommState_SetMaxEntries(int count);
 typedef void (*SpinTradeLinkPacketHandler)(int, int, void *, SpinTradeLink *);
 static BOOL SpinTradeLink_SendPacket(SpinTradeLink *link, u32 command, void *data, u32 size);
 static void SpinTradeLink_ReceivePacket(int sender, int size, void *data, void *context);

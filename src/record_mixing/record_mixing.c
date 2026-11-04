@@ -12,6 +12,7 @@
 #include "assert.h"
 #include "bg_window.h"
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "communication_core.h"
 #include "communication_player_state.h"
 #include "font.h"
@@ -180,11 +181,6 @@ static void RecordMixing_FreeAvatarGraphics(RecordMixingApp *app);
 static int RecordMixing_GetTextSpeed(RecordMixingApp *app);
 static void RecordMixing_UpdateMaxEntries(RecordMixingApp *app, int index);
 static int RecordMixing_LeaderUpdateMembers(RecordMixingApp *app, int index);
-
-void CommState_SetRecordMixingLinkMode(void);
-void CommState_SetMaxEntries(int count);
-void Comm_InitSyncedSave(s32 *state);
-BOOL Comm_SyncedSave(SaveData *saveData, s32 arg1, s32 *state);
 
 int RecordMixing_State_AbortLeave(RecordMixingApp *app, int state);
 int RecordMixing_GetMemberCount(void);

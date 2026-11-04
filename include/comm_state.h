@@ -27,7 +27,6 @@ void *Comm_GetOwnGsProfileId(FriendRoster *wifiList);
 void CommState_SetErrorWatch(BOOL watchMembers, BOOL reportErrors);
 void CommState_SetWifiClubLinkMode(void);
 void CommState_LeaveWifiMatch(void);
-BOOL CommState_GetWifiMatchStatus(void);
 void Comm_SetWifiContinuousSend(int value);
 void CommState_SetClubWifiLinkMode(void);
 void CommState_SetWifiPeerLinkMode29(void);

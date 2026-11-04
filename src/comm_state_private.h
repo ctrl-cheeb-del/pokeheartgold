@@ -57,8 +57,8 @@ DWCFriendData *FriendRoster_GetDwcFriendData(WiFiList *data, int index);
 
 #endif // POKEHEARTGOLD_FRIEND_ROSTER_H
 
-#ifndef POKEHEARTGOLD_PR488_PRIVATE_H
-#define POKEHEARTGOLD_PR488_PRIVATE_H
+#ifndef POKEHEARTGOLD_COMM_STATE_PRIVATE_H
+#define POKEHEARTGOLD_COMM_STATE_PRIVATE_H
 
 #include "friend_roster.h"
 #include "save.h"
@@ -131,32 +131,14 @@ int WiFiPlazaLobbyClient_IsInLobby(void);
 int WiFiPlazaLobbyClient_Update(void);
 int WiFiPlazaLobbyClient_IsDisconnected(void);
 
-u32 CommState_GetSyncPacketSize(void);
 void CommState_Init(SaveData *saveData, s8 linkMode);
 void CommState_Free(void);
 BOOL CommState_Exists(void);
-void CommState_StartParentSession(SaveData *saveData, s8 linkMode, s8 beaconId, LinkBattleRuleset *rules);
-void CommState_StartChildSession(SaveData *saveData, s8 linkMode, s8 beaconId, LinkBattleRuleset *rules);
-void CommState_ConnectToSlot(s8 slot);
-void CommState_RestartScan(void);
 void CommState_ShutdownWait(void);
-void CommState_RequestShutdown(void);
-s32 CommState_IsLinked(void);
-void CommState_StartAlternateSearch(SaveData *saveData);
-void CommState_JoinParent(s8 slot);
-s32 CommState_GetJoinResult(void);
-s32 CommState_IsAlternateLinked(void);
-s32 CommState_IsAlternateSearchReady(void);
-void CommState_StopAlternateSearch(void);
 void CommState_SetEntry(u32 enabled);
 void CommState_ResumeAlternateSearch(void);
 void CommState_RefuseJoins(void);
 void CommState_RefuseJoinsAndRestart(void);
-void CommState_SetUnionAppLinkMode(void);
-void CommState_SetUnionRoomLinkMode(void);
-void CommState_StartMysteryGiftParent(SaveData *saveData, s8 linkMode);
-void CommState_StartMysteryGiftChild(SaveData *saveData, s8 linkMode);
-void CommState_Main(void);
 void CommState_SetState(void (*func)(), int timer);
 void CommState_EndWireless(void);
 void CommState_StopWireless(void);
@@ -193,27 +175,14 @@ void CommState_JoinFailed(void);
 void CommState_JoinRetry(void);
 void CommState_AlternateLinked(void);
 void CommState_RestartIdle(void);
-void CommState_SetLinkMode13RequestMode0(void);
-void CommState_ReconnectToParent(s8 slot);
-void CommState_SetRecordMixingLinkMode(void);
-void CommState_JoinRecordMixing(s8 slot);
-void CommState_SetSpinTradeLinkMode(void);
-void CommState_JoinSpinTrade(s8 slot);
 void CommState_ReconnectStop(void);
 void CommState_ReconnectScan(void);
 void CommState_ReconnectWaitParent(void);
 void CommState_ReconnectWaitLinked(void);
-void CommState_RecvJoinRequest(int netId, int size, void *data, void *context);
-void CommState_RecvJoinReply(int netId, int size, void *data, void *context);
-u32 CommState_GetJoinMessageSize(void);
-void CommState_SetMaxEntries(s8 maxEntries);
 void CommState_BeaconWatch(void);
 void CommState_OnBeacon(u32 ggid, s32 info);
 void CommState_BeaconWatchScan(void);
 void CommState_BeaconWatchInit(void);
-void CommState_StartBeaconWatch(SaveData *saveData);
-void CommState_StopBeaconWatch(void);
-u8 CommState_GetSeenGames(void);
 BOOL CommState_StopForReset(void);
 void CommState_MysteryGiftParentStart(void);
 void CommState_MysteryGiftChildStart(void);
@@ -223,14 +192,11 @@ void CommState_WifiDisconnected(void);
 void CommState_WifiCancelled(void);
 void CommState_WifiConnected(void);
 
-void CommState_SetWifiError(u32 error, s32 type, s32 status);
 void CommState_WifiLobby(void);
 void CommState_WifiStartMatch(void);
 s32 CommState_StartWifiMatch(s32 friendIndex);
-s32 CommState_GetWifiMatchStatus(void);
 void CommState_WifiJoinLobby(void);
 void CommState_WifiDisconnect(void);
-void CommState_RecvWifiDisconnect(int netId, int size, void *data, void *context);
 u8 CommState_WasWifiDisconnected(void);
 BOOL CommState_IsWifiJoiningLobby(void);
 BOOL CommState_IsWifiInLobby(void);
@@ -241,43 +207,23 @@ void CommState_LeaveWifiMatch(void);
 void CommState_EndWifiMatch(void);
 void CommState_SendWifiDisconnect(void);
 BOOL CommState_HasWifiFailed(void);
-void CommState_InitWfcSession(SaveData *saveData);
-void CommState_FreeWfcSession(void);
-void CommState_InitMysteryGiftWfcSession(SaveData *saveData);
-void CommState_FreeMysteryGiftWfcSession(void);
-void CommState_InitWiiMessageWfcSession(SaveData *saveData);
-void CommState_FreeWiiMessageWfcSession(void);
 BOOL CommState_CheckDwcError(void);
 void CommState_WifiLogin(void);
 void CommState_WifiClubStart(void);
 WifiClubStatusData *CommState_StartWifiClub(SaveData *saveData, u32 dataSize);
 void CommState_StartWifiPlaza(SaveData *saveData, const struct WiFiPlazaPlayer *player);
-void CommState_LeaveWifiPlaza(void);
-u8 CommState_HasPlazaLobbyStarted(void);
-BOOL CommState_HasPlazaLobbyFailed(void);
-void CommState_StartPlazaMatch(s32 index);
-void CommState_EndPlazaMatch(void);
-s32 CommState_GetPlazaMatchStatus(void);
 WifiClubStatusData *CommState_GetWifiClubData(void);
 void CommState_SetErrorWatch(BOOL watchMembers, BOOL reportErrors);
-BOOL CommState_ReportsErrors(void);
 u8 CommState_GetLinkMode(void);
 u8 CommState_GetBeaconId(void);
-void CommState_SetSelectedOrder(void *order);
-void CommState_GetSelectedOrder(void *order);
 int CommState_IsWifi(void);
 
 void CommState_SetErrorScreen(s8 errorScreen);
 u8 CommState_GetErrorScreen(void);
-void CommState_ShowErrorAndHalt(u32 errorCode);
-void CommState_ShowRestartErrorAndHalt(void);
-void CommState_FrameDummy(enum HeapID heapID, BgConfig *bgConfig);
-void CommState_CheckLinkError(int unused);
 BOOL CommState_IsLinkDown(void);
 BOOL CommState_SetError(int errorKind);
 void CommState_SetWifiPeerLinkMode29(void);
 void CommState_SetClubWifiLinkMode(void);
-void CommState_SetPlazaLinkMode(void);
 void CommState_SetWifiClubLinkMode(void);
 void CommState_SetSingleBattleWifiLinkMode(void);
 void CommState_PlazaStart(void);
@@ -295,20 +241,14 @@ void CommState_PlazaMatching(void);
 void CommState_PlazaEndMatch(void);
 void CommState_PlazaTimedOut(void);
 void CommState_SetFrontierWifiLinkMode(void);
-void Comm_InitSyncedSave(s32 *state);
-BOOL Comm_SyncedSave(SaveData *saveData, s32 arg1, s32 *state);
 void Comm_RecordPlayerLocations(SaveWiFiHistory *wifiHistory);
 void Comm_MarkLocationSeen(SaveWiFiHistory *history, s32 country, s32 region, u8 language);
 s32 Comm_InitDwc(enum HeapID heapID);
 s32 Comm_LoadAndInitDwc(enum HeapID heapID);
-void Comm_EnsureDwcUserData(WiFiList *wifiList);
 int Comm_GetOwnGsProfileId(WiFiList *wifiList);
 BOOL Comm_HasWifiProfile(SaveData *saveData);
 s32 Comm_FindFriendSlot(SaveData *saveData, DWCFriendData *exchangeToken, s32 *slot);
-int Comm_FindFriendSlotByKey(SaveData *saveData, u64 friendKey, int *slot);
 s32 Comm_RegisterLinkedFriends(SaveData *saveData, s32 *results, enum HeapID heapID);
-void Comm_StoreFriendFromPlayer(SaveData *saveData, s32 netId, s32 slot, enum HeapID heapID, u32 mode);
-s32 Comm_FindFriendIndexOfPlayer(SaveData *saveData, s32 netId);
 
 int WiFiPlazaLobbyClient_IsMatchHost(void);
 void WiFiPlazaLobbyClient_StopMatch(void);
@@ -320,4 +260,4 @@ void Comm_RecvParentFrameCallback(void);
 void Comm_RecvChildFrameCallback(void);
 void Comm_RecvPeerFrameCallback(void);
 
-#endif // POKEHEARTGOLD_PR488_PRIVATE_H
+#endif // POKEHEARTGOLD_COMM_STATE_PRIVATE_H

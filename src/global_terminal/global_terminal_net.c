@@ -15,6 +15,7 @@
 #include "battle_record.h"
 #include "dwc/net_common_internal.h"
 #include "global_terminal/global_terminal_server.h"
+#include "comm_state_internal.h"
 #include "heap.h"
 #include "message_format.h"
 #include "msgdata.h"
@@ -25,8 +26,6 @@
 #include "save.h"
 #include "string_util.h"
 #include "system.h"
-
-void CommState_FreeWfcSession(void);
 
 // 20001 response: list of dress-up photos
 typedef struct GlobalTerminalNetDressUpEntry {

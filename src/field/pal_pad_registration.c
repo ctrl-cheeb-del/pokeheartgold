@@ -8,6 +8,7 @@
 
 #include "bag.h"
 #include "comm_state.h"
+#include "comm_state_internal.h"
 #include "communication_core.h"
 #include "communication_player_state.h"
 #include "dialog_box.h"
@@ -21,8 +22,6 @@
 #include "render_window.h"
 #include "task.h"
 #include "text.h"
-
-void Comm_StoreFriendFromPlayer(SaveData *saveData, u32 netId, int slot, enum HeapID heapID, int mode);
 
 enum PalPadRegistrationState {
     PAL_PAD_REGISTRATION_STATE_START,

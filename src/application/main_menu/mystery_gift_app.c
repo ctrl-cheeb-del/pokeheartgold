@@ -25,6 +25,7 @@
 #include "msgdata/msg/msg_0800.h"
 
 #include "bg_window.h"
+#include "comm_state_internal.h"
 #include "comm_wireless.h"
 #include "communication_core.h"
 #include "font.h"
@@ -149,9 +150,6 @@ typedef struct MysteryGiftLinkState {
 } MysteryGiftLinkState;
 
 BOOL CTRDG_IsExisting(void);
-extern void CommState_StartBeaconWatch(SaveData *saveData);
-extern void CommState_StopBeaconWatch(void);
-extern u32 CommState_GetSeenGames(void);
 extern void CommState_SetErrorWatch(BOOL watchMembers, BOOL reportErrors);
 
 static MysteryGiftLinkState sMysteryGiftLinkState;

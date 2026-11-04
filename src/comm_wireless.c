@@ -7,6 +7,7 @@
 
 #include "constants/comm_type.h"
 
+#include "comm_state_internal.h"
 #include "communication_command.h"
 #include "communication_core.h"
 #include "communication_player_state.h"
@@ -117,7 +118,6 @@ int WVR_TerminateAsync(void (*callback)(void *), void *arg);
 
 int CommState_GetLinkMode(void);
 u8 CommState_GetBeaconId(void);
-void CommState_ShowErrorAndHalt(u32);
 void Comm_RecvChildFrameCallback(int netId, const u8 *data, int size);
 void Comm_RecvParentFrameCallback(int netId, const u8 *data, int size);
 

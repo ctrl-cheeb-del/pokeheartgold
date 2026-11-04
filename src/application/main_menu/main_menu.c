@@ -12,6 +12,7 @@
 #include "msgdata/msg/msg_0800.h"
 
 #include "bg_window.h"
+#include "comm_state_internal.h"
 #include "font.h"
 #include "gf_gfx_loader.h"
 #include "main.h"
@@ -114,9 +115,6 @@ typedef struct MainMenuButton {
 
 extern void Sound_SetBGMPlayerChannels(u32 mode);
 extern void SystemCard_RebootIntoFile(const char *path);
-extern void CommState_StartBeaconWatch(SaveData *saveData);
-extern void CommState_StopBeaconWatch(void);
-extern u32 CommState_GetSeenGames(void);
 
 extern BOOL CTRDG_IsExisting();
 
