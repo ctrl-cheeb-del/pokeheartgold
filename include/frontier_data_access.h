@@ -4,33 +4,6 @@
 #include "frontier_wifi_upload_record.h"
 #include "scrcmd_9.h"
 
-struct BattleRoomDownload;
-typedef struct BattleTowerChallenge BattleTowerChallenge;
-
-// One trainer of a downloaded Wi-Fi Battle Room.
-typedef struct BattleRoomTrainer {
-    u8 team[0xA8];
-    u16 name[16];
-    u8 useDefaultName : 1, gender : 1, pad : 6;
-    u8 trainerClass;
-    u8 messages[24];
-    u16 score;
-} BattleRoomTrainer;
-
-// One leader of a downloaded Wi-Fi Battle Room.
-typedef struct BattleRoomLeader {
-    u16 name[PLAYER_NAME_LENGTH + 1];
-    u8 padding_10[2];
-    u8 country;
-    u8 region;
-    u8 padding_14[4];
-    u8 greeting[8];
-    u8 useDefaultName : 1;
-    u8 gender : 1;
-    u8 unk_20_2 : 6;
-    u8 unk_21;
-} BattleRoomLeader;
-
 // The Wi-Fi download of one room: its trainers (BattleRoomDownload_SetTrainers) and leaders (_SetLeaders).
 typedef struct BattleRoomDownloadData {
     BattleRoomTrainer trainers[7];
@@ -53,9 +26,9 @@ enum BattleTowerChallengeField {
 
 u32 BattleRoomTrainer_sizeof(void);
 void BattleTowerChallenge_Clear(BattleTowerChallenge *challenge);
-void FrontierData_Reset(void *data);
-void TowerMessages_Init(void *data);
-void BattleRoomDownload_Init(void *data);
+void FrontierData_Reset(FrontierData *frontierData);
+void TowerMessages_Init(MailMessage *messages);
+void BattleRoomDownload_Init(BattleRoomDownload *download);
 u32 BattleTowerChallenge_GetField(BattleTowerChallenge *challenge, enum BattleTowerChallengeField field, void *out);
 void BattleTowerChallenge_SetField(BattleTowerChallenge *challenge, enum BattleTowerChallengeField field, void *value);
 void BattleTowerChallenge_AddWifiScoreCounters(BattleTowerChallenge *challenge, u8 timesFainted, u32 turns, u32 damage);
@@ -75,17 +48,17 @@ void FrontierData_SetTowerSeed(FrontierData *data, u32 value);
 u32 FrontierData_GetTowerSeed(FrontierData *data);
 void Save_Frontier_SetTowerMessage(SaveData *saveData, int index, MailMessage *mailMessage);
 MailMessage *Save_Frontier_GetTowerMessage(SaveData *save, u32 index);
-void BattleRoomDownload_MarkRoom(struct BattleRoomDownload *download, u32 rank, u32 room, const RTCDate *date);
-BOOL BattleRoomDownload_IsRoomMarked(struct BattleRoomDownload *download, u32 rank, u32 room, const RTCDate *date);
-u32 BattleRoomDownload_HasTrainers(u32 download);
-u32 BattleRoomDownload_HasLeaders(u32 download);
-void BattleRoomDownload_SetTrainers(struct BattleRoomDownload *download, const BattleRoomTrainer *trainers, u32 rank, u32 room);
-void BattleRoomDownload_GetTrainersRoom(struct BattleRoomDownload *download, u8 *out);
-void BattleRoomDownload_GetTrainer(u32 addr, FrontierTrainer *trainer, int index);
-void BattleRoomDownload_SetLeaders(struct BattleRoomDownload *download, const BattleRoomLeader *leaders, u32 rank, u32 room);
-void BattleRoomDownload_GetLeadersRoom(u32 addr, u8 *out);
-BattleRoomLeader *BattleRoomDownload_CopyLeaders(u32 addr, enum HeapID heapID);
+void BattleRoomDownload_MarkRoom(BattleRoomDownload *download, u32 rank, u32 room, const RTCDate *date);
+BOOL BattleRoomDownload_IsRoomMarked(BattleRoomDownload *download, u32 rank, u32 room, const RTCDate *date);
+u32 BattleRoomDownload_HasTrainers(BattleRoomDownload *download);
+u32 BattleRoomDownload_HasLeaders(BattleRoomDownload *download);
+void BattleRoomDownload_SetTrainers(BattleRoomDownload *download, const BattleRoomTrainer *trainers, u32 rank, u32 room);
+void BattleRoomDownload_GetTrainersRoom(BattleRoomDownload *download, u8 *out);
+void BattleRoomDownload_GetTrainer(BattleRoomDownload *download, FrontierTrainer *trainer, int index);
+void BattleRoomDownload_SetLeaders(BattleRoomDownload *download, const BattleRoomLeader *leaders, u32 rank, u32 room);
+void BattleRoomDownload_GetLeadersRoom(BattleRoomDownload *download, u8 *out);
+BattleRoomLeader *BattleRoomDownload_CopyLeaders(BattleRoomDownload *download, enum HeapID heapID);
 BattleTowerChallenge *Save_BattleTowerChallenge_Get(SaveData *saveData);
-u32 Save_BattleRoomDownload_Get(SaveData *saveData);
+BattleRoomDownload *Save_BattleRoomDownload_Get(SaveData *saveData);
 
 #endif // POKEHEARTGOLD_FRONTIER_DATA_ACCESS_H

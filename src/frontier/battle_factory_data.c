@@ -42,7 +42,7 @@ static const u8 sBattleFactoryMultiBattlePoints[12] = { 0, 10, 11, 12, 13, 16, 1
 BattleFactoryData *BattleFactoryData_Alloc(SaveData *saveData, int resume, u8 type, u8 levelMode) {
     BattleFactoryData *data;
     FactoryChallenge *challenge;
-    int flags;
+    u8 *flags;
 
     gBattleFactoryData = Heap_Alloc(HEAP_ID_FIELD2, sizeof(BattleFactoryData));
     MI_CpuFill8(gBattleFactoryData, 0, sizeof(BattleFactoryData));
@@ -285,7 +285,7 @@ void BattleFactoryData_SaveRecord(BattleFactoryData *data, int mode) {
         u32 word;
         u8 padding_10[12];
     } value;
-    int flags = Save_Frontier_GetFactoryFlags(data->saveData);
+    u8 *flags = Save_Frontier_GetFactoryFlags(data->saveData);
     FrontierSave *frontier = Save_Frontier_GetStatic(data->saveData);
     u16 i;
     u32 count;

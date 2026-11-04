@@ -1460,7 +1460,7 @@ static BOOL WiiMessageSettingsScreen_StartServerSession(WiiMessageSettingsScreen
     u64 friendKey;
 
     if (Save_SysInfo_GetDwcProfileId(sysInfo) == 0) {
-        Save_SysInfo_SetDwcProfileId(sysInfo, (s32)Comm_GetOwnGsProfileId(wifiList));
+        Save_SysInfo_SetDwcProfileId(sysInfo, Comm_GetOwnGsProfileId(wifiList));
     }
     profileId = Save_SysInfo_GetDwcProfileId(sysInfo);
     friendKey = DWC_CreateFriendKey(userData);

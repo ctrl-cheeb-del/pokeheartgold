@@ -77,8 +77,6 @@ enum NintendoWfcUnusedState {
     NINTENDO_WFC_UNUSED_STATE_WAIT_ERROR_DISMISS,
 };
 
-typedef struct BattleRoomDownload BattleRoomDownload;
-
 typedef struct NintendoWfcUnused {
     NintendoWifiConnectArgs *args;
     BgConfig *bgConfig;

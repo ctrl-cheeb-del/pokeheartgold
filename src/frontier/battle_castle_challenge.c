@@ -55,7 +55,7 @@ BattleCastleData *BattleCastleData_Alloc(SaveData *saveData, BOOL resume, u8 typ
     Party *party;
     Pokemon *mon;
     FrontierSave *frontierSave;
-    u32 castleFlags;
+    u8 *castleFlags;
     u16 i;
     u32 item, exp, stat;
     int count;
@@ -276,7 +276,7 @@ static u16 BattleCastleAppArgs_GetSelection(BattleCastleAppArgs *args, u32 index
 
 void BattleCastleData_Save(BattleCastleData *data, int mode) {
     u32 count;
-    u32 castleFlags = Save_Frontier_GetCastleFlags(data->saveData);
+    u8 *castleFlags = Save_Frontier_GetCastleFlags(data->saveData);
     FrontierSave *frontierSave = Save_Frontier_GetStatic(data->saveData);
     struct {
         u16 half;

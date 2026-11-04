@@ -11,60 +11,6 @@
 #include "mail_message.h"
 #include "msgdata.h"
 
-// The Battle Tower challenge in progress (fields addressed by enum BattleTowerChallengeField).
-struct BattleTowerChallenge {
-    u8 allyReplaceItem : 1;
-    u8 saved : 1; // BattleTowerChallenge_GetSaved / SetSaved
-    u8 towerMode : 3;
-    u8 multiAllyId : 3;
-    u8 unk1;
-    u8 battleNumber;
-    u8 totalTimesFainted; // 20 points each off the Wi-Fi score
-    u16 totalTurns;       // 10 points each off the Wi-Fi score
-    u16 totalDamage;      // the last part of the Wi-Fi score
-    u8 partySlots[4];
-    u8 trainers[28]; // 14 trainer ids
-    u32 randomState;
-    u8 multiAllyData[16];
-};
-
-struct FrontierData {
-    u16 battlePoints;
-    u8 wifiStreak;
-    u8 wifiRank; // 1..10
-    u32 towerSeed;
-
-    union {
-        u16 flags;
-
-        struct {
-            u16 pad : 4, wifiStreakActive : 1, pad2 : 11;
-        } bits;
-    } state;
-
-    u16 towerRounds[6]; // per tower mode
-    u16 wifiScore;
-    FrontierMon wifiTeams[2][3];
-};
-
-typedef struct BattleRoomDownload {
-    u32 markDate;      // year, month, day, hour of the last mark, one byte each
-    u8 roomMarks[250]; // one bit per (rank 1..10, room 1..200)
-    u8 hasTrainers, hasLeaders;
-    u8 trainersRoom, trainersRank, leadersRoom, leadersRank;
-    BattleRoomTrainer trainers[7];
-    BattleRoomLeader leaders[30];
-} BattleRoomDownload;
-
-typedef struct BattleTowerOpponent {
-    u32 id;
-    u16 trainerClass;
-    u8 pad6[2];
-    u16 name[8];
-    u8 messages[24];
-    u8 team[0xA8];
-} BattleTowerOpponent;
-
 static void BattleRoomDownload_ClearRoomMarks(BattleRoomDownload *download);
 static BOOL BattleRoomDownload_IsDateNewer(const RTCDate *date, const RTCDate *stored);
 
@@ -83,23 +29,20 @@ void BattleTowerChallenge_Clear(BattleTowerChallenge *challenge) {
     MI_CpuFill8(challenge, 0, sizeof(BattleTowerChallenge));
 }
 
-void FrontierData_Reset(void *data) {
-    FrontierData *frontierData = data;
-
+void FrontierData_Reset(FrontierData *frontierData) {
     MI_CpuFill8(frontierData, 0, sizeof(FrontierData));
     frontierData->wifiRank = 1;
 }
 
-void TowerMessages_Init(void *data) {
-    MailMessage *messages = data;
+void TowerMessages_Init(MailMessage *messages) {
     int i;
     for (i = 0; i < 4; i++) {
         MailMsg_Init_FromTemplate(&messages[i], &sTowerMessageTemplates[i]);
     }
 }
 
-void BattleRoomDownload_Init(void *data) {
-    MI_CpuFill8(data, 0, sizeof(BattleRoomDownload));
+void BattleRoomDownload_Init(BattleRoomDownload *download) {
+    MI_CpuFill8(download, 0, sizeof(BattleRoomDownload));
 }
 
 u32 BattleTowerChallenge_GetField(BattleTowerChallenge *tower, enum BattleTowerChallengeField field, void *out) {
@@ -381,12 +324,12 @@ u32 FrontierData_GetTowerSeed(FrontierData *data) {
 }
 
 void Save_Frontier_SetTowerMessage(SaveData *save, int index, MailMessage *message) {
-    MailMessage *messages = (MailMessage *)((u8 *)Save_Frontier_GetStatic(save) + 0xABC);
+    MailMessage *messages = Save_Frontier_GetStatic(save)->towerMessages;
     MailMsg_Copy(&messages[index], message);
 }
 
 MailMessage *Save_Frontier_GetTowerMessage(SaveData *save, u32 index) {
-    MailMessage *messages = (MailMessage *)((u8 *)Save_Frontier_GetStatic(save) + 0xABC);
+    MailMessage *messages = Save_Frontier_GetStatic(save)->towerMessages;
     return &messages[index];
 }
 
@@ -451,12 +394,12 @@ BOOL BattleRoomDownload_IsRoomMarked(BattleRoomDownload *download, u32 rank, u32
     return FALSE;
 }
 
-u32 BattleRoomDownload_HasTrainers(u32 download) {
-    return ((BattleRoomDownload *)download)->hasTrainers;
+u32 BattleRoomDownload_HasTrainers(BattleRoomDownload *download) {
+    return download->hasTrainers;
 }
 
-u32 BattleRoomDownload_HasLeaders(u32 download) {
-    return ((BattleRoomDownload *)download)->hasLeaders;
+u32 BattleRoomDownload_HasLeaders(BattleRoomDownload *download) {
+    return download->hasLeaders;
 }
 
 void BattleRoomDownload_SetTrainers(BattleRoomDownload *download, const BattleRoomTrainer *trainers, u32 rank, u32 room) {
@@ -471,24 +414,22 @@ void BattleRoomDownload_GetTrainersRoom(BattleRoomDownload *download, u8 *out) {
     out[1] = download->trainersRoom;
 }
 
-void BattleRoomDownload_GetTrainer(u32 addr, FrontierTrainer *trainer, int index) {
-    BattleRoomDownload *download = (BattleRoomDownload *)addr;
-    BattleTowerOpponent *out = (BattleTowerOpponent *)trainer;
+void BattleRoomDownload_GetTrainer(BattleRoomDownload *download, FrontierTrainer *trainer, int index) {
     BattleRoomTrainer *roomTrainer = &download->trainers[index];
-    u8 *team = out->team;
-    out->id = 10000;
-    out->trainerClass = roomTrainer->trainerClass;
+    FrontierMon *team = trainer->frontierMons;
+    trainer->index = 10000;
+    trainer->trainerClass = roomTrainer->trainerClass;
     if (roomTrainer->useDefaultName) {
         MsgData *msg = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0028_bin, HEAP_ID_FIELD2);
-        ReadMsgDataIntoU16Array(msg, roomTrainer->gender + msg_0028_00033, out->name);
+        ReadMsgDataIntoU16Array(msg, roomTrainer->gender + msg_0028_00033, trainer->name);
         DestroyMsgData(msg);
     } else {
-        MI_CpuCopy8(roomTrainer->name, out->name, 16);
+        MI_CpuCopy8(roomTrainer->name, trainer->name, 16);
     }
-    MI_CpuCopy8(roomTrainer->messages, out->messages, 8);
-    MI_CpuCopy8(roomTrainer->messages + 8, out->messages + 8, 8);
-    MI_CpuCopy8(roomTrainer->messages + 16, out->messages + 16, 8);
-    MI_CpuCopy8(roomTrainer->team, team, 0xA8);
+    MI_CpuCopy8(roomTrainer->messages, &trainer->introMessage, sizeof(MailMessage));
+    MI_CpuCopy8(roomTrainer->messages + 8, &trainer->winMessage, sizeof(MailMessage));
+    MI_CpuCopy8(roomTrainer->messages + 16, &trainer->loseMessage, sizeof(MailMessage));
+    MI_CpuCopy8(roomTrainer->team, team, sizeof(roomTrainer->team));
 }
 
 void BattleRoomDownload_SetLeaders(BattleRoomDownload *download, const BattleRoomLeader *leaders, u32 rank, u32 room) {
@@ -498,27 +439,25 @@ void BattleRoomDownload_SetLeaders(BattleRoomDownload *download, const BattleRoo
     download->hasLeaders = 1;
 }
 
-void BattleRoomDownload_GetLeadersRoom(u32 addr, u8 *out) {
-    BattleRoomDownload *download = (BattleRoomDownload *)addr;
+void BattleRoomDownload_GetLeadersRoom(BattleRoomDownload *download, u8 *out) {
     out[0] = download->leadersRank;
     out[1] = download->leadersRoom;
 }
 
-BattleRoomLeader *BattleRoomDownload_CopyLeaders(u32 addr, enum HeapID heapID) {
-    BattleRoomDownload *download = (BattleRoomDownload *)addr;
+BattleRoomLeader *BattleRoomDownload_CopyLeaders(BattleRoomDownload *download, enum HeapID heapID) {
     BattleRoomLeader *out = Heap_Alloc(heapID, sizeof(download->leaders));
     MI_CpuCopy8(download->leaders, out, sizeof(download->leaders));
     return out;
 }
 
 BattleTowerChallenge *Save_BattleTowerChallenge_Get(SaveData *save) {
-    return (BattleTowerChallenge *)((u8 *)Save_Frontier_GetStatic(save) + 0x8E0);
+    return &Save_Frontier_GetStatic(save)->challenge.tower;
 }
 
 FrontierData *Save_FrontierData_Get(SaveData *save) {
-    return (FrontierData *)((u8 *)Save_Frontier_GetStatic(save) + 0x954);
+    return &Save_Frontier_GetStatic(save)->frontierData;
 }
 
-u32 Save_BattleRoomDownload_Get(SaveData *save) {
-    return (u32)Save_Frontier_GetStatic(save) + 0xADC;
+BattleRoomDownload *Save_BattleRoomDownload_Get(SaveData *save) {
+    return &Save_Frontier_GetStatic(save)->battleRoomDownload;
 }

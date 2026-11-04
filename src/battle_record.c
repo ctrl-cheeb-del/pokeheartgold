@@ -548,7 +548,7 @@ void FactoryChallenge_Clear(FactoryChallenge *challenge) {
 }
 
 FactoryChallenge *Save_Frontier_GetFactoryChallenge(SaveData *save) {
-    return (FactoryChallenge *)((u8 *)Save_Frontier_GetStatic(save) + 0x8e0);
+    return &Save_Frontier_GetStatic(save)->challenge.factory;
 }
 
 u32 FactoryChallenge_GetSaved(FactoryChallenge *challenge) {

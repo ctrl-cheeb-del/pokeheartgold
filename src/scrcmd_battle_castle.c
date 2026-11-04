@@ -45,7 +45,7 @@ typedef struct FrontierSelectMonsEnv {
     void **appArgs;
 } FrontierSelectMonsEnv;
 
-static void BattleCastle_ResetStreak(SaveData *, u32, u8);
+static void BattleCastle_ResetStreak(SaveData *, u8 *, u8);
 static void BattleCastle_StartTeamCheck(TaskManager *, u16, u16, u16 *);
 static BOOL Task_BattleCastleTeamCheck(TaskManager *);
 static void BattleCastle_StartSelectMons(TaskManager *, void *, BattleCastleChallengeType);
@@ -68,7 +68,7 @@ BOOL ScrCmd_BattleCastleAction(ScriptContext *ctx) {
     u16 arg1 = ScriptGetVar(ctx);
     u16 *result = ScriptGetVarPointer(ctx);
     Save_Frontier_GetCastleChallenge(ctx->fieldSystem->saveData);
-    u32 castleFlags = Save_Frontier_GetCastleFlags(ctx->fieldSystem->saveData);
+    u8 *castleFlags = Save_Frontier_GetCastleFlags(ctx->fieldSystem->saveData);
     void *appArgs = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     switch (command) {
     case 0:
@@ -110,7 +110,7 @@ BOOL ScrCmd_BattleCastleResetStreak(ScriptContext *ctx) {
     return FALSE;
 }
 
-static void BattleCastle_ResetStreak(SaveData *saveData, u32 castleFlags, u8 challengeType) {
+static void BattleCastle_ResetStreak(SaveData *saveData, u8 *castleFlags, u8 challengeType) {
     u8 unk;
     unk = 0;
     CastleFlags_SetField(castleFlags, 9, challengeType, 0, &unk);

@@ -4,6 +4,7 @@
 #include "frontier_data.h"
 #include "mail_message.h"
 #include "save.h"
+#include "save_frontier.h"
 
 #define TOWER_MODE_SINGLE        0
 #define TOWER_MODE_DOUBLE        1
@@ -13,43 +14,15 @@
 #define TOWER_MODE_WIFI_PRACTICE 5
 #define TOWER_MODE_6             6
 
-typedef struct FrontierMon {
-    u16 species : 11;
-    u16 form : 5;
-    u16 item;
-    u16 moves[4];
-    u32 otId;
-    u32 pid;
-    union {
-        struct {
-            u32 hpIv : 5;
-            u32 atkIv : 5;
-            u32 defIv : 5;
-            u32 spdIv : 5;
-            u32 spAtkIv : 5;
-            u32 spDefIv : 5;
-            u32 hasNickname : 1;
-            u32 unused : 1;
-        };
-        u32 ivsWord;
-    };
-    u8 evs[6];
-    u8 ppUp;
-    u8 language;
-    u8 ability;
-    u8 friendship;
-    u16 nickname[11];
-} FrontierMon;
-
 typedef struct FrontierTrainer {
     u32 index;
     u16 trainerClass;
     u8 filler06[2];
     u16 name[8];
     MailMessage introMessage;
-    u8 filler20[0x10];
-    FrontierMon frontierMons[2];
-    u8 fillera0[0x70];
+    MailMessage winMessage;
+    MailMessage loseMessage;
+    FrontierMon frontierMons[4];
 } FrontierTrainer; // size: 0x110
 
 typedef struct FrontierMultiBattleAllyData {

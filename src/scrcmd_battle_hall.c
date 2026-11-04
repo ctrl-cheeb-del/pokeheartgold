@@ -134,7 +134,7 @@ BOOL ScrCmd_Dummy491(ScriptContext *ctx) {
 BOOL ScrCmd_BattleFactoryResetStreak(ScriptContext *ctx) {
     u16 type = ScriptGetVar(ctx);
     u16 levelMode = ScriptGetVar(ctx);
-    u32 factoryFlags = Save_Frontier_GetFactoryFlags(ctx->fieldSystem->saveData);
+    u8 *factoryFlags = Save_Frontier_GetFactoryFlags(ctx->fieldSystem->saveData);
     u8 s = 0;
     FactoryFlags_SetField(factoryFlags, 0xa, levelMode * 4 + type, &s);
     if (type == 3) {
@@ -156,7 +156,7 @@ BOOL ScrCmd_BattleHallAction(ScriptContext *ctx) {
     u16 type = ScriptGetVar(ctx);
     u16 *resultPtr = ScriptGetVarPointer(ctx);
     Save_Frontier_GetHallChallenge(ctx->fieldSystem->saveData);
-    u32 hallFlags = Save_Frontier_GetHallFlags(ctx->fieldSystem->saveData);
+    u8 *hallFlags = Save_Frontier_GetHallFlags(ctx->fieldSystem->saveData);
     void *appArgs = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     switch (action) {
     case 0:
@@ -237,7 +237,7 @@ static BOOL BattleHall_DoesPartyContainEligibleMons(s32 numRequiredMons, SaveDat
 // upon continuing battle hall challenge without previously saving
 BOOL ScrCmd_BattleHallResetStreak(ScriptContext *ctx) {
     u16 type = ScriptGetVar(ctx);
-    u32 hallFlags = Save_Frontier_GetHallFlags(ctx->fieldSystem->saveData);
+    u8 *hallFlags = Save_Frontier_GetHallFlags(ctx->fieldSystem->saveData);
     BattleHall_ResetStreak(ctx->fieldSystem->saveData, hallFlags, type);
     return FALSE;
 }
@@ -535,7 +535,7 @@ void BattleHall_RecvPartnerSpecies(u32 netId, u32 unused, BattleHallSpeciesCheck
     }
 }
 
-void BattleHall_ResetStreak(SaveData *saveData, u32 hallFlags, u8 challengeType) {
+void BattleHall_ResetStreak(SaveData *saveData, u8 *hallFlags, u8 challengeType) {
     u8 unk0;
     unk0 = 0;
     HallFlags_SetField(hallFlags, 5, challengeType, 0, &unk0);

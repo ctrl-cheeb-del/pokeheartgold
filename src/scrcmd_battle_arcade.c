@@ -45,7 +45,7 @@ typedef struct FrontierSelectMonsEnv {
     void **appArgs;
 } FrontierSelectMonsEnv;
 
-static void BattleArcade_ResetStreak(SaveData *, void *, u8);
+static void BattleArcade_ResetStreak(SaveData *, u8 *, u8);
 static void BattleArcade_StartSelectMons(TaskManager *, void *, BattleArcadeChallengeType);
 static BOOL Task_BattleArcadeSelectMons(TaskManager *);
 static void BattleArcade_StartTeamCheck(TaskManager *, u16, u16, u16 *);
@@ -68,7 +68,7 @@ BOOL ScrCmd_BattleArcadeAction(ScriptContext *ctx) {
     u16 arg = ScriptGetVar(ctx);
     u16 *result = ScriptGetVarPointer(ctx);
     Save_Frontier_GetArcadeChallenge(ctx->fieldSystem->saveData);
-    void *arcadeFlags = Save_Frontier_GetArcadeFlags(ctx->fieldSystem->saveData);
+    u8 *arcadeFlags = Save_Frontier_GetArcadeFlags(ctx->fieldSystem->saveData);
     void *appArgs = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     switch (command) {
     case 0:
@@ -110,7 +110,7 @@ BOOL ScrCmd_BattleArcadeResetStreak(ScriptContext *ctx) {
     return FALSE;
 }
 
-static void BattleArcade_ResetStreak(SaveData *saveData, void *arcadeFlags, u8 challengeType) {
+static void BattleArcade_ResetStreak(SaveData *saveData, u8 *arcadeFlags, u8 challengeType) {
     u8 streak;
     streak = 0;
     ArcadeFlags_SetField(arcadeFlags, 8, challengeType, 0, &streak);

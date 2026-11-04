@@ -138,7 +138,7 @@ typedef struct GtsArgs {
     GameStats *gameStats;
     Bag *bag;
     BOOL natDexEnabled;
-    void *gsProfileId;
+    s32 gsProfileId;
     u32 unk38;
     int connectDirectly;
 } GtsArgs;

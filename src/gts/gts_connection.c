@@ -548,7 +548,7 @@ enum GtsAppState GtsConnection_InitServer(GtsApp *app) {
 
     userData = FriendRoster_GetUserData(app->args->friendRoster);
     if (Save_SysInfo_GetDwcProfileId(app->args->sysInfo) == 0) {
-        Save_SysInfo_SetDwcProfileId(app->args->sysInfo, (s32)app->args->gsProfileId);
+        Save_SysInfo_SetDwcProfileId(app->args->sysInfo, app->args->gsProfileId);
     }
     profileId = Save_SysInfo_GetDwcProfileId(app->args->sysInfo);
     {

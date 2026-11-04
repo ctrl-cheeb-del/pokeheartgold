@@ -599,7 +599,7 @@ static enum NintendoWfcMainState NintendoWfcUnused_WaitAuth(NintendoWfcUnused *w
 
 static enum NintendoWfcMainState NintendoWfcUnused_InitHttp(NintendoWfcUnused *wfc) {
     if (Save_SysInfo_GetDwcProfileId(wfc->args->sysInfo) == 0) {
-        Save_SysInfo_SetDwcProfileId(wfc->args->sysInfo, (u32)wfc->args->dwcProfileId);
+        Save_SysInfo_SetDwcProfileId(wfc->args->sysInfo, wfc->args->dwcProfileId);
     }
     u32 profileId = Save_SysInfo_GetDwcProfileId(wfc->args->sysInfo);
     u64 friendKey = DWC_CreateFriendKey(wfc->args->dwcUserData);
@@ -853,7 +853,7 @@ static enum NintendoWfcMainState NintendoWfcUnused_HandleChallengeRoomInput(Nint
         PlaySE(SEQ_SE_DP_SELECT);
     } else if (gSystem.newKeys & PAD_BUTTON_A) {
         DWC_GetDateTime(&date, &time);
-        if (BattleRoomDownload_IsRoomMarked((BattleRoomDownload *)wfc->args->battleRoomDownload, (u8)wfc->rank, (u8)wfc->room, &date)) {
+        if (BattleRoomDownload_IsRoomMarked(wfc->args->battleRoomDownload, (u8)wfc->rank, (u8)wfc->room, &date)) {
             wfc->state = NINTENDO_WFC_UNUSED_STATE_PRINT_ROOM_UNAVAILABLE;
         } else {
             wfc->state = NINTENDO_WFC_UNUSED_STATE_PRINT_RECEIVING_TRAINERS;
@@ -901,10 +901,10 @@ static enum NintendoWfcMainState NintendoWfcUnused_WaitTrainersDownload(Nintendo
         wfc->timeoutCounter = 0;
         switch (result) {
         case NINTENDO_WFC_HTTP_RESULT_OK:
-            BattleRoomDownload_SetTrainers((BattleRoomDownload *)wfc->args->battleRoomDownload, wfc->downloadBuffer.trainers, (u8)wfc->ownRank, (u8)wfc->room);
+            BattleRoomDownload_SetTrainers(wfc->args->battleRoomDownload, wfc->downloadBuffer.trainers, (u8)wfc->ownRank, (u8)wfc->room);
             NintendoWfcUnused_SetState(wfc, NINTENDO_WFC_UNUSED_STATE_START_SAVE, NINTENDO_WFC_UNUSED_STATE_PRINT_TRAINERS_RECEIVED);
             DWC_GetDateTime(&date, &time);
-            BattleRoomDownload_MarkRoom((BattleRoomDownload *)wfc->args->battleRoomDownload, (u8)wfc->rank, (u8)wfc->room, &date);
+            BattleRoomDownload_MarkRoom(wfc->args->battleRoomDownload, (u8)wfc->rank, (u8)wfc->room, &date);
             break;
         case NINTENDO_WFC_HTTP_RESULT_UPLOAD_CROWDED:
             wfc->httpResult = result;
@@ -966,7 +966,7 @@ static enum NintendoWfcMainState NintendoWfcUnused_PrintSendingRecord(NintendoWf
 static enum NintendoWfcMainState NintendoWfcUnused_RequestUpload(NintendoWfcUnused *wfc) {
     int record = FrontierData_GetWifiWinCount(wfc->args->frontierData);
     u8 rankRoom[4];
-    BattleRoomDownload_GetTrainersRoom((BattleRoomDownload *)wfc->args->battleRoomDownload, rankRoom);
+    BattleRoomDownload_GetTrainersRoom(wfc->args->battleRoomDownload, rankRoom);
     Frontier_FillWifiUploadRecord(wfc->args->saveData, 1, &wfc->uploadRecord);
     NintendoWfcHttp_RequestUpload(rankRoom[0], rankRoom[1], record, &wfc->uploadRecord);
     wfc->state = NINTENDO_WFC_UNUSED_STATE_WAIT_UPLOAD;
@@ -1144,7 +1144,7 @@ static enum NintendoWfcMainState NintendoWfcUnused_WaitLeadersDownload(NintendoW
         wfc->timeoutCounter = 0;
         switch (result) {
         case NINTENDO_WFC_HTTP_RESULT_OK:
-            BattleRoomDownload_SetLeaders((BattleRoomDownload *)wfc->args->battleRoomDownload, wfc->downloadBuffer.leaders, (u8)wfc->rank, (u8)wfc->room);
+            BattleRoomDownload_SetLeaders(wfc->args->battleRoomDownload, wfc->downloadBuffer.leaders, (u8)wfc->rank, (u8)wfc->room);
             NintendoWfcUnused_SetState(wfc, NINTENDO_WFC_UNUSED_STATE_START_SAVE, NINTENDO_WFC_UNUSED_STATE_PRINT_LEADERS_RECEIVED);
             break;
         case NINTENDO_WFC_HTTP_RESULT_UPLOAD_CROWDED:

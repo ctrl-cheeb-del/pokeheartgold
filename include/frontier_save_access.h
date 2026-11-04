@@ -77,50 +77,6 @@ enum ArcadeChallengeField {
     ARCADE_FLAGS_HAS_STREAK,
 };
 
-// The challenge in progress, saved so that it can be resumed. The facilities share one save region.
-typedef struct FactoryChallenge {
-    u8 levelMode : 1, type : 3, saved : 1, unused : 3;
-    u8 battleNo;
-    u16 padding;
-    u16 trainerIds[14];
-    u16 rentalSetIds[4];
-    u8 rentalIvs[4];
-    u32 rentalPersonalities[4];
-    u16 opponentSetIds[4];
-    u8 opponentIvs[4];
-    u32 opponentPersonalities[4];
-} FactoryChallenge;
-
-typedef struct HallChallenge {
-    u8 type : 3, saved : 1, unused : 4;
-    u8 battleNo;
-    u8 partySlots[2];
-    u16 trainerIds[20];
-    u16 setIds[20];
-} HallChallenge;
-
-typedef struct CastleChallenge {
-    u8 type : 3, saved : 1, unused : 4;
-    u8 battleNo, padding;
-    u8 partySlots[3];
-    u16 trainerIds[14];
-    u16 hp[4];
-    u8 pp[4][4];
-    u16 padding_3A;
-    u32 status[4];
-    u16 heldItems[4];
-    u16 setIds[16];
-} CastleChallenge;
-
-typedef struct ArcadeChallenge {
-    u8 type : 3, saved : 1, randomFlag : 1, unused : 3;
-    u8 battleNo, cursorSpeed;
-    u8 partySlots[3];
-    u16 heldItems[4];
-    u16 trainerIds[14];
-    u16 setIds[15];
-} ArcadeChallenge;
-
 // FrontierSave_GetStat / SetStat ids: the stats below FRONTIER_STAT_FRIEND_FLAGS hold one value (index
 // FRONTIER_STAT_NO_FRIEND), the ones up to FRONTIER_STAT_PER_FRIEND one bit per friend (two words per flag) and the
 // ones from FRONTIER_STAT_PER_FRIEND on one value per friend roster entry.
@@ -149,9 +105,9 @@ u32 FrontierSpeciesRecords_Get(SaveData *saveData, u32 *buffer, u32 type, u32 in
 BOOL FrontierSpeciesRecords_UpdateFromStat(SaveData *save, int stat, int indexStat, int slot, u32 type, enum HeapID heapId, u32 *loadResult, int *saveResult);
 
 void FactoryFlags_Init(u8 *flags);
-void FactoryFlags_SetField(u32 flags, u32 field, u8 index, u8 *value);
-u32 FactoryFlags_GetField(u32 flags, int field, u8 index, int unused);
-u32 Save_Frontier_GetFactoryFlags(SaveData *save);
+void FactoryFlags_SetField(u8 *flags, u32 field, u8 index, u8 *value);
+u32 FactoryFlags_GetField(u8 *flags, int field, u8 index, int unused);
+u8 *Save_Frontier_GetFactoryFlags(SaveData *save);
 void HallChallenge_Clear(HallChallenge *challenge);
 HallChallenge *Save_Frontier_GetHallChallenge(SaveData *save);
 u32 HallChallenge_GetSaved(HallChallenge *challenge);
@@ -162,9 +118,9 @@ u8 HallTypeRanks_Get(u8 cell, u8 *ranks);
 void HallTypeRanks_Set(u8 cell, u8 *ranks, u8 rank);
 void HallTypeRanks_Clear(u8 *ranks);
 void HallFlags_Init(u8 *flags);
-u32 Save_Frontier_GetHallFlags(SaveData *save);
-void HallFlags_SetField(u32 flags, u32 field, u32 index, u32 unused, void *input);
-u32 HallFlags_GetField(u32 flags, int field, u8 index, int unused, int unused2);
+u8 *Save_Frontier_GetHallFlags(SaveData *save);
+void HallFlags_SetField(u8 *flags, u32 field, u32 index, u32 unused, void *input);
+u32 HallFlags_GetField(u8 *flags, int field, u8 index, int unused, int unused2);
 void CastleChallenge_Clear(CastleChallenge *challenge);
 CastleChallenge *Save_Frontier_GetCastleChallenge(SaveData *save);
 u32 CastleChallenge_GetSaved(CastleChallenge *challenge);
@@ -172,9 +128,9 @@ void CastleChallenge_SetSaved(CastleChallenge *challenge, int saved);
 void CastleChallenge_SetField(CastleChallenge *challenge, int field, u8 index, int column, void *value);
 u32 CastleChallenge_GetField(CastleChallenge *challenge, int field, u8 index, int column, int unused);
 void CastleFlags_Init(u8 *flags);
-u32 Save_Frontier_GetCastleFlags(SaveData *save);
-void CastleFlags_SetField(u32 flags, u32 field, u32 index, u32 unused, void *input);
-u32 CastleFlags_GetField(u32 flags, u32 field, u8 index, u32 unused, u32 unused2);
+u8 *Save_Frontier_GetCastleFlags(SaveData *save);
+void CastleFlags_SetField(u8 *flags, u32 field, u32 index, u32 unused, void *input);
+u32 CastleFlags_GetField(u8 *flags, u32 field, u8 index, u32 unused, u32 unused2);
 void ArcadeChallenge_Clear(ArcadeChallenge *challenge);
 ArcadeChallenge *Save_Frontier_GetArcadeChallenge(SaveData *save);
 u32 ArcadeChallenge_GetSaved(ArcadeChallenge *challenge);

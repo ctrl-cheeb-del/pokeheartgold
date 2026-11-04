@@ -14,13 +14,13 @@ u32 Save_Frontier_sizeof(void) {
 void Save_Frontier_Init(void *data) {
     FrontierSave *frontier = data;
     MI_CpuFill8(frontier, 0, sizeof(*frontier));
-    FrontierData_Reset((u8 *)frontier + 0x954);
-    TowerMessages_Init((u8 *)frontier + 0xabc);
-    BattleRoomDownload_Init((u8 *)frontier + 0xadc);
-    FactoryFlags_Init((u8 *)frontier + 0x1618);
-    HallFlags_Init((u8 *)frontier + 0x161c);
-    CastleFlags_Init((u8 *)frontier + 0x1620);
-    ArcadeFlags_Init((u8 *)frontier + 0x1624);
+    FrontierData_Reset(&frontier->frontierData);
+    TowerMessages_Init(frontier->towerMessages);
+    BattleRoomDownload_Init(&frontier->battleRoomDownload);
+    FactoryFlags_Init(frontier->factoryFlags);
+    HallFlags_Init(frontier->hallFlags);
+    CastleFlags_Init(frontier->castleFlags);
+    ArcadeFlags_Init(frontier->arcadeFlags);
     MI_CpuCopy8(frontier, &sFrontierSave, sizeof(*frontier));
 }
 
@@ -29,12 +29,12 @@ FrontierSave *Save_Frontier_GetStatic(SaveData *save) {
 }
 
 void Save_Frontier_Commit(SaveData *save) {
-    FrontierSave *frontier = SaveArray_Get(save, 19);
+    FrontierSave *frontier = SaveArray_Get(save, SAVE_FRONTIER);
     MI_CpuCopy8(&sFrontierSave, frontier, sizeof(*frontier));
 }
 
 void Save_Frontier_Load(SaveData *save) {
-    FrontierSave *frontier = SaveArray_Get(save, 19);
+    FrontierSave *frontier = SaveArray_Get(save, SAVE_FRONTIER);
     MI_CpuCopy8(frontier, &sFrontierSave, sizeof(*frontier));
 }
 

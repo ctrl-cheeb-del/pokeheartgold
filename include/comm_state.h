@@ -23,7 +23,7 @@ BOOL CommState_StopForReset(void);
 BOOL Comm_HasWifiProfile(SaveData *saveData);
 void Comm_RecordPlayerLocations(SaveWiFiHistory *);
 BOOL CommState_SetError(int);
-void *Comm_GetOwnGsProfileId(FriendRoster *wifiList);
+int Comm_GetOwnGsProfileId(FriendRoster *wifiList);
 void CommState_SetErrorWatch(BOOL watchMembers, BOOL reportErrors);
 void CommState_SetWifiClubLinkMode(void);
 void CommState_LeaveWifiMatch(void);

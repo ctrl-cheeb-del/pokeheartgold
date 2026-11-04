@@ -831,7 +831,7 @@ static BOOL GlobalTerminalConnect_StateSaveProfileId(GlobalTerminalConnectWork *
 
     FriendRoster_GetUserData(wifiList);
     if (Save_SysInfo_GetDwcProfileId(sysInfo) == 0) {
-        Save_SysInfo_SetDwcProfileId(sysInfo, (s32)Comm_GetOwnGsProfileId(wifiList));
+        Save_SysInfo_SetDwcProfileId(sysInfo, Comm_GetOwnGsProfileId(wifiList));
     }
     Save_SysInfo_GetDwcProfileId(sysInfo);
     work->state = GTC_STATE_EXIT_CONNECTED;
