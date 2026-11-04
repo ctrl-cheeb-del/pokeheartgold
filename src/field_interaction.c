@@ -125,27 +125,27 @@ static u8 BgEventIsUncollectedHiddenItem(FieldSystem *fieldSystem, BgEvent *bgEv
 }
 
 static BOOL BgEvent_MatchesPlayerFacing(FieldSystem *fieldSystem, BgEvent *bgEvent) {
-    if (bgEvent->dir == 4) {
+    if (bgEvent->dir == BG_DIR_ALL) {
         return TRUE;
     }
     switch (PlayerAvatar_GetFacingDirection(fieldSystem->playerAvatar)) {
     case DIR_NORTH:
-        if (bgEvent->dir == 0 || bgEvent->dir == 6) {
+        if (bgEvent->dir == BG_DIR_SOUTH || bgEvent->dir == BG_DIR_NORTHSOUTH) {
             return TRUE;
         }
         break;
     case DIR_SOUTH:
-        if (bgEvent->dir == 3 || bgEvent->dir == 6) {
+        if (bgEvent->dir == BG_DIR_NORTH || bgEvent->dir == BG_DIR_NORTHSOUTH) {
             return TRUE;
         }
         break;
     case DIR_WEST:
-        if (bgEvent->dir == 2 || bgEvent->dir == 5) {
+        if (bgEvent->dir == BG_DIR_EAST || bgEvent->dir == BG_DIR_EASTWEST) {
             return TRUE;
         }
         break;
     case DIR_EAST:
-        if (bgEvent->dir == 1 || bgEvent->dir == 5) {
+        if (bgEvent->dir == BG_DIR_WEST || bgEvent->dir == BG_DIR_EASTWEST) {
             return TRUE;
         }
         break;

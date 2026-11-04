@@ -22,6 +22,9 @@ typedef struct FieldEffect FieldEffect;
 struct BillboardResource;
 struct BillboardSequenceRange;
 
+// A loaded model; layout in render_model.h.
+struct RenderModel;
+
 // A loaded model animation; layout in render_animation.h.
 struct RenderAnimation;
 
@@ -35,12 +38,6 @@ typedef struct FieldEffectBasicTemplate {
     FieldEffectFunc update;
     FieldEffectFunc draw;
 } FieldEffectBasicTemplate;
-
-typedef struct {
-    u8 unk0[0xc];
-    NNSG3dResMdl *model;
-    u8 unk10[4];
-} RenderModelStorage;
 
 FieldEffectManager *FieldEffectManager_New(FieldSystem *fieldSystem, u32 rendererCount, enum HeapID heapID);
 void FieldEffectManager_InitAnimManagerList(FieldEffectManager *manager, u32 animManagerCount);
@@ -71,9 +68,9 @@ void FieldEffectManager_LoadBillboardSequence(FieldEffectManager *manager, int i
 void FieldEffectManager_FreeBillboardSequence(FieldEffectManager *manager, int id);
 void FieldEffectManager_LoadTexResource(FieldEffectManager *manager, int id, u32 fileId, BOOL copyWithoutTex);
 void FieldEffectManager_FreeTexResource(FieldEffectManager *manager, int id);
-void FieldEffectManager_LoadRenderModel(FieldEffectManager *manager, RenderModelStorage *model, int index, int fileId, BOOL atEnd);
+void FieldEffectManager_LoadRenderModel(FieldEffectManager *manager, struct RenderModel *model, int index, int fileId, BOOL atEnd);
 void FieldEffectManager_LoadRenderAnimation(FieldEffectManager *manager, struct RenderAnimation *animation, int index, int fileId, BOOL atEnd);
-void FieldEffectManager_InitRenderAnimation(FieldEffectManager *manager, struct RenderAnimation *animation, RenderModelStorage *model, struct RenderAnimation *source, int unused);
+void FieldEffectManager_InitRenderAnimation(FieldEffectManager *manager, struct RenderAnimation *animation, struct RenderModel *model, struct RenderAnimation *source, int unused);
 void FieldEffectManager_LoadModel(FieldEffectManager *manager, u32 fileId, BOOL atEnd, NNSG3dRenderObj *renderObj, NNSG3dResMdl **ppMdl, NNSG3dResFileHeader **ppRes);
 NNSG3dResTex *FieldEffectManager_GetTexture(FieldEffectManager *manager, u32 id);
 

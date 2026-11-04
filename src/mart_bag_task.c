@@ -9,24 +9,15 @@
 #include "overlay_03.h"
 #include "task.h"
 
-typedef struct MartReturnEnv {
-    u8 unk_00[4];
-    BagView *bagView;
-    u8 unk_08[0x26A];
-    u8 state;
-    u8 unk_273[0x2D];
-    u16 *result;
-} MartReturnEnv;
-
-static BOOL MartBag_WaitBagViewExit(FieldSystem *fieldSystem, MartReturnEnv *env);
+static BOOL MartBag_WaitBagViewExit(FieldSystem *fieldSystem, MartData *martData);
 static void MartBag_ReturnToMart(TaskManager *taskManager);
 
 BOOL Task_MartBag(TaskManager *taskManager) {
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
-    MartReturnEnv *env = TaskManager_GetEnvironment(taskManager);
-    switch (env->state) {
+    MartData *martData = TaskManager_GetEnvironment(taskManager);
+    switch (martData->state) {
     case 24:
-        env->state = MartBag_WaitBagViewExit(fieldSystem, env);
+        martData->state = MartBag_WaitBagViewExit(fieldSystem, martData);
         break;
     case 25:
         MartBag_ReturnToMart(taskManager);
@@ -35,24 +26,24 @@ BOOL Task_MartBag(TaskManager *taskManager) {
     return FALSE;
 }
 
-static BOOL MartBag_WaitBagViewExit(FieldSystem *fieldSystem, MartReturnEnv *env) {
+static BOOL MartBag_WaitBagViewExit(FieldSystem *fieldSystem, MartData *martData) {
     if (FieldSystem_ApplicationIsRunning(fieldSystem)) {
         return 24;
     }
-    if (env->result != NULL) {
-        env->result[1] = BagView_GetSellCount(env->bagView);
+    if (martData->result != NULL) {
+        martData->result[1] = BagView_GetSellCount(martData->bagView);
     }
-    Heap_Free(env->bagView);
+    Heap_Free(martData->bagView);
     FieldSystem_LoadFieldOverlay(fieldSystem);
     return 25;
 }
 
 static void MartBag_ReturnToMart(TaskManager *taskManager) {
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
-    MartReturnEnv *env = TaskManager_GetEnvironment(taskManager);
+    MartData *martData = TaskManager_GetEnvironment(taskManager);
     if (FieldSystem_IsOverworldRestored(fieldSystem)) {
         FieldMap_FadeScreen(1);
-        TaskManager_Jump(taskManager, Task_Mart, env);
-        env->state = 26;
+        TaskManager_Jump(taskManager, Task_Mart, martData);
+        martData->state = 26;
     }
 }

@@ -14,7 +14,8 @@
 #include "map_object_behavior.h"
 
 BOOL ScrCmd_GetTrainerPathToPlayer(ScriptContext *ctx) {
-    int *sightDistance, *encounterType, *sightDirection, *approachTask;
+    int *sightDistance, *encounterType, *sightDirection;
+    SysTask **approachTask;
     LocalMapObject **localMapObject;
     FieldSystem *fieldSystem = ctx->fieldSystem;
 
@@ -42,7 +43,7 @@ BOOL ScrCmd_GetTrainerPathToPlayer(ScriptContext *ctx) {
 }
 
 BOOL ScrCmd_TrainerStepTowardsPlayer(ScriptContext *ctx) {
-    int *approachTask;
+    SysTask **approachTask;
     u16 trainerNum = ScriptGetVar(ctx);
     u16 *retPtr = ScriptGetVarPointer(ctx);
 
@@ -53,14 +54,14 @@ BOOL ScrCmd_TrainerStepTowardsPlayer(ScriptContext *ctx) {
         approachTask = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_ENGAGED_TRAINER_1_FIELD_18);
     }
 
-    if (*approachTask == 0) {
+    if (*approachTask == NULL) {
         *retPtr = 1;
         return TRUE;
     }
 
-    if (TrainerApproach_IsDone() == TRUE) {
+    if (TrainerApproach_IsDone(*approachTask) == TRUE) {
         TrainerApproach_Delete(*approachTask);
-        *approachTask = 0;
+        *approachTask = NULL;
         *retPtr = 1;
     }
 

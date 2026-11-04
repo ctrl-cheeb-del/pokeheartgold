@@ -487,7 +487,7 @@ static void FieldEffectTexTransfer_FreeHeaderTask(SysTask *task, void *data) {
     }
 }
 
-void FieldEffectManager_LoadRenderModel(FieldEffectManager *manager, RenderModelStorage *model, int index, int fileId, BOOL atEnd) {
+void FieldEffectManager_LoadRenderModel(FieldEffectManager *manager, RenderModel *model, int index, int fileId, BOOL atEnd) {
     RenderModel_LoadFromNarc(model, index, manager->narc, fileId, manager->heapID, atEnd);
     RenderModel_BindTexturesOnVBlank(model);
 }
@@ -496,7 +496,7 @@ void FieldEffectManager_LoadRenderAnimation(FieldEffectManager *manager, RenderA
     RenderAnimation_LoadFromNarc(animation, index, manager->narc, fileId, manager->heapID, atEnd);
 }
 
-void FieldEffectManager_InitRenderAnimation(FieldEffectManager *manager, RenderAnimation *animation, RenderModelStorage *model, RenderAnimation *source, int unused) {
+void FieldEffectManager_InitRenderAnimation(FieldEffectManager *manager, RenderAnimation *animation, RenderModel *model, RenderAnimation *source, int unused) {
     RenderAnimation_InitForModel(animation, model, source, unused, manager->heapID);
 }
 

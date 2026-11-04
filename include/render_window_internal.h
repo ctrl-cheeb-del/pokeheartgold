@@ -14,15 +14,15 @@
 typedef struct WaitingIcon WaitingIcon;
 typedef struct PokemonPicWindow PokemonPicWindow;
 
-void LoadUserFrameGfx1Tiles(BgConfig *bgConfig, u32 layer, u32 baseTile, BOOL frame, u32 heapId);
+void LoadUserFrameGfx1Tiles(BgConfig *bgConfig, u32 layer, u32 baseTile, BOOL frame, enum HeapID heapId);
 u32 GetUserFrameGfx1PaletteMember(void);
-void LoadUserFrameGfx1(BgConfig *bgConfig, enum GFBgLayer layer, u32 baseTile, u32 paletteNum, u8 frame, enum HeapID heapId);
+void LoadUserFrameGfx1(BgConfig *bgConfig, enum GFBgLayer layer, u16 baseTile, u8 paletteNum, u8 frame, enum HeapID heapId);
 void DrawFrame1Tilemap(BgConfig *bgConfig, u8 bgId, u8 x, u8 y, u8 width, u8 height, u8 paletteNum, u16 baseTile);
 void DrawFrameAndWindow1(Window *window, BOOL dontCopyToVram, u16 baseTile, u8 paletteNum);
 void EraseFrameAndWindow1(Window *window, BOOL dontCopyToVram);
 u32 GetUserFrameGfx2TilesMember(u32 frame);
 u32 GetUserFrameGfx2PaletteMember(u32 frame);
-void LoadUserFrameGfx2(BgConfig *bgConfig, u32 layer, u32 baseTile, u32 paletteNum, u8 frame, enum HeapID heapId);
+void LoadUserFrameGfx2(BgConfig *bgConfig, u32 layer, u16 baseTile, u8 paletteNum, u8 frame, enum HeapID heapId);
 void DrawFrame2Tilemap(BgConfig *bgConfig, u8 bgId, u8 x, u8 y, u8 width, u8 height, u8 paletteNum, u16 baseTile);
 void DrawFrame2AroundWindow(Window *window, u32 baseTile, u32 paletteNum);
 void DrawFrameAndWindow2(Window *window, BOOL dontCopyToVram, u32 baseTile, u32 paletteNum);

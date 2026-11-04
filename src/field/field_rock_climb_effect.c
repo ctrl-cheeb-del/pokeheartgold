@@ -26,7 +26,7 @@ struct RockClimb {
     BOOL loaded;
     u8 unk_08[8];
     FieldEffectManager *manager;
-    RenderModelStorage model;
+    RenderModel model;
     NNSG3dRenderObj renderObj;
 };
 

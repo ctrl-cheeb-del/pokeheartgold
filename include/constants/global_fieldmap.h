@@ -14,10 +14,10 @@
 #define BG_TYPE_SIGNPOST    1
 #define BG_TYPE_HIDDEN_ITEM 2
 
-// BG event direction
+// BG event direction: the side of the event the player stands on to interact with it
 #define BG_DIR_SOUTH      0
-#define BG_DIR_EAST       1
-#define BG_DIR_WEST       2
+#define BG_DIR_WEST       1
+#define BG_DIR_EAST       2
 #define BG_DIR_NORTH      3
 #define BG_DIR_ALL        4
 #define BG_DIR_EASTWEST   5

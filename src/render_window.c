@@ -7,11 +7,11 @@
 // Window frames: NARC a/0/3/8 holds the frame-1 tiles (members 0-1) and palettes (0x19, 0x2E) and, for message box
 // frame N, tiles N+2 and palette N+0x1A.
 
-void LoadUserFrameGfx1Tiles(BgConfig *bgConfig, u32 layer, u32 baseTile, BOOL frame, u32 heapId) {
+void LoadUserFrameGfx1Tiles(BgConfig *bgConfig, u32 layer, u32 baseTile, BOOL frame, enum HeapID heapId) {
     if (frame == 0) {
-        GfGfxLoader_LoadCharData(NARC_a_0_3_8, 0, bgConfig, (GFBgLayer)layer, baseTile, 0, FALSE, (enum HeapID)heapId);
+        GfGfxLoader_LoadCharData(NARC_a_0_3_8, 0, bgConfig, (GFBgLayer)layer, baseTile, 0, FALSE, heapId);
     } else {
-        GfGfxLoader_LoadCharData(NARC_a_0_3_8, 1, bgConfig, (GFBgLayer)layer, baseTile, 0, FALSE, (enum HeapID)heapId);
+        GfGfxLoader_LoadCharData(NARC_a_0_3_8, 1, bgConfig, (GFBgLayer)layer, baseTile, 0, FALSE, heapId);
     }
 }
 
@@ -19,7 +19,7 @@ u32 GetUserFrameGfx1PaletteMember(void) {
     return 0x19;
 }
 
-void LoadUserFrameGfx1(BgConfig *bgConfig, enum GFBgLayer layer, u32 baseTile, u32 paletteNum, u8 frame, enum HeapID heapId) {
+void LoadUserFrameGfx1(BgConfig *bgConfig, enum GFBgLayer layer, u16 baseTile, u8 paletteNum, u8 frame, enum HeapID heapId) {
     int member;
     if (frame != 0) {
         member = 1;
@@ -78,7 +78,7 @@ u32 GetUserFrameGfx2PaletteMember(u32 frame) {
     return frame + 0x1A;
 }
 
-void LoadUserFrameGfx2(BgConfig *bgConfig, u32 layer, u32 baseTile, u32 paletteNum, u8 frame, enum HeapID heapId) {
+void LoadUserFrameGfx2(BgConfig *bgConfig, u32 layer, u16 baseTile, u8 paletteNum, u8 frame, enum HeapID heapId) {
     GfGfxLoader_LoadCharData(NARC_a_0_3_8, GetUserFrameGfx2TilesMember(frame), bgConfig, (GFBgLayer)layer, baseTile, 0, FALSE, heapId);
     if (layer < GF_BG_LYR_SUB_FIRST) {
         GfGfxLoader_GXLoadPal(NARC_a_0_3_8, GetUserFrameGfx2PaletteMember(frame), GF_PAL_LOCATION_MAIN_BG, (enum GFPalSlotOffset)(paletteNum * 0x20), 0x20, heapId);

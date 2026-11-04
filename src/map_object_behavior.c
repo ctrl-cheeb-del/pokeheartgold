@@ -14,6 +14,7 @@
 #include "field_time_events.h"
 #include "heap.h"
 #include "map_object.h"
+#include "map_object_behavior.h"
 #include "map_object_behavior_internal.h"
 #include "map_object_movement_commands.h"
 #include "map_object_movement_commands_internal.h"

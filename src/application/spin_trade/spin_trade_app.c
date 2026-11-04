@@ -148,9 +148,9 @@ typedef struct SpinTradeMarker {
 } SpinTradeMarker;
 
 typedef struct SpinTradeObjects {
-    RenderModelStorage eggModel;
-    RenderModelStorage shadowModel;
-    RenderModelStorage markerModels[5];
+    RenderModel eggModel;
+    RenderModel shadowModel;
+    RenderModel markerModels[5];
     RenderAnimation markerAnims[5];
     SpinTradeEgg eggs[SPIN_TRADE_MAX_PLAYERS];
     SpinTradeShadow shadows[5];
@@ -170,7 +170,7 @@ typedef struct SpinTradeMachine {
     fx32 speed;
     u16 rotation[3];
     u16 unk_52;
-    RenderModelStorage model;
+    RenderModel model;
     NNSG3dRenderObj renderObj;
 } SpinTradeMachine;
 
@@ -1936,9 +1936,9 @@ static void SpinTrade_LoadObjectModels(SpinTradeApp *app) {
     int i;
     const int *modelIds;
     const int *animIds;
-    RenderModelStorage *model;
+    RenderModel *model;
     RenderAnimation *anim;
-    RenderModelStorage *animModel;
+    RenderModel *animModel;
     SpinTradeObjects *objects = &app->objects;
 
     RenderModel_LoadFromNarc(&objects->eggModel, 0, app->narc, 0, HEAP_ID_102, FALSE);

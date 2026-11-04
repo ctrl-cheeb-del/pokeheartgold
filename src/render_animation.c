@@ -85,7 +85,7 @@ static void RenderAnimation_AllocObject(RenderAnimation *animation, NNSG3dResMdl
     GF_ASSERT(animation->object != NULL);
 }
 
-void RenderAnimation_AllocObjectForModel(RenderAnimation *animation, RenderModelStorage *model, enum HeapID heapID) {
+void RenderAnimation_AllocObjectForModel(RenderAnimation *animation, RenderModel *model, enum HeapID heapID) {
     RenderAnimation_AllocObject(animation, model->model, heapID);
 }
 
@@ -93,12 +93,11 @@ static void RenderAnimation_InitObject(RenderAnimation *animation, NNSG3dResMdl 
     NNS_G3dAnmObjInit(animation->object, animation->resource, model, texture);
 }
 
-void RenderAnimation_InitObjectForModel(RenderAnimation *animation, RenderModelStorage *data) {
-    RenderModel *model = (RenderModel *)data;
+void RenderAnimation_InitObjectForModel(RenderAnimation *animation, RenderModel *model) {
     RenderAnimation_InitObject(animation, model->model, model->texture);
 }
 
-void RenderAnimation_InitForModel(RenderAnimation *animation, RenderModelStorage *model, RenderAnimation *source, int unused, enum HeapID heapID) {
+void RenderAnimation_InitForModel(RenderAnimation *animation, RenderModel *model, RenderAnimation *source, int unused, enum HeapID heapID) {
     RenderAnimation_InitFromAnimation(animation, source, unused);
     RenderAnimation_AllocObjectForModel(animation, model, heapID);
     RenderAnimation_InitObjectForModel(animation, model);
@@ -166,7 +165,7 @@ static void RenderObj_Init(NNSG3dRenderObj *object, NNSG3dResMdl *model) {
     NNS_G3dRenderObjInit(object, model);
 }
 
-void RenderObj_InitFromModel(NNSG3dRenderObj *object, RenderModelStorage *model) {
+void RenderObj_InitFromModel(NNSG3dRenderObj *object, RenderModel *model) {
     RenderObj_Init(object, model->model);
 }
 
@@ -178,7 +177,7 @@ static void RenderObj_AddAnimation(NNSG3dRenderObj *object, RenderAnimation *ani
     RenderObj_AddAnimObj(object, animation->object);
 }
 
-void RenderObj_InitWithAnimation(NNSG3dRenderObj *object, RenderModelStorage *model, RenderAnimation *animation) {
+void RenderObj_InitWithAnimation(NNSG3dRenderObj *object, RenderModel *model, RenderAnimation *animation) {
     RenderObj_InitFromModel(object, model);
     RenderObj_AddAnimation(object, animation);
 }

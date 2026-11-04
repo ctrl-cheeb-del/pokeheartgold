@@ -346,7 +346,16 @@ struct PokeathlonTodayPerformance {
 };
 
 struct PokeathlonPerformanceStars {
-    u16 stars;
+    union {
+        u16 stars; // 3 bits per stat, in PERFORMANCE_* order
+        struct {
+            u16 power : 3;
+            u16 skill : 3;
+            u16 speed : 3;
+            u16 jump : 3;
+            u16 stamina : 3;
+        };
+    };
     u8 color[PERFORMANCE_MAX];
     u8 dummy;
 };

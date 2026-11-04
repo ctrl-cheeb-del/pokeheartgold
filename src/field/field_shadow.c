@@ -35,7 +35,7 @@ struct FieldShadow {
     VecFx32 scale;
     FieldEffectManager *manager;
     SysTask *task;
-    RenderModelStorage models[4];
+    RenderModel models[4];
     NNSG3dRenderObj renderObjs[4];
 };
 

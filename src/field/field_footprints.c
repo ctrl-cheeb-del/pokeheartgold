@@ -24,15 +24,15 @@
 
 struct Footprints {
     FieldEffectManager *manager;
-    RenderModelStorage modelsA[FOOTPRINT_MODEL_COUNT];
-    RenderModelStorage modelsB[FOOTPRINT_MODEL_COUNT];
+    RenderModel modelsA[FOOTPRINT_MODEL_COUNT];
+    RenderModel modelsB[FOOTPRINT_MODEL_COUNT];
     NNSG3dRenderObj renderObjsA[FOOTPRINT_MODEL_COUNT];
     NNSG3dRenderObj renderObjsB[FOOTPRINT_MODEL_COUNT];
 };
 
 typedef struct FootprintEffectArgs {
     u32 kind;
-    RenderModelStorage *model;
+    RenderModel *model;
     NNSG3dRenderObj *renderObj;
 } FootprintEffectArgs;
 
@@ -42,14 +42,14 @@ typedef struct FootprintEffect {
     BOOL hidden;
     int alpha;
     u32 kind;
-    RenderModelStorage *model;
+    RenderModel *model;
     NNSG3dRenderObj *renderObj;
 } FootprintEffect;
 
 static void Footprints_LoadModels(Footprints *footprints);
 static void Footprints_FreeModels(Footprints *footprints);
 static NNSG3dRenderObj *Footprints_GetRenderObj(Footprints *footprints, u32 kind, u32 direction, u32 prevDirection);
-static RenderModelStorage *Footprints_GetModel(Footprints *footprints, u32 kind, u32 direction, u32 prevDirection);
+static RenderModel *Footprints_GetModel(Footprints *footprints, u32 kind, u32 direction, u32 prevDirection);
 static BOOL Footprints_Spawn(LocalMapObject *mapObject, u32 kind);
 static BOOL FootprintEffect_Init(FieldEffect *effect, void *state);
 static void FootprintEffect_Destroy(FieldEffect *effect, void *state);
@@ -155,8 +155,8 @@ static NNSG3dRenderObj *Footprints_GetRenderObj(Footprints *footprints, u32 kind
     return renderObj;
 }
 
-static RenderModelStorage *Footprints_GetModel(Footprints *footprints, u32 kind, u32 direction, u32 prevDirection) {
-    RenderModelStorage *model = NULL;
+static RenderModel *Footprints_GetModel(Footprints *footprints, u32 kind, u32 direction, u32 prevDirection) {
+    RenderModel *model = NULL;
 
     switch (kind) {
     case 0:

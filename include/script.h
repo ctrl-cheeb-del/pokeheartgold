@@ -40,7 +40,7 @@ typedef struct EngagedTrainer {
     int trainerId;
     int encounterType; // 0: single trainer; 1: double-battle trainer; 2: two trainers
     LocalMapObject *overworldEvent;
-    int approachTask;
+    SysTask *approachTask;
 } EngagedTrainer;
 
 typedef struct ScriptEnvironment {

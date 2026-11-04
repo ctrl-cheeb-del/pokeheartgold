@@ -82,7 +82,7 @@ typedef struct MartData {
     u32 touchButton;
     u32 touchMartAction;
     MartButtonPressAnim buttonPressAnim;
-    u32 unk2A0;
+    u16 *result;
 } MartData;
 
 void CommClub_StartJoin(FieldSystem *fieldSystem, u32 commType, u16 course, u16 arg3);

@@ -24,7 +24,7 @@
 
 struct WarpArrow {
     FieldEffectManager *manager;
-    RenderModelStorage model;
+    RenderModel model;
     NNSG3dRenderObj renderObj;
 };
 

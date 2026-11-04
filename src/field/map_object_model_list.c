@@ -19,7 +19,7 @@
 
 typedef struct MapObjectModel {
     u32 spriteId; // MAP_OBJECT_MODEL_FREE: free
-    RenderModelStorage model;
+    RenderModel model;
     NNSG3dRenderObj renderObj;
 } MapObjectModel;
 

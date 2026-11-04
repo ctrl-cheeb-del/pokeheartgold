@@ -100,8 +100,5 @@ void ApricornTreeObject_Resume(LocalMapObject *object);
 BillboardObject *ApricornTreeObject_GetBillboard(LocalMapObject *object);
 BOOL TryGetSeenByNpcTrainers(FieldSystem *fieldSystem, BOOL doublesEligible);
 u32 MapObjectBehavior_GetTrainerNum(LocalMapObject *object);
-SysTask *TrainerApproach_Start(FieldSystem *fieldSystem, LocalMapObject *trainer, PlayerAvatar *player, int movement, int remaining, int unk10, int encounterType, int trainerIndex);
-BOOL TrainerApproach_IsDone(SysTask *task);
-void TrainerApproach_Delete(SysTask *task);
 
 #endif // POKEHEARTGOLD_MAP_OBJECT_BEHAVIOR_INTERNAL_H

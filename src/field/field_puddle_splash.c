@@ -18,7 +18,7 @@
 
 struct PuddleSplash {
     FieldEffectManager *manager;
-    RenderModelStorage model;
+    RenderModel model;
     RenderAnimation animation;
 };
 

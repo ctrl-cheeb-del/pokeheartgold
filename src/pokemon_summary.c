@@ -60,18 +60,6 @@
 #define Sprite_SetFlipMode_Int(sprite, flip) ((void (*)(Sprite *, int))Sprite_SetFlipMode)(sprite, flip)
 #define GetRibbonAttr_Int(ribbon, attr)      ((u32(*)(int, RibbonAttr))GetRibbonAttr)(ribbon, attr)
 
-// The Pokeathlon star counts as CalcBoxmonPokeathlonStars writes them (struct PokeathlonPerformanceStars).
-typedef struct PokeathlonStarCounts {
-    u16 stat0 : 3;
-    u16 stat1 : 3;
-    u16 stat2 : 3;
-    u16 stat3 : 3;
-    u16 stat4 : 3;
-    u16 dummy : 1;
-    u8 color[PERFORMANCE_MAX];
-    u8 dummy7;
-} PokeathlonStarCounts;
-
 static void PokemonSummary_VBlank(void *data);
 static void PokemonSummary_SetGraphicsBanks(void);
 static void PokemonSummary_InitBgs(BgConfig *bgConfig);
@@ -2577,7 +2565,7 @@ int PokemonSummary_GetPokeathlonStarStates(u8 *states, int maxStars, int baseSta
 
 static void PokemonSummary_UpdatePokeathlonStars(PokemonSummary *summary) {
     struct {
-        PokeathlonStarCounts stars;
+        struct PokeathlonPerformanceStars stars;
         PartyExtraSub aprijuice;
         u8 pad;
         struct PokeathlonTodayPerformance performance;
@@ -2592,12 +2580,12 @@ static void PokemonSummary_UpdatePokeathlonStars(PokemonSummary *summary) {
         if (summary->args->monDataType == POKEMON_SUMMARY_PARTY) {
             Party_GetMonAprijuiceModifiers(summary->args->party, &data.aprijuice, summary->args->partySlot);
         }
-        CalcBoxmonPokeathlonStars((struct PokeathlonPerformanceStars *)&data.stars, mon, (s8 *)&data.aprijuice, HEAP_ID_19);
-        PokemonSummary_SetPokeathlonStatStars(summary->sprites, POKEMON_SUMMARY_SPRITE_POKEATHLON_STARS, data.performance.stats[4].hi, data.stars.stat4, data.stars.color[4], (s8)data.aprijuice.stats[4], POKEMON_SUMMARY_SPRITE_POKEATHLON_MODIFIERS);
-        PokemonSummary_SetPokeathlonStatStars(summary->sprites, POKEMON_SUMMARY_SPRITE_POKEATHLON_STARS + 5, data.performance.stats[0].hi, data.stars.stat0, data.stars.color[0], (s8)data.aprijuice.stats[0], POKEMON_SUMMARY_SPRITE_POKEATHLON_MODIFIERS + 1);
-        PokemonSummary_SetPokeathlonStatStars(summary->sprites, POKEMON_SUMMARY_SPRITE_POKEATHLON_STARS + 10, data.performance.stats[2].hi, data.stars.stat2, data.stars.color[2], (s8)data.aprijuice.stats[2], POKEMON_SUMMARY_SPRITE_POKEATHLON_MODIFIERS + 2);
-        PokemonSummary_SetPokeathlonStatStars(summary->sprites, POKEMON_SUMMARY_SPRITE_POKEATHLON_STARS + 15, data.performance.stats[1].hi, data.stars.stat1, data.stars.color[1], (s8)data.aprijuice.stats[1], POKEMON_SUMMARY_SPRITE_POKEATHLON_MODIFIERS + 3);
-        PokemonSummary_SetPokeathlonStatStars(summary->sprites, POKEMON_SUMMARY_SPRITE_POKEATHLON_STARS + 20, data.performance.stats[3].hi, data.stars.stat3, data.stars.color[3], (s8)data.aprijuice.stats[3], POKEMON_SUMMARY_SPRITE_POKEATHLON_MODIFIERS + 4);
+        CalcBoxmonPokeathlonStars(&data.stars, mon, (s8 *)&data.aprijuice, HEAP_ID_19);
+        PokemonSummary_SetPokeathlonStatStars(summary->sprites, POKEMON_SUMMARY_SPRITE_POKEATHLON_STARS, data.performance.stats[4].hi, data.stars.stamina, data.stars.color[4], (s8)data.aprijuice.stats[4], POKEMON_SUMMARY_SPRITE_POKEATHLON_MODIFIERS);
+        PokemonSummary_SetPokeathlonStatStars(summary->sprites, POKEMON_SUMMARY_SPRITE_POKEATHLON_STARS + 5, data.performance.stats[0].hi, data.stars.power, data.stars.color[0], (s8)data.aprijuice.stats[0], POKEMON_SUMMARY_SPRITE_POKEATHLON_MODIFIERS + 1);
+        PokemonSummary_SetPokeathlonStatStars(summary->sprites, POKEMON_SUMMARY_SPRITE_POKEATHLON_STARS + 10, data.performance.stats[2].hi, data.stars.speed, data.stars.color[2], (s8)data.aprijuice.stats[2], POKEMON_SUMMARY_SPRITE_POKEATHLON_MODIFIERS + 2);
+        PokemonSummary_SetPokeathlonStatStars(summary->sprites, POKEMON_SUMMARY_SPRITE_POKEATHLON_STARS + 15, data.performance.stats[1].hi, data.stars.skill, data.stars.color[1], (s8)data.aprijuice.stats[1], POKEMON_SUMMARY_SPRITE_POKEATHLON_MODIFIERS + 3);
+        PokemonSummary_SetPokeathlonStatStars(summary->sprites, POKEMON_SUMMARY_SPRITE_POKEATHLON_STARS + 20, data.performance.stats[3].hi, data.stars.jump, data.stars.color[3], (s8)data.aprijuice.stats[3], POKEMON_SUMMARY_SPRITE_POKEATHLON_MODIFIERS + 4);
     } else {
         PokemonSummary_HidePokeathlonStars(summary);
     }

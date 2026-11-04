@@ -22,14 +22,14 @@ typedef struct RenderAnimation {
 
 void RenderAnimation_LoadFromNarc(RenderAnimation *animation, int unused, NARC *narc, int fileId, enum HeapID heapID, BOOL atEnd);
 void RenderAnimation_FreeFile(RenderAnimation *animation);
-void RenderAnimation_AllocObjectForModel(RenderAnimation *animation, RenderModelStorage *model, enum HeapID heapID);
-void RenderAnimation_InitObjectForModel(RenderAnimation *animation, RenderModelStorage *data);
-void RenderAnimation_InitForModel(RenderAnimation *animation, RenderModelStorage *model, RenderAnimation *source, int unused, enum HeapID heapID);
+void RenderAnimation_AllocObjectForModel(RenderAnimation *animation, struct RenderModel *model, enum HeapID heapID);
+void RenderAnimation_InitObjectForModel(RenderAnimation *animation, struct RenderModel *model);
+void RenderAnimation_InitForModel(RenderAnimation *animation, struct RenderModel *model, RenderAnimation *source, int unused, enum HeapID heapID);
 void RenderAnimation_Free(RenderAnimation *animation);
 BOOL RenderAnimation_Advance(RenderAnimation *animation, fx32 step, BOOL loop);
 BOOL RenderAnimation_IsDone(RenderAnimation *animation);
-void RenderObj_InitFromModel(NNSG3dRenderObj *object, RenderModelStorage *model);
-void RenderObj_InitWithAnimation(NNSG3dRenderObj *object, RenderModelStorage *model, RenderAnimation *animation);
+void RenderObj_InitFromModel(NNSG3dRenderObj *object, struct RenderModel *model);
+void RenderObj_InitWithAnimation(NNSG3dRenderObj *object, struct RenderModel *model, RenderAnimation *animation);
 void RenderObj_Draw(NNSG3dRenderObj *object, const VecFx32 *position, const VecFx32 *scale, const MtxFx33 *rotation);
 void RenderObj_DrawAt(NNSG3dRenderObj *object, VecFx32 *position);
 void RenderObj_DrawRotated(NNSG3dRenderObj *object, const VecFx32 *position, const VecFx32 *scale, const u16 *angles);

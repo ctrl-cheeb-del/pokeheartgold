@@ -244,14 +244,6 @@ typedef struct ShinyLeafMasks {
     u8 masks[5];
 } ShinyLeafMasks;
 
-typedef struct PokeathlonStarBits {
-    u16 power : 3;
-    u16 skill : 3;
-    u16 speed : 3;
-    u16 jump : 3;
-    u16 stamina : 3;
-} PokeathlonStarBits;
-
 typedef struct FollowMonJumpOnSpotEnv {
     u16 count;
     u16 done;
@@ -686,21 +678,21 @@ static void FollowMonSituation_SetBestPokeathlonStat(FieldSystem *fieldSystem, u
 
     Party_GetMonAprijuiceModifiers(party, &aprijuice, slot);
     CalcMonPokeathlonStars(&stars, Party_GetMonByIndex(party, slot), (s8 *)&aprijuice, HEAP_ID_FIELD2);
-    best = ((PokeathlonStarBits *)&stars.stars)->power;
+    best = stars.power;
     stat = FOLLOW_MON_STAT_POWER;
-    if (best < ((PokeathlonStarBits *)&stars.stars)->stamina) {
-        best = ((PokeathlonStarBits *)&stars.stars)->stamina;
+    if (best < stars.stamina) {
+        best = stars.stamina;
         stat = FOLLOW_MON_STAT_STAMINA;
     }
-    if (best < ((PokeathlonStarBits *)&stars.stars)->jump) {
-        best = ((PokeathlonStarBits *)&stars.stars)->jump;
+    if (best < stars.jump) {
+        best = stars.jump;
         stat = FOLLOW_MON_STAT_JUMP;
     }
-    if (best < ((PokeathlonStarBits *)&stars.stars)->skill) {
-        best = ((PokeathlonStarBits *)&stars.stars)->skill;
+    if (best < stars.skill) {
+        best = stars.skill;
         stat = FOLLOW_MON_STAT_SKILL;
     }
-    if (best < ((PokeathlonStarBits *)&stars.stars)->speed) {
+    if (best < stars.speed) {
         stat = FOLLOW_MON_STAT_SPEED;
     }
     situation->pokeathlonStat = stat;
