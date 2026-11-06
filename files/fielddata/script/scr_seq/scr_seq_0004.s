@@ -34,7 +34,7 @@ scr_seq_0004_000:
 	End
 
 _0066:
-	MakeObjectVisible obj_player
+	MakeObjectInvisible obj_player
 	End
 
 scr_seq_0004_012:
@@ -181,7 +181,7 @@ _0222:
 
 _027A:
 	SetVar VAR_UNK_4133, 0
-	MakeObjectInvisible obj_player
+	MakeObjectVisible obj_player
 	ReleaseAll
 	End
 

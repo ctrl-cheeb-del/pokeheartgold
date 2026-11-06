@@ -3,7 +3,6 @@
 .public SndRadio_GetSeqNo
 .public PlaySE
 .public PlayCry
-.public IsCryFinished
 .public SysTask_CreateOnMainQueue
 .public SysTask_Destroy
 .public Heap_AllocAtEnd

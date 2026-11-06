@@ -23,7 +23,6 @@
 .public MapObject_SetMovementStep
 .public MapObject_IncrementMovementStep
 .public MapObject_GetMovementStep
-.public MapObject_CheckVisible
 .public MapObject_SetFacingVector
 .public MapObject_MoveCoordsInDirection
 .public MapObject_SetPreviousCoordsToCurrent

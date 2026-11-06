@@ -2274,13 +2274,13 @@
       ]
     },
     {
-      "name": "MakeObjectInvisible",
+      "name": "MakeObjectVisible",
       "args": [
         "object2"
       ]
     },
     {
-      "name": "MakeObjectVisible",
+      "name": "MakeObjectInvisible",
       "args": [
         "object2"
       ]

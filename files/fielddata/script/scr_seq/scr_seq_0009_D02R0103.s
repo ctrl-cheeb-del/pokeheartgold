@@ -11,7 +11,7 @@
 	ScrDefEnd
 
 scr_seq_D02R0103_002:
-	MakeObjectVisible obj_D02R0103_stop
+	MakeObjectInvisible obj_D02R0103_stop
 	GetCurrentTimeOfDay VAR_TEMP_x4001
 	Compare VAR_TEMP_x4001, 3
 	GoToIfNe _003D

@@ -57,12 +57,12 @@ _0033:
 	End
 
 scr_seq_D37R0104_005:
-	MakeObjectVisible obj_D37R0104_stop_3
-	MakeObjectVisible obj_D37R0104_stop_2
-	MakeObjectVisible obj_D37R0104_stop
-	MakeObjectVisible obj_D37R0104_stop_4
-	MakeObjectVisible obj_D37R0104_stop_5
-	MakeObjectVisible obj_D37R0104_stop_6
+	MakeObjectInvisible obj_D37R0104_stop_3
+	MakeObjectInvisible obj_D37R0104_stop_2
+	MakeObjectInvisible obj_D37R0104_stop
+	MakeObjectInvisible obj_D37R0104_stop_4
+	MakeObjectInvisible obj_D37R0104_stop_5
+	MakeObjectInvisible obj_D37R0104_stop_6
 	GoToIfSet FLAG_OPENED_GOLDENROD_PURPLE_GATE, _open_purple_gate
 	End
 

@@ -317,7 +317,7 @@ scr_seq_D17R0110_006:
 	Cinematic 0
 	ClearFlag FLAG_HIDE_BELL_TOWER_HO_OH
 	ShowPerson obj_D17R0110_hou_obj01
-	MakeObjectVisible obj_D17R0110_hou_obj01
+	MakeObjectInvisible obj_D17R0110_hou_obj01
 	Wait 6, VAR_SPECIAL_RESULT
 	FadeScreen 6, 1, 1, RGB_WHITE
 	WaitFade

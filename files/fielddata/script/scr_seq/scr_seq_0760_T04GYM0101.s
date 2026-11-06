@@ -172,8 +172,8 @@ _0210:
 scr_seq_T04GYM0101_006:
 	SetFlag99A
 	GoToIfSet FLAG_HIDE_CERULEAN_GYM_MACHINE_PART, _022F
-	MakeObjectVisible obj_T04GYM0101_stop
-	MakeObjectVisible obj_T04GYM0101_stop_2
+	MakeObjectInvisible obj_T04GYM0101_stop
+	MakeObjectInvisible obj_T04GYM0101_stop_2
 	End
 
 _022F:

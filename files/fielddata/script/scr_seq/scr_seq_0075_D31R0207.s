@@ -93,7 +93,7 @@ scr_seq_D31R0207_007:
 	End
 
 _0142:
-	MakeObjectVisible obj_player
+	MakeObjectInvisible obj_player
 	Return
 
 _0148:
@@ -341,7 +341,7 @@ _048B:
 	Call _046D
 	ApplyMovement obj_D31R0207_bfsw1, _06AC
 	WaitMovement
-	MakeObjectInvisible obj_player
+	MakeObjectVisible obj_player
 	ApplyMovement obj_player, _069C
 	WaitMovement
 	Call _0480

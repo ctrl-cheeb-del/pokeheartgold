@@ -48,7 +48,6 @@
 .public MapObject_IncrementMovementStep
 .public MapObject_GetFieldSystem
 .public MapObject_CheckSingleMovement
-.public MapObject_CheckVisible
 .public MapObject_UnpauseMovement
 .public MapObject_CheckFlag29
 .public MapObject_GetPreviousXCoord

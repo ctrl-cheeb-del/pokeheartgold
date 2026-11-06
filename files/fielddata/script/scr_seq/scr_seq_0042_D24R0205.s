@@ -59,7 +59,7 @@ scr_seq_D24R0205_000:
 	LockAll
 	PlaySE SEQ_SE_GS_RAKKA01
 	ApplyMovement obj_player, _018C
-	MakeObjectInvisible obj_player
+	MakeObjectVisible obj_player
 	WaitMovement
 	ScreenShake 0, 1, 1, 8
 	PlaySE SEQ_SE_DP_SUTYA2
@@ -100,7 +100,7 @@ _016F:
 scr_seq_D24R0205_001:
 	Compare VAR_UNK_40CE, 1
 	GoToIfNe _018A
-	MakeObjectVisible obj_player
+	MakeObjectInvisible obj_player
 _018A:
 	End
 

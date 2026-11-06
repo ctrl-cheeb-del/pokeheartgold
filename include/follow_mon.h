@@ -29,7 +29,7 @@ BOOL FollowMon_IsActive(FieldSystem *fieldSystem);
 BOOL FollowMon_IsVisible(FieldSystem *fieldSystem);
 BOOL FollowMon_GetPermission(FieldSystem *fieldSystem);
 BOOL FollowMon_GetPermissionBySpeciesAndMap(int species, u32 mapNo);
-void FollowMon_SetVisibleFlag(LocalMapObject *mapObject, BOOL enableBit);
+void FollowMon_SetInvisibleFlag(LocalMapObject *mapObject, BOOL enableBit);
 void FollowMon_Hide(FieldSystem *fieldSystem);
 FollowMonMood *FollowMonMood_New(enum HeapID heapID);
 void FollowMonMood_Add(FollowMonMood *followMood, s8 by);

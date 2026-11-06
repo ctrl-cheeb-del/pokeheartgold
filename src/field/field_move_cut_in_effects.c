@@ -178,7 +178,7 @@ BOOL TrainerJumpEffect_Init(FieldEffect *effect, TrainerJump *jump);
 static void TrainerJumpEffect_Jump(FieldEffect *effect, TrainerJump *jump);
 static void TrainerJumpEffect_Hop(FieldEffect *effect, TrainerJump *jump);
 void TrainerJumpEffect_Update(FieldEffect *effect, TrainerJump *jump);
-BOOL FlyLanding_SetPlayerVisible(FlyLanding *landing);
+BOOL FlyLanding_HidePlayer(FlyLanding *landing);
 BOOL FlyLanding_LoadGraphics(FlyLanding *landing);
 BOOL FlyLanding_CreateSprites(FlyLanding *landing);
 BOOL FlyLanding_WaitLanding(FlyLanding *landing);
@@ -621,7 +621,7 @@ BOOL CutInFlyer_PickUpTrainer(CutInFlyer *flyer) {
 
     Sprite_SetAnimCtrlSeq(sprite, 3);
     Sprite_SetDrawFlag(sprite, TRUE);
-    FieldMoveCutIn_SetPlayerVisible(flyer->cutIn, TRUE);
+    FieldMoveCutIn_SetPlayerInvisible(flyer->cutIn, TRUE);
     MapObject_CallDrawUpdate(flyer->cutIn->playerObject);
     y = Sprite_GetMatrixPtr(sprite)->y;
     flyer->trainerOffsetY = y - Sprite_GetMatrixPtr(flyer->sprite)->y;
@@ -816,8 +816,8 @@ static void Task_FlyLanding(SysTask *task, void *data) {
     }
 }
 
-BOOL FlyLanding_SetPlayerVisible(FlyLanding *landing) {
-    FieldMove_SetPlayerVisible(landing->fieldSystem, TRUE);
+BOOL FlyLanding_HidePlayer(FlyLanding *landing) {
+    FieldMove_SetPlayerInvisible(landing->fieldSystem, TRUE);
     landing->state++;
     return FALSE;
 }
@@ -894,9 +894,9 @@ void *FlyLanding_AllocZeroed(enum HeapID heapID, u32 size) {
     return ptr;
 }
 
-void FieldMoveCutIn_SetPlayerVisible(FieldMoveCutIn *cutIn, BOOL visible) {
+void FieldMoveCutIn_SetPlayerInvisible(FieldMoveCutIn *cutIn, BOOL invisible) {
     MapObject_UnpauseMovement(cutIn->playerObject);
-    MapObject_SetInvisible(cutIn->playerObject, visible);
+    MapObject_SetInvisible(cutIn->playerObject, invisible);
 }
 
 BOOL TrainerClipEffect_Init(FieldEffect *effect, TrainerClip *clip) {

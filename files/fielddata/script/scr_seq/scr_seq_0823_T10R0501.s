@@ -12,8 +12,8 @@
 
 scr_seq_T10R0501_002:
 	GoToIfSet FLAG_DEFEATED_KAREN, _0023
-	MakeObjectVisible obj_T10R0501_leag_door2_2
-	MakeObjectVisible obj_T10R0501_leag_door2_3
+	MakeObjectInvisible obj_T10R0501_leag_door2_2
+	MakeObjectInvisible obj_T10R0501_leag_door2_3
 	End
 
 _0023:

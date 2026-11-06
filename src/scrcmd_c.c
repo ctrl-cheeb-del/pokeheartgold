@@ -3209,7 +3209,7 @@ BOOL ScrCmd_EggHatchAnim(ScriptContext *ctx) {
     return TRUE;
 }
 
-BOOL ScrCmd_MakeObjectInvisible(ScriptContext *ctx) {
+BOOL ScrCmd_MakeObjectVisible(ScriptContext *ctx) {
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 objId = ScriptGetVar(ctx);
     LocalMapObject *object = MapObjectManager_GetFirstActiveObjectByID(fieldSystem->mapObjectManager, objId);
@@ -3218,7 +3218,7 @@ BOOL ScrCmd_MakeObjectInvisible(ScriptContext *ctx) {
     return FALSE;
 }
 
-BOOL ScrCmd_MakeObjectVisible(ScriptContext *ctx) {
+BOOL ScrCmd_MakeObjectInvisible(ScriptContext *ctx) {
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 objId = ScriptGetVar(ctx);
     LocalMapObject *object = MapObjectManager_GetFirstActiveObjectByID(fieldSystem->mapObjectManager, objId);

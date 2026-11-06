@@ -13,7 +13,7 @@ scr_seq_D27R0103_000:
 	PlaySE SEQ_SE_GS_RAKKA01
 	ApplyMovement obj_player, _0038
 	Wait 1, VAR_SPECIAL_RESULT
-	MakeObjectInvisible obj_player
+	MakeObjectVisible obj_player
 	WaitMovement
 	ScreenShake 0, 1, 1, 8
 	PlaySE SEQ_SE_DP_SUTYA2
@@ -28,7 +28,7 @@ _0038:
 scr_seq_D27R0103_001:
 	Compare VAR_UNK_40A7, 1
 	GoToIfNe _0051
-	MakeObjectVisible obj_player
+	MakeObjectInvisible obj_player
 _0051:
 	End
 	.balign 4, 0

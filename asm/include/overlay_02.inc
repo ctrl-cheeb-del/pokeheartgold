@@ -7,7 +7,6 @@
 .public StopSE
 .public IsSEPlaying
 .public PlayCry
-.public IsCryFinished
 .public PlayCryEx
 .public PlayFanfare
 .public IsFanfarePlaying
@@ -265,7 +264,6 @@
 .public MapObject_CallDrawUpdate
 .public MapObject_GetFieldSystem
 .public MapObject_CheckActive
-.public MapObject_SetVisible
 .public MapObject_PauseMovement
 .public MapObject_UnpauseMovement
 .public MapObject_GetXCoord
@@ -509,7 +507,6 @@
 .public FieldSystem_FirstAliveMonHasType
 .public FollowMon_JumpOnSpot
 .public FollowMon_StartGrowAndShrink
-.public ov02_02250A60
 .public LegendCutscene_EndClearBellAnim
 .public LegendCutscene_ClearBellRiseFromBag
 .public LegendCutscene_ClearBellShimmer

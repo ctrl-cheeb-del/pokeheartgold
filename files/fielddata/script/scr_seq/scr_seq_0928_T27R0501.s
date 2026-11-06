@@ -27,7 +27,7 @@
 scr_seq_T27R0501_013:
 	Compare VAR_UNK_410C, 1
 	GoToIfGt _0057
-	MakeObjectVisible obj_T27R0501_rocketm_2
+	MakeObjectInvisible obj_T27R0501_rocketm_2
 _0057:
 	Compare VAR_UNK_410C, 0
 	GoToIfNe _007C
@@ -37,7 +37,7 @@ _007C:
 	Compare VAR_TEMP_x4009, 222
 	GoToIfNe _0110
 	MovePersonFacing obj_T27R0501_rocketm, 29, 0, 29, DIR_SOUTH
-	MakeObjectVisible obj_T27R0501_rocketm
+	MakeObjectInvisible obj_T27R0501_rocketm
 	GetPlayerFacing VAR_TEMP_x4000
 	Compare VAR_TEMP_x4000, 0
 	GoToIfNe _00BC
@@ -59,7 +59,7 @@ _00DB:
 _00FA:
 	MovePersonFacing obj_T27R0501_rocketm_2, 7, 0, 6, DIR_WEST
 _0106:
-	MakeObjectInvisible obj_T27R0501_rocketm_2
+	MakeObjectVisible obj_T27R0501_rocketm_2
 	SetVar VAR_TEMP_x4009, 0
 _0110:
 	Compare VAR_TEMP_x400A, 10

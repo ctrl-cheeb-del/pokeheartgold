@@ -111,7 +111,7 @@ void FieldMoveCutIn_StartFlyerTakeOff(FieldMoveCutIn *cutIn);
 void FieldMoveCutIn_StartFlyerPickUp(FieldMoveCutIn *cutIn);
 FieldEffect *FieldMoveCutIn_CreateTrainerJumpEffect(FieldEffectPool *effectPool, Sprite *trainerSprite);
 void TrainerJumpEffect_StartHop(FieldEffect *effect);
-void FieldMoveCutIn_SetPlayerVisible(FieldMoveCutIn *cutIn, BOOL visible);
+void FieldMoveCutIn_SetPlayerInvisible(FieldMoveCutIn *cutIn, BOOL invisible);
 void FieldMoveCutIn_CreateTrainerClipEffect(FieldMoveCutIn *cutIn);
 void FieldMoveCutIn_DestroyTrainerClipEffect(FieldMoveCutIn *cutIn);
 

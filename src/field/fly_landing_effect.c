@@ -326,7 +326,7 @@ BOOL FlyLandingEffect_FlyAway(FlyLandingEffect *landing) {
 BOOL FlyLandingEffect_ShowPlayer(FlyLandingEffect *landing) {
     if (++landing->timer == 8) {
         Sprite_SetAnimCtrlSeq(landing->args.trainerSprite, 1);
-        FieldMove_SetPlayerVisible(landing->args.fieldSystem, FALSE);
+        FieldMove_SetPlayerInvisible(landing->args.fieldSystem, FALSE);
     }
     if (landing->timer == 10) {
         Sprite_SetDrawFlag(landing->args.trainerSprite, FALSE);
@@ -355,6 +355,6 @@ void FieldMove_FadeOutToWhite(void) {
     BeginNormalPaletteFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, RGB_WHITE, 6, 1, HEAP_ID_FIELD1);
 }
 
-void FieldMove_SetPlayerVisible(FieldSystem *fieldSystem, BOOL visible) {
-    MapObject_SetInvisible(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar), visible);
+void FieldMove_SetPlayerInvisible(FieldSystem *fieldSystem, BOOL invisible) {
+    MapObject_SetInvisible(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar), invisible);
 }

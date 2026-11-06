@@ -2140,14 +2140,14 @@
 	.short \arg0
 	.endm
 
-	.macro MakeObjectInvisible object
+	.macro MakeObjectVisible object
 	.short 374
 	.short \object
 	.endm
 
-	.macro MakeObjectVisible arg0
+	.macro MakeObjectInvisible object
 	.short 375
-	.short \arg0
+	.short \object
 	.endm
 
 	.macro OpenMailbox

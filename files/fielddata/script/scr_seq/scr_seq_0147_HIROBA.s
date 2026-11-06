@@ -75,7 +75,7 @@ _00DB:
 	LaunchWiFiPlaza VAR_SPECIAL_x8004
 	RestoreOverworld
 	SetVar VAR_UNK_4137, 1
-	MakeObjectVisible obj_player
+	MakeObjectInvisible obj_player
 	FadeScreen 6, 1, 1, RGB_BLACK
 	WaitFade
 	ReleaseAll

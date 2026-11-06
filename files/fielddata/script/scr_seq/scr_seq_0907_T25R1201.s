@@ -32,7 +32,7 @@ scr_seq_T25R1201_001:
 	End
 
 _005B:
-	MakeObjectVisible obj_player
+	MakeObjectInvisible obj_player
 	Return
 
 scr_seq_T25R1201_002:
@@ -61,7 +61,7 @@ _009D:
 _00A7:
 	DoorAnimationLoad 0, 0, 8, 2, 77
 	Call _00F5
-	MakeObjectInvisible obj_player
+	MakeObjectVisible obj_player
 	ApplyMovement obj_player, _0108
 	WaitMovement
 	Call _00FD
@@ -193,7 +193,7 @@ _024D:
 	Call _00F5
 	ApplyMovement obj_player, _03AC
 	WaitMovement
-	MakeObjectVisible obj_player
+	MakeObjectInvisible obj_player
 	ApplyMovement obj_player, _03BC
 	WaitMovement
 	Call _00FD

@@ -1598,16 +1598,16 @@ void FollowMon_ChangeMon(MapObjectManager *mapObjectManager, u32 mapno) {
                     Save_FollowMon_SetUnused2bitField(1, Save_FollowMon_Get(fieldSystem->saveData));
                 } else if (playerState == PLAYER_STATE_CYCLING) {
                     Save_FollowMon_SetUnused2bitField(2, Save_FollowMon_Get(fieldSystem->saveData));
-                    FollowMon_SetVisibleFlag(fieldSystem->followMon.mapObject, TRUE);
+                    FollowMon_SetInvisibleFlag(fieldSystem->followMon.mapObject, TRUE);
                 } else if (playerState == PLAYER_STATE_SURFING) {
                     Save_FollowMon_SetUnused2bitField(2, Save_FollowMon_Get(fieldSystem->saveData));
-                    FollowMon_SetVisibleFlag(fieldSystem->followMon.mapObject, TRUE);
+                    FollowMon_SetInvisibleFlag(fieldSystem->followMon.mapObject, TRUE);
                 } else {
                     GF_ASSERT(FALSE);
                 }
 
                 if (FollowMon_IsHiddenUntilStep(fieldSystem->followMon.mapObject)) {
-                    FollowMon_SetVisibleFlag(fieldSystem->followMon.mapObject, TRUE);
+                    FollowMon_SetInvisibleFlag(fieldSystem->followMon.mapObject, TRUE);
                 }
 
                 if (Save_FollowMon_GetInhibitFlagState(Save_FollowMon_Get(fieldSystem->saveData))) {
@@ -1664,7 +1664,7 @@ u32 FollowMon_GetSpriteID(int species, u16 form, u32 gender) {
 }
 
 void FollowMon_HideUntilStep(LocalMapObject *mapObject, BOOL enableBit) {
-    FollowMon_SetVisibleFlag(mapObject, enableBit);
+    FollowMon_SetInvisibleFlag(mapObject, enableBit);
     if (enableBit) {
         FollowMon_SetHideUntilStepBit(mapObject, TRUE);
     } else {
@@ -1826,7 +1826,7 @@ BOOL FollowMon_GetPermissionBySpeciesAndMap(int species, u32 mapNo) {
     return ret;
 }
 
-void FollowMon_SetVisibleFlag(LocalMapObject *mapObject, BOOL enableBit) {
+void FollowMon_SetInvisibleFlag(LocalMapObject *mapObject, BOOL enableBit) {
     MapObject_SetInvisible(mapObject, enableBit);
     MapObject_SetFlag19(mapObject, enableBit);
 }

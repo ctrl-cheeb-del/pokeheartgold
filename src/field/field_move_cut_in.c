@@ -426,7 +426,7 @@ BOOL FieldMoveCutIn_StepStartFly(FieldMoveCutIn *cutIn) {
     FieldMoveCutIn_CreateFlyer(cutIn);
     FieldMoveCutIn_StartFlyerTakeOff(cutIn);
     FieldMoveCutIn_SetWindowOutsidePlanes(cutIn);
-    FieldMoveCutIn_SetPlayerVisible(cutIn, TRUE);
+    FieldMoveCutIn_SetPlayerInvisible(cutIn, TRUE);
     cutIn->state++;
     return FALSE;
 }

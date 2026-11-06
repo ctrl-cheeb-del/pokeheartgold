@@ -19,7 +19,7 @@ scr_seq_0071_001:
 	End
 
 _001F:
-	MakeObjectVisible obj_player
+	MakeObjectInvisible obj_player
 	Return
 
 scr_seq_0071_002:
@@ -48,7 +48,7 @@ _0090:
 	DoorAnimationWait 77
 	ApplyMovement 0, _0140
 	WaitMovement
-	MakeObjectInvisible obj_player
+	MakeObjectVisible obj_player
 	ApplyMovement obj_player, _014C
 	WaitMovement
 	DoorAnimationClose 77

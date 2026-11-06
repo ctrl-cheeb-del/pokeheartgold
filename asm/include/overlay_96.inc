@@ -27,7 +27,6 @@
 .public GF_SndCountPlayingSeqOnPlayer
 .public SetPlayerPan
 .public PlayCry
-.public IsCryFinished
 .public PlayFanfare
 .public IsFanfarePlaying
 .public Chatot_SetForceDefaultCry

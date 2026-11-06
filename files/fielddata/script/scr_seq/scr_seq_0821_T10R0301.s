@@ -12,8 +12,8 @@
 
 scr_seq_T10R0301_002:
 	GoToIfSet FLAG_DEFEATED_KOGA, _0023
-	MakeObjectVisible obj_T10R0301_stop
-	MakeObjectVisible obj_T10R0301_stop_2
+	MakeObjectInvisible obj_T10R0301_stop
+	MakeObjectInvisible obj_T10R0301_stop_2
 	End
 
 _0023:

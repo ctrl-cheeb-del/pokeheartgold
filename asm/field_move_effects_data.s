@@ -63,7 +63,7 @@
 	.public CutInFlyer_Done
 	.public TrainerJumpEffect_Init
 	.public TrainerJumpEffect_Update
-	.public FlyLanding_SetPlayerVisible
+	.public FlyLanding_HidePlayer
 	.public FlyLanding_LoadGraphics
 	.public FlyLanding_CreateSprites
 	.public FlyLanding_WaitLanding
@@ -367,7 +367,7 @@ gTrainerJumpEffectTemplate:
 	.word FieldEffect_DefaultDraw
 
 gFlyLandingTaskSteps:
-	.word FlyLanding_SetPlayerVisible
+	.word FlyLanding_HidePlayer
 	.word FlyLanding_LoadGraphics
 	.word FlyLanding_CreateSprites
 	.word FlyLanding_WaitLanding

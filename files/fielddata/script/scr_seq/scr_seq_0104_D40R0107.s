@@ -37,11 +37,11 @@ _003B:
 
 scr_seq_D40R0107_004:
 	GoToIfSet FLAG_HIDE_WHIRL_ISLAND_LUGIA, _007C
-	MakeObjectVisible obj_D40R0107_stop
-	MakeObjectVisible obj_D40R0107_stop_2
-	MakeObjectVisible obj_D40R0107_stop_3
-	MakeObjectVisible obj_D40R0107_stop_4
-	MakeObjectVisible obj_D40R0107_stop_5
+	MakeObjectInvisible obj_D40R0107_stop
+	MakeObjectInvisible obj_D40R0107_stop_2
+	MakeObjectInvisible obj_D40R0107_stop_3
+	MakeObjectInvisible obj_D40R0107_stop_4
+	MakeObjectInvisible obj_D40R0107_stop_5
 _007C:
 	Compare VAR_TEMP_x400B, 123
 	GoToIfNe _0093
@@ -403,7 +403,7 @@ scr_seq_D40R0107_005:
 	WaitFade
 	ClearFlag FLAG_HIDE_WHIRL_ISLAND_LUGIA
 	ShowPerson obj_D40R0107_lug_obj01
-	MakeObjectVisible obj_D40R0107_lug_obj01
+	MakeObjectInvisible obj_D40R0107_lug_obj01
 	ShowPerson obj_D40R0107_stop
 	ShowPerson obj_D40R0107_stop_2
 	ShowPerson obj_D40R0107_stop_3

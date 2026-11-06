@@ -11,7 +11,6 @@
 .public PlaySE_SetPan
 .public PlaySE
 .public StopSE
-.public IsCryFinished
 .public NARC_New
 .public NARC_Delete
 .public Pokepic_StartAnim

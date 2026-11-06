@@ -54,7 +54,7 @@ void FlyLandingEffect_Delete(FieldEffect *effect);
 void FlyLandingEffect_Start(FieldEffect *effect);
 NARC *FlyLanding_OpenNarc(void);
 void FieldMove_FadeOutToWhite(void);
-void FieldMove_SetPlayerVisible(FieldSystem *fieldSystem, BOOL visible);
+void FieldMove_SetPlayerInvisible(FieldSystem *fieldSystem, BOOL invisible);
 
 // Callbacks of the Fly landing effect and the steps of its phases.
 BOOL FlyLandingEffect_Init(FieldEffect *effect, FlyLandingEffect *landing);

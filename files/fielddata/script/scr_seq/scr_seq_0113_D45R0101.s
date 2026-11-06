@@ -9,6 +9,6 @@
 	ScrDefEnd
 
 scr_seq_D45R0101_000:
-	MakeObjectVisible obj_D45R0101_stop
+	MakeObjectInvisible obj_D45R0101_stop
 	End
 	.balign 4, 0

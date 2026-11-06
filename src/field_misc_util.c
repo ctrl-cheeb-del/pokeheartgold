@@ -33,7 +33,7 @@ typedef struct BlinkEnvironment {
     u16 cycles;
     u16 interval;
     u8 counter;
-    u8 visible;
+    u8 invisible;
     u8 padding[2];
 } BlinkEnvironment;
 
@@ -294,9 +294,9 @@ static BOOL Task_BlinkMapObject(TaskManager *taskManager) {
 
     TaskManager_GetFieldSystem(taskManager);
     environment = TaskManager_GetEnvironment(taskManager);
-    MapObject_SetInvisible(environment->object, environment->visible);
+    MapObject_SetInvisible(environment->object, environment->invisible);
     if (environment->counter++ >= environment->interval) {
-        environment->visible ^= 1;
+        environment->invisible ^= 1;
         environment->counter = 0;
         if (environment->cycles-- == 0) {
             Heap_Free(environment);
@@ -314,6 +314,6 @@ void CallTask_BlinkMapObject(TaskManager *taskManager, LocalMapObject *object, u
     environment->cycles = cycles;
     environment->interval = interval;
     environment->object = object;
-    environment->visible = 0;
+    environment->invisible = 0;
     TaskManager_Call(fieldSystem->taskman, Task_BlinkMapObject, environment);
 }

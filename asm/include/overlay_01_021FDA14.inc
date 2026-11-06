@@ -21,7 +21,6 @@
 .public MapObject_GetFacingDirection
 .public MapObject_GetManager
 .public MapObject_GetFieldSystem
-.public MapObject_CheckVisible
 .public MapObject_CheckFlag24
 .public MapObject_CopyPositionVector
 .public MapObject_CopyFacingVector

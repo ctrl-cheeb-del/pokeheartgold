@@ -101,12 +101,12 @@ _014A:
 
 scr_seq_T06GYM0101_022:
 	GoToIfSet FLAG_HIDE_VERMILION_GYM_STOPS, _0175
-	MakeObjectVisible obj_T06GYM0101_stop
-	MakeObjectVisible obj_T06GYM0101_stop_2
-	MakeObjectVisible obj_T06GYM0101_stop_3
-	MakeObjectVisible obj_T06GYM0101_stop_4
-	MakeObjectVisible obj_T06GYM0101_stop_5
-	MakeObjectVisible obj_T06GYM0101_stop_6
+	MakeObjectInvisible obj_T06GYM0101_stop
+	MakeObjectInvisible obj_T06GYM0101_stop_2
+	MakeObjectInvisible obj_T06GYM0101_stop_3
+	MakeObjectInvisible obj_T06GYM0101_stop_4
+	MakeObjectInvisible obj_T06GYM0101_stop_5
+	MakeObjectInvisible obj_T06GYM0101_stop_6
 	End
 
 _0175:

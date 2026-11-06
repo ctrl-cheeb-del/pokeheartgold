@@ -12,7 +12,6 @@
 .public MapObject_GetSpriteID
 .public MapObject_GetFacingDirection
 .public MapObject_CallDrawUpdate
-.public MapObject_SetVisible
 .public MapObject_CopyPositionVector
 .public MapObject_SetPositionVector
 .public FieldSystem_SnapToTerrainHeight

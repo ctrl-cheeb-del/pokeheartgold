@@ -31,7 +31,7 @@ _003D:
 _0057:
 	MovePersonFacing obj_D45R0102_sakaki, 6, 1, 6, DIR_SOUTH
 	MovePersonFacing obj_D45R0102_var_1, 5, 1, 7, DIR_NORTH
-	MakeObjectVisible obj_partner_poke
+	MakeObjectInvisible obj_partner_poke
 	FollowMonReleaseNextToPlayer
 	End
 

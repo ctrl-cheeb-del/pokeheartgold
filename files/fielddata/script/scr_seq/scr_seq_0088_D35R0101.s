@@ -18,9 +18,9 @@
 	ScrDefEnd
 
 scr_seq_D35R0101_001:
-	MakeObjectVisible obj_D35R0101_stop
-	MakeObjectVisible obj_D35R0101_stop_2
-	MakeObjectVisible obj_D35R0101_stop_3
+	MakeObjectInvisible obj_D35R0101_stop
+	MakeObjectInvisible obj_D35R0101_stop_2
+	MakeObjectInvisible obj_D35R0101_stop_3
 	Compare VAR_UNK_40AC, 9
 	GoToIfGe _00B7
 	Compare VAR_UNK_40A8, 2

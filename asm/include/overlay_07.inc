@@ -19,7 +19,6 @@
 .public SetSeqTrackPan
 .public SetAllSEPan
 .public StopCry
-.public IsCryFinished
 .public ReadWholeNarcMemberByIdPair
 .public AllocAndReadWholeNarcMemberByIdPair
 .public NARC_New

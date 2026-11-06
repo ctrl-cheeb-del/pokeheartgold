@@ -45,7 +45,6 @@
 .public MapObject_GetManager
 .public MapObject_CallDrawUpdate
 .public MapObject_GetFieldSystem
-.public MapObject_CheckVisible
 .public MapObject_PauseMovement
 .public MapObject_UnpauseMovement
 .public MapObject_CheckMovementPaused
@@ -72,7 +71,7 @@
 .public FollowMon_IsActive
 .public FollowMon_IsVisible
 .public FollowMon_GetPermissionBySpeciesAndMap
-.public FollowMon_SetVisibleFlag
+.public FollowMon_SetInvisibleFlag
 .public FollowMon_Hide
 .public SaveArray_Party_Get
 .public NNS_G3dGetTex

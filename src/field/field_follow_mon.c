@@ -750,7 +750,7 @@ static BOOL Task_FollowMonHideForFieldMove(TaskManager *taskMan) {
         break;
     case HIDE_STATE_HIDE:
         if (MapObject_AreBitsSetForMovementScriptInit(fieldSystem->followMon.mapObject) == TRUE) {
-            FollowMon_SetVisibleFlag(fieldSystem->followMon.mapObject, FALSE);
+            FollowMon_SetInvisibleFlag(fieldSystem->followMon.mapObject, FALSE);
             MapObject_SetHeldMovement(fieldSystem->followMon.mapObject, GetMovementForDirection(MapObject_GetFacingDirection(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar)), 52));
             ++*state;
         }

@@ -12,15 +12,15 @@
 	ScrDefEnd
 
 scr_seq_D37R0103_003:
-	MakeObjectVisible obj_D37R0103_stop
-	MakeObjectVisible obj_D37R0103_stop_2
-	MakeObjectVisible obj_D37R0103_stop_3
-	MakeObjectVisible obj_D37R0103_stop_4
-	MakeObjectVisible obj_D37R0103_stop_5
-	MakeObjectVisible obj_D37R0103_stop_6
-	MakeObjectVisible obj_D37R0103_stop_7
-	MakeObjectVisible obj_D37R0103_stop_8
-	MakeObjectVisible obj_D37R0103_stop_9
+	MakeObjectInvisible obj_D37R0103_stop
+	MakeObjectInvisible obj_D37R0103_stop_2
+	MakeObjectInvisible obj_D37R0103_stop_3
+	MakeObjectInvisible obj_D37R0103_stop_4
+	MakeObjectInvisible obj_D37R0103_stop_5
+	MakeObjectInvisible obj_D37R0103_stop_6
+	MakeObjectInvisible obj_D37R0103_stop_7
+	MakeObjectInvisible obj_D37R0103_stop_8
+	MakeObjectInvisible obj_D37R0103_stop_9
 	GoToIfSet FLAG_UNK_096, _0059
 	GoToIfSet FLAG_UNK_097, _01BE
 	GoToIfSet FLAG_UNK_098, _0207

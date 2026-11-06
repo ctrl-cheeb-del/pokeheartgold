@@ -49,7 +49,7 @@ _0064:
 	Return
 scr_seq_0166_004:
 	End
-	MakeObjectVisible 0xFF
+	MakeObjectInvisible 0xFF
 	Return
 scr_seq_0166_005:
 	SimpleNPCMsg msg_0043_00000
